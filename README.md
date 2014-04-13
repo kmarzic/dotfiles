@@ -3,4 +3,6 @@ dotfiles
 
 Dotfiles
 
-.vimrc
+i3  - i3 Window Manager
+vim - VI Improoved Editor
+
