@@ -2,3 +2,5 @@ dotfiles
 ========
 
 Dotfiles
+
+.vimrc
