@@ -11,7 +11,7 @@
 
 ## Author: Kresimir Marzic
 ## E-mail: kmarzic@gmail.com
-## Last update: 2014-03-20 20:32:11 (CET)
+## Last update: 2014-06-20 09:54:00 (CEST)
 
 
 ################################################################################
@@ -172,15 +172,18 @@ bindsym Meta_R exec --no-startup-id /usr/bin/dmenu_run -i -fn $font -nb \#000000
 # bindsym $mod+Ctrl+f exec ~/stuff/bin/chrome.sh
 bindsym $mod+Ctrl+f exec ~/stuff/bin/chromium.sh
 # bindsym $mod+Ctrl+f exec /opt/firefox/firefox
+#
 bindsym $mod+Ctrl+g exec gvim
 bindsym $mod+Ctrl+i exec iceweasel
 bindsym $mod+Ctrl+o exec opera
 bindsym $mod+Ctrl+p exec ~/stuff/bin/pidgin.sh
+#
 # bindsym $mod+Ctrl+r exec i3-sensible-terminal
 # bindsym $mod+Ctrl+r exec mrxvt
 # bindsym $mod+Ctrl+r exec urxvt
 bindsym $mod+Ctrl+r exec urxvtc
-bindsym $mod+Ctrl+s exec /opt/skype/skype
+#
+bindsym $mod+Ctrl+s exec ~/stuff/bin/skype.sh
 bindsym $mod+Ctrl+t exec tvtime -g 480 384
 bindsym $mod+Ctrl+v exec VirtualBox
 bindsym $mod+Ctrl+x exec xawtv
@@ -188,7 +191,7 @@ bindsym $mod+Ctrl+x exec xawtv
 # bindcode 111 exec ~/stuff/bin/screenshot.sh
 bindsym Print exec scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).png
 
-## alsami mixer
+## alsa mixer
 bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master 5%+ unmute"
 bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master 5%- unmute"
 bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master toggle"
@@ -207,10 +210,12 @@ assign [class="^Chromium$"] $ws4
 #
 assign [class="^Firefox$"] $ws4
 assign [class="^Thunderbird$"] $ws4
-
+#
 assign [class="^Skype$"] $ws6
 assign [class="^Pidgin$"] $ws6
 assign [class="^Buddy List$"] $ws6
+#
+assign [class="^VirtualBox$"] $ws5
 
 ## Window rules
 for_window [title="AleVT"] floating enable
@@ -273,6 +278,10 @@ workspace "$ws7"  output $screen_monitor
 workspace "$ws8"  output $screen_monitor
 workspace "$ws9"  output $screen_monitor
 workspace "$ws10" output $screen_monitor
+
+## move workspaces between monitors
+bindsym $mod+Shift+o move workspace to output left
+bindsym $mod+Shift+p move workspace to output right
 
 
 ################################################################################
@@ -368,9 +377,9 @@ bindsym $mod+Shift+z move container to workspace back_and_forth
 
 ## Mark Window
 ## mark window by name
-bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark name: '
+bindsym $mod+m exec --no-startup-id i3-input -F 'mark %s' -P 'Mark name: '
 ## search window by name
-bindsym $mod+Shift+m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+bindsym $mod+Shift+m exec --no-startup-id i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
 
 ################################################################################
