@@ -1,17 +1,13 @@
 ##------------------------------------------------------------------------------
 ## i3 config file (v4)
-##
-## Please see http://i3wm.org/docs/userguide.html for a complete reference!
-##
-## This config file uses keycodes (bindsym) and was written for the QWERTY
-## layout.
-##
-## To get a config file with the same key positions, but for your current
-## layout, use the i3-config-wizard
 
-## Author: Kresimir Marzic
-## E-mail: kmarzic@gmail.com
-## Last update: 2014-12-15 07:52:38 (CET)
+## Last update: 2017-11-30 22:14:11 (CET)
+
+## i3wm
+## https://www.i3wm.org
+
+## i3 configurator
+## https://thomashunter.name/i3-configurator/
 
 
 ################################################################################
@@ -19,15 +15,19 @@
 ################################################################################
 
 ## Variables
+## alt
 set $mod Mod1
+## win
+# set $mod Mod4
 
-#set $font "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1"
 #set $font "-misc-fixed-bold-r-normal--13-120-75-75-c-70-iso10646-1"
 set $font "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
-#set $font "xft:Terminus\ Bold\ 7"
+#set $font "-misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1"
+#set $font "xft:Terminus\ Bold\ 10"
 #set $font "xft:Monospace\ Bold\ 7"
 #set $font "xft:Courier\ New\ Bold\ 7"
 #set $font "xft:Courier\ New\ Bold\ 12"
+#set $font "xft:Dejavu Sans Mono 10"
 #
 #set $font_bar "-misc-fixed-bold-r-normal--13-120-75-75-c-70-iso10646-1"
 set $font_bar "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
@@ -35,59 +35,95 @@ set $font_bar "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
 #set $font_bar "xft:Monospace 7"
 #set $font_bar "xft:Monospace 8"
 #set $font_bar "xft:Terminus 8"
+#set $font_bar "xft:Terminus 12"
 #set $font_bar "xft:Courier 10 Pitch Bold 8"
 #set $font_bar "xft:Courier 10 Pitch Bold 9"
+#set $font_bar "xft:Courier 10 Pitch Bold 10"
 #set $font_bar "xft:Courier 10 Pitch Bold 11"
+#set $font_bar "xft:Courier\ New\ Bold\ 10"
 #
 #set $font_dmenu "-misc-fixed-bold-r-normal--13-100-100-100-c-70-iso8859-1"
-set $font_dmenu "-misc-fixed-bold-r-normal--13-100-100-100-c-80-iso8859-1"
-#set $font_dmenu "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1"
+#set $font_dmenu "-misc-fixed-bold-r-normal--13-100-100-100-c-80-iso8859-1"
+set $font_dmenu "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1"
 #set $font_dmenu "-misc-fixed-bold-r-normal--0-0-75-75-c-0-iso8859-1"
+#set $font_dmenu "-misc-fixed-medium-r-normal--9-90-75-75-c-60-iso10646-1"
+#set $font_dmenu "xft:Terminus 6"
+#set $font_dmenu "xft:Courier\ New\ Bold\ 10"
 
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 7
-set $ws8 8
-set $ws9 9
+set $ws1   1
+set $ws2   2
+set $ws3   3
+set $ws4   4
+set $ws5   5
+set $ws6   6
+set $ws7   7
+set $ws8   8
+set $ws9   9
 set $ws10 10
 
+## Colors
+set $black      #002B36
+set $white      #839496
+set $gray       #CCCCCC
+set $darkgray   #666666
+set $green      #799F26
+set $blue       #4D73AA
+set $purple     #8473A7
+set $red        #B58900
+set $orange     #E59847
+set $cyan       #2AA198
+set $dark       #00252E
+
 ## HP 8560w
-set $screen_laptop LVDS-0 # Laptop
-set $screen_monitor DP-0 # External Monitor
-# set $screen_monitor DP-1
-# set $screen_monitor DP-3
-# set $screen_monitor VGA-0
+# set $screen_laptop    LVDS-0 # Laptop
+# set $screen_monitor_1 LVDS-0 # Laptop
+# set $screen_monitor_1 DP-0 # External Monitor, Replicator
+# set $screen_monitor_1 DP-1 # HD Port
+# set $screen_monitor_1 DP-3
+# set $screen_monitor_1 DP-4
+# set $screen_monitor_1 DP-5
+# set $screen_monitor_1 DP-6
+# set $screen_monitor_1 VGA-0 # VGA Port
 #
 ## HP nc6400
-# set $screen_laptop LVDS1
-# set $screen_monitor LVDS1
+# set $screen_laptop    LVDS-1
+# set $screen_monitor_1 VGA-1
+# set $screen_monitor_2 VGA-1
 #
 ## HP n600c
-# set $screen_laptop LVDS
-# set $screen_monitor LVDS
+# set $screen_laptop    LVDS
+# set $screen_monitor_1 LVDS
+# set $screen_monitor_2 LVDS
 #
 ## Home PC
-# set $screen_laptop DVI-I-1 # External Monitor
-# set $screen_monitor DVI-I-1
+# set $screen_laptop    DVI-I-1 # External Monitor
+# set $screen_monitor_1 DVI-I-1
+# set $screen_monitor_2 DVI-I-1
 #
 ## pckrma
-# set $screen_laptop LVDS-0 # External Monitor
-# set $screen_monitor DP-0
-# set $screen_laptop DVI-I-1 # External Monitor
-# set $screen_monitor DVI-I-1
+# set $screen_laptop    LVDS-0 # External Monitor
+# set $screen_monitor_1 DP-0
+# set $screen_monitor_2 DP-0
+# set $screen_laptop    DVI-I-1 # External Monitor
+# set $screen_monitor_1 DVI-I-1
+# set $screen_monitor_2 DVI-I-1
+#
+## ELX Dell Latitude E6440
+# set $screen_laptop    eDP-1 # Laptop
+# set $screen_monitor_1 VGA-1 # External Monitor
+# set $screen_monitor_1 HDMI-1 # Projector
+# set $screen_monitor_1 HDMI-2 # External Monitor
+# set $screen_monitor_2 HDMI-3 # External Monitor
+#
+## ELX Dell Latitude E5570
+set $screen_laptop    eDP1 # Laptop
+# set $screen_monitor_1 VGA1 # External Monitor
+# set $screen_monitor_1 HDMI1 # Projector
+set $screen_monitor_1 HDMI1 # External Monitor
+set $screen_monitor_2 HDMI2 # External Monitor
 
 ## Font for window titles. ISO 10646 = Unicode
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# font -misc-fixed-bold-r-normal--14-130-75-75-c-70-iso10646-1
-# font -misc-fixed-bold-r-normal--13-120-75-75-c-70-iso10646-1
 font $font
-
-## Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
 
 ## Focus follows mouse
 focus_follows_mouse yes
@@ -124,7 +160,10 @@ new_window normal
 # new_window 1pixel
 # new_window none
 
-## border style for for floating windows <normal|1pixel|none>
+## Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+## Border style for for floating windows <normal|1pixel|none>
 new_float normal
 # new_float 1pixel
 # new_float none
@@ -139,6 +178,10 @@ floating_maximum_size -1 x -1
 # hide_edge_borders both
 hide_edge_borders none
 
+## Borders
+# for_window [class="^.*"] border pixel 5
+# smart_borders on
+
 
 ################################################################################
 ## WM KEYBINDINGS #
@@ -149,21 +192,61 @@ bindsym $mod+Shift+c reload
 
 ## Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# bindsym $mod+Shift+r exec i3-nagbar -t warning -m 'Restart i3-wm' -b 'Yes' 'i3-msg restart'
+# bindsym $mod+Shift+r exec --no-startup-id i3-nagbar -t warning -m 'Restart i3-wm' -b 'Yes' 'i3-msg restart'
 
 ## Exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exit
 # bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -f $font -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-# bindsym $mod+Shift+e exec i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec --no-startup-id "i3-nagbar -t warning -m 'Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+## System mode menu
+bindsym $mod+Shift+x mode "$mode_system"
+set $mode_system System (l) lock, (o) monitor off, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (x) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.i3/i3exit.sh lock, mode "default"
+    bindsym o exec --no-startup-id ~/.i3/i3exit.sh monitor_off, mode "default"
+    bindsym e exec --no-startup-id ~/.i3/i3exit.sh logout, mode "default"
+    bindsym s exec --no-startup-id ~/.i3/i3exit.sh suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.i3/i3exit.sh hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.i3/i3exit.sh reboot, mode "default"
+    bindsym x exec --no-startup-id ~/.i3/i3exit.sh shutdown, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 ## Scratchpad
 # scratchpad show
 bindsym $mod+minus scratchpad show
 
-## i3 lock
-# bindsym Control+Shift+l exec --no-startup-id i3-msg workspace 1 && i3lock --color 000000 -i ~/wallpapers/linux/Debian-background.png -n -p default
-bindsym Control+Shift+l exec --no-startup-id i3-msg workspace 1 && /usr/bin/xlock
+## Lock i3
+# bindsym Ctrl+Shift+l exec --no-startup-id i3-msg workspace 1 && /usr/bin/xlock
+# bindsym Ctrl+Shift+l exec --no-startup-id i3-msg workspace 1 && i3lock --color 000000 -i ~/wallpapers/linux/Debian-background.png -n -p default
+# bindsym Ctrl+Shift+l exec --no-startup-id i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default
+#
+## black
+# bindsym Ctrl+Shift+l exec --no-startup-id i3lock -c 000000
+#
+## dark green
+# bindsym Ctrl+Shift+l exec --no-startup-id i3lock -c 073642
+#
+## gray
+# bindsym Ctrl+Shift+l exec --no-startup-id i3lock -c 3f3f3f
+#
+## blue
+# bindsym Ctrl+Shift+l exec --no-startup-id i3lock -c 005088
+#
+## script
+bindsym Ctrl+Shift+l exec --no-startup-id ~/.i3/i3exit.sh lock
+
+## turn monitor off
+bindsym Ctrl+Shift+s exec --no-startup-id ~/.i3/i3exit.sh monitor_off
+
+## Toggle active screen
+bindsym Ctrl+Shift+0 exec --no-startup-id ~/.i3/screen_toggle.sh -x
+# bindsym Ctrl+Shift+0 exec --no-startup-id ~/.i3/screen_toggle_ETK.sh -x
+# bindsym Ctrl+Shift+0 exec --no-startup-id ~/.i3/screen_toggle_home.sh -x
 
 
 ################################################################################
@@ -172,51 +255,70 @@ bindsym Control+Shift+l exec --no-startup-id i3-msg workspace 1 && /usr/bin/xloc
 
 ## Start a terminal
 # bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+# bindsym $mod+Return exec --no-startup-id xterm
 # bindsym $mod+Return exec --no-startup-id mrxvt
 # bindsym $mod+Return exec --no-startup-id urxvt
 bindsym $mod+Return exec --no-startup-id urxvtc
+for_window [class="URxvt" instance="floating"] floating enable
 
 ## Start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
 # bindsym Menu exec --no-startup-id dmenu_run
 #
 ## Default
-bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#1A1A1A -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
-bindsym Menu exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#1A1A1A -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
-bindsym Meta_R exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#1A1A1A -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
+# bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#1A1A1A -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
+# bindsym Menu exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#1A1A1A -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
+# bindsym Meta_R exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#1A1A1A -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
 #
 ## Black/Green
-# bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#000000 -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
-# bindsym Menu exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#000000 -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
-# bindsym Meta_R exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#000000 -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
+bindsym $mod+d exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#000000 -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
+bindsym Menu exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#000000 -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
+bindsym Meta_R exec --no-startup-id /usr/bin/dmenu_run -i -fn $font_dmenu -nb \#000000 -nf \#55d400 -sb \#1A1A1A -sf \#ff6600 -p 'Run: '
 
 ## Applications
-# bindsym $mod+Ctrl+f exec ~/stuff/bin/chrome.sh
-bindsym $mod+Ctrl+f exec ~/stuff/bin/chromium.sh
-# bindsym $mod+Ctrl+f exec /opt/firefox/firefox
+# bindsym $mod+Ctrl+c exec --no-startup-id ~/bin/chrome.sh noproxy
+bindsym $mod+Ctrl+c exec --no-startup-id ~/bin/chromium.sh noproxy
 #
-bindsym $mod+Ctrl+g exec gvim
-bindsym $mod+Ctrl+i exec iceweasel
-bindsym $mod+Ctrl+o exec opera
-bindsym $mod+Ctrl+p exec ~/stuff/bin/pidgin.sh
+bindsym $mod+Ctrl+f exec --no-startup-id firefox
 #
-# bindsym $mod+Ctrl+r exec i3-sensible-terminal
-# bindsym $mod+Ctrl+r exec mrxvt
-# bindsym $mod+Ctrl+r exec urxvt
-bindsym $mod+Ctrl+r exec urxvtc
+# bindsym $mod+Ctrl+m exec --no-startup-id icedove
+# bindsym $mod+Ctrl+m exec --no-startup-id thunderbird
+bindsym $mod+Ctrl+m exec --no-startup-id evolution
 #
-bindsym $mod+Ctrl+s exec ~/stuff/bin/skype.sh
-bindsym $mod+Ctrl+t exec tvtime -g 480 384
-bindsym $mod+Ctrl+v exec VirtualBox
-bindsym $mod+Ctrl+x exec xawtv
+bindsym $mod+Ctrl+g exec --no-startup-id gvim
+bindsym $mod+Ctrl+i exec --no-startup-id iceweasel
 #
-# bindcode 111 exec ~/stuff/bin/screenshot.sh
-bindsym Print exec scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).png
+# bindsym $mod+Ctrl+o exec --no-startup-id opera
+# bindsym $mod+Ctrl+o exec --no-startup-id ~/bin/opera.sh noproxy
+bindsym $mod+Ctrl+o exec --no-startup-id ~/bin/opera.sh proxy
+#
+# bindsym $mod+Ctrl+p exec --no-startup-id ~/bin/pidgin.sh
+bindsym $mod+Ctrl+p exec --no-startup-id pidgin
+#
+# bindsym $mod+Ctrl+r exec --no-startup-id i3-sensible-terminal
+# bindsym $mod+Ctrl+r exec --no-startup-id mrxvt
+# bindsym $mod+Ctrl+u exec --no-startup-id urxvt
+bindsym $mod+Ctrl+u exec --no-startup-id urxvtc
+#
+# bindsym $mod+Ctrl+s exec --no-startup-id ~/bin/skype.sh
+bindsym $mod+Ctrl+s exec --no-startup-id ~/bin/skype
+# bindsym $mod+Ctrl+s exec --no-startup-id /usr/bin/skypeforlinux
+#
+bindsym $mod+Ctrl+t exec --no-startup-id tvtime -g 480 384
+bindsym $mod+Ctrl+v exec --no-startup-id VirtualBox
+bindsym $mod+Ctrl+x exec --no-startup-id xawtv
+bindsym $mod+Ctrl+y exec --no-startup-id /opt/yakyak-linux-x64/yakyak
+#
+# bindcode 111 exec --no-startup-id ~/bin/screenshot.sh
+# bindsym Print exec --no-startup-id scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).png
+bindsym Print exec --no-startup-id scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg
 
-## alsa mixer
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q sset Master 5%+ unmute"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q sset Master 5%- unmute"
-bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master toggle"
+## XF86 keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer -q set Master,0 5%+ unmute"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer -q set Master,0 5%- unmute"
+bindsym XF86AudioMute exec --no-startup-id "amixer -q set Master,0 toggle"
+bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 10
 
 
 ################################################################################
@@ -224,41 +326,63 @@ bindsym XF86AudioMute exec --no-startup-id "amixer -q sset Master toggle"
 ################################################################################
 
 ## Window rules for workspaces
-assign [class="^Opera$"] $ws4
-assign [class="^Iceweasel$"] $ws4
-assign [class="^Icedove$"] $ws4
-assign [class="^Chrome$"] $ws4
-assign [class="^Chromium$"] $ws4
+# assign [class="^Chrome$"] $ws5
+assign [class="Chromium"] $ws5
+assign [class="^Chromium$"] $ws5
+assign [class="^chromium-browser$"] $ws5
+assign [class="^Google-chrome$"] $ws5
+assign [class="^Firefox$"] $ws5
+assign [class="^Iceweasel$"] $ws5
+assign [class="^Opera$"] $ws5
+assign [class="^Start Page$"] $ws5
+assign [class="Vivaldi-stable"] $ws5
+assign [class="Vivaldi-snapshot"] $ws5
 #
-assign [class="^Firefox$"] $ws4
-assign [class="^Thunderbird$"] $ws4
+assign [class="^Evolution$"] $ws6
+assign [class="^Icedove$"] $ws6
+assign [class="^Thunderbird$"] $ws6
 #
-assign [class="^VirtualBox$"] $ws5
+assign [class="^Buddy List$"] $ws7
+assign [class="Pidgin"] $ws7
+assign [class="^Skype$"] $ws7
 #
-assign [class="^Skype$"] $ws6
-assign [class="^Pidgin$"] $ws6
-assign [class="^Buddy List$"] $ws6
-#
+assign [class="^VirtualBox$"] $ws8
 
 ## Window rules
+for_window [class="Audacious"] floating enable
+# for_window [class="Buddy List"] floating enable
+for_window [class="Microsoft"] floating enable
+# for_window [class="Pidgin"] floating enable
+# for_window [class="^Pidgin$" window_role="^buddy_list$"] floating enable, move container to workspace $ws6
+# for_window [class="^Pidgin$" window_role="^conversation$"] floating enable, move container to workspace $ws6
+# for_window [class="Skype$"] floating enable
+for_window [class="^Thunderbird$" window_role="^Msgcompose$"] floating enable
+for_window [class="^Thunderbird$" window_role="^EventSummaryDialog$"] floating enable
+#
 for_window [title="AleVT"] floating enable
 for_window [title="Calculator"] floating enable
-for_window [title="File Transfers"] floating enable
+for_window [title="Copying"] floating enable
+for_window [title="Deleting"] floating enable
 for_window [title="Firefox Preferences"] floating enable
+for_window [title="Moving"] floating enable
+for_window [title="Thunderbird Preferences"] floating enable
+for_window [title="File Transfers"] floating enable
+for_window [title="File Operation Progress"] floating enable
+for_window [title="tvtime"] floating enable
+for_window [title="xawtv"] floating enable
+for_window [title="xeyes"] floating enable
+for_window [title="xfce4-notifyd"] floating enable
+for_window [title="xlogo"] floating enable
+for_window [title="xman"] floating enable
 # for_window [title="gimp"] floating enable
 # for_window [title="GNU Image Manipulation Program"] floating enable
 # for_window [title="MPlayer"] floating enable
-for_window [title="tvtime"] floating enable
-for_window [title="xawtv"] floating enable
-for_window [title="xfce4-notifyd"] floating enable
 # for_window [title="VLC"] floating enable
-for_window [title="xeyes"] floating enable
-for_window [title="xlogo"] floating enable
-for_window [title="xman"] floating enable
-#
-for_window [class="Audacious"] floating enable
 #
 for_window [instance="TeamViewer.exe"] floating enable
+#
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 
 
 ################################################################################
@@ -277,6 +401,9 @@ bindsym $mod+8 workspace "$ws8"
 bindsym $mod+9 workspace "$ws9"
 bindsym $mod+0 workspace "$ws10"
 
+bindsym $mod+Ctrl+Left  workspace prev
+bindsym $mod+Ctrl+Right workspace next
+
 ## Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace "$ws1"
 bindsym $mod+Shift+2 move container to workspace "$ws2"
@@ -292,15 +419,16 @@ bindsym $mod+Shift+0 move container to workspace "$ws10"
 ## workspace assignments
 workspace "$ws1"  output $screen_laptop
 #
-workspace "$ws2"  output $screen_monitor
-workspace "$ws3"  output $screen_monitor
-workspace "$ws4"  output $screen_monitor
-workspace "$ws5"  output $screen_monitor
-workspace "$ws6"  output $screen_monitor
-workspace "$ws7"  output $screen_monitor
-workspace "$ws8"  output $screen_monitor
-workspace "$ws9"  output $screen_monitor
-workspace "$ws10" output $screen_monitor
+workspace "$ws2"  output $screen_monitor_1
+workspace "$ws3"  output $screen_monitor_1
+workspace "$ws4"  output $screen_monitor_1
+workspace "$ws5"  output $screen_monitor_1
+workspace "$ws6"  output $screen_monitor_1
+workspace "$ws7"  output $screen_monitor_1
+#
+workspace "$ws8"  output $screen_monitor_2
+workspace "$ws9"  output $screen_monitor_2
+workspace "$ws10" output $screen_monitor_2
 
 ## move workspaces between monitors
 bindsym $mod+Shift+o move workspace to output left
@@ -313,6 +441,7 @@ bindsym $mod+Shift+p move workspace to output right
 
 ## Kill focused window
 bindsym $mod+Shift+q kill
+bindsym $mod+F4 kill
 bindsym $mod+c kill
 
 ## Change focus
@@ -321,7 +450,6 @@ bindsym $mod+k focus down
 bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
-## Alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -387,6 +515,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "pass-through" {
+    bindsym $mod+g mode "default"
+}
+
+bindsym $mod+g mode "pass-through"
+
 ## Client border switching
 bindsym $mod+t border normal
 bindsym $mod+y border 1pixel
@@ -418,6 +552,7 @@ bar {
     status_command i3status --config ~/.i3status.conf
     ##
     # status_command i3status | dzen2
+    # status_command i3status --config ~/.i3status.conf | dzen2
     # status_command i3status | dzen2 -ta r
     # status_command i3status | dzen2 -ta r -fn $font_bar -l 1 -y 1280
     # status_command i3status | dzen2 -bg black -fg white -fn -misc-fixed-medium-*-*--12-*-*-*-*-*-*-* -p -w1000 -h 16 -x 920 -y 1064 -ta r
@@ -429,6 +564,7 @@ bar {
     ## Display mode
     mode dock
     # mode hide
+    # mode invisible
 
     ## Position
     # position top
@@ -444,78 +580,150 @@ bar {
     workspace_buttons yes
     # workspace_buttons no
 
-    ## Output
+    ## Output (restrict i3bar)
     # output $screen_laptop
-    # output $screen_monitor
+    # output $screen_monitor_1
+    # output $screen_monitor_2
     # output primary
 
     ## Tray Output
     # tray_output $screen_laptop
-    # tray_output $screen_monitor
-    # tray_output primary
+    # tray_output $screen_monitor_1
+    # tray_output $screen_monitor_2
+    tray_output primary
 
+    ## Separator Symbol
+    # separator_symbol ":|:"
+    # separator_symbol "|"
+
+    ## Strip workspace numbers
+    # strip_workspace_numbers yes
+    # strip_workspace_numbers no
+
+    ## Colors
     colors {
         ## Default
-        ## class              border backgr.text indicator
-        background          #000000
-        statusline          #ffffff
-        separator           #666666
-        focused_workspace   #4c7899 #285577 #ffffff
-        active_workspace    #333333 #5f676a #ffffff
-        inactive_workspace  #333333 #222222 #888888
-        urgent_workspace    #2f343a #900000 #ffffff
+        ## class                border backgr.text indicator
+        # background            #000000
+        # statusline            #ffffff
+        # separator             #666666
+        # focused_workspace     #4c7899 #285577 #ffffff
+        # active_workspace      #333333 #5f676a #ffffff
+        # inactive_workspace    #333333 #222222 #888888
+        # urgent_workspace      #2f343a #900000 #ffffff
         #
-        ## Black/White
-        # background          #000000
-        # statusline          #ffffff
-        # focused_workspace   #ffffff #000000 #ffffff
-        # active_workspace    #ffffff #5f676a #ffffff
-        # inactive_workspace  #888888 #222222 #888888
-        # urgent_workspace    #ffffff #000000 #ffffff
+        # background            #222222
+        # statusline            #dddddd
+        # separator             #666666
+        # focused_workspace     #0088CC #0088CC #ffffff
+        # active_workspace      #333333 #333333 #888888
+        # inactive_workspace    #333333 #333333 #888888
+        # urgent_workspace      #2f343a #900000 #ffffff
         #
-        ## Black/Green
-        # background          #000000
-        # statusline          #ffffff
-        # separator           #ffffff
-        # focused_workspace   #000000 #55d400 #000000
-        # inactive_workspace  #55d400 #000000 #55d400
-        # active_workspace    #55d400 #000000 #0b4b0b
-        #
-        ## Gray
-        # background:         #000000
-        # # statusline:       #FFFFFF
-        # focused_workspace   #999999 #1A1A1A #999999
-        # active_workspace    #1A1A1A #1A1A1A #999999
-        # urgent_workspace    #31658C #1A1A1A #999999
+        ## Dark Green
+        # background            #002b36
+        # statusline            #ffffff
+        # separator             #586e75
+        # focused_workspace     #b58900 #b58900 #002b36
+        # active_workspace      #586e75 #586e75 #002b36
+        # inactive_workspace    #586e75 #002b36 #ffffff
+        # urgent_workspace      #dc322f #dc322f #fdf6e3
         #
         ## Light Green
-        # focused_workspace   #000000 #97FF6E #000000
-        # active_workspace    #06090d #06090d #97FF6E
-        # inactive_workspace  #06090d #06090d #97FF6E
-        # urgent_workspace    #d72f6b #d70a53 #97FF6E
+        # focused_workspace     #000000 #97FF6E #000000
+        # active_workspace      #06090d #06090d #97FF6E
+        # inactive_workspace    #06090d #06090d #97FF6E
+        # urgent_workspace      #d72f6b #d70a53 #97FF6E
         #
-        ## Light/Dark Blue
-        # focused_workspace   #204560 #384560 #f0d830
-        # active_workspace    #686868 #aeb2c3 #222222
-        # inactive_workspace  #686868 #aeb2c3 #222222
-        # urgent_workspace    #2f343a #aeb2c3 #ffffff
+        ## Black/Green
+        # background            #000000
+        # statusline            #ffffff
+        # separator             #ffffff
+        # focused_workspace     #000000 #55d400 #000000
+        # inactive_workspace    #55d400 #000000 #55d400
+        # active_workspace      #55d400 #000000 #0b4b0b
         #
-        ## Solarized
-        # background #073642
-        # statusline #eee8d5
-        # focused_workspace   #cb4b16 #cb4b16 #eee8d5
-        # active_workspace    #cb4b16 #cb4b16 #eee8d5
-        # inactive_workspace  #b58900 #b58900 #eee8d5
+        ## Black/White
+        # background            #000000
+        # statusline            #ffffff
+        # focused_workspace     #ffffff #000000 #ffffff
+        # active_workspace      #ffffff #5f676a #ffffff
+        # inactive_workspace    #888888 #222222 #888888
+        # urgent_workspace      #ffffff #000000 #ffffff
+        #
+        ## Gray I
+        # background:           #000000
+        # # statusline:           #FFFFFF
+        # focused_workspace     #999999 #1A1A1A #999999
+        # active_workspace      #1A1A1A #1A1A1A #999999
+        # urgent_workspace      #31658C #1A1A1A #999999
         #
         ## Gray II
         # background            #3f3f3f
         # statusline            #dcdccc
-        # focused_workspace     #93b3a3 #3f3f3f #93b3a3
+        # # focused_workspace     #93b3a3 #3f3f3f #93b3a3
+        # focused_workspace     #999999 #1A1A1A #999999
         # active_workspace      #ffcfaf #3f3f3f #ffcfaf
         # inactive_workspace    #636363 #3f3f3f #dcdccc
         # urgent_workspace      #dca3a3 #3f3f3f #dca3a3
+        #
+        ## Light/Dark Blue
+        # focused_workspace     #204560 #384560 #f0d830
+        # active_workspace      #686868 #aeb2c3 #222222
+        # inactive_workspace    #686868 #aeb2c3 #222222
+        # urgent_workspace      #2f343a #aeb2c3 #ffffff
+        #
+        ## Light Blue
+        separator          #666666
+        background         #222222
+        statusline         #dddddd
+        focused_workspace  #0088CC #0088CC #ffffff
+        active_workspace   #333333 #333333 #ffffff
+        inactive_workspace #333333 #333333 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        #
+        ## Solarized (1)
+        # statusline            #999999
+        # background            $black
+        # focused_workspace     $white      $white      $black
+        # active_workspace      #073642     #073642     #696f89
+        # inactive_workspace    #073642     #073642     $white
+        # urgent_workspace      $orange     $orange     $dark
+        ##
+        # background            #073642
+        # statusline            #839496
+        # separator             #b58900
+        # focused_workspace     #cb4b16 #cb4b16 #ffffff
+        # active_workspace      #cb4b16 #cb4b16 #ffffff
+        # inactive_workspace    #252525 #252525 #6b6b6b
+        # urgent_workspace      #252525 #252525 #c7a551
+        #
+        ## Solarized (2)
+        # background            #073642
+        # statusline            #eee8d5
+        # focused_workspace     #cb4b16 #cb4b16 #eee8d5
+        # active_workspace      #cb4b16 #cb4b16 #eee8d5
+        # inactive_workspace    #b58900 #b58900 #eee8d5
+        #
+        ## Solarized (3)
+        # background            #002b36
+        # statusline            #dddddd
+        # separator             #586e75
+        # focused_workspace     #b58900 #b58900 #000000
+        # active_workspace      #586e75 #586e75 #002b36
+        # inactive_workspace    #073642 #002b36 #ffffff
+        # urgent_workspace      #dc322f #dc322f #fdf6e3
+        #
     }
 }
+
+bar {
+    output $screen_monitor_1
+}
+
+# bar {
+#     output $screen_monitor_2
+# }
 
 
 ################################################################################
@@ -526,28 +734,22 @@ bar {
 ## class                  border  backgr. text    indicator
 #
 ## Default - Colors
-client.focused            #4c7899 #285577 #ffffff #2e9ef4
-client.focused_inactive   #333333 #5f676a #ffffff #484e50
-client.unfocused          #333333 #222222 #888888 #292d2e
-client.urgent             #2f343a #900000 #ffffff #900000
-#
-## Black/White
-# client.focused            #ffffff #ffffff #000000 #2e9ef4
+# client.focused            #4c7899 #285577 #ffffff #2e9ef4
 # client.focused_inactive   #333333 #5f676a #ffffff #484e50
-# client.unfocused          #333333 #272727 #ffffff #292d2e
+# client.unfocused          #333333 #222222 #888888 #292d2e
 # client.urgent             #2f343a #900000 #ffffff #900000
 #
-## Black/Green
-# client.focused            #000000 #55d400 #000000
-# client.focused_inactive   #000000 #55d400 #000000
-# client.unfocused          #55d400 #0B3B0B #55d400
-# client.urgent             #ff6600 #a00000 #ffffff
+# client.focused            #0088CC #0088CC #ffffff #dddddd
+# # client.focused_inactive   #0C2D3C #0C2D3C #888888 #484e50 # I don't like it that way
+# client.focused_inactive   #333333 #333333 #888888 #292d2e
+# client.unfocused          #333333 #333333 #888888 #292d2e
+# client.urgent             #2f343a #900000 #ffffff #900000
 #
-## Gray
-# client.focused            #999999 #999999 #1A1A1A
-# client.focused_inactive   #1A1A1A #1A1A1A #999999
-# client.unfocused          #1A1A1A #1A1A1A #999999
-# client.urgent             #31658C #31658C #999999
+## Dark Green
+# client.focused            #002b36 #586e75 #fdf6e3 #268bd2
+# client.focused_inactive   #002b36 #073642 #839496 #073642
+# client.unfocused          #002b36 #073642 #839496 #073642
+# client.urgent             #002b36 #dc322f #fdf6e3 #002b36
 #
 ## Light Green
 # client.focused            #97FF6E #97FF6E #000000
@@ -555,22 +757,64 @@ client.urgent             #2f343a #900000 #ffffff #900000
 # client.unfocused          #333333 #333333 #666666
 # client.urgent             #FF0000 #8C5665 #FF0000
 #
+## Black/Green
+# client.focused            #000000 #55d400 #000000
+# client.focused_inactive   #000000 #55d400 #000000
+# client.unfocused          #55d400 #0B3B0B #55d400
+# client.urgent             #ff6600 #a00000 #ffffff
+#
+## Black/White
+# client.focused            #333333 #ffffff #000000 #2e9ef4
+# client.focused_inactive   #333333 #5f676a #ffffff #484e50
+# client.unfocused          #ffffff #272727 #ffffff #292d2e
+# client.urgent             #2f343a #900000 #ffffff #900000
+#
+## Gray I
+# client.focused            #999999 #999999 #1A1A1A
+# client.focused_inactive   #1A1A1A #1A1A1A #999999
+# client.unfocused          #1A1A1A #1A1A1A #999999
+# client.urgent             #31658C #31658C #999999
+#
+## Gray II
+# client.focused            #4e6072 #4e6072 #CCCCCC #ffcfaf
+# client.focused            #999999 #999999 #1A1A1A
+# client.focused_inactive   #3f3f3f #3F3F3F #7f9f7f #3f3f3f
+# client.unfocused          #3f3f3f #3F3F3F #DCDCCC #3f3f3f
+# client.urgent             #dca3a3 #dca3a3 #DCDCCC #3f3f3f
+#
 ## Light/Dark Blue
 # client.focused            #1793D0 #1793D0 #FFFFFF
 # client.focused_inactive   #000000 #333333 #FFFFFF
 # client.unfocused          #000000 #333333 #FFFFFF
 # client.urgent             #FF0000 #FF0000 #FF0000
 #
-## Solarized
+## Light Blue
+client.focused          #000000 #0088CC #ffffff #dddddd
+client.focused_inactive #000000 #333333 #888888 #292d2e
+client.unfocused        #000000 #333333 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+#
+## Solarized (1)
+# client.focused            $white  $white  $dark   $dark
+# client.unfocused          $dark   $dark   $white  $white
+# client.focused_inactive   $dark   $dark   $white  $dark
+# client.urgent             $orange $orange $dark   $white
+##
+# client.focused            #cb4b16 #cb4b16 #ffffff #b58900
+# client.focused_inactive   #333333 #333333 #888888 #292d2e
+# client.unfocused          #333333 #333333 #888888 #292d2e
+# client.urgent             #2f343a #900000 #ffffff #900000
+#
+## Solarized (2)
 # client.focused            #859900 #859900 #fdf6e3 #2e9ef4
 # client.focused_inactive   #268bd2 #268bd2 #fdf6e3 #484e50
 # client.unfocused          #333333 #93a1a1 #fdf6e3 #292d2e
 #
-## Gray II
-# client.focused              #4e6072 #4e6072 #CCCCCC #ffcfaf
-# client.focused_inactive     #3f3f3f #3F3F3F #7f9f7f #3f3f3f
-# client.unfocused            #3f3f3f #3F3F3F #DCDCCC #3f3f3f
-# client.urgent               #dca3a3 #dca3a3 #DCDCCC #3f3f3f
+## Solarized (3)
+# client.focused            #002b36 #586e75 #fdf6e3 #268bd2
+# client.focused_inactive   #002b36 #073642 #839496 #073642
+# client.unfocused          #002b36 #073642 #839496 #073642
+# client.urgent             #002b36 #dc322f #fdf6e3 #002b36
 
 
 ################################################################################
@@ -578,43 +822,34 @@ client.urgent             #2f343a #900000 #ffffff #900000
 ################################################################################
 
 ## Set background
-# exec xsetroot -solid "#1A1A1A"
-# exec xsetroot -solid "#999999"
-# exec xsetroot -grey
-#
-## Wallpapers - Nature
-# exec --no-startup-id feh --bg-scale ~/wallpapers/nature/aviamf9.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/nature/37590-greenz2.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/nature/NATURE-GreenGNOMENoLogo_1600x1200.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/nature/01926_calaformentor_1680x1050.jpg
-#
-## Wallpapers - HR
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/65199_dubrovnik_xorvatiya_more_zakat_2560x1600_\(www.GdeFon.ru\).jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/78821_leto_more_ostrov_xorvatiya_1988x1200_\(www.GdeFon.ru\).jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/80935_xorvatiya_skaly_2560x1600_\(www.GdeFon.ru\).jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/Isola_di_Pag_panorama_1.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/over-the-sea-pag-island-croatia-1800x2880.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/dugi-otok-stijene-sali-zadar-croatia.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/kornati_islands_croatia-wallpaper-3840x2400.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/518e6e15b62dd31485.jpg
-#
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/339906_croatia_vodopad_les_kamni_2880x1800_\(www.GdeFon.ru\).jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/hr/433154_rastoke_xorvatiya_vodopad_rechka_mostik_derevya_pe_2200x1650_\(www.GdeFon.ru\).jpg
-#
-## Wallpapers - Art
-# exec --no-startup-id feh --bg-scale ~/wallpapers/art/broken_windows-wallpaper-1680x1050.jpg
-#
-## Wallpapers - Space
-# exec --no-startup-id feh --bg-scale ~/wallpapers/space/13117.jpg
-# exec --no-startup-id feh --bg-scale ~/wallpapers/space/3189.jpg
-#
-## Wallpapers - Aurora Borealis
-# exec --no-startup-id feh --bg-scale ~/wallpapers/aurora_borealis/440917.jpg
-#
-## Wallpapers - Linux
-exec --no-startup-id feh --bg-scale ~/wallpapers/linux/1463744.jpg
+# exec --no-startup-id xsetroot -solid "#1A1A1A"
+# exec --no-startup-id xsetroot -solid "#999999"
+# exec --no-startup-id xsetroot -grey
+
+## Wallpapers - ELX
+# exec --no-startup-id feh --bg-scale /opt/elx/share/wallpapers/elx_wallpaper_blue.png
+# exec --no-startup-id feh --bg-scale /opt/elx/share/wallpapers/elx_wallpaper_green.png
+# exec --no-startup-id feh --bg-scale /opt/elx/share/wallpapers/elx_wallpaper_purple_blue.png
+# exec --no-startup-id feh --bg-scale /opt/elx/share/wallpapers/elx_wallpaper_purple.png
+# exec --no-startup-id feh --bg-scale /opt/elx/share/wallpapers/elx_wallpaper_red_orange.png
+
+## Gnome Applet - Network
+# exec --no-startup-id nm-applet
+## Gnome Applet - Sound
+# exec --no-startup-id gnome-sound-applet
+## Gnome Applet - Settings
+# exec --no-startup-id gnome-settings-daemon
+
+## Keyboard
+# exec --no-startup-id setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch:ctrl:nocaps' 'hr(us)'
 
 ## Start i3 config wizard
-# exec i3-config-wizard
+# exec --no-startup-id i3-config-wizard
+
+## Monitor - screen toggle
+exec_always --no-startup-id ~/.i3/screen_toggle.sh -x
+
+## Dropbox
+# exec --no-startup-id dropbox start
 
 ##------------------------------------------------------------------------------

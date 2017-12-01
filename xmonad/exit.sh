@@ -1,0 +1,162 @@
+#!/bin/bash
+
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+
+## ----------------------------------------------------------------------------
+## Function
+## ----------------------------------------------------------------------------
+
+function __lock()
+{
+    # i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -d 5 -b
+    # i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default
+
+    ## black
+    # i3lock -c 000000
+    ## dark green
+    # i3lock -c 073642
+    ## gray
+    # i3lock -c 3f3f3f
+    ## blue
+    # i3lock -c 005088
+
+    ## bluring
+    scrot /var/tmp/screen_locked.png
+    convert /var/tmp/screen_locked.png -scale 10% -scale 1000% /var/tmp/screen_locked2.png
+    i3lock -i /var/tmp/screen_locked2.png
+
+    ## turn off monitor
+    sleep 10 && xset dpms force off
+}
+
+function __monitor_off()
+{
+    xset dpms force off
+}
+
+function __logout()
+{
+    pkill xmonad
+}
+
+function __suspend()
+{
+    __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
+}
+
+function __hibernate()
+{
+    __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Hibernate" boolean:true
+}
+
+function __reboot()
+{
+    dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
+}
+
+function __shutdown()
+{
+    dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
+}
+
+function __message()
+{
+    title="Exit"
+    timeout="10"
+
+    lock=",Lock:4"
+    monitoroff=",Monitor Off:5"
+    logout=",Logout:6"
+    suspend=",Suspend:7"
+    hibernate=",Hibernate:8"
+    reboot=",Reboot:9"
+    shutdown=",Shutdown:10"
+
+    if [ -x /usr/bin/gxmessage ];
+    then
+        xmessage=/usr/bin/gxmessage
+        cancel=",GTK_STOCK_CANCEL:11"
+    else
+        xmessage=/usr/bin/xmessage
+        cancel=",Cancel:11"
+    fi
+
+    ${xmessage} -buttons "${title}:3${lock}${monitoroff}${logout}${suspend}${hibernate}${reboot}${shutdown}${cancel}" \
+        -default "${lock}" -timeout ${timeout} -center -name "Exit" \
+        "Will cancel after ${timeout} seconds!"
+    code=$?
+
+    case "${code}" in
+        0 | 3 | 10)
+            ## Timeout
+            ## Exit
+            ## Cancel
+            ;;
+        4)
+            ## Lock
+            __lock
+            ;;
+        5)
+            ## Monitor Off
+            __monitor_off
+            ;;
+        6)
+            ## Logout
+            __logout
+            ;;
+        7)
+            ## Suspend
+            __suspend
+            ;;
+        8)
+            ## Hibertnate
+            __hibernate
+            ;;
+        9)
+            ## Reboot
+            __reboot
+            ;;
+        10)
+            ## Shutdown
+            __shutdown
+            ;;
+    esac
+}
+
+## ----------------------------------------------------------------------------
+## Main
+## ----------------------------------------------------------------------------
+
+case "$1" in
+    lock)
+        __lock
+        ;;
+    monitor_off)
+        __monitor_off
+        ;;
+    logout)
+        __logout
+        ;;
+    suspend)
+        __suspend
+        ;;
+    hibernate)
+        __hibernate
+        ;;
+    reboot)
+        __reboot
+        ;;
+    shutdown)
+        __shutdown
+        ;;
+    message)
+        __message
+        ;;
+    *)
+        echo "Usage: $0 {lock|monitor_off|logout|suspend|hibernate|reboot|shutdown|message}"
+        exit 2
+esac
+
+exit 0
+
+## END
