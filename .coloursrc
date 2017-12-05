@@ -1,0 +1,335 @@
+##-----------------------------------------------------------------------------
+## (C) Kresimir Marzic <kmarzic@gmail.com>
+## Last update: 2017-12-01 08:16:53 (CET)
+##-----------------------------------------------------------------------------
+
+## Configuration file for dircolors, a utility to help you set the
+## LS_COLORS environment variable used by GNU ls with the --color option.
+
+## The keywords COLOR, OPTIONS, and EIGHTBIT (honored by the
+## slackware version of dircolors) are recognized but ignored.
+
+## COLOR needs one of these arguments: 'tty' colorizes output to ttys, but not
+## pipes. 'all' adds color characters to all output. 'none' shuts colorization
+## off.
+COLOR tty
+
+## Extra command line options for ls go here.
+## Basically these ones are:
+##  -F = show '/' for dirs, '*' for executables, etc.
+##  -T 0 = don't trust tab spacing when formatting ls output.
+OPTIONS -F -T 0
+
+## Below, there should be one TERM entry for each termtype that is colorizable
+TERM Eterm
+TERM ansi
+TERM color-xterm
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM eterm-color
+TERM gnome
+TERM gnome-256color
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM mlterm
+TERM putty
+TERM rxvt
+TERM rxvt-256color
+TERM rxvt-cygwin
+TERM rxvt-cygwin-native
+TERM rxvt-unicode
+TERM rxvt-unicode256
+TERM screen
+TERM screen-256color
+TERM screen-256color-bce
+TERM screen-bce
+TERM screen-w
+TERM screen.linux
+TERM vt100
+TERM xterm
+TERM xterm-16color
+TERM xterm-256color
+TERM xterm-88color
+TERM xterm-color
+TERM xterm-debian
+
+## EIGHTBIT, followed by '1' for on, '0' for off. (8-bit output)
+EIGHTBIT 1
+
+## Below are the color init strings for the basic file types. A color init
+## string consists of one or more of the following numeric codes:
+## Attribute codes:
+##   00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+## Text color codes:
+##   30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+## Background color codes:
+##   40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+
+## dircolors 256 COLOR SUPPORT (see here: http://www.mail-archive.com/bug-coreutils@gnu.org/msg11030.html)
+# Text 256 color coding:
+#    38;5;COLOR_NUMBER
+# Background 256 color coding:
+#    48;5;COLOR_NUMBER
+# for ((x=0; x<=255; x++));do echo -e "${x}:\033[38;5;${x}mcolor\033[000m";done
+# for ((x=0; x<=255; x++));do echo -e "${x}:\033[48;5;${x}mcolor\033[000m";done
+
+
+## global default, although everything should be something.
+NORMAL 00
+# NORMAL 00;38;5;244 # no color code at all
+
+## normal file
+FILE 00
+
+## directory
+# DIR 00;34 # blue
+# DIR 01;34 # bold blue
+# DIR 01;36 # bold cyan
+DIR 01;38;5;23 ## urxvt
+# DIR 01;38;5;27 ## mrxvt
+
+## symbolic link
+# LINK 01;36 # bold cyan
+LINK 01;31 # bold red
+
+## pipe
+FIFO 40;33 # yellow on black
+
+## socket
+# SOCK 01;35 # bold magenta
+SOCK 40;35 # magenta on black
+
+## door
+DOOR 01;35 # bold magenta
+
+## block device driver
+BLK 40;33;01 # bold yelow on black
+
+## character device driver
+CHR 40;33;01 # bold yellow on black
+
+## symlink to nonexistent file
+ORPHAN 40;31;01 # bold red on black
+
+## file that is setuid (u+s)
+SETUID 37;41 # white on red
+
+## file that is setgid (g+s)
+SETGID 30;43 # black on yellow
+
+## dir that is other-writable (o+w) and not sticky
+OTHER_WRITABLE 34;42 # blue on green
+
+## dir with the sticky bit set (+t) and not other-writable
+STICKY 37;44 # white on blue
+
+## dir that is sticky and other-writable (+t,o+w)
+STICKY_OTHER_WRITABLE 30;42 # black on green
+
+## This is for files with execute permission:
+EXEC 01;32 # bold green
+
+## Missing
+MISSING 01;05;37;41 # ... and the files they point to
+
+
+## If you use DOS-style suffixes, you may want to uncomment the following:
+## executables; green
+.bat   01;32
+.btm   01;32
+.class 01;32
+.cmd   01;32
+.com   01;32
+.exe   01;32
+
+
+## archives or compressed; red
+.arj   01;31
+.apk   01;31
+.bz2   01;31
+.cpio  01;31
+.deb   01;31
+.gz    01;31
+.lzh   01;31
+.par   01;31
+.rpm   01;31
+.tar   01;31
+.taz   01;31
+.tgz   01;31
+.xz    01;31
+.z     01;31
+.zip   01;31
+.Z     01;31
+.7z    01;31
+
+.jar   01;31
+.war   01;31
+.ear   01;31
+
+.rar   01;31
+.r01   01;31
+.r02   01;31
+.r03   01;31
+.r04   01;31
+.r05   01;31
+.r06   01;31
+.r07   01;31
+.r08   01;31
+.r09   01;31
+.r10   01;31
+.r11   01;31
+.r13   01;31
+.r14   01;31
+.r15   01;31
+.r16   01;31
+.r17   01;31
+.r18   01;31
+.r19   01;31
+.r20   01;31
+.r21   01;31
+.r22   01;31
+.r23   01;31
+.r24   01;31
+.r25   01;31
+.r26   01;31
+.r27   01;31
+.r28   01;31
+.r29   01;31
+.r30   01;31
+
+
+## multimeda (pictures, sound, video) formats; magenta
+.au    01;35
+.asf   01;35
+.avi   01;35
+.cdr   01;35
+.dl    01;35
+.fli   01;35
+.flv   01;35
+.gl    01;35
+.m2    01;35
+.m2ts  01;35
+.m1v   01;35
+.mid   01;35
+.midi  01;35
+.mov   01;35
+.mp3   01;35
+.mp4   01;35
+.mpa   01;35
+.mpeg  01;35
+.mpg   01;35
+.mkv   01;35
+.m4v   01;35
+.ogg   01;35
+.qt    01;35
+.ra    01;35
+.ram   01;35
+.rm    01;35
+.xm    01;35
+.wav   01;35
+.wmv   01;35
+
+.bmp   01;35
+.gif   01;35
+.jpeg  01;35
+.jpg   01;35
+.JPG   01;35
+.pcx   01;35
+.png   01;35
+.ppm   01;35
+.tga   01;35
+.tif   01;35
+.tiff  01;35
+.xbm   01;35
+.xpm   01;35
+
+.dvi   01;35
+.dvips 01;35
+.pdf   01;35
+.PDF   01;35
+.ps    01;35
+
+
+## text, source; cyan
+*rc         01;36
+*Makefile   01;36
+*build.xml  01;36
+.nfo        01;36
+*README     01;36
+*README.txt 01;36
+*readme.txt 01;36
+
+.cfg   01;36
+.conf  01;36
+.diff  01;36
+.htm   01;36
+.html  01;36
+.ini   01;36
+.latex 01;36
+.log   01;36
+.ppt   01;36
+.shtml 01;36
+.sys   01;36
+.tex   01;36
+.ltx   01;36
+.txt   01;36
+.wri   01;36
+.php   01;36
+.srt   01;36
+
+.doc   01;36
+.xls   01;36
+
+.asm   01;36
+.c     01;36
+.cc    01;36
+.c++   01;36
+.cgi   01;36
+.cpp   01;36
+.cc    01;36
+.erl   01;36
+.go    01;36
+.java  01;36
+.pas   01;36
+.pl    01;36
+.sh    01;36
+
+
+## "unimportant" files as logs and backups (base01)
+.log        00;38;5;245
+.bak        00;38;5;245
+.aux        00;38;5;245
+.bbl        00;38;5;245
+.blg        00;38;5;245
+*~          00;38;5;245
+*#          00;38;5;245
+.part       00;38;5;245
+.incomplete 00;38;5;245
+.swp        00;38;5;245
+.tmp        00;38;5;245
+.temp       00;38;5;245
+.o          00;38;5;245
+.pyc        00;38;5;245
+.class      00;38;5;245
+.cache      00;38;5;245
+
+
+##-----------------------------------------------------------------------------
+## eof
+##-----------------------------------------------------------------------------

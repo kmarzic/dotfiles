@@ -1,0 +1,117 @@
+"#### vimrc
+set directory=.,~/tmp,/tmp,/var/tmp
+set backupdir=.,~/tmp,/tmp,/var/tmp
+set path=.,~/.vim
+let vimrc='$HOME/.vimrc'
+set comments=b:\",b:#,:%,fbn:-,fb:*,n:>,n:),:\[---\ snip,:--\
+set suffixes=.bak,~,.swp,.o,.info,.aux,.log,.dvi,.bbl,.blg,.brf,.cb,.ind,.idx,.ilg,.inx,.out,.toc
+set errorformat=%f:%l:\ %m
+set formatoptions=tcrqv
+set viminfo='50,\"100,:50
+set breakat=\ ^I!@*-+_;:,./?
+set autowrite
+set makeprg=make\ #<.o
+set nocompatible
+set noedcompatible
+set nojoinspaces
+set esckeys
+set nobackup
+set nowritebackup
+set mouse=""
+set keywordprg=man\ -a
+set infercase
+set bioskey
+set cpoptions=cFs$
+set nobinary
+set complete=.,b,u
+set noequalalways
+set fileformat=unix
+set fileformats=unix,dos,mac
+set noinfercase
+set ttyscroll=0
+set ttyfast
+set wildchar=<TAB>
+set wildmenu
+set secure
+set nopaste
+set pastetoggle=<Ins>
+set more
+set showbreak=++++
+set visualbell
+set t_vb=
+set noerrorbells
+set noinsertmode
+set splitbelow
+set showmatch
+set matchtime=5
+set backspace=indent,start,eol
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set shiftround
+set expandtab
+set textwidth=78
+set winheight=5
+set helpheight=15
+set scrolloff=3
+set nowrap
+set number
+set whichwrap=b,s,h,l,<,>,[,]
+set wrapmargin=1
+set list
+set listchars=tab:>.,trail:.,extends:#
+set lazyredraw
+set linespace=0
+set shell=/bin/bash
+set autoindent
+set smartindent
+set copyindent
+set cindent
+set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,ps,ts,c3,+s,(2s,us,)20,*30,gs,hs
+set cinkeys=0{,0},:,0#,!<Tab>,!^F
+set sidescroll=8
+set nostartofline
+set background=dark
+filetype on
+filetype plugin on
+filetype indent on
+syntax reset
+syntax on
+set title
+set titlestring=%<%F%=%l/%L-%P
+set titlelen=70
+set statusline=[%F%m%r%h%w][%L][%{&ff}]%y[%p%%][%04l,%04v]
+set laststatus=2
+set shortmess=aOstT
+set ruler
+set rulerformat=%15(%c%V\ %p%%%)
+set showmode
+set showcmd
+set cmdheight=1
+set tabpagemax=15
+set showtabline=1
+hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+set history=1024
+set ignorecase
+set smartcase
+set smarttab
+set incsearch
+set wrapscan
+set noterse
+set magic
+set hlsearch
+map  ,t           <Esc>:tabnew<CR>
+nmap <C-n>        :tabnew<CR>
+imap <C-n>        <ESC>:tabnew<CR>
+nmap <A-PageUp>   :tabprevious<CR>
+nmap <A-PageDown> :tabnext<CR>
+map  <A-PageUp>   :tabprevious<CR>
+map  <A-PageDown> :tabnext<CR>
+imap <A-PageUp>   <ESC>:tabprevious<CR>i
+imap <A-PageDown> <ESC>:tabnext<CR>i
+map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+iab YDATE <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<CR>
+map ,lu 1G/Last update: \s*/e+1<CR>CYDATE<ESC>
+"#### end
