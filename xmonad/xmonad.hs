@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2017-12-01 07:07:58 (CET)
+-- Last update: 2017-12-05 08:13:51 (CET)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -7,9 +7,11 @@ import XMonad.Config
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicHooks
 import XMonad.Hooks.DynamicLog
-import XMonad.Layout.Decoration
-import XMonad.Layout.Tabbed
 import XMonad.Layout.Circle
+import XMonad.Layout.Decoration
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
@@ -18,12 +20,12 @@ import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce
 import Graphics.X11.ExtraTypes.XF86
 import System.IO
-import qualified XMonad.StackSet as W
 import qualified Data.Map as M
+import qualified XMonad.StackSet as W
 import qualified XMonad.Actions.FlexibleResize as Flex
 
 
-myTerminal           = "urxvtc"
+myTerminal           = "urxvt"
 myModMask            = mod1Mask
 myFocusFollowsMouse  = False
 myBorderWidth        = 1
@@ -45,8 +47,8 @@ myStartUp :: X()
 myStartUp = do
   -- spawnOnce "feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg"
   -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch:ctrl:nocaps' 'hr(us)'"
-  spawn ".xmonad/screen_toggle.sh -x"
-  spawn ".xmonad/trayer.sh"
+  spawn "$HOME/.xmonad/screen_toggle.sh -x"
+  spawn "$HOME/.xmonad/trayer.sh"
 
 
 myTabConfig :: Theme
@@ -66,25 +68,25 @@ myTabConfig = def
     -- fontName = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
     -- fontName = "xft:Monospace:pixelsize=12:antialias=true:style=bold"
     -- fontName = "xft:Monospace:pixelsize=13:antialias=true:style=bold"
-    -- fontName = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+    fontName = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+    -- fontName = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
     -- fontName = "xft:Terminus:pixelsize=13:antialias=true:style=bold"
-    fontName = "xft:Terminus:pixelsize=14:antialias=true:style=bold"
+    -- fontName = "xft:Terminus:pixelsize=14:antialias=true:style=bold"
   }
 
 myLayoutHook1 = avoidStruts $ layoutHook def
 
-myLayoutHook2 = avoidStruts $
-  tab
-  ||| tiled
-  ||| Mirror tiled
-  ||| threecol
-  ||| full
+myLayoutHook2 = avoidStruts
+  $ mkToggle (single FULL)
+  $ myLayouts
   where
-    -- tab      = tabbed shrinkText myTabConfig
-    tab      = tabbedAlways shrinkText myTabConfig
-    tiled    = Tall nmaster delta ratio
-    threecol = ThreeColMid nmaster delta ratio
-    full     = Full
+    myLayouts = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full'
+    -- tab1'     = tabbed shrinkText myTabConfig
+    tab2'     = tabbedAlways shrinkText myTabConfig
+    tiled'    = Tall nmaster delta ratio
+    mirror'   = Mirror tiled'
+    threecol' = ThreeColMid nmaster delta ratio
+    full'     = Full
     -- The default number of windows in the master pane
     nmaster  = 1
     -- Default proportion of screen occupied by master pane
@@ -104,9 +106,10 @@ myManageHook = composeAll . concat $
       [resource =? i --> doIgnore | i <- myIgnores]
     ]
     where
-    myCFloats = ["Gimp", "Ekiga", "MPlayer", "Nitrogen", "Nvidia-settings", "Skype", "Sysinfo", "XCalc", "XFontSel", "Xmessage", "rdesktop"]
+    myCFloats = ["Nvidia-settings", "Sysinfo", "XCalc", "XFontSel", "Xmessage"]
     myTFloats = ["Downloads", "Search Engines", "Autofill Options", "Rename File", "Copying files", "Moving files", "Save As...",
-                 "Preferences", "File Properties", "Replace", "Iceweasel Preferences", "Firefox Preferences" ]
+                 "Preferences", "File Properties", "Replace", "Clear Private Data",
+                 "Iceweasel Preferences", "Firefox Preferences"]
     myRFloats = ["buddy_list", "ticker", "gimp-toolbox", "gimp-dock", "gimp-image-window"]
     myIgnores = ["desktop", "desktop_window", "kdesktop", "Dialog"]
 
@@ -133,10 +136,10 @@ myLogHook2 h = dynamicLogWithPP $ def
 
 myKeys =
   [
-    ((mod1Mask,                  xK_u      ), spawn "urxvtc"),
-    ((mod1Mask,                  xK_Return ), spawn "urxvtc"),
-    ((mod1Mask,                  xK_d      ), spawn "/usr/bin/dmenu_run -i -fn -misc-fixed-bold-r-normal--13-100-100-100-c-80-iso8859-1 -nb '#000000' -nf '#55d400' -sb '#1A1A1A' -sf '#ff6600' -p 'Run: '"),
-    ((0,                         xK_Menu   ), spawn "/usr/bin/dmenu_run -i -fn -misc-fixed-bold-r-normal--13-100-100-100-c-80-iso8859-1 -nb '#000000' -nf '#55d400' -sb '#1A1A1A' -sf '#ff6600' -p 'Run: '"),
+    ((mod1Mask,                  xK_u      ), spawn "urxvt"),
+    ((mod1Mask,                  xK_Return ), spawn "urxvt"),
+    ((mod1Mask,                  xK_d      ), spawn "/usr/bin/dmenu_run -i -p 'Run: '"),
+    ((0,                         xK_Menu   ), spawn "/usr/bin/dmenu_run -i -p 'Run: '"),
     ((mod1Mask,                  xK_F4     ), kill),
     ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
     --
@@ -148,8 +151,9 @@ myKeys =
     ((mod1Mask,                  xK_Up     ), prevScreen), -- cycling through screens
     ((mod1Mask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
     ((mod1Mask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
-    ((mod1Mask,                  xK_q      ), spawn ".xmonad/recompile.sh"),
+    ((mod1Mask,                  xK_q      ), spawn "$HOME/.xmonad/recompile.sh"),
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
+    ((mod1Mask,                  xK_f      ), sendMessage $ Toggle FULL),
     --
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
     ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
@@ -157,20 +161,20 @@ myKeys =
     ((0, xF86XK_MonBrightnessUp            ), spawn "/usr/bin/xbacklight -inc 10"),
     ((0, xF86XK_MonBrightnessDown          ), spawn "/usr/bin/xbacklight -dec 10"),
     --
-    ((mod1Mask .|. controlMask,  xK_c      ), spawn "bin/chromium.sh noproxy"),
+    ((mod1Mask .|. controlMask,  xK_c      ), spawn "$HOME/bin/chromium.sh noproxy"),
     ((mod1Mask .|. controlMask,  xK_f      ), spawn "firefox"),
-    ((mod1Mask .|. controlMask,  xK_o      ), spawn "bin/opera.sh proxy"),
+    ((mod1Mask .|. controlMask,  xK_o      ), spawn "$HOME/bin/opera.sh proxy"),
     ((mod1Mask .|. controlMask,  xK_g      ), spawn "gvim"),
     ((mod1Mask .|. controlMask,  xK_m      ), spawn "evolution"),
     ((mod1Mask .|. controlMask,  xK_p      ), spawn "pidgin"),
-    ((mod1Mask .|. controlMask,  xK_s      ), spawn "bin/skype"),
+    ((mod1Mask .|. controlMask,  xK_s      ), spawn "$HOME/bin/skype"),
     ((mod1Mask .|. controlMask,  xK_v      ), spawn "VirtualBox"),
     ((mod1Mask .|. controlMask,  xK_y      ), spawn "/opt/yakyak-linux-x64/yakyak"),
     --
-    ((shiftMask .|. controlMask, xK_l      ), spawn ".xmonad/exit.sh lock"),
-    ((shiftMask .|. controlMask, xK_s      ), spawn ".xmonad/exit.sh monitor_off"),
-    ((shiftMask .|. controlMask, xK_m      ), spawn ".xmonad/screen_toggle.sh -x"),
-    ((shiftMask .|. controlMask, xK_x      ), spawn ".xmonad/exit.sh message")
+    ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/.xmonad/exit.sh lock"),
+    ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/.xmonad/exit.sh monitor_off"),
+    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/.xmonad/screen_toggle.sh -x"),
+    ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/.xmonad/exit.sh message")
   ]
   ++
   -- Replacing greedyView with view
@@ -260,7 +264,7 @@ help = unlines
 
 main :: IO ()
 main = do
-  xmobar1 <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+  xmobar1 <- spawnPipe "xmobar $HOME/.xmonad/xmobar.hs"
   -- dzen1 <- spawnPipe "dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l' -fg '#FFFFFF' -bg '#1B1D1E'"
   -- trayer1 <- spawnPipe "trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --tint 0x191999 --height 12"
   -- trayer2 <- spawnPipe "~/.xmonad/trayer.sh"

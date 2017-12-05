@@ -1,16 +1,32 @@
 #!/bin/bash
+#===============================================================================
+#
+#          FILE: screen_toogle.sh
+#
+#         USAGE: ./screen_toogle.sh
+#
+#   DESCRIPTION:
+#
+#       OPTIONS: ---
+#  REQUIREMENTS: ---
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
+#  ORGANIZATION: RWCE ETK ICT Development
+#       CREATED: 2016-04-07 06:14:49
+#      REVISION: ---
+#===============================================================================
 
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 ## HP 8560w
-# IN="LVDS-1"
-# EXT1="VGA-1"
-# EXT2="VGA-2"
+# IN="LVDS-0"
+# EXT1="VGA-0"
+# EXT2="VGA-0"
 
 ## HP nc6400
-# IN="LVDS1"
-# EXT1="VGA1"
-# EXT2="VGA1"
+# IN="LVDS-1"
+# EXT1="VGA-1"
 
 ## Dell E6440
 # IN="eDP-1"
@@ -24,15 +40,15 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 ## Dell E5570
 IN="eDP1"
 #
-EXT1="HDMI1"
-EXT2="HDMI2"
+# EXT1="HDMI1"
+# EXT2="HDMI2"
 #
-# EXT1="DP3"
-# EXT2="DP4"
+EXT1="DP3"
+EXT2="DP4"
 
 ## Position
-POSITION="--left-of"
-# POSITION="--right-of"
+# POSITION="--left-of"
+POSITION="--right-of"
 
 #### Banner
 BANNER="Screen Toggle"
@@ -254,11 +270,12 @@ function __keyboard()
     __printf "Keyboard" header
 
     ## keyboard
-    # setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch:ctrl:nocaps' 'hr(us)'
-    setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch:ctrl:nocaps,compose:rctrl' 'hr(us)'
+    # setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,ctrl:nocaps' 'hr(us)'
+    setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
     # setxkbmap -rules evdev -model evdev -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch:ctrl:nocaps' -layout 'hr(us),de'
     # setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:rctrl' -layout 'hr(us),de(qwerty)'
     # setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:rwin' -layout 'hr(us)'
+    # setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:caps' -layout 'hr(us)'
 }
 
 

@@ -87,7 +87,7 @@ function __message()
     code=$?
 
     case "${code}" in
-        0 | 3 | 10)
+        0 | 3 | 11)
             ## Timeout
             ## Exit
             ## Cancel

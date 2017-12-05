@@ -1,0 +1,19 @@
+## xmonad-session-rc
+
+# export __PATH_ORIG="$PATH"
+# export PATH="$HOME/bin"
+# export PATH="$PATH:/opt/ghc/bin:$HOME/.cabal/bin"
+# export PATH="$PATH:$__PATH_ORIG"
+
+echo "PATH=$PATH" > ${HOME}/.xmonad/xmonad.log
+echo "alias=$(alias)" >> ${HOME}/.xmonad/xmonad.log
+echo "which xmonad=$(which xmonad)" >> ${HOME}/.xmonad/xmonad.log
+echo "which xmobar=$(which xmobar)" >> ${HOME}/.xmonad/xmonad.log
+echo "PPID=$PPID" >> ${HOME}/.xmonad/xmonad.log
+
+## use sandbox
+cd ~/data/cabal/xmonad
+cabal exec -- xmonad --recompile
+cd ~/
+
+## END

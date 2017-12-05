@@ -48,8 +48,8 @@ function __trayer()
         --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 16 --monitor 1 --padding 1 &
 }
 
-__dropbox
-__nm_applet
+# __dropbox
+# __nm_applet
 __trayer
 
 ## END
