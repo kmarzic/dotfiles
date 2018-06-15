@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2017-12-03 20:32:29 (CET)
+"" Last update: 2018-06-10 10:03:09 (CEST)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -54,10 +54,11 @@ if has ("unix")
     " set guifont=Monospace\ 9
     " set guifont=Monospace\ 10
     " set guifont=Monospace\ 11
-    " set guifont=Monospace\ 12
+    set guifont=Monospace\ 12
     " set guifont=Monospace\ 13
+    " set guifont=Monospace\ 14
     "
-    set guifont=Inconsolata\ Medium\ 12
+    " set guifont=Inconsolata\ Medium\ 12
 else
     " set guifont=Courier:h9:cEASTEUROPE
     set guifont=Courier_New:h11:cANSI
@@ -107,14 +108,16 @@ set guitablabel=%N:%M%t " Show tab numbers
 "" -----------------------------------------------------------------------
 "" Default color scheme
 "" -----------------------------------------------------------------------
-
-" colorscheme default
+" set t_Co=8
+" set t_Co=16
+" let g:solarized_termcolors=16
+" set t_Co=256
 
 " colorscheme blue
 " colorscheme darkblue
 " colorscheme default
 " colorscheme delek
-colorscheme desert ""
+" colorscheme desert ""
 " colorscheme elflord
 " colorscheme evening
 " colorscheme koehler
@@ -127,6 +130,27 @@ colorscheme desert ""
 " colorscheme slate
 " colorscheme torte
 " colorscheme zellner
+
+" colorscheme last256
+" colorscheme lithochromatic
+" colorscheme solarized
+colorscheme base16-solarized-dark
+" colorscheme flattened_dark
+" colorscheme hemisu
+
+" highlight LineNr NONE
+
+function! s:base16_customize() abort
+    call Base16hi("Search",     g:base16_gui03, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("StatusLine", g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("Substitute", g:base16_gui01, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("Visual",     g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+endfunction
+
+augroup on_change_colorschema
+    autocmd!
+    autocmd ColorScheme * call s:base16_customize()
+augroup END
 
 
 "" -----------------------------------------------------------------------
@@ -250,10 +274,31 @@ colorscheme desert ""
 "" cd ~/.vim/bundle; git clone https://github.com/altercation/vim-colors-solarized.git
 "" cd ~/.vim/bundle/vim-colors-solarized; git remote update
 "" NOTE: configured in ~/.gvimrc
+" set t_Co=8
+" set t_Co=16
+" set t_Co=256
+" let g:solarized_termcolors=16
 " let g:solarized_termcolors=256
+" let g:solarized_termtrans = 0
+" let g:solarized_degrade = 0
+" let g:solarized_bold = 0
+" let g:solarized_underline = 0
+" let g:solarized_italic = 0
+" let g:solarized_contrast = "low"
+" let g:solarized_contrast = "normal"
+" let g:solarized_contrast = "high"
+" let g:solarized_visibility= "low"
+" let g:solarized_visibility= "normal"
+" let g:solarized_visibility= "high"
+" syntax on
+" set term=xterm-256color
 " set background=light
 " set background=dark
 " colorscheme solarized
+" let g:indent_guides_auto_colors = 0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#073642 ctermbg=0
+" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#073642 ctermbg=0
+" autocmd VimEnter,Colorscheme * :hi SignColumn guibg=#073642  ctermbg=0
 
 "" vim-hemisu (3.4)
 "" http://www.vim.org/scripts/script.php?script_id=4470

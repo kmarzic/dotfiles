@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2017-11-25 19:25:53 (CET)
+"" Last update: 2018-06-11 20:26:33 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -120,9 +120,9 @@ let g:syntastic_check_on_wq = 0
 "" cd ~/.vim/bundle; git clone https://github.com/mkitt/tabline.vim.git
 "" cd ~/.vim/bundle/tabline.vim; git remote update
 ""
-hi TabLine      ctermfg=Black  ctermbg=White     cterm=NONE
-hi TabLineFill  ctermfg=Black  ctermbg=White     cterm=NONE
-hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+" hi TabLine      ctermfg=Black  ctermbg=White     cterm=NONE
+" hi TabLineFill  ctermfg=Black  ctermbg=White     cterm=NONE
+" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 let g:tablineclosebutton=1
 
 "" tagbar (2.7)
@@ -222,6 +222,9 @@ let hs_allow_hash_operator = 1
 "" cd ~/.vim/bundle/last256; git remote update
 "" NOTE: configured in ~/.gvimrc
 ""
+" set background=light
+" set background=dark
+" syntax on
 " colorscheme last256
 
 "" LithoChromatic Color Theme (1.2)
@@ -231,6 +234,9 @@ let hs_allow_hash_operator = 1
 "" cd ~/.vim/bundle/lithochromatic; git remote update
 "" NOTE: configured in ~/.gvimrc
 ""
+" set background=light
+" set background=dark
+" syntax on
 " colorscheme lithochromatic
 
 "" Solarized Colorscheme for Vim (1.0.0b1)
@@ -239,12 +245,73 @@ let hs_allow_hash_operator = 1
 "" https://github.com/altercation/vim-colors-solarized
 "" cd ~/.vim/bundle; git clone https://github.com/altercation/vim-colors-solarized.git
 "" cd ~/.vim/bundle/vim-colors-solarized; git remote update
-"" NOTE: configured in ~/.gvimrc
 ""
+"" https://github.com/dolph/vim-colors-solarized-black.git
+"" cd ~/.vim/bundle/vim-colors-solarized-black; git remote update
+"" cd ~/.vim/bundle; git clone https://github.com/dolph/vim-colors-solarized-black.git
+""
+" set t_Co=16
+" set t_Co=256
+" let g:solarized_termcolors=16
 " let g:solarized_termcolors=256
+" let g:solarized_termtrans = 1
+" let g:solarized_degrade = 1
+" let g:solarized_bold = 0
+" let g:solarized_underline = 0
+" let g:solarized_italic = 0
+" let g:solarized_contrast = "low"
+" let g:solarized_contrast = "normal"
+" let g:solarized_contrast = "high"
+" let g:solarized_visibility= "low"
+" let g:solarized_visibility= "normal"
+" let g:solarized_visibility= "high"
+" set term=xterm-256color
 " set background=light
 " set background=dark
+" syntax on
 " colorscheme solarized
+" highlight LineNr NONE
+
+"" Base 16 Solarized
+"" https://github.com/chriskempson/base16-vim.git
+"" cd ~/.vim/bundle; git clone https://github.com/chriskempson/base16-vim.git
+"" cd ~/.vim/bundle/base16-vim; git remote update
+""
+set t_Co=16
+" set t_Co=256
+" let base16colorspace=256  " Access colors present in 256 colorspace
+" set background=light
+set background=dark
+syntax on
+" set term=xterm-256color
+
+function! s:base16_customize() abort
+    call Base16hi("Search",      g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("TabLine",     g:base16_gui03, g:base16_gui0A, g:base16_cterm03, g:base16_cterm01, "", "")
+    call Base16hi("TabLineFill", g:base16_gui03, g:base16_gui0A, g:base16_cterm00, g:base16_cterm01, "", "")
+    call Base16hi("TabLineSel",  g:base16_gui0B, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("StatusLine",  g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("Substitute",  g:base16_gui01, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+    call Base16hi("Visual",      g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+endfunction
+
+augroup on_change_colorschema
+    autocmd!
+    autocmd ColorScheme * call s:base16_customize()
+augroup END
+
+colorscheme base16-solarized-dark
+
+"" Flattened
+"" https://github.com/romainl/flattened
+"" cd ~/.vim/bundle; git clone https://github.com/romainl/flattened
+"" cd ~/.vim/bundle/flattened; git remote update
+""
+" set t_Co=16
+" set background=light
+" set background=dark
+" syntax on
+" colorscheme flattened_dark
 
 "" vim-hemisu (3.4)
 "" http://www.vim.org/scripts/script.php?script_id=4470
@@ -255,6 +322,7 @@ let hs_allow_hash_operator = 1
 ""
 " set background=light
 " set background=dark
+" syntax on
 " colorscheme hemisu
 
 
@@ -708,7 +776,7 @@ endif
 "" When set to "dark", Vim will try to use colors that look good
 "" on a dark background.
 "" (1)
-set background=dark
+" set background=dark
 "" (2)
 " set background=light
 "" (3)
@@ -721,10 +789,57 @@ set background=dark
 " endif
 
 "" Set syntax
-if &t_Co > 1 || has ("gui_running")
-    syntax reset
-    syntax on
-endif
+" syntax on
+" set t_Co=16
+" set t_Co=256
+" set term=xterm-256color
+" set background=light
+" set background=dark
+"
+" colorscheme blue
+" colorscheme darkblue
+" colorscheme default
+" colorscheme delek
+" colorscheme desert ""
+" colorscheme elflord
+" colorscheme evening
+" colorscheme koehler
+" colorscheme morning
+" colorscheme murphy
+" colorscheme pablo
+" colorscheme peachpuff
+" colorscheme ron
+" colorscheme shine
+" colorscheme slate
+" colorscheme torte
+" colorscheme zellner
+"
+" colorscheme last256
+" colorscheme lithochromatic
+" colorscheme solarized
+" colorscheme hemisu
+"
+" colorscheme codeschool
+" colorscheme colorful256
+" colorscheme crt
+" colorscheme darkslategray
+" colorscheme darkZ
+" colorscheme darkspectrum
+" colorscheme eclipse
+" colorscheme greens
+" colorscheme greenvision
+" colorscheme marklar
+" colorscheme night_vision
+" colorscheme summerfruit256
+" colorscheme tabula
+" colorscheme relaxedgreen
+" colorscheme wombat
+" colorscheme xoria256
+" colorscheme zenburn
+"
+" colorscheme etkkrma
+" colorscheme night_vision_etkkrma
+" colorscheme green_black_etkkrma
 
 
 "" ------------------------------------------------------------------------
@@ -829,9 +944,9 @@ if &t_Co > 2 || has ("gui_running")
     " set tabline=[%2*%F%*]
 endif
 
-hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+" hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
+" hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
+" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 
 "" ------------------------------------------------------------------------

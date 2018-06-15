@@ -11,8 +11,20 @@ echo "which xmonad=$(which xmonad)" >> ${HOME}/.xmonad/xmonad.log
 echo "which xmobar=$(which xmobar)" >> ${HOME}/.xmonad/xmonad.log
 echo "PPID=$PPID" >> ${HOME}/.xmonad/xmonad.log
 
+## create links
+[[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.dark.hs xmonad.hs && cd -
+[[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.dark.hs xmobar.hs && cd -
+
 ## use sandbox
-cd ~/data/cabal/xmonad
+# cd ~/data/cabal/xmonad
+# cd ~/data/cabal/xmonad.dev.20180223
+# cd ~/data/cabal/xmonad.dev.20180320
+# cd ~/data/cabal/xmonad.dev.20180410
+# cd ~/data/cabal/xmonad.dev.20180420
+# cd ~/data/cabal/xmonad.dev.20180514
+# cd ~/data/cabal/xmonad.dev.20180530
+# cd ~/data/cabal/xmonad.dev.20180609
+cd ~/data/cabal/xmonad.dev.20180610
 cabal exec -- xmonad --recompile
 cd ~/
 
