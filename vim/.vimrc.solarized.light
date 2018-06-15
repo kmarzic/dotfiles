@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2018-06-11 20:26:33 (CEST)
+"" Last update: 2018-06-11 20:26:30 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -276,12 +276,12 @@ let hs_allow_hash_operator = 1
 "" https://github.com/chriskempson/base16-vim.git
 "" cd ~/.vim/bundle; git clone https://github.com/chriskempson/base16-vim.git
 "" cd ~/.vim/bundle/base16-vim; git remote update
-""
+"
 set t_Co=16
 " set t_Co=256
 " let base16colorspace=256  " Access colors present in 256 colorspace
-" set background=light
-set background=dark
+set background=light
+" set background=dark
 syntax on
 " set term=xterm-256color
 
@@ -300,7 +300,7 @@ augroup on_change_colorschema
     autocmd ColorScheme * call s:base16_customize()
 augroup END
 
-colorscheme base16-solarized-dark
+colorscheme base16-solarized-light
 
 "" Flattened
 "" https://github.com/romainl/flattened
@@ -311,7 +311,7 @@ colorscheme base16-solarized-dark
 " set background=light
 " set background=dark
 " syntax on
-" colorscheme flattened_dark
+" colorscheme flattened_light
 
 "" vim-hemisu (3.4)
 "" http://www.vim.org/scripts/script.php?script_id=4470

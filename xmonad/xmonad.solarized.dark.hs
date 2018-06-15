@@ -1,0 +1,640 @@
+-- xmonad.hs
+-- Last update: 2018-01-15 19:02:38 (CET)
+
+import XMonad
+import XMonad.Actions.CycleWS
+import XMonad.Config
+import XMonad.Config.Desktop
+import XMonad.Hooks.DynamicHooks
+import XMonad.Hooks.DynamicLog
+import XMonad.Layout.Column
+import XMonad.Layout.Gaps
+import XMonad.Layout.Groups.Helpers
+import XMonad.Layout.IndependentScreens
+import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Roledex
+import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
+import XMonad.Layout.ToggleLayouts
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Util.EZConfig
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.Scratchpad
+import XMonad.Util.SpawnOnce
+import Graphics.X11.ExtraTypes.XF86
+import System.IO
+import qualified Data.Map as M
+import qualified XMonad.Actions.FlexibleResize as Flex
+import qualified XMonad.Layout.Groups as G
+import qualified XMonad.Layout.Groups.Helpers as Group
+import qualified XMonad.StackSet as W
+
+
+help :: String
+help = unlines
+  [
+    "The default modifier key is 'alt'. Keybindings:",
+    "",
+    "-- launching and killing programs",
+    "mod-Shift-Enter      Launch xterminal",
+    "mod-Enter            Launch xterminal",
+    "mod-s                Launch scratchpad",
+    "mod-p                Launch dmenu",
+    "mod-d                Launch dmenu",
+    "mod-Menu             Launch dmenu",
+    "mod-Shift-c          Close/kill the focused window",
+    "mod-F4               Close/kill the focused window",
+    "PrintScreen          Root screenshot",
+    "mod-PrintScreen      Window screenshot",
+    "mod-Space            Rotate through the available layout algorithms",
+    "mod-Shift-Space      Reset the layouts on the current workSpace to default",
+    "mod-n                Resize/refresh viewed windows to the correct size",
+    "",
+    "-- move focus up or down the window stack",
+    "mod-Tab              Move focus to the next window",
+    "mod-Shift-Tab        Move focus to the previous window",
+    "mod-j                Move focus to the next window",
+    "mod-k                Move focus to the previous window",
+    "mod-m                Move focus to the master window",
+    "mod-l                Move the focus to the previous group",
+    "mod-h                Move the focus to the next group",
+    "mod-Shift-l          Move the focused window to the previous group",
+    "mod-Shift-h          Move the focused window to the next group",
+    "",
+    "-- modifying the window order",
+    "mod-Shift-j          Swap the focused window with the next window",
+    "mod-Shift-k          Swap the focused window with the previous window",
+    "",
+    "-- resizing the master/slave ratio",
+    "mod-h                Shrink the master area",
+    "mod-l                Expand the master area",
+    "mod-f                Toggle full screen",
+    "mod-a                Shrink resizable area",
+    "mod-z                Expand resizable area",
+    "",
+    "-- Workspaces & screens",
+    "mod-Shift-[0/~,1..9] Move client to workspace N",
+    "mod-{w,e,r}          Switch to physical/Xinerama screens 1, 2, or 3",
+    "mod-Shift-{w,e,r}    Move client to screen 1, 2, or 3",
+    "mod-PageUp           Prev Screen",
+    "mod-PageDown         Next Screen",
+    "mod-Shift-PageUp     Swap Prev Screen",
+    "mod-Shift-PageDown   Swap Next Screen",
+    "",
+    "-- floating layer support",
+    "mod-t                Push window back into tiling; unfloat and re-tile it",
+    "",
+    "-- increase or decrease number of windows in the master area",
+    "mod-comma  (mod-,)   Increment the number of windows in the master area",
+    "mod-period (mod-.)   Deincrement the number of windows in the master area",
+    "",
+    "-- quit, or restart",
+    "mod-Shift-q          Quit xmonad",
+    "mod-Ctrl-x           Quit xmonad",
+    "mod-Ctrl-l           Lock screen",
+    "mod-Ctrl-s           Monitor off",
+    "mod-Ctrl-m           Xrandr reload",
+    "mod-q                Restart xmonad",
+    "mod-[0/~,1..9]       Switch to workSpace N",
+    "",
+    "-- Mouse bindings: default actions bound to mouse events",
+    "mod-button1          Set the window to floating mode and move by dragging",
+    "mod-button2          Raise the window to the top of the stack",
+    "mod-button3          Set the window to floating mode and resize by dragging",
+    "mod-button4          Switch to previous workspace",
+    "mod-button5          Switch to next workspace",
+    "mod-Shift-button4    Send client to previous workspace",
+    "mod-Shift-button5    Send client to next workspace"
+  ]
+
+fontRegular :: String
+fontRegular = "xft:Monospace:pixelsize=14:antialias=true:style=regular"
+
+fontBold :: String
+fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+-- fontBold = "xft:Monospace:pixelsize=12:antialias=true:style=bold"
+-- fontBold = "xft:Monospace:pixelsize=13:antialias=true:style=bold"
+-- fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+-- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
+-- fontBold = "xft:Terminus:pixelsize=13:antialias=true:style=bold"
+-- fontBold = "xft:Terminus:pixelsize=14:antialias=true:style=bold"
+
+fontTerminalScratchpad :: String
+fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+
+dmenuCommandBlue :: String -- theme: blue
+dmenuCommandBlue = "/usr/bin/dmenu_run -i -nf \"#ffffff\" -nb \"#222222\" -sb \"#0088cc\" -sf \"#ffffff\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+dmenuCommandGreen :: String -- theme: green
+dmenuCommandGreen = "/usr/bin/dmenu_run -i -nf \"#ffffff\" -nb \"#222222\" -sb \"#009910\" -sf \"#ffffff\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+dmenuCommandSolarizedDark :: String -- theme: solarized dark
+dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#cb4b16\" -nb \"#002b36\" -sb \"#003d4d\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+dmenuCommandSolarizedLight :: String -- theme: solarized light
+dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#002b36\" -nb \"#fdf6e3\" -sb \"#859900\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+xmobarCommand1 :: String
+xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
+
+xmobarCommand2 :: ScreenId -> String
+xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs"]
+
+myTerminal :: String
+myTerminal = "urxvtc"
+
+myTerminalScratchpad :: String
+myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
+
+myModMask :: KeyMask
+myModMask = mod1Mask
+
+myFocusFollowsMouse :: Bool
+myFocusFollowsMouse = False
+
+myBorderWidth :: Dimension
+myBorderWidth = 1
+
+myNormalBorderColorBlue  :: String -- theme: blue
+myNormalBorderColorBlue  = "#ffffff"
+myFocusedBorderColorBlue :: String
+myFocusedBorderColorBlue = "#0088cc"
+
+myNormalBorderColorGreen  :: String -- theme: green
+myNormalBorderColorGreen  = "#ffffff"
+myFocusedBorderColorGreen :: String
+myFocusedBorderColorGreen = "#009900"
+
+myNormalBorderColorSolarizedDark  :: String -- theme: solarized dark
+myNormalBorderColorSolarizedDark  = "#002b36" -- base03
+myFocusedBorderColorSolarizedDark :: String
+myFocusedBorderColorSolarizedDark = "#fdf6e3" -- base3
+
+myNormalBorderColorSolarizedLight  :: String -- theme: solarized light
+myNormalBorderColorSolarizedLight  = "#fdf6e3" -- base3
+myFocusedBorderColorSolarizedLight :: String
+myFocusedBorderColorSolarizedLight = "#002b36" -- base03
+
+xmobarEscape :: String -> String
+xmobarEscape = concatMap doubleLts
+  where doubleLts '<' = "<<"
+        doubleLts x   = [x]
+
+myWorkspaces :: [String]
+myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
+  where
+    clickable l = [ "<action=xdotool key alt+" ++ show (n) ++ ">" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
+
+myTabConfigBlue :: Theme -- theme: blue
+myTabConfigBlue = def
+  {
+    activeColor = "#0088cc",
+    activeTextColor = "#ffffff",
+    activeBorderColor = "#000000",
+    inactiveColor = "#5f676a",
+    inactiveTextColor = "#dddddd",
+    inactiveBorderColor = "#000000",
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myTabConfigGreen :: Theme -- theme: green
+myTabConfigGreen = def
+  {
+    activeColor = "#009900",
+    activeTextColor = "#ffffff",
+    activeBorderColor = "#000000",
+    inactiveColor = "#5f676a",
+    inactiveTextColor = "#dddddd",
+    inactiveBorderColor = "#000000",
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myTabConfigSolarized :: Theme -- theme: solarized [ light and dark ]
+myTabConfigSolarized = def
+  {
+    activeColor = "#657b83", -- base00
+    activeTextColor = "#eee8d5", -- base2
+    activeBorderColor = "#93a1a1", -- base1
+    inactiveColor = "#002b36", -- base03
+    inactiveTextColor = "#93a1a1", -- base1
+    inactiveBorderColor = "#93a1a1", -- base1
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myTabConfigSolarizedDark :: Theme -- theme: solarized dark
+myTabConfigSolarizedDark = def
+  {
+    activeColor = "#657b83", -- base00
+    activeTextColor = "#eee8d5", -- base2
+    activeBorderColor = "#93a1a1", -- base1
+    inactiveColor = "#002b36", -- base03
+    inactiveTextColor = "#93a1a1", -- base1
+    inactiveBorderColor = "#93a1a1", -- base1
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myTabConfigSolarizedLight :: Theme -- theme: solarized light
+myTabConfigSolarizedLight = def
+  {
+    activeColor = "#859900", -- green
+    activeTextColor = "#fdf6e3", -- base3
+    activeBorderColor = "#002b36", -- base03
+    inactiveColor = "#93a1a1", -- base1
+    inactiveTextColor = "#fdf6e3", -- base3
+    inactiveBorderColor = "#002b36", -- base03
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myLayoutHook tabConfig =
+    gaps [(U,0), (D,0), (L,0), (R,0)]
+  $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
+  $ smartBorders
+  $ avoidStruts
+  $ toggleLayouts (noBorders $ full')
+  $ toggleLayouts (noBorders $ tab2')
+  $ myLayouts
+  -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
+  where
+    -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
+    myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
+    --
+    -- tab1'      = tabbed shrinkText tabConfig
+    tab2'      = tabbedAlways shrinkText tabConfig
+    tiled'     = Tall nmaster delta ratio
+    mirror'    = Mirror tiled'
+    threecol'  = ThreeColMid nmaster delta ratio
+    full'      = Full
+    resizetab' = ResizableTall 1 (3/100) (1/2) []
+    roledex'   = Roledex
+    --
+    -- The default number of windows in the master pane
+    nmaster  = 1
+    -- Default proportion of screen occupied by master pane
+    ratio    = 1/2
+    -- Percent of screen to increment by when resizing panes
+    delta    = 2/100
+
+myStartUp :: X()
+myStartUp = do
+  -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
+  -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
+  -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
+  spawn "$HOME/.xmonad/screen_toggle.sh -x"
+  spawn "$HOME/.xmonad/trayer.sh"
+
+myManageHook :: ManageHook
+myManageHook = composeAll . concat $
+-- xprop | grep WM_CLASS
+    [
+      [className =? "Chromium" --> doShift (myWorkspaces !! 4)],
+      [className =? "Chromium-browser" --> doShift (myWorkspaces !! 4)],
+      [className =? "Chrome" --> doShift (myWorkspaces !! 4)],
+      [className =? "Opera" --> doShift (myWorkspaces !! 4)],
+      [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
+      [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
+      [className =? "Vivaldi" --> doShift (myWorkspaces !! 4)],
+      [className =? "Vivaldi-stable" --> doShift (myWorkspaces !! 4)],
+      [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
+      [className =? "Skype" --> doShift (myWorkspaces !! 6)],
+      [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
+      [className =? "Evolution" --> doShift (myWorkspaces !! 9)],
+      --
+      [role      =? "GtkFileChooserDialog" --> doFullFloat],
+      --
+      [className =? c --> doFloat  | c <- myClassFloats],
+      [title     =? t --> doFloat  | t <- myTitleFloats],
+      [resource  =? r --> doFloat  | r <- myResourceFloats],
+      [resource  =? i --> doIgnore | i <- myIgnores],
+      --
+      [isDialog       --> doFloat],
+      [isFullscreen   --> (doF W.focusDown <+> doFullFloat)]
+    ]
+    where
+      role          = stringProperty "WM_WINDOW_ROLE"
+      netName       = stringProperty "_NET_WM_NAME"
+      name          = stringProperty "WM_NAME"
+      myClassFloats =
+        [
+          "Gimp", "MPlayer", "Nvidia-settings", "Sysinfo", "vlc", "Vncviewer",
+          "XCalc", "XFontSel", "Xmessage"
+        ]
+      myTitleFloats =
+        [
+          "Autofill Options", "Choose a file", "Clear Private Data", "Copying files", "Downloads",
+          "File Operation Progress", "File Properties", "File Transfers", "Moving files",
+          "Passwords and Exceptions", "Preferences", "Rename File", "Replace", "Save As...", "Search Engines",
+          "Firefox Preferences", "Iceweasel Preferences", "Thunderbird Preferences"
+        ]
+      myResourceFloats =
+        [
+          "buddy_list", "ticker", "gimp-toolbox", "gimp-dock", "gimp-image-window",  "xeyes"
+        ]
+      myIgnores =
+        [
+          "cairo-compmgr", "desktop", "desktop_window", "kdesktop", "trayer"
+        ]
+
+myLogHookBlue :: Handle -> X() -- theme: blue
+myLogHookBlue h = dynamicLogWithPP xmobarPP
+  {
+    ppOutput          = hPutStrLn h,
+    ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "green" "" . shorten 0,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "",
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookGreen :: Handle -> X() -- theme: green
+myLogHookGreen h = dynamicLogWithPP xmobarPP
+  {
+    ppOutput          = hPutStrLn h,
+    ppCurrent         = xmobarColor "green" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "green" "" . shorten 0,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "",
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookSolarizedDark :: Handle -> X () -- theme: solarized dark
+myLogHookSolarizedDark h = dynamicLogWithPP xmobarPP
+  {
+    ppOutput          = hPutStrLn h,
+    ppCurrent         = xmobarColor "#dc322f" "" . wrap "[" "]", -- red
+    ppHidden          = xmobarColor "#fdf6e3" "", -- base3
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "#657b83" "" . shorten 0, -- base00
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
+    ppLayout          = xmobarColor "#fdf6e3" "", -- base3
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookSolarizedLight :: Handle -> X () -- theme: solarized light
+myLogHookSolarizedLight h = dynamicLogWithPP xmobarPP
+  {
+    ppOutput          = hPutStrLn h,
+    ppCurrent         = xmobarColor "#fdf6e3" "#859900" . wrap "[" "]", -- base3/green
+    ppHidden          = xmobarColor "#002b36" "", -- base03
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "#839496" "" . shorten 0, -- base0
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
+    ppLayout          = xmobarColor "#002b36" "", -- base03
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookPP :: Handle -> ScreenId -> PP
+myLogHookPP h s = marshallPP s xmobarPP
+  {
+    ppOutput          = hPutStrLn h,
+    ppCurrent         = xmobarColor "orange" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "#657b83" "" . shorten 0,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "",
+    -- ppOrder           = \(wss:layout:title:_) -> ["\NUL", title, "\NUL", wss],
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+  where color c = xmobarColor c ""
+
+myManageScratchPad :: ManageHook
+myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+  where
+    h = 0.1     -- terminal height, 10%
+    w = 1       -- terminal width, 100%
+    t = 1 - h   -- distance from top edge, 90%
+    l = 1 - w   -- distance from left edge, 0%
+
+myKeysDmenuCommandBlue =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandBlue), -- theme: blue
+    ((0,                         xK_Menu   ), spawn dmenuCommandBlue)  -- theme: blue
+  ]
+
+myKeysDmenuCommandGreen =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandGreen), -- theme: green
+    ((0,                         xK_Menu   ), spawn dmenuCommandGreen)  -- theme: green
+  ]
+
+myKeysDmenuCommandSolarizedDark =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
+    ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedDark)  -- theme: solarized dark
+  ]
+
+myKeysDmenuCommandSolarizedLight =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
+    ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
+  ]
+
+myKeys =
+  [
+    ((mod1Mask,                  xK_u      ), spawn myTerminal),
+    ((mod1Mask,                  xK_Return ), spawn myTerminal),
+    ((mod1Mask,                  xK_s      ), scratchPad),
+    ((mod1Mask,                  xK_F4     ), kill),
+    ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
+    ((mod1Mask,                  xK_Print  ), spawn "$HOME/bin/screenshot.sh"),
+    ((mod1Mask,                  xK_q      ), spawn "$HOME/.xmonad/recompile.sh"),
+    ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/.xmonad/exit.sh message"),
+    ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
+    ((mod1Mask,                  xK_f      ), sendMessage (Toggle "Full")),
+    ((mod1Mask,                  xK_a      ), sendMessage MirrorShrink), -- shrink resizable area
+    ((mod1Mask,                  xK_z      ), sendMessage MirrorExpand), -- expand resizable area
+    --
+    ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
+    ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace
+    -- ((mod1Mask .|. shiftMask,    xK_j      ), windows W.swapUp),  -- swap the focused window with the previous window
+    -- ((mod1Mask .|. shiftMask,    xK_k      ), windows W.swapDown), -- swap the focused window with the next window
+    ((mod1Mask .|. shiftMask,    xK_j      ), Group.swapUp >> refresh),  -- swap the focused window with the previous window
+    ((mod1Mask .|. shiftMask,    xK_k      ), Group.swapDown >> refresh), -- swap the focused window with the next window
+    ((mod1Mask,                  xK_Down   ), nextScreen), -- cycling through screens
+    ((mod1Mask,                  xK_Up     ), prevScreen), -- cycling through screens
+    ((mod1Mask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
+    ((mod1Mask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
+    ((mod1Mask,                  xK_h      ), Group.focusGroupUp), -- move the focus to the previous grou
+    ((mod1Mask,                  xK_l      ), Group.focusGroupDown), -- move the focus to the next group
+    ((mod1Mask .|. shiftMask,    xK_h      ), Group.moveToGroupUp False), -- move the focused window to the previous group
+    ((mod1Mask .|. shiftMask,    xK_l      ), Group.moveToGroupDown False), -- move the focused window to the next group
+    --
+    ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
+    ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
+    ((0, xF86XK_AudioMute                  ), spawn "amixer -q set Master,0 toggle"),
+    ((0, xF86XK_MonBrightnessUp            ), spawn "$HOME/.xmonad/brigtness.sh inc 10"),
+    ((0, xF86XK_MonBrightnessDown          ), spawn "$HOME/.xmonad/brigtness.sh dec 10"),
+    ((0, xF86XK_ModeLock                   ), spawn "$HOME/.xmonad/exit.sh lock"),
+    ((0, xF86XK_Mail                       ), spawn "evolution"),
+    ((0, xF86XK_WWW                        ), spawn "$HOME/bin/vivaldi.sh noproxy"),
+    ((0, xF86XK_Terminal                   ), spawn myTerminal),
+    --
+    ((mod1Mask .|. controlMask,  xK_c      ), spawn "$HOME/bin/vivaldi.sh noproxy"),
+    ((mod1Mask .|. controlMask,  xK_f      ), spawn "firefox"),
+    ((mod1Mask .|. controlMask,  xK_o      ), spawn "$HOME/bin/opera.sh proxy"),
+    ((mod1Mask .|. controlMask,  xK_g      ), spawn "gvim"),
+    ((mod1Mask .|. controlMask,  xK_m      ), spawn "evolution"),
+    ((mod1Mask .|. controlMask,  xK_p      ), spawn "pidgin"),
+    ((mod1Mask .|. controlMask,  xK_s      ), spawn "$HOME/bin/skype"),
+    ((mod1Mask .|. controlMask,  xK_v      ), spawn "VirtualBox"),
+    ((mod1Mask .|. controlMask,  xK_y      ), spawn "/opt/yakyak-linux-x64/yakyak"),
+    --
+    ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/.xmonad/exit.sh lock"),
+    ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/.xmonad/exit.sh monitor_off"),
+    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/.xmonad/screen_toggle.sh -x"),
+    ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/.xmonad/exit.sh message")
+  ]
+  ++
+  -- Replacing greedyView with view
+  -- mod-[1..9] %! Switch to workspace N
+  -- mod-shift-[1..9] %! Move client to workspace N
+  [ ((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
+    | (i, k) <- zip myWorkspaces ([xK_1 .. xK_9] ++ [ xK_0 ])
+    -- , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)] -- default (greedyView)
+    , (f, m) <- [(W.view, 0), (W.shift, shiftMask)] -- view
+  ]
+  ++
+  -- Reorder screens
+  [ ((m .|. mod1Mask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
+    -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..] -- default map
+    | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***
+    , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
+  ]
+  where
+    scratchPad = scratchpadSpawnActionTerminal myTerminalScratchpad
+
+myMouse =
+  [
+    ((mod1Mask, button1), (\w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster)), -- Set the window to floating mode and move by dragging
+    ((mod1Mask, button2), (\w -> focus w >> windows W.shiftMaster)),                      -- Raise the window to the top of the stack
+    ((mod1Mask, button3), (\w -> focus w >> Flex.mouseResizeWindow w)),                   -- Set the window to floating mode and resize by dragging
+    ((mod1Mask, button4), (\_ -> prevWS)),                                                -- Switch to previous workspace
+    ((mod1Mask, button5), (\_ -> nextWS)),                                                -- Switch to next workspace
+    ((mod1Mask .|. shiftMask, button4), (\_ -> shiftToPrev)),                             -- Send client to previous workspace
+    ((mod1Mask .|. shiftMask, button5), (\_ -> shiftToNext))                              -- Send client to next workspace
+  ]
+
+myConfigSolarizedBlue xmobar1 = def -- theme: blue
+    {
+      terminal             = myTerminal,
+      modMask              = myModMask,
+      focusFollowsMouse    = myFocusFollowsMouse,
+      borderWidth          = myBorderWidth,
+      normalBorderColor    = myNormalBorderColorBlue,
+      focusedBorderColor   = myFocusedBorderColorBlue,
+      workspaces           = myWorkspaces,
+      startupHook          = myStartUp,
+      layoutHook           = myLayoutHook myTabConfigBlue,
+      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
+      logHook              = myLogHookBlue xmobar1,
+      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      handleEventHook      = handleEventHook def <+> docksEventHook
+    } `additionalKeys` myKeys
+      `additionalKeys` myKeysDmenuCommandBlue
+      `additionalMouseBindings` myMouse
+
+myConfigSolarizedGreen xmobar1 = def -- theme: green
+    {
+      terminal             = myTerminal,
+      modMask              = myModMask,
+      focusFollowsMouse    = myFocusFollowsMouse,
+      borderWidth          = myBorderWidth,
+      normalBorderColor    = myNormalBorderColorGreen,
+      focusedBorderColor   = myFocusedBorderColorGreen,
+      workspaces           = myWorkspaces,
+      startupHook          = myStartUp,
+      layoutHook           = myLayoutHook myTabConfigGreen,
+      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
+      logHook              = myLogHookGreen xmobar1,
+      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      handleEventHook      = handleEventHook def <+> docksEventHook
+    } `additionalKeys` myKeys
+      `additionalKeys` myKeysDmenuCommandGreen
+      `additionalMouseBindings` myMouse
+
+myConfigSolarizedDark xmobar1 = def -- theme: solarized dark
+    {
+      terminal             = myTerminal,
+      modMask              = myModMask,
+      focusFollowsMouse    = myFocusFollowsMouse,
+      borderWidth          = myBorderWidth,
+      normalBorderColor    = myNormalBorderColorSolarizedDark,
+      focusedBorderColor   = myFocusedBorderColorSolarizedDark,
+      workspaces           = myWorkspaces,
+      startupHook          = myStartUp,
+      -- layoutHook           = myLayoutHook myTabConfigSolarizedDark,
+      layoutHook           = myLayoutHook myTabConfigSolarized,
+      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
+      logHook              = myLogHookSolarizedDark xmobar1,
+      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      handleEventHook      = handleEventHook def <+> docksEventHook
+    } `additionalKeys` myKeys
+      `additionalKeys` myKeysDmenuCommandSolarizedDark
+      `additionalMouseBindings` myMouse
+
+myConfigSolarizedLight xmobar1 = def -- theme: solarized light
+    {
+      terminal             = myTerminal,
+      modMask              = myModMask,
+      focusFollowsMouse    = myFocusFollowsMouse,
+      borderWidth          = myBorderWidth,
+      normalBorderColor    = myNormalBorderColorSolarizedLight,
+      focusedBorderColor   = myFocusedBorderColorSolarizedLight,
+      workspaces           = myWorkspaces,
+      startupHook          = myStartUp,
+      -- layoutHook           = myLayoutHook myTabConfigSolarizedLight,
+      layoutHook           = myLayoutHook myTabConfigSolarized,
+      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
+      logHook              = myLogHookSolarizedLight xmobar1,
+      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      handleEventHook      = handleEventHook def <+> docksEventHook
+    } `additionalKeys` myKeys
+      `additionalKeys` myKeysDmenuCommandSolarizedLight
+      `additionalMouseBindings` myMouse
+
+main :: IO ()
+main = do
+  -- (1)
+  xmobar1 <- spawnPipe xmobarCommand1
+  -- (2)
+  -- kill        <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
+  -- nScreens    <- countScreens
+  -- hs          <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
+
+  -- xmonad $ myConfigSolarizedBlue xmobar1 -- theme: blue
+  -- xmonad $ myConfigSolarizedGreen xmobar1 -- theme: green
+  xmonad $ myConfigSolarizedDark xmobar1 -- theme: solarized dark
+  -- xmonad $ myConfigSolarizedLight xmobar1  -- theme: solarized light
+
+-- end

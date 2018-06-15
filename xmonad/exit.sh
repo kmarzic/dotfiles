@@ -8,6 +8,7 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 function __lock()
 {
+    ## i3lock
     # i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -d 5 -b
     # i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default
 

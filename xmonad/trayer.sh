@@ -9,7 +9,7 @@ function __dropbox()
     if [[ ${dropbox_detect} -eq 0 ]]
     then
         echo "# dropbox start &"
-        dropbox start &
+        [[ -e /usr/bin/dropbox ]] && /usr/bin/dropbox start &
     else
         echo "dropbox is running"
     fi
@@ -22,7 +22,7 @@ function __nm_applet()
     if [[ ${nmapplet_detect} -eq 0 ]]
     then
         echo "# nm-applet &"
-        nm-applet &
+        [[ -e /usr/bin/nm-applet ]] && /usr/bin/nm-applet &
     else
         echo "nm-applet is running"
     fi
@@ -43,13 +43,21 @@ function __trayer()
     sleep 1
 
     echo "# trayer --edge bottom --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true "
-    echo "    --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 16 --monitor 1 --padding 1 &"
-    trayer --edge bottom --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true \
-        --transparent true --alpha 0 --tint 0x1A1918 --expand true --heighttype pixel --height 16 --monitor 1 --padding 1 &
+    echo "    --transparent true --alpha 255 --tint 0x859900 --expand true --heighttype pixel --height 16 --monitor 1 --padding 1 &"
+    [[ -e /usr/bin/trayer ]] && trayer --edge bottom --align right --widthtype request --expand true --SetDockType true --SetPartialStrut true \
+        --transparent true --alpha 255 --tint 0x859900 --expand true --heighttype pixel --height 16 --monitor 1 --padding 1 &
 }
 
-# __dropbox
-# __nm_applet
+function __dunst()
+{
+    pkill dunst
+    dunst -config ~/.config/dunst/dunstrc &
+}
+
+## Main
 __trayer
+__dropbox
+__nm_applet
+# __dunst
 
 ## END

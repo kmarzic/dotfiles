@@ -11,7 +11,7 @@ function __echo_spaces()
     done
 }
 
-case "$1" in
+case "${1}" in
     spaces)
         if [[ ! -z ${2-} ]]
         then
