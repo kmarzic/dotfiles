@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2018-06-10 10:03:09 (CEST)
+"" Last update: 2018-06-25 08:36:20 (CEST)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -137,6 +137,7 @@ set guitablabel=%N:%M%t " Show tab numbers
 colorscheme base16-solarized-dark
 " colorscheme flattened_dark
 " colorscheme hemisu
+" colorscheme solarized8
 
 " highlight LineNr NONE
 
