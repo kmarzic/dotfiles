@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+
 set -o nounset
 set -e
 set -u
