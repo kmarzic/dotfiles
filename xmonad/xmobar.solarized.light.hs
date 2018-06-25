@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2018-01-03 18:42:15 (CET)
+-- Last update: 2018-06-24 21:46:05 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -75,9 +75,9 @@ Config {
                                -- discharging status
                                "-o"   , "<left>% (<timeleft>)",
                                -- AC "on" status
-                               "-O"   , "<fc=#cb4b16>Charging</fc> <left>% (<timeleft>)", -- orange
+                               "-O"   , "<fc=#cb4b16>c</fc> <left>% (<timeleft>)", -- orange
                                -- charged status
-                               "-i"   , "<fc=#859900>Charged</fc>" -- green
+                               "-i"   , "<fc=#859900><-></fc>" -- green
                              ] 50, -- 5s
 
        Run MultiCpu          [ "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
@@ -146,7 +146,8 @@ Config {
      -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
      -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
      -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
-     template = "%UnsafeStdinReader% | %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% }{ %date% | %spaces1%"
+     -- template = "%UnsafeStdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% | %date% | %spaces1%"
+     template = "%UnsafeStdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% | %spaces1%"
 }
 
 -- end

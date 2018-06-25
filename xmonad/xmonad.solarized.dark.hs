@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-01-15 19:02:38 (CET)
+-- Last update: 2018-06-24 21:34:13 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -388,10 +388,17 @@ myLogHookSolarizedDark h = dynamicLogWithPP xmobarPP
     ppCurrent         = xmobarColor "#dc322f" "" . wrap "[" "]", -- red
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
     ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "#657b83" "" . shorten 0, -- base00
+    ppTitle           = xmobarColor "#2aa198" "" . shorten 30, -- cyan
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#fdf6e3" "", -- base3
+    ppLayout          = xmobarColor "#dc322f" "" . -- red
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " " -- separator between workspaces
   }
@@ -403,10 +410,17 @@ myLogHookSolarizedLight h = dynamicLogWithPP xmobarPP
     ppCurrent         = xmobarColor "#fdf6e3" "#859900" . wrap "[" "]", -- base3/green
     ppHidden          = xmobarColor "#002b36" "", -- base03
     ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "#839496" "" . shorten 0, -- base0
+    ppTitle           = xmobarColor "#cb4b16" "" . shorten 20, -- orange
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#002b36" "", -- base03
+    ppLayout          = xmobarColor "#fdf6e3" "#859900" . -- base3/green
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " " -- separator between workspaces
   }
