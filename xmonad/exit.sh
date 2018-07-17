@@ -42,22 +42,34 @@ function __logout()
 
 function __suspend()
 {
-    __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
+    ## (1)
+    # __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
+    ## (2)
+    __lock && sudo systemctl suspend
 }
 
 function __hibernate()
 {
-    __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Hibernate" boolean:true
+    ## (1)
+    # __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Hibernate" boolean:true
+    ## (2)
+    __lock && sudo systemctl hybrid-sleep
 }
 
 function __reboot()
 {
-    dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
+    ## (1)
+    # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
+    ## (2)
+    sudo systemctl reboot
 }
 
 function __shutdown()
 {
-    dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
+    ## (1)
+    # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
+    ## (2)
+    sudo systemctl poweroff
 }
 
 function __message()
@@ -82,7 +94,7 @@ function __message()
         cancel=",Cancel:11"
     fi
 
-    ${xmessage} -buttons "${title}:3${lock}${monitoroff}${logout}${suspend}${hibernate}${reboot}${shutdown}${cancel}" \
+    ${xmessage} -font fixed -buttons "${title}:3${lock}${monitoroff}${logout}${suspend}${hibernate}${reboot}${shutdown}${cancel}" \
         -default "${lock}" -timeout ${timeout} -center -name "Exit" \
         "Will cancel after ${timeout} seconds!"
     code=$?
@@ -154,10 +166,12 @@ case "$1" in
         __message
         ;;
     *)
-        echo "Usage: $0 {lock|monitor_off|logout|suspend|hibernate|reboot|shutdown|message}"
+        echo "Usage: $0 { lock | monitor_off | logout | suspend | hibernate | reboot | shutdown | message }"
         exit 2
 esac
 
 exit 0
 
+## ----------------------------------------------------------------------------
 ## END
+## ----------------------------------------------------------------------------

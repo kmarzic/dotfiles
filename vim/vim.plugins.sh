@@ -45,14 +45,14 @@ else
     cd ~/.vim/bundle; git clone https://github.com/vim-scripts/bufexplorer.zip
 fi
 
-if [ -e ~/.vim/bundle/Command-T ]
-then
-    echo "# cd ~/.vim/bundle/Command-T; git remote update"
-    cd ~/.vim/bundle/Command-T; git remote update
-else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/wincent/Command-T"
-    cd ~/.vim/bundle; git clone https://github.com/wincent/Command-T
-fi
+# if [ -e ~/.vim/bundle/Command-T ]
+# then
+#     echo "# cd ~/.vim/bundle/Command-T; git remote update"
+#     cd ~/.vim/bundle/Command-T; git remote update
+# else
+#     echo "# cd ~/.vim/bundle; git clone https://github.com/wincent/Command-T"
+#     cd ~/.vim/bundle; git clone https://github.com/wincent/Command-T
+# fi
 
 if [ -e ~/.vim/bundle/ctrlp.vim ]
 then
@@ -123,14 +123,14 @@ else
     cd ~/.vim/bundle; git clone https://github.com/majutsushi/tagbar
 fi
 
-if [ -e ~/.vim/bundle/taglist.vim ]
-then
-    echo "# cd ~/.vim/bundle/taglist.vim; git remote update"
-    cd ~/.vim/bundle/taglist.vim; git remote update
-else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/vim-scripts/taglist.vim"
-    cd ~/.vim/bundle; git clone https://github.com/vim-scripts/taglist.vim
-fi
+# if [ -e ~/.vim/bundle/taglist.vim ]
+# then
+#     echo "# cd ~/.vim/bundle/taglist.vim; git remote update"
+#     cd ~/.vim/bundle/taglist.vim; git remote update
+# else
+#     echo "# cd ~/.vim/bundle; git clone https://github.com/vim-scripts/taglist.vim"
+#     cd ~/.vim/bundle; git clone https://github.com/vim-scripts/taglist.vim
+# fi
 
 #### Plugins - Languages
 
@@ -214,23 +214,23 @@ fi
 
 #### Plugins - Color scheme
 
-if [ -e ~/.vim/bundle/last256 ]
-then
-    echo "# cd ~/.vim/bundle/last256; git remote update"
-    cd ~/.vim/bundle/last256; git remote update
-else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/sk1418/last256"
-    cd ~/.vim/bundle; git clone https://github.com/sk1418/last256
-fi
+# if [ -e ~/.vim/bundle/last256 ]
+# then
+#     echo "# cd ~/.vim/bundle/last256; git remote update"
+#     cd ~/.vim/bundle/last256; git remote update
+# else
+#     echo "# cd ~/.vim/bundle; git clone https://github.com/sk1418/last256"
+#     cd ~/.vim/bundle; git clone https://github.com/sk1418/last256
+# fi
 
-if [ -e ~/.vim/bundle/lithochromatic ]
-then
-    echo "# cd ~/.vim/bundle/lithochromatic; git remote update"
-    cd ~/.vim/bundle/lithochromatic; git remote update
-else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/vim-scripts/lithochromatic"
-    cd ~/.vim/bundle; git clone https://github.com/vim-scripts/lithochromatic
-fi
+# if [ -e ~/.vim/bundle/lithochromatic ]
+# then
+#     echo "# cd ~/.vim/bundle/lithochromatic; git remote update"
+#     cd ~/.vim/bundle/lithochromatic; git remote update
+# else
+#     echo "# cd ~/.vim/bundle; git clone https://github.com/vim-scripts/lithochromatic"
+#     cd ~/.vim/bundle; git clone https://github.com/vim-scripts/lithochromatic
+# fi
 
 # if [ -e ~/.vim/bundle/vim-colors-solarized ]
 # then
@@ -268,14 +268,14 @@ else
     cd ~/.vim/bundle; git clone https://github.com/romainl/flattened
 fi
 
-if [ -e ~/.vim/bundle/vim-hemisu ]
-then
-    echo "# cd ~/.vim/bundle/vim-hemisu; git remote update"
-    cd ~/.vim/bundle/vim-hemisu; git remote update
-else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/noahfrederick/vim-hemisu"
-    cd ~/.vim/bundle; git clone https://github.com/noahfrederick/vim-hemisu
-fi
+# if [ -e ~/.vim/bundle/vim-hemisu ]
+# then
+#     echo "# cd ~/.vim/bundle/vim-hemisu; git remote update"
+#     cd ~/.vim/bundle/vim-hemisu; git remote update
+# else
+#     echo "# cd ~/.vim/bundle; git clone https://github.com/noahfrederick/vim-hemisu"
+#     cd ~/.vim/bundle; git clone https://github.com/noahfrederick/vim-hemisu
+# fi
 
 if [ -e ~/.vim/bundle/vim-solarized8 ]
 then
@@ -284,6 +284,15 @@ then
 else
     echo "# cd ~/.vim/bundle; git clone https://github.com/lifepillar/vim-solarized8"
     cd ~/.vim/bundle; git clone https://github.com/lifepillar/vim-solarized8
+fi
+
+if [ -e ~/.vim/bundle/seiya-vim ]
+then
+    echo "# cd ~/.vim/bundle/seiya-vim; git remote update"
+    cd ~/.vim/bundle/seiya-vim; git remote update
+else
+    echo "# cd ~/.vim/bundle; git clone https://github.com/miyakogi/seiya.vim"
+    cd ~/.vim/bundle; git clone https://github.com/miyakogi/seiya.vim
 fi
 
 #### END

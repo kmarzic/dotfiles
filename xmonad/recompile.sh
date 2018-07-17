@@ -11,9 +11,9 @@
 
 ## (2) - use sandbox
 # cd ~/data/cabal/xmonad
-# cd ~/data/cabal/xmonad.dev.20180609
 # cd ~/data/cabal/xmonad.dev.20180610
-cd ~/data/cabal/xmonad.dev.20180620
+# cd ~/data/cabal/xmonad.dev.20180620
+cd ~/data/cabal/xmonad.dev.20180714
 cabal exec -- xmonad --recompile
 cabal exec -- xmonad --restart
 

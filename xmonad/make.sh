@@ -14,9 +14,9 @@ rm -f xmonad.errors xmonad.hi xmonad.o xmonad-x86_64-linux xmonad.state xmonad
 # xmonad --recompile
 
 ## (2) - use sandbox
-# sandbox_dir=$(dirname ~/data/cabal/xmonad.dev.20180609/cabal.sandbox.config)
 # sandbox_dir=$(dirname ~/data/cabal/xmonad.dev.20180610/cabal.sandbox.config)
-sandbox_dir=$(dirname ~/data/cabal/xmonad.dev.20180620/cabal.sandbox.config)
+# sandbox_dir=$(dirname ~/data/cabal/xmonad.dev.20180620/cabal.sandbox.config)
+sandbox_dir=$(dirname ~/data/cabal/xmonad.dev.20180714/cabal.sandbox.config)
 cabal --require-sandbox --sandbox-config-file=${sandbox_dir}/cabal.sandbox.config exec -- ghc --make xmonad.hs
 
 ## END

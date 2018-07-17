@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-06-24 21:34:13 (CEST)
+-- Last update: 2018-07-17 13:54:03 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -55,17 +55,17 @@ help = unlines
     "-- move focus up or down the window stack",
     "mod-Tab              Move focus to the next window",
     "mod-Shift-Tab        Move focus to the previous window",
-    "mod-j                Move focus to the next window",
-    "mod-k                Move focus to the previous window",
+    "mod-j                Move focus to the next window in Group",
+    "mod-k                Move focus to the previous window in Group",
     "mod-m                Move focus to the master window",
-    "mod-l                Move the focus to the previous group",
-    "mod-h                Move the focus to the next group",
-    "mod-Shift-l          Move the focused window to the previous group",
-    "mod-Shift-h          Move the focused window to the next group",
+    "mod-l                Move focus to the previous Group",
+    "mod-h                Move focus to the next Group",
     "",
     "-- modifying the window order",
     "mod-Shift-j          Swap the focused window with the next window",
     "mod-Shift-k          Swap the focused window with the previous window",
+    "mod-Shift-l          Move the focused window to the previous Group",
+    "mod-Shift-h          Move the focused window to the next Group",
     "",
     "-- resizing the master/slave ratio",
     "mod-h                Shrink the master area",
@@ -131,10 +131,10 @@ dmenuCommandGreen :: String -- theme: green
 dmenuCommandGreen = "/usr/bin/dmenu_run -i -nf \"#ffffff\" -nb \"#222222\" -sb \"#009910\" -sf \"#ffffff\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 dmenuCommandSolarizedDark :: String -- theme: solarized dark
-dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#cb4b16\" -nb \"#002b36\" -sb \"#003d4d\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 dmenuCommandSolarizedLight :: String -- theme: solarized light
-dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#002b36\" -nb \"#fdf6e3\" -sb \"#859900\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 xmobarCommand1 :: String
 xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
@@ -156,6 +156,7 @@ myFocusFollowsMouse = False
 
 myBorderWidth :: Dimension
 myBorderWidth = 1
+-- myBorderWidth = 2
 
 myNormalBorderColorBlue  :: String -- theme: blue
 myNormalBorderColorBlue  = "#ffffff"
@@ -170,12 +171,12 @@ myFocusedBorderColorGreen = "#009900"
 myNormalBorderColorSolarizedDark  :: String -- theme: solarized dark
 myNormalBorderColorSolarizedDark  = "#002b36" -- base03
 myFocusedBorderColorSolarizedDark :: String
-myFocusedBorderColorSolarizedDark = "#fdf6e3" -- base3
+myFocusedBorderColorSolarizedDark = "#2aa198" -- cyan
 
 myNormalBorderColorSolarizedLight  :: String -- theme: solarized light
 myNormalBorderColorSolarizedLight  = "#fdf6e3" -- base3
 myFocusedBorderColorSolarizedLight :: String
-myFocusedBorderColorSolarizedLight = "#002b36" -- base03
+myFocusedBorderColorSolarizedLight = "#268bd2" -- blue
 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
@@ -185,7 +186,7 @@ xmobarEscape = concatMap doubleLts
 myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
   where
-    clickable l = [ "<action=xdotool key alt+" ++ show (n) ++ ">" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
+    clickable l = [ "<action=`xdotool key alt+" ++ show (n) ++ "`>" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
 
 myTabConfigBlue :: Theme -- theme: blue
 myTabConfigBlue = def
@@ -273,7 +274,8 @@ myLayoutHook tabConfig =
   -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
   where
     -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
-    myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
+    -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
+    myLayouts  = full' |||  tab2' ||| tiled' ||| mirror' ||| roledex'
     --
     -- tab1'      = tabbed shrinkText tabConfig
     tab2'      = tabbedAlways shrinkText tabConfig
@@ -314,7 +316,7 @@ myManageHook = composeAll . concat $
       [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
       [className =? "Skype" --> doShift (myWorkspaces !! 6)],
       [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
-      [className =? "Evolution" --> doShift (myWorkspaces !! 9)],
+      [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
       --
       [role      =? "GtkFileChooserDialog" --> doFullFloat],
       --
@@ -361,7 +363,14 @@ myLogHookBlue h = dynamicLogWithPP xmobarPP
     ppTitle           = xmobarColor "green" "" . shorten 0,
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " " -- separator between workspaces
   }
@@ -376,7 +385,14 @@ myLogHookGreen h = dynamicLogWithPP xmobarPP
     ppTitle           = xmobarColor "green" "" . shorten 0,
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " " -- separator between workspaces
   }
@@ -385,13 +401,13 @@ myLogHookSolarizedDark :: Handle -> X () -- theme: solarized dark
 myLogHookSolarizedDark h = dynamicLogWithPP xmobarPP
   {
     ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "#dc322f" "" . wrap "[" "]", -- red
+    ppCurrent         = xmobarColor "#2aa198" "" . wrap "[" "]", -- cyan
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "#2aa198" "" . shorten 30, -- cyan
+    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
+    ppTitle           = xmobarColor "#2aa198" "" . shorten 50, -- cyan
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#dc322f" "" . -- red
+    ppLayout          = xmobarColor "#2aa198" "" . -- cyan
       ( \layout -> case layout of
           "Tabbed Simplest by Full" -> "[_]"
           "Full by Full"            -> "[ ]"
@@ -407,13 +423,13 @@ myLogHookSolarizedLight :: Handle -> X () -- theme: solarized light
 myLogHookSolarizedLight h = dynamicLogWithPP xmobarPP
   {
     ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "#fdf6e3" "#859900" . wrap "[" "]", -- base3/green
+    ppCurrent         = xmobarColor "#fdf6e3" "#268bd2" . wrap "[" "]", -- base3/blue
     ppHidden          = xmobarColor "#002b36" "", -- base03
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "#cb4b16" "" . shorten 20, -- orange
+    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
+    ppTitle           = xmobarColor "#268bd2" "" . shorten 50, -- blue
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#fdf6e3" "#859900" . -- base3/green
+    ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . -- base3/blue
       ( \layout -> case layout of
           "Tabbed Simplest by Full" -> "[_]"
           "Full by Full"            -> "[ ]"
@@ -435,7 +451,14 @@ myLogHookPP h s = marshallPP s xmobarPP
     ppTitle           = xmobarColor "#657b83" "" . shorten 0,
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
     -- ppOrder           = \(wss:layout:title:_) -> ["\NUL", title, "\NUL", wss],
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " " -- separator between workspaces
@@ -489,8 +512,10 @@ myKeys =
     ((mod1Mask,                  xK_a      ), sendMessage MirrorShrink), -- shrink resizable area
     ((mod1Mask,                  xK_z      ), sendMessage MirrorExpand), -- expand resizable area
     --
-    ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
-    ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace
+    -- ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
+    -- ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace
+    ((mod1Mask,                  xK_j      ), Group.focusUp), -- switch to previous workspace
+    ((mod1Mask,                  xK_k      ), Group.focusDown), -- switch to next workspace
     -- ((mod1Mask .|. shiftMask,    xK_j      ), windows W.swapUp),  -- swap the focused window with the previous window
     -- ((mod1Mask .|. shiftMask,    xK_k      ), windows W.swapDown), -- swap the focused window with the next window
     ((mod1Mask .|. shiftMask,    xK_j      ), Group.swapUp >> refresh),  -- swap the focused window with the previous window

@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2017-12-28 18:56:32
+#       CREATED: 2018-07-13 18:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -139,7 +139,12 @@ function __solarized()
             # xmonad --restart
 
             #### background
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
+            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
+            ##
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
             #### Xdefaults
@@ -152,6 +157,9 @@ function __solarized()
 
             #### gtk
             cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.dark .gtkrc-2.0
+
+            #### dunstrc
+            cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-dark
@@ -173,10 +181,8 @@ function __solarized()
             # xmonad --restart
 
             #### background
-            ## (1)
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
-            ## (2)
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
+            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
             ##
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
@@ -190,6 +196,9 @@ function __solarized()
 
             #### gtk
             cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.light .gtkrc-2.0
+
+            #### dunstrc
+            cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
@@ -308,10 +317,15 @@ function __background()
     # feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg
 
     #### Solarized
-    # feh --bg-scale ~/wallpapers/space/night_stars_Constellation_skyscapes_starfield_night_sky_1920x1080.jpg
-    # feh --bg-scale ~/wallpapers/solarized/solarized_mountains_by_9beat7-d8rkbit.png
-    # feh --bg-scale ~/wallpapers/solarized/solarized-mountains-light.png
-    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png
+    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s dVMZsMn.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s TVDBMOt.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s BaocXcW.png solarized.png
+    #### Solarized Light
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized-mountains-light.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s AB_Wallpaper_Light.png solarized.png
+    ####
     feh --bg-scale ~/wallpapers/solarized/solarized.png
 }
 

@@ -4,9 +4,9 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 function __detect_wireless_1()
 {
-    essid=`nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2`
-    stngth=`nmcli -t -f active,ssid,signal dev wifi|grep yes|cut -d':' -f3`
-    bars=`expr $stngth / 10`
+    essid=$(nmcli -t -f active,ssid dev wifi | egrep '^yes' | cut -d\' -f2)
+    stngth=$(nmcli -t -f active,ssid,signal dev wifi|grep yes|cut -d':' -f3)
+    bars=$(expr $stngth / 10)
 }
 
 function __detect_wireless_2()

@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2018-06-24 21:46:01 (CEST)
+-- Last update: 2018-07-14 18:04:08 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -25,6 +25,7 @@ Config {
    borderColor = "black",
    border = TopB,
    alpha = 255,
+   -- alpha = 0,
    position = Bottom,
    textOffset = -1,
    iconOffset = -1,
@@ -45,13 +46,14 @@ Config {
                                "--low"      , "#2aa198" -- cyan
                              ] 36000, -- 1h
 
-       Run DynNetwork        [ "--template" , "<dev>: <tx>kB/s|<rx>kB/s",
+       Run DynNetwork        [ "--template" , "<dev>: <tx>kB/s <rx>kB/s",
                                "--Low"      , "10000", -- units: 10 kB/s
                                "--High"     , "500000", -- units: 500 kB/s
                                "--low"      , "#859900", -- green
                                "--normal"   , "#cb4b16", -- orange
                                "--high"     , "#dc322f", -- red
-                               "--minwidth" , "4"
+                               "--minwidth" , "4",
+                               "-c"         , " "
                              ] 10, -- 1s
 
        Run Wireless "wlp1s0" [ "--template" , "<fc=#2aa198><essid>:</fc><quality>%", -- cyan
@@ -77,7 +79,7 @@ Config {
                                -- AC "on" status
                                "-O"   , "<fc=#cb4b16>c</fc> <left>% (<timeleft>)", -- orange
                                -- charged status
-                               "-i"   , "<fc=#859900><-></fc>" -- green
+                               "-i"   , "<fc=#859900>f</fc>" -- green
                              ] 50, -- 5s
 
        Run MultiCpu          [ "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
@@ -98,7 +100,7 @@ Config {
                                "--width"    , "2"
                              ] 10, -- 1s
 
-       Run CoreTemp          [ "--template" , "Temp: <core0>°C",
+       Run CoreTemp          [ "--template" , "T: <core0>°C",
                                "--Low"      , "70",
                                "--High"     , "80",
                                "--low"      , "#859900", -- green
@@ -106,7 +108,7 @@ Config {
                                "--high"     , "#dc322f" -- red
                              ] 50, -- 5s
 
-       Run Memory            [ "--template" , "Mem: <usedratio>%",
+       Run Memory            [ "--template" , "RAM: <usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--low"      , "#859900", -- green
@@ -133,7 +135,11 @@ Config {
                              ] 50, -- 5s
 
        -- theme: default / orange
-       Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / cyan
+       Run Date              "<fc=#2aa198>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / blue
+       -- Run Date              "<fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "6"] "spaces1" 300, -- 30s
@@ -147,7 +153,7 @@ Config {
      -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
      -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
      -- template = "%UnsafeStdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% | %date% | %spaces1%"
-     template = "%UnsafeStdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% | %spaces1%"
+     template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
 }
 
 -- end

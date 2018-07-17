@@ -38,7 +38,7 @@ case "${1-}" in
         __brightness "dec"
         ;;
     *)
-       echo "Usage: $0 {inc|dec}"
+       echo "Usage: ${0} {inc|dec}"
        exit 1
        ;;
 esac
