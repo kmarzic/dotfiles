@@ -1,0 +1,212 @@
+#!/bin/bash
+
+#######################################################################
+## Environment Variables
+#######################################################################
+export __PATH_ORIG="$PATH"
+export PATH="$HOME/bin"
+export PATH="$PATH:/opt/ghc/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$PATH:/opt/perl5/bin:/opt/perl5/cpan/bin"
+export PATH="$PATH:/opt/python3/bin:/opt/python3.ext/bin"
+export PATH="$PATH:$__PATH_ORIG"
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_TIME="en_DK.UTF-8"
+
+if [ "$(export XDG_RUNTIME_DIR)" = "" ]
+then
+    export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+fi
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+
+#######################################################################
+## settings
+#######################################################################
+
+## xhost
+xhost +0
+xhost +localhost
+xhost +$(hostname)
+xhost local:root
+
+## turn off screen saver
+xset s blank
+
+## screen saver starts after 10 minutes
+xset s 600 2
+
+## enable DPMS (Enery Star) parameters
+xset +dpms
+
+## screen options
+xset dpms 1200 1560 1800
+
+## mouse acceleration
+xset m 1
+
+## font path
+#xset fp+ unix/:7101
+#xset fp rehash
+
+## disable bell
+xset -b
+
+## mouse cursor
+xsetroot -cursor_name left_ptr
+
+# syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
+syndaemon -i 1 -d
+
+## touchpad on
+synclient TouchpadOff=0
+
+## xrdb
+# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
+[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
+xrdb -load ~/.Xdefaults
+xrdb -merge ~/.Xdefaults
+
+## xmodmap
+# xmodmap -e "pointer = 1 3 2"
+# xmodmap -e "pointer = default"
+# xmodmap ~/.Xmodmap
+
+## setxkbmap
+# setxbkmap -model pc105
+# setxkbmap -rules xorg -model pc105 -layout hr_US -option ""
+# setxkbmap hr
+# setxkbmap us
+# setxkbmap hr us
+# setxkbmap hr us -option eurosign:e
+#
+# setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,ctrl:nocaps' 'hr(us)'
+# setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,ctrl:nocaps,compose:rctrl' 'hr(us)'
+setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
+# setxkbmap -rules evdev -model evdev -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch:ctrl:nocaps' -layout 'hr(us),de'
+# setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:rctrl' -layout 'hr(us),de(qwerty)'
+# setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:rwin' -layout 'hr(us)'
+# setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:caps' -layout 'hr(us)'
+
+## Background
+xsetroot -solid black
+# feh --bg-scale /home/etkkrma/wallpapers/nature/aviamf9.jpg
+
+#######################################################################
+## Stuff
+#######################################################################
+
+## Screensaver
+# xscreensaver -nosplash &
+#
+# xautolock -time 10 -locker "/usr/bin/xlock -mode blank" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+# xautolock -time 10 -locker "/usr/bin/xlock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+# xautolock -time 10 -locker "/usr/bin/i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default" -corners +000 -cornerdelay 1 -cornerredelay 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" &
+# xautolock -time 10 -locker "/usr/bin/i3lock -c 000000" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+# xautolock -time 10 -locker "/usr/bin/i3lock -c 073642" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+# xautolock -time 10 -locker "/usr/bin/i3lock -c 3f3f3f" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+# xautolock -time 10 -locker "/usr/bin/i3lock -c 005088" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+# xautolock -time 10 -locker "~/.i3/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+xautolock -time 10 -locker "~/.xmonad/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+
+## Conky
+if [[ -e /usr/bin/conky ]]
+then
+    echo .
+    ## (1)
+    # /usr/bin/conky -q &
+    ## (2)
+    # /usr/bin/conky -c ~/.conkyrc.weather -q &
+    ## (3)
+    # sleep 10 && /usr/bin/conky -q &
+fi
+
+## Dropbox
+if [[ -e /usr/bin/dropbox ]]
+then
+    echo .
+    # /usr/bin/dropbox start &
+fi
+
+## NM applet
+if [[ -e /usr/bin/nm-applet ]]
+then
+    echo .
+    # /usr/bin/nm-applet &
+fi
+
+## NSGClient
+if [[ -e /usr/local/bin/NSGClient ]]
+then
+    echo .
+    # /usr/local/bin/NSGClient &
+fi
+
+## redshift
+if [[ -e /usr/bin/redshift ]]
+then
+    /usr/bin/redshift &
+fi
+
+## Urxvt daemon
+if [[ -e /usr/bin/urxvtd ]]
+then
+    ## (1)
+    # (sleep 3 && /usr/bin/urxvtd -q -f -o)
+    ## (2)
+    /usr/bin/urxvtd -q -f -o
+fi
+
+## Wicd GTK
+if [[ -e /usr/bin/wicd-gtk ]]
+then
+    echo .
+    # (sleep 3 && /usr/bin/wicd-gtk -t &)
+    # /usr/bin/wicd-gtk -t &
+    # /usr/bin/wicd-client &
+fi
+
+## xcompmgr - sample X compositing manager
+if [[ -e /usr/bin/xcompmgr ]]
+then
+    /usr/bin/xcompmgr -Fc &
+fi
+
+## Xeyes
+if [[ -e /usr/bin/xeyes ]]
+then
+    echo .
+    # /usr/bin/xeyes &
+fi
+
+## xplanet
+if [[ -e /usr/bin/xplanet ]]
+then
+    echo .
+    # killall xplanet
+    # nice -n 15 xplanet \
+    #   -config ~/.xplanet/config \
+    #   -body earth \
+    #   -quality 100 \
+    #   -verbosity 0 \
+    #   -wait 120 \
+    #   -latitude 45.80 -longitude 15.96 \
+    #   -label -label_string "Zagreb, Croatia" \
+    #   -separation +illumination \
+    #   -color white -fontsize 12 \
+    #   -range 1000 -radius 70 \
+    #   -date_format "%Y-%m-%d %H:%M:%S" \
+    #   -marker_file ~/.xplanet/markers &
+fi
+
+## Clean .xsesssion-errors
+echo "" > ~/.xsession-errors
+
+#######################################################################
+## END
+#######################################################################
