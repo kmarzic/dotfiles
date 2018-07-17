@@ -1,0 +1,392 @@
+#### Solarized Dark
+# (C) Kresimir Marzic <kmarzic@gmail.com>
+# Last update: 2018-07-17 14:18:33 (CEST)
+
+include "/home/etkkrma/.gtkrc-2.0.mine"
+
+gtk-auto-mnemonics = 1 # Disables ugly lines under menu items
+gtk-button-images = 1 # Enables icons in buttons
+gtk-toolbar-style = 0 # Disables text in toolbar
+gtk-cursor-theme-name="DMZ-White"
+gtk-cursor-theme-size=0
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=1
+gtk-font-name="Sans 10"
+gtk-icon-sizes = "panel-menu=15,15:panel=15,15:gtk-button=15,15:gtk-large-toolbar=15,15"
+gtk-icon-theme-name = "GNOME"
+gtk-menu-images = 1
+gtk-modules="gail:atk-bridge"
+gtk-theme-name = "SolarizedDark"
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-toolbar-style=GTK_TOOLBAR_BOTH
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle="hintslight"
+gtk-xft-rgba="rgb"
+
+#### Solarized Dark
+gtk_color_scheme = "fg_color:#fdf6e3\nbg_color:#002b36\nbase_color:#073642\ntext_color:#fdf6e3\nselected_bg_color:#586e75\nselected_fg_color:#fdf6e3\nlink_color:#fc6f5d"
+#### Solarized Light
+# gtk-color-scheme = "fg_color:#586e75\nbg_color:#eee8d5\nbase_color:#fdf6e3\ntext_color:#073642\nselected_bg_color:#268bd2\nselected_fg_color:#fdf6e3\nlink_color:#fc6f5d"
+
+style "theme-default"
+{
+    engine "hcengine" {
+        edge_thickness = 2
+    }
+
+    xthickness = 2
+    ythickness = 2
+
+    GtkArrow::arrow-scaling= 0.6
+
+    GtkButton::child-displacement-x = 0
+    GtkButton::child-displacement-y = 0
+    GtkButton::default-border = { 0, 0, 0, 0 }
+
+    GtkCheckButton::indicator-size = 16
+
+    EelEditableLabel::cursor_aspect_ratio = 0.1
+    EelEditableLabel::cursor_color = "#00cccc"
+
+    GtkEntry::cursor_color = "#00cccc"
+    GtkEntry::cursor_aspect_ratio = 0.1
+    GtkEntry::honors-transparent-bg-hint = 1
+    GtkEntry::state-hint = 0
+
+    GtkExpander::expander-size = 16
+
+    GtkHSV::focus-line-pattern = "\0"
+
+    GtkImage::x-ayatana-indicator-dynamic = 1
+
+    GtkMenu::horizontal-padding = 0
+    GtkMenu::vertical-padding = 0
+
+    GtkMenuBar::internal-padding = 0
+    GtkMenuBar::window-dragging = 1
+
+    GtkMenuItem::arrow-scaling= 0.5
+
+    GtkPaned::handle-size = 1
+
+    GtkProgressBar::min-horizontal-bar-height = 12
+    GtkProgressBar::min-vertical-bar-width = 12
+
+    GtkRange::trough-border = 0
+    GtkRange::slider-width = 12
+    GtkRange::stepper-size = 12
+    GtkRange::stepper_spacing = 0
+    GtkRange::trough-under-steppers = 1
+
+    GtkScale::slider-length = 16
+    GtkScale::slider-width = 16
+    GtkScale::trough-side-details = 1
+
+    GtkScrollbar::activate-slider = 1
+    GtkScrollbar::has-backward-stepper = 0
+    GtkScrollbar::has-forward-stepper = 0
+    GtkScrollbar::has-secondary-backward-stepper = 0
+    GtkScrollbar::has-secondary-forward-stepper = 0
+    GtkScrollbar::min-slider-length = 80
+    GtkScrollbar::slider-width = 12
+    GtkScrollbar::trough-border = 0
+
+    GtkScrolledWindow::scrollbar-spacing = 0
+    GtkScrolledWindow::scrollbars-within-bevel = 1
+
+    GtkToolbar::internal-padding = 0
+
+    GtkTextView::cursor_aspect_ratio = 0.1
+    GtkTextView::cursor_color = "#00cccc"
+    GtkTreeView::expander-size = 11
+    GtkTreeView::vertical-separator = 0
+
+    GtkWidget::focus-line-pattern = "\4\2"
+    GtkWidget::focus-line-width = 1
+    GtkWidget::focus-padding = 0
+    GtkWidget::interior_focus = 1
+    GtkWidget::link-color = "#80ccff"
+    GtkWidget::visited-link-color = "#ff80ff"
+    GtkWidget::wide-separators = 1
+    GtkWidget::separator-width = 1
+    GtkWidget::separator-height = 1
+    GtkWindow::resize-grip-height = 0
+    GtkWindow::resize-grip-width = 0
+
+    WnckTasklist::fade-overlay-rect = 0
+
+    GnomeHRef::link_color = @link_color
+    GtkHTML::link-color = @link_color
+    GtkIMHtmlr::hyperlink-color = @link_color
+    GtkIMHtml::hyperlink-color = @link_color
+    GtkWidget::link-color = @link_color
+    GtkWidget::visited-link-color = @text_color
+
+    GtkToolbar::shadow-type = GTK_SHADOW_NONE # Makes toolbars flat and unified
+    GtkMenuBar::shadow-type = GTK_SHADOW_NONE # Makes menubars flat and unified
+
+    # Nautilus
+    NautilusIconContainer::frame_text = 1
+
+    # Pidgin
+    GtkIMHtml::hyperlink-color = "#268bd2"
+    GtkIMHtml::hyperlink-visited-color = "#ff80ff"
+    GtkIMHtml::hyperlink-prelight-color = "#ffccff"
+
+    # Evolution
+    GtkHTML::link_color = "#268bd2"
+    GtkHTML::vlink_color = "#ff80ff"
+    GtkHTML::cite_color = "#ccff80"
+
+    fg[NORMAL]        = @fg_color
+    fg[PRELIGHT]      = @selected_fg_color
+    fg[SELECTED]      = @selected_fg_color
+    fg[ACTIVE]        = darker (@fg_color)
+    fg[INSENSITIVE]   = @fg_color
+
+    bg[NORMAL]        = @bg_color
+    bg[PRELIGHT]      = @selected_bg_color
+    bg[SELECTED]      = @selected_bg_color
+    bg[INSENSITIVE]   = @bg_color 
+    bg[ACTIVE]        = @bg_color
+
+    base[NORMAL]      = @base_color
+    base[ACTIVE]      = shade (0.7,@base_color)
+    base[PRELIGHT]    = @base_color
+    base[SELECTED]    = @selected_bg_color
+    base[INSENSITIVE] = shade (1.025,@bg_color)
+
+    text[NORMAL]      = @text_color
+    text[ACTIVE]      = @text_color
+    text[PRELIGHT]    = @text_color
+    text[SELECTED]    = darker (@selected_fg_color)
+    text[INSENSITIVE] = @fg_color
+}
+
+####
+
+style "theme-wide" = "theme-default"
+{
+    xthickness = 2
+    ythickness = 2
+}
+
+style "theme-wider" = "theme-default"
+{
+    xthickness = 2
+    ythickness = 2
+}
+
+style "theme-button" = "theme-wider"
+{
+    xthickness      = 0
+    ythickness      = 0
+    text[PRELIGHT]  = @selected_fg_color
+}
+
+style "theme-entry" = "theme-wider"
+{
+    bg[SELECTED] = @selected_bg_color
+}
+
+####
+
+style "theme-combo" = "theme-button"
+{
+}
+
+style "theme-frame-title" = "theme-default"
+{
+    fg[NORMAL] = @fg_color
+}
+
+
+style "theme-menu" = "theme-default"
+{
+    xthickness = 2
+    ythickness = 2
+    bg[NORMAL] = @bg_color
+}
+
+style "theme-menu-item" = "theme-default"
+{
+    ythickness      = 3
+    fg[NORMAL]      = @fg_color
+    fg[PRELIGHT]    = @selected_fg_color
+    fg[INSENSITIVE] = @selected_fg_color
+    bg[SELECTED]    = @selected_bg_color
+}
+
+style "theme-menubar" = "theme-default"
+{
+    bg[NORMAL] = @bg_color
+}
+
+style "theme-menubar-item"
+{
+    ythickness      = 2
+    fg[PRELIGHT]    = @selected_fg_color
+}
+
+style "theme-notebook" = "theme-wide"
+{
+    bg[SELECTED]    = @selected_bg_color
+}
+
+style "theme-progressbar" = "theme-wide"
+{
+    xthickness   = 2
+    ythickness   = 2
+    bg[NORMAL]   = @bg_color # outline of progressbar
+    bg[SELECTED] = @selected_bg_color # progressbar color
+}
+
+style "theme-scrollbar" = "theme-default"
+{
+}
+
+
+style "theme-tree" = "theme-default"
+{
+    xthickness = 2
+    ythickness = 2
+}
+
+style "theme-tasklist" = "theme-default"
+{
+    xthickness = 4
+    ythickness = 2
+}
+
+style "theme-tooltips" = "theme-default"
+{
+    xthickness = 2
+    ythickness = 2
+    bg[NORMAL] = @bg_color
+}
+
+####
+
+style "chrome-gtk-frame"
+{
+    ChromeGtkFrame::frame-color = @bg_color
+    ChromeGtkFrame::inactive-frame-color = darker(@bg_color)
+}
+
+style "inactivetext2"
+{
+    engine "mist"
+    {
+    }
+}
+
+style "metacity-frame"
+{
+    bg[SELECTED]  = @selected_bg_color
+    fg[SELECTED]  = @selected_fg_color
+}
+
+style "scrollbar-arrows"
+{
+    GtkScrollbar::has-backward-stepper = 1
+    GtkScrollbar::has-forward-stepper = 1
+    GtkScrollbar::has-secondary-backward-stepper = 1
+    GtkScrollbar::has-secondary-forward-stepper = 0
+}
+
+style "panel"
+{
+    xthickness   = 2
+    ythickness   = 2
+    bg[NORMAL]   = @bg_color
+    fg[NORMAL]   = @fg_color
+    text[NORMAL] = @fg_color
+}
+
+style "panelbuttons"
+{
+    xthickness      = 0
+    ythickness      = 0
+    bg[NORMAL]      = @bg_color
+    bg[ACTIVE]      = @bg_color
+    bg[SELECTED]    = @selected_bg_color
+    bg[PRELIGHT]    = @bg_color
+    fg[NORMAL]      = @fg_color
+    fg[ACTIVE]      = @selected_fg_color
+    fg[PRELIGHT]    = @selected_fg_color
+}
+
+style "vimfix"
+{
+    bg[NORMAL] = @fg_color  # this matches my gvim theme 'Normal' bg color.
+}
+
+style "evolution-hack" = "theme-default" # Hacks for Evolution Mail.
+{
+    bg[NORMAL]     = shade (1.14, @bg_color) # Color for evo treeview headers.
+    bg[PRELIGHT]   = shade (1.18, @bg_color) # Color for evo treeview header prelight.
+    bg[ACTIVE]     = shade (0.75, @bg_color) # Color for unfocused evo selected items.
+    bg[SELECTED]   = @selected_bg_color      # Color for evo selected items.
+    fg[ACTIVE]     = @selected_fg_color      # Color for evo active text.
+    fg[SELECTED]   = @selected_fg_color      # Color for evo selected text.
+}
+
+
+####
+
+class         "GtkWidget"                    style "theme-default"
+class         "GtkButton"                    style "theme-button"
+class         "GtkScale"                     style "theme-button"
+class         "GtkCombo"                     style "theme-button"
+class         "GtkRange"                     style "theme-wide"
+class         "GtkFrame"                     style "theme-wide"
+class         "GtkMenu"                      style "theme-menu"
+class         "GtkEntry"                     style "theme-entry"
+class         "GtkMenuItem"                  style "theme-menu-item"
+class         "GtkNotebook"                  style "theme-notebook"
+class         "GtkProgressBar"               style "theme-progressbar"
+class         "GtkScale"                     style "theme-scrollbar"
+class         "*MenuBar*"                    style "theme-menubar"
+class         "MetaFrames"                   style "metacity-frame"
+class         "GtkWindow"                    style "metacity-frame"
+class         "GtkScrollbar"                 style "scrollbar-arrows"
+class         "ChromeGtkFrame"               style "chrome-gtk-frame"
+class         "*Panel*"                      style "panel"
+
+widget_class  "*Panel*GtkToggleButton"       style "panelbuttons"
+widget_class  "*Panel*Button"                style "panelbuttons"
+widget_class  "*Panel*b*"                    style "panelbuttons"
+
+widget_class  "*MenuItem.*"                  style "theme-menu-item"
+widget_class  "*MenuBar.*"                   style "theme-menubar-item"
+
+widget_class  "*.GtkComboBox.GtkButton"      style "theme-combo"
+widget_class  "*.GtkCombo.GtkButton"         style "theme-combo"
+
+widget_class  "*.tooltips.*.GtkToggleButton" style "theme-tasklist"
+widget        "gtk-tooltips"                 style "theme-tooltips"
+
+widget_class  "*.GtkTreeView.GtkButton"      style "theme-tree"
+widget_class  "*.GtkCTree.GtkButton"         style "theme-tree"
+widget_class  "*.GtkList.GtkButton"          style "theme-tree"
+widget_class  "*.GtkCList.GtkButton"         style "theme-tree"
+widget_class  "*.GtkFrame.GtkLabel"          style "theme-frame-title"
+widget_class  "*.GtkNotebook.*.GtkEventBox"  style "theme-notebook"
+widget_class  "*.GtkNotebook.*.GtkViewport"  style "theme-notebook"
+widget_class  "*<GtkNotebook>*<GtkLayout>"   style "theme-notebook"
+
+widget_class  "*.<GtkMenuItem>.*"            style "inactivetext2"
+
+widget        "vim-main-window.*GtkForm"     style "vimfix"
+
+# Workarounds for Evolution
+widget_class "*.ETable.ECanvas"              style "theme-tree"
+widget_class "*.ETree.ECanvas"               style "theme-tree"
+widget_class  "*GtkCTree*"                   style "evolution-hack"
+widget_class  "*GtkList*"                    style "evolution-hack"
+widget_class  "*GtkCList*"                   style "evolution-hack"
+widget_class  "*.ETree.*"                    style "evolution-hack"
+widget_class  "*EInfoLabel*"                 style "evolution-hack"
+
+#### END
