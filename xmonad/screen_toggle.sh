@@ -131,12 +131,17 @@ function __solarized()
 
             #### xmonad
             cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
-            ## (1)
-            cd ~/data/cabal/xmonad && cabal exec -- xmonad --recompile
-            cd ~/data/cabal/xmonad && cabal exec -- xmonad --restart
-            ## (2)
-            # xmonad --recompile
-            # xmonad --restart
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad
+                cd ~/data/cabal/xmonad && cabal exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
 
             #### background
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
@@ -160,6 +165,7 @@ function __solarized()
 
             #### dunstrc
             cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
+            pkill dunst
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-dark
@@ -173,12 +179,17 @@ function __solarized()
 
             #### xmonad
             cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
-            ## (1)
-            cd ~/data/cabal/xmonad && cabal exec -- xmonad --recompile
-            cd ~/data/cabal/xmonad && cabal exec -- xmonad --restart
-            ## (2)
-            # xmonad --recompile
-            # xmonad --restart
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad
+                cd ~/data/cabal/xmonad && cabal exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
 
             #### background
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
@@ -199,6 +210,7 @@ function __solarized()
 
             #### dunstrc
             cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
+            pkill dunst
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
@@ -319,12 +331,12 @@ function __background()
     #### Solarized
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png
-    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s dVMZsMn.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s dVMZsMn.png solarized.png
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s TVDBMOt.png solarized.png
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s BaocXcW.png solarized.png
     #### Solarized Light
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized-mountains-light.png solarized.png
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s AB_Wallpaper_Light.png solarized.png
+    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s AB_Wallpaper_Light.png solarized.png
     ####
     feh --bg-scale ~/wallpapers/solarized/solarized.png
 }
