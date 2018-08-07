@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-08-07 14:47:33 (CEST)
+## Last update: 2018-08-07 18:49:58 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind C-b
@@ -101,9 +101,12 @@ bind -n S-Right next-window
 
 ## vi copy/paste
 bind P paste-buffer
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-bind-key -t vi-copy 'r' rectangle-toggle
+# bind-key -t vi-copy 'v' begin-selection
+# bind-key -t vi-copy 'y' copy-selection
+# bind-key -t vi-copy 'r' rectangle-toggle
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-selection
+bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
 ## Solarized light
 set -g status-bg '#fdf6e3'
