@@ -22,7 +22,6 @@ case "${1}" in
     *)
         __echo_spaces
 esac
-
 exit 0
 
 ## END

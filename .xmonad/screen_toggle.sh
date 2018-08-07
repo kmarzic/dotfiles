@@ -167,6 +167,15 @@ function __solarized()
             cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
             pkill dunst
 
+            #### tmux.conf
+            cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.dark .tmux.conf
+
+            #### kitty
+            cd ~/.config/kitty && rm -f kitty.conf && ln -s kitty.conf.solarized.dark kitty.conf
+
+            #### termite
+            cd ~/.config/termite && rm -f config && ln -s config.solarized.dark config
+
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-dark
             # test -r $d && eval "$(dircolors -b $d)"
@@ -211,6 +220,15 @@ function __solarized()
             #### dunstrc
             cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
             pkill dunst
+
+            #### tmux.conf
+            cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.light .tmux.conf
+
+            #### kitty
+            cd ~/.config/kitty && rm -f kitty.conf && ln -s kitty.conf.solarized.light kitty.conf
+
+            #### termite
+            cd ~/.config/termite && rm -f config && ln -s config.solarized.light config
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light

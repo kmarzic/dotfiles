@@ -1,0 +1,114 @@
+## tmux.conf
+## (C) Kresimir Marzic <kmarzic@gmail.com>
+## Last update: 2018-08-06 17:52:29 (CEST)
+
+## Make it use C-a, similar to screen
+unbind C-b
+unbind l
+set -g prefix C-a
+bind C-a send-prefix
+bind-key C-a last-window
+
+## vim
+set -g status-keys vi
+setw -g mode-keys vi
+set-window-option -g mode-keys vi
+
+## start windows numbering at 1
+set -g base-index 1
+
+## make pane numbering consistent with windows
+setw -g pane-base-index 1
+
+## history limit
+set -g history-limit 10000
+
+## slightly longer status messages display tim
+set -g display-time 1000
+
+## don't rename windows automatically
+set-option -g allow-rename off
+
+## improve colors
+set -g default-terminal "screen-256color"
+
+## no delay for escape key press
+set -sg escape-time 0
+
+## constrain window size to the maximum size
+setw -g aggressive-resize on
+
+## utf8
+set -q -g status-utf8 on
+setw -q -g utf8 on
+
+## loud or quiet?
+set-option -g visual-activity off
+set-option -g visual-bell off
+set-option -g visual-silence off
+set-window-option -g monitor-activity off
+set-option -g bell-action none
+setw -g monitor-activity on
+
+## status bar
+set -g status-interval 1
+set -g status-attr default
+set -g status-left-length 30
+set-option -g status-right-length 140
+
+## don't erase terminal contents on editor exit
+set-window-option -g alternate-screen on
+
+## split window
+bind-key v split-window -h
+bind-key s split-window -v
+
+## resize pane
+bind-key J resize-pane -D 5
+bind-key K resize-pane -U 5
+bind-key H resize-pane -L 5
+bind-key L resize-pane -R 5
+
+bind-key M-j resize-pane -D
+bind-key M-k resize-pane -U
+bind-key M-h resize-pane -L
+bind-key M-l resize-pane -R
+
+## vim style pane selection
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+## use Alt-vim keys without prefix key to switch panes
+bind -n M-h select-pane -L
+bind -n M-j select-pane -D
+bind -n M-k select-pane -U
+bind -n M-l select-pane -R
+
+## use Alt-arrow keys without prefix key to switch panes
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+## shift arrow to switch windows
+bind -n S-Left  previous-window
+bind -n S-Right next-window
+
+## Solarized light
+set -g status-bg '#fdf6e3'
+set -g status-fg '#586e75'
+set -g status-left '#[fg=#268bd2](#S) #(whoami)@#H#[default] '
+set -g status-right '#[fg=#268bd2]%Y-%m-%d %H:%M#[default]'
+set -g window-status-format         '#I:#W#F'
+set -g window-status-current-format '#[bg=#268bd2,fg=#fdf6e3]#I:#W '
+## Solarized black
+# set -g status-bg '#073642'
+# set -g status-fg '#fdf6e3'
+# set -g status-left '#[fg=#cb4b16](#S) #(whoami)@#H#[default] '
+# set -g status-right '#[fg=#cb4b16]%Y-%m-%d %H:%M#[default]'
+# set -g window-status-format         '#I:#W#F'
+# set -g window-status-current-format '#[bg=#cb4b16,fg=#073642]#I:#W '
+
+## end

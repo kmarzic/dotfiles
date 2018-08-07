@@ -6,15 +6,15 @@
 # export PATH="$PATH:$__PATH_ORIG"
 
 ## (1) - do not use sandbox
-# xmonad --recompile
-# xmonad --restart
+xmonad --recompile
+xmonad --restart
 
 ## (2) - use sandbox
 # cd ~/data/cabal/xmonad
 # cd ~/data/cabal/xmonad.dev.20180610
 # cd ~/data/cabal/xmonad.dev.20180620
-cd ~/data/cabal/xmonad.dev.20180714
-cabal exec -- xmonad --recompile
-cabal exec -- xmonad --restart
+# cd ~/data/cabal/xmonad.dev.20180714
+# Cabal exec -- xmonad --recompile
+# Cabal exec -- xmonad --restart
 
 ## END
