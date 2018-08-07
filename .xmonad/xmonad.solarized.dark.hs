@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-07 08:00:18 (CEST)
+-- Last update: 2018-08-07 20:51:06 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -144,14 +144,13 @@ xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs
 
 myTerminal :: String
 -- myTerminal = "urxvtc"
--- myTerminal = "kitty"
--- myTerminal = "termite"
-myTerminal = "$HOME/bin/st.solarized.dark"
+myTerminal = "termite"
+-- myTerminal = "$HOME/bin/st.solarized.dark"
 
 myTerminalScratchpad :: String
 myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
--- myTerminalScratchpad = "termite"
+-- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "$HOME/bin/st.solarized.dark"
 
