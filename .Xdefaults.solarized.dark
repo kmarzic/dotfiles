@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2018-08-07 20:12:29 (CEST)
+!! Last update: 2018-08-07 23:59:47 (CEST)
 !! ---------------------------------------------------------------------
 !! xrdb -load $HOME/.Xdefaults
 !! xrdb -merge $HOME/.Xdefaults
@@ -382,13 +382,8 @@ URxvt.perl-lib: $HOME/.urxvt/ext/
 !
 ! URxvt.perl-ext-common: default,tabs,font-size
 ! URxvt.perl-ext-common: default,tabbed,font-size
-! URxvt.perl-ext-common: default,tabbedex,font-size,urxvt-colors,solarized
 URxvt.perl-ext-common: default,tabbedex,font-size,urxvt-colors
-! URxvt.perl-ext-common: default,critabbed,font-size,urxvt-colors
-!
-! URxvt.perl-ext-common: default,tabbed,resize-font
-! URxvt.perl-ext-common: default,tabbed,font-size,matcher
-! URxvt.perl-ext-common: default,tabbed,font-size
+! URxvt.perl-ext-common: default,critabbed,font-size,urxvt-colors,solarized
 ! URxvt.perl-ext-common: default,tabbed_new,font-size
 !
 URxvt.matcher.button: 1
