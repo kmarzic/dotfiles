@@ -1,0 +1,4 @@
+https://raw.github.com/stepb/urxvt-tabbedex/master/tabbedex
+https://raw.github.com/shaggytwodope/tabbedex-urxvt/master/tabbedex
+https://raw.github.com/majutsushi/urxvt-font-size/master/font-size
+https://raw.github.com/simmel/urxvt-resize-font/master/resize-font
