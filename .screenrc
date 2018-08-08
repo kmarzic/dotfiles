@@ -1,6 +1,6 @@
 ## screen
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-08-08 08:51:09 (CEST)
+## Last update: 2018-08-08 18:44:37 (CEST)
 
 ## Turn off that annoying start up message
 startup_message off
@@ -78,11 +78,12 @@ encoding utf-8 utf-8
 
 ## This command controls the display of the window captions.
 # caption always
-caption always "%{= w}%-w%{= KW}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+# caption always "%{= w}%-w%{= KW}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized dark
-# caption always "%{= KB} %-w%?%F%{= kr}%:%{= kW}%? %n %t %{-}%+w"
+# caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized light
-# caption always "%{= WY} %-w%?%F%{= mw}%:%{= kW}%? %n %t %{-}%+w"
+# caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 
 ## This command configures the use and emulation of the terminal's  hardstatus line.
 ##
