@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2018-08-08 18:29:43 (CEST)
+!! Last update: 2018-08-08 19:01:56 (CEST)
 !! ---------------------------------------------------------------------
 !! xrdb -load $HOME/.Xdefaults
 !! xrdb -merge $HOME/.Xdefaults
@@ -416,7 +416,6 @@ URxvt.tabs.tab-rename-color: 15
 !! Ctrl + ← - move tab to the left
 !! Ctrl + → - move tab to the right
 !! Ctrl + D - close tab
-!
 !! solarized dark
 ! URxvt.tabbed.autohide: no
 ! URxvt.tabbed.new-button: no
@@ -428,7 +427,6 @@ URxvt.tabs.tab-rename-color: 15
 ! URxvt.tabbed.title-fg: 1
 ! URxvt.tabbed.title-bg: 0
 ! URXvt.tabbed.reopen-on-close: yes
-!
 !! solarized light
 URxvt.tabbed.autohide: no
 URxvt.tabbed.new-button: no
@@ -442,8 +440,8 @@ URxvt.tabbed.title-bg: 0
 URXvt.tabbed.reopen-on-close: yes
 
 !! tabbedex
-URxvt.tabbedex.no-tabbedex-keys: yes
 URxvt.tabbed.tabbedex-rs-prefix: %
+URxvt.tabbedex.no-tabbedex-keys: yes
 URxvt.keysym.Shift-Down:  tabbedex:new_tab
 URxvt.keysym.Shift-Left:  tabbedex:prev_tab
 URxvt.keysym.Shift-Right: tabbedex:next_tab
