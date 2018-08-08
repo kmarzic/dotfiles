@@ -1,6 +1,6 @@
 ## screen
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-06-11 07:02:26 (CEST)
+## Last update: 2018-08-08 08:51:09 (CEST)
 
 ## Turn off that annoying start up message
 startup_message off
@@ -78,13 +78,11 @@ encoding utf-8 utf-8
 
 ## This command controls the display of the window captions.
 # caption always
-caption always "%{= w}%-w%{= BW}%n %t%{-}%+w %-= @%H" # - %LD %d %LM - %c"
+caption always "%{= w}%-w%{= KW}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized dark
 # caption always "%{= KB} %-w%?%F%{= kr}%:%{= kW}%? %n %t %{-}%+w"
 ## Solarized light
 # caption always "%{= WY} %-w%?%F%{= mw}%:%{= kW}%? %n %t %{-}%+w"
-##
-# caption string "%{= w}%-w%{= BW}%n %t%{-}%+w %-= @%H" # - %LD %d %LM - %c"
 
 ## This command configures the use and emulation of the terminal's  hardstatus line.
 ##
@@ -113,8 +111,8 @@ caption always "%{= w}%-w%{= BW}%n %t%{-}%+w %-= @%H" # - %LD %d %LM - %c"
 # -       : hyphen character
 # %d      : current date (0-padded)
 ##
-hardstatus on
-hardstatus alwayslastline
+# hardstatus on
+# hardstatus alwayslastline
 # hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW} | %{KY}%101`%{KW} | %D %Y-%M-%d%{= Kc} %C%A%{-}'
 # hardstatus string '%{= d} %{= d}%-w%{= r}[%{= W}%n %t%{= r}]%{= d}%+w %-= %{G} | %H * %D %Y-%M-%d * %c%{-}'
 # hardstatus string '%{= d}%-w%{= r}%{G}[%n %t]%{W}%{= d}%+w%{= r} %-= %{G} | %H * %D %Y-%M-%d * %c%{W}%{-}'
