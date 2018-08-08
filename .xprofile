@@ -176,7 +176,7 @@ if [[ -e /usr/bin/xcompmgr ]]
 then
     # /usr/bin/xcompmgr -Fc &
     # /usr/bin/xcompmgr -CcfF -I-.02 -O-.04 -D0001 -t-5 -l-5 -r4.2 -o.82 &
-    /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82
+    /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82 &
 fi
 
 ## Xeyes

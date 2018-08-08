@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-07 21:24:14 (CEST)
+-- Last update: 2018-08-08 17:50:52 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -143,7 +143,7 @@ xmobarCommand2 :: ScreenId -> String
 xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs"]
 
 myTerminal :: String
-myTerminal = "urxvtc"
+myTerminal = "urxvt"
 -- myTerminal = "termite"
 -- myTerminal = "$HOME/bin/st.solarized.light"
 

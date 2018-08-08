@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2018-08-08 12:17:33 (CEST)
+!! Last update: 2018-08-08 17:52:50 (CEST)
 !! ---------------------------------------------------------------------
 !! xrdb -load $HOME/.Xdefaults
 !! xrdb -merge $HOME/.Xdefaults
@@ -442,6 +442,14 @@ URxvt.tabbed.title-bg: 0
 URXvt.tabbed.reopen-on-close: yes
 
 !! tabbedex
+URxvt.tabbedex.no-tabbedex-keys: yes
+URxvt.keysym.Shift-Down:  tabbedex:new_tab
+URxvt.keysym.Shift-Left:  tabbedex:prev_tab
+URxvt.keysym.Shift-Right: tabbedex:next_tab
+URxvt.keysym.C-Left:      tabbedex:move_tab_left
+URxvt.keysym.C-Right:     tabbedex:move_tab_right
+URxvt.keysym.Shift-Up:    tabbedex:rename_tab
+URxvt.keysym.M-C-k:       tabbedex:kill_tab
 !! solarized dark
 ! URxvt.tabbedex.autohide: no
 ! URxvt.tabbedex.new-button: no
@@ -465,21 +473,12 @@ URxvt.tabbedex.title-fg: 4
 URxvt.tabbedex.title-bg: 0
 URXvt.tabbedex.reopen-on-close: yes
 
-!! tabbed_new
-! URxvt.tabbed_new.tabren-bg: 3
-! URxvt.tabbed_new.tabdiv-fg: 8
-! URxvt.tabbed_new.tabbar-fg: 8
-! URxvt.tabbed_new.tabbar-bg: 0
-! URxvt.tabbed_new.tabsel-fg: 1
-! URxvt.tabbed_new.tabsel-bg: 8
-! URxvt.tabbed_new.tab-fg:    0
-! URxvt.tabbed_new.tab-bg:    8
-
 !! solarized
 ! URxvt.solarized.default:    light
 ! URxvt.solarized.default:    dark
+! URxvt.keysym.M-F11: perl:solarized:toggle
 
-!! keys
+!! commands
 URxvt.keysym.C-6:   command:\033]710;xft:Monospace:pixelsize=12:antialias=true:style=regular\007
 URxvt.keysym.C-7:   command:\033]710;xft:Monospace:pixelsize=14:antialias=true:style=regular\007
 URxvt.keysym.C-8:   command:\033]710;xft:Monospace:pixelsize=15:antialias=true:style=regular\007
@@ -487,7 +486,6 @@ URxvt.keysym.C-9:   command:\033]710;xft:Monospace:pixelsize=18:antialias=true:s
 URxvt.keysym.C-0:   command:\033]710;xft:Monospace:pixelsize=20:antialias=true:style=regular\007
 URxvt.keysym.M-F8:  command:\033]11;#fdf6e3\007\033]10;#657b83\007\033]12;#586e75\007\033]13;#586e75\007\033]708;#fdf6e3\007
 URxvt.keysym.M-F9:  command:\033]11;#002b36\007\033]10;#839496\007\033]12;#93a1a1\007\033]13;#93a1a1\007\033]708;#002b36\007
-! URxvt.keysym.M-F11: perl:solarized:toggle
 
 !! fonts
 URxvt.keysym.C-Up:     perl:font-size:increase
@@ -501,16 +499,6 @@ URxvt.keysym.C-slash:  perl:font-size:show
 ! URxvt.keysym.C-plus:      perl:resize-font:bigger
 ! URxvt.keysym.C-equal:     perl:resize-font:reset
 ! URxvt.keysym.C-question:  perl:resize-font:show
-
-!! tabs
-URxvt.keysym.Shift-Down:  perl:tab-new
-URxvt.keysym.Shift-Left:  perl:tab-previous
-URxvt.keysym.Shift-Right: perl:tab-next
-URxvt.keysym.C-Left:      perl:tab-move-left
-URxvt.keysym.C-Right:     perl:tab-move-right
-URxvt.keysym.Shift-Up:    perl:tab-rename
-URxvt.keysym.M-j:         perl:tab-jump
-URxvt.keysym.M-C-k:       perl:tab-kill
 
 !! fonts
 ! URxvt*font: xft:Terminus:pixelsize=18:antialias=true:style=regular
