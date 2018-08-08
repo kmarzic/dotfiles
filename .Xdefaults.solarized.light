@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2018-08-08 12:04:58 (CEST)
+!! Last update: 2018-08-08 12:17:33 (CEST)
 !! ---------------------------------------------------------------------
 !! xrdb -load $HOME/.Xdefaults
 !! xrdb -merge $HOME/.Xdefaults
@@ -442,15 +442,28 @@ URxvt.tabbed.title-bg: 0
 URXvt.tabbed.reopen-on-close: yes
 
 !! tabbedex
+!! solarized dark
 ! URxvt.tabbedex.autohide: no
-! URxvt.tabbedex.new-button: yes
-! URxvt.tabbedex.tabbar-fg: 1
-! URxvt.tabbedex.tabbar-bg: 7
-! URxvt.tabbedex.tab-fg: 7
+! URxvt.tabbedex.new-button: no
+! URxvt.tabbedex.tabbar-fg: 3
+! URxvt.tabbedex.tabbar-bg: 0
+! URxvt.tabbedex.tab-fg: 0
 ! URxvt.tabbedex.tab-bg: 1
 ! URxvt.tabbedex.title: yes
-! URxvt.tabbedex.title-fg: 7
+! URxvt.tabbedex.title-fg: 1
 ! URxvt.tabbedex.title-bg: 0
+! URXvt.tabbedex.reopen-on-close: yes
+!! solarized light
+URxvt.tabbedex.autohide: no
+URxvt.tabbedex.new-button: no
+URxvt.tabbedex.tabbar-fg: 4
+URxvt.tabbedex.tabbar-bg: 0
+URxvt.tabbedex.tab-fg: 0
+URxvt.tabbedex.tab-bg: 4
+URxvt.tabbedex.title: yes
+URxvt.tabbedex.title-fg: 4
+URxvt.tabbedex.title-bg: 0
+URXvt.tabbedex.reopen-on-close: yes
 
 !! tabbed_new
 ! URxvt.tabbed_new.tabren-bg: 3
