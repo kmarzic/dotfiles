@@ -127,10 +127,10 @@ function __solarized()
             __printf "solarized dark"
 
             #### xmobar
-            cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
+            [[ -e ~/.xmonad/xmobar.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
 
             #### xmonad
-            cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
+            [[ -e ~/.xmonad/xmonad.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -153,31 +153,31 @@ function __solarized()
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
             #### Xdefaults
-            cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.solarized.dark .Xdefaults
-            xrdb -load ~/.Xdefaults.solarized.dark
+            [[ -e ~/.Xdefaults.solarized.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.solarized.dark .Xdefaults
+            [[ -e ~/.Xdefaults.solarized.dark ]] && xrdb -load ~/.Xdefaults.solarized.dark
 
             #### vim
-            cd ~/ && rm -f .vimrc && ln -s .vimrc.solarized.dark .vimrc
-            cd ~/ && rm -f .gvimrc && ln -s .gvimrc.solarized.dark .gvimrc
+            [[ -e ~/.vimrc.solarized.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.solarized.dark .vimrc
+            [[ -e ~/.gvimrc.solarized.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.solarized.dark .gvimrc
 
             #### gtk
-            cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.dark .gtkrc-2.0
+            [[ -e ~/.gtkrc-2.0.solarized.dark ]] && cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.dark .gtkrc-2.0
 
             #### dunstrc
-            cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
+            [[ -e ~/.config/dunst/dunstrc.solarized.dark ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
             pkill dunst
 
             #### screenrc
-            cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.dark .screenrc
+            [[ -e ~/.screenrc.solarized.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.dark .screenrc
 
             #### tmux.conf
-            cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.dark .tmux.conf
+            [[ -e ~/.tmux.conf.solarized.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.dark .tmux.conf
 
             #### kitty
-            cd ~/.config/kitty && rm -f kitty.conf && ln -s kitty.conf.solarized.dark kitty.conf
+            [[ -e ~/.config/kitty/kitty.conf.solarized.dark ]] && cd ~/.config/kitty && rm -f kitty.conf && ln -s kitty.conf.solarized.dark kitty.conf
 
             #### termite
-            cd ~/.config/termite && rm -f config && ln -s config.solarized.dark config
+            [[ -e ~/.config/termite/config.solarized.dark ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.dark config
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-dark
@@ -187,10 +187,10 @@ function __solarized()
             __printf "solarized light"
 
             #### xmobar
-            cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
+            [[ -e ~/.xmonad/xmobar.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
 
             #### xmonad
-            cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
+            [[ -e ~/.xmonad/xmonad.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -210,31 +210,31 @@ function __solarized()
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
             #### Xdefaults
-            cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.solarized.light .Xdefaults
-            xrdb -load ~/.Xdefaults.solarized.light
+            [[ -e ~/.Xdefaults.solarized.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.solarized.light .Xdefaults
+            [[ -e ~/.Xdefaults.solarized.light ]] && xrdb -load ~/.Xdefaults.solarized.light
 
             #### vim
-            cd ~/ && rm -f .vimrc && ln -s .vimrc.solarized.light .vimrc
-            cd ~/ && rm -f .gvimrc && ln -s .gvimrc.solarized.light .gvimrc
+            [[ -e /.vimrc.solarized.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.solarized.light .vimrc
+            [[ -e ~/.gvimrc.solarized.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.solarized.light .gvimrc
 
             #### gtk
-            cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.light .gtkrc-2.0
+            [[ -e ~/.gtkrc-2.0.solarized.light ]] && cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.light .gtkrc-2.0
 
             #### dunstrc
-            cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
+            [[ -e ~/.config/dunst/dunstrc.solarized.light ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
             pkill dunst
 
             #### screenrc
-            cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.light .screenrc
+            [[ -e ~/.screenrc.solarized.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.light .screenrc
 
             #### tmux.conf
-            cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.light .tmux.conf
+            [[ -e ~/.tmux.conf.solarized.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.light .tmux.conf
 
             #### kitty
-            cd ~/.config/kitty && rm -f kitty.conf && ln -s kitty.conf.solarized.light kitty.conf
+            [[ -e ~/.config/kitty/kitty.conf.solarized.light ]] && cd ~/.config/kitty && rm -f kitty.conf && ln -s kitty.conf.solarized.light kitty.conf
 
             #### termite
-            cd ~/.config/termite && rm -f config && ln -s config.solarized.light config
+            [[ -e ~/.config/termite/config.solarized.light ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.light config
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
