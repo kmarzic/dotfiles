@@ -167,6 +167,9 @@ function __solarized()
             cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
             pkill dunst
 
+            #### screenrc
+            cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.dark .screenrc
+
             #### tmux.conf
             cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.dark .tmux.conf
 
@@ -220,6 +223,9 @@ function __solarized()
             #### dunstrc
             cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
             pkill dunst
+
+            #### screenrc
+            cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.light .screenrc
 
             #### tmux.conf
             cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.solarized.light .tmux.conf
