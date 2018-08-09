@@ -79,9 +79,9 @@ encoding utf-8 utf-8
 ## This command controls the display of the window captions.
 # caption always
 # caption always "%{= w}%-w%{= KW}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
-caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
-## Solarized dark
 # caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+## Solarized dark
+caption always "%{= w}%-w%{= rk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized light
 # caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 

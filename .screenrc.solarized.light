@@ -1,0 +1,122 @@
+## screen
+## (C) Kresimir Marzic <kmarzic@gmail.com>
+## Last update: 2018-08-08 18:44:37 (CEST)
+
+## Turn off that annoying start up message
+startup_message off
+
+## Defines the time a message is displayed if screen is not disturbed by other activity.
+msgwait 10
+
+## If verbose is switched on, the command name is echoed, whenever a window is created (or resurrected from zombie state).
+verbose off
+
+## If  set to on, "alternate screen" support is enabled in virtual terminals, just like in xterm.
+altscreen on
+
+## Same as the login command except that the default setting for new windows is changed.
+deflogin on
+
+## Same as the scrollback command except that the default setting for new windows is changed.
+defscrollback 100000
+
+## Same as the bce command except that the default setting for new windows is changed.
+defbce "on"
+
+## Turn the even more annoying whole-screen-flash-on-tab-complete "feature"
+vbell on
+
+## Sets the visual bell message.
+vbell_msg " -- ! -- "
+
+## activity monitoring on windows
+activity "Activity in %t(%n)"
+
+## Tell  screen how to deal with user interfaces (displays) that cease to accept output.
+nonblock on
+
+## Name column in windowlist
+windowlist string "%4n %h%=%f"
+
+## detach on hangup
+autodetach on
+
+## emulate .logout message
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+
+## allow bold colors - necessary for some reason
+# attrcolor b ".I"
+
+## In  each  window's environment screen opens, the $TERM variable is set to "screen" by default.
+# term screen-256color
+# term xterm-256color
+# term rxvt-unicode-256color
+# term rxvt-unicode
+term rxvt-256color
+# term rxvt
+# --
+# termcap xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
+# termcap vt100* ms:AL=\E[%dL:DL=\E[%dM:UP=\E[%dA:DO=\E[%dB:LE=\E[%dD:RI=\E[%dC
+# # --
+# terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
+terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+# terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1%dD:RI=\E[%p1%dC
+# # --
+# termcapinfo xterm*|linux*|rxvt*|Eterm* OP
+# termcapinfo xterm*|linux*|rxvt*|Eterm* ti@:te@
+# termcapinfo xterm* OL=1000
+# termcapinfo xterm* Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+# termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
+# termcapinfo linux "ve=\E[?25h\E[?17;0;64c"
+
+## tells screen that utf8 encoding should be uses (in all + new windows)
+defutf8 on
+defencoding utf-8
+encoding utf-8 utf-8
+
+## This command controls the display of the window captions.
+# caption always
+# caption always "%{= w}%-w%{= KW}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+# caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+## Solarized dark
+# caption always "%{= w}%-w%{= rk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+## Solarized light
+caption always "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+
+## This command configures the use and emulation of the terminal's  hardstatus line.
+##
+# http://www.gnu.org/software/screen/manual/html_node/String-Escapes.html
+#
+# %{= wK} : set colors to bright white (W) on bright black (K) and keep current text styles (=)
+# %H      : hostname
+# [       : opening bracket character
+# %`      : print output of 'backtick' command (defined elsewhere in .screenrc)
+# ]       : closing bracket character
+# %{= wW} : set colors to white (w) on bright black (K) and keep current text styles (=)
+# |       : bar character
+# ${-}    : restore colors to previous colors / undo last color change
+# %-Lw    : list windows before current window (L [optional] = "include flags")
+# %{= bW} : set colors to bright white (W) on blue (b) and keep current text styles (=)
+# %f      : window flags
+# %t      : window title
+# %{-}    : restore colors to previous colors / undo last color change
+# %+Lw    : list windows after current window (L [optional] = "include flags")
+# %=      : expand to fill all space (used here to make remaining content flush right)
+# %C      : current time (12-hr; 24-hr is %c)
+# %a      : am/pm (lowercase; uppercase is %A)
+# %Y      : current year
+# -       : hyphen character
+# %m      : current month (0-padded; %M for "Jan" etc.)
+# -       : hyphen character
+# %d      : current date (0-padded)
+##
+# hardstatus on
+# hardstatus alwayslastline
+# hardstatus string '%{= Kd} %{= Kd}%-w%{= Kr}[%{= KW}%n %t%{= Kr}]%{= Kd}%+w %-= %{KG} %H%{KW} | %{KY}%101`%{KW} | %D %Y-%M-%d%{= Kc} %C%A%{-}'
+# hardstatus string '%{= d} %{= d}%-w%{= r}[%{= W}%n %t%{= r}]%{= d}%+w %-= %{G} | %H * %D %Y-%M-%d * %c%{-}'
+# hardstatus string '%{= d}%-w%{= r}%{G}[%n %t]%{W}%{= d}%+w%{= r} %-= %{G} | %H * %D %Y-%M-%d * %c%{W}%{-}'
+# hardstatus string '%{= d} [%H]:%`[%w]'
+
+#### eof
