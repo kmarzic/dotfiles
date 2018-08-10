@@ -3,8 +3,8 @@
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
 !! Last update: 2018-08-10 10:09:00 (CEST)
 !! ---------------------------------------------------------------------
-!! xrdb -load $HOME/.Xdefaults
-!! xrdb -merge $HOME/.Xdefaults
+!! $ xrdb -load $HOME/.Xdefaults
+!! $ xrdb -merge $HOME/.Xdefaults
 !! ---------------------------------------------------------------------
 
 
@@ -446,13 +446,13 @@ URXvt.tabbed.reopen-on-close: yes
 URxvt.tabbed.tabbedex-rs-prefix: %
 URxvt.tabbedex.no-tabbedex-keys: yes
 URxvt.tabbedex.bell-timeout: 1
-URxvt.keysym.Shift-Down:  perl.tabbedex:new_tab
-URxvt.keysym.Shift-Left:  perl.tabbedex:prev_tab
-URxvt.keysym.Shift-Right: perl.tabbedex:next_tab
-URxvt.keysym.C-Left:      perl.tabbedex:move_tab_left
-URxvt.keysym.C-Right:     perl.tabbedex:move_tab_right
-URxvt.keysym.Shift-Up:    perl.tabbedex:rename_tab
-URxvt.keysym.M-C-k:       perl.tabbedex:kill_tab
+URxvt.keysym.Shift-Down:  tabbedex:new_tab
+URxvt.keysym.Shift-Left:  tabbedex:prev_tab
+URxvt.keysym.Shift-Right: tabbedex:next_tab
+URxvt.keysym.C-Left:      tabbedex:move_tab_left
+URxvt.keysym.C-Right:     tabbedex:move_tab_right
+URxvt.keysym.Shift-Up:    tabbedex:rename_tab
+URxvt.keysym.M-C-k:       tabbedex:kill_tab
 !! solarized dark
 ! URxvt.tabbedex.autohide: no
 ! URxvt.tabbedex.new-button: no
