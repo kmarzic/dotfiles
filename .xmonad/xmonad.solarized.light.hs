@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-08 17:50:52 (CEST)
+-- Last update: 2018-08-10 08:48:58 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -474,10 +474,10 @@ myLogHookPP h s = marshallPP s xmobarPP
 myManageScratchPad :: ManageHook
 myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
   where
-    h = 0.1     -- terminal height, 10%
-    w = 1       -- terminal width, 100%
-    t = 1 - h   -- distance from top edge, 90%
-    l = 1 - w   -- distance from left edge, 0%
+    h = 0.6 -- terminal height, 60%
+    w = 0.6 -- terminal width, 60%
+    t = 0.3 -- distance from top edge, 30%
+    l = 0.1 -- distance from left edge, 10%
 
 myKeysDmenuCommandBlue =
   [
