@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-08-10 13:34:02 (CEST)
+## Last update: 2018-08-10 17:33:27 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind C-b
@@ -26,15 +26,23 @@ set -g history-limit 10000
 ## slightly longer status messages display tim
 set -g display-time 1000
 
-## don't rename windows automatically
-set-option -g allow-rename off
-set-option -g set-titles off
-
-## improve colors
-set -g default-terminal "screen-256color"
+## slightly longer pane indicators display time
+set -g display-panes-time 800
 
 ## no delay for escape key press
 set -sg escape-time 0
+
+## increase repeat timeout
+set -sg repeat-time 600
+
+## don't rename windows automatically
+set-option -g allow-rename off
+set-option -g set-titles off
+setw -g automatic-rename on
+set -g renumber-windows on
+
+## improve colors
+set -g default-terminal "screen-256color"
 
 ## constrain window size to the maximum size
 setw -g aggressive-resize on
@@ -47,9 +55,8 @@ setw -q -g utf8 on
 set-option -g visual-activity off
 set-option -g visual-bell off
 set-option -g visual-silence off
-set-window-option -g monitor-activity off
+set-window-option -g monitor-activity on
 set-option -g bell-action none
-setw -g monitor-activity on
 
 ## status bar
 set -g status-interval 1
@@ -112,6 +119,9 @@ bind P paste-buffer
 # bind-key -T copy-mode-vi y send-keys -X copy-selection
 # bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
+## Reload tmux config
+bind r source-file ~/.tmux.conf
+
 ## Solarized light (1)
 # set -g status-bg '#fdf6e3'
 # set -g status-fg '#586e75'
@@ -133,7 +143,7 @@ bind P paste-buffer
 # set-window-option -g window-status-fg brightyellow #base00
 # set-window-option -g window-status-bg default
 # # set-window-option -g window-status-attr dim
-gg set -g window-status-current-attr bold
+# set -g window-status-current-attr bold
 # 
 # ## active window title colors
 # set-window-option -g window-status-current-fg brightred #orange
