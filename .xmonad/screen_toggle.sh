@@ -144,9 +144,9 @@ function __solarized()
             fi
 
             #### background
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
+            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
             ##
@@ -204,8 +204,8 @@ function __solarized()
             fi
 
             #### background
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
+            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
             ##
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
@@ -362,8 +362,8 @@ function __background()
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized-mountains-light.png solarized.png
     [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s AB_Wallpaper_Light.png solarized.png
     ####
-    # feh --bg-scale ~/wallpapers/solarized/solarized.png
-    feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
+    feh --bg-scale ~/wallpapers/solarized/solarized.png
+    # feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
 }
 
 
