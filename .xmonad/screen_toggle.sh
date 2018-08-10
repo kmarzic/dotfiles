@@ -362,7 +362,8 @@ function __background()
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized-mountains-light.png solarized.png
     [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s AB_Wallpaper_Light.png solarized.png
     ####
-    feh --bg-scale ~/wallpapers/solarized/solarized.png
+    # feh --bg-scale ~/wallpapers/solarized/solarized.png
+    feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
 }
 
 
