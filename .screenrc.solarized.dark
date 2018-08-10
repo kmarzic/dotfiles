@@ -1,6 +1,6 @@
 ## screen
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-08-10 17:57:21 (CEST)
+## Last update: 2018-08-10 18:44:01 (CEST)
 
 ## Turn off that annoying start up message
 startup_message off
@@ -23,20 +23,20 @@ defscrollback 100000
 ## Same as the bce command except that the default setting for new windows is changed.
 defbce "on"
 
-## Turn the even more annoying whole-screen-flash-on-tab-complete "feature"
-vbell on
-
 ## Sets the visual bell message.
 vbell_msg " -- ! -- "
+
+## bell message
+bell_msg "DING! (%n)"
+
+## Turn the even more annoying whole-screen-flash-on-tab-complete "feature"
+vbell on
 
 ## activity monitoring on windows
 activity "Activity in %t(%n)"
 
 ## Tell  screen how to deal with user interfaces (displays) that cease to accept output.
 nonblock on
-
-## Name column in windowlist
-windowlist string "%4n %h%=%f"
 
 ## detach on hangup
 autodetach on
@@ -55,26 +55,23 @@ pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 term rxvt-256color
 # term rxvt
 # --
-# termcap xterm hs@:cs=\E[%i%d;%dr:im=\E[4h:ei=\E[4l
-# termcap vt100* ms:AL=\E[%dL:DL=\E[%dM:UP=\E[%dA:DO=\E[%dB:LE=\E[%dD:RI=\E[%dC
-# # --
-# terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
-terminfo rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-# terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-# terminfo vt100* ms:AL=\E[%p1%dL:DL=\E[%p1%dM:UP=\E[%p1%dA:DO=\E[%p1%dB:LE=\E[%p1%dD:RI=\E[%p1%dC
-# # --
-# termcapinfo xterm*|linux*|rxvt*|Eterm* OP
 termcapinfo xterm*|linux*|rxvt*|Eterm* ti@:te@
-# termcapinfo xterm* OL=1000
-# termcapinfo xterm* Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
-# termcapinfo xterm*|rxvt* 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-termcapinfo rxvt* 'hs:ts=\E]2;:fs=\007:ds=\E]2;screen\007'
-# termcapinfo linux "ve=\E[?25h\E[?17;0;64c"
 
 ## tells screen that utf8 encoding should be uses (in all + new windows)
 defutf8 on
 defencoding utf-8
 encoding utf-8 utf-8
+
+## shell
+shell bash
+
+## list of all windows is displayed for visual window selection.
+## override default `w'(windows) mapping.
+bind w  windowlist
+bind ^W windowlist -m # sorting by most-recently-used list.
+
+## window title
+bind , title
 
 ## This command controls the display of the window captions.
 # caption always
@@ -118,5 +115,13 @@ hardstatus alwayslastline
 hardstatus string "%{= w}%-w%{= rk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized light
 # hardstatus string "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+
+## Name column in windowlist
+## Solarized dark
+windowlist title  "%{= rk}%{u} Num Flags Title%050=Hardstatus%="
+windowlist string '%{dr}%4n %f%011=%{dr}%t%050=%h%='
+## Solarized light
+# windowlist title  "%{= bk}%{u} Num Flags Title%050=Hardstatus%="
+# windowlist string '%{db}%4n %f%011=%{db}%t%050=%h%='
 
 #### eof
