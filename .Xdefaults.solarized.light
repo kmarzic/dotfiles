@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2018-08-08 19:01:56 (CEST)
+!! Last update: 2018-08-10 09:23:24 (CEST)
 !! ---------------------------------------------------------------------
 !! xrdb -load $HOME/.Xdefaults
 !! xrdb -merge $HOME/.Xdefaults
@@ -262,6 +262,7 @@ Xft.dpi: 96
 
 !! ---------------------------------------------------------------------
 !! URxvt
+!! $ urxvt --help 2>&1| sed -n '/:  /s/^ */! URxvt*/gp'
 !! ---------------------------------------------------------------------
 
 URxvt*geometry: 80x40+0+0
@@ -295,6 +296,7 @@ URxvt*visualBell: true
 URxvt*urgentOnBell: true
 URxvt*utmpInhibit: false
 URxvt*mapAlert: true
+URxvt*hold: false
 
 URxvt*cursorBlink: false
 URxvt*cursorUnderline: false
@@ -304,10 +306,10 @@ URxvt*jumpScroll: true
 URxvt*scrollBar: true
 URxvt*scrollBar_right: true
 URxvt*scrollBar_floating: true
-URxvt*scrollstyle: xterm
+! URxvt*scrollstyle: xterm
 ! URxvt*scrollstyle: urxvt
 ! URxvt*scrollstyle: next
-! URxvt*scrollstyle: plain
+URxvt*scrollstyle: plain
 !! do not scroll with output
 URxvt*scrollTtyOutput: false
 !! scroll back to the bottom on keypress
@@ -315,17 +317,18 @@ URxvt*scrollTtyKeypress: true
 !! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
 URxvt*scrollWithBuffer: true
 !! disable the scrollback buffer for the secondary screen
-URxvt*secondaryScreen: 1
+URxvt*secondaryScreen: true
 URxvt*secondaryScroll: true
 URxvt*skipScroll: true
-! URxvt*mouseWheelScrollPage: false
+URxvt*mouseWheelScrollPage: false
 
 !! set to 32-bit for real transparency (compositing required)
 ! URxvt*depth: 24
 URxvt*depth: 32
 
 !! Disable printing the terminal contents when pressing PrintScreen.
-URxvt.print-pipe: "cat > /dev/null"
+! URxvt*print-pipe: "cat > /dev/null"
+URxvt*print-pipe: cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 
 !! transparent shading: 0 to 99 darkens, 101 to 200 lightens
 ! URxvt*shading: 0
@@ -442,6 +445,7 @@ URXvt.tabbed.reopen-on-close: yes
 !! tabbedex
 URxvt.tabbed.tabbedex-rs-prefix: %
 URxvt.tabbedex.no-tabbedex-keys: yes
+URxvt.tabbedex.bell-timeout: 1
 URxvt.keysym.Shift-Down:  tabbedex:new_tab
 URxvt.keysym.Shift-Left:  tabbedex:prev_tab
 URxvt.keysym.Shift-Right: tabbedex:next_tab
@@ -459,7 +463,7 @@ URxvt.keysym.M-C-k:       tabbedex:kill_tab
 ! URxvt.tabbedex.title: yes
 ! URxvt.tabbedex.title-fg: 1
 ! URxvt.tabbedex.title-bg: 0
-! URXvt.tabbedex.reopen-on-close: yes
+! URXvt.tabbedex.reopen-on-close: 0
 !! solarized light
 URxvt.tabbedex.autohide: no
 URxvt.tabbedex.new-button: no
@@ -470,7 +474,7 @@ URxvt.tabbedex.tab-bg: 4
 URxvt.tabbedex.title: yes
 URxvt.tabbedex.title-fg: 4
 URxvt.tabbedex.title-bg: 0
-URXvt.tabbedex.reopen-on-close: yes
+URXvt.tabbedex.reopen-on-close: 0
 
 !! solarized
 ! URxvt.solarized.default:    light
