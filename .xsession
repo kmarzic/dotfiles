@@ -1,4 +1,4 @@
-## xinitrc
+#### xsession
 
 #### Environment Variables
 export __PATH_ORIG="$PATH"
@@ -15,6 +15,9 @@ export LC_TIME="en_DK.UTF-8"
 
 #### .xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
+
+#### i3wm
+# exec i3wm || exec xterm
 
 #### xmonad
 # [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.dark.hs xmonad.hs && cd -
@@ -34,4 +37,8 @@ xmonad --recompile
 ##
 exec xmonad || exec xterm
 
-## END
+#### bspwm
+# ~/bin/sxhkd &
+# exec ~/bin/bspwm || exec xterm
+
+#### END

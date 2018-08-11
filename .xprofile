@@ -3,7 +3,7 @@
 #######################################################################
 ## Environment Variables
 #######################################################################
-export __PATH_ORIG="$PATH"
+
 export PATH="$HOME/bin"
 export PATH="$PATH:/opt/ghc/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
@@ -23,6 +23,7 @@ then
 fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export SXHKD_SHELL=/bin/bash
 
 
 #######################################################################
@@ -96,6 +97,7 @@ setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)
 ## Background
 xsetroot -solid black
 # feh --bg-scale /home/etkkrma/wallpapers/nature/aviamf9.jpg
+
 
 #######################################################################
 ## Stuff
@@ -174,9 +176,9 @@ fi
 ## xcompmgr - sample X compositing manager
 if [[ -e /usr/bin/xcompmgr ]]
 then
-    # /usr/bin/xcompmgr -Fc &
-    # /usr/bin/xcompmgr -CcfF -I-.02 -O-.04 -D0001 -t-5 -l-5 -r4.2 -o.82 &
-    /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82 &
+    /usr/bin/xcompmgr -FCc &
+    # /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82 &
+    # /usr/bin/xcompmgr -F -c -C -t-5 -l-5 -r4.2 -o.55 &
 fi
 
 ## Xeyes
