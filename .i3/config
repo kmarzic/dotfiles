@@ -3,7 +3,7 @@
 
 ## Author: Kresimir Marzic
 ## E-mail: kmarzic@gmail.com
-## Last update: 2018-08-11 19:21:10 (CEST)
+## Last update: 2018-08-11 19:29:42 (CEST)
 
 ## i3wm
 ## https://www.i3wm.org
@@ -380,6 +380,7 @@ for_window [class="Microsoft"] floating enable
 # for_window [class="Skype$"] floating enable
 for_window [class="^Thunderbird$" window_role="^Msgcompose$"] floating enable
 for_window [class="^Thunderbird$" window_role="^EventSummaryDialog$"] floating enable
+#
 for_window [title="AleVT"] floating enable
 for_window [title="Calculator"] floating enable
 for_window [title="Copying"] floating enable
@@ -399,9 +400,12 @@ for_window [title="xman"] floating enable
 # for_window [title="GNU Image Manipulation Program"] floating enable
 # for_window [title="MPlayer"] floating enable
 # for_window [title="VLC"] floating enable
-for_window [instance="TeamViewer.exe"] floating enable
+for_window [title="Exit"] floating enable
+#
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+#
+for_window [instance="TeamViewer.exe"] floating enable
 for_window [instance="urxvt_scratchpad"] move to scratchpad, border 1pixel
 
 
@@ -701,7 +705,7 @@ client.background       $base07
 # exec --no-startup-id feh --bg-scale /opt/elx/share/wallpapers/elx_wallpaper_red_orange.png
 
 ## Gnome Applet - Network
-# exec --no-startup-id nm-applet
+exec --no-startup-id /usr/bin/nm-applet
 ## Gnome Applet - Sound
 # exec --no-startup-id gnome-sound-applet
 ## Gnome Applet - Settings
@@ -717,7 +721,7 @@ client.background       $base07
 exec_always --no-startup-id ~/.i3/screen_toggle.sh -x
 
 ## Dropbox
-exec --no-startup-id dropbox start
+exec --no-startup-id /usr/bin/dropbox start
 
 ## Scratchpad
 exec --no-startup-id urxvt -name urxvt_scratchpad
