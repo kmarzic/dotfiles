@@ -1,8 +1,9 @@
 -- xmonad.hs
--- Last update: 2018-08-10 08:48:58 (CEST)
+-- Last update: 2018-08-12 09:15:13 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.UpdatePointer
 import XMonad.Config
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicHooks
@@ -145,14 +146,14 @@ xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs
 myTerminal :: String
 myTerminal = "urxvt"
 -- myTerminal = "termite"
--- myTerminal = "$HOME/bin/st.solarized.dark"
+-- myTerminal = "$HOME/bin/st.solarized.light"
 
 myTerminalScratchpad :: String
 myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
--- myTerminalScratchpad = "$HOME/bin/st.solarized.dark"
+-- myTerminalScratchpad = "$HOME/bin/st.solarized.light"
 
 myModMask :: KeyMask
 myModMask = mod1Mask
@@ -190,7 +191,10 @@ xmobarEscape = concatMap doubleLts
         doubleLts x   = [x]
 
 myWorkspaces :: [String]
-myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
+myWorkspaces = ["1","2","3","4","5","6","7","8","9","0"]
+
+myWorkspaces1 :: [String]
+myWorkspaces1 = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
   where
     clickable l = [ "<action=`xdotool key alt+" ++ show (n) ++ "`>" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
 
@@ -269,6 +273,90 @@ myTabConfigSolarizedLight = def
     fontName = fontBold
   }
 
+myLogHookBluePP :: PP -- theme: blue
+myLogHookBluePP = def
+  {
+    ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "green" "" . shorten 0,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookGreenPP :: PP -- theme: green
+myLogHookGreenPP = def
+  {
+    ppCurrent         = xmobarColor "green" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "green" "" . shorten 0,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
+myLogHookSolarizedDarkPP = def
+  {
+    ppCurrent         = xmobarColor "#2aa198" "" . wrap "[" "]", -- cyan
+    ppHidden          = xmobarColor "#fdf6e3" "", -- base3
+    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
+    ppTitle           = xmobarColor "#2aa198" "" . shorten 50, -- cyan
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
+    ppLayout          = xmobarColor "#2aa198" "" . -- cyan
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookSolarizedLightPP :: PP -- theme: solarized light
+myLogHookSolarizedLightPP = def
+  {
+    ppCurrent         = xmobarColor "#fdf6e3" "#268bd2" . wrap "[" "]", -- base3/blue
+    ppHidden          = xmobarColor "#002b36" "", -- base03
+    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
+    ppTitle           = xmobarColor "#268bd2" "" . shorten 50, -- blue
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
+    ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . -- base3/blue
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
 myLayoutHook tabConfig =
     gaps [(U,0), (D,0), (L,0), (R,0)]
   $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
@@ -305,7 +393,7 @@ myStartUp = do
   -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
   -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
   spawn "$HOME/.xmonad/screen_toggle.sh -x"
-  spawn "$HOME/.xmonad/trayer.sh"
+  spawnOnce "$HOME/.xmonad/trayer.sh"
 
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
@@ -359,117 +447,65 @@ myManageHook = composeAll . concat $
           "cairo-compmgr", "desktop", "desktop_window", "kdesktop", "trayer"
         ]
 
-myLogHookBlue :: Handle -> X() -- theme: blue
-myLogHookBlue h = dynamicLogWithPP xmobarPP
+myLogHookBlue1 :: Handle -> X()
+myLogHookBlue1 h = dynamicLogWithPP myLogHookBluePP
   {
-    ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
-    ppHidden          = xmobarColor "#ffffff" "",
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "green" "" . shorten 0,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "" .
-      ( \layout -> case layout of
-          "Tabbed Simplest by Full" -> "[_]"
-          "Full by Full"            -> "[ ]"
-          "Tall by Full"            -> "[|]"
-          "Mirror Tall by Full"     -> "[-]"
-          "Roledex by Full"         -> "[@]"
-      ),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppOutput = hPutStrLn h
   }
 
-myLogHookGreen :: Handle -> X() -- theme: green
-myLogHookGreen h = dynamicLogWithPP xmobarPP
+myLogHookBlue2a :: Handle -> ScreenId -> PP
+myLogHookBlue2a h s = myLogHookBluePP
   {
-    ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "green" "" . wrap "[" "]",
-    ppHidden          = xmobarColor "#ffffff" "",
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "green" "" . shorten 0,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "" .
-      ( \layout -> case layout of
-          "Tabbed Simplest by Full" -> "[_]"
-          "Full by Full"            -> "[ ]"
-          "Tall by Full"            -> "[|]"
-          "Mirror Tall by Full"     -> "[-]"
-          "Roledex by Full"         -> "[@]"
-      ),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppOutput = hPutStrLn h
   }
 
-myLogHookSolarizedDark :: Handle -> X () -- theme: solarized dark
-myLogHookSolarizedDark h = dynamicLogWithPP xmobarPP
+myLogHookBlue2 :: [Handle] -> ScreenId -> X ()
+myLogHookBlue2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookBlue2a hs [0..ns-1]
+
+myLogHookGreen1 :: Handle -> X()
+myLogHookGreen1 h = dynamicLogWithPP myLogHookGreenPP
   {
-    ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "#2aa198" "" . wrap "[" "]", -- cyan
-    ppHidden          = xmobarColor "#fdf6e3" "", -- base3
-    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
-    ppTitle           = xmobarColor "#2aa198" "" . shorten 50, -- cyan
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#2aa198" "" . -- cyan
-      ( \layout -> case layout of
-          "Tabbed Simplest by Full" -> "[_]"
-          "Full by Full"            -> "[ ]"
-          "Tall by Full"            -> "[|]"
-          "Mirror Tall by Full"     -> "[-]"
-          "Roledex by Full"         -> "[@]"
-      ),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppOutput = hPutStrLn h
   }
 
-myLogHookSolarizedLight :: Handle -> X () -- theme: solarized light
-myLogHookSolarizedLight h = dynamicLogWithPP xmobarPP
+myLogHookGreen2a :: Handle -> ScreenId -> PP
+myLogHookGreen2a h s = myLogHookGreenPP
   {
-    ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "#fdf6e3" "#268bd2" . wrap "[" "]", -- base3/blue
-    ppHidden          = xmobarColor "#002b36" "", -- base03
-    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
-    ppTitle           = xmobarColor "#268bd2" "" . shorten 50, -- blue
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . -- base3/blue
-      ( \layout -> case layout of
-          "Tabbed Simplest by Full" -> "[_]"
-          "Full by Full"            -> "[ ]"
-          "Tall by Full"            -> "[|]"
-          "Mirror Tall by Full"     -> "[-]"
-          "Roledex by Full"         -> "[@]"
-      ),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppOutput = hPutStrLn h
   }
 
-myLogHookPP :: Handle -> ScreenId -> PP
-myLogHookPP h s = marshallPP s xmobarPP
+myLogHookGreen2 :: [Handle] -> ScreenId -> X ()
+myLogHookGreen2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookGreen2a hs [0..ns-1]
+
+myLogHookSolarizedDark1 :: Handle -> X ()
+myLogHookSolarizedDark1 h = dynamicLogWithPP myLogHookSolarizedDarkPP
   {
-    ppOutput          = hPutStrLn h,
-    ppCurrent         = xmobarColor "orange" "" . wrap "[" "]",
-    ppHidden          = xmobarColor "#ffffff" "",
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "#657b83" "" . shorten 0,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "" .
-      ( \layout -> case layout of
-          "Tabbed Simplest by Full" -> "[_]"
-          "Full by Full"            -> "[ ]"
-          "Tall by Full"            -> "[|]"
-          "Mirror Tall by Full"     -> "[-]"
-          "Roledex by Full"         -> "[@]"
-      ),
-    -- ppOrder           = \(wss:layout:title:_) -> ["\NUL", title, "\NUL", wss],
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppOutput = hPutStrLn h
   }
-  where color c = xmobarColor c ""
+
+myLogHookSolarizedDark2a :: Handle -> ScreenId -> PP
+myLogHookSolarizedDark2a h s = myLogHookSolarizedDarkPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookSolarizedDark2 :: [Handle] -> ScreenId -> X ()
+myLogHookSolarizedDark2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedDark2a hs [0..ns-1]
+
+myLogHookSolarizedLight1 :: Handle -> X ()
+myLogHookSolarizedLight1 h = dynamicLogWithPP myLogHookSolarizedLightPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookSolarizedLight2a :: Handle -> ScreenId -> PP
+myLogHookSolarizedLight2a h s = myLogHookSolarizedLightPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
+myLogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedLight2a hs [0..ns-1]
 
 myManageScratchPad :: ManageHook
 myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
@@ -590,7 +626,7 @@ myMouse =
     ((mod1Mask .|. shiftMask, button5), (\_ -> shiftToNext))                              -- Send client to next workspace
   ]
 
-myConfigSolarizedBlue xmobar1 = def -- theme: blue
+myConfigSolarizedBlue xmobar nScreens = def -- theme: blue
     {
       terminal             = myTerminal,
       modMask              = myModMask,
@@ -602,14 +638,15 @@ myConfigSolarizedBlue xmobar1 = def -- theme: blue
       startupHook          = myStartUp,
       layoutHook           = myLayoutHook myTabConfigBlue,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      logHook              = myLogHookBlue xmobar1,
-      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      -- (1)
+      -- logHook              = myLogHookBlue1 xmobar,
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookBlue2 xmobar nScreens,
       handleEventHook      = handleEventHook def <+> docksEventHook
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandBlue
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedGreen xmobar1 = def -- theme: green
+myConfigSolarizedGreen xmobar nScreens = def -- theme: green
     {
       terminal             = myTerminal,
       modMask              = myModMask,
@@ -621,14 +658,14 @@ myConfigSolarizedGreen xmobar1 = def -- theme: green
       startupHook          = myStartUp,
       layoutHook           = myLayoutHook myTabConfigGreen,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      logHook              = myLogHookGreen xmobar1,
-      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      -- logHook              = myLogHookGreen1 xmobar,
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookGreen2 xmobar nScreens,
       handleEventHook      = handleEventHook def <+> docksEventHook
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandGreen
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedDark xmobar1 = def -- theme: solarized dark
+myConfigSolarizedDark xmobar nScreens = def -- theme: solarized dark
     {
       terminal             = myTerminal,
       modMask              = myModMask,
@@ -641,14 +678,14 @@ myConfigSolarizedDark xmobar1 = def -- theme: solarized dark
       -- layoutHook           = myLayoutHook myTabConfigSolarizedDark,
       layoutHook           = myLayoutHook myTabConfigSolarized,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      logHook              = myLogHookSolarizedDark xmobar1,
-      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      -- logHook              = myLogHookSolarizedDark1 xmobar,
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedDark2 xmobar nScreens,
       handleEventHook      = handleEventHook def <+> docksEventHook
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandSolarizedDark
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedLight xmobar1 = def -- theme: solarized light
+myConfigSolarizedLight xmobar nScreens = def -- theme: solarized light
     {
       terminal             = myTerminal,
       modMask              = myModMask,
@@ -661,8 +698,8 @@ myConfigSolarizedLight xmobar1 = def -- theme: solarized light
       -- layoutHook           = myLayoutHook myTabConfigSolarizedLight,
       layoutHook           = myLayoutHook myTabConfigSolarized,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      logHook              = myLogHookSolarizedLight xmobar1,
-      -- logHook              = mapM_ dynamicLogWithPP $ zipWith myLogHookPP hs [0..nScreens],
+      -- logHook              = myLogHookSolarizedLight1 xmobar,
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedLight2 xmobar nScreens,
       handleEventHook      = handleEventHook def <+> docksEventHook
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandSolarizedLight
@@ -670,16 +707,19 @@ myConfigSolarizedLight xmobar1 = def -- theme: solarized light
 
 main :: IO ()
 main = do
-  -- (1)
-  xmobar1 <- spawnPipe xmobarCommand1
-  -- (2)
-  -- kill        <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
-  -- nScreens    <- countScreens
-  -- hs          <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
-
-  -- xmonad $ myConfigSolarizedBlue xmobar1 -- theme: blue
-  -- xmonad $ myConfigSolarizedGreen xmobar1 -- theme: green
-  xmonad $ myConfigSolarizedDark xmobar1 -- theme: solarized dark
-  -- xmonad $ myConfigSolarizedLight xmobar1  -- theme: solarized light
+  -- (1) single xmobar
+  -- xmobar1 <- spawnPipe xmobarCommand1
+  -- xmonad $ myConfigBlue xmobar1 1 -- theme: blue
+  -- xmonad $ myConfigGreen xmobar1 1 -- theme: green
+  -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
+  -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
+  -- (2) multiple xmobar
+  -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
+  nScreens <- countScreens
+  xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
+  -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: solarized light
+  -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: solarized light
+  xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized light
+  -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
 
 -- end

@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2018-07-21 17:28:38 (CEST)
+-- Last update: 2018-08-12 09:15:13 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -18,8 +18,22 @@ Config {
    fgColor = "#002b36", -- base03
 
    -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
-   font = "xft:Monospace:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Monospace:pixelsize=14:antialias=true:style=bold",
+   font = "xft:Monospace:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Monospace:pixelsize=12:antialias=true:style=bold",
    -- font = "xft:Terminus:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Terminus:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Terminus:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Dejavu Sans Mono:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Dejavu Sans Mono:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Dejavu Sans Mono:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Inconsolata:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Inconsolata:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Inconsolata:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Dec Terminal Bold:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Dec Terminal Bold:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Dec Terminal Bold:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Courier New Bold:pixelsize=12:antialias=true:style=bold",
    additionalFonts = [ "xft:FontAwesome:pixelsize=13" ],
 
    borderColor = "black",
@@ -144,17 +158,17 @@ Config {
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "6"] "spaces1" 300, -- 30s
        Run Com               ".xmonad/wireless.sh" [] "wireless1" 300, -- 30s
-       Run UnsafeStdinReader
+       Run StdinReader
      ],
      sepChar = "%",
      alignSep = "}{",
 
-     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
-     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
-     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
-     -- template = "%UnsafeStdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% | %date% | %spaces1%"
-     -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
-     template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%"
+     -- template = "%StdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
+     -- template = "%StdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
+     -- template = "%StdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
+     -- template = "%StdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% | %date% | %spaces1%"
+     -- template = "%StdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
+     template = "%StdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%"
 }
 
 -- end
