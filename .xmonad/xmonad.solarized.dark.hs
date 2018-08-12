@@ -638,7 +638,6 @@ myConfigSolarizedBlue xmobar nScreens = def -- theme: blue
       startupHook          = myStartUp,
       layoutHook           = myLayoutHook myTabConfigBlue,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      -- (1)
       -- logHook              = myLogHookBlue1 xmobar,
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookBlue2 xmobar nScreens,
       handleEventHook      = handleEventHook def <+> docksEventHook
