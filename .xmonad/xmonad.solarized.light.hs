@@ -165,23 +165,23 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 -- myBorderWidth = 2
 
-myNormalBorderColorBlue  :: String -- theme: blue
+myNormalBorderColorBlue :: String -- theme: blue
 myNormalBorderColorBlue  = "#ffffff"
 myFocusedBorderColorBlue :: String
 myFocusedBorderColorBlue = "#0088cc"
 
-myNormalBorderColorGreen  :: String -- theme: green
-myNormalBorderColorGreen  = "#ffffff"
+myNormalBorderColorGreen :: String -- theme: green
+myNormalBorderColorGreen = "#ffffff"
 myFocusedBorderColorGreen :: String
 myFocusedBorderColorGreen = "#009900"
 
-myNormalBorderColorSolarizedDark  :: String -- theme: solarized dark
-myNormalBorderColorSolarizedDark  = "#002b36" -- base03
+myNormalBorderColorSolarizedDark :: String -- theme: solarized dark
+myNormalBorderColorSolarizedDark = "#002b36" -- base03
 myFocusedBorderColorSolarizedDark :: String
 myFocusedBorderColorSolarizedDark = "#2aa198" -- cyan
 
-myNormalBorderColorSolarizedLight  :: String -- theme: solarized light
-myNormalBorderColorSolarizedLight  = "#fdf6e3" -- base3
+myNormalBorderColorSolarizedLight :: String -- theme: solarized light
+myNormalBorderColorSolarizedLight = "#fdf6e3" -- base3
 myFocusedBorderColorSolarizedLight :: String
 myFocusedBorderColorSolarizedLight = "#268bd2" -- blue
 
