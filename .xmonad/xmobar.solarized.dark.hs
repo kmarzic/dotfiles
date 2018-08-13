@@ -1,5 +1,5 @@
 -- xmobggr.hs
--- Last update: 2018-08-12 09:15:13 (CEST)
+-- Last update: 2018-08-13 11:26:29 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -158,17 +158,18 @@ Config {
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "6"] "spaces1" 300, -- 30s
        Run Com               ".xmonad/wireless.sh" [] "wireless1" 300, -- 30s
-       Run StdinReader
+       -- Run StdinReader
+       Run UnsafeStdinReader
      ],
      sepChar = "%",
      alignSep = "}{",
 
-     -- template = "%StdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
-     -- template = "%StdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
-     -- template = "%StdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
-     -- template = "%StdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% | %date% | %spaces1%"
-     -- template = "%StdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
-     template = "%StdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%"
+     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
+     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
+     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
+     -- template = "%UnsafeStdinReader% }{ %cpu% | %coretemp% | %memory% %swap% | %dynnetwork% %wlp1s0wi% | %battery% | %date% | %spaces1%"
+     -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
+     template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%"
 }
 
 -- end

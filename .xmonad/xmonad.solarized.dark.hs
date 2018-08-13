@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-12 09:15:13 (CEST)
+-- Last update: 2018-08-13 11:27:59 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -190,11 +190,11 @@ xmobarEscape = concatMap doubleLts
   where doubleLts '<' = "<<"
         doubleLts x   = [x]
 
-myWorkspaces :: [String]
-myWorkspaces = ["1","2","3","4","5","6","7","8","9","0"]
-
 myWorkspaces1 :: [String]
-myWorkspaces1 = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
+myWorkspaces1 = ["1","2","3","4","5","6","7","8","9","0"]
+
+myWorkspaces :: [String]
+myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
   where
     clickable l = [ "<action=`xdotool key alt+" ++ show (n) ++ "`>" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
 
@@ -713,7 +713,7 @@ main = do
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
   -- (2) multiple xmobar
-  -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
+  kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: solarized light
