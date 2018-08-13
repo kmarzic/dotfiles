@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-13 11:27:59 (CEST)
+-- Last update: 2018-08-13 15:33:07 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -393,7 +393,7 @@ myStartUp = do
   -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
   -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
   spawn "$HOME/.xmonad/screen_toggle.sh -x"
-  spawnOnce "$HOME/.xmonad/trayer.sh"
+  spawn "$HOME/.xmonad/trayer.sh"
 
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
