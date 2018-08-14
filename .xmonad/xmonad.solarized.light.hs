@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-13 15:33:07 (CEST)
+-- Last update: 2018-08-14 19:47:39 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -83,6 +83,11 @@ help = unlines
     "mod-PageDown         Next Screen",
     "mod-Shift-PageUp     Swap Prev Screen",
     "mod-Shift-PageDown   Swap Next Screen",
+    "mod-[0/~,1..9]       Switch to workSpace N",
+    "mod-[                Previous Workspace",
+    "mod-]                Next Workspace",
+    "mod-shift-Left       Previous Workspace",
+    "mod-shift-Right      Next Workspace",
     "",
     "-- floating layer support",
     "mod-t                Push window back into tiling; unfloat and re-tile it",
@@ -98,7 +103,6 @@ help = unlines
     "mod-Ctrl-s           Monitor off",
     "mod-Ctrl-m           Xrandr reload",
     "mod-q                Restart xmonad",
-    "mod-[0/~,1..9]       Switch to workSpace N",
     "",
     "-- Mouse bindings: default actions bound to mouse events",
     "mod-button1          Set the window to floating mode and move by dragging",
@@ -566,10 +570,14 @@ myKeys =
     ((mod1Mask,                  xK_Up     ), prevScreen), -- cycling through screens
     ((mod1Mask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
     ((mod1Mask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
-    ((mod1Mask,                  xK_h      ), Group.focusGroupUp), -- move the focus to the previous grou
+    ((mod1Mask,                  xK_h      ), Group.focusGroupUp), -- move the focus to the previous group
     ((mod1Mask,                  xK_l      ), Group.focusGroupDown), -- move the focus to the next group
     ((mod1Mask .|. shiftMask,    xK_h      ), Group.moveToGroupUp False), -- move the focused window to the previous group
     ((mod1Mask .|. shiftMask,    xK_l      ), Group.moveToGroupDown False), -- move the focused window to the next group
+    ((mod1Mask,                  xK_bracketleft), prevWS), -- previous workspace
+    ((mod1Mask,                  xK_bracketright), nextWS), -- next workspace
+    ((mod1Mask .|. shiftMask,    xK_Left), prevWS), -- previous workspace
+    ((mod1Mask .|. shiftMask,    xK_Right), nextWS), -- next workspace
     --
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
     ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
