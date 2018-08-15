@@ -1,0 +1,1 @@
+xmonad.solarized.light.hs

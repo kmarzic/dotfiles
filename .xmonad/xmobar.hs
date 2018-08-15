@@ -1,0 +1,1 @@
+xmobar.solarized.light.hs
