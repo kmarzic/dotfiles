@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-14 19:47:39 (CEST)
+-- Last update: 2018-08-15 18:43:04 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -50,7 +50,7 @@ help = unlines
     "PrintScreen          Root screenshot",
     "mod-PrintScreen      Window screenshot",
     "mod-Space            Rotate through the available layout algorithms",
-    "mod-Shift-Space      Reset the layouts on the current workSpace to default",
+    "mod-Shift-Space      Reset the layouts on the current Workspace to default",
     "mod-n                Resize/refresh viewed windows to the correct size",
     "",
     "-- move focus up or down the window stack",
@@ -69,21 +69,19 @@ help = unlines
     "mod-Shift-h          Move the focused window to the next Group",
     "",
     "-- resizing the master/slave ratio",
-    "mod-h                Shrink the master area",
-    "mod-l                Expand the master area",
     "mod-f                Toggle full screen",
     "mod-a                Shrink resizable area",
     "mod-z                Expand resizable area",
     "",
     "-- Workspaces & screens",
-    "mod-Shift-[0/~,1..9] Move client to workspace N",
+    "mod-Shift-[0/~,1..9] Move client to Workspace N",
     "mod-{w,e,r}          Switch to physical/Xinerama screens 1, 2, or 3",
     "mod-Shift-{w,e,r}    Move client to screen 1, 2, or 3",
     "mod-PageUp           Prev Screen",
     "mod-PageDown         Next Screen",
     "mod-Shift-PageUp     Swap Prev Screen",
     "mod-Shift-PageDown   Swap Next Screen",
-    "mod-[0/~,1..9]       Switch to workSpace N",
+    "mod-[0/~,1..9]       Switch to Workspace N",
     "mod-[                Previous Workspace",
     "mod-]                Next Workspace",
     "mod-shift-Left       Previous Workspace",
@@ -91,10 +89,6 @@ help = unlines
     "",
     "-- floating layer support",
     "mod-t                Push window back into tiling; unfloat and re-tile it",
-    "",
-    "-- increase or decrease number of windows in the master area",
-    "mod-comma  (mod-,)   Increment the number of windows in the master area",
-    "mod-period (mod-.)   Deincrement the number of windows in the master area",
     "",
     "-- quit, or restart",
     "mod-Shift-q          Quit xmonad",
@@ -108,10 +102,10 @@ help = unlines
     "mod-button1          Set the window to floating mode and move by dragging",
     "mod-button2          Raise the window to the top of the stack",
     "mod-button3          Set the window to floating mode and resize by dragging",
-    "mod-button4          Switch to previous workspace",
-    "mod-button5          Switch to next workspace",
-    "mod-Shift-button4    Send client to previous workspace",
-    "mod-Shift-button5    Send client to next workspace"
+    "mod-button4          Switch to previous Workspace",
+    "mod-button5          Switch to next Workspace",
+    "mod-Shift-button4    Send client to previous Workspace",
+    "mod-Shift-button5    Send client to next Workspace"
   ]
 
 fontRegular :: String
@@ -163,6 +157,7 @@ myModMask :: KeyMask
 myModMask = mod1Mask
 
 myFocusFollowsMouse :: Bool
+-- myFocusFollowsMouse = True
 myFocusFollowsMouse = False
 
 myBorderWidth :: Dimension
