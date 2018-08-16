@@ -37,7 +37,7 @@ function __monitor_off()
 
 function __logout()
 {
-    pkill -x xmonad; pkill -x panel; pkill -x panel; bspc quit; bspc quit 1
+    pkill xmonad; [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; pkill -x panel; pkill -x panel; [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
 }
 
 function __suspend()
