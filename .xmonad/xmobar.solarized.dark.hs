@@ -24,6 +24,9 @@ Config {
    -- font = "xft:Terminus:pixelsize=14:antialias=true:style=bold",
    -- font = "xft:Terminus:pixelsize=13:antialias=true:style=bold",
    -- font = "xft:Terminus:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Droid Sans Mono:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Droid Sans Mono:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Droid Sans Mono:pixelsize=12:antialias=true:style=bold",
    -- font = "xft:Dejavu Sans Mono:pixelsize=14:antialias=true:style=bold",
    -- font = "xft:Dejavu Sans Mono:pixelsize=13:antialias=true:style=bold",
    -- font = "xft:Dejavu Sans Mono:pixelsize=12:antialias=true:style=bold",
@@ -33,7 +36,18 @@ Config {
    -- font = "xft:Dec Terminal Bold:pixelsize=14:antialias=true:style=bold",
    -- font = "xft:Dec Terminal Bold:pixelsize=13:antialias=true:style=bold",
    -- font = "xft:Dec Terminal Bold:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Courier New Bold:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Courier New Bold:pixelsize=13:antialias=true:style=bold",
    -- font = "xft:Courier New Bold:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Free Mono:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Free Mono:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Free Mono:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Misc Fixed:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:Misc Fixed:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:Misc Fixed:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:xos4 Terminus:pixelsize=14:antialias=true:style=bold",
+   -- font = "xft:xos4 Terminus:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:xos4 Terminus:pixelsize=12:antialias=true:style=bold",
    additionalFonts = [ "xft:FontAwesome:pixelsize=13" ],
 
    borderColor = "black",
@@ -53,29 +67,29 @@ Config {
 
    commands =
      [ Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=#859900><rh></fc>% <fc=#859900><pressure></fc>hPa",
-                               "--Low"      , "18",
+                               "--Low"      , "10",
                                "--High"     , "25",
+                               "--low"      , "#2aa198", -- cyan
                                "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f", -- red
-                               "--low"      , "#2aa198" -- cyan
+                               "--high"     , "#dc322f" -- red
                              ] 36000, -- 1h
 
        Run DynNetwork        [ "--template" , "<dev>: <tx>kB/s <rx>kB/s",
                                "--Low"      , "10000", -- units: 10 kB/s
                                "--High"     , "500000", -- units: 500 kB/s
-                               "--low"      , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
-                               "--high"     , "#dc322f", -- red
                                "--minwidth" , "4",
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
                                "-c"         , " "
                              ] 10, -- 1s
 
        Run Wireless "wlp1s0" [ "--template" , "<fc=#2aa198><essid>:</fc><quality>%", -- cyan
                                "--Low"      , "20",
                                "--High"     , "70",
-                               "--high"     , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
-                               "--low"      , "#dc322f", -- red
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
                                "--minwidth" , "3",
                                "--nastring" , "No Wifi"
                              ] 10, -- 1s
@@ -83,9 +97,9 @@ Config {
        Run Battery           [ "--template" , "BAT: <acstatus>",
                                "--Low"      , "10",
                                "--High"     , "80",
-                               "--low"      , "#dc322f", -- red
-                               "--normal"   , "#cb4b16", -- orange
-                               "--high"     , "#859900", -- green
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
 
                                "--", -- battery specific options
                                -- discharging status
@@ -99,8 +113,8 @@ Config {
        Run MultiCpu          [ "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
                                "--Low"      , "50",
                                "--High"     , "85",
-                               "--low"      , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f", -- red
                                "--width"    , "2"
                              ] 10, -- 1s
@@ -108,8 +122,8 @@ Config {
        Run Cpu               [ "--template" , "CPU: <total>%",
                                "--Low"      , "3",
                                "--High"     , "80",
-                               "--low"      , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f", -- red
                                "--width"    , "2"
                              ] 10, -- 1s
@@ -117,25 +131,25 @@ Config {
        Run CoreTemp          [ "--template" , "T: <core0>°C",
                                "--Low"      , "70",
                                "--High"     , "80",
-                               "--low"      , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f" -- red
                              ] 50, -- 5s
 
        Run Memory            [ "--template" , "RAM: <usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--low"      , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f" -- red
                              ] 10, -- 1s
 
        Run Swap              [ "--template" ,"Swap: <usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--low"      , "#859900", -- green
-                               "--normal"   , "#cb4b16", -- orange
-                               "--high"     , "#dc322f" --red
+                               "--low"      , "#2aa198", -- cyan
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f" -- red
                              ] 10, -- 1s
 
        Run DiskU             [ ("/", "/: <used> <size>"),
