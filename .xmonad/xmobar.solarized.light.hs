@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2018-08-13 11:26:29 (CEST)
+-- Last update: 2018-08-17 08:46:51 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -52,7 +52,7 @@ Config {
    overrideRedirect = True, -- set the Override Redirect flag (Xlib)
 
    commands =
-     [ Run Weather "LDZA"    [ "--template" ,"<station>: <tempC>°C <rh>% <pressure> hPa",
+     [ Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=#859900><rh></fc>% <fc=#859900><pressure></fc>hPa",
                                "--Low"      , "18",
                                "--High"     , "25",
                                "--normal"   , "#859900", -- green
@@ -154,6 +154,8 @@ Config {
        -- Run Date              "<fc=#2aa198>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / blue
        Run Date              "<fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / base3
+       -- Run Date              "<fc=#fdf6e3>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "6"] "spaces1" 300, -- 30s
