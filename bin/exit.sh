@@ -37,7 +37,10 @@ function __monitor_off()
 
 function __logout()
 {
-    pkill xmonad; [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; pkill -x panel; pkill -x panel; [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
+    [ $(ps -ef | grep "xmonad-x86_64-linux" | wc -l) -gt 0 ] && pkill xmonad; \
+    [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; \
+    pkill -x panel; pkill -x panel; \
+    [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
 }
 
 function __suspend()
