@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2018-08-17 08:46:51 (CEST)
+-- Last update: 2018-08-17 10:10:02 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
