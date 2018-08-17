@@ -317,7 +317,7 @@ myLogHookGreenPP = def
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
 myLogHookSolarizedDarkPP = def
   {
-    ppCurrent         = xmobarColor "#d33682" "" . wrap "[" "]", -- magenta
+    ppCurrent         = xmobarColor "#fdf6e3" "#dc322f" . wrap "[" "]", -- base3/red
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
     ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
     ppTitle           = xmobarColor "#b58900" "" . shorten 50, -- yellow
