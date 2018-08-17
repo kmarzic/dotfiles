@@ -317,13 +317,13 @@ myLogHookGreenPP = def
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
 myLogHookSolarizedDarkPP = def
   {
-    ppCurrent         = xmobarColor "#fdf6e3" "#dc322f" . wrap "[" "]", -- base3/red
+    ppCurrent         = xmobarColor "#002b36" "#2aa198" . wrap "[" "]", -- base03/cyan
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
     ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
-    ppTitle           = xmobarColor "#b58900" "" . shorten 50, -- yellow
+    ppTitle           = xmobarColor "#2aa198" "" . shorten 50, -- cyan
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#fdf6e3" "" . -- base3
+    ppLayout          = xmobarColor "#002b36" "#2aa198" . -- base03/cyan
       ( \layout -> case layout of
           "Tabbed Simplest by Full" -> "[_]"
           "Full by Full"            -> "[ ]"
