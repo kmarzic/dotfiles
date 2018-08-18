@@ -273,7 +273,7 @@ myTabConfigSolarizedLight = def
   }
 
 myLogHookBluePP :: PP -- theme: blue
-myLogHookBluePP = def
+myLogHookBluePP = defaultPP
   {
     ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
     ppHidden          = xmobarColor "#ffffff" "",
@@ -294,7 +294,7 @@ myLogHookBluePP = def
   }
 
 myLogHookGreenPP :: PP -- theme: green
-myLogHookGreenPP = def
+myLogHookGreenPP = defaultPP
   {
     ppCurrent         = xmobarColor "green" "" . wrap "[" "]",
     ppHidden          = xmobarColor "#ffffff" "",
@@ -315,7 +315,7 @@ myLogHookGreenPP = def
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
-myLogHookSolarizedDarkPP = def
+myLogHookSolarizedDarkPP = defaultPP
   {
     ppCurrent         = xmobarColor "#002b36" "#2aa198" . wrap "[" "]", -- base03/cyan
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
@@ -336,7 +336,7 @@ myLogHookSolarizedDarkPP = def
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
-myLogHookSolarizedLightPP = def
+myLogHookSolarizedLightPP = defaultPP
   {
     ppCurrent         = xmobarColor "#fdf6e3" "#268bd2" . wrap "[" "]", -- base3/blue
     ppHidden          = xmobarColor "#002b36" "", -- base03
@@ -639,29 +639,30 @@ myConfigDefault = def
       startupHook          = myStartUp,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
       handleEventHook      = handleEventHook def <+> docksEventHook
-    }
+    } `additionalKeys` myKeys
+      `additionalMouseBindings` myMouse
 
 myConfigSolarizedBlue xmobar nScreens = myConfigDefault -- theme: blue
     {
       normalBorderColor    = myNormalBorderColorBlue,
       focusedBorderColor   = myFocusedBorderColorBlue,
       layoutHook           = myLayoutHook myTabConfigBlue,
+      -- (1) single xmobar
       -- logHook              = myLogHookBlue1 xmobar,
+      -- (2) multiple xmobar
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookBlue2 xmobar nScreens
-    } `additionalKeys` myKeys
-      `additionalKeys` myKeysDmenuCommandBlue
-      `additionalMouseBindings` myMouse
+    } `additionalKeys` myKeysDmenuCommandBlue
 
 myConfigSolarizedGreen xmobar nScreens = myConfigDefault -- theme: green
     {
       normalBorderColor    = myNormalBorderColorGreen,
       focusedBorderColor   = myFocusedBorderColorGreen,
       layoutHook           = myLayoutHook myTabConfigGreen,
+      -- (1) single xmobar
       -- logHook              = myLogHookGreen1 xmobar,
+      -- (2) multiple xmobar
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookGreen2 xmobar nScreens
-    } `additionalKeys` myKeys
-      `additionalKeys` myKeysDmenuCommandGreen
-      `additionalMouseBindings` myMouse
+    } `additionalKeys` myKeysDmenuCommandGreen
 
 myConfigSolarizedDark xmobar nScreens = myConfigDefault -- theme: solarized dark
     {
@@ -669,11 +670,11 @@ myConfigSolarizedDark xmobar nScreens = myConfigDefault -- theme: solarized dark
       focusedBorderColor   = myFocusedBorderColorSolarizedDark,
       -- layoutHook           = myLayoutHook myTabConfigSolarizedDark,
       layoutHook           = myLayoutHook myTabConfigSolarized,
+      -- (1) single xmobar
       -- logHook              = myLogHookSolarizedDark1 xmobar,
+      -- (2) multiple xmobar
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedDark2 xmobar nScreens
-    } `additionalKeys` myKeys
-      `additionalKeys` myKeysDmenuCommandSolarizedDark
-      `additionalMouseBindings` myMouse
+    } `additionalKeys` myKeysDmenuCommandSolarizedDark
 
 myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized light
     {
@@ -681,11 +682,11 @@ myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized lig
       focusedBorderColor   = myFocusedBorderColorSolarizedLight,
       -- layoutHook           = myLayoutHook myTabConfigSolarizedLight,
       layoutHook           = myLayoutHook myTabConfigSolarized,
+      -- (1) single xmobar
       -- logHook              = myLogHookSolarizedLight1 xmobar,
+      -- (2) multiple xmobar
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedLight2 xmobar nScreens
-    } `additionalKeys` myKeys
-      `additionalKeys` myKeysDmenuCommandSolarizedLight
-      `additionalMouseBindings` myMouse
+    } `additionalKeys` myKeysDmenuCommandSolarizedLight
 
 main :: IO ()
 main = do
