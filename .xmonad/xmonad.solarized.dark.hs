@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-17 10:17:16 (CEST)
+-- Last update: 2018-08-18 20:33:15 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -629,80 +629,60 @@ myMouse =
     ((mod1Mask .|. shiftMask, button5), (\_ -> shiftToNext))                              -- Send client to next workspace
   ]
 
-myConfigSolarizedBlue xmobar nScreens = def -- theme: blue
+myConfigDefault = def
     {
       terminal             = myTerminal,
       modMask              = myModMask,
       focusFollowsMouse    = myFocusFollowsMouse,
       borderWidth          = myBorderWidth,
-      normalBorderColor    = myNormalBorderColorBlue,
-      focusedBorderColor   = myFocusedBorderColorBlue,
       workspaces           = myWorkspaces,
       startupHook          = myStartUp,
-      layoutHook           = myLayoutHook myTabConfigBlue,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      -- logHook              = myLogHookBlue1 xmobar,
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookBlue2 xmobar nScreens,
       handleEventHook      = handleEventHook def <+> docksEventHook
+    }
+
+myConfigSolarizedBlue xmobar nScreens = myConfigDefault -- theme: blue
+    {
+      normalBorderColor    = myNormalBorderColorBlue,
+      focusedBorderColor   = myFocusedBorderColorBlue,
+      layoutHook           = myLayoutHook myTabConfigBlue,
+      -- logHook              = myLogHookBlue1 xmobar,
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookBlue2 xmobar nScreens
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandBlue
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedGreen xmobar nScreens = def -- theme: green
+myConfigSolarizedGreen xmobar nScreens = myConfigDefault -- theme: green
     {
-      terminal             = myTerminal,
-      modMask              = myModMask,
-      focusFollowsMouse    = myFocusFollowsMouse,
-      borderWidth          = myBorderWidth,
       normalBorderColor    = myNormalBorderColorGreen,
       focusedBorderColor   = myFocusedBorderColorGreen,
-      workspaces           = myWorkspaces,
-      startupHook          = myStartUp,
       layoutHook           = myLayoutHook myTabConfigGreen,
-      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
       -- logHook              = myLogHookGreen1 xmobar,
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookGreen2 xmobar nScreens,
-      handleEventHook      = handleEventHook def <+> docksEventHook
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookGreen2 xmobar nScreens
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandGreen
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedDark xmobar nScreens = def -- theme: solarized dark
+myConfigSolarizedDark xmobar nScreens = myConfigDefault -- theme: solarized dark
     {
-      terminal             = myTerminal,
-      modMask              = myModMask,
-      focusFollowsMouse    = myFocusFollowsMouse,
-      borderWidth          = myBorderWidth,
       normalBorderColor    = myNormalBorderColorSolarizedDark,
       focusedBorderColor   = myFocusedBorderColorSolarizedDark,
-      workspaces           = myWorkspaces,
-      startupHook          = myStartUp,
       -- layoutHook           = myLayoutHook myTabConfigSolarizedDark,
       layoutHook           = myLayoutHook myTabConfigSolarized,
-      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
       -- logHook              = myLogHookSolarizedDark1 xmobar,
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedDark2 xmobar nScreens,
-      handleEventHook      = handleEventHook def <+> docksEventHook
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedDark2 xmobar nScreens
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandSolarizedDark
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedLight xmobar nScreens = def -- theme: solarized light
+myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized light
     {
-      terminal             = myTerminal,
-      modMask              = myModMask,
-      focusFollowsMouse    = myFocusFollowsMouse,
-      borderWidth          = myBorderWidth,
       normalBorderColor    = myNormalBorderColorSolarizedLight,
       focusedBorderColor   = myFocusedBorderColorSolarizedLight,
-      workspaces           = myWorkspaces,
-      startupHook          = myStartUp,
       -- layoutHook           = myLayoutHook myTabConfigSolarizedLight,
       layoutHook           = myLayoutHook myTabConfigSolarized,
-      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
       -- logHook              = myLogHookSolarizedLight1 xmobar,
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedLight2 xmobar nScreens,
-      handleEventHook      = handleEventHook def <+> docksEventHook
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedLight2 xmobar nScreens
     } `additionalKeys` myKeys
       `additionalKeys` myKeysDmenuCommandSolarizedLight
       `additionalMouseBindings` myMouse
