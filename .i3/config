@@ -3,7 +3,7 @@
 
 ## Author: Kresimir Marzic
 ## E-mail: kmarzic@gmail.com
-## Last update: 2018-08-11 19:29:42 (CEST)
+## Last update: 2018-08-19 19:41:05 (CEST)
 
 ## i3wm
 ## https://www.i3wm.org
@@ -135,18 +135,18 @@ set $base0F #d33682
 # set $screen_monitor_2 DVI-I-1
 #
 ## ELX Dell Latitude E6440
-set $screen_laptop    eDP-1 # Laptop
+# set $screen_laptop    eDP-1 # Laptop
 # set $screen_monitor_1 VGA-1 # External Monitor
-set $screen_monitor_1 HDMI-1 # Projector
+# set $screen_monitor_1 HDMI-1 # Projector
 # set $screen_monitor_1 HDMI-2 # External Monitor
 # set $screen_monitor_2 HDMI-3 # External Monitor
 #
 ## ELX Dell Latitude E5570
-# set $screen_laptop    eDP1 # Laptop
+set $screen_laptop    eDP1 # Laptop
 # set $screen_monitor_1 VGA1 # External Monitor
 # set $screen_monitor_1 HDMI1 # Projector
-# set $screen_monitor_1 HDMI1 # External Monitor
-# set $screen_monitor_2 HDMI2 # External Monitor
+set $screen_monitor_1 HDMI1 # External Monitor
+set $screen_monitor_2 HDMI2 # External Monitor
 
 ## Font for window titles. ISO 10646 = Unicode
 font $font
@@ -623,11 +623,11 @@ bar {
     # tray_output $screen_laptop
     # tray_output $screen_monitor_1
     # tray_output $screen_monitor_2
-    tray_output primary
+    # tray_output primary
 
     ## Separator Symbol
     # separator_symbol ":|:"
-    # separator_symbol "|"
+    separator_symbol "|"
 
     ## Strip workspace numbers
     # strip_workspace_numbers yes
@@ -658,9 +658,9 @@ bar {
     }
 }
 
-bar {
-    output $screen_monitor_1
-}
+# bar {
+#     output $screen_monitor_1
+# }
 
 # bar {
 #     output $screen_monitor_2
@@ -687,6 +687,7 @@ client.unfocused        $base01 $base00 $base05 $base01 $base01
 client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
+
 
 ################################################################################
 ## AUTOSTART #
