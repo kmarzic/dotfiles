@@ -272,6 +272,104 @@ myTabConfigSolarizedLight = def
     fontName = fontBold
   }
 
+myStartUp :: X()
+myStartUp = do
+  -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
+  -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
+  -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
+  spawn "$HOME/.xmonad/screen_toggle.sh -x"
+  spawn "$HOME/.xmonad/trayer.sh"
+
+myManageScratchPad :: ManageHook
+myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+  where
+    h = 0.6 -- terminal height, 60%
+    w = 0.6 -- terminal width, 60%
+    t = 0.3 -- distance from top edge, 30%
+    l = 0.1 -- distance from left edge, 10%
+
+myManageHook :: ManageHook
+myManageHook = composeAll . concat $
+-- xprop | grep WM_CLASS
+    [
+      [className =? "Chromium" --> doShift (myWorkspaces !! 4)],
+      [className =? "Chromium-browser" --> doShift (myWorkspaces !! 4)],
+      [className =? "Chrome" --> doShift (myWorkspaces !! 4)],
+      [className =? "Opera" --> doShift (myWorkspaces !! 4)],
+      [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
+      [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
+      [className =? "Vivaldi" --> doShift (myWorkspaces !! 4)],
+      [className =? "Vivaldi-stable" --> doShift (myWorkspaces !! 4)],
+      [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
+      [className =? "Skype" --> doShift (myWorkspaces !! 6)],
+      [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
+      [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
+      --
+      [role      =? "GtkFileChooserDialog" --> doFullFloat],
+      --
+      [className =? c --> doFloat  | c <- myClassFloats],
+      [title     =? t --> doFloat  | t <- myTitleFloats],
+      [resource  =? r --> doFloat  | r <- myResourceFloats],
+      [resource  =? i --> doIgnore | i <- myIgnores],
+      --
+      [isDialog       --> doFloat],
+      [isFullscreen   --> (doF W.focusDown <+> doFullFloat)]
+    ]
+    where
+      role          = stringProperty "WM_WINDOW_ROLE"
+      netName       = stringProperty "_NET_WM_NAME"
+      name          = stringProperty "WM_NAME"
+      myClassFloats =
+        [
+          "Gimp", "MPlayer", "Nvidia-settings", "Sysinfo", "vlc", "Vncviewer",
+          "XCalc", "XFontSel", "Xmessage"
+        ]
+      myTitleFloats =
+        [
+          "Autofill Options", "Choose a file", "Clear Private Data", "Copying files", "Downloads",
+          "File Operation Progress", "File Properties", "File Transfers", "Moving files",
+          "Passwords and Exceptions", "Preferences", "Rename File", "Replace", "Save As...", "Search Engines",
+          "Firefox Preferences", "Iceweasel Preferences", "Thunderbird Preferences"
+        ]
+      myResourceFloats =
+        [
+          "buddy_list", "ticker", "gimp-toolbox", "gimp-dock", "gimp-image-window",  "xeyes"
+        ]
+      myIgnores =
+        [
+          "cairo-compmgr", "desktop", "desktop_window", "kdesktop", "trayer"
+        ]
+
+myLayoutHook tabConfig =
+    gaps [(U,0), (D,0), (L,0), (R,0)]
+  $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
+  $ smartBorders
+  $ avoidStruts
+  $ toggleLayouts (noBorders $ full')
+  $ toggleLayouts (noBorders $ tab2')
+  $ myLayouts
+  -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
+  where
+    -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
+    -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
+    myLayouts  = full' |||  tab2' ||| tiled' ||| mirror' ||| roledex'
+    --
+    -- tab1'      = tabbed shrinkText tabConfig
+    tab2'      = tabbedAlways shrinkText tabConfig
+    tiled'     = Tall nmaster delta ratio
+    mirror'    = Mirror tiled'
+    threecol'  = ThreeColMid nmaster delta ratio
+    full'      = Full
+    resizetab' = ResizableTall 1 (3/100) (1/2) []
+    roledex'   = Roledex
+    --
+    -- The default number of windows in the master pane
+    nmaster  = 1
+    -- Default proportion of screen occupied by master pane
+    ratio    = 1/2
+    -- Percent of screen to increment by when resizing panes
+    delta    = 2/100
+
 myLogHookBluePP :: PP -- theme: blue
 myLogHookBluePP = defaultPP
   {
@@ -356,96 +454,6 @@ myLogHookSolarizedLightPP = defaultPP
     ppWsSep           = " " -- separator between workspaces
   }
 
-myLayoutHook tabConfig =
-    gaps [(U,0), (D,0), (L,0), (R,0)]
-  $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
-  $ smartBorders
-  $ avoidStruts
-  $ toggleLayouts (noBorders $ full')
-  $ toggleLayouts (noBorders $ tab2')
-  $ myLayouts
-  -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
-  where
-    -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
-    -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
-    myLayouts  = full' |||  tab2' ||| tiled' ||| mirror' ||| roledex'
-    --
-    -- tab1'      = tabbed shrinkText tabConfig
-    tab2'      = tabbedAlways shrinkText tabConfig
-    tiled'     = Tall nmaster delta ratio
-    mirror'    = Mirror tiled'
-    threecol'  = ThreeColMid nmaster delta ratio
-    full'      = Full
-    resizetab' = ResizableTall 1 (3/100) (1/2) []
-    roledex'   = Roledex
-    --
-    -- The default number of windows in the master pane
-    nmaster  = 1
-    -- Default proportion of screen occupied by master pane
-    ratio    = 1/2
-    -- Percent of screen to increment by when resizing panes
-    delta    = 2/100
-
-myStartUp :: X()
-myStartUp = do
-  -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
-  -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
-  -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
-  spawn "$HOME/.xmonad/screen_toggle.sh -x"
-  spawn "$HOME/.xmonad/trayer.sh"
-
-myManageHook :: ManageHook
-myManageHook = composeAll . concat $
--- xprop | grep WM_CLASS
-    [
-      [className =? "Chromium" --> doShift (myWorkspaces !! 4)],
-      [className =? "Chromium-browser" --> doShift (myWorkspaces !! 4)],
-      [className =? "Chrome" --> doShift (myWorkspaces !! 4)],
-      [className =? "Opera" --> doShift (myWorkspaces !! 4)],
-      [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
-      [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
-      [className =? "Vivaldi" --> doShift (myWorkspaces !! 4)],
-      [className =? "Vivaldi-stable" --> doShift (myWorkspaces !! 4)],
-      [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
-      [className =? "Skype" --> doShift (myWorkspaces !! 6)],
-      [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
-      [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
-      --
-      [role      =? "GtkFileChooserDialog" --> doFullFloat],
-      --
-      [className =? c --> doFloat  | c <- myClassFloats],
-      [title     =? t --> doFloat  | t <- myTitleFloats],
-      [resource  =? r --> doFloat  | r <- myResourceFloats],
-      [resource  =? i --> doIgnore | i <- myIgnores],
-      --
-      [isDialog       --> doFloat],
-      [isFullscreen   --> (doF W.focusDown <+> doFullFloat)]
-    ]
-    where
-      role          = stringProperty "WM_WINDOW_ROLE"
-      netName       = stringProperty "_NET_WM_NAME"
-      name          = stringProperty "WM_NAME"
-      myClassFloats =
-        [
-          "Gimp", "MPlayer", "Nvidia-settings", "Sysinfo", "vlc", "Vncviewer",
-          "XCalc", "XFontSel", "Xmessage"
-        ]
-      myTitleFloats =
-        [
-          "Autofill Options", "Choose a file", "Clear Private Data", "Copying files", "Downloads",
-          "File Operation Progress", "File Properties", "File Transfers", "Moving files",
-          "Passwords and Exceptions", "Preferences", "Rename File", "Replace", "Save As...", "Search Engines",
-          "Firefox Preferences", "Iceweasel Preferences", "Thunderbird Preferences"
-        ]
-      myResourceFloats =
-        [
-          "buddy_list", "ticker", "gimp-toolbox", "gimp-dock", "gimp-image-window",  "xeyes"
-        ]
-      myIgnores =
-        [
-          "cairo-compmgr", "desktop", "desktop_window", "kdesktop", "trayer"
-        ]
-
 myLogHookBlue1 :: Handle -> X()
 myLogHookBlue1 h = dynamicLogWithPP myLogHookBluePP
   {
@@ -505,14 +513,6 @@ myLogHookSolarizedLight2a h s = myLogHookSolarizedLightPP
 
 myLogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
 myLogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedLight2a hs [0..ns-1]
-
-myManageScratchPad :: ManageHook
-myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
-  where
-    h = 0.6 -- terminal height, 60%
-    w = 0.6 -- terminal width, 60%
-    t = 0.3 -- distance from top edge, 30%
-    l = 0.1 -- distance from left edge, 10%
 
 myKeysDmenuCommandBlue =
   [
