@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-19 09:23:38 (CEST)
+-- Last update: 2018-08-20 14:49:23 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -371,7 +371,7 @@ myLayoutHook tabConfig =
     delta    = 2/100
 
 myLogHookBluePP :: PP -- theme: blue
-myLogHookBluePP = defaultPP
+myLogHookBluePP = def
   {
     ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
     ppHidden          = xmobarColor "#ffffff" "",
@@ -392,7 +392,7 @@ myLogHookBluePP = defaultPP
   }
 
 myLogHookGreenPP :: PP -- theme: green
-myLogHookGreenPP = defaultPP
+myLogHookGreenPP = def
   {
     ppCurrent         = xmobarColor "green" "" . wrap "[" "]",
     ppHidden          = xmobarColor "#ffffff" "",
@@ -413,7 +413,7 @@ myLogHookGreenPP = defaultPP
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
-myLogHookSolarizedDarkPP = defaultPP
+myLogHookSolarizedDarkPP = def
   {
     ppCurrent         = xmobarColor "#002b36" "#2aa198" . wrap "[" "]", -- base03/cyan
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
@@ -434,7 +434,7 @@ myLogHookSolarizedDarkPP = defaultPP
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
-myLogHookSolarizedLightPP = defaultPP
+myLogHookSolarizedLightPP = def
   {
     ppCurrent         = xmobarColor "#fdf6e3" "#268bd2" . wrap "[" "]", -- base3/blue
     ppHidden          = xmobarColor "#002b36" "", -- base03
