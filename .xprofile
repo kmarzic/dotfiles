@@ -4,6 +4,7 @@
 ## Environment Variables
 #######################################################################
 
+export __PATH_ORIG="$PATH"
 export PATH="$HOME/bin"
 export PATH="$PATH:/opt/ghc/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
@@ -52,8 +53,8 @@ xset dpms 1200 1560 1800
 xset m 1
 
 ## font path
-#xset fp+ unix/:7101
-#xset fp rehash
+# xset fp+ unix/:7101
+# xset fp rehash
 
 ## disable bell
 xset -b
@@ -79,20 +80,8 @@ xrdb -merge ~/.Xdefaults
 # xmodmap ~/.Xmodmap
 
 ## setxkbmap
-# setxbkmap -model pc105
 # setxkbmap -rules xorg -model pc105 -layout hr_US -option ""
-# setxkbmap hr
-# setxkbmap us
-# setxkbmap hr us
-# setxkbmap hr us -option eurosign:e
-#
-# setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,ctrl:nocaps' 'hr(us)'
-# setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,ctrl:nocaps,compose:rctrl' 'hr(us)'
 setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
-# setxkbmap -rules evdev -model evdev -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch:ctrl:nocaps' -layout 'hr(us),de'
-# setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:rctrl' -layout 'hr(us),de(qwerty)'
-# setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:rwin' -layout 'hr(us)'
-# setxkbmap -rules evdev -model pc105 -option 'eurosign:e,grp:alt_shift_toggle,lv3:ralt_switch,ctrl:nocaps,compose:caps' -layout 'hr(us)'
 
 ## Background
 xsetroot -solid black
@@ -110,9 +99,6 @@ xsetroot -solid black
 # xautolock -time 10 -locker "/usr/bin/xlock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 # xautolock -time 10 -locker "/usr/bin/i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default" -corners +000 -cornerdelay 1 -cornerredelay 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" &
 # xautolock -time 10 -locker "/usr/bin/i3lock -c 000000" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-# xautolock -time 10 -locker "/usr/bin/i3lock -c 073642" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-# xautolock -time 10 -locker "/usr/bin/i3lock -c 3f3f3f" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-# xautolock -time 10 -locker "/usr/bin/i3lock -c 005088" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 # xautolock -time 10 -locker "~/.i3/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 xautolock -time 10 -locker "~/.xmonad/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 
@@ -185,7 +171,9 @@ fi
 ## compton
 if [[ -e /usr/bin/compton ]]
 then
-    /usr/bin/compton -b
+    # echo .
+    # /usr/bin/compton -b
+    /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b
 fi
 
 ## Xeyes
