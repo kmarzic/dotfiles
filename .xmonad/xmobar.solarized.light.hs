@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2018-08-17 10:10:02 (CEST)
+-- Last update: 2018-08-21 10:34:45 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -172,7 +172,7 @@ Config {
        -- Run Date              "<fc=#fdf6e3>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
-       Run Com               ".xmonad/spaces.sh" ["spaces", "6"] "spaces1" 300, -- 30s
+       Run Com               ".xmonad/spaces.sh" ["spaces", "8"] "spaces1" 300, -- 30s
        Run Com               ".xmonad/wireless.sh" [] "wireless1" 300, -- 30s
        -- Run StdinReader
        Run UnsafeStdinReader

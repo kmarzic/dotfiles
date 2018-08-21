@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-20 14:49:23 (CEST)
+-- Last update: 2018-08-21 15:18:57 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -697,7 +697,7 @@ main = do
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
   -- (2) multiple xmobar
-  kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
+  -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: solarized light

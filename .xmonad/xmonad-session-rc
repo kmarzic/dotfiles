@@ -16,9 +16,9 @@ echo "PPID=$PPID" >> ${HOME}/.xmonad/xmonad.log
 [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.dark.hs xmobar.hs && cd -
 
 ## use sandbox
-# cd ~/data/cabal/xmonad.dev.20180714
 # cd ~/data/cabal/xmonad.dev.20180803
 # cd ~/data/cabal/xmonad.dev.20180813
+# cd ~/data/cabal/xmonad.dev.20180821
 cd ~/data/cabal/xmonad
 cabal exec -- xmonad --recompile
 cd ~/

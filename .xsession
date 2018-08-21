@@ -90,14 +90,14 @@ echo "" > ~/.xsession-errors
 [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.light.hs xmobar.hs && cd -
 ## (1)
 # cd ~/data/cabal/xmonad
-# cd ~/data/cabal/xmonad.dev.20180727
 # cd ~/data/cabal/xmonad.dev.20180803
 # cd ~/data/cabal/xmonad.dev.20180813
+# cd ~/data/cabal/xmonad.dev.20180821
 cd ~/data/cabal/xmonad
 cabal exec -- xmonad --recompile
 cd ~/
 ## (2)
-# xmonad --recompile
+xmonad --recompile
 ##
 exec xmonad || exec xterm
 
