@@ -1,6 +1,6 @@
 #### Solarized Light
 # (C) Kresimir Marzic <kmarzic@gmail.com>
-# Last update: 2018-07-17 14:18:33 (CEST)
+# Last update: 2018-09-19 06:59:03 (CEST)
 
 include "/home/etkkrma/.gtkrc-2.0.mine"
 
@@ -25,8 +25,10 @@ gtk-xft-hintstyle="hintslight"
 gtk-xft-rgba="rgb"
 
 #### Solarized Dark
+## (1)
 # gtk_color_scheme = "fg_color:#fdf6e3\nbg_color:#002b36\nbase_color:#073642\ntext_color:#fdf6e3\nselected_bg_color:#586e75\nselected_fg_color:#fdf6e3\nlink_color:#fc6f5d"
 #### Solarized Light
+## (1)
 gtk-color-scheme = "fg_color:#586e75\nbg_color:#eee8d5\nbase_color:#fdf6e3\ntext_color:#073642\nselected_bg_color:#268bd2\nselected_fg_color:#fdf6e3\nlink_color:#fc6f5d"
 
 style "theme-default"
