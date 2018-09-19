@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2018-08-10 17:09:22 (CEST)
+!! Last update: 2018-09-18 18:57:10 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -334,10 +334,10 @@ URxvt*print-pipe: cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 !! transparent shading: 0 to 99 darkens, 101 to 200 lightens
 ! URxvt*shading: 0
 ! URxvt*shading: 10
-URxvt*shading: 20
+! URxvt*shading: 20
 ! URxvt*shading: 30
 ! URxvt*shading: 40
-! URxvt*shading: 50
+URxvt*shading: 50
 ! URxvt*shading: 60
 ! URxvt*shading: 70
 ! URxvt*shading: 80
