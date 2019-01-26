@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2018-08-06 10:04:17 (CEST)
+"" Last update: 2019-01-26 19:14:04 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -36,6 +36,13 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
+"" ale
+"" https://github.com/w0rp/ale
+"" cd ~/.vim/bundle/ale; git remote update; git pull --no-rebase --all
+"" cd ~/.vim/bundle; git clone https://github.com/w0rp/ale
+let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_completion_enabled = 1
+
 "" Buffer Explorer (7.4.12)
 "" http://www.vim.org/scripts/script.php?script_id=42
 "" https://github.com/vim-scripts/bufexplorer.zip
@@ -55,6 +62,24 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_match_window = 'bottom,order:ttb'
 
+"" fzf
+"" https://github.com/airblade/vim-gitgutter.git
+"" cd ~/.vim/bundle/vim-gitgutter.vim; git remote update; git pull --no-rebase --all
+"" cd ~/.vim/bundle; git clone https://github.com/airblade/vim-gitgutter.git
+""
+" let g:fzf_action = {
+"   \ 'ctrl-t': 'tab split',
+"   \ 'ctrl-x': 'split',
+"   \ 'ctrl-v': 'vsplit' }
+" let g:fzf_layout = { 'down': '~40%' }
+
+"" gitgutter
+"" https://github.com/airblade/vim-gitgutter
+"" cd ~/.vim/bundle/vim-gitgutter.vim; git remote update; git pull --no-rebase --all
+"" cd ~/.vim/bundle; git clone https://github.com/airblade/vim-gitgutter.git
+""
+"" (no configuration required)
+
 "" The NERD tree (5.0.0)
 "" http://www.vim.org/scripts/script.php?script_id=1658
 "" https://github.com/scrooloose/nerdtree
@@ -63,6 +88,10 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 ""
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
+let NERDTreeQuitOnOpen = 0
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeMinimalUI = 0
+let NERDTreeDirArrows = 1
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
 else
@@ -117,6 +146,11 @@ let g:tablineclosebutton=1
 ""
 nmap <silent><F8> :TagbarToggle<CR>
 nmap ,lt0 :TagbarToggle<CR>
+
+"" vimwiki
+"" https://github.com/vimwiki/vimwiki
+"" cd ~/.vim/bundle/vimwiki; git remote update; git pull --no-rebase --all
+"" cd ~/.vim/bundle; git clone https://github.com/vimwiki/vimwiki
 
 "" ----------------------------------------------------------------------------
 
@@ -358,12 +392,6 @@ set autowrite
 "" Program to use for the ":make" command.
 set makeprg=make\ #<.o
 
-"" Be incompatible with vi, please.
-set nocompatible
-
-"" Do not toggle 'g' and 'c' with ":s".
-set noedcompatible
-
 "" Insert two spaces after a '.', '?' and '!' with a join command.
 set nojoinspaces
 
@@ -388,6 +416,12 @@ set infercase
 
 "" Use PC BIOS to read keyboard, for better ^C detection.
 set bioskey
+
+"" Be incompatible with vi, please.
+set nocompatible
+
+"" Do not toggle 'g' and 'c' with ":s".
+set noedcompatible
 
 "" Vi compatibility options.
 "" (1)
@@ -515,7 +549,8 @@ set expandtab
 " set fileencodings=utf-8
 
 "" Maximum width of text that is being inserted.
-set textwidth=78
+" set textwidth=78
+set textwidth=120
 
 "" At least 5 lines for current window.
 set winheight=5
@@ -638,11 +673,13 @@ autocmd FileType tex set expandtab
 autocmd FileType haskell set expandtab
 autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go set expandtab
 autocmd FileType make set noexpandtab
+autocmd FileType yaml set expandtab
 
 "" For both CSS and HTML, use genuine tab characters for indentation, to
 "" make files a few bytes smaller:
 autocmd FileType html,xml,css set tabstop=2
 autocmd FileType haskell set tabstop=4 softtabstop=4
+autocmd FileType yaml set tabstop=2 softtabstop=2
 
 "" ShiftWidth
 autocmd FileType mail set shiftwidth=4
@@ -651,10 +688,11 @@ autocmd FileType tex set shiftwidth=4
 autocmd FileType haskell set shiftwidth=2 shiftround
 autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go set shiftwidth=4
 autocmd FileType make set shiftwidth=4
+autocmd FileType yaml set shiftwidth=2
 
-"" Unset TextWitdh
+"" TextWitdh
 autocmd FileType mail set textwidth=78
-autocmd FileType human set textwidth=78
+autocmd FileType human set textwidth=120
 autocmd FileType tex set textwidth=78
 autocmd FileType haskell set textwidth=0
 autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go set textwidth=0
