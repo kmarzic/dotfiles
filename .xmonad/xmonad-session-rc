@@ -1,9 +1,10 @@
 ## xmonad-session-rc
 
-# export __PATH_ORIG="$PATH"
-# export PATH="$HOME/bin"
-# export PATH="$PATH:/opt/ghc/bin:$HOME/.cabal/bin"
-# export PATH="$PATH:$__PATH_ORIG"
+export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/opt/ghc/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
+PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 echo "PATH=$PATH" > ${HOME}/.xmonad/xmonad.log
 echo "alias=$(alias)" >> ${HOME}/.xmonad/xmonad.log
@@ -15,12 +16,17 @@ echo "PPID=$PPID" >> ${HOME}/.xmonad/xmonad.log
 [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.dark.hs xmonad.hs && cd -
 [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.dark.hs xmobar.hs && cd -
 
-## use sandbox
-# cd ~/data/cabal/xmonad.dev.20180803
-# cd ~/data/cabal/xmonad.dev.20180813
-# cd ~/data/cabal/xmonad.dev.20180821
-cd ~/data/cabal/xmonad
-cabal exec -- xmonad --recompile
-cd ~/
+## (1) use sandbox
+# cd ~/data/cabal/xmonad
+# cabal v1-exec -- xmonad --recompile
+# cd ~/
+
+## (2) use sandbox
+sandbox_dir=$(dirname ~/data/cabal/xmonad/cabal.sandbox.config)
+cabal --require-sandbox --sandbox-config-file=${sandbox_dir}/cabal.sandbox.config v1-exec -- xmonad --recompile
+
+## xmonad
+## NOTE: can be invoked from ~/.xprofile
+exec xmonad || exec xterm
 
 ## END

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
-DEFAULT_SPACES=5
+DEFAULT_SPACES=6
 
 function __echo_spaces()
 {

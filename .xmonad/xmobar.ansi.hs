@@ -5,8 +5,8 @@
 
 Config {
    -- theme: ansi
-   -- bgColor = "#101010",
-   -- fgColor = "#f2f2f2",
+   bgColor = "#101010",
+   fgColor = "#f2f2f2",
    --
    -- theme: zenburn
    -- bgColor = "#2e3330",
@@ -21,8 +21,8 @@ Config {
    -- fgColor = "#ffffff",
    --
    -- theme: solarized dark
-   bgColor = "#073642", -- base02
-   fgColor = "#fdf6e3", -- base3
+   -- bgColor = "#073642", -- base02
+   -- fgColor = "#fdf6e3", -- base3
    --
    -- theme: solarized light
    -- bgColor = "#eee8d5", -- base2

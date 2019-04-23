@@ -13,6 +13,7 @@ DATE=$(date +%Y%m%d.%H%M%S)
 ## window id
 WindowID=$(xwininfo | grep "Window id:" | awk '{print $4}')
 echo "WindowID='${WindowID}'"
+echo "WindowID='${WindowID}'" >> ~/Downloads/s.txt
 
 #### (1) xwd + ImageMagick
 # xwd -silent -id ${WindowID} | convert xwd:- ~/screenshot_${DATE}.png
@@ -28,10 +29,13 @@ echo "WindowID='${WindowID}'"
 #### (3a) scrot
 # scrot --quality 100 --focused ~/screenshot_${DATE}.jpeg
 #### (3b) scrot
-scrot --quality 100 --select ~/screenshot_${DATE}.jpeg
+# scrot --quality 100 --select ~/screenshot_${DATE}.jpeg
 
-##### (4) gnome
+#### (4) gnome
 # gnome-screenshot -a
+
+#### (5) maim
+maim --select ~/screenshot_${DATE}.png
 
 ## message
 echo "Screenshot taken to '~/screenshot_${DATE}.jpeg'"

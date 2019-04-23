@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2018-07-13 18:56:32
+#       CREATED: 2018-11-14 18:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -102,46 +102,184 @@ __help()
     __printf "Usage: ${0} [ -h | -x ]"
     __printf "  -h                Help"
     __printf "  -x                Xrandr"
-    __printf "  -s <dark|light>   Solarized dark | Solarized light"
+    __printf "  -s <theme>        Theme"
     __printf "  -l <file>  Log to <file>"
     __printf "Examples:"
     __printf "   ${0} -x"
+    __printf "   ${0} -s ansi"
+    __printf "   ${0} -s zenburn"
+    __printf "   ${0} -s blue"
+    __printf "   ${0} -s green"
     __printf "   ${0} -s dark"
     __printf "   ${0} -s light"
 }
 
 
-## Function: Solarized
+## Function: Theme
 ##
-function __solarized()
+function __theme()
 {
-    __printf "Solarized" info
+    __printf "Theme" info
 
     #### arg
-    solarized=${1}
-    __printf "solarized='${solarized}'" debug
+    theme=${1}
+    __printf "theme='${theme}'" debug
 
     #### set solarized
-    case ${solarized} in
-        "dark")
-            __printf "solarized dark"
+    case ${theme} in
+        "ansi")
+            __printf "ansi"
+
+            #### background
+            # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+            # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
+            # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
+            # feh --bg-scale ~/wallpapers/nature/4543.jpg
+            # feh --bg-scale ~/wallpapers/nature/20-2.jpg
+            # feh --bg-scale ~/wallpapers/nature/1504.jpg
+            # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
+            feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.ansi ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.ansi .Xdefaults
+            [[ -e ~/.Xdefaults.ansi ]] && xrdb -load ~/.Xdefaults.ansi
+
+            #### vim
+            [[ -e ~/.vimrc.ansi ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.ansi .vimrc
+            [[ -e ~/.gvimrc.ansi ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.ansi .gvimrc
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.ansi ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.ansi dunstrc
+            pkill dunst
+
+            #### screenrc
+            [[ -e ~/.screenrc.ansi ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.ansi .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.ansi ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.ansi .tmux.conf
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
+            [[ -e ~/.xmonad/xmobar.ansi.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.ansi.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
+            [[ -e ~/.xmonad/xmonad.ansi.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.ansi.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
-                ## custom compiled xmonad
-                cd ~/data/cabal/xmonad && cabal exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal exec -- xmonad --restart
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
             else
                 ## xmonad installed from package
                 xmonad --recompile
                 xmonad --restart
             fi
+            ;;
+        "zenburn")
+            __printf "zenburn"
+
+            #### background
+            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.zenburn ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.zenburn .Xdefaults
+            [[ -e ~/.Xdefaults.zenburn ]] && xrdb -load ~/.Xdefaults.zenburn
+
+            #### vim
+            [[ -e ~/.vimrc.zenburn ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.zenburn .vimrc
+            [[ -e ~/.gvimrc.zenburn ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.zenburn .gvimrc
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.zenburn ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.zenburn dunstrc
+            pkill dunst
+
+            #### screenrc
+            [[ -e ~/.screenrc.zenburn ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.zenburn .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.zenburn ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.zenburn .tmux.conf
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.zenburn.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.zenburn.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.zenburn.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.zenburn.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
+            ;;
+        "blue")
+            __printf "blue"
+
+            #### background
+            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.blue ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.blue .Xdefaults
+            [[ -e ~/.Xdefaults.blue ]] && xrdb -load ~/.Xdefaults.blue
+
+            #### vim
+            [[ -e ~/.vimrc.blue ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.blue .vimrc
+            [[ -e ~/.gvimrc.blue ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.blue .gvimrc
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.blue.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.blue.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.blue.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.blue.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
+            ;;
+        "green")
+            __printf "green"
+
+            #### background
+            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.green ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.green .Xdefaults
+            [[ -e ~/.Xdefaults.green ]] && xrdb -load ~/.Xdefaults.green
+
+            #### vim
+            [[ -e ~/.vimrc.green ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.green .vimrc
+            [[ -e ~/.gvimrc.green ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.green .gvimrc
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.green.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.green.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.green.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.green.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
+            ;;
+        "dark")
+            __printf "solarized dark"
 
             #### background
             cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
@@ -149,6 +287,7 @@ function __solarized()
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
             ##
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
@@ -179,8 +318,28 @@ function __solarized()
             #### termite
             [[ -e ~/.config/termite/config.solarized.dark ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.dark config
 
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
+
             #### bspwm
             [[ -e ~/.config/bspwm/panel_colors.solarized.dark ]] && cd ~/.config/bspwm && rm -f panel_colors && ln -s panel_colors.solarized.dark panel_colors
+
+            #### i3wm
+            [[ -e ~/.i3/config.solarized.dark ]] && cd ~/.i3 && rm -f config && ln -s config.solarized.dark config
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-dark
@@ -189,26 +348,11 @@ function __solarized()
         "light")
             __printf "solarized light"
 
-            #### xmobar
-            [[ -e ~/.xmonad/xmobar.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
-
-            #### xmonad
-            [[ -e ~/.xmonad/xmonad.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
-
-            if [[ -d ~/data/cabal/xmonad ]]
-            then
-                ## custom compiled xmonad
-                cd ~/data/cabal/xmonad && cabal exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal exec -- xmonad --restart
-            else
-                ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
-            fi
-
             #### background
             cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s d48d4ca9f67739f39d2199e30ee3ec68c24e.png solarized.png && cd -
             ##
             feh --bg-scale ~/wallpapers/solarized/solarized.png
 
@@ -239,8 +383,28 @@ function __solarized()
             #### termite
             [[ -e ~/.config/termite/config.solarized.light ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.light config
 
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
+
             #### bspwm
             [[ -e ~/.config/bspwm/panel_colors.solarized.light ]] && cd ~/.config/bspwm && rm -f panel_colors && ln -s panel_colors.solarized.light panel_colors
+
+            #### i3wm
+            [[ -e ~/.i3/config.solarized.light ]] && cd ~/.i3 && rm -f config && ln -s config.solarized.light config
 
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
@@ -270,7 +434,7 @@ function __xrandr()
 
     for (( i=0; i<${#xrandr_connect[@]}; i++ ));
     do
-        __printf "xrandr_connect[${i}]='${xrandr_connect[i]}'" debug
+        __printf "xrandr_connect[${i}]='${xrandr_connect[i]}'"
        [[ ${i} -eq 0 ]] && IN=${xrandr_connect[i]}
        [[ ${i} -eq 1 ]] && EXT1=${xrandr_connect[i]} && POSITION="--right-of"
        [[ ${i} -eq 2 ]] && EXT2=${xrandr_connect[i]} && POSITION="--left-of"
@@ -312,13 +476,13 @@ function __xrandr()
             #### 3 monitors
             __printf "# xrandr \\"
             __printf "    --output ${IN-} --auto \\"
-            __printf "    --output ${EXT1-} --auto --primary ${POSITION-} ${IN-} \\"
-            __printf "    --output ${EXT2-} --auto ${POSITION-} ${EXT1-}"
+            __printf "    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \\"
+            __printf "    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}"
 
             xrandr \
                 --output ${IN-} --auto \
-                --output ${EXT1-} --auto --primary ${POSITION-} ${IN-} \
-                --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
+                --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \
+                --output ${EXT1-} --auto ${POSITION-} ${EXT2-}
             ;;
     esac
 }
@@ -349,26 +513,44 @@ function __background()
     # feh --bg-scale ~/wallpapers/nature/15227.jpg
 
     #### Gray
-    # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
     # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
     # feh --bg-scale ~/wallpapers/gray/grey-popular-wallpaper-backgrounds-filter-alexander-room-surface-resolutions-77891.jpg
     # feh --bg-scale ~/wallpapers/gray/defruwallpaper1920x1200eo2.jpg
+    # feh --bg-scale ~/wallpapers/gray/ky7tee2.jpg
+    # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
+    # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
+    # feh --bg-scale ~/wallpapers/gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg
+    # feh --bg-scale ~/wallpapers/gray/113256-popular-light-gray-background-1920x1200-for-windows.jpg
+    # feh --bg-scale ~/wallpapers/gray/170578-popular-light-gray-background-1920x1080-for-mobile-hd.jpg
+    feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
+
+    #### Ansi
+    # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+    # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
+    # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
+    # feh --bg-scale ~/wallpapers/nature/4543.jpg
+    # feh --bg-scale ~/wallpapers/nature/20-2.jpg
+    # feh --bg-scale ~/wallpapers/nature/1504.jpg
+
+    #### Blue
+    # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
 
     #### Green
-    # feh --bg-scale ~/wallpapers/green/ky7tee2.jpg
     # feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg
 
     #### Solarized
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s dVMZsMn.png solarized.png
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s TVDBMOt.png solarized.png
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s BaocXcW.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
     #### Solarized Light
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s solarized-mountains-light.png solarized.png
-    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && ln -s AB_Wallpaper_Light.png solarized.png
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png && cd -
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png && cd -
+    #### Solarized Dark
+    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
     ####
-    feh --bg-scale ~/wallpapers/solarized/solarized.png
+    # feh --bg-scale ~/wallpapers/solarized/solarized.png
     # feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
 }
 
@@ -398,7 +580,7 @@ __banner
 
 #### Command Line
 __xrandr_flag=""
-__solarized_flag=""
+__theme_flag=""
 
 while getopts "hxs:l:" opt;
 do
@@ -411,8 +593,8 @@ do
             __xrandr_flag="true"
             ;;
         s)
-            __solarized_flag="true"
-            SOLARIZED=${OPTARG}
+            __theme_flag="true"
+            THEME=${OPTARG}
             ;;
         l)
             LOG_ENABLED="true"
@@ -429,7 +611,7 @@ done
 #### This tells getopts to move on to the next argument.
 shift $((OPTIND-1))
 
-if [[ -z "${__xrandr_flag-}" ]] && [[ -z "${__solarized_flag}" ]]
+if [[ -z "${__xrandr_flag-}" ]] && [[ -z "${__theme_flag}" ]]
 then
     __printf "Missing arguments!" error
     __help
@@ -445,10 +627,10 @@ else
         __keyboard
     fi
 
-    if [[ "${__solarized_flag-}" == "true" ]]
+    if [[ "${__theme_flag-}" == "true" ]]
     then
-        #### solarized
-        __solarized ${SOLARIZED}
+        #### Theme
+        __theme ${THEME}
         #### keyboard
         __keyboard
     fi

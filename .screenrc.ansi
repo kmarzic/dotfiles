@@ -112,19 +112,19 @@ bind , title
 hardstatus on
 hardstatus alwayslastline
 ## Ansi
-# hardstatus string "%{= w}%-w%{= ck}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+hardstatus string "%{= w}%-w%{= ck}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized dark
-hardstatus string "%{= w}%-w%{= rk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
+# hardstatus string "%{= w}%-w%{= rk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized light
 # hardstatus string "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 
 ## Name column in windowlist
 ## Ansi
-# windowlist title  "%{= ck}%{u} Num Flags Title%050=Hardstatus%="
-# windowlist string '%{dc}%4n %f%011=%{dr}%t%050=%h%='
+windowlist title  "%{= ck}%{u} Num Flags Title%050=Hardstatus%="
+windowlist string '%{dc}%4n %f%011=%{dr}%t%050=%h%='
 ## Solarized dark
-windowlist title  "%{= rk}%{u} Num Flags Title%050=Hardstatus%="
-windowlist string '%{dr}%4n %f%011=%{dr}%t%050=%h%='
+# windowlist title  "%{= rk}%{u} Num Flags Title%050=Hardstatus%="
+# windowlist string '%{dr}%4n %f%011=%{dr}%t%050=%h%='
 ## Solarized light
 # windowlist title  "%{= bk}%{u} Num Flags Title%050=Hardstatus%="
 # windowlist string '%{db}%4n %f%011=%{db}%t%050=%h%='

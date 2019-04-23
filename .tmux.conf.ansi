@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2019-03-13 21:09:22 (CET)
+## Last update: 2018-08-10 17:33:27 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind C-b
@@ -122,45 +122,45 @@ bind P paste-buffer
 ## Reload tmux config
 bind r source-file ~/.tmux.conf
 
-# ## Ansi
-# ## default statusbar colors
-# set-option -g status-bg black
-# set-option -g status-fg yellow
-# set -g status-left '(#S) '
-# set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
-# set -g window-status-format         '#I:#W#F'
-# set -g window-status-current-format '#[bg=cyan,fg=black]#I:#W '
-# 
-# ## default window title colors
-# set-window-option -g window-status-fg cyan
-# set-window-option -g window-status-bg default
-# # set-window-option -g window-status-attr dim
-# # set -g window-status-current-attr bold
-# 
-# ## active window title colors
-# set-window-option -g window-status-current-fg cyan
-# set-window-option -g window-status-current-bg default
-# # set-window-option -g window-status-current-attr bright
-# 
-# ## pane border
-# set-option -g pane-border-fg black
-# set-option -g pane-active-border-fg brightgreen
-# 
-# ## message text
-# set-option -g message-bg black
-# set-option -g message-fg cyan
-# 
-# ## pane number display
-# set-option -g display-panes-active-colour blue
-# set-option -g display-panes-colour cyan
-# 
-# ## clock
-# set-window-option -g clock-mode-colour green
-# 
-# ## bell
-# set-window-option -g window-status-bell-style fg=black,bg=cyan
+## Ansi
+## default statusbar colors
+set-option -g status-bg black
+set-option -g status-fg yellow
+set -g status-left '(#S) '
+set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+set -g window-status-format         '#I:#W#F'
+set -g window-status-current-format '#[bg=cyan,fg=black]#I:#W '
 
-## Solarized light (1)
+## default window title colors
+set-window-option -g window-status-fg cyan
+set-window-option -g window-status-bg default
+# set-window-option -g window-status-attr dim
+# set -g window-status-current-attr bold
+
+## active window title colors
+set-window-option -g window-status-current-fg cyan
+set-window-option -g window-status-current-bg default
+# set-window-option -g window-status-current-attr bright
+
+## pane border
+set-option -g pane-border-fg black
+set-option -g pane-active-border-fg brightgreen
+
+## message text
+set-option -g message-bg black
+set-option -g message-fg cyan
+
+## pane number display
+set-option -g display-panes-active-colour blue
+set-option -g display-panes-colour cyan
+
+## clock
+set-window-option -g clock-mode-colour green
+
+## bell
+set-window-option -g window-status-bell-style fg=black,bg=cyan
+
+# ## Solarized light (1)
 # set -g status-bg '#fdf6e3'
 # set -g status-fg '#586e75'
 # set -g status-left '#[fg=#268bd2](#S)#[default] '
@@ -168,7 +168,7 @@ bind r source-file ~/.tmux.conf
 # set -g window-status-format         '#I:#W#F'
 # set -g window-status-current-format '#[bg=#268bd2,fg=#fdf6e3]#I:#W '
 
-## Solarized light (2)
+# ## Solarized light (2)
 # ## default statusbar colors
 # set-option -g status-bg black
 # set-option -g status-fg blue
@@ -206,7 +206,7 @@ bind r source-file ~/.tmux.conf
 # ## bell
 # set-window-option -g window-status-bell-style fg=white,bg=red #base2, red
 
-## Solarized black (1)
+# ## Solarized black (1)
 # set -g status-bg '#073642'
 # set -g status-fg '#fdf6e3'
 # set -g status-left '#[fg=#cb4b16](#S)#[default] '
@@ -214,42 +214,42 @@ bind r source-file ~/.tmux.conf
 # set -g window-status-format         '#I:#W#F'
 # set -g window-status-current-format '#[bg=#cb4b16,fg=#073642]#I:#W '
 
-## Solarized black (2)
-## default statusbar colors
-set-option -g status-bg black #base02
-set-option -g status-fg yellow #yellow
-set -g status-left '(#S) '
-set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
-set -g window-status-format         '#I:#W#F'
-set -g window-status-current-format '#[bg=brightred,fg=black]#I:#W '
-
-## default window title colors
-set-window-option -g window-status-fg brightblue #base0
-set-window-option -g window-status-bg default
-# set-window-option -g window-status-attr dim
-# set -g window-status-current-attr bold
-
-## active window title colors
-set-window-option -g window-status-current-fg brightred #orange
-set-window-option -g window-status-current-bg default
-# set-window-option -g window-status-current-attr bright
-
-## pane border
-set-option -g pane-border-fg black #base02
-set-option -g pane-active-border-fg brightgreen #base01
-
-## message text
-set-option -g message-bg black #base02
-set-option -g message-fg brightred #orange
-
-## pane number display
-set-option -g display-panes-active-colour blue #blue
-set-option -g display-panes-colour brightred #orange
-
-## clock
-set-window-option -g clock-mode-colour green #green
-
-## bell
-set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
+# ## Solarized black (2)
+# ## default statusbar colors
+# set-option -g status-bg black #base02
+# set-option -g status-fg yellow #yellow
+# set -g status-left '(#S) '
+# set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+# set -g window-status-format         '#I:#W#F'
+# set -g window-status-current-format '#[bg=brightred,fg=black]#I:#W '
+# 
+# ## default window title colors
+# set-window-option -g window-status-fg brightblue #base0
+# set-window-option -g window-status-bg default
+# # set-window-option -g window-status-attr dim
+# # set -g window-status-current-attr bold
+# 
+# ## active window title colors
+# set-window-option -g window-status-current-fg brightred #orange
+# set-window-option -g window-status-current-bg default
+# # set-window-option -g window-status-current-attr bright
+# 
+# ## pane border
+# set-option -g pane-border-fg black #base02
+# set-option -g pane-active-border-fg brightgreen #base01
+# 
+# ## message text
+# set-option -g message-bg black #base02
+# set-option -g message-fg brightred #orange
+# 
+# ## pane number display
+# set-option -g display-panes-active-colour blue #blue
+# set-option -g display-panes-colour brightred #orange
+# 
+# ## clock
+# set-window-option -g clock-mode-colour green #green
+# 
+# ## bell
+# set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 
 ## end

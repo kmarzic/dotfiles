@@ -19,12 +19,12 @@ function __brightness()
     then
         [[ "${arg}" == "inc" ]] && /usr/bin/xbacklight -inc ${DEFAULT_STEP}
         [[ "${arg}" == "dec" ]] && /usr/bin/xbacklight -dec ${DEFAULT_STEP}
-    fi
-
-    if [[ -e /usr/bin/light ]]
+    elif [[ -e /usr/bin/light ]]
     then
         [[ "${arg}" == "inc" ]] && /usr/bin/light -A ${DEFAULT_STEP}
         [[ "${arg}" == "dec" ]] && /usr/bin/light -U ${DEFAULT_STEP}
+    else
+        xmessage "Error! No backlight program installed!"
     fi
 }
 

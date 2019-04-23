@@ -1,6 +1,6 @@
 ##-----------------------------------------------------------------------------
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-06-10 14:25:14 (CEST)
+## Last update: 2019-03-13 16:59:02 (CET)
 ##-----------------------------------------------------------------------------
 
 ## Configuration file for dircolors, a utility to help you set the
@@ -137,7 +137,6 @@ EIGHTBIT 1
 # for ((x=0; x<=255; x++));do echo -e "${x}:\033[38;5;${x}mcolor\033[000m";done
 # for ((x=0; x<=255; x++));do echo -e "${x}:\033[48;5;${x}mcolor\033[000m";done
 
-
 ## global default, although everything should be something.
 NORMAL 00
 # NORMAL 00;38;5;244 # no color code at all
@@ -147,10 +146,11 @@ FILE 00
 
 ## directory
 # DIR 00;34 # blue
+# DIR 00;36 # cyan
 # DIR 01;34 # bold blue
 # DIR 01;36 # bold cyan
-DIR 01;38;5;23 ## urxvt
-# DIR 01;38;5;27 ## mrxvt
+# DIR 01;38;5;23 ## urxvt
+DIR 01;38;5;31 ## mrxvt
 
 ## symbolic link
 # LINK 01;36 # bold cyan

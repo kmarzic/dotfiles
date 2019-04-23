@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2019-01-26 19:14:04 (CET)
+"" Last update: 2019-03-18 06:52:41 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -40,8 +40,10 @@ Plugin 'gmarik/Vundle.vim'
 "" https://github.com/w0rp/ale
 "" cd ~/.vim/bundle/ale; git remote update; git pull --no-rebase --all
 "" cd ~/.vim/bundle; git clone https://github.com/w0rp/ale
-let b:ale_fixers = ['prettier', 'eslint']
+let b:ale_linters = ['pyflakes', 'flake8', 'pylint']
 let g:ale_completion_enabled = 1
+let b:ale_fixers = ['eslint']
+let b:ale_fix_on_save = 1
 
 "" Buffer Explorer (7.4.12)
 "" http://www.vim.org/scripts/script.php?script_id=42
@@ -63,9 +65,9 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_match_window = 'bottom,order:ttb'
 
 "" fzf
-"" https://github.com/airblade/vim-gitgutter.git
-"" cd ~/.vim/bundle/vim-gitgutter.vim; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/airblade/vim-gitgutter.git
+"" https://github.com/junegunn/fzf.vim
+"" cd ~/.vim/bundle/fzf.vim; git remote update; git pull --no-rebase --all
+"" cd ~/.vim/bundle; git clone https://github.com/junegunn/fzf.vim
 ""
 " let g:fzf_action = {
 "   \ 'ctrl-t': 'tab split',
@@ -79,6 +81,15 @@ let g:ctrlp_match_window = 'bottom,order:ttb'
 "" cd ~/.vim/bundle; git clone https://github.com/airblade/vim-gitgutter.git
 ""
 "" (no configuration required)
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+"" cd ~/.vim/bundle/lightline.vim; git remote update; git pull --no-rebase --all
+"" cd ~/.vim/bundle; git clone https://github.com/itchyny/lightline.vim
+""
+" let g:lightline = {
+"       \ 'colorscheme': 'solarized',
+"       \ }
 
 "" The NERD tree (5.0.0)
 "" http://www.vim.org/scripts/script.php?script_id=1658
@@ -325,6 +336,19 @@ colorscheme base16-solarized-light
 "" cd ~/.vim/bundle/seiya-vim; git remote update
 ""
 let g:seiya_auto_enable=1
+
+"" Custom
+" set t_Co=16
+" set background=dark
+" syntax on
+" " highlight CursorLine term=reverse cterm=reverse gui=reverse
+" " highlight CursorLine NONE
+" " highlight CursorLine ctermfg=black ctermbg=Cyan gui=reverse
+" hi CursorLine term=bold cterm=bold guibg=white
+" hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
+" hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
+" hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
+" hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
 
 
 "" ------------------------------------------------------------------------
@@ -603,6 +627,19 @@ endfunc
 
 "" Shell
 set shell=/bin/bash
+
+"" Undo
+set undolevels=1000
+set undoreload=10000
+
+"" Folding
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10
+set foldmethod=indent
+
+" Highlight current line
+set cursorline
 
 
 "" ------------------------------------------------------------------------

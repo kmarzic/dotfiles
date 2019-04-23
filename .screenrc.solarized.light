@@ -1,6 +1,6 @@
 ## screen
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2018-08-10 18:44:01 (CEST)
+## Last update: 2019-03-13 17:19:34 (CET)
 
 ## Turn off that annoying start up message
 startup_message off
@@ -111,12 +111,17 @@ bind , title
 ##
 hardstatus on
 hardstatus alwayslastline
+## Ansi
+# hardstatus string "%{= w}%-w%{= ck}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized dark
 # hardstatus string "%{= w}%-w%{= rk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Solarized light
 hardstatus string "%{= w}%-w%{= bk}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 
 ## Name column in windowlist
+## Ansi
+# windowlist title  "%{= ck}%{u} Num Flags Title%050=Hardstatus%="
+# windowlist string '%{dc}%4n %f%011=%{dr}%t%050=%h%='
 ## Solarized dark
 # windowlist title  "%{= rk}%{u} Num Flags Title%050=Hardstatus%="
 # windowlist string '%{dr}%4n %f%011=%{dr}%t%050=%h%='

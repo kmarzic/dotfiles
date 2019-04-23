@@ -9,8 +9,8 @@ Config {
    -- fgColor = "#f2f2f2",
    --
    -- theme: zenburn
-   -- bgColor = "#2e3330",
-   -- fgColor = "#a0afa0",
+   bgColor = "#2e3330",
+   fgColor = "#a0afa0",
    --
    -- theme: blue
    -- bgColor = "#222222",
@@ -21,8 +21,8 @@ Config {
    -- fgColor = "#ffffff",
    --
    -- theme: solarized dark
-   bgColor = "#073642", -- base02
-   fgColor = "#fdf6e3", -- base3
+   -- bgColor = "#073642", -- base02
+   -- fgColor = "#fdf6e3", -- base3
    --
    -- theme: solarized light
    -- bgColor = "#eee8d5", -- base2

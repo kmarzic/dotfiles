@@ -902,8 +902,8 @@ main = do
   -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
   -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
-  -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
-  xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
+  xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
+  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
 
 -- end

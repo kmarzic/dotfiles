@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2018-08-21 15:18:57 (CEST)
+-- Last update: 2019-04-19 05:56:55 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -32,6 +32,27 @@ import qualified XMonad.Layout.Groups as G
 import qualified XMonad.Layout.Groups.Helpers as Group
 import qualified XMonad.StackSet as W
 
+
+solarized :: M.Map String String
+solarized = M.fromList
+  [
+    ("solarizedBase03",  "#002b36"),
+    ("solarizedBase02",  "#073642"),
+    ("solarizedBase01",  "#586e75"),
+    ("solarizedBase00",  "#657b83"),
+    ("solarizedBase0",   "#839496"),
+    ("solarizedBase1",   "#93a1a1"),
+    ("solarizedBase2",   "#eee8d5"),
+    ("solarizedBase3",   "#fdf6e3"),
+    ("solarizedYellow",  "#b58900"),
+    ("solarizedOrange",  "#cb4b16"),
+    ("solarizedRed",     "#dc322f"),
+    ("solarizedMagenta", "#d33682"),
+    ("solarizedViolet",  "#6c71c4"),
+    ("solarizedBlue",    "#268bd2"),
+    ("solarizedCyan",    "#2aa198"),
+    ("solarizedGreen",   "#859900")
+  ]
 
 help :: String
 help = unlines
@@ -123,6 +144,12 @@ fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
 fontTerminalScratchpad :: String
 fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
 
+dmenuCommandAnsi :: String -- theme: ansi
+dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+dmenuCommandZenburn :: String -- theme: zenburn
+dmenuCommandZenburn = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
 dmenuCommandBlue :: String -- theme: blue
 dmenuCommandBlue = "/usr/bin/dmenu_run -i -nf \"#ffffff\" -nb \"#222222\" -sb \"#0088cc\" -sf \"#ffffff\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
@@ -164,6 +191,16 @@ myBorderWidth :: Dimension
 myBorderWidth = 1
 -- myBorderWidth = 2
 
+myNormalBorderColorAnsi :: String -- theme: ansi
+myNormalBorderColorAnsi = "#ffffff"
+myFocusedBorderColorAnsi :: String
+myFocusedBorderColorAnsi = "#0088cc"
+
+myNormalBorderColorZenburn :: String -- theme: zenburn
+myNormalBorderColorZenburn = "#2e3330"
+myFocusedBorderColorZenburn :: String
+myFocusedBorderColorZenburn = "#a0afa0"
+
 myNormalBorderColorBlue :: String -- theme: blue
 myNormalBorderColorBlue = "#ffffff"
 myFocusedBorderColorBlue :: String
@@ -175,14 +212,14 @@ myFocusedBorderColorGreen :: String
 myFocusedBorderColorGreen = "#009900"
 
 myNormalBorderColorSolarizedDark :: String -- theme: solarized dark
-myNormalBorderColorSolarizedDark = "#002b36" -- base03
+myNormalBorderColorSolarizedDark = solarized M.! "solarizedBase02"
 myFocusedBorderColorSolarizedDark :: String
-myFocusedBorderColorSolarizedDark = "#2aa198" -- cyan
+myFocusedBorderColorSolarizedDark = solarized M.! "solarizedCyan"
 
 myNormalBorderColorSolarizedLight :: String -- theme: solarized light
-myNormalBorderColorSolarizedLight = "#fdf6e3" -- base3
+myNormalBorderColorSolarizedLight = solarized M.! "solarizedBase3"
 myFocusedBorderColorSolarizedLight :: String
-myFocusedBorderColorSolarizedLight = "#268bd2" -- blue
+myFocusedBorderColorSolarizedLight = solarized M.! "solarizedBlue"
 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
@@ -196,6 +233,36 @@ myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
   where
     clickable l = [ "<action=`xdotool key alt+" ++ show (n) ++ "`>" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
+
+myTabConfigAnsi :: Theme -- theme: ansi
+myTabConfigAnsi = def
+  {
+    activeColor = "#0088cc",
+    activeTextColor = "#ffffff",
+    activeBorderColor = "#000000",
+    inactiveColor = "#5f676a",
+    inactiveTextColor = "#dddddd",
+    inactiveBorderColor = "#000000",
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myTabConfigZenburn :: Theme -- theme: zenburn
+myTabConfigZenburn = def
+  {
+    activeColor         = "#a0afa0",
+    activeTextColor     = "#040404",
+    activeBorderColor   = "#a0afa0",
+    inactiveColor       = "#2e3330",
+    inactiveBorderColor = "#2e3330",
+    inactiveTextColor   = "#a0afa0",
+    urgentColor         = "#900000",
+    urgentTextColor     = "#ffffff",
+    urgentBorderColor   = "#2f343a",
+    fontName            = fontBold
+  }
 
 myTabConfigBlue :: Theme -- theme: blue
 myTabConfigBlue = def
@@ -230,12 +297,12 @@ myTabConfigGreen = def
 myTabConfigSolarized :: Theme -- theme: solarized [ light and dark ]
 myTabConfigSolarized = def
   {
-    activeColor = "#657b83", -- base00
-    activeTextColor = "#eee8d5", -- base2
-    activeBorderColor = "#93a1a1", -- base1
-    inactiveColor = "#002b36", -- base03
-    inactiveTextColor = "#93a1a1", -- base1
-    inactiveBorderColor = "#93a1a1", -- base1
+    activeColor = solarized M.! "solarizedBase00", -- base00
+    activeTextColor = solarized M.! "solarizedBase2", -- base2
+    activeBorderColor = solarized M.! "solarizedBase1", -- base1
+    inactiveColor = solarized M.! "solarizedBase03", -- base03
+    inactiveTextColor = solarized M.! "solarizedBase1", -- base1
+    inactiveBorderColor = solarized M.! "solarizedBase1", -- base1
     urgentColor = "#900000",
     urgentTextColor = "#ffffff",
     urgentBorderColor = "#2f343a",
@@ -245,12 +312,12 @@ myTabConfigSolarized = def
 myTabConfigSolarizedDark :: Theme -- theme: solarized dark
 myTabConfigSolarizedDark = def
   {
-    activeColor = "#657b83", -- base00
-    activeTextColor = "#eee8d5", -- base2
-    activeBorderColor = "#93a1a1", -- base1
-    inactiveColor = "#002b36", -- base03
-    inactiveTextColor = "#93a1a1", -- base1
-    inactiveBorderColor = "#93a1a1", -- base1
+    activeColor = solarized M.! "solarizedBase00", -- base00
+    activeTextColor = solarized M.! "solarizedBase2", -- base2
+    activeBorderColor = solarized M.! "solarizedBase1", -- base1
+    inactiveColor = solarized M.! "solarizedBase03", -- base03
+    inactiveTextColor = solarized M.! "solarizedBase1", -- base1
+    inactiveBorderColor = solarized M.! "solarizedBase1", -- base1
     urgentColor = "#900000",
     urgentTextColor = "#ffffff",
     urgentBorderColor = "#2f343a",
@@ -260,12 +327,12 @@ myTabConfigSolarizedDark = def
 myTabConfigSolarizedLight :: Theme -- theme: solarized light
 myTabConfigSolarizedLight = def
   {
-    activeColor = "#859900", -- green
-    activeTextColor = "#fdf6e3", -- base3
-    activeBorderColor = "#002b36", -- base03
-    inactiveColor = "#93a1a1", -- base1
-    inactiveTextColor = "#fdf6e3", -- base3
-    inactiveBorderColor = "#002b36", -- base03
+    activeColor = solarized M.! "solarizedGreen", -- green
+    activeTextColor = solarized M.! "solarizedBase3", -- base3
+    activeBorderColor = solarized M.! "solarizedBase03", -- base03
+    inactiveColor = solarized M.! "solarizedBase1", -- base1
+    inactiveTextColor = solarized M.! "solarizedBase3", -- base3
+    inactiveBorderColor = solarized M.! "solarizedBase03", -- base03
     urgentColor = "#900000",
     urgentTextColor = "#ffffff",
     urgentBorderColor = "#2f343a",
@@ -304,6 +371,7 @@ myManageHook = composeAll . concat $
       [className =? "Skype" --> doShift (myWorkspaces !! 6)],
       [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
       [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
+      [className =? "Mozilla Thunderbird" --> doShift (myWorkspaces !! 8)],
       --
       [role      =? "GtkFileChooserDialog" --> doFullFloat],
       --
@@ -329,6 +397,7 @@ myManageHook = composeAll . concat $
           "Autofill Options", "Choose a file", "Clear Private Data", "Copying files", "Downloads",
           "File Operation Progress", "File Properties", "File Transfers", "Moving files",
           "Passwords and Exceptions", "Preferences", "Rename File", "Replace", "Save As...", "Search Engines",
+          "Deleting", "Exit",
           "Firefox Preferences", "Iceweasel Preferences", "Thunderbird Preferences"
         ]
       myResourceFloats =
@@ -343,16 +412,16 @@ myManageHook = composeAll . concat $
 myLayoutHook tabConfig =
     gaps [(U,0), (D,0), (L,0), (R,0)]
   $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
-  $ smartBorders
+  -- $ smartBorders
   $ avoidStruts
-  $ toggleLayouts (noBorders $ full')
-  $ toggleLayouts (noBorders $ tab2')
+  -- $ toggleLayouts (noBorders $ full')
+  -- $ toggleLayouts (noBorders $ tab2')
   $ myLayouts
   -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
   where
     -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
     -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
-    myLayouts  = full' |||  tab2' ||| tiled' ||| mirror' ||| roledex'
+    myLayouts  = full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
     --
     -- tab1'      = tabbed shrinkText tabConfig
     tab2'      = tabbedAlways shrinkText tabConfig
@@ -370,13 +439,55 @@ myLayoutHook tabConfig =
     -- Percent of screen to increment by when resizing panes
     delta    = 2/100
 
+myLogHookAnsiPP :: PP -- theme: ansi
+myLogHookAnsiPP = def
+  {
+    ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "cyan" "" . shorten 50,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
+myLogHookZenburnPP :: PP -- theme: zenburn
+myLogHookZenburnPP = def
+  {
+    ppCurrent         = xmobarColor "#80D4AA" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "#80D4AA" "" . shorten 50,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "" .
+      ( \layout -> case layout of
+          "Tabbed Simplest by Full" -> "[_]"
+          "Full by Full"            -> "[ ]"
+          "Tall by Full"            -> "[|]"
+          "Mirror Tall by Full"     -> "[-]"
+          "Roledex by Full"         -> "[@]"
+      ),
+    ppSep             = "  ", -- separator between each object
+    ppWsSep           = " " -- separator between workspaces
+  }
+
 myLogHookBluePP :: PP -- theme: blue
 myLogHookBluePP = def
   {
     ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
     ppHidden          = xmobarColor "#ffffff" "",
     ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "green" "" . shorten 0,
+    ppTitle           = xmobarColor "cyan" "" . shorten 50,
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" .
@@ -397,7 +508,7 @@ myLogHookGreenPP = def
     ppCurrent         = xmobarColor "green" "" . wrap "[" "]",
     ppHidden          = xmobarColor "#ffffff" "",
     ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "green" "" . shorten 0,
+    ppTitle           = xmobarColor "green" "" . shorten 50,
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" .
@@ -454,6 +565,42 @@ myLogHookSolarizedLightPP = def
     ppWsSep           = " " -- separator between workspaces
   }
 
+-- ansi
+
+myLogHookAnsi1 :: Handle -> X()
+myLogHookAnsi1 h = dynamicLogWithPP myLogHookAnsiPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookAnsi2a :: Handle -> ScreenId -> PP
+myLogHookAnsi2a h s = myLogHookAnsiPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookAnsi2 :: [Handle] -> ScreenId -> X ()
+myLogHookAnsi2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookAnsi2a hs [0..ns-1]
+
+-- zenburn
+
+myLogHookZenburn1 :: Handle -> X()
+myLogHookZenburn1 h = dynamicLogWithPP myLogHookZenburnPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookZenburn2a :: Handle -> ScreenId -> PP
+myLogHookZenburn2a h s = myLogHookZenburnPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookZenburn2 :: [Handle] -> ScreenId -> X ()
+myLogHookZenburn2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookZenburn2a hs [0..ns-1]
+
+-- blue
+
 myLogHookBlue1 :: Handle -> X()
 myLogHookBlue1 h = dynamicLogWithPP myLogHookBluePP
   {
@@ -468,6 +615,8 @@ myLogHookBlue2a h s = myLogHookBluePP
 
 myLogHookBlue2 :: [Handle] -> ScreenId -> X ()
 myLogHookBlue2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookBlue2a hs [0..ns-1]
+
+-- green
 
 myLogHookGreen1 :: Handle -> X()
 myLogHookGreen1 h = dynamicLogWithPP myLogHookGreenPP
@@ -484,6 +633,8 @@ myLogHookGreen2a h s = myLogHookGreenPP
 myLogHookGreen2 :: [Handle] -> ScreenId -> X ()
 myLogHookGreen2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookGreen2a hs [0..ns-1]
 
+-- solarized dark
+
 myLogHookSolarizedDark1 :: Handle -> X ()
 myLogHookSolarizedDark1 h = dynamicLogWithPP myLogHookSolarizedDarkPP
   {
@@ -498,6 +649,8 @@ myLogHookSolarizedDark2a h s = myLogHookSolarizedDarkPP
 
 myLogHookSolarizedDark2 :: [Handle] -> ScreenId -> X ()
 myLogHookSolarizedDark2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedDark2a hs [0..ns-1]
+
+-- solarized light
 
 myLogHookSolarizedLight1 :: Handle -> X ()
 myLogHookSolarizedLight1 h = dynamicLogWithPP myLogHookSolarizedLightPP
@@ -514,33 +667,54 @@ myLogHookSolarizedLight2a h s = myLogHookSolarizedLightPP
 myLogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
 myLogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedLight2a hs [0..ns-1]
 
+-- dmenu
+
+myKeysDmenuCommandAnsi =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandAnsi), -- theme: ansi
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandAnsi), -- theme: ansi
+    ((0,                         xK_Menu   ), spawn dmenuCommandAnsi)  -- theme: ansi
+  ]
+
+myKeysDmenuCommandZenburn =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandZenburn), -- theme: zenburn
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandZenburn), -- theme: zenburn
+    ((0,                         xK_Menu   ), spawn dmenuCommandZenburn)  -- theme: zenburn
+  ]
+
 myKeysDmenuCommandBlue =
   [
     ((mod1Mask,                  xK_d      ), spawn dmenuCommandBlue), -- theme: blue
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandBlue), -- theme: blue
     ((0,                         xK_Menu   ), spawn dmenuCommandBlue)  -- theme: blue
   ]
 
 myKeysDmenuCommandGreen =
   [
     ((mod1Mask,                  xK_d      ), spawn dmenuCommandGreen), -- theme: green
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandGreen), -- theme: green
     ((0,                         xK_Menu   ), spawn dmenuCommandGreen)  -- theme: green
   ]
 
 myKeysDmenuCommandSolarizedDark =
   [
     ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
     ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedDark)  -- theme: solarized dark
   ]
 
 myKeysDmenuCommandSolarizedLight =
   [
     ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
     ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
   ]
 
+-- keys
+
 myKeys =
   [
-    ((mod1Mask,                  xK_u      ), spawn myTerminal),
     ((mod1Mask,                  xK_Return ), spawn myTerminal),
     ((mod1Mask,                  xK_s      ), scratchPad),
     ((mod1Mask,                  xK_F4     ), kill),
@@ -587,12 +761,12 @@ myKeys =
     ((mod1Mask .|. controlMask,  xK_c      ), spawn "$HOME/bin/vivaldi.sh noproxy"),
     ((mod1Mask .|. controlMask,  xK_f      ), spawn "firefox"),
     ((mod1Mask .|. controlMask,  xK_o      ), spawn "$HOME/bin/opera.sh proxy"),
-    ((mod1Mask .|. controlMask,  xK_g      ), spawn "gvim"),
+    ((mod1Mask .|. controlMask,  xK_g      ), spawn "gajim"),
     ((mod1Mask .|. controlMask,  xK_m      ), spawn "evolution"),
     ((mod1Mask .|. controlMask,  xK_p      ), spawn "pidgin"),
     ((mod1Mask .|. controlMask,  xK_s      ), spawn "$HOME/bin/skype"),
+    ((mod1Mask .|. controlMask,  xK_t      ), spawn "thunderbird"),
     ((mod1Mask .|. controlMask,  xK_v      ), spawn "VirtualBox"),
-    ((mod1Mask .|. controlMask,  xK_y      ), spawn "/opt/yakyak-linux-x64/yakyak"),
     --
     ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/.xmonad/exit.sh lock"),
     ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/.xmonad/exit.sh monitor_off"),
@@ -642,7 +816,29 @@ myConfigDefault = def
     } `additionalKeys` myKeys
       `additionalMouseBindings` myMouse
 
-myConfigSolarizedBlue xmobar nScreens = myConfigDefault -- theme: blue
+myConfigAnsi xmobar nScreens = myConfigDefault -- theme: ansi
+    {
+      normalBorderColor    = myNormalBorderColorAnsi,
+      focusedBorderColor   = myFocusedBorderColorAnsi,
+      layoutHook           = myLayoutHook myTabConfigAnsi,
+      -- (1) single xmobar
+      -- logHook              = myLogHookAnsi1 xmobar,
+      -- (2) multiple xmobar
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookAnsi2 xmobar nScreens
+    } `additionalKeys` myKeysDmenuCommandAnsi
+
+myConfigZenburn xmobar nScreens = myConfigDefault -- theme: zenburn
+    {
+      normalBorderColor    = myNormalBorderColorZenburn,
+      focusedBorderColor   = myFocusedBorderColorZenburn,
+      layoutHook           = myLayoutHook myTabConfigZenburn,
+      -- (1) single xmobar
+      -- logHook              = myLogHookZenburn1 xmobar,
+      -- (2) multiple xmobar
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookZenburn2 xmobar nScreens
+    } `additionalKeys` myKeysDmenuCommandZenburn
+
+myConfigBlue xmobar nScreens = myConfigDefault -- theme: blue
     {
       normalBorderColor    = myNormalBorderColorBlue,
       focusedBorderColor   = myFocusedBorderColorBlue,
@@ -653,7 +849,7 @@ myConfigSolarizedBlue xmobar nScreens = myConfigDefault -- theme: blue
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookBlue2 xmobar nScreens
     } `additionalKeys` myKeysDmenuCommandBlue
 
-myConfigSolarizedGreen xmobar nScreens = myConfigDefault -- theme: green
+myConfigGreen xmobar nScreens = myConfigDefault -- theme: green
     {
       normalBorderColor    = myNormalBorderColorGreen,
       focusedBorderColor   = myFocusedBorderColorGreen,
@@ -692,17 +888,22 @@ main :: IO ()
 main = do
   -- (1) single xmobar
   -- xmobar1 <- spawnPipe xmobarCommand1
+  -- xmonad $ myConfigBlue xmobar1 1 -- theme: ansi
+  -- xmonad $ myConfigZenburn xmobar1 1 -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar1 1 -- theme: blue
   -- xmonad $ myConfigGreen xmobar1 1 -- theme: green
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
+  --
   -- (2) multiple xmobar
   -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
-  -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: solarized light
-  -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: solarized light
-  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized light
+  -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
+  -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
+  -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
+  -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
+  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
   xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
 
 -- end

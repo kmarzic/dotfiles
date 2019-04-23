@@ -899,11 +899,11 @@ main = do
   -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
-  -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
+  xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
   -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
   -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
-  xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
+  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
 
 -- end

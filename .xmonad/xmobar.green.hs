@@ -17,12 +17,12 @@ Config {
    -- fgColor = "#ffffff",
    --
    -- theme: green
-   -- bgColor = "#222222",
-   -- fgColor = "#ffffff",
+   bgColor = "#222222",
+   fgColor = "#ffffff",
    --
    -- theme: solarized dark
-   bgColor = "#073642", -- base02
-   fgColor = "#fdf6e3", -- base3
+   -- bgColor = "#073642", -- base02
+   -- fgColor = "#fdf6e3", -- base3
    --
    -- theme: solarized light
    -- bgColor = "#eee8d5", -- base2
