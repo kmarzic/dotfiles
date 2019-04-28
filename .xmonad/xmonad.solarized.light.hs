@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-04-19 05:56:55 (CEST)
+-- Last update: 2019-04-28 20:54:48 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -15,6 +15,7 @@ import XMonad.Layout.IndependentScreens
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Roledex
+import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.ToggleLayouts
@@ -339,6 +340,30 @@ myTabConfigSolarizedLight = def
     fontName = fontBold
   }
 
+myStartUpScreen :: X()
+myStartUpScreen = do
+  nScreens <- countScreens
+  if nScreens == 1
+  then do
+    windows $ W.greedyView "1"
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+  else if nScreens == 2
+  then do
+    windows $ W.greedyView "1"
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "9"
+    screenWorkspace 1 >>= flip whenJust (windows . W.view)
+  else if nScreens == 3
+  then do
+    windows $ W.greedyView "1"
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "0"
+    screenWorkspace 1 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "9"
+    screenWorkspace 2 >>= flip whenJust (windows . W.view)
+  else
+    return ()
+
 myStartUp :: X()
 myStartUp = do
   -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
@@ -410,14 +435,17 @@ myManageHook = composeAll . concat $
         ]
 
 myLayoutHook tabConfig =
-    gaps [(U,0), (D,0), (L,0), (R,0)]
+  gaps [(U,0), (D,0), (L,0), (R,0)]
   $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
+  -- $ smartSpacing 2
   -- $ smartBorders
   $ avoidStruts
   -- $ toggleLayouts (noBorders $ full')
   -- $ toggleLayouts (noBorders $ tab2')
   $ myLayouts
   -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
+  -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
+  -- $ full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
   where
     -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
     -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
@@ -438,6 +466,8 @@ myLayoutHook tabConfig =
     ratio    = 1/2
     -- Percent of screen to increment by when resizing panes
     delta    = 2/100
+    -- Spacing
+    space1   = 2
 
 myLogHookAnsiPP :: PP -- theme: ansi
 myLogHookAnsiPP = def
@@ -810,7 +840,7 @@ myConfigDefault = def
       focusFollowsMouse    = myFocusFollowsMouse,
       borderWidth          = myBorderWidth,
       workspaces           = myWorkspaces,
-      startupHook          = myStartUp,
+      startupHook          = myStartUp >> myStartUpScreen,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
       handleEventHook      = handleEventHook def <+> docksEventHook
     } `additionalKeys` myKeys

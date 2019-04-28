@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2019-03-07 06:16:35 (CET)
+-- Last update: 2019-04-28 21:04:08 (CEST)
 --
 -- https://archives.haskell.org/projects.haskell.org/xmobar/
 
@@ -16,7 +16,7 @@ Config {
    -- bgColor = "#222222",
    -- fgColor = "#ffffff",
    --
-   -- theme: green
+   -- theme: #859900
    -- bgColor = "#222222",
    -- fgColor = "#ffffff",
    --
@@ -80,30 +80,30 @@ Config {
    overrideRedirect = True, -- set the Override Redirect flag (Xlib)
 
    commands =
-     [ Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=green><rh></fc>% <fc=green><pressure></fc>hPa",
+     [ Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=#859900><rh></fc>% <fc=#859900><pressure></fc>hPa",
                                "--Low"      , "10",
                                "--High"     , "25",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f" -- red
                              ] 36000, -- 1h
 
        Run DynNetwork        [ "--template" , "<dev>: <tx>kB/s <rx>kB/s",
                                "--Low"      , "10000", -- units: 10 kB/s
                                "--High"     , "500000", -- units: 500 kB/s
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
                                "--minwidth" , "4",
                                "-c"         , " "
                              ] 10, -- 1s
 
-       Run Wireless "wlp1s0" [ "--template" , "<fc=#2aa198><essid>:</fc><quality>%", -- cyan
+       Run Wireless "wlp1s0" [ "--template" , "<fc=#268bd2><essid>:</fc><quality>%", -- #268bd2
                                "--Low"      , "20",
                                "--High"     , "70",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
                                "--minwidth" , "3",
                                "--nastring" , "No Wifi"
                              ] 10, -- 1s
@@ -111,24 +111,24 @@ Config {
        Run Battery           [ "--template" , "BAT: <acstatus>",
                                "--Low"      , "10",
                                "--High"     , "80",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
 
                                "--", -- battery specific options
                                -- discharging status
                                "-o"   , "<left>% (<timeleft>)",
                                -- AC "on" status
-                               "-O"   , "<fc=red>c</fc> <left>% (<timeleft>)", -- orange
+                               "-O"   , "<fc=#dc322f>c</fc> <left>% (<timeleft>)", -- orange
                                -- charged status
-                               "-i"   , "<fc=green>f</fc>" -- green
+                               "-i"   , "<fc=#859900>f</fc>" -- red
                              ] 50, -- 5s
 
        Run MultiCpu          [ "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
                                "--Low"      , "50",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
                                "--High"     , "85",
                                "--width"    , "2"
                              ] 10, -- 1s
@@ -136,34 +136,34 @@ Config {
        Run Cpu               [ "--template" , "CPU: <total>%",
                                "--Low"      , "3",
                                "--High"     , "80",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f", -- red
                                "--width"    , "2"
                              ] 10, -- 1s
 
        Run CoreTemp          [ "--template" , "T: <core0>°C",
                                "--Low"      , "70",
                                "--High"     , "80",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f" -- red
                              ] 50, -- 5s
 
        Run Memory            [ "--template" , "RAM: <usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f" -- red
                              ] 10, -- 1s
 
        Run Swap              [ "--template" ,"Swap: <usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#268bd2", -- blue
+                               "--normal"   , "#859900", -- green
+                               "--high"     , "#dc322f" -- red
                              ] 10, -- 1s
 
        Run DiskU             [ ("/", "/: <used> <size>"),
@@ -178,8 +178,8 @@ Config {
 
        -- theme: default / orange
        -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
-       -- theme: default / cyan
-       Run Date              "<fc=cyan>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / #268bd2
+       Run Date              "<fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / blue
        -- Run Date              "<fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / base3
@@ -196,7 +196,7 @@ Config {
      alignSep = "}{",
 
      -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
-     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
+     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=#859900>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
      -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
      -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%"
      template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%"
