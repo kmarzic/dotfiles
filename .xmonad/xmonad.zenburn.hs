@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-06-25 09:28:01 (CEST)
+-- Last update: 2019-06-25 09:37:43 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -465,8 +465,8 @@ myLayoutHook tabConfig =
     -- myLayouts  = full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
     --
     -- tab1'      = tabbed shrinkText tabConfig
-    tab2'      = spacing space1 $ tabbedAlways shrinkText tabConfig
-    tiled'     = spacing space1 $ Tall nmaster0 delta0 ratio0
+    tab2'      = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ tabbedAlways shrinkText tabConfig
+    tiled'     = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ Tall nmaster0 delta0 ratio0
     -- tiled'     = Tall nmaster delta ratio
     mirror'    = Mirror tiled'
     threecol'  = ThreeColMid nmaster0 delta0 ratio0
@@ -482,9 +482,6 @@ myLayoutHook tabConfig =
     ratio0   = 1/2
     -- Percent of screen to increment by when resizing panes
     delta0   = 2/100
-    -- Spacing
-    space0   = 0
-    space1   = 2
     -- Gaps
     gaps0    = gaps [(U,0), (D,0), (L,0), (R,0)]
     gaps1    = gaps [(U,2), (D,2), (L,2), (R,2)]
