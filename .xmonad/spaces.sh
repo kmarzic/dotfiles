@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
-DEFAULT_SPACES=6
+DEFAULT_SPACES=5
 
 function __echo_spaces()
 {
@@ -22,7 +22,6 @@ case "${1}" in
     *)
         __echo_spaces
 esac
-
 exit 0
 
 ## END
