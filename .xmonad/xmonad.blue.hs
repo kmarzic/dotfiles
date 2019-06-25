@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-06-25 08:06:36 (CEST)
+-- Last update: 2019-06-25 09:28:01 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -101,10 +101,10 @@ help = unlines
     "mod-Shift-[0/~,1..9] Move client to Workspace N",
     "mod-{w,e,r}          Switch to physical/Xinerama screens 1, 2, or 3",
     "mod-Shift-{w,e,r}    Move client to screen 1, 2, or 3",
-    "mod-PageUp           Prev Screen",
-    "mod-PageDown         Next Screen",
-    "mod-Shift-PageUp     Swap Prev Screen",
-    "mod-Shift-PageDown   Swap Next Screen",
+    "mod-,                Prev Screen",
+    "mod-.                Next Screen",
+    "mod-Shift-,          Shift to Prev Screen",
+    "mod-Shift-.          Shift to Next Screen",
     "mod-[0/~,1..9]       Switch to Workspace N",
     "mod-[                Previous Workspace",
     "mod-]                Next Workspace",
@@ -767,10 +767,14 @@ myKeys =
     -- ((mod1Mask .|. shiftMask,    xK_k      ), windows W.swapDown), -- swap the focused window with the next window
     ((mod1Mask .|. shiftMask,    xK_j      ), Group.swapUp >> refresh),  -- swap the focused window with the previous window
     ((mod1Mask .|. shiftMask,    xK_k      ), Group.swapDown >> refresh), -- swap the focused window with the next window
-    ((mod1Mask,                  xK_Down   ), nextScreen), -- cycling through screens
-    ((mod1Mask,                  xK_Up     ), prevScreen), -- cycling through screens
-    ((mod1Mask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
-    ((mod1Mask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
+    -- ((mod1Mask,                  xK_Down   ), nextScreen), -- cycling through screens
+    -- ((mod1Mask,                  xK_Up     ), prevScreen), -- cycling through screens
+    ((mod1Mask,                  xK_comma  ), prevScreen), -- previous screen
+    ((mod1Mask,                  xK_period ), nextScreen), -- next screen
+    ((mod1Mask .|. shiftMask,    xK_comma  ), shiftPrevScreen >> prevScreen), -- shift to previous screen
+    ((mod1Mask .|. shiftMask,    xK_period ), shiftNextScreen >> nextScreen), -- shift to next screen
+    -- ((mod1Mask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
+    -- ((mod1Mask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
     ((mod1Mask,                  xK_h      ), Group.focusGroupUp), -- move the focus to the previous group
     ((mod1Mask,                  xK_l      ), Group.focusGroupDown), -- move the focus to the next group
     ((mod1Mask .|. shiftMask,    xK_h      ), Group.moveToGroupUp False), -- move the focused window to the previous group
