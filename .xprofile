@@ -6,11 +6,11 @@
 
 export __PATH_ORIG="$PATH"
 export PATH="$HOME/bin"
-export PATH="$PATH:/opt/ghc/bin"
+# export PATH="$PATH:/opt/ghc/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
 # export PATH="$PATH:/opt/perl5/bin:/opt/perl5/cpan/bin"
-export PATH="$PATH:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
-export PATH="$PATH:/opt/python3/bin:/opt/python3.ext/bin"
+# export PATH="$PATH:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
+# export PATH="$PATH:/opt/python3/bin:/opt/python3.ext/bin"
 export PATH="$PATH:$__PATH_ORIG"
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
@@ -63,7 +63,7 @@ xset -b
 ## mouse cursor
 xsetroot -cursor_name left_ptr
 
-# syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
+## syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
 syndaemon -i 1 -d
 
 ## touchpad on
@@ -136,13 +136,6 @@ then
     # /usr/local/bin/NSGClient &
 fi
 
-## redshift
-if [[ -e /usr/bin/redshift ]]
-then
-    echo .
-    # /usr/bin/redshift &
-fi
-
 ## Urxvt daemon
 if [[ -e /usr/bin/urxvtd ]]
 then
@@ -159,6 +152,13 @@ then
     # (sleep 3 && /usr/bin/wicd-gtk -t &)
     # /usr/bin/wicd-gtk -t &
     # /usr/bin/wicd-client &
+fi
+
+## redshift
+if [[ -e /usr/bin/redshift ]]
+then
+    echo .
+    /usr/bin/redshift &
 fi
 
 ## xcompmgr - sample X compositing manager

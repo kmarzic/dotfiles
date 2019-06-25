@@ -6,12 +6,12 @@
 
 export __PATH_ORIG="$PATH"
 export PATH="$HOME/bin"
-export PATH="$PATH:/opt/ghc/bin"
-export PATH="$PATH:$HOME/.cabal/bin"
+# export PATH="$PATH:/opt/ghc/bin"
+# export PATH="$PATH:$HOME/.cabal/bin"
 # export PATH="$PATH:/opt/perl5/bin:/opt/perl5/cpan/bin"
-export PATH="$PATH:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
-export PATH="$PATH:/opt/python3/bin:/opt/python3.ext/bin"
-export PATH="$PATH:/opt/ratpoison/bin"
+# export PATH="$PATH:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
+# export PATH="$PATH:/opt/python3/bin:/opt/python3.ext/bin"
+# export PATH="$PATH:/opt/ratpoison/bin"
 export PATH="$PATH:$__PATH_ORIG"
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
@@ -76,27 +76,24 @@ echo "" > ~/.xsession-errors
 
 ## 13. awesome
 # exec awesome || exec xterm
-# exec awesome -c ~/.config/awesome/rc.lua || exec xterm
 
 ## 14. dwm
-# exec dwm || exec xterm
+# exec dwm.sh || exec xterm
 
 ## 15. wmii
 # exec wmii || exec xterm
 
 ## 16. xmonad
 # [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.dark.hs xmonad.hs && cd -
-[[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.light.hs xmonad.hs && cd -
+# [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.light.hs xmonad.hs && cd -
+[[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.ansi.hs xmonad.hs && cd -
 # [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.dark.hs xmobar.hs && cd -
-[[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.light.hs xmobar.hs && cd -
+# [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.light.hs xmobar.hs && cd -
+[[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.ansi.hs xmobar.hs && cd -
 ## (1)
 # cd ~/data/cabal/xmonad
-# cd ~/data/cabal/xmonad.dev.20180803
-# cd ~/data/cabal/xmonad.dev.20180813
-# cd ~/data/cabal/xmonad.dev.20180821
-cd ~/data/cabal/xmonad
-cabal exec -- xmonad --recompile
-cd ~/
+# cabal exec -- xmonad --recompile
+# cd ~/
 ## (2)
 xmonad --recompile
 ##
@@ -106,7 +103,6 @@ exec xmonad || exec xterm
 # exec ratpoison || exec xterm
 
 ## 18. bspwm
-# sxhkd &
 # exec bspwm || exec xterm
 
 ## 19. terminals
