@@ -1,7 +1,5 @@
 -- xmobar.hs
--- Last update: 2019-04-28 21:04:08 (CEST)
---
--- https://archives.haskell.org/projects.haskell.org/xmobar/
+-- Last update: 2019-06-25 07:09:46 (CEST)
 
 Config {
    -- theme: ansi
@@ -16,7 +14,7 @@ Config {
    -- bgColor = "#222222",
    -- fgColor = "#ffffff",
    --
-   -- theme: #859900
+   -- theme: green
    -- bgColor = "#222222",
    -- fgColor = "#ffffff",
    --
@@ -75,95 +73,118 @@ Config {
    pickBroadest = False,    -- choose widest display (multi-monitor)
    persistent = False,      -- enable/disable hiding (True = disabled)
    hideOnStart = False,     -- start with window unmapped (hidden)
-   iconRoot = ".",
+   iconRoot = ".xmonad/icons/",
    allDesktops = True,      -- show on all desktops
    overrideRedirect = True, -- set the Override Redirect flag (Xlib)
+   sepChar = "%",
+   alignSep = "}{",
+
+   -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%",
+   -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%",
+   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
+   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% ] %spaces1%",
+   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
 
    commands =
-     [ Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=#859900><rh></fc>% <fc=#859900><pressure></fc>hPa",
-                               "--Low"      , "10",
-                               "--High"     , "25",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f" -- red
-                             ] 36000, -- 1h
+     [
+       -- Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=green><rh></fc>% <fc=green><pressure></fc>hPa",
+       --                         "--Low"      , "10",
+       --                         "--High"     , "25",
+       --                         "--low"      , "cyan", -- cyan
+       --                         "--normal"   , "green", -- green
+       --                         "--high"     , "red" -- red
+       --                       ] 36000, -- 1h
 
-       Run DynNetwork        [ "--template" , "<dev>: <tx>kB/s <rx>kB/s",
+       Run DynNetwork        [ -- "--template" , "<dev>: <tx>kB/s <rx>kB/s",
+                               -- "--template" , "UL: <tx>kB/s DL: <rx>kB/s",
+                               "--template" , "<icon=up.xbm/><tx>kB/s <icon=down.xbm/><rx>kB/s",
                                "--Low"      , "10000", -- units: 10 kB/s
                                "--High"     , "500000", -- units: 500 kB/s
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f", -- red
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red", -- red
                                "--minwidth" , "4",
                                "-c"         , " "
                              ] 10, -- 1s
 
-       Run Wireless "wlp1s0" [ "--template" , "<fc=#268bd2><essid>:</fc><quality>%", -- #268bd2
+       Run Wireless "wlp1s0" [ "--template" , "<fc=#2aa198><essid>:</fc><quality>%", -- cyan
                                "--Low"      , "20",
                                "--High"     , "70",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f", -- red
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red", -- red
                                "--minwidth" , "3",
                                "--nastring" , "No Wifi"
                              ] 10, -- 1s
 
-       Run Battery           [ "--template" , "BAT: <acstatus>",
+       Run Battery           [ -- "--template" , "BAT: <acstatus>",
+                               "--template" , "<acstatus>",
                                "--Low"      , "10",
                                "--High"     , "80",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f", -- red
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red", -- red
 
                                "--", -- battery specific options
                                -- discharging status
-                               "-o"   , "<left>% (<timeleft>)",
+                               -- "-o"   , "<left>% (<timeleft>)",
+                               "-o"   , "<icon=batt.xbm/> <left>% (<timeleft>)",
                                -- AC "on" status
-                               "-O"   , "<fc=#dc322f>c</fc> <left>% (<timeleft>)", -- orange
+                               -- "-O"   , "<fc=red>c</fc> <left>% (<timeleft>)", -- orange
+                               "-O"   , "<icon=batt_on.xbm/> <left>% (<timeleft>)", -- orange
                                -- charged status
-                               "-i"   , "<fc=#859900>f</fc>" -- red
+                               -- "-i"   , "<fc=green>f</fc>" -- green
+                               "-i"   , "<icon=batt_idle.xbm/>" -- green
                              ] 50, -- 5s
 
        Run MultiCpu          [ "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
                                "--Low"      , "50",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f", -- red
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red", -- red
                                "--High"     , "85",
                                "--width"    , "2"
                              ] 10, -- 1s
 
-       Run Cpu               [ "--template" , "CPU: <total>%",
+       Run Cpu               [ -- "--template" , "CPU: <total>%",
+                               "--template" , "<icon=cpu.xbm/><total>%",
                                "--Low"      , "3",
                                "--High"     , "80",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f", -- red
+                               "--minwidth" , "2",
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red", -- red
                                "--width"    , "2"
                              ] 10, -- 1s
 
-       Run CoreTemp          [ "--template" , "T: <core0>°C",
+       Run CoreTemp          [ -- "--template" , "<core0>°C",
+                               "--template" , "<icon=temp.xbm/><core0>°C",
                                "--Low"      , "70",
                                "--High"     , "80",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f" -- red
+                               "--minwidth" , "2",
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red" -- red
                              ] 50, -- 5s
 
-       Run Memory            [ "--template" , "RAM: <usedratio>%",
+       Run Memory            [ -- "--template" , "RAM: <usedratio>%",
+                               "--template" , "<icon=mem.xbm/><usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f" -- red
+                               "--minwidth" , "2",
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red" -- red
                              ] 10, -- 1s
 
-       Run Swap              [ "--template" ,"Swap: <usedratio>%",
+       Run Swap              [ -- "--template" ,"Swap: <usedratio>%",
+                               "--template" , "<icon=diskette.xbm/><usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--low"      , "#268bd2", -- blue
-                               "--normal"   , "#859900", -- green
-                               "--high"     , "#dc322f" -- red
+                               "--minwidth" , "2",
+                               "--low"      , "cyan", -- cyan
+                               "--normal"   , "green", -- green
+                               "--high"     , "red" -- red
                              ] 10, -- 1s
 
        Run DiskU             [ ("/", "/: <used> <size>"),
@@ -178,8 +199,8 @@ Config {
 
        -- theme: default / orange
        -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
-       -- theme: default / #268bd2
-       Run Date              "<fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / cyan
+       Run Date              "<icon=clock.xbm/><fc=cyan>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / blue
        -- Run Date              "<fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / base3
@@ -191,15 +212,7 @@ Config {
        Run Com               ".xmonad/forecast.sh" [] "forecast1" 600, -- 1m
        -- Run StdinReader
        Run UnsafeStdinReader
-     ],
-     sepChar = "%",
-     alignSep = "}{",
-
-     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%"
-     -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=#859900>%wireless1%</fc> | %battery% }{ %date% | %spaces1%"
-     -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%"
-     -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%"
-     template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%"
+     ]
 }
 
 -- end
