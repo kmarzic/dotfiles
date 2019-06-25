@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-06-25 10:38:13 (CEST)
+-- Last update: 2019-06-25 10:49:08 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -495,20 +495,20 @@ myIcon name = abc
 myPPLayout :: String -> String
 myPPLayout layout = case layout of
       -- -- ascii layout
-      -- "Spacing Tabbed Simplest by Full" -> "[_]"
-      -- "Full by Full"                    -> "[ ]"
-      -- "Spacing Tall by Full"            -> "[|]"
-      -- "Mirror Spacing Tall by Full"     -> "[-]"
-      -- "Roledex by Full"                 -> "[@]"
-      -- _                                 -> layout
+      -- "Tabbed Simplest by Full" -> "[_]"
+      -- "Full by Full"            -> "[ ]"
+      -- "Tall by Full"            -> "[|]"
+      -- "Mirror Tall by Full"     -> "[-]"
+      -- "Roledex by Full"         -> "[@]"
+      -- _                         -> layout
       --
       -- icon layout
-      "Spacing Tabbed Simplest by Full" -> myIcon ".xmonad/icons/layout_tabbed.xbm"
-      "Full by Full"                    -> myIcon ".xmonad/icons/layout_full.xbm"
-      "Spacing Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
-      "Mirror Spacing Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Roledex by Full"                 -> "[@]"
-      _                                 -> layout
+      "Tabbed Simplest by Full" -> myIcon ".xmonad/icons/layout_tabbed.xbm"
+      "Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
+      "Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
+      "Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
+      "Roledex by Full"         -> "[@]"
+      _                         -> layout
 
 myLogHookAnsiPP :: PP -- theme: ansi
 myLogHookAnsiPP = def
