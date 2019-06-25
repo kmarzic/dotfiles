@@ -37,12 +37,12 @@ function __monitor_off()
 
 function __logout()
 {
-    [ $(ps -ef | grep "xmonad-x86_64-linux" | wc -l) -gt 0 ] && pkill xmonad;
-    [ $(ps -ef | grep "awesome" | wc -l) -gt  0 ] && pkill awesome;
-    [ $(ps -ef | grep "dwm.sh" | wc -l) -gt 0 ] && killall dwm.sh;
-    [ $(ps -ef | grep "i3wm" | wc -l) -gt 0 ] && i3-msg exit;
-    [ $(ps -ef | grep "bspc" | wc -l) -gt 0 ] && pkill -x panel; pkill -x panel;
-    [ $(ps -ef | grep "bspc" | wc -l) -gt 0 ] && bspc quit && bspc quit 1;
+    [ $(ps -ef | grep "xmonad-x86_64-linux" | wc -l) -gt 0 ] && pkill xmonad; \
+    [ $(ps -ef | grep "awesome" | wc -l) -gt 0 ] && pkill awesome; \
+    [ $(ps -ef | grep "dwh.sh" | wc -l) -gt 0 ] && pkill dwh.sh; \
+    [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; \
+    pkill -x panel; pkill -x panel; \
+    [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
 }
 
 function __suspend()

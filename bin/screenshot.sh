@@ -29,13 +29,10 @@ echo "WindowID='${WindowID}'" >> ~/Downloads/s.txt
 #### (3a) scrot
 # scrot --quality 100 --focused ~/screenshot_${DATE}.jpeg
 #### (3b) scrot
-# scrot --quality 100 --select ~/screenshot_${DATE}.jpeg
+scrot --quality 100 --select ~/screenshot_${DATE}.jpeg
 
-#### (4) gnome
+##### (4) gnome
 # gnome-screenshot -a
-
-#### (5) maim
-maim --select ~/screenshot_${DATE}.png
 
 ## message
 echo "Screenshot taken to '~/screenshot_${DATE}.jpeg'"
