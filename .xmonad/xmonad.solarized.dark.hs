@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-06-25 09:37:43 (CEST)
+-- Last update: 2019-06-25 10:38:13 (CEST)
 
 import XMonad
 import XMonad.Actions.CycleWS
@@ -464,10 +464,10 @@ myLayoutHook tabConfig =
     -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
     -- myLayouts  = full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
     --
-    -- tab1'      = tabbed shrinkText tabConfig
-    tab2'      = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ tabbedAlways shrinkText tabConfig
-    tiled'     = spacingRaw True (Border 0 10 10 10) True (Border 10 10 10 10) True $ Tall nmaster0 delta0 ratio0
-    -- tiled'     = Tall nmaster delta ratio
+    tab2'      = tabbedAlways shrinkText tabConfig
+    -- tab2'      = spacingRaw True (Border 0 1 1 1) True (Border 1 1 1 1) True $ tabbedAlways shrinkText tabConfig
+    tiled'     = Tall nmaster0 delta0 ratio0
+    -- tiled'     = spacingRaw True (Border 0 1 1 1) True (Border 1 1 1 1) True $ Tall nmaster0 delta0 ratio0
     mirror'    = Mirror tiled'
     threecol'  = ThreeColMid nmaster0 delta0 ratio0
     -- full'      = gaps0 $ Full
