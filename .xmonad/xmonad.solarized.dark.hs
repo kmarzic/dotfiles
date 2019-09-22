@@ -1,6 +1,8 @@
 -- xmonad.hs
--- Last update: 2019-06-25 10:49:08 (CEST)
+-- Last update: 2019-09-17 07:22:52 (CEST)
 
+import Data.Maybe ( maybeToList )
+import Data.List ( (\\) )
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Actions.UpdatePointer
@@ -22,6 +24,7 @@ import XMonad.Layout.ToggleLayouts
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.EZConfig
+import XMonad.Util.NamedWindows ( getName )
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
 import XMonad.Util.SpawnOnce
@@ -137,15 +140,16 @@ fontRegular = "xft:Monospace:pixelsize=14:antialias=true:style=regular"
 
 fontBold :: String
 fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
--- fontBold = "xft:Monospace:pixelsize=12:antialias=true:style=bold"
 -- fontBold = "xft:Monospace:pixelsize=13:antialias=true:style=bold"
--- fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
--- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
--- fontBold = "xft:Terminus:pixelsize=13:antialias=true:style=bold"
+-- fontBold = "xft:Monospace:pixelsize=12:antialias=true:style=bold"
 -- fontBold = "xft:Terminus:pixelsize=14:antialias=true:style=bold"
+-- fontBold = "xft:Terminus:pixelsize=13:antialias=true:style=bold"
+-- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
 
 fontTerminalScratchpad :: String
 fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+
+-- dmenuCommand
 
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
@@ -164,6 +168,8 @@ dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36
 
 dmenuCommandSolarizedLight :: String -- theme: solarized light
 dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+-- xmobarCommand
 
 xmobarCommand1 :: String
 xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
@@ -446,11 +452,12 @@ myManageHook = composeAll . concat $
         ]
 
 myLayoutHook tabConfig =
-  -- gaps [(U,0), (D,0), (L,0), (R,0)]
+  gaps0
+  -- gaps1
   -- $ smartSpacing 2
   -- $ spacing 2
   -- $ smartBorders
-  avoidStruts
+  $ avoidStruts
   -- $ toggleLayouts (noBorders $ full')
   -- $ toggleLayouts (noBorders $ tab2')
   -- $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
@@ -466,22 +473,31 @@ myLayoutHook tabConfig =
     --
     tab2'      = tabbedAlways shrinkText tabConfig
     -- tab2'      = spacingRaw True (Border 0 1 1 1) True (Border 1 1 1 1) True $ tabbedAlways shrinkText tabConfig
+    --
     tiled'     = Tall nmaster0 delta0 ratio0
     -- tiled'     = spacingRaw True (Border 0 1 1 1) True (Border 1 1 1 1) True $ Tall nmaster0 delta0 ratio0
+    --
     mirror'    = Mirror tiled'
+    --
     threecol'  = ThreeColMid nmaster0 delta0 ratio0
+    --
     -- full'      = gaps0 $ Full
     -- full'      = gaps1 $ Full
     full'      = Full
+    --
     resizetab' = ResizableTall 1 (3/100) (1/2) []
+    --
     roledex'   = Roledex
     --
     -- The default number of windows in the master pane
     nmaster0 = 1
+    --
     -- Default proportion of screen occupied by master pane
     ratio0   = 1/2
+    --
     -- Percent of screen to increment by when resizing panes
     delta0   = 2/100
+    --
     -- Gaps
     gaps0    = gaps [(U,0), (D,0), (L,0), (R,0)]
     gaps1    = gaps [(U,2), (D,2), (L,2), (R,2)]
@@ -494,7 +510,7 @@ myIcon name = abc
 
 myPPLayout :: String -> String
 myPPLayout layout = case layout of
-      -- -- ascii layout
+      -- (1) ascii layout
       -- "Tabbed Simplest by Full" -> "[_]"
       -- "Full by Full"            -> "[ ]"
       -- "Tall by Full"            -> "[|]"
@@ -502,13 +518,20 @@ myPPLayout layout = case layout of
       -- "Roledex by Full"         -> "[@]"
       -- _                         -> layout
       --
-      -- icon layout
+      -- (2) icon layout
       "Tabbed Simplest by Full" -> myIcon ".xmonad/icons/layout_tabbed.xbm"
       "Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
       "Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Roledex by Full"         -> "[@]"
       _                         -> layout
+
+logTitles :: X (Maybe String) -- this is a Logger
+logTitles =
+   withWindowSet $ fmap (Just . unwords) -- fuse window names
+   . traverse (fmap show . getName) -- show window names
+   . (\ws -> W.index ws \\ maybeToList (W.peek ws))
+   -- all windows except the focused (may be slow)
 
 myLogHookAnsiPP :: PP -- theme: ansi
 myLogHookAnsiPP = def
@@ -521,7 +544,9 @@ myLogHookAnsiPP = def
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppWsSep           = " ",  -- separator between workspaces
+    ppExtras          = [ logTitles ],
+    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
   }
 
 myLogHookZenburnPP :: PP -- theme: zenburn
@@ -535,7 +560,8 @@ myLogHookZenburnPP = def
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppWsSep           = " ",  -- separator between workspaces
+    ppExtras          = [ ]
   }
 
 myLogHookBluePP :: PP -- theme: blue
@@ -549,7 +575,8 @@ myLogHookBluePP = def
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppWsSep           = " ",  -- separator between workspaces
+    ppExtras          = [ ]
   }
 
 myLogHookGreenPP :: PP -- theme: green
@@ -563,7 +590,8 @@ myLogHookGreenPP = def
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppWsSep           = " ",  -- separator between workspaces
+    ppExtras          = [ ]
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
@@ -577,7 +605,8 @@ myLogHookSolarizedDarkPP = def
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
     ppLayout          = xmobarColor "#002b36" "#2aa198" . (\layout -> myPPLayout (layout)), -- base03/cyan
     ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppWsSep           = " ",  -- separator between workspaces
+    ppExtras          = [ ]
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
@@ -591,7 +620,8 @@ myLogHookSolarizedLightPP = def
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
     ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . (\layout -> myPPLayout (layout)), -- base3/blue
     ppSep             = "  ", -- separator between each object
-    ppWsSep           = " " -- separator between workspaces
+    ppWsSep           = " ",  -- separator between workspaces
+    ppExtras          = [ ]
   }
 
 -- ansi
@@ -897,7 +927,9 @@ myConfigSolarizedDark xmobar nScreens = myConfigDefault -- theme: solarized dark
     {
       normalBorderColor    = myNormalBorderColorSolarizedDark,
       focusedBorderColor   = myFocusedBorderColorSolarizedDark,
+      -- (1) Solarized Dark
       -- layoutHook           = myLayoutHook myTabConfigSolarizedDark,
+      -- (2) Solarized
       layoutHook           = myLayoutHook myTabConfigSolarized,
       -- (1) single xmobar
       -- logHook              = myLogHookSolarizedDark1 xmobar
@@ -909,7 +941,9 @@ myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized lig
     {
       normalBorderColor    = myNormalBorderColorSolarizedLight,
       focusedBorderColor   = myFocusedBorderColorSolarizedLight,
+      -- (1) Solarized Light
       -- layoutHook           = myLayoutHook myTabConfigSolarizedLight,
+      -- (2) Solarized
       layoutHook           = myLayoutHook myTabConfigSolarized,
       -- (1) single xmobar
       -- logHook              = myLogHookSolarizedLight1 xmobar
@@ -936,8 +970,8 @@ main = do
   -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
   -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
-  xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
-  -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
+  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
+  xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
   --
   -- (3) i3status
   -- xmobar1 <- spawnPipe i3statusCommand1

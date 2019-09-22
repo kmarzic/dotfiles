@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2019-06-25 07:09:46 (CEST)
+-- Last update: 2019-09-22 19:44:00 (CEST)
 
 Config {
    -- theme: ansi
@@ -82,8 +82,8 @@ Config {
    -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%",
    -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%",
    -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
-   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% ] %spaces1%",
-   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
+   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%",
+   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
 
    commands =
      [
@@ -121,9 +121,9 @@ Config {
                                "--template" , "<acstatus>",
                                "--Low"      , "10",
                                "--High"     , "80",
-                               "--low"      , "cyan", -- cyan
+                               "--low"      , "red", -- red
                                "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--high"     , "cyan", -- cyan
 
                                "--", -- battery specific options
                                -- discharging status

@@ -26,7 +26,10 @@ function __check_file()
 
 function __forecast()
 {
-    route=$(netstat -rn | grep "^0.0.0.0" | awk '{ print $2 }')
+    #### (1)
+    # route=$(netstat -rn | grep "^0.0.0.0" | awk '{ print $2 }')
+    #### (2)
+    route=$(ip r | grep "^default" | awk '{ print $3 }')
     # echo "route='${route}'"
 
     ping -c1 -W1 ${route} &> /dev/null
