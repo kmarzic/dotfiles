@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2019-09-22 19:44:00 (CEST)
+-- Last update: 2019-10-10 20:30:55 (CEST)
 
 Config {
    -- theme: ansi
@@ -81,9 +81,9 @@ Config {
 
    -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%",
    -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%",
-   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
+   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
    -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%",
-   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
+   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
 
    commands =
      [
@@ -121,9 +121,9 @@ Config {
                                "--template" , "<acstatus>",
                                "--Low"      , "10",
                                "--High"     , "80",
-                               "--low"      , "cyan", -- cyan
+                               "--low"      , "red", -- red
                                "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--high"     , "cyan", -- cyan
 
                                "--", -- battery specific options
                                -- discharging status
@@ -137,7 +137,8 @@ Config {
                                "-i"   , "<icon=batt_idle.xbm/>" -- green
                              ] 50, -- 5s
 
-       Run MultiCpu          [ "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
+       Run MultiCpu          [ -- "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
+                               "--template" , "<icon=cpu.xbm/><total0>%|<total1>%|<total2>%|<total3>%",
                                "--Low"      , "50",
                                "--low"      , "cyan", -- cyan
                                "--normal"   , "green", -- green
@@ -154,7 +155,7 @@ Config {
                                "--low"      , "cyan", -- cyan
                                "--normal"   , "green", -- green
                                "--high"     , "red", -- red
-                               "--width"    , "2"
+                               "--width"    , "3"
                              ] 10, -- 1s
 
        Run CoreTemp          [ -- "--template" , "<core0>°C",
@@ -178,7 +179,7 @@ Config {
                              ] 10, -- 1s
 
        Run Swap              [ -- "--template" ,"Swap: <usedratio>%",
-                               "--template" , "<icon=diskette.xbm/><usedratio>%",
+                               "--template" , "<icon=swap.xbm/><usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--minwidth" , "2",

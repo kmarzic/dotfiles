@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-09-17 07:22:52 (CEST)
+-- Last update: 2019-12-26 07:34:06 (CET)
 
 import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
@@ -33,6 +33,7 @@ import System.Environment (getEnv)
 import System.IO
 import System.IO.Unsafe
 import qualified Data.Map as M
+import qualified XMonad.Actions.DynamicWorkspaceOrder as DO
 import qualified XMonad.Actions.FlexibleResize as Flex
 import qualified XMonad.Layout.Groups as G
 import qualified XMonad.Layout.Groups.Helpers as Group
@@ -65,7 +66,7 @@ help = unlines
   [
     "The default modifier key is 'alt'. Keybindings:",
     "",
-    "-- launching and killing programs",
+    "-- Launching and killing programs",
     "mod-Shift-Enter      Launch xterminal",
     "mod-Enter            Launch xterminal",
     "mod-s                Launch scratchpad",
@@ -89,13 +90,13 @@ help = unlines
     "mod-l                Move focus to the previous Group",
     "mod-h                Move focus to the next Group",
     "",
-    "-- modifying the window order",
+    "-- Modifying the window order",
     "mod-Shift-j          Swap the focused window with the next window",
     "mod-Shift-k          Swap the focused window with the previous window",
     "mod-Shift-l          Move the focused window to the previous Group",
     "mod-Shift-h          Move the focused window to the next Group",
     "",
-    "-- resizing the master/slave ratio",
+    "-- Resizing the master/slave ratio",
     "mod-f                Toggle full screen",
     "mod-a                Shrink resizable area",
     "mod-z                Expand resizable area",
@@ -111,13 +112,17 @@ help = unlines
     "mod-[0/~,1..9]       Switch to Workspace N",
     "mod-[                Previous Workspace",
     "mod-]                Next Workspace",
-    "mod-shift-Left       Previous Workspace",
-    "mod-shift-Right      Next Workspace",
+    -- "mod-Shift-Left       Previous Workspace",
+    -- "mod-Shift-Right      Next Workspace",
+    "mod-Shift-[          Previous NonEmpty Workspace",
+    "mod-Shift-]          Next NonEmpty Workspace",
+    -- "mod-Control-Left     Previous Workspace",
+    -- "mod-Control-Right    Next Workspace",
     "",
-    "-- floating layer support",
+    "-- Floating layer support",
     "mod-t                Push window back into tiling; unfloat and re-tile it",
     "",
-    "-- quit, or restart",
+    "-- Quit, or restart",
     "mod-Shift-q          Quit xmonad",
     "mod-Ctrl-x           Quit xmonad",
     "mod-Ctrl-l           Lock screen",
@@ -362,22 +367,22 @@ myStartUpScreen = do
   nScreens <- countScreens
   if nScreens == 1
   then do
-    windows $ W.greedyView "1"
     screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "1"
   else if nScreens == 2
   then do
-    windows $ W.greedyView "1"
     screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "9"
+    windows $ W.greedyView "1"
     screenWorkspace 1 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "9"
   else if nScreens == 3
   then do
-    windows $ W.greedyView "1"
     screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "0"
+    windows $ W.greedyView "1"
     screenWorkspace 1 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "9"
+    windows $ W.greedyView "0"
     screenWorkspace 2 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "9"
   else
     return ()
 
@@ -407,6 +412,8 @@ myManageHook = composeAll . concat $
       [className =? "Opera" --> doShift (myWorkspaces !! 4)],
       [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
       [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
+      [className =? "Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
+      [className =? "New Tab - Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
       [className =? "Vivaldi" --> doShift (myWorkspaces !! 4)],
       [className =? "Vivaldi-stable" --> doShift (myWorkspaces !! 4)],
       [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
@@ -561,7 +568,8 @@ myLogHookZenburnPP = def
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ ]
+    ppExtras          = [ logTitles ],
+    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
   }
 
 myLogHookBluePP :: PP -- theme: blue
@@ -576,7 +584,8 @@ myLogHookBluePP = def
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ ]
+    ppExtras          = [ logTitles ],
+    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
   }
 
 myLogHookGreenPP :: PP -- theme: green
@@ -591,7 +600,8 @@ myLogHookGreenPP = def
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ ]
+    ppExtras          = [ logTitles ],
+    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
@@ -606,7 +616,8 @@ myLogHookSolarizedDarkPP = def
     ppLayout          = xmobarColor "#002b36" "#2aa198" . (\layout -> myPPLayout (layout)), -- base03/cyan
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ ]
+    ppExtras          = [ logTitles ],
+    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
@@ -621,7 +632,8 @@ myLogHookSolarizedLightPP = def
     ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . (\layout -> myPPLayout (layout)), -- base3/blue
     ppSep             = "  ", -- separator between each object
     ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ ]
+    ppExtras          = [ logTitles ],
+    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
   }
 
 -- ansi
@@ -777,11 +789,13 @@ myKeys =
     ((mod1Mask,                  xK_Return ), spawn myTerminal),
     ((mod1Mask,                  xK_s      ), scratchPad),
     ((mod1Mask,                  xK_F4     ), kill),
+    ((mod1Mask,                  xK_m      ), myStartUpScreen),
     ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
     ((mod1Mask,                  xK_Print  ), spawn "$HOME/bin/screenshot.sh"),
     ((mod1Mask,                  xK_q      ), spawn "$HOME/.xmonad/recompile.sh"),
     ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/.xmonad/exit.sh message"),
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
+    --
     ((mod1Mask,                  xK_f      ), sendMessage (Toggle "Full")),
     ((mod1Mask,                  xK_a      ), sendMessage MirrorShrink), -- shrink resizable area
     ((mod1Mask,                  xK_z      ), sendMessage MirrorExpand), -- expand resizable area
@@ -810,6 +824,10 @@ myKeys =
     ((mod1Mask,                  xK_bracketright), nextWS), -- next workspace
     ((mod1Mask .|. shiftMask,    xK_Left), prevWS), -- previous workspace
     ((mod1Mask .|. shiftMask,    xK_Right), nextWS), -- next workspace
+    ((mod1Mask .|. shiftMask,    xK_bracketleft),   DO.moveTo Prev HiddenNonEmptyWS), -- previous non empty workspace
+    ((mod1Mask .|. shiftMask,    xK_bracketright),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
+    ((mod1Mask .|. controlMask,  xK_Left),   DO.moveTo Prev HiddenNonEmptyWS), -- previous non empty workspace
+    ((mod1Mask .|. controlMask,  xK_Right),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
     --
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
     ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
@@ -837,7 +855,7 @@ myKeys =
     ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/.xmonad/exit.sh message")
   ]
   ++
-  -- Replacing greedyView with view
+  -- (1) Replacing greedyView with view
   -- mod-[1..9] %! Switch to workspace N
   -- mod-shift-[1..9] %! Move client to workspace N
   [ ((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
@@ -846,7 +864,7 @@ myKeys =
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)] -- view
   ]
   ++
-  -- Reorder screens
+  -- (2) Reorder screens
   [ ((m .|. mod1Mask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
     -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..] -- default map
     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***
@@ -970,8 +988,8 @@ main = do
   -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
   -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
-  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
-  xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
+  xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
+  -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
   --
   -- (3) i3status
   -- xmobar1 <- spawnPipe i3statusCommand1
