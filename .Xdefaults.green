@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2019-03-13 07:04:21 (CET)
+!! Last update: 2019-07-23 06:19:25 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -611,13 +611,25 @@ URxvt.keysym.C-slash:  perl:font-size:show
 ! URxvt.keysym.C-question:  perl:resize-font:show
 
 !! fonts
+! URxvt*font: xft:Terminus:pixelsize=16:antialias=true:style=regular
+! URxvt*boldfont: xft:Terminus:pixelsize=16:antialias=true:style=bold
+! URxvt*italicfont: xft:Terminus:pixelsize=16:antialias=true:style=italic
+!
+! URxvt*font: xft:Terminus:pixelsize=17:antialias=true:style=regular
+! URxvt*boldfont: xft:Terminus:pixelsize=17:antialias=true:style=bold
+! URxvt*italicfont: xft:Terminus:pixelsize=17:antialias=true:style=italic
+!
 ! URxvt*font: xft:Terminus:pixelsize=18:antialias=true:style=regular
 ! URxvt*boldfont: xft:Terminus:pixelsize=18:antialias=true:style=bold
 ! URxvt*italicfont: xft:Terminus:pixelsize=18:antialias=true:style=italic
 !
-URxvt*font: xft:Monospace:pixelsize=15:antialias=true:style=regular
-URxvt*boldfont: xft:Monospace-Bold:pixelsize=15:antialias=true:style=bold
-URxvt*italicfont: xft:Monospace:pixelsize=15:antialias=true:style=italic
+URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular
+URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold
+URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic
+!
+! URxvt*font: xft:Monospace:pixelsize=15:antialias=true:style=regular
+! URxvt*boldfont: xft:Monospace-Bold:pixelsize=15:antialias=true:style=bold
+! URxvt*italicfont: xft:Monospace:pixelsize=15:antialias=true:style=italic
 !
 ! URxvt*font: xft:Courier 10 Pitch:pixelsize=14:antialias=true:style=regular
 ! URxvt*boldfont: xft:Courier 10 Pitch:pixelsize=14:antialias=true:style=bold
