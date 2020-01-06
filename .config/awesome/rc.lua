@@ -244,10 +244,10 @@ local my_update_interval = 15
 --
 -- Vicious Widget
 local my_cpu_temp = wibox.widget.textbox()
-vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span> ', my_update_interval, "thermal_zone0")
+vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU: </span><span color="cyan"><b>$1&#8451;</b></span> ', my_update_interval, "thermal_zone0")
 
 local my_cpu_load = wibox.widget.textbox()
-vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>Load: </span><span color="cyan"><b>$1%</b></span> |', my_update_interval)
+vicious.register (my_cpu_load, vicious.widgets.cpu, '<span> </span><span color="cyan"><b>$1%</b></span> |', my_update_interval)
 
 local my_acpi = wibox.widget.textbox()
 vicious.register (my_acpi, vicious.widgets.bat, '<span> Batt: </span><span color="cyan"><b>$1$2%</b></span> |', my_update_interval, "BAT0")
@@ -256,7 +256,10 @@ local my_mem = wibox.widget.textbox()
 vicious.register (my_mem, vicious.widgets.mem, '<span> RAM: </span><span color="cyan"><b>$2MB $1%</b></span> |', my_update_interval)
 
 local my_network = wibox.widget.textbox()
-vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
+-- (1) dle6440
+-- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
+-- (2) elxa4n8pyf2
+vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
 
 local my_text_clock = wibox.widget.textbox()
 vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"><b> %a %Y-%m-%d %H:%M:%S</b></span> |', 1)
