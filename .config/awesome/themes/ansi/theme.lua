@@ -22,15 +22,14 @@ theme.font          = "sans 10"
 theme.bg_normal     = "#222222"
 theme.bg_focus      = "#333333"
 theme.bg_urgent     = "#005577"
-theme.bg_minimize   = "#ffffff"
+theme.bg_minimize   = theme.bg_normal
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#00ffff"
-theme.fg_urgent     = "red"
-theme.fg_minimize   = theme.bg_normal
+theme.fg_urgent     = "#ff0000"
+theme.fg_minimize   = "#ff0000"
 
-theme.useless_gap   = dpi(1)
 theme.border_width  = dpi(1)
 theme.border_normal = "#444444"
 theme.border_focus  = "#00ffff"
@@ -56,7 +55,7 @@ theme.border_radius = dpi(6)
 -- prompt_[fg|bg|fg_cursor|bg_cursor|font]
 -- hotkeys_[bg|fg|border_width|border_color|shape|opacity|modifiers_fg|label_bg|label_fg|group_margin|font|description_font]
 -- Example:
---theme.taglist_bg_focus = "#ff0000"
+-- theme.taglist_bg_focus = "#ff0000"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
@@ -142,11 +141,10 @@ theme.awesome_icon = theme_assets.awesome_icon(
 theme.icon_theme = nil
 
 -- Notifications
---
 theme.notification_position = "top_right"
 -- theme.notification_position = "top_left"
 -- theme.notification_position = "top_middle"
-theme.notification_border_width = dpi(0)
+theme.notification_border_width = dpi(1)
 theme.notification_border_radius = theme.border_radius
 theme.notification_border_color = theme.border_focus
 theme.notification_bg = theme.bg_normal
@@ -155,7 +153,7 @@ theme.notification_crit_bg = theme.bg_normal
 theme.notification_crit_fg = theme.fg_urgent
 theme.notification_icon_size = dpi(60)
 -- theme.notification_height = dpi(80)
--- theme.notification_width = dpi(300)
+-- theme.notification_width = dpi(320)
 theme.notification_margin = dpi(15)
 theme.notification_opacity = 1
 theme.notification_font = theme.font

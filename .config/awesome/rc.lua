@@ -1,4 +1,6 @@
+-- -----------------------------------------------------------------------------
 -- rc.lua
+-- -----------------------------------------------------------------------------
 
 -- If Luocks is installed, make sure that packages installed through it are
 -- founde.g. lgi). If LuaRocks is not installed, do nothing.
@@ -31,6 +33,7 @@ require("awful.hotkeys_popup.keys")
 -- -----------------------------------------------------------------------------
 -- {{{ Error handling
 -- -----------------------------------------------------------------------------
+--
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -64,6 +67,7 @@ end
 -- -----------------------------------------------------------------------------
 -- {{{ Variable definitions
 -- -----------------------------------------------------------------------------
+--
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "ansi/theme.lua")
@@ -98,10 +102,6 @@ local editor_cmd = terminal .. " -e " .. editor
 local modkey = "Mod1" -- alt
 local winkey = "Mod4" -- windows key
 
--- Naughty config
-naughty.config.presets.critical.bg = beautiful.notification_crit_bg
-naughty.config.presets.critical.fg = beautiful.notification_crit_fg
-
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.max,
@@ -121,6 +121,56 @@ awful.layout.layouts = {
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
+
+-- Naughty config
+--
+-- Icon size
+naughty.config.defaults['icon_size'] = beautiful.notification_icon_size
+
+-- Timeouts
+naughty.config.defaults.timeout = 5
+naughty.config.presets.low.timeout = 2
+naughty.config.presets.critical.timeout = 12
+
+-- Apply theme variables
+naughty.config.padding = beautiful.notification_padding
+naughty.config.spacing = beautiful.notification_spacing
+naughty.config.defaults.margin = beautiful.notification_margin
+naughty.config.defaults.border_width = beautiful.notification_border_width
+
+naughty.config.presets.normal = {
+    font         = beautiful.notification_font,
+    fg           = beautiful.notification_fg,
+    bg           = beautiful.notification_bg,
+    border_width = beautiful.notification_border_width,
+    margin       = beautiful.notification_margin,
+    position     = beautiful.notification_position
+}
+
+naughty.config.presets.low = {
+    font         = beautiful.notification_font,
+    fg           = beautiful.notification_fg,
+    bg           = beautiful.notification_bg,
+    border_width = beautiful.notification_border_width,
+    margin       = beautiful.notification_margin,
+    position     = beautiful.notification_position
+}
+
+naughty.config.presets.ok = naughty.config.presets.low
+naughty.config.presets.info = naughty.config.presets.low
+naughty.config.presets.warn = naughty.config.presets.normal
+
+-- naughty.config.presets.critical = {
+--     font         = beautiful.notification_font,
+--     fg           = beautiful.notification_crit_fg,
+--     bg           = beautiful.notification_crit_bg,
+--     border_width = beautiful.notification_border_width,
+--     margin       = beautiful.notification_margin,
+--     position     = beautiful.notification_position
+-- }
+
+naughty.config.presets.critical.bg = beautiful.notification_crit_bg
+naughty.config.presets.critical.fg = beautiful.notification_crit_fg
 
 local mytags = {
     tags = {
@@ -370,6 +420,7 @@ root.buttons(gears.table.join(
 -- -----------------------------------------------------------------------------
 --
 globalkeys = gears.table.join(
+    -- Default
     awful.key({ modkey, "Shift"   }, "/",      hotkeys_popup.show_help,
               { description = "show help", group="awesome"} ),
 
@@ -417,6 +468,11 @@ globalkeys = gears.table.join(
         end,
         { description = "go back", group = "client"}),
 
+    -- awful.key({ modkey,           }, "F4", function (c) c:kill() end,
+    --           { description = "close", group = "awesome"}),
+    awful.key({ modkey,           }, "F4", function () client.focus:kill() end,
+              { description = "close", group = "awesome"}),
+
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               { description = "open a terminal", group = "launcher"}),
@@ -454,11 +510,6 @@ globalkeys = gears.table.join(
               { description = "message", group = "awesome"}),
     awful.key({ "Control", "Shift"   }, "m", function () awful.spawn("screen_toggle.sh -x") end,
               { description = "screen toggle", group = "awesome"}),
-
-    -- awful.key({ modkey,           }, "F4", function (c) c:kill() end,
-    --           { description = "close", group = "awesome"}),
-    awful.key({ modkey,           }, "F4", function () client.focus:kill() end,
-              { description = "close", group = "awesome"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
               { description = "increase master width factor", group = "layout"}),
