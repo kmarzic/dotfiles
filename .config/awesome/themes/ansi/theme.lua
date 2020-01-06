@@ -36,6 +36,15 @@ theme.border_normal = "#444444"
 theme.border_focus  = "#00ffff"
 theme.border_marked = "#91231c"
 
+-- Gaps
+theme.useless_gap   = dpi(2)
+-- This could be used to manually determine how far away from the
+-- screen edge the bars / notifications should be.
+theme.screen_margin = dpi(2)
+
+-- Rounded corners
+theme.border_radius = dpi(6)
+
 -- There are other variable sets
 -- overriding the default one when
 -- defined, the sets are:
@@ -74,7 +83,7 @@ theme.menu_width  = dpi(100)
 -- You can add as many variables as
 -- you wish and access them by using
 -- beautiful.variable in your rc.lua
---theme.bg_widget = "#cc0000"
+-- theme.bg_widget = "#cc0000"
 
 -- Define the image to load
 theme.titlebar_close_button_normal = themes_path.."default/titlebar/close_normal.png"
@@ -131,6 +140,27 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
+
+-- Notifications
+--
+theme.notification_position = "top_right"
+-- theme.notification_position = "top_left"
+-- theme.notification_position = "top_middle"
+theme.notification_border_width = dpi(0)
+theme.notification_border_radius = theme.border_radius
+theme.notification_border_color = theme.border_focus
+theme.notification_bg = theme.bg_normal
+theme.notification_fg = theme.fg_focus
+theme.notification_crit_bg = theme.bg_normal
+theme.notification_crit_fg = theme.fg_urgent
+theme.notification_icon_size = dpi(60)
+-- theme.notification_height = dpi(80)
+-- theme.notification_width = dpi(300)
+theme.notification_margin = dpi(15)
+theme.notification_opacity = 1
+theme.notification_font = theme.font
+theme.notification_padding = theme.screen_margin * 2
+theme.notification_spacing = theme.screen_margin * 2
 
 return theme
 

@@ -14,6 +14,7 @@ local wibox = require("wibox")
 
 -- Theme handling library
 local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
 
 -- Notification library
 local naughty = require("naughty")
@@ -27,7 +28,9 @@ local vicious = require("vicious")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- -----------------------------------------------------------------------------
 -- {{{ Error handling
+-- -----------------------------------------------------------------------------
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -54,9 +57,13 @@ do
         in_error = false
     end)
 end
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Variable definitions
+-- -----------------------------------------------------------------------------
 -- Themes define colours, icons, font and wallpapers.
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "ansi/theme.lua")
@@ -90,6 +97,10 @@ local editor_cmd = terminal .. " -e " .. editor
 -- modkey = "Mod4" -- meta
 local modkey = "Mod1" -- alt
 local winkey = "Mod4" -- windows key
+
+-- Naughty config
+naughty.config.presets.critical.bg = beautiful.notification_crit_bg
+naughty.config.presets.critical.fg = beautiful.notification_crit_fg
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -130,9 +141,14 @@ local mytags = {
         },
     }
 }
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Menu
+-- -----------------------------------------------------------------------------
+--
 -- Create a launcher widget and a main menu
 local myawesomemenu = {
     { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
@@ -157,9 +173,14 @@ local mylauncher = awful.widget.launcher({
 
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Wibar
+-- -----------------------------------------------------------------------------
+--
 local my_update_interval = 15
 --
 -- System Widget
@@ -189,7 +210,6 @@ vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span col
 
 local my_text_clock = wibox.widget.textbox()
 vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"><b> %a %Y-%m-%d %H:%M:%S</b></span> |', 1)
-
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -328,17 +348,27 @@ awful.screen.connect_for_each_screen(function(s)
         },
     }
 end)
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Mouse bindings
+-- -----------------------------------------------------------------------------
+--
 root.buttons(gears.table.join(
     awful.button({ }, 3, function () mymainmenu:toggle() end),
     awful.button({ }, 4, awful.tag.viewnext),
     awful.button({ }, 5, awful.tag.viewprev)
 ))
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Key bindings
+-- -----------------------------------------------------------------------------
+--
 globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "/",      hotkeys_popup.show_help,
               { description = "show help", group="awesome"} ),
@@ -589,9 +619,14 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Rules
+-- -----------------------------------------------------------------------------
+--
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -673,9 +708,14 @@ awful.rules.rules = {
     { rule = { class = "Evolution" }, properties = { tag = "9" } },
     { rule = { class = "Mozilla Thunderbird" }, properties = { tag = "9" } },
 }
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- {{{ Signals
+-- -----------------------------------------------------------------------------
+--
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
@@ -742,11 +782,216 @@ end)
 
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
-
+-- -----------------------------------------------------------------------------
 -- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
+-- {{{ Notification
+-- -----------------------------------------------------------------------------
+--
+local dpi = xresources.apply_dpi
+local last_notification_id
+
+-- Battery notifications
+-- The signals are sent by a udev rule.
+local last_battery_notification_id
+
+awesome.connect_signal(
+  "charger_plugged", function(c)
+    notification = naughty.notify({
+        title = "Battery status:",
+        text = "Charging",
+        icon = beautiful.battery_charging_icon,
+        timeout = 3,
+        replaces_id = last_battery_notification_id
+    })
+    last_battery_notification_id = notification.id
+end)
+
+awesome.connect_signal(
+  "charger_unplugged", function(c)
+    notification = naughty.notify({
+        title = "Battery status:",
+        text = "Discharging",
+        icon = beautiful.battery_icon,
+        timeout = 3,
+        replaces_id = last_battery_notification_id
+    })
+    last_battery_notification_id = notification.id
+end)
+
+awesome.connect_signal(
+  "battery_full", function(c)
+    notification = naughty.notify({
+        title = "Battery status:",
+        text = "Full!",
+        icon = beautiful.battery_icon,
+        timeout = 3,
+        replaces_id = last_battery_notification_id
+    })
+    last_battery_notification_id = notification.id
+end)
+
+awesome.connect_signal(
+  "battery_low", function(c)
+    notification = naughty.notify({
+        title = "Battery status:",
+        text = "Low!",
+        icon = beautiful.battery_icon,
+        timeout = 5,
+        replaces_id = last_battery_notification_id
+    })
+    last_battery_notification_id = notification.id
+end)
+
+awesome.connect_signal(
+  "battery_critical", function(c)
+    notification = naughty.notify({
+        title = "Battery status:",
+        text = "Critical! Plug the cable!",
+        icon = beautiful.battery_icon,
+        timeout = 0,
+        replaces_id = last_battery_notification_id
+    })
+    last_battery_notification_id = notification.id
+end)
+
+-- Battery notifications
+local function trim(s)
+  return s:find'^%s*$' and '' or s:match'^%s*(.*%S)'
+end
+
+local function bat_notification()
+  local f_capacity = assert(io.open("/sys/class/power_supply/BAT0/capacity", "r"))
+  local f_status = assert(io.open("/sys/class/power_supply/BAT0/status", "r"))
+
+  local bat_capacity = tonumber(f_capacity:read("*all"))
+  local bat_status = trim(f_status:read("*all"))
+
+  if (bat_capacity <= 10 and bat_status == "Discharging") then
+    naughty.notify({ title = "Battery Warning",
+                     text = bat_capacity .."%" .. " left.\rPlug in charger!",
+                     icon = beautiful.battery_icon,
+                     bg = beautiful.notification_crit_bg,
+                     fg = beautiful.notification_crit_fg,
+                     timeout = 15,
+                     position = "top_left"
+    })
+  end
+end
+
+battimer = timer({timeout = 120})
+battimer:connect_signal("timeout", bat_notification)
+battimer:start()
+
+-- Notifications
+local function send_notification(notification_title, notification_text, notification_icon, notification_timeout)
+  notification = naughty.notify({
+      title = notification_title,
+      text = notification_text,
+      icon = notification_icon,
+      width = dpi(220),
+      -- height = dpi(75),
+      position = "top_middle",
+      icon_size = dpi(50),
+      timeout = notification_timeout or 1.5,
+      replaces_id = last_notification_id
+  })
+  last_notification_id = notification.id
+end
+
+local s1 = awful.screen.focused()
+
+-- Notification for urgent clients that appear
+awful.tag.attached_connect_signal(s1, "property::urgent", function (t)
+    send_notification("Client urgent:", "Tag ".. t.index, beautiful.alert_icon, 4)
+end)
+
+-- Notification for tag layout change
+awful.tag.attached_connect_signal(s1, "property::layout", function ()
+    local l = awful.layout.get(s1)
+    if l then
+        local name = awful.layout.getname(l)
+        send_notification("Layout:", name, beautiful["layout_"..name])
+    end
+end)
+
+-- -----------------------------------------------------------------------------
+-- }}}
+-- -----------------------------------------------------------------------------
+
+-- -----------------------------------------------------------------------------
+-- {{{ Rounded corners
+-- -----------------------------------------------------------------------------
+
+local helpers = {}
+
+-- Create rounded rectangle shape
+helpers.rrect = function(radius)
+    return function(cr, width, height)
+        gears.shape.rounded_rect(cr, width, height, radius)
+    end
+end
+
+helpers.rbar = function()
+  return function(cr, width, height)
+    gears.shape.rounded_bar(cr, width, height)
+  end
+end
+
+helpers.prrect = function(radius, tl, tr, br, bl)
+  return function(cr, width, height)
+    gears.shape.partially_rounded_rect(cr, width, height, tl, tr, br, bl, radius)
+  end
+end
+
+-- Create rectangle shape
+helpers.rect = function()
+    return function(cr, width, height)
+        gears.shape.rectangle(cr, width, height)
+    end
+end
+
+-- Create circle shape
+helpers.circle = function()
+    return function(cr, width, height)
+        gears.shape.circle(cr, width, height)
+    end
+end
+
+-- Rounded corners
+if beautiful.border_radius ~= 0 then
+    client.connect_signal("manage", function (c, startup)
+        if not c.fullscreen then
+            c.shape = helpers.rrect(beautiful.border_radius)
+        end
+    end)
+
+    -- Fullscreen clients should not have rounded corners
+    client.connect_signal("property::fullscreen", function (c)
+        if c.fullscreen then
+            c.shape = helpers.rect()
+        else
+            c.shape = helpers.rrect(beautiful.border_radius)
+        end
+    end)
+end
+-- -----------------------------------------------------------------------------
+-- }}}
+-- -----------------------------------------------------------------------------
+
+-- -----------------------------------------------------------------------------
+-- {{{ Startup applications
+-- -----------------------------------------------------------------------------
+--
 -- Startup applications
 awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/screen_toggle.sh -x")
 awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/trayer.sh")
+-- -----------------------------------------------------------------------------
+-- }}}
+-- -----------------------------------------------------------------------------
 
+-- -----------------------------------------------------------------------------
 -- END
+-- -----------------------------------------------------------------------------
