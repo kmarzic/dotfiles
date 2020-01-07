@@ -1,36 +1,18 @@
 #!/bin/bash
+# echo "$(date) .xprofile" >> /var/tmp/x
 
-#######################################################################
-## Environment Variables
-#######################################################################
-
-export __PATH_ORIG="$PATH"
-export PATH="$HOME/bin"
-# export PATH="$PATH:/opt/ghc/bin"
+## ENV
+export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
+export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/opt/ghc/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
-# export PATH="$PATH:/opt/perl5/bin:/opt/perl5/cpan/bin"
-# export PATH="$PATH:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
-# export PATH="$PATH:/opt/python3/bin:/opt/python3.ext/bin"
-export PATH="$PATH:$__PATH_ORIG"
-PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export PATH="$PATH:/opt/awesome/usr/local/bin"
+# PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_TIME="en_DK.UTF-8"
-
-if [ "$(export XDG_RUNTIME_DIR)" = "" ]
-then
-    export XDG_RUNTIME_DIR="/run/user/$(id -u)"
-fi
-
-export _JAVA_AWT_WM_NONREPARENTING=1
-export SXHKD_SHELL=/bin/bash
-
-
-#######################################################################
-## settings
-#######################################################################
 
 ## xhost
 xhost +0
@@ -53,9 +35,9 @@ xset dpms 1200 1560 1800
 ## mouse acceleration
 xset m 1
 
-## font path
-# xset fp+ unix/:7101
-# xset fp rehash
+# ## font path
+# # xset fp+ unix/:7101
+# # xset fp rehash
 
 ## disable bell
 xset -b
@@ -63,151 +45,63 @@ xset -b
 ## mouse cursor
 xsetroot -cursor_name left_ptr
 
-## syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
-syndaemon -i 1 -d
+# ## syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
+# # syndaemon -i 1 -d
 
-## touchpad on
-synclient TouchpadOff=0
+# ## touchpad on
+# synclient TouchpadOff=0
 
 ## xrdb
 # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
-[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
+# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
+[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
 xrdb -load ~/.Xdefaults
 xrdb -merge ~/.Xdefaults
-
-## xmodmap
-# xmodmap -e "pointer = 1 3 2"
-# xmodmap -e "pointer = default"
-# xmodmap ~/.Xmodmap
 
 ## setxkbmap
 # setxkbmap -rules xorg -model pc105 -layout hr_US -option ""
 setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
 
-## Background
-xsetroot -solid black
-# feh --bg-scale /home/etkkrma/wallpapers/nature/aviamf9.jpg
-
-
-#######################################################################
-## Stuff
-#######################################################################
-
-## Screensaver
-# xscreensaver -nosplash &
-#
-# xautolock -time 10 -locker "/usr/bin/xlock -mode blank" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-# xautolock -time 10 -locker "/usr/bin/xlock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-# xautolock -time 10 -locker "/usr/bin/i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default" -corners +000 -cornerdelay 1 -cornerredelay 15 -notify 30 -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" &
-# xautolock -time 10 -locker "/usr/bin/i3lock -c 000000" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-# xautolock -time 10 -locker "~/.i3/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
-xautolock -time 10 -locker "~/.xmonad/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+## xautolock
+xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 
 ## Conky
-if [[ -e /usr/bin/conky ]]
-then
-    echo .
-    ## (1)
-    # /usr/bin/conky -q &
-    ## (2)
-    # /usr/bin/conky -c ~/.conkyrc.weather -q &
-    ## (3)
-    # sleep 10 && /usr/bin/conky -q &
-fi
+# if [[ -e /usr/bin/conky ]] && /usr/bin/conky -q &
+# if [[ -e /usr/bin/conky ]] && /usr/bin/conky -c ~/.conkyrc.weather -q &
 
 ## Dropbox
-if [[ -e /usr/bin/dropbox ]]
-then
-    echo .
-    # /usr/bin/dropbox start &
-fi
+# if [[ -e /usr/bin/dropbox ]] && /usr/bin/dropbox start &
 
 ## NM applet
-if [[ -e /usr/bin/nm-applet ]]
-then
-    echo .
-    # /usr/bin/nm-applet &
-fi
+# if [[ -e /usr/bin/nm-applet ]] && /usr/bin/nm-applet &
 
 ## NSGClient
-if [[ -e /usr/local/bin/NSGClient ]]
-then
-    echo .
-    # /usr/local/bin/NSGClient &
-fi
+# if [[ -e /usr/local/bin/NSGClient ]] && /usr/local/bin/NSGClient &
 
 ## Urxvt daemon
-if [[ -e /usr/bin/urxvtd ]]
-then
-    ## (1)
-    # (sleep 3 && /usr/bin/urxvtd -q -f -o)
-    ## (2)
-    /usr/bin/urxvtd -q -f -o
-fi
+[[ -e /usr/bin/urxvtd ]] && /usr/bin/urxvtd -q -f -o
 
 ## Wicd GTK
-if [[ -e /usr/bin/wicd-gtk ]]
-then
-    echo .
-    # (sleep 3 && /usr/bin/wicd-gtk -t &)
-    # /usr/bin/wicd-gtk -t &
-    # /usr/bin/wicd-client &
-fi
+# if [[ -e /usr/bin/wicd-gtk ]] && (sleep 3 && /usr/bin/wicd-gtk -t &)
+# if [[ -e /usr/bin/wicd-gtk ]] && /usr/bin/wicd-gtk -t &
+# if [[ -e /usr/bin/wicd-gtk ]] && /usr/bin/wicd-client &
 
 ## redshift
-if [[ -e /usr/bin/redshift ]]
-then
-    echo .
-    /usr/bin/redshift &
-fi
+[[ -e /usr/bin/redshift ]] && /usr/bin/redshift &
 
 ## xcompmgr - sample X compositing manager
-if [[ -e /usr/bin/xcompmgr ]]
-then
-    echo .
-    # /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82 &
-    # /usr/bin/xcompmgr -F -c -C -t-5 -l-5 -r4.2 -o.55 &
-    # /usr/bin/xcompmgr -FCc &
-fi
+# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82 &
+# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -F -c -C -t-5 -l-5 -r4.2 -o.55 &
+# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -FCc &
 
 ## compton
-if [[ -e /usr/bin/compton ]]
-then
-    # echo .
-    # /usr/bin/compton -b
-    /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b
-fi
+[[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b
+[[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
 
 ## Xeyes
-if [[ -e /usr/bin/xeyes ]]
-then
-    echo .
-    # /usr/bin/xeyes &
-fi
-
-## xplanet
-if [[ -e /usr/bin/xplanet ]]
-then
-    echo .
-    # killall xplanet
-    # nice -n 15 xplanet \
-    #   -config ~/.xplanet/config \
-    #   -body earth \
-    #   -quality 100 \
-    #   -verbosity 0 \
-    #   -wait 120 \
-    #   -latitude 45.80 -longitude 15.96 \
-    #   -label -label_string "Zagreb, Croatia" \
-    #   -separation +illumination \
-    #   -color white -fontsize 12 \
-    #   -range 1000 -radius 70 \
-    #   -date_format "%Y-%m-%d %H:%M:%S" \
-    #   -marker_file ~/.xplanet/markers &
-fi
+# if [[ -e /usr/bin/xeyes ]] && /usr/bin/xeyes &
 
 ## Clean .xsesssion-errors
 echo "" > ~/.xsession-errors
 
-#######################################################################
-## END
-#######################################################################
+#### END
