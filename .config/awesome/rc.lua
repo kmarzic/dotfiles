@@ -257,9 +257,9 @@ vicious.register (my_mem, vicious.widgets.mem, '<span> RAM: </span><span color="
 
 local my_network = wibox.widget.textbox()
 -- (1) dle6440
--- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
+vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
 -- (2) elxa4n8pyf2
-vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
+-- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
 
 local my_text_clock = wibox.widget.textbox()
 vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"><b> %a %Y-%m-%d %H:%M:%S</b></span> |', 1)
@@ -431,6 +431,10 @@ globalkeys = gears.table.join(
               { description = "view previous", group = "tag"} ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               { description = "view next", group = "tag"} ),
+    awful.key({ modkey,           }, "[",   awful.tag.viewprev,
+              { description = "view previous", group = "tag"} ),
+    awful.key({ modkey,           }, "]",  awful.tag.viewnext,
+              { description = "view next", group = "tag"} ),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               { description = "go back", group = "tag"} ),
 
@@ -459,6 +463,22 @@ globalkeys = gears.table.join(
               { description = "Switch to physical/Xinerama screen 2", group = "screen"}),
     awful.key({ modkey,           }, "r", function () awful.screen.focus(3) end,
               { description = "Switch to physical/Xinerama screen 3", group = "screen"}),
+
+    awful.key({ modkey, "Shift" }, ",",
+        function()
+            local ns = client.focus.screen.index - 1
+            awful.client.movetoscreen(c, ns)
+        end,
+        { description = "move to screen on the left", group = "client"}
+    ),
+
+    awful.key({ modkey, "Shift" }, ".",
+        function()
+            local ns = client.focus.screen.index + 1
+            awful.client.movetoscreen(c, ns)
+        end,
+        { description = "move to screen on the right", group = "client" }
+    ),
 
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               { description = "jump to urgent client", group = "client"}),
