@@ -758,7 +758,8 @@ awful.rules.rules = {
     { rule = { class = "Vivaldi-stable" }, properties = { tag = "5" } },
     { rule = { class = "Pidgin" }, properties = { tag = "7" } },
     { rule = { class = "Skype" }, properties = { tag = "7" } },
-    { rule = { class = "Oracle VM Virtualbox Manager" }, properties = { tag = "8" } },
+    { rule = { class = "Oracle VM VirtualBox Manager" }, properties = { tag = "8" } },
+    { rule = { class = "VirtualBox Manager" }, properties = { tag = "8" } },
     { rule = { class = "Evolution" }, properties = { tag = "9" } },
     { rule = { class = "Mozilla Thunderbird" }, properties = { tag = "9" } },
 }
