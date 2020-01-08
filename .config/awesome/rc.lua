@@ -233,37 +233,6 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 
 local my_update_interval = 15
 
--- System Widget
--- local my_keyboard_layout = awful.widget.keyboardlayout()
--- local my_text_clock = wibox.widget.textclock ("| %a %Y-%m-%d %H:%M:%S |", 1)
--- local my_cpu_temp = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh temp"]], update_interval)
--- local my_cpu_load = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh load"]], update_interval)
--- local my_acpi = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh acpi"]], update_interval)
--- local my_mem = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh mem"]], update_interval)
--- local my_swap = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh swap"]], update_interval)
-
--- Vicious Widget
-local my_cpu_temp = wibox.widget.textbox()
-vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU: </span><span color="cyan"><b>$1&#8451;</b></span> ', my_update_interval, "thermal_zone0")
-
-local my_cpu_load = wibox.widget.textbox()
-vicious.register (my_cpu_load, vicious.widgets.cpu, '<span> </span><span color="cyan"><b>$1%</b></span> |', my_update_interval)
-
-local my_acpi = wibox.widget.textbox()
-vicious.register (my_acpi, vicious.widgets.bat, '<span> Batt: </span><span color="cyan"><b>$1$2%</b></span> |', my_update_interval, "BAT0")
-
-local my_mem = wibox.widget.textbox()
-vicious.register (my_mem, vicious.widgets.mem, '<span> RAM: </span><span color="cyan"><b>$2MB $1%</b></span> |', my_update_interval)
-
-local my_network = wibox.widget.textbox()
--- (1) dle6440
--- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
--- (2) elxa4n8pyf2
-vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
-
-local my_text_clock = wibox.widget.textbox()
-vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"><b> %a %Y-%m-%d %H:%M:%S</b></span> |', 1)
-
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
     awful.button({ }, 1, function(t) t:view_only() end),
@@ -322,7 +291,7 @@ screen.connect_signal("request::wallpaper", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    set_wallpaper(s)
+    -- set_wallpaper(s)
 
     -- (1) Each screen has its own tag table.
     -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
@@ -350,17 +319,54 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons
+        buttons = taglist_buttons,
+        style   = {
+            shape = gears.shape.rectangle,
+        },
     }
     -- (2) old awesome version
     -- s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
+
+    -- System Widget
+    -- local my_keyboard_layout = awful.widget.keyboardlayout()
+    -- local my_text_clock = wibox.widget.textclock ("| %a %Y-%m-%d %H:%M:%S |", 1)
+    -- local my_cpu_temp = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh temp"]], update_interval)
+    -- local my_cpu_load = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh load"]], update_interval)
+    -- local my_acpi = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh acpi"]], update_interval)
+    -- local my_mem = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh mem"]], update_interval)
+    -- local my_swap = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh swap"]], update_interval)
+
+    -- Vicious Widget
+    local my_cpu_temp = wibox.widget.textbox()
+    vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU: </span><span color="cyan"><b>$1&#8451;</b></span> ', my_update_interval, "thermal_zone0")
+
+    local my_cpu_load = wibox.widget.textbox()
+    vicious.register (my_cpu_load, vicious.widgets.cpu, '<span> </span><span color="cyan"><b>$1%</b></span> |', my_update_interval)
+
+    local my_acpi = wibox.widget.textbox()
+    vicious.register (my_acpi, vicious.widgets.bat, '<span> Batt: </span><span color="cyan"><b>$1$2%</b></span> |', my_update_interval, "BAT0")
+
+    local my_mem = wibox.widget.textbox()
+    vicious.register (my_mem, vicious.widgets.mem, '<span> RAM: </span><span color="cyan"><b>$2MB $1%</b></span> |', my_update_interval)
+
+    local my_network = wibox.widget.textbox()
+    -- (1) dle6440
+    vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
+    -- (2) elxa4n8pyf2
+    -- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
+
+    local my_text_clock = wibox.widget.textbox()
+    vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"><b> %a %Y-%m-%d %H:%M:%S</b></span> |', 1)
 
     -- Create a tasklist widget
     -- (1) new awesome version
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        buttons = tasklist_buttons,
+        style   = {
+            shape = gears.shape.rectangle,
+        },
     }
     -- (2) old awesome version
     -- s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
@@ -372,9 +378,6 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
     -- Add widgets to the wibox
-    -- (1) new awesome
-    -- s.mywibox.widget = {
-    -- (2) old awesome
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         -- (1) Left widgets

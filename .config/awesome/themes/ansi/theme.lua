@@ -19,21 +19,51 @@ theme.font          = "sans 10"
 -- theme.font          = "monospace 10"
 -- theme.font          = "xft:Monospace:pixelsize=8:antialias=true:style=bold"
 
+-- | Base | --
 theme.bg_normal     = "#222222"
-theme.bg_focus      = "#333333"
-theme.bg_urgent     = "#005577"
+theme.bg_focus      = "#333444"
 theme.bg_minimize   = theme.bg_normal
-theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#ffffff"
 theme.fg_focus      = "#00ffff"
-theme.fg_urgent     = "#ff0000"
-theme.fg_minimize   = "#ff0000"
+theme.fg_minimize   = "#888888"
 
+-- | Systray | --
+theme.bg_systray    = "#ff0000"
+theme.fg_systray    = "#222222"
+
+-- | Urgent | --
+theme.bg_urgent     = "#333333"
+theme.fg_urgent     = "#ff0000"
+
+-- | Borders | --
 theme.border_width  = dpi(1)
 theme.border_normal = "#444444"
 theme.border_focus  = "#00ffff"
 theme.border_marked = "#91231c"
+
+-- | Hotkeys help | --
+theme.hotkeys_modifiers_fg = "#00ffff"
+theme.hotkeys_modifiers_bg = "#ff0000"
+theme.hotkeys_border_color = "#00ffff"
+
+-- | Taglist | --
+theme.taglist_spacing = dpi(1)
+theme.taglist_shape_border_width = dpi(1)
+theme.taglist_shape_border_color = "#777777"
+theme.taglist_shape_border_width_focus = dpi(1)
+theme.taglist_shape_border_color_focus = "#00ffff"
+
+-- | Tasklist | --
+theme.tasklist_spacing = dpi(1)
+theme.tasklist_shape_border_width = dpi(1)
+theme.tasklist_shape_border_color = "#777777"
+theme.tasklist_shape_border_width_focus = dpi(1)
+theme.tasklist_shape_border_color_focus = "#00ffff"
+
+-- | Wibar | --
+theme.wibar_border_width = dpi(1)
+theme.wibar_border_color = "#666666"
 
 -- Gaps
 theme.useless_gap   = dpi(2)
