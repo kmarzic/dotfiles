@@ -29,8 +29,8 @@ theme.fg_focus      = "#00ffff"
 theme.fg_minimize   = "#888888"
 
 -- | Systray | --
-theme.bg_systray    = "#ff0000"
-theme.fg_systray    = "#222222"
+theme.bg_systray    = "#222222"
+theme.fg_systray    = "#ffffff"
 
 -- | Urgent | --
 theme.bg_urgent     = "#333333"

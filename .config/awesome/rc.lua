@@ -327,6 +327,19 @@ awful.screen.connect_for_each_screen(function(s)
     -- (2) old awesome version
     -- s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 
+    -- Create a tasklist widget
+    -- (1) new awesome version
+    s.mytasklist = awful.widget.tasklist {
+        screen  = s,
+        filter  = awful.widget.tasklist.filter.currenttags,
+        buttons = tasklist_buttons,
+        style   = {
+            shape = gears.shape.rectangle,
+        },
+    }
+    -- (2) old awesome version
+    -- s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+
     -- System Widget
     -- local my_keyboard_layout = awful.widget.keyboardlayout()
     -- local my_text_clock = wibox.widget.textclock ("| %a %Y-%m-%d %H:%M:%S |", 1)
@@ -351,25 +364,19 @@ awful.screen.connect_for_each_screen(function(s)
 
     local my_network = wibox.widget.textbox()
     -- (1) dle6440
-    vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
+    -- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${eno1 up_kb}kB/s ${eno1 down_kb}kB/s | ${wlp3s0 up_kb}kB/s ${wlp3s0 down_kb}kB/s</b></span> |', 1)
     -- (2) elxa4n8pyf2
-    -- vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
+    vicious.register (my_network, vicious.widgets.net, '<span> Net: </span><span color="cyan"><b>${enp0s31f6 up_kb}kB/s ${enp0s31f6 down_kb}kB/s | ${wlp1s0 up_kb}kB/s ${wlp1s0 down_kb}kB/s</b></span> |', 1)
 
     local my_text_clock = wibox.widget.textbox()
     vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"><b> %a %Y-%m-%d %H:%M:%S</b></span> |', 1)
 
-    -- Create a tasklist widget
-    -- (1) new awesome version
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons,
-        style   = {
-            shape = gears.shape.rectangle,
-        },
-    }
-    -- (2) old awesome version
-    -- s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
+    -- Create systray
+    s.systray = wibox.widget.systray()
+    -- (1) not visible
+    -- s.systray.visible = false
+    -- (2) visible
+    s.systray.visible = true
 
     -- Create the wibox
     -- (1) top
@@ -403,7 +410,7 @@ awful.screen.connect_for_each_screen(function(s)
             my_network,
             my_text_clock,
             s.mylayoutbox,
-            wibox.widget.systray(),
+            s.systray,
         },
     }
 end)
@@ -581,6 +588,10 @@ globalkeys = gears.table.join(
               { description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               { description = "select previous", group = "layout"}),
+
+    -- Systray
+    awful.key({ modkey            }, "=", function () awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible end,
+              { description = "Toggle systray visibility", group = "custom"}),
 
     -- Unminimize
     awful.key({ modkey, "Control" }, "n",
