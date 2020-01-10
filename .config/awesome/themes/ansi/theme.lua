@@ -1,8 +1,9 @@
----------------------------------------------
--- awesome ansi theme                      --
----------------------------------------------
+-- -----------------------------------------------------------------------------
+-- {{{ awesome ansi theme                      --
+-- -----------------------------------------------------------------------------
 
 local theme_assets = require("beautiful.theme_assets")
+
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
@@ -13,11 +14,15 @@ local theme = {}
 
 -- theme.font          = "sans 8"
 -- theme.font          = "sans 9"
-theme.font          = "sans 10"
+-- theme.font          = "sans 10"
+theme.font          = "sans 11"
 -- theme.font          = "monospace 8"
 -- theme.font          = "monospace 9"
 -- theme.font          = "monospace 10"
+-- theme.font          = "monospace 11"
+-- theme.font          = "xft:Monospace:pixelsize=6:antialias=true:style=normal"
 -- theme.font          = "xft:Monospace:pixelsize=8:antialias=true:style=bold"
+-- theme.font          = "Droid Sans Mono 10"
 
 -- | Base | --
 theme.bg_normal     = "#222222"
@@ -64,6 +69,10 @@ theme.tasklist_shape_border_color_focus = "#00ffff"
 -- | Wibar | --
 theme.wibar_border_width = dpi(1)
 theme.wibar_border_color = "#666666"
+theme.wibar_height = dpi(25)
+
+-- | Wibox | --
+theme.bg_wibox = "#666666"
 
 -- Gaps
 theme.useless_gap   = dpi(2)
@@ -192,4 +201,7 @@ theme.notification_spacing = theme.screen_margin * 2
 
 return theme
 
+-- -----------------------------------------------------------------------------
+-- }}}
+-- -----------------------------------------------------------------------------
 -- vim: filetype=lua:expandtab:shiftwidth=4:tabstop=8:softtabstop=4:textwidth=80
