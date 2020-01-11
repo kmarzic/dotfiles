@@ -17,6 +17,7 @@ local vicious  = require("vicious")
 
 -- {{{ Wibar
 local my_update_interval = 15
+local my_update_interval_weather = 3600
 local dpi = xresources.apply_dpi
 local pad = helpers.pad
 
@@ -151,24 +152,27 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- System Widget
     -- local my_keyboard_layout = awful.widget.keyboardlayout()
-    -- local my_text_clock = wibox.widget.textclock ("| %a %Y-%m-%d %H:%M:%S |", 1)
     -- local my_cpu_temp = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh temp"]], update_interval)
     -- local my_cpu_load = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh load"]], update_interval)
     -- local my_acpi = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh acpi"]], update_interval)
     -- local my_mem = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh mem"]], update_interval)
     -- local my_swap = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh swap"]], update_interval)
 
+    -- local my_text_clock = wibox.widget.textclock ("%a %Y-%m-%d %H:%M:%S", 1)
+    -- local month_calendar = awful.widget.calendar_popup.month()
+    -- month_calendar:attach(my_text_clock, "br")
+
     -- Vicious Widget
     local my_cpu_temp = wibox.widget.textbox()
-    vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
+    vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
 
     local my_cpu_load = wibox.widget.textbox()
     vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>CPU Load: </span><span color="cyan"><b>$1%</b></span>', my_update_interval)
 
     local my_acpi_1 = wibox.widget.textbox()
-    vicious.register (my_acpi_1, vicious.widgets.bat, '<span>Batt: </span><span color="cyan"><b>$1$2%</b></span>', my_update_interval, "BAT0")
+    vicious.register (my_acpi_1, vicious.widgets.bat, '<span>Battery: </span><span color="cyan"><b>$1$2% $3 $4</b></span>', my_update_interval, "BAT0")
     local my_acpi_2 = wibox.widget.textbox()
-    vicious.register (my_acpi_2, vicious.widgets.bat, '<span></span><span color="cyan"><b>$1$2%</b></span>', my_update_interval, "BAT0")
+    vicious.register (my_acpi_2, vicious.widgets.bat, '<span></span><span color="orange">$1$2%</span>', my_update_interval, "BAT0")
 
     local my_mem = wibox.widget.textbox()
     vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="cyan"><b>$2MB $1%</b></span>', my_update_interval)
@@ -180,10 +184,20 @@ awful.screen.connect_for_each_screen(function(s)
     -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>$&#8593; {enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', 1)
 
     local my_text_clock = wibox.widget.textbox()
-    vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan"> <b>%a %Y-%m-%d %H:%M:%S</b></span> |', 1)
+    vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
+    local month_calendar = awful.widget.calendar_popup.month()
+    month_calendar:attach(my_text_clock, "br" )
  
     local my_volume = wibox.widget.textbox()
-    vicious.register(my_volume, vicious.widgets.volume, '<span color="cyan"> <b>$2</b> $1%</span>', 1, "Master")
+    -- vicious.register(my_volume, vicious.widgets.volume, '<span color="cyan"> <b>$2 $1%</b></span>', 1, "Master")
+    vicious.register(my_volume, vicious.widgets.volume,
+                 function (widget, args)
+                     local label = {["🔉"] = "♫", ["🔈"] = "♩"}
+                     return ('<span color="#00ff00">%s %d%%</span>'):format(label[args[2]], args[1])
+                 end, 1, "Master")
+
+    local my_weather = wibox.widget.textbox()
+    vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="cyan"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
 
     -- Create a wibox that will only show the stats widget.
     -- Hidden by default. Can be toggled with a keybind
@@ -193,8 +207,8 @@ awful.screen.connect_for_each_screen(function(s)
         ontop = true,
         shape = helpers.rrect(beautiful.border_radius),
         type = "widget",
-        width = dpi(400),
-        height = dpi(150),
+        width = dpi(600),
+        height = dpi(180),
         x = dpi(50),
         y = dpi(5),
         opacity = 0.8,
@@ -209,6 +223,7 @@ awful.screen.connect_for_each_screen(function(s)
         my_acpi_1,
         my_mem,
         my_network,
+        my_weather,
         pad(1),
         layout = wibox.layout.fixed.vertical,
       },
@@ -255,15 +270,12 @@ awful.screen.connect_for_each_screen(function(s)
         {
             layout = wibox.layout.fixed.horizontal,
             -- layout = wibox.layout.align.horizontal,
-            -- my_cpu_temp,
-            -- my_cpu_load,
-            my_acpi_2,
             my_volume,
-            -- my_mem,
-            -- my_swap,
-            -- my_keyboard_layout,
-            -- my_network,
+            pad(1),
+            my_acpi_2,
+            pad(1),
             my_text_clock,
+            pad(1),
             s.mylayoutbox,
             s.systray,
         },
