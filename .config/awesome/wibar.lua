@@ -18,6 +18,8 @@ local vicious  = require("vicious")
 -- {{{ Wibar
 local my_update_interval = 15
 local my_update_interval_weather = 3600
+local my_update_interval_network = 5
+local my_update_interval_wifi = 5
 local dpi = xresources.apply_dpi
 local pad = helpers.pad
 
@@ -150,7 +152,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- (2) old awesome version
     -- s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
-    -- System Widget
+    -- System Widgets
     -- local my_keyboard_layout = awful.widget.keyboardlayout()
     -- local my_cpu_temp = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh temp"]], update_interval)
     -- local my_cpu_load = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh load"]], update_interval)
@@ -162,7 +164,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- local month_calendar = awful.widget.calendar_popup.month()
     -- month_calendar:attach(my_text_clock, "br")
 
-    -- Vicious Widget
+    -- Vicious Widgets
     local my_cpu_temp = wibox.widget.textbox()
     vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
 
@@ -179,9 +181,15 @@ awful.screen.connect_for_each_screen(function(s)
 
     local my_network = wibox.widget.textbox()
     -- (1) dle6440
-    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp3s0 up_kb}kB/s &#8595; ${wlp3s0 down_kb}kB/s</b></span>', 1)
+    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp3s0 up_kb}kB/s &#8595; ${wlp3s0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) elxa4n8pyf2
-    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>$&#8593; {enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', 1)
+    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>$&#8593; {enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
+
+    local my_wifi = wibox.widget.textbox()
+    -- (1) dle6440
+    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp3s0")
+    -- (2) elxa4n8pyf2
+    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
 
     local my_text_clock = wibox.widget.textbox()
     vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
@@ -207,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
         ontop = true,
         shape = helpers.rrect(beautiful.border_radius),
         type = "widget",
-        width = dpi(600),
+        width = dpi(800),
         height = dpi(180),
         x = dpi(50),
         y = dpi(5),
@@ -223,6 +231,7 @@ awful.screen.connect_for_each_screen(function(s)
         my_acpi_1,
         my_mem,
         my_network,
+        my_wifi,
         my_weather,
         pad(1),
         layout = wibox.layout.fixed.vertical,
