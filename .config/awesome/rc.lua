@@ -45,6 +45,8 @@ local theme_name = "ansi"
 -- local theme_name = "sky"
 -- local theme_name = "xresources"
 -- local theme_name = "zenburn"
+-- local theme_name = "solarized.dark"
+-- local theme_name = "solarized.light"
 beautiful.init( theme_dir .. theme_name .. "/theme.lua" )
 
 -- Local

@@ -187,7 +187,7 @@ awful.screen.connect_for_each_screen(function(s)
     vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
     local month_calendar = awful.widget.calendar_popup.month()
     month_calendar:attach(my_text_clock, "br" )
- 
+
     local my_volume = wibox.widget.textbox()
     -- vicious.register(my_volume, vicious.widgets.volume, '<span color="cyan"> <b>$2 $1%</b></span>', 1, "Master")
     vicious.register(my_volume, vicious.widgets.volume,
