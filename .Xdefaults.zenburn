@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2019-07-23 06:19:16 (CEST)
+!! Last update: 2020-01-18 18:19:44 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -396,6 +396,11 @@ URxvt*secondaryScreen: true
 URxvt*secondaryScroll: true
 URxvt*skipScroll: true
 URxvt*mouseWheelScrollPage: false
+
+!! Terminal Icons
+URxvt*inheritPixmap: true
+! URxvt*iconFile: /usr/share/icons/Adwaita/16x16/legacy/utilities-terminal.png
+URxvt*iconFile: /usr/share/icons/Adwaita/22x22/legacy/utilities-terminal.png
 
 !! set to 32-bit for real transparency (compositing required)
 ! URxvt*depth: 24
