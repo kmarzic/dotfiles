@@ -77,6 +77,11 @@ filetype plugin on
 filetype indent on
 syntax reset
 syntax on
+hi CursorLine   term=bold cterm=bold guibg=white
+hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
+hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
+hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
 set title
 set titlestring=%<%F%=%l/%L-%P
 set titlelen=70
@@ -90,9 +95,6 @@ set showcmd
 set cmdheight=1
 set tabpagemax=15
 set showtabline=1
-hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 set history=1024
 set ignorecase
 set smartcase
