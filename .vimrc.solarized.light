@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-01-19 11:12:52 (CET)
+"" Last update: 2020-01-20 06:57:59 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -263,8 +263,7 @@ let hs_allow_hash_operator = 1
 " set background=light
 " set background=dark
 " syntax on
-" set term=xterm-256color
-
+" " set term=xterm-256color
 " function! s:base16_customize_solarized_light() abort
 "     call Base16hi("Search",      g:base16_gui00, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
 "     call Base16hi("TabLine",     g:base16_gui03, g:base16_gui0D, g:base16_cterm0D, g:base16_cterm00, "", "")
@@ -274,7 +273,6 @@ let hs_allow_hash_operator = 1
 "     call Base16hi("Substitute",  g:base16_gui01, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
 "     call Base16hi("Visual",      g:base16_gui00, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
 " endfunction
-
 " function! s:base16_customize_solarized_dark() abort
 "     call Base16hi("Search",      g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
 "     call Base16hi("TabLine",     g:base16_gui03, g:base16_gui0A, g:base16_cterm0A, g:base16_cterm00, "", "")
@@ -284,14 +282,14 @@ let hs_allow_hash_operator = 1
 "     call Base16hi("Substitute",  g:base16_gui01, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
 "     call Base16hi("Visual",      g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
 " endfunction
-
 " augroup on_change_colorschema
 "     autocmd!
-"     " autocmd ColorScheme * call s:base16_customize_solarized_light()
-"     autocmd ColorScheme * call s:base16_customize_solarized_dark()
+"     autocmd ColorScheme * call s:base16_customize_solarized_light()
+"     " autocmd ColorScheme * call s:base16_customize_solarized_dark()
 " augroup END
-
-" colorscheme base16-solarized-dark
+" colorscheme base16-solarized-light
+" " colorscheme base16-solarized-dark
+" " colorscheme base16-ocean
 
 "" Flattened
 "" https://github.com/romainl/flattened

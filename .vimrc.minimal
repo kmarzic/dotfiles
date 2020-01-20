@@ -77,6 +77,8 @@ filetype plugin on
 filetype indent on
 syntax reset
 syntax on
+set t_Co=16
+set background=dark
 hi CursorLine   term=bold cterm=bold guibg=white
 hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE

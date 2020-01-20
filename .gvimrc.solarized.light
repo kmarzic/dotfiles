@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-01-19 11:12:52 (CET)
+"" Last update: 2020-01-20 06:58:26 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -52,9 +52,9 @@ if has ("unix")
     " set guifont=Terminus\ 12
     "
     " set guifont=Monospace\ 9
-    " set guifont=Monospace\ 10
+    set guifont=Monospace\ 10
     " set guifont=Monospace\ 11
-    set guifont=Monospace\ 12
+    " set guifont=Monospace\ 12
     " set guifont=Monospace\ 13
     " set guifont=Monospace\ 14
     "
@@ -103,6 +103,9 @@ endif
 
 "" GUI Tab
 set guitablabel=%N:%M%t " Show tab numbers
+
+"" Gtk application (Gvim) rendering troubleshooting
+" :au FocusGained * :redraw!<CR>
 
 
 "" -----------------------------------------------------------------------
