@@ -50,21 +50,23 @@ local theme_name = "ansi"
 beautiful.init( theme_dir .. theme_name .. "/theme.lua" )
 
 -- Local
-local layouts  = require("layouts")
-local helpers  = require("helpers")
-local menu     = require("menu")
-local wibar    = require("wibar")
 local bindings = require("bindings")
-local rules    = require("rules")
+local helpers  = require("helpers")
+local layouts  = require("layouts")
+local menu     = require("menu")
 local notifs   = require("notifications")
+local rules    = require("rules")
 local signals  = require("signals")
+local wibar    = require("wibar")
 
 -- Vicious
 local vicious  = require("vicious")
 
 -- Startup applications
 awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/screen_toggle.sh -x")
-awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/trayer.sh")
+-- awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/trayer.sh")
+awful.spawn.with_shell("/usr/bin/dropbox start")
+awful.spawn.with_shell("/usr/bin/nm-applet &")
 
 -- -----------------------------------------------------------------------------
 -- END

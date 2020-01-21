@@ -2,12 +2,19 @@
 -- {{{ Bindings
 -- -----------------------------------------------------------------------------
 
+-- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+
+-- Notification library
 local menubar = require("menubar")
 
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
+
+-- Local
+local helpers  = require("helpers")
+
 
 local bindings = {}
 
@@ -28,25 +35,25 @@ bindings.mouse = {
         awful.button({ }, 5, awful.tag.viewprev)
     ),
 
-    clientbuttons = gears.table.join(
-        awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-        awful.button({ modkey }, 1, awful.mouse.client.move),
-        awful.button({ modkey }, 3, awful.mouse.client.resize)
-    )
-
     -- clientbuttons = gears.table.join(
-    --     awful.button({ }, 1, function (c)
-    --         c:emit_signal("request::activate", "mouse_click", {raise = true})
-    --     end),
-    --     awful.button({ modkey }, 1, function (c)
-    --         c:emit_signal("request::activate", "mouse_click", {raise = true})
-    --         awful.mouse.client.move(c)
-    --     end),
-    --     awful.button({ modkey }, 3, function (c)
-    --         c:emit_signal("request::activate", "mouse_click", {raise = true})
-    --         awful.mouse.client.resize(c)
-    --     end)
+    --     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
+    --     awful.button({ modkey }, 1, awful.mouse.client.move),
+    --     awful.button({ modkey }, 3, awful.mouse.client.resize)
     -- )
+
+    clientbuttons = gears.table.join(
+        awful.button({ }, 1, function (c)
+            c:emit_signal("request::activate", "mouse_click", {raise = true})
+        end),
+        awful.button({ modkey }, 1, function (c)
+            c:emit_signal("request::activate", "mouse_click", {raise = true})
+            awful.mouse.client.move(c)
+        end),
+        awful.button({ modkey }, 3, function (c)
+            c:emit_signal("request::activate", "mouse_click", {raise = true})
+            awful.mouse.client.resize(c)
+        end)
+    )
 }
 -- }}}
 
@@ -169,6 +176,68 @@ bindings.globalkeys = gears.table.join(
     --           { description = "close", group = "awesome"}),
     awful.key({ modkey,           }, "F4", function () client.focus:kill() end,
               { description = "close", group = "awesome"}),
+
+    -- Set floating layout
+    awful.key({ modkey, }, "t", function() awful.layout.set(awful.layout.suit.floating) end,
+              { description = "set floating layout", group = "tag"} ),
+
+    -- Layout manipulation
+    awful.key({ modkey, "Shift"   }, "Down",
+    function ()
+        local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
+        local c = client.focus
+        -- Floating: move client to edge
+        if c ~= nil and (current_layout == "floating" or c.floating) then
+            helpers.move_to_edge(c, "down")
+        else
+            --awful.client.swap.byidx(  1)
+            awful.client.swap.bydirection("down", c, nil)
+        end
+    end,
+    { description = "swap with direction down", group = "client"}),
+
+    awful.key({ modkey, "Shift"   }, "Up",
+    function ()
+        local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
+        local c = client.focus
+        -- Floating: move client to edge
+        if c ~= nil and (current_layout == "floating" or c.floating) then
+            --c:relative_move(  0,  -40,   0,   0)
+            helpers.move_to_edge(c, "up")
+        else
+            --awful.client.swap.byidx( -1)
+            awful.client.swap.bydirection("up", c, nil)
+        end
+    end,
+    { description = "swap with direction up", group = "client"}),
+
+    awful.key({ modkey, "Shift" }, "Left",
+    function ()
+        local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
+        local c = client.focus
+        -- Floating: move client to edge
+        if c ~= nil and (current_layout == "floating" or c.floating) then
+            --c:relative_move( -40,  0,   0,   0)
+            helpers.move_to_edge(c, "left")
+        else
+            awful.client.swap.bydirection("left", c, nil)
+        end
+    end,
+    { description = "swap with direction left", group = "client"}),
+
+    awful.key({ modkey, "Shift" }, "Right",
+    function ()
+        local current_layout = awful.layout.getname(awful.layout.get(awful.screen.focused()))
+        local c = client.focus
+        -- Floating: move client to edge
+        if c ~= nil and (current_layout == "floating" or c.floating) then
+            --c:relative_move(  40,  0,   0,   0)
+            helpers.move_to_edge(c, "right")
+        else
+            awful.client.swap.bydirection("right", c, nil)
+        end
+    end,
+    { description = "swap with direction right", group = "client"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,

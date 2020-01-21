@@ -2,8 +2,14 @@
 -- {{{ rules
 -- -----------------------------------------------------------------------------
 
+-- Standard awesome library
 local awful = require("awful")
+
+-- Theme handling library
 local beautiful = require("beautiful")
+
+-- Local
+local bindings = require("bindings")
 
 
 -- Rules to apply to new clients (through the "manage" signal).
@@ -16,7 +22,7 @@ awful.rules.rules = {
           focus = awful.client.focus.filter,
           raise = true,
           keys = clientkeys,
-          buttons = clientbuttons,
+          buttons = bindings.mouse.clientbuttons,
           screen = awful.screen.preferred,
           size_hints_honor = false,
           honor_workarea = true,

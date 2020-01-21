@@ -2,18 +2,28 @@
 -- {{{ wibar
 -- -----------------------------------------------------------------------------
 
+-- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+
+-- Widget and layout library
 local wibox = require("wibox")
-local beautiful = require("beautiful")
-local xresources = require("beautiful.xresources")
+
+-- Notification library
 local naughty = require("naughty")
 
+-- Theme handling library
+local beautiful = require("beautiful")
+local xresources = require("beautiful.xresources")
+
+-- Local
 local helpers  = require("helpers")
 local menu     = require("menu")
 local signals  = require("signals")
 
+-- Vicious
 local vicious  = require("vicious")
+
 
 -- {{{ Wibar
 local my_update_interval = 15

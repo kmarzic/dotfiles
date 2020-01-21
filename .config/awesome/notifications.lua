@@ -2,11 +2,18 @@
 -- {{{ Notification
 -- -----------------------------------------------------------------------------
 
+-- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
+
+-- Theme handling library
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
+
+-- Notification library
 local naughty = require ("naughty")
+
+-- Local
 local helpers = require("helpers")
 
 local dpi = xresources.apply_dpi
