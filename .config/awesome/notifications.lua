@@ -190,6 +190,7 @@ awful.tag.attached_connect_signal(s1, "property::layout", function ()
         send_notification("Layout:", name, beautiful["layout_"..name])
     end
 end)
+
 -- -----------------------------------------------------------------------------
 -- }}}
 -- -----------------------------------------------------------------------------

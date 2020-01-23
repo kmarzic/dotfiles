@@ -193,24 +193,6 @@ function helpers.add_clickable_effect(w)
         end
     end)
 end
-
--- Rounded corners
-if beautiful.border_radius ~= 0 then
-    client.connect_signal("manage", function (c, startup)
-        if not c.fullscreen then
-            c.shape = helpers.rrect(beautiful.border_radius)
-        end
-    end)
-
-    -- Fullscreen clients should not have rounded corners
-    client.connect_signal("property::fullscreen", function (c)
-        if c.fullscreen then
-            c.shape = helpers.rect()
-        else
-            c.shape = helpers.rrect(beautiful.border_radius)
-        end
-    end)
-end
 -- }}}
 
 return helpers

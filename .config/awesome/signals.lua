@@ -32,6 +32,56 @@ client.connect_signal("manage", function (c)
     end
 end)
 
+-- Hide titlebars if required by the theme
+client.connect_signal("manage", function (c)
+    if not beautiful.titlebars_enabled then
+        awful.titlebar.hide(c)
+    end
+end)
+
+-- If the layout is not floating, every floating client that appears is centered
+-- If the layout is floating, and there is no other client visible, center it
+client.connect_signal("manage", function (c)
+    if not awesome.startup then
+        if awful.layout.get(mouse.screen) ~= awful.layout.suit.floating then
+            awful.placement.centered(c,{honor_workarea=true})
+        else if #mouse.screen.clients == 1 then
+                awful.placement.centered(c,{honor_workarea=true})
+            end
+        end
+    end
+end)
+
+-- Rounded corners
+if beautiful.border_radius ~= 0 then
+    client.connect_signal("manage", function (c, startup)
+        if not c.fullscreen then
+            c.shape = helpers.rrect(beautiful.border_radius)
+        end
+    end)
+
+    -- Fullscreen clients should not have rounded corners
+    client.connect_signal("property::fullscreen", function (c)
+        if c.fullscreen then
+            c.shape = helpers.rect()
+        else
+            c.shape = helpers.rrect(beautiful.border_radius)
+        end
+    end)
+end
+
+-- When a client starts up in fullscreen, resize it to cover the fullscreen a short moment later
+-- Fixes wrong geometry when titlebars are enabled
+client.connect_signal("manage", function(c)
+    if c.fullscreen then
+        gears.timer.delayed_call(function()
+            if c.valid then
+                c:geometry(c.screen.geometry)
+            end
+        end)
+    end
+end)
+
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
     -- buttons for the titlebar
@@ -82,10 +132,15 @@ client.connect_signal("mouse::enter", function(c)
     c:emit_signal("request::activate", "mouse_enter", {raise = false})
 end)
 
+-- Borders
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+-- Set mouse resize mode (live or after)
+awful.mouse.resize.set_mode("live")
+
 return signals
+
 -- -----------------------------------------------------------------------------
 -- }}}
 -- -----------------------------------------------------------------------------
