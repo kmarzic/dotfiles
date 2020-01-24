@@ -12,6 +12,7 @@ local beautiful = require("beautiful")
 local bindings = require("bindings")
 
 
+-- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
     -- All clients will match this rule.
@@ -21,7 +22,7 @@ awful.rules.rules = {
           border_color = beautiful.border_normal,
           focus = awful.client.focus.filter,
           raise = true,
-          keys = clientkeys,
+          keys = bindings.clientkeys,
           buttons = bindings.mouse.clientbuttons,
           screen = awful.screen.preferred,
           size_hints_honor = false,
@@ -94,6 +95,8 @@ awful.rules.rules = {
     { rule = { class = "Evolution" }, properties = { tag = "9" } },
     { rule = { class = "Mozilla Thunderbird" }, properties = { tag = "9" } },
 }
+
+-- }}}
 
 -- -----------------------------------------------------------------------------
 -- }}}

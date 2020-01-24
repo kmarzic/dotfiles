@@ -9,8 +9,7 @@ local awful = require("awful")
 -- Widget and layout library
 local wibox = require("wibox")
 
--- Theme handling library
-local beautiful = require("beautiful")
+-- local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 
 local dpi = xresources.apply_dpi

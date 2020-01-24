@@ -6,6 +6,7 @@
 local naughty = require("naughty")
 
 
+-- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then

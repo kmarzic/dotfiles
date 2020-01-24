@@ -390,6 +390,7 @@ bindings.clientkeys = gears.table.join(
     -- Minimize
     awful.key({ modkey,           }, "n",
         function (c)
+            -- naughty.notify({text="minimize"})
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
@@ -400,6 +401,7 @@ bindings.clientkeys = gears.table.join(
     -- Unminimize
     awful.key({ modkey, "Control" }, "n",
         function ()
+            -- naughty.notify({text="restore minimized"})
             local c = awful.client.restore()
             -- Focus restored client
             if c then
@@ -414,6 +416,7 @@ bindings.clientkeys = gears.table.join(
     -- UnMaximaze
     awful.key({ modkey,           }, "m",
         function (c)
+            -- naughty.notify({text="maximize"})
             c.maximized = not c.maximized
             c:raise()
         end ,
@@ -496,6 +499,7 @@ end
 -- Set keys
 root.buttons(bindings.mouse.global)
 root.keys(bindings.globalkeys)
+-- }}}
 
 return bindings
 
