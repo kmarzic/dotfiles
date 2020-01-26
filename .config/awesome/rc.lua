@@ -1,6 +1,5 @@
 -- -----------------------------------------------------------------------------
 -- rc.lua
--- https://github.com/mustaqimM/dotfiles/tree/master/.config/awesome
 -- -----------------------------------------------------------------------------
 
 -- If Luocks is installed, make sure that packages installed through it are
