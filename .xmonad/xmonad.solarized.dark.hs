@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2019-12-26 07:34:06 (CET)
+-- Last update: 2020-01-26 17:39:21 (CET)
 
 import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
@@ -194,6 +194,7 @@ lemonbarCommand1 = "lemonbar -d -b -a 32 -u 2 -g x24 -f " ++ fontRegular ++ " -F
 myTerminal :: String
 myTerminal = "urxvt"
 -- myTerminal = "termite"
+-- myTerminal = "$HOME/bin/st"
 -- myTerminal = "$HOME/bin/st.solarized.light"
 
 myTerminalScratchpad :: String
@@ -201,6 +202,7 @@ myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
+-- myTerminalScratchpad = "$HOME/bin/st"
 -- myTerminalScratchpad = "$HOME/bin/st.solarized.light"
 
 myModMask :: KeyMask
@@ -461,7 +463,7 @@ myManageHook = composeAll . concat $
 myLayoutHook tabConfig =
   gaps0
   -- gaps1
-  -- $ smartSpacing 2
+  $ smartSpacing 4
   -- $ spacing 2
   -- $ smartBorders
   $ avoidStruts
@@ -526,12 +528,17 @@ myPPLayout layout = case layout of
       -- _                         -> layout
       --
       -- (2) icon layout
-      "Tabbed Simplest by Full" -> myIcon ".xmonad/icons/layout_tabbed.xbm"
-      "Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
-      "Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
-      "Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Roledex by Full"         -> "[@]"
-      _                         -> layout
+      "Spacing Tabbed Simplest by Full" -> myIcon ".xmonad/icons/layout_tabbed.xbm"
+      "Tabbed Simplest by Full"         -> myIcon ".xmonad/icons/layout_tabbed.xbm"
+      "Spacing Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
+      "Full by Full"                    -> myIcon ".xmonad/icons/layout_full.xbm"
+      "Spacing Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
+      "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
+      "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
+      "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
+      "Spacing Roledex by Full"         -> "[@]"
+      "Roledex by Full"                 -> "[@]"
+      _                                 -> layout
 
 logTitles :: X (Maybe String) -- this is a Logger
 logTitles =

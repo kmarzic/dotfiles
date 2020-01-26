@@ -1,1 +1,1 @@
-xmonad.solarized.light.hs
+xmonad.ansi.hs

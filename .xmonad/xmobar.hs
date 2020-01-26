@@ -1,1 +1,1 @@
-xmobar.solarized.light.hs
+xmobar.ansi.hs
