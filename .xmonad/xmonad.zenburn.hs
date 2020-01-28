@@ -1,5 +1,5 @@
 -- xmonad.hs
--- Last update: 2020-01-26 17:39:21 (CET)
+-- Last update: 2020-01-28 08:38:33 (CET)
 
 import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
@@ -154,8 +154,6 @@ fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
 fontTerminalScratchpad :: String
 fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
 
--- dmenuCommand
-
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
@@ -174,13 +172,8 @@ dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36
 dmenuCommandSolarizedLight :: String -- theme: solarized light
 dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
--- xmobarCommand
-
 xmobarCommand1 :: String
 xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
-
-xmobarCommand1a :: String
-xmobarCommand1a = "xmobar -f \"xft:Monospace:pixelsize=13:antialias=true:style=bold\" -b -B black -a right -F blue -t \"%UnsafeStdinReader%\" -c \"[ Run UnsafeStdinReader ]\""
 
 xmobarCommand2 :: ScreenId -> String
 xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs"]
@@ -209,8 +202,8 @@ myModMask :: KeyMask
 myModMask = mod1Mask
 
 myFocusFollowsMouse :: Bool
--- myFocusFollowsMouse = True
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
+-- myFocusFollowsMouse = False
 
 myBorderWidth :: Dimension
 myBorderWidth = 1
@@ -219,7 +212,7 @@ myBorderWidth = 1
 myNormalBorderColorAnsi :: String -- theme: ansi
 myNormalBorderColorAnsi = "#ffffff"
 myFocusedBorderColorAnsi :: String
-myFocusedBorderColorAnsi = "#0088cc"
+myFocusedBorderColorAnsi = "#00ffff"
 
 myNormalBorderColorZenburn :: String -- theme: zenburn
 myNormalBorderColorZenburn = "#2e3330"
@@ -262,13 +255,13 @@ myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8"
 myTabConfigAnsi :: Theme -- theme: ansi
 myTabConfigAnsi = def
   {
-    activeColor = "#0088cc",
+    activeColor = "#555555",
     activeTextColor = "#ffffff",
-    activeBorderColor = "#000000",
-    inactiveColor = "#5f676a",
+    activeBorderColor = "#00ffff",
+    inactiveColor = "#333333",
     inactiveTextColor = "#dddddd",
-    inactiveBorderColor = "#000000",
-    urgentColor = "#900000",
+    inactiveBorderColor = "#ffffff",
+    urgentColor = "#ff0000",
     urgentTextColor = "#ffffff",
     urgentBorderColor = "#2f343a",
     fontName = fontBold
@@ -463,8 +456,9 @@ myManageHook = composeAll . concat $
 myLayoutHook tabConfig =
   gaps0
   -- gaps1
-  $ smartSpacing 4
-  -- $ spacing 2
+  -- $ smartSpacing 1
+  -- $ spacing 1
+  $ spacingRaw True (Border 0 0 0 0) True (Border 1 1 1 1) True
   -- $ smartBorders
   $ avoidStruts
   -- $ toggleLayouts (noBorders $ full')
@@ -499,17 +493,17 @@ myLayoutHook tabConfig =
     roledex'   = Roledex
     --
     -- The default number of windows in the master pane
-    nmaster0 = 1
+    nmaster0   = 1
     --
     -- Default proportion of screen occupied by master pane
-    ratio0   = 1/2
+    ratio0     = 1/2
     --
     -- Percent of screen to increment by when resizing panes
-    delta0   = 2/100
+    delta0     = 2/100
     --
     -- Gaps
-    gaps0    = gaps [(U,0), (D,0), (L,0), (R,0)]
-    gaps1    = gaps [(U,2), (D,2), (L,2), (R,2)]
+    gaps0      = gaps [(U,0), (D,0), (L,0), (R,0)]
+    gaps1      = gaps [(U,2), (D,2), (L,2), (R,2)]
 
 myIcon :: String -> String
 myIcon name = abc
@@ -557,7 +551,7 @@ myLogHookAnsiPP = def
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "green" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = "  ", -- separator between each object
+    ppSep             = " ", -- separator between each object
     ppWsSep           = " ",  -- separator between workspaces
     ppExtras          = [ logTitles ],
     ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
