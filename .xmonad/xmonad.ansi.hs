@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-01-29 09:33:46 (CET)
+-- Last update: 2020-01-29 20:51:28 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -40,6 +40,7 @@ import qualified XMonad.Actions.FlexibleResize as Flex
 import qualified XMonad.Layout.Groups as G
 import qualified XMonad.Layout.Groups.Helpers as Group
 import qualified XMonad.StackSet as W
+
 
 -------------------------------------------------------------------------------
 -- Config
@@ -207,8 +208,8 @@ myModMask :: KeyMask
 myModMask = mod1Mask
 
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
--- myFocusFollowsMouse = False
+-- myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
 myBorderWidth :: Dimension
 myBorderWidth = 1
@@ -256,6 +257,116 @@ myWorkspaces :: [String]
 myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8","9","0"]
   where
     clickable l = [ "<action=`xdotool key alt+" ++ show (n) ++ "`>" ++ ws ++ "</action>" | (i,ws) <- zip ([1..9] ++ [0]) l, let n = i ] -- 10 workspaces
+
+
+-------------------------------------------------------------------------------
+-- Startup
+-------------------------------------------------------------------------------
+
+myStartUpScreen :: X()
+myStartUpScreen = do
+  nScreens <- countScreens
+  if nScreens == 1
+  then do
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "1"
+  else if nScreens == 2
+  then do
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "1"
+    screenWorkspace 1 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "9"
+  else if nScreens == 3
+  then do
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "1"
+    screenWorkspace 1 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "0"
+    screenWorkspace 2 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "9"
+  else
+    return ()
+
+myStartUp :: X()
+myStartUp = do
+  -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
+  -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
+  -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
+  spawn "$HOME/.xmonad/screen_toggle.sh -x"
+  spawn "$HOME/.xmonad/trayer.sh"
+
+
+-------------------------------------------------------------------------------
+-- Window Rules
+-------------------------------------------------------------------------------
+
+myManageScratchPad :: ManageHook
+myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+  where
+    h = 0.6 -- terminal height, 60%
+    w = 0.6 -- terminal width, 60%
+    t = 0.3 -- distance from top edge, 30%
+    l = 0.1 -- distance from left edge, 10%
+
+myManageHook :: ManageHook
+myManageHook = composeAll . concat $
+  [
+    [className =? "Chromium" --> doShift (myWorkspaces !! 4)],
+    [className =? "Chromium-browser" --> doShift (myWorkspaces !! 4)],
+    [className =? "Chrome" --> doShift (myWorkspaces !! 4)],
+    [className =? "Opera" --> doShift (myWorkspaces !! 4)],
+    [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
+    [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
+    [className =? "Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
+    [className =? "New Tab - Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
+    [className =? "Vivaldi" --> doShift (myWorkspaces !! 4)],
+    [className =? "Vivaldi-stable" --> doShift (myWorkspaces !! 4)],
+    [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
+    [className =? "Skype" --> doShift (myWorkspaces !! 6)],
+    [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
+    [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
+    [className =? "Mozilla Thunderbird" --> doShift (myWorkspaces !! 8)],
+    --
+    [role      =? "GtkFileChooserDialog" --> doFullFloat],
+    --
+    [className =? c --> doFloat  | c <- myClassFloats],
+    [title     =? t --> doFloat  | t <- myTitleFloats],
+    [resource  =? r --> doFloat  | r <- myResourceFloats],
+    [resource  =? i --> doIgnore | i <- myIgnores],
+    --
+    [isDialog       --> doFloat],
+    [isFullscreen   --> (doF W.focusDown <+> doFullFloat)]
+  ]
+  where
+    role          = stringProperty "WM_WINDOW_ROLE"
+    netName       = stringProperty "_NET_WM_NAME"
+    name          = stringProperty "WM_NAME"
+    myClassFloats =
+      [
+        "Gimp", "MPlayer", "Nvidia-settings", "Sysinfo", "vlc", "Vncviewer",
+        "XCalc", "XFontSel", "Xmessage"
+      ]
+    myTitleFloats =
+      [
+        "Autofill Options", "Choose a file", "Clear Private Data", "Copying files", "Downloads",
+        "File Operation Progress", "File Properties", "File Transfers", "Moving files",
+        "Passwords and Exceptions", "Preferences", "Rename File", "Replace", "Save As...", "Search Engines",
+        "Deleting", "Exit",
+        "Firefox Preferences", "Iceweasel Preferences", "Thunderbird Preferences"
+      ]
+    myResourceFloats =
+      [
+        "buddy_list", "ticker", "gimp-toolbox", "gimp-dock", "gimp-image-window",  "xeyes"
+      ]
+    myIgnores =
+      [
+        "cairo-compmgr", "desktop", "desktop_window", "kdesktop", "trayer"
+      ]
+
+
+-------------------------------------------------------------------------------
+-- Layouts
+-------------------------------------------------------------------------------
 
 myTabConfigAnsi :: Theme -- theme: ansi
 myTabConfigAnsi = def
@@ -362,102 +473,6 @@ myTabConfigSolarizedLight = def
     fontName = fontBold
   }
 
-myStartUpScreen :: X()
-myStartUpScreen = do
-  nScreens <- countScreens
-  if nScreens == 1
-  then do
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-  else if nScreens == 2
-  then do
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-    screenWorkspace 1 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "9"
-  else if nScreens == 3
-  then do
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-    screenWorkspace 1 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "0"
-    screenWorkspace 2 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "9"
-  else
-    return ()
-
-myStartUp :: X()
-myStartUp = do
-  -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
-  -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
-  -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
-  spawn "$HOME/.xmonad/screen_toggle.sh -x"
-  spawn "$HOME/.xmonad/trayer.sh"
-
-myManageScratchPad :: ManageHook
-myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
-  where
-    h = 0.6 -- terminal height, 60%
-    w = 0.6 -- terminal width, 60%
-    t = 0.3 -- distance from top edge, 30%
-    l = 0.1 -- distance from left edge, 10%
-
-myManageHook :: ManageHook
-myManageHook = composeAll . concat $
--- xprop | grep WM_CLASS
-    [
-      [className =? "Chromium" --> doShift (myWorkspaces !! 4)],
-      [className =? "Chromium-browser" --> doShift (myWorkspaces !! 4)],
-      [className =? "Chrome" --> doShift (myWorkspaces !! 4)],
-      [className =? "Opera" --> doShift (myWorkspaces !! 4)],
-      [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
-      [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
-      [className =? "Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
-      [className =? "New Tab - Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
-      [className =? "Vivaldi" --> doShift (myWorkspaces !! 4)],
-      [className =? "Vivaldi-stable" --> doShift (myWorkspaces !! 4)],
-      [className =? "Pidgin" --> doShift (myWorkspaces !! 6)],
-      [className =? "Skype" --> doShift (myWorkspaces !! 6)],
-      [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
-      [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
-      [className =? "Mozilla Thunderbird" --> doShift (myWorkspaces !! 8)],
-      --
-      [role      =? "GtkFileChooserDialog" --> doFullFloat],
-      --
-      [className =? c --> doFloat  | c <- myClassFloats],
-      [title     =? t --> doFloat  | t <- myTitleFloats],
-      [resource  =? r --> doFloat  | r <- myResourceFloats],
-      [resource  =? i --> doIgnore | i <- myIgnores],
-      --
-      [isDialog       --> doFloat],
-      [isFullscreen   --> (doF W.focusDown <+> doFullFloat)]
-    ]
-    where
-      role          = stringProperty "WM_WINDOW_ROLE"
-      netName       = stringProperty "_NET_WM_NAME"
-      name          = stringProperty "WM_NAME"
-      myClassFloats =
-        [
-          "Gimp", "MPlayer", "Nvidia-settings", "Sysinfo", "vlc", "Vncviewer",
-          "XCalc", "XFontSel", "Xmessage"
-        ]
-      myTitleFloats =
-        [
-          "Autofill Options", "Choose a file", "Clear Private Data", "Copying files", "Downloads",
-          "File Operation Progress", "File Properties", "File Transfers", "Moving files",
-          "Passwords and Exceptions", "Preferences", "Rename File", "Replace", "Save As...", "Search Engines",
-          "Deleting", "Exit",
-          "Firefox Preferences", "Iceweasel Preferences", "Thunderbird Preferences"
-        ]
-      myResourceFloats =
-        [
-          "buddy_list", "ticker", "gimp-toolbox", "gimp-dock", "gimp-image-window",  "xeyes"
-        ]
-      myIgnores =
-        [
-          "cairo-compmgr", "desktop", "desktop_window", "kdesktop", "trayer"
-        ]
-
 myLayoutHook tabConfig =
   gaps0
   -- gaps1
@@ -510,6 +525,11 @@ myLayoutHook tabConfig =
     gaps0      = gaps [(U,0), (D,0), (L,0), (R,0)]
     gaps1      = gaps [(U,2), (D,2), (L,2), (R,2)]
 
+
+-------------------------------------------------------------------------------
+-- Status bars and logging
+-------------------------------------------------------------------------------
+
 myIcon :: String -> String
 myIcon name = abc
   where
@@ -546,7 +566,6 @@ logTitles =
    . (\ws -> W.index ws \\ maybeToList (W.peek ws)) -- all windows except the focused (may be slow)
 
 windowCount :: X (Maybe String)
--- windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 myLogHookAnsiPP :: PP -- theme: ansi
@@ -565,8 +584,8 @@ myLogHookAnsiPP = def
     -- ppExtras          = [ logTitles ],
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
-    ppExtras          = [ logTitles, windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
 
@@ -586,8 +605,8 @@ myLogHookZenburnPP = def
     -- ppExtras          = [ logTitles ],
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
-    ppExtras          = [ logTitles, windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookBluePP :: PP -- theme: blue
@@ -606,8 +625,8 @@ myLogHookBluePP = def
     -- ppExtras          = [ logTitles ],
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
-    ppExtras          = [ logTitles, windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookGreenPP :: PP -- theme: green
@@ -626,8 +645,8 @@ myLogHookGreenPP = def
     -- ppExtras          = [ logTitles ],
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
-    ppExtras          = [ logTitles, windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
@@ -646,8 +665,8 @@ myLogHookSolarizedDarkPP = def
     -- ppExtras          = [ logTitles ],
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
-    ppExtras          = [ logTitles, windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
@@ -666,8 +685,8 @@ myLogHookSolarizedLightPP = def
     -- ppExtras          = [ logTitles ],
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
-    ppExtras          = [ logTitles, windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
 -- ansi
@@ -772,7 +791,10 @@ myLogHookSolarizedLight2a h s = myLogHookSolarizedLightPP
 myLogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
 myLogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedLight2a hs [0..ns-1]
 
--- dmenu
+
+-------------------------------------------------------------------------------
+-- Bindings
+-------------------------------------------------------------------------------
 
 myKeysDmenuCommandAnsi =
   [
@@ -815,8 +837,6 @@ myKeysDmenuCommandSolarizedLight =
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
     ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
   ]
-
--- keys
 
 myKeys =
   [
@@ -918,6 +938,11 @@ myMouse =
     ((mod1Mask .|. shiftMask, button5), (\_ -> shiftToNext))                              -- Send client to next workspace
   ]
 
+
+-------------------------------------------------------------------------------
+-- Configurations
+-------------------------------------------------------------------------------
+
 myConfigDefault = def
     {
       terminal             = myTerminal,
@@ -1002,6 +1027,11 @@ myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized lig
       -- (2) multiple xmobar
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedLight2 xmobar nScreens
     } `additionalKeys` myKeysDmenuCommandSolarizedLight
+
+
+-------------------------------------------------------------------------------
+-- Main
+-------------------------------------------------------------------------------
 
 main :: IO ()
 main = do
