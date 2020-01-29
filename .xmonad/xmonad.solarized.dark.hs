@@ -1,5 +1,7 @@
+-------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-01-28 08:38:33 (CET)
+-- Last update: 2020-01-29 09:33:46 (CET)
+-------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
@@ -39,6 +41,9 @@ import qualified XMonad.Layout.Groups as G
 import qualified XMonad.Layout.Groups.Helpers as Group
 import qualified XMonad.StackSet as W
 
+-------------------------------------------------------------------------------
+-- Config
+-------------------------------------------------------------------------------
 
 solarized :: M.Map String String
 solarized = M.fromList
@@ -538,8 +543,11 @@ logTitles :: X (Maybe String) -- this is a Logger
 logTitles =
    withWindowSet $ fmap (Just . unwords) -- fuse window names
    . traverse (fmap show . getName) -- show window names
-   . (\ws -> W.index ws \\ maybeToList (W.peek ws))
-   -- all windows except the focused (may be slow)
+   . (\ws -> W.index ws \\ maybeToList (W.peek ws)) -- all windows except the focused (may be slow)
+
+windowCount :: X (Maybe String)
+-- windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
+windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace . W.current . windowset
 
 myLogHookAnsiPP :: PP -- theme: ansi
 myLogHookAnsiPP = def
@@ -552,10 +560,15 @@ myLogHookAnsiPP = def
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "green" "" . (\layout -> myPPLayout (layout)),
     ppSep             = " ", -- separator between each object
-    ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ logTitles ],
-    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ logTitles, windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
   }
+
 
 myLogHookZenburnPP :: PP -- theme: zenburn
 myLogHookZenburnPP = def
@@ -567,10 +580,14 @@ myLogHookZenburnPP = def
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ logTitles ],
-    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ logTitles, windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
   }
 
 myLogHookBluePP :: PP -- theme: blue
@@ -583,10 +600,14 @@ myLogHookBluePP = def
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ logTitles ],
-    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ logTitles, windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
   }
 
 myLogHookGreenPP :: PP -- theme: green
@@ -599,10 +620,14 @@ myLogHookGreenPP = def
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "red" "yellow",
     ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ logTitles ],
-    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ logTitles, windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
@@ -615,10 +640,14 @@ myLogHookSolarizedDarkPP = def
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
     ppLayout          = xmobarColor "#002b36" "#2aa198" . (\layout -> myPPLayout (layout)), -- base03/cyan
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ logTitles ],
-    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ logTitles, windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
@@ -631,10 +660,14 @@ myLogHookSolarizedLightPP = def
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
     ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . (\layout -> myPPLayout (layout)), -- base3/blue
-    ppSep             = "  ", -- separator between each object
-    ppWsSep           = " ",  -- separator between workspaces
-    ppExtras          = [ logTitles ],
-    ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ logTitles, windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) ->  [ws,l] ++ ex ++ [t,xmobarColor "gray" "" ts]
   }
 
 -- ansi
@@ -1001,4 +1034,6 @@ main = do
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
 
+-------------------------------------------------------------------------------
 -- end
+-------------------------------------------------------------------------------
