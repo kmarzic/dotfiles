@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-01-29 20:51:28 (CET)
+-- Last update: 2020-01-30 07:35:24 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -588,7 +588,6 @@ myLogHookAnsiPP = def
     ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
-
 myLogHookZenburnPP :: PP -- theme: zenburn
 myLogHookZenburnPP = def
   {
@@ -646,7 +645,7 @@ myLogHookGreenPP = def
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
     ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "#dc322f" "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
@@ -666,7 +665,7 @@ myLogHookSolarizedDarkPP = def
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
     ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "#dc322f" "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light

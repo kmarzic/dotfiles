@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2019-10-10 20:30:55 (CEST)
+-- Last update: 2020-01-30 07:37:17 (CET)
 
 Config {
    -- theme: ansi
