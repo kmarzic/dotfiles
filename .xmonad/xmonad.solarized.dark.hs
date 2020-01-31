@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-01-30 07:35:24 (CET)
+-- Last update: 2020-01-31 07:14:18 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -220,11 +220,6 @@ myNormalBorderColorAnsi = "#ffffff"
 myFocusedBorderColorAnsi :: String
 myFocusedBorderColorAnsi = "#00ffff"
 
-myNormalBorderColorZenburn :: String -- theme: zenburn
-myNormalBorderColorZenburn = "#2e3330"
-myFocusedBorderColorZenburn :: String
-myFocusedBorderColorZenburn = "#a0afa0"
-
 myNormalBorderColorBlue :: String -- theme: blue
 myNormalBorderColorBlue = "#ffffff"
 myFocusedBorderColorBlue :: String
@@ -244,6 +239,11 @@ myNormalBorderColorSolarizedLight :: String -- theme: solarized light
 myNormalBorderColorSolarizedLight = solarized M.! "solarizedBase3"
 myFocusedBorderColorSolarizedLight :: String
 myFocusedBorderColorSolarizedLight = solarized M.! "solarizedBlue"
+
+myNormalBorderColorZenburn :: String -- theme: zenburn
+myNormalBorderColorZenburn = "#2e3330"
+myFocusedBorderColorZenburn :: String
+myFocusedBorderColorZenburn = "#a0afa0"
 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
@@ -383,21 +383,6 @@ myTabConfigAnsi = def
     fontName = fontBold
   }
 
-myTabConfigZenburn :: Theme -- theme: zenburn
-myTabConfigZenburn = def
-  {
-    activeColor = "#a0afa0",
-    activeTextColor = "#040404",
-    activeBorderColor = "#a0afa0",
-    inactiveColor = "#2e3330",
-    inactiveBorderColor = "#2e3330",
-    inactiveTextColor = "#a0afa0",
-    urgentColor = "#900000",
-    urgentTextColor = "#ffffff",
-    urgentBorderColor = "#2f343a",
-    fontName = fontBold
-  }
-
 myTabConfigBlue :: Theme -- theme: blue
 myTabConfigBlue = def
   {
@@ -467,6 +452,21 @@ myTabConfigSolarizedLight = def
     inactiveColor = solarized M.! "solarizedBase1", -- base1
     inactiveTextColor = solarized M.! "solarizedBase3", -- base3
     inactiveBorderColor = solarized M.! "solarizedBase03", -- base03
+    urgentColor = "#900000",
+    urgentTextColor = "#ffffff",
+    urgentBorderColor = "#2f343a",
+    fontName = fontBold
+  }
+
+myTabConfigZenburn :: Theme -- theme: zenburn
+myTabConfigZenburn = def
+  {
+    activeColor = "#a0afa0",
+    activeTextColor = "#040404",
+    activeBorderColor = "#a0afa0",
+    inactiveColor = "#2e3330",
+    inactiveBorderColor = "#2e3330",
+    inactiveTextColor = "#a0afa0",
     urgentColor = "#900000",
     urgentTextColor = "#ffffff",
     urgentBorderColor = "#2f343a",
@@ -588,26 +588,6 @@ myLogHookAnsiPP = def
     ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
   }
 
-myLogHookZenburnPP :: PP -- theme: zenburn
-myLogHookZenburnPP = def
-  {
-    ppCurrent         = xmobarColor "#80D4AA" "" . wrap "[" "]",
-    ppHidden          = xmobarColor "#ffffff" "",
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "#80D4AA" "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
-  }
-
 myLogHookBluePP :: PP -- theme: blue
 myLogHookBluePP = def
   {
@@ -651,13 +631,13 @@ myLogHookGreenPP = def
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
 myLogHookSolarizedDarkPP = def
   {
-    ppCurrent         = xmobarColor "#002b36" "#2aa198" . wrap "[" "]", -- base03/cyan
+    ppCurrent         = xmobarColor "#dc322f" "" . wrap "[" "]", -- red
     ppHidden          = xmobarColor "#fdf6e3" "", -- base3
     ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
     ppTitle           = xmobarColor "#2aa198" "" . shorten 50, -- cyan
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#002b36" "#2aa198" . (\layout -> myPPLayout (layout)), -- base03/cyan
+    ppLayout          = xmobarColor "#2aa198" "" . (\layout -> myPPLayout (layout)), -- cyan
     ppSep             = " ", -- separator between each object
     ppWsSep           = " ", -- separator between workspaces
     -- (1)
@@ -677,7 +657,27 @@ myLogHookSolarizedLightPP = def
     ppTitle           = xmobarColor "#268bd2" "" . shorten 50, -- blue
     ppVisible         = wrap "(" ")",
     ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#fdf6e3" "#268bd2" . (\layout -> myPPLayout (layout)), -- base3/blue
+    ppLayout          = xmobarColor "#268bd2" "" . (\layout -> myPPLayout (layout)), -- blue
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
+  }
+
+myLogHookZenburnPP :: PP -- theme: zenburn
+myLogHookZenburnPP = def
+  {
+    ppCurrent         = xmobarColor "#80D4AA" "" . wrap "[" "]",
+    ppHidden          = xmobarColor "#ffffff" "",
+    ppHiddenNoWindows = xmobarColor "#999999" "",
+    ppTitle           = xmobarColor "#80D4AA" "" . shorten 50,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor "red" "yellow",
+    ppLayout          = xmobarColor "#dddddd" "" . (\layout -> myPPLayout (layout)),
     ppSep             = " ", -- separator between each object
     ppWsSep           = " ", -- separator between workspaces
     -- (1)
@@ -704,23 +704,6 @@ myLogHookAnsi2a h s = myLogHookAnsiPP
 
 myLogHookAnsi2 :: [Handle] -> ScreenId -> X ()
 myLogHookAnsi2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookAnsi2a hs [0..ns-1]
-
--- zenburn
-
-myLogHookZenburn1 :: Handle -> X()
-myLogHookZenburn1 h = dynamicLogWithPP myLogHookZenburnPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myLogHookZenburn2a :: Handle -> ScreenId -> PP
-myLogHookZenburn2a h s = myLogHookZenburnPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myLogHookZenburn2 :: [Handle] -> ScreenId -> X ()
-myLogHookZenburn2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookZenburn2a hs [0..ns-1]
 
 -- blue
 
@@ -790,6 +773,23 @@ myLogHookSolarizedLight2a h s = myLogHookSolarizedLightPP
 myLogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
 myLogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookSolarizedLight2a hs [0..ns-1]
 
+-- zenburn
+
+myLogHookZenburn1 :: Handle -> X()
+myLogHookZenburn1 h = dynamicLogWithPP myLogHookZenburnPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookZenburn2a :: Handle -> ScreenId -> PP
+myLogHookZenburn2a h s = myLogHookZenburnPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myLogHookZenburn2 :: [Handle] -> ScreenId -> X ()
+myLogHookZenburn2 hs ns = mapM_ dynamicLogWithPP $ zipWith myLogHookZenburn2a hs [0..ns-1]
+
 
 -------------------------------------------------------------------------------
 -- Bindings
@@ -800,13 +800,6 @@ myKeysDmenuCommandAnsi =
     ((mod1Mask,                  xK_d      ), spawn dmenuCommandAnsi), -- theme: ansi
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandAnsi), -- theme: ansi
     ((0,                         xK_Menu   ), spawn dmenuCommandAnsi)  -- theme: ansi
-  ]
-
-myKeysDmenuCommandZenburn =
-  [
-    ((mod1Mask,                  xK_d      ), spawn dmenuCommandZenburn), -- theme: zenburn
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandZenburn), -- theme: zenburn
-    ((0,                         xK_Menu   ), spawn dmenuCommandZenburn)  -- theme: zenburn
   ]
 
 myKeysDmenuCommandBlue =
@@ -835,6 +828,13 @@ myKeysDmenuCommandSolarizedLight =
     ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
     ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
+  ]
+
+myKeysDmenuCommandZenburn =
+  [
+    ((mod1Mask,                  xK_d      ), spawn dmenuCommandZenburn), -- theme: zenburn
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandZenburn), -- theme: zenburn
+    ((0,                         xK_Menu   ), spawn dmenuCommandZenburn)  -- theme: zenburn
   ]
 
 myKeys =
@@ -966,17 +966,6 @@ myConfigAnsi xmobar nScreens = myConfigDefault -- theme: ansi
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookAnsi2 xmobar nScreens
     } `additionalKeys` myKeysDmenuCommandAnsi
 
-myConfigZenburn xmobar nScreens = myConfigDefault -- theme: zenburn
-    {
-      normalBorderColor    = myNormalBorderColorZenburn,
-      focusedBorderColor   = myFocusedBorderColorZenburn,
-      layoutHook           = myLayoutHook myTabConfigZenburn,
-      -- (1) single xmobar
-      -- logHook              = myLogHookZenburn1 xmobar
-      -- (2) multiple xmobar
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookZenburn2 xmobar nScreens
-    } `additionalKeys` myKeysDmenuCommandZenburn
-
 myConfigBlue xmobar nScreens = myConfigDefault -- theme: blue
     {
       normalBorderColor    = myNormalBorderColorBlue,
@@ -1027,6 +1016,17 @@ myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized lig
       logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookSolarizedLight2 xmobar nScreens
     } `additionalKeys` myKeysDmenuCommandSolarizedLight
 
+myConfigZenburn xmobar nScreens = myConfigDefault -- theme: zenburn
+    {
+      normalBorderColor    = myNormalBorderColorZenburn,
+      focusedBorderColor   = myFocusedBorderColorZenburn,
+      layoutHook           = myLayoutHook myTabConfigZenburn,
+      -- (1) single xmobar
+      -- logHook              = myLogHookZenburn1 xmobar
+      -- (2) multiple xmobar
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myLogHookZenburn2 xmobar nScreens
+    } `additionalKeys` myKeysDmenuCommandZenburn
+
 
 -------------------------------------------------------------------------------
 -- Main
@@ -1037,31 +1037,31 @@ main = do
   -- (1) single xmobar
   -- xmobar1 <- spawnPipe xmobarCommand1
   -- xmonad $ myConfigAnsi xmobar1 1 -- theme: ansi
-  -- xmonad $ myConfigZenburn xmobar1 1 -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar1 1 -- theme: blue
   -- xmonad $ myConfigGreen xmobar1 1 -- theme: green
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
+  -- xmonad $ myConfigZenburn xmobar1 1 -- theme: zenburn
   --
   -- (2) multiple xmobar
   -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
   -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
-  -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
   -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
   xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
+  -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   --
   -- (3) i3status
   -- xmobar1 <- spawnPipe i3statusCommand1
   -- xmonad $ myConfigAnsi xmobar1 1 -- theme: ansi
-  -- xmonad $ myConfigZenburn xmobar1 1 -- theme: zenburn
   -- xmonad $ myConfigBlue xmobar1 1 -- theme: blue
   -- xmonad $ myConfigGreen xmobar1 1 -- theme: green
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
+  -- xmonad $ myConfigZenburn xmobar1 1 -- theme: zenburn
 
 -------------------------------------------------------------------------------
 -- end

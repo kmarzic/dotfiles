@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-01-18 18:19:44 (CET)
+!! Last update: 2020-01-31 07:15:05 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -212,7 +212,7 @@
 ! #define base0D #7cb8bb
 ! #define base0E #dc8cc3
 ! #define base0F #000000
-! 
+!
 ! *foreground:   base05
 ! #ifdef background_opacity
 ! *background:   [background_opacity]base00
@@ -220,7 +220,7 @@
 ! *background:   base00
 ! #endif
 ! *cursorColor:  base05
-! 
+!
 ! *color0:       base00
 ! *color1:       base08
 ! *color2:       base0B
@@ -229,7 +229,7 @@
 ! *color5:       base0E
 ! *color6:       base0C
 ! *color7:       base05
-! 
+!
 ! *color8:       base03
 ! *color9:       base09
 ! *color10:      base01
@@ -398,9 +398,9 @@ URxvt*skipScroll: true
 URxvt*mouseWheelScrollPage: false
 
 !! Terminal Icons
-URxvt*inheritPixmap: true
+! URxvt*inheritPixmap: true
 ! URxvt*iconFile: /usr/share/icons/Adwaita/16x16/legacy/utilities-terminal.png
-URxvt*iconFile: /usr/share/icons/Adwaita/22x22/legacy/utilities-terminal.png
+! URxvt*iconFile: /usr/share/icons/Adwaita/22x22/legacy/utilities-terminal.png
 
 !! set to 32-bit for real transparency (compositing required)
 ! URxvt*depth: 24
@@ -449,8 +449,8 @@ URxvt*fading: 20
 ! URxvt*fading: 100
 
 !! transparent
-URxvt*transparent: true
-! URxvt*transparent: false
+! URxvt*transparent: true
+URxvt*transparent: false
 
 !! Perl extensions
 !! There are two variables here because `perl-ext-common` is supposed to apply

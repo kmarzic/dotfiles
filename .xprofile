@@ -52,9 +52,9 @@ xsetroot -cursor_name left_ptr
 # synclient TouchpadOff=0
 
 ## xrdb
-# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
+# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
+[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
 # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
-[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
 xrdb -load ~/.Xdefaults
 xrdb -merge ~/.Xdefaults
 

@@ -3,12 +3,8 @@
 
 Config {
    -- theme: ansi
-   bgColor = "#101010",
-   fgColor = "#f2f2f2",
-   --
-   -- theme: zenburn
-   -- bgColor = "#2e3330",
-   -- fgColor = "#a0afa0",
+   -- bgColor = "#101010",
+   -- fgColor = "#f2f2f2",
    --
    -- theme: blue
    -- bgColor = "#222222",
@@ -25,6 +21,10 @@ Config {
    -- theme: solarized light
    -- bgColor = "#eee8d5", -- base2
    -- fgColor = "#002b36", -- base03
+   --
+   -- theme: zenburn
+   bgColor = "#2e3330",
+   fgColor = "#a0afa0",
 
    -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
    -- font = "xft:Monospace:pixelsize=14:antialias=true:style=bold",
