@@ -450,18 +450,20 @@ for i = 1, 10 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
             function ()
-                  local screen = awful.screen.focused()
-                  -- (1) original
-                  local tag = screen.tags[i]
-                  if tag then
-                     tag:view_only()
-                  end
-                  -- -- (2) xmonad
-                  -- local tag = sharedtaglist[i]
-                  -- if tag then
-                  --     awful.tag.setscreen(screen, tag)
-                  --     tag:view_only()
-                  -- end
+                -- (1) original
+                local screen = awful.screen.focused()
+                local tag = screen.tags[i]
+                if tag then
+                   tag:view_only()
+                end
+                --
+                -- -- (2) xmonad
+                -- local screen = awful.screen.focused()
+                -- local tag = sharedtaglist[i]
+                -- if tag then
+                --     awful.tag.setscreen(screen, tag)
+                --     tag:view_only()
+                -- end
             end,
             { description = "view tag #"..i, group = "tag"}
         ),
@@ -474,6 +476,7 @@ for i = 1, 10 do
                 if tag then
                    awful.tag.viewtoggle(tag)
                 end
+                --
                 -- -- (2) xmonad
                 -- -- local screen = awful.screen.focused()
                 -- local tag = sharedtaglist[i]
@@ -493,6 +496,7 @@ for i = 1, 10 do
                         client.focus:move_to_tag(tag)
                     end
                 end
+                --
                 -- -- (2) xmonad
                 -- if client.focus then
                 --     local tag = sharedtaglist[i] --client.focus.screen.tags[i]
@@ -513,6 +517,7 @@ for i = 1, 10 do
                         client.focus:toggle_tag(tag)
                     end
                 end
+                --
                 -- -- (2) xmonad
                 -- if client.focus then
                 --     local tag = wibar.sharedtaglist[i] --client.focus.screen.tags[i]
