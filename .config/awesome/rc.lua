@@ -36,6 +36,7 @@ mail = "evolution"
 messenger = "gajim"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
+-- sharedtaglist = {}
 
 -- Themes define colours, icons, font and wallpapers.
 -- local theme_name = "default"
