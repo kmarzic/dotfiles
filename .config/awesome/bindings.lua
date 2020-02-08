@@ -15,6 +15,9 @@ require("awful.hotkeys_popup.keys")
 -- Local
 local helpers  = require("helpers")
 
+-- Sharedtags
+local sharedtags = require("sharedtags")
+
 
 local bindings = {}
 
@@ -461,8 +464,7 @@ for i = 1, 10 do
                 -- local screen = awful.screen.focused()
                 -- local tag = sharedtaglist[i]
                 -- if tag then
-                --     awful.tag.setscreen(screen, tag)
-                --     tag:view_only()
+                --     sharedtags.viewonly(tag, screen)
                 -- end
             end,
             { description = "view tag #"..i, group = "tag"}
@@ -478,10 +480,10 @@ for i = 1, 10 do
                 end
                 --
                 -- -- (2) xmonad
-                -- -- local screen = awful.screen.focused()
+                -- local screen = awful.screen.focused()
                 -- local tag = sharedtaglist[i]
                 -- if tag then
-                --     awful.tag.viewtoggle(tag)
+                --     sharedtags.viewtoggle(tag, screen)
                 -- end
             end,
             { description = "toggle tag #" .. i, group = "tag"}
@@ -499,7 +501,7 @@ for i = 1, 10 do
                 --
                 -- -- (2) xmonad
                 -- if client.focus then
-                --     local tag = sharedtaglist[i] --client.focus.screen.tags[i]
+                --     local tag = sharedtaglist[i]
                 --     if tag then
                 --         client.focus:move_to_tag(tag)
                 --     end
@@ -520,7 +522,7 @@ for i = 1, 10 do
                 --
                 -- -- (2) xmonad
                 -- if client.focus then
-                --     local tag = wibar.sharedtaglist[i] --client.focus.screen.tags[i]
+                --     local tag = sharedtaglist[i]
                 --     if tag then
                 --         client.focus:toggle_tag(tag)
                 --     end

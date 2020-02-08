@@ -118,9 +118,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- (2) Tags on all screens
     -- screen_index = s.index
     -- awful.tag(mytags.tags[screen_index].names, s, mytags.tags[screen_index].layout)
-    -- (3) xmonad
-    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9"}, 1, awful.layout.layouts[1])
-    -- sharedtaglist = screen[1].tags
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()

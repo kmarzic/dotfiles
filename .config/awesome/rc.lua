@@ -36,7 +36,6 @@ mail = "evolution"
 messenger = "gajim"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
--- sharedtaglist = {}
 
 -- Themes define colours, icons, font and wallpapers.
 -- local theme_name = "default"
@@ -58,6 +57,21 @@ local notifs   = require("notifications")
 local rules    = require("rules")
 local signals  = require("signals")
 local wibar    = require("wibar")
+
+-- -- Sharedtags
+-- local sharedtags = require("sharedtags")
+-- sharedtaglist = sharedtags({
+--     { name = "1", layout = awful.layout.layouts[1] },
+--     { name = "2", layout = awful.layout.layouts[1] },
+--     { name = "3", layout = awful.layout.layouts[1] },
+--     { name = "4", layout = awful.layout.layouts[1] },
+--     { name = "5", layout = awful.layout.layouts[1] },
+--     { name = "6", layout = awful.layout.layouts[1] },
+--     { name = "7", layout = awful.layout.layouts[1] },
+--     { name = "8", layout = awful.layout.layouts[1] },
+--     { name = "9", screen = 3, layout = awful.layout.layouts[1] },
+--     { name = "10", screen = 2, layout = awful.layout.layouts[1] }
+-- })
 
 -- Vicious
 local vicious  = require("vicious")
