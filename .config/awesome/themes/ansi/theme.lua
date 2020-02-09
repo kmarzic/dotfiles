@@ -10,6 +10,9 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
+local theme_name = "ansi"
+local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/" .. theme_name .. "/"
+
 local theme = {}
 
 -- theme.font          = "sans 8"
@@ -74,13 +77,13 @@ theme.wibar_height = dpi(25)
 -- | Wibox | --
 theme.bg_wibox = "#666666"
 
--- Gaps
+-- | Gaps | --
 theme.useless_gap   = dpi(2)
 -- This could be used to manually determine how far away from the
 -- screen edge the bars / notifications should be.
 theme.screen_margin = dpi(2)
 
--- Rounded corners
+-- | Rounded corners | --
 theme.border_radius = dpi(6)
 
 -- There are other variable sets
@@ -96,7 +99,7 @@ theme.border_radius = dpi(6)
 -- Example:
 -- theme.taglist_bg_focus = "#ff0000"
 
--- Generate taglist squares:
+-- | Generate taglist squares | --
 local taglist_square_size = dpi(4)
 theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
     taglist_square_size, theme.fg_normal
@@ -105,13 +108,13 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
     taglist_square_size, theme.fg_normal
 )
 
--- Variables set for theming notifications:
+-- | Variables set for theming notifications | --
 -- notification_font
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
 
--- Variables set for theming the menu:
+-- | Variables set for theming the menu | --
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
 theme.menu_submenu_icon = themes_path.."default/submenu.png"
@@ -123,7 +126,7 @@ theme.menu_width  = dpi(100)
 -- beautiful.variable in your rc.lua
 -- theme.bg_widget = "#cc0000"
 
--- Define the image to load
+-- | Define the image to load | --
 theme.titlebar_close_button_normal = themes_path.."default/titlebar/close_normal.png"
 theme.titlebar_close_button_focus  = themes_path.."default/titlebar/close_focus.png"
 
@@ -178,6 +181,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
+theme.icon_batt = theme_dir.."icons/battery_charging.png"
 
 -- Notifications
 theme.notification_position = "top_right"

@@ -1,5 +1,5 @@
 -- -----------------------------------------------------------------------------
--- rc.lua
+-- {{{ rc.lua
 -- -----------------------------------------------------------------------------
 
 -- If Luocks is installed, make sure that packages installed through it are
@@ -59,6 +59,7 @@ local signals  = require("signals")
 local wibar    = require("wibar")
 
 -- -- Sharedtags
+-- -- https://github.com/Drauthius/awesome-sharedtags
 -- local sharedtags = require("sharedtags")
 -- sharedtaglist = sharedtags({
 --     { name = "1", layout = awful.layout.layouts[1] },
@@ -74,7 +75,12 @@ local wibar    = require("wibar")
 -- })
 
 -- Vicious
+-- https://github.com/vicious-widgets/vicious.git
 local vicious  = require("vicious")
+
+-- Xrandr
+-- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
+local xrandr = require("xrandr")
 
 -- Startup applications
 awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/screen_toggle.sh -x")
@@ -83,5 +89,5 @@ awful.spawn.with_shell("/usr/bin/dropbox start")
 awful.spawn.with_shell("/usr/bin/nm-applet &")
 
 -- -----------------------------------------------------------------------------
--- END
+-- }}}
 -- -----------------------------------------------------------------------------

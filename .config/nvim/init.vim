@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-02-09 10:07:48 (CET)
+"" Last update: 2020-02-09 17:18:35 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -16,14 +16,19 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'fatih/vim-go'
+" Plug 'chriskempson/base16-vim'
+" Plug 'rakr/vim-one'
+" Plug 'jeffkreeftmeijer/vim-dim'
+" Plug 'kyoz/purify'
+Plug 'miyakogi/seiya.vim'
 
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "" ctrlp.vim
 "" https://github.com/ctrlpvim/ctrlp.vim
-"" cd ~/.vim/bundle; git clone https://github.com/ctrlpvim/ctrlp.vim
-"" cd ~/.vim/bundle/ctrlp.vim; git remote update
 ""
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -34,16 +39,9 @@ let g:ctrlp_switch_buffer = 0
 
 "" gitgutter
 "" https://github.com/airblade/vim-gitgutter
-"" cd ~/.vim/bundle/vim-gitgutter.vim; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/airblade/vim-gitgutter.git
-""
-"" (no configuration required)
 
 "" The NERD tree
-"" http://www.vim.org/scripts/script.php?script_id=1658
 "" https://github.com/scrooloose/nerdtree
-"" cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git
-"" cd ~/.vim/bundle/nerdtree; git remote update
 ""
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
@@ -65,13 +63,48 @@ vmap ,n <esc>:NERDTreeToggle<CR>
 imap ,n <esc>:NERDTreeToggle<CR>
 " au BufWinEnter * set number
 
+"" syntastic
+"" https://github.com/scrooloose/syntastic
+""
+" let g:syntastic_disabled_filetypes=['html']
+let g:syntastic_html_checkers=['']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+
+"" Base 16
+"" https://github.com/chriskempson/base16-vim
+
+"" vim-one
+"" https://github.com/rakr/vim-one
+""
+" let g:airline_theme='one'
+" colorscheme one
+" set background=dark " for the dark version
+" " set background=light " for the light version
+
+"" https://github.com/jeffkreeftmeijer/vim-dim
+""
+" set t_Co=16
+" colorscheme dim
+" set background=dark
+
+"" https://github.com/kyoz/purify
+
+"" seiya.vim
+"" https://github.com/miyakogi/seiya.vim
+""
+let g:seiya_auto_enable=1
+
 
 "" ------------------------------------------------------------------------
 "" Colorscheme
 "" ------------------------------------------------------------------------
 
 "" Custom
-set t_Co=16
+" set t_Co=16
+set t_Co=256
 set background=dark
 syntax on
 " highlight CursorLine term=reverse cterm=reverse gui=reverse

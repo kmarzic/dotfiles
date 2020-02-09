@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-01-20 06:57:59 (CET)
+"" Last update: 2020-02-09 16:27:36 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -175,9 +175,9 @@ nmap ,lt0 :TagbarToggle<CR>
 "" cd ~/.vim/bundle/c.vim; git remote update
 
 "" go.vim
-"" https://github.com/fsouza/go.vim
-"" cd ~/.vim/bundle; git clone https://github.com/fsouza/go.vim
-"" cd ~/.vim/bundle/go.vim; git remote update
+"" https://github.com/faith/vim-go
+"" cd ~/.vim/bundle; git clone https://github.com/faith/vim-go
+"" cd ~/.vim/bundle/vim-go; git remote update
 ""
 " au BufNewFile,BufRead *.go set filetype=go
 au BufNewFile,BufReadPost *.go set filetype=go

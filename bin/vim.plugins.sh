@@ -227,13 +227,13 @@ else
     cd ~/.vim/bundle; git clone https://github.com/vim-scripts/c.vim
 fi
 
-if [ -e ~/.vim/bundle/go.vim ]
+if [ -e ~/.vim/bundle/vim-go ]
 then
-    echo "# cd ~/.vim/bundle/go.vim; git remote update; git pull --no-rebase --all"
-    cd ~/.vim/bundle/go.vim; git remote update; git pull --no-rebase --all
+    echo "# cd ~/.vim/bundle/vim-go; git remote update; git pull --no-rebase --all"
+    cd ~/.vim/bundle/vim-go; git remote update; git pull --no-rebase --all
 else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/fsouza/go.vim"
-    cd ~/.vim/bundle; git clone https://github.com/fsouza/go.vim
+    echo "# cd ~/.vim/bundle; git clone https://github.com/faith/vim-go"
+    cd ~/.vim/bundle; git clone https://github.com/faith/vim-go
 fi
 
 if [ -e ~/.vim/bundle/perl-support.vim ]

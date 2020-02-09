@@ -1,5 +1,5 @@
 -- -----------------------------------------------------------------------------
--- {{{ Bindings
+-- {{{ bindings
 -- -----------------------------------------------------------------------------
 
 -- Standard awesome library
@@ -15,10 +15,16 @@ require("awful.hotkeys_popup.keys")
 -- Local
 local helpers  = require("helpers")
 
--- Sharedtags
-local sharedtags = require("sharedtags")
+-- -- Sharedtags
+-- -- https://github.com/Drauthius/awesome-sharedtags
+-- local sharedtags = require("sharedtags")
+
+-- Xrandr
+-- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
+local xrandr = require("xrandr")
 
 
+-- {{{ Bindings
 local bindings = {}
 
 -- Default modkey.
@@ -274,7 +280,9 @@ bindings.globalkeys = gears.table.join(
     awful.key({ "Control", "Shift"   }, "x", function () awful.spawn("exit.sh message") end,
               { description = "message", group = "awesome"}),
     awful.key({ "Control", "Shift"   }, "m", function () awful.spawn("screen_toggle.sh -x") end,
-              { description = "screen toggle", group = "awesome"}),
+    { description = "screen toggle", group = "awesome"}),
+    -- awful.key({ "Control", "Shift"   }, "m", function() xrandr.xrandr() end,
+    --           { description = "screen toggle", group = "awesome"}),
 
     -- Layout change
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
@@ -539,6 +547,7 @@ root.keys(bindings.globalkeys)
 -- }}}
 
 return bindings
+-- }}}
 
 -- -----------------------------------------------------------------------------
 -- }}}

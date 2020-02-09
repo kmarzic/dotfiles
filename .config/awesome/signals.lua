@@ -16,9 +16,9 @@ local beautiful = require("beautiful")
 local helpers  = require("helpers")
 
 
+-- {{{ Signals
 local signals = {}
 
--- {{{ Signals
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,

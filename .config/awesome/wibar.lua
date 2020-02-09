@@ -22,6 +22,7 @@ local menu     = require("menu")
 local signals  = require("signals")
 
 -- Vicious
+-- https://github.com/vicious-widgets/vicious.git
 local vicious  = require("vicious")
 
 
@@ -169,7 +170,6 @@ awful.screen.connect_for_each_screen(function(s)
     -- local my_acpi = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh acpi"]], update_interval)
     -- local my_mem = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh mem"]], update_interval)
     -- local my_swap = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh swap"]], update_interval)
-
     -- local my_text_clock = wibox.widget.textclock ("%a %Y-%m-%d %H:%M:%S", 1)
     -- local month_calendar = awful.widget.calendar_popup.month()
     -- month_calendar:attach(my_text_clock, "br")
@@ -186,20 +186,25 @@ awful.screen.connect_for_each_screen(function(s)
     local my_acpi_2 = wibox.widget.textbox()
     vicious.register (my_acpi_2, vicious.widgets.bat, '<span></span><span color="orange">$1$2%</span>', my_update_interval, "BAT0")
 
+    local my_battery_icon = wibox.widget.imagebox(beautiful.icon_batt)
+    my_battery_icon.resize = true
+    -- my_battery_icon.forced_width = dpi(20)
+    -- my_battery_icon.forced_height = dpi(20)
+
     local my_mem = wibox.widget.textbox()
     vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="cyan"><b>$2MB $1%</b></span>', my_update_interval)
 
     local my_network = wibox.widget.textbox()
     -- (1) dle6440
-    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp3s0 up_kb}kB/s &#8595; ${wlp3s0 down_kb}kB/s</b></span>', my_update_interval_network)
+    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp3s0 up_kb}kB/s &#8595; ${wlp3s0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) elxa4n8pyf2
-    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
+    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
 
     local my_wifi = wibox.widget.textbox()
     -- (1) dle6440
-    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp3s0")
+    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp3s0")
     -- (2) elxa4n8pyf2
-    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
+    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
 
     local my_text_clock = wibox.widget.textbox()
     vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
@@ -229,7 +234,6 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         ontop = true,
         shape = helpers.rrect(beautiful.border_radius),
-        type = "widget",
         width = dpi(800),
         height = dpi(180),
         x = dpi(50),
@@ -297,6 +301,7 @@ awful.screen.connect_for_each_screen(function(s)
             -- layout = wibox.layout.align.horizontal,
             my_volume,
             pad(1),
+            my_battery_icon,
             my_acpi_2,
             pad(1),
             my_text_clock,

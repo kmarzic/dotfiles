@@ -1,5 +1,5 @@
 -- -----------------------------------------------------------------------------
--- {{{ Notification
+-- {{{ notification
 -- -----------------------------------------------------------------------------
 
 -- Standard awesome library
@@ -20,6 +20,7 @@ local dpi = xresources.apply_dpi
 local last_notification_id
 
 
+-- {{{ Notification
 -- Naughty config
 --
 -- Icon size
@@ -95,7 +96,7 @@ local function bat_notification()
     end
 end
 
-local battimer = timer({timeout = 120})
+local battimer = gears.timer({timeout = 120})
 battimer:connect_signal("timeout", bat_notification)
 battimer:start()
 
@@ -130,6 +131,7 @@ awful.tag.attached_connect_signal(s1, "property::layout", function ()
         send_notification("Layout:", name, beautiful["layout_"..name])
     end
 end)
+-- }}}
 
 -- -----------------------------------------------------------------------------
 -- }}}

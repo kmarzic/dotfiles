@@ -1,5 +1,5 @@
 -- -----------------------------------------------------------------------------
--- {{{ Helpers
+-- {{{ helpers
 -- -----------------------------------------------------------------------------
 
 -- Standard awesome library
@@ -15,9 +15,9 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 
+-- {{{ Helper functions
 local helpers = {}
 
--- {{{ Helper functions
 -- Create rounded rectangle shape
 helpers.rrect = function(radius)
     return function(cr, width, height)
