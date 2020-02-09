@@ -22,6 +22,25 @@ then
     mkdir -p ~/.vim/autoload
 fi
 
+if [ ! -e ~/.vim/plugged ]
+then
+    echo "# mkdir -p ~/.vim/plugged"
+    mkdir -p ~/.vim/plugged
+fi
+
+if [ ! -e ~/.local/share/nvim/site/autoload ]
+then
+    echo "# mkdir -p ~/.local/share/nvim/site/autoload/"
+    mkdir -p ~/.local/share/nvim/site/autoload
+fi
+
+###############################################################################
+#### Neovim
+###############################################################################
+
+echo "# curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 ###############################################################################
 #### Pathogen
 ###############################################################################
