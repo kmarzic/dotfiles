@@ -203,16 +203,21 @@ awful.screen.connect_for_each_screen(function(s)
 
     local my_text_clock = wibox.widget.textbox()
     vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
-    local month_calendar = awful.widget.calendar_popup.month()
+
+    local month_calendar = awful.widget.calendar_popup.month({})
+    function month_calendar.call_calendar(self, offset, position, screen)
+        local screen = awful.screen.focused()
+        awful.widget.calendar_popup.call_calendar(self, offset, position, screen)
+    end
     month_calendar:attach(my_text_clock, "br" )
 
     local my_volume = wibox.widget.textbox()
     -- vicious.register(my_volume, vicious.widgets.volume, '<span color="cyan"> <b>$2 $1%</b></span>', 1, "Master")
     vicious.register(my_volume, vicious.widgets.volume,
-                 function (widget, args)
-                     local label = {["🔉"] = "♫", ["🔈"] = "♩"}
-                     return ('<span color="#00ff00">%s %d%%</span>'):format(label[args[2]], args[1])
-                 end, 1, "Master")
+        function (widget, args)
+            local label = {["🔉"] = "♫", ["🔈"] = "♩"}
+            return ('<span color="#00ff00">%s %d%%</span>'):format(label[args[2]], args[1])
+        end, 1, "Master")
 
     local my_weather = wibox.widget.textbox()
     vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="cyan"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
@@ -233,27 +238,27 @@ awful.screen.connect_for_each_screen(function(s)
         bg = beautiful.bg_wibox,
     })
     s.stats:setup {
-      pad(1),
-      {
         pad(1),
-        my_cpu_temp,
-        my_cpu_load,
-        my_acpi_1,
-        my_mem,
-        my_network,
-        my_wifi,
-        my_weather,
+        {
+            pad(1),
+            my_cpu_temp,
+            my_cpu_load,
+            my_acpi_1,
+            my_mem,
+            my_network,
+            my_wifi,
+            my_weather,
+            pad(1),
+            layout = wibox.layout.fixed.vertical,
+        },
         pad(1),
-        layout = wibox.layout.fixed.vertical,
-      },
-      pad(1),
-      layout = wibox.layout.fixed.horizontal,
+        layout = wibox.layout.fixed.horizontal,
     }
     s.stats:buttons(gears.table.join(
-      -- Left click - Hide stats
-      awful.button({ }, 1, function ()
-          s.stats.visible = false
-      end)
+        -- Left click - Hide stats
+        awful.button({ }, 1, function ()
+            s.stats.visible = false
+        end)
     ))
 
     -- Create systray
