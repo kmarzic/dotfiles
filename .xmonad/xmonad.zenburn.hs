@@ -557,8 +557,8 @@ myPPLayout layout = case layout of
       "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Spacing Roledex by Full"         -> "[@]"
-      "Roledex by Full"                 -> "[@]"
+      "Spacing Roledex by Full"         -> myIcon ".xmonad/icons/layout_roledex.xbm"
+      "Roledex by Full"                 -> myIcon ".xmonad/icons/layout_roledex.xbm"
       _                                 -> layout
 
 logTitles :: X (Maybe String) -- this is a Logger
