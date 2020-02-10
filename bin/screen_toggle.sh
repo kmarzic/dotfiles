@@ -107,11 +107,11 @@ __help()
     __printf "Examples:"
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
-    __printf "   ${0} -s zenburn"
     __printf "   ${0} -s blue"
     __printf "   ${0} -s green"
     __printf "   ${0} -s dark"
     __printf "   ${0} -s light"
+    __printf "   ${0} -s zenburn"
 }
 
 
@@ -158,6 +158,9 @@ function __theme()
             [[ -e ~/.config/dunst/dunstrc.ansi ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.ansi dunstrc
             pkill dunst
 
+            #### redshift.conf
+            [[ -e ~/.config/redshift.ansi.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
+
             #### screenrc
             [[ -e ~/.screenrc.ansi ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.ansi .screenrc
 
@@ -169,50 +172,6 @@ function __theme()
 
             #### xmonad
             [[ -e ~/.xmonad/xmonad.ansi.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.ansi.hs xmonad.hs
-
-            if [[ -d ~/data/cabal/xmonad ]]
-            then
-                ## custom compiled xmonad - used sandbox
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
-                ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
-            fi
-            ;;
-        "zenburn")
-            __printf "zenburn"
-
-            #### Background
-            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
-
-            #### Xdefaults
-            [[ -e ~/.Xdefaults.zenburn ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.zenburn .Xdefaults
-            [[ -e ~/.Xdefaults.zenburn ]] && xrdb -load ~/.Xdefaults.zenburn
-
-            #### vim
-            [[ -e ~/.vimrc.zenburn ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.zenburn .vimrc
-            [[ -e ~/.gvimrc.zenburn ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.zenburn .gvimrc
-
-            #### neovim
-            [[ -e ~/.config/nvim/init.zenburn.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.zenburn.vim init.vim && cd -
-
-            #### dunstrc
-            [[ -e ~/.config/dunst/dunstrc.zenburn ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.zenburn dunstrc
-            pkill dunst
-
-            #### screenrc
-            [[ -e ~/.screenrc.zenburn ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.zenburn .screenrc
-
-            #### tmux.conf
-            [[ -e ~/.tmux.conf.zenburn ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.zenburn .tmux.conf
-
-            #### xmobar
-            [[ -e ~/.xmonad/xmobar.zenburn.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.zenburn.hs xmobar.hs
-
-            #### xmonad
-            [[ -e ~/.xmonad/xmonad.zenburn.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.zenburn.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -241,6 +200,9 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.blue.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.blue.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.blue.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.blue.conf redshift.conf && cd -
 
             #### xmobar
             [[ -e ~/.xmonad/xmobar.blue.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.blue.hs xmobar.hs
@@ -275,6 +237,9 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.green.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.green.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.green.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.green.conf redshift.conf && cd -
 
             #### xmobar
             [[ -e ~/.xmonad/xmobar.green.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.green.hs xmobar.hs
@@ -323,6 +288,9 @@ function __theme()
             #### dunstrc
             [[ -e ~/.config/dunst/dunstrc.solarized.dark ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.dark dunstrc
             pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.solarized.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.dark.conf redshift.conf && cd -
 
             #### screenrc
             [[ -e ~/.screenrc.solarized.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.dark .screenrc
@@ -392,6 +360,9 @@ function __theme()
             [[ -e ~/.config/dunst/dunstrc.solarized.light ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.solarized.light dunstrc
             pkill dunst
 
+            #### redshift.conf
+            [[ -e ~/.config/redshift.solarized.light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
+
             #### screenrc
             [[ -e ~/.screenrc.solarized.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.solarized.light .screenrc
 
@@ -430,6 +401,53 @@ function __theme()
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
             # test -r $d && eval "$(dircolors -b $d)"
+            ;;
+        "zenburn")
+            __printf "zenburn"
+
+            #### Background
+            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.zenburn ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.zenburn .Xdefaults
+            [[ -e ~/.Xdefaults.zenburn ]] && xrdb -load ~/.Xdefaults.zenburn
+
+            #### vim
+            [[ -e ~/.vimrc.zenburn ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.zenburn .vimrc
+            [[ -e ~/.gvimrc.zenburn ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.zenburn .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.zenburn.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.zenburn.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.zenburn ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.zenburn dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.zenburn.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.zenburn.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.zenburn ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.zenburn .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.zenburn ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.zenburn .tmux.conf
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.zenburn.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.zenburn.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.zenburn.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.zenburn.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
             ;;
     esac
 }
