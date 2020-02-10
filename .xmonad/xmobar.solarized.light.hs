@@ -201,7 +201,7 @@ Config {
        -- theme: default / orange
        -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / cyan
-       Run Date              "<icon=clock.xbm/><fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       Run Date              "<icon=clock.xbm/> <fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "8"] "spaces1" 300, -- 30s
