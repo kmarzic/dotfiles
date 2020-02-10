@@ -123,10 +123,10 @@ let hs_allow_hash_operator = 1
 "" Base 16
 "" https://github.com/chriskempson/base16-vim
 ""
-set t_Co=16
-syntax on
-colorscheme base16-solarized-dark
-set background=dark
+" set t_Co=16
+" syntax on
+" colorscheme base16-solarized-dark
+" set background=dark
 
 "" vim-one
 "" https://github.com/rakr/vim-one
@@ -159,11 +159,12 @@ set background=dark
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
 ""
-" let g:solarized_visibility = "normal"
-" let g:solarized_diffmode = "normal"
-" set t_Co=256
-" set background=dark
-" colorscheme solarized8_high
+let g:solarized_visibility = "normal"
+let g:solarized_diffmode = "normal"
+let g:solarized_italics = 0
+set t_Co=256
+set background=dark
+colorscheme solarized8_high
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim

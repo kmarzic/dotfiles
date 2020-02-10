@@ -161,6 +161,7 @@ let hs_allow_hash_operator = 1
 ""
 " let g:solarized_visibility = "normal"
 " let g:solarized_diffmode = "normal"
+" let g:solarized_italics = 0
 " set t_Co=256
 " set background=dark
 " colorscheme solarized8_high
