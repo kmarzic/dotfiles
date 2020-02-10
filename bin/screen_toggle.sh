@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2018-11-14 18:56:32
+#       CREATED: 2020-02-10 18:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -130,7 +130,7 @@ function __theme()
         "ansi")
             __printf "ansi"
 
-            #### background
+            #### Background
             # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
             # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
             # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
@@ -181,7 +181,7 @@ function __theme()
         "zenburn")
             __printf "zenburn"
 
-            #### background
+            #### Background
             feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
 
             #### Xdefaults
@@ -222,7 +222,7 @@ function __theme()
         "blue")
             __printf "blue"
 
-            #### background
+            #### Background
             feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
 
             #### Xdefaults
@@ -253,7 +253,7 @@ function __theme()
         "green")
             __printf "green"
 
-            #### background
+            #### Background
             feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
 
             #### Xdefaults
@@ -284,7 +284,7 @@ function __theme()
         "dark")
             __printf "solarized dark"
 
-            #### background
+            #### Background
             cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
@@ -351,7 +351,7 @@ function __theme()
         "light")
             __printf "solarized light"
 
-            #### background
+            #### Background
             cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
@@ -505,18 +505,44 @@ function __background()
     # feh --bg-scale ~/wallpapers/elx2/elx_wallpaper_red_orange.png
 
     #### ELX3
-    # feh --bg-scale ~/wallpapers/elx3/wallpaper_blue_official.png
-    # feh --bg-scale ~/wallpapers/elx3/wallpaper_green_official.png
-    # feh --bg-scale ~/wallpapers/elx3/wallpaper_maintenance.png
-    # feh --bg-scale ~/wallpapers/elx3/wallpaper_purple_official.png
+    # feh --bg-scale ~/wallpapers/elx30/wallpaper_blue_official.png
+    # feh --bg-scale ~/wallpapers/elx30/wallpaper_green_official.png
+    # feh --bg-scale ~/wallpapers/elx30/wallpaper_maintenance.png
+    # feh --bg-scale ~/wallpapers/elx30/wallpaper_purple_official.png
+    ####
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_3_3_baseband.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_3_3_bdgs.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_3_3.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_3_3_research.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_blue_official.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_green_official.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_maintenance.png
+    # feh --bg-scale ~/wallpapers/elx33/wallpaper_purple_official.png
+
+    #### ELX4
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_ericssonlinux_blue.png
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_ericssonlinux_green.png
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_ericssonlinux_purple.png
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_research_blue.png
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_research_green.png
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_research_purple.png
+    # feh --bg-scale ~/wallpapers/elx40/wallpaper_blue_official.png
 
     #### Nature
-    # feh --bg-scale ~/wallpapers/nature/viper_1600x900.jpg
-    # feh --bg-scale ~/wallpapers/nature/37590-greenz2.jpg
-    # feh --bg-scale ~/wallpapers/nature/15227.jpg
+    # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+    # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
+    # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
+    # feh --bg-scale ~/wallpapers/nature/4543.jpg
+    # feh --bg-scale ~/wallpapers/nature/20-2.jpg
+    # feh --bg-scale ~/wallpapers/nature/1504.jpg
+    # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
+    # feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
+    # feh --bg-scale ~/wallpapers/gray/gXswE4.jpg
+    # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
+    # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
 
     #### Gray
-    feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
+    # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
     # feh --bg-scale ~/wallpapers/gray/grey-popular-wallpaper-backgrounds-filter-alexander-room-surface-resolutions-77891.jpg
     # feh --bg-scale ~/wallpapers/gray/defruwallpaper1920x1200eo2.jpg
     # feh --bg-scale ~/wallpapers/gray/ky7tee2.jpg
@@ -555,7 +581,7 @@ function __background()
     #### Solarized Dark
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
     ####
-    # feh --bg-scale ~/wallpapers/solarized/solarized.png
+    feh --bg-scale ~/wallpapers/solarized/solarized.png
     # feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
 }
 
