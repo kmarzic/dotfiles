@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-02-09 16:26:33 (CET)
+"" Last update: 2020-02-10 08:59:08 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -35,6 +35,8 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 "" ale
 "" https://github.com/w0rp/ale
@@ -137,7 +139,7 @@ let g:syntastic_check_on_wq = 0
 
 "" tabline.vim
 "" https://github.com/mkitt/tabline.vim
-"" cd ~/.vim/bundle; git clone https://github.com/mkitt/tabline.vim.git
+"" cd ~/.vim/bundle; git clone https://github.com/mkitt/tabline.vim
 "" cd ~/.vim/bundle/tabline.vim; git remote update
 ""
 " hi TabLine      ctermfg=Black  ctermbg=White     cterm=NONE
@@ -174,7 +176,7 @@ nmap ,lt0 :TagbarToggle<CR>
 "" cd ~/.vim/bundle; git clone https://github.com/vim-scripts/c.vim
 "" cd ~/.vim/bundle/c.vim; git remote update
 
-"" go.vim
+"" vim-go
 "" https://github.com/faith/vim-go
 "" cd ~/.vim/bundle; git clone https://github.com/faith/vim-go
 "" cd ~/.vim/bundle/vim-go; git remote update
@@ -200,8 +202,8 @@ au BufNewFile,BufReadPost *.go set filetype=go
 "" cd ~/.vim/bundle/python-syntax; git remote update
 
 "" haskell-vim
-"" https://github.com/neovimhaskell/haskell-vim.git
-"" cd ~/.vim/bundle; git clone https://github.com/neovimhaskell/haskell-vim.git
+"" https://github.com/neovimhaskell/haskell-vim
+"" cd ~/.vim/bundle; git clone https://github.com/neovimhaskell/haskell-vim
 "" cd ~/.vim/bundle/haskell-vim; git remote update
 ""
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
@@ -738,6 +740,7 @@ autocmd FileType human set nonumber
 autocmd FileType tex set nonumber
 autocmd FileType haskell set number
 autocmd FileType srcfile set number
+autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go,lua set number
 autocmd FileType make set number
 
 "" Set encoding
@@ -847,17 +850,6 @@ if &t_Co > 2 || has ("gui_running")
     " set statusline=[%n%*][%1*%<%{getcwd()}%*\]\[%2*%<%F%*\]\[%3*%<%{&ff}%*\]%1*%y%*\[%1*%<%M%R%H%W%*\]\ %=\ [%3*%03b,0x%B%*\ %1*%03l/%03L,%03c%*\ %2*%P%*]
 endif
 
-"" Statusline colors
-if &t_Co > 2 || has ("gui_running")
-    " hi User1 cterm=NONE ctermfg=Red ctermbg=LightGray guifg=Red guibg=LightGray
-    " hi User2 cterm=NONE ctermfg=Blue ctermbg=LightGray guifg=Blue guibg=LightGray
-    " hi User3 cterm=NONE ctermfg=Magenta ctermbg=LightGray guifg=Magenta guibg=LightGray
-endif
-
-fu! Version()
-    return version
-endf
-
 "" Always show a status line.
 set laststatus=2
 
@@ -900,19 +892,6 @@ if has ("gui_running")
 else
     set showtabline=1
 endif
-
-"" Tabline
-if &t_Co > 2 || has ("gui_running")
-    "" Tabline (1)
-    " set tabline=[%2*%F%*]
-
-    "" Tabline (2)
-    " set tabline=[%2*%F%*]
-endif
-
-" hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-" hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 
 "" ------------------------------------------------------------------------

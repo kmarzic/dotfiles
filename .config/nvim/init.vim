@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-02-09 17:18:35 (CET)
+"" Last update: 2020-02-10 13:16:09 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -17,11 +17,21 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'vim-scripts/bash-support.vim'
+Plug 'vim-scripts/c.vim'
 Plug 'fatih/vim-go'
-" Plug 'chriskempson/base16-vim'
+Plug 'vim-perl/vim-perl'
+Plug 'hdima/python-syntax'
+Plug 'neovimhaskell/haskell-vim'
+"
+Plug 'chriskempson/base16-vim'
 " Plug 'rakr/vim-one'
+" Plug 'rakr/vim-colors-rakr'
 " Plug 'jeffkreeftmeijer/vim-dim'
 " Plug 'kyoz/purify'
+" Plug 'joshdick/onedark.vim'
+" Plug 'andreasvc/vim-256noir'
+" Plug 'marcopaganini/termschool-vim-theme'
 Plug 'miyakogi/seiya.vim'
 
 "" List ends here. Plugins become visible to Vim after this call.
@@ -73,8 +83,49 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
+"" Bash-support
+"" https://github.com/vim-scripts/bash-support.vim
+
+"" c.vim
+"" https://github.com/vim-scripts/c.vim
+
+"" vim-go
+"" https://github.com/faith/vim-go
+""
+" au BufNewFile,BufRead *.go set filetype=go
+au BufNewFile,BufReadPost *.go set filetype=go
+
+"" perl-vim
+"" https://github.com/vim-perl/vim-perl
+
+"" python-syntax
+"" https://github.com/hdima/python-syntax
+
+"" haskell-vim
+"" https://github.com/neovimhaskell/haskell-vim
+""
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+let g:haskellmode_completion_ghc = 1
+let hs_highlight_boolean = 1
+let hs_highlight_types = 1
+let hs_highlight_more_types = 1
+let hs_allow_hash_operator = 1
+
+"" --------------------------------------------------------------------
+
 "" Base 16
 "" https://github.com/chriskempson/base16-vim
+""
+" set t_Co=16
+" syntax on
+" colorscheme base16-default-dark
+" set background=dark
 
 "" vim-one
 "" https://github.com/rakr/vim-one
@@ -84,6 +135,8 @@ let g:syntastic_check_on_wq = 0
 " set background=dark " for the dark version
 " " set background=light " for the light version
 
+"" https://github.com/rakr/vim-colors-rakr
+
 "" https://github.com/jeffkreeftmeijer/vim-dim
 ""
 " set t_Co=16
@@ -91,6 +144,16 @@ let g:syntastic_check_on_wq = 0
 " set background=dark
 
 "" https://github.com/kyoz/purify
+
+"" https://github.com/joshdick/onedark.vim
+
+"" https://github.com/andreasvc/vim-256noir
+""
+" colorscheme 256_noir
+
+"" https://github.com/marcopaganini/termschool-vim-theme
+""
+" colorscheme termschool
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
@@ -107,9 +170,11 @@ let g:seiya_auto_enable=1
 set t_Co=256
 set background=dark
 syntax on
-" highlight CursorLine term=reverse cterm=reverse gui=reverse
-" highlight CursorLine NONE
-" highlight CursorLine ctermfg=black ctermbg=Cyan gui=reverse
+
+"" highlight CursorLine term=reverse cterm=reverse gui=reverse
+"" highlight CursorLine NONE
+"" highlight CursorLine ctermfg=black ctermbg=Cyan gui=reverse
+
 hi CursorLine   term=bold cterm=bold guibg=white
 hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
@@ -496,6 +561,7 @@ autocmd FileType human set nonumber
 autocmd FileType tex set nonumber
 autocmd FileType haskell set number
 autocmd FileType srcfile set number
+autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go,lua set number
 autocmd FileType make set number
 
 "" Set encoding
@@ -605,17 +671,6 @@ if &t_Co > 2 || has ("gui_running")
     " set statusline=[%n%*][%1*%<%{getcwd()}%*\]\[%2*%<%F%*\]\[%3*%<%{&ff}%*\]%1*%y%*\[%1*%<%M%R%H%W%*\]\ %=\ [%3*%03b,0x%B%*\ %1*%03l/%03L,%03c%*\ %2*%P%*]
 endif
 
-"" Statusline colors
-if &t_Co > 2 || has ("gui_running")
-    " hi User1 cterm=NONE ctermfg=Red ctermbg=LightGray guifg=Red guibg=LightGray
-    " hi User2 cterm=NONE ctermfg=Blue ctermbg=LightGray guifg=Blue guibg=LightGray
-    " hi User3 cterm=NONE ctermfg=Magenta ctermbg=LightGray guifg=Magenta guibg=LightGray
-endif
-
-fu! Version()
-    return version
-endf
-
 "" Always show a status line.
 set laststatus=2
 
@@ -658,19 +713,6 @@ if has ("gui_running")
 else
     set showtabline=1
 endif
-
-"" Tabline
-if &t_Co > 2 || has ("gui_running")
-    "" Tabline (1)
-    " set tabline=[%2*%F%*]
-
-    "" Tabline (2)
-    " set tabline=[%2*%F%*]
-endif
-
-" hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-" hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
 
 "" ------------------------------------------------------------------------

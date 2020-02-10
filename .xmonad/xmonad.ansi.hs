@@ -1,12 +1,13 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-01-31 07:14:18 (CET)
+-- Last update: 2020-02-08 21:44:25 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
 import XMonad
 import XMonad.Actions.CycleWS
+import XMonad.Actions.Minimize(minimizeWindow, withLastMinimized, maximizeWindowAndFocus)
 import XMonad.Actions.UpdatePointer
 import XMonad.Config
 import XMonad.Config.Desktop
@@ -16,6 +17,7 @@ import XMonad.Layout.Column
 import XMonad.Layout.Gaps
 import XMonad.Layout.Groups.Helpers
 import XMonad.Layout.IndependentScreens
+import XMonad.Layout.Minimize(minimize)
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Roledex
@@ -555,8 +557,8 @@ myPPLayout layout = case layout of
       "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Spacing Roledex by Full"         -> "[@]"
-      "Roledex by Full"                 -> "[@]"
+      "Spacing Roledex by Full"         -> myIcon ".xmonad/icons/layout_roledex.xbm"
+      "Roledex by Full"                 -> myIcon ".xmonad/icons/layout_roledex.xbm"
       _                                 -> layout
 
 logTitles :: X (Maybe String) -- this is a Logger
@@ -842,7 +844,7 @@ myKeys =
     ((mod1Mask,                  xK_Return ), spawn myTerminal),
     ((mod1Mask,                  xK_s      ), scratchPad),
     ((mod1Mask,                  xK_F4     ), kill),
-    ((mod1Mask,                  xK_m      ), myStartUpScreen),
+    -- ((mod1Mask,                  xK_m      ), myStartUpScreen),
     ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
     ((mod1Mask,                  xK_Print  ), spawn "$HOME/bin/screenshot.sh"),
     ((mod1Mask,                  xK_q      ), spawn "$HOME/.xmonad/recompile.sh"),
@@ -881,6 +883,9 @@ myKeys =
     ((mod1Mask .|. shiftMask,    xK_bracketright),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
     ((mod1Mask .|. controlMask,  xK_Left),   DO.moveTo Prev HiddenNonEmptyWS), -- previous non empty workspace
     ((mod1Mask .|. controlMask,  xK_Right),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
+    --
+    ((mod1Mask,                  xK_m      ), withFocused minimizeWindow),
+    ((mod1Mask .|. shiftMask,    xK_m      ), withLastMinimized maximizeWindowAndFocus),
     --
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
     ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
