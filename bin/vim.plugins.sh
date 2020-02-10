@@ -232,8 +232,8 @@ then
     echo "# cd ~/.vim/bundle/vim-go; git remote update; git pull --no-rebase --all"
     cd ~/.vim/bundle/vim-go; git remote update; git pull --no-rebase --all
 else
-    echo "# cd ~/.vim/bundle; git clone https://github.com/faith/vim-go"
-    cd ~/.vim/bundle; git clone https://github.com/faith/vim-go
+    echo "# cd ~/.vim/bundle; git clone https://github.com/fatih/vim-go"
+    cd ~/.vim/bundle; git clone https://github.com/fatih/vim-go
 fi
 
 if [ -e ~/.vim/bundle/perl-support.vim ]
