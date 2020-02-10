@@ -449,8 +449,8 @@ URxvt*fading: 20
 ! URxvt*fading: 100
 
 !! transparent
-! URxvt*transparent: true
-URxvt*transparent: false
+URxvt*transparent: true
+! URxvt*transparent: false
 
 !! Perl extensions
 !! There are two variables here because `perl-ext-common` is supposed to apply
