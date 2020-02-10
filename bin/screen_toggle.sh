@@ -151,6 +151,9 @@ function __theme()
             [[ -e ~/.vimrc.ansi ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.ansi .vimrc
             [[ -e ~/.gvimrc.ansi ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.ansi .gvimrc
 
+            #### neovim
+            [[ -e ~/.config/nvim/init.ansi.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.ansi.vim init.vim && cd -
+
             #### dunstrc
             [[ -e ~/.config/dunst/dunstrc.ansi ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.ansi dunstrc
             pkill dunst
@@ -191,6 +194,9 @@ function __theme()
             #### vim
             [[ -e ~/.vimrc.zenburn ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.zenburn .vimrc
             [[ -e ~/.gvimrc.zenburn ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.zenburn .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.zenburn.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.zenburn.vim init.vim && cd -
 
             #### dunstrc
             [[ -e ~/.config/dunst/dunstrc.zenburn ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.zenburn dunstrc
@@ -233,6 +239,9 @@ function __theme()
             [[ -e ~/.vimrc.blue ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.blue .vimrc
             [[ -e ~/.gvimrc.blue ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.blue .gvimrc
 
+            #### neovim
+            [[ -e ~/.config/nvim/init.blue.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.blue.vim init.vim && cd -
+
             #### xmobar
             [[ -e ~/.xmonad/xmobar.blue.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.blue.hs xmobar.hs
 
@@ -263,6 +272,9 @@ function __theme()
             #### vim
             [[ -e ~/.vimrc.green ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.green .vimrc
             [[ -e ~/.gvimrc.green ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.green .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.green.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.green.vim init.vim && cd -
 
             #### xmobar
             [[ -e ~/.xmonad/xmobar.green.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.green.hs xmobar.hs
@@ -301,6 +313,9 @@ function __theme()
             #### vim
             [[ -e ~/.vimrc.solarized.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.solarized.dark .vimrc
             [[ -e ~/.gvimrc.solarized.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.solarized.dark .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.solarized.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.solarized.dark.vim init.vim && cd -
 
             #### gtk
             [[ -e ~/.gtkrc-2.0.solarized.dark ]] && cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.dark .gtkrc-2.0
@@ -366,6 +381,9 @@ function __theme()
             #### vim
             [[ -e ~/.vimrc.solarized.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.solarized.light .vimrc
             [[ -e ~/.gvimrc.solarized.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.solarized.light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.solarized.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.solarized.light.vim init.vim && cd -
 
             #### gtk
             [[ -e ~/.gtkrc-2.0.solarized.light ]] && cd ~/ && rm -f .gtkrc-2.0 && ln -s .gtkrc-2.0.solarized.light .gtkrc-2.0
