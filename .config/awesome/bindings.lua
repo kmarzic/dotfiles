@@ -19,9 +19,13 @@ local helpers  = require("helpers")
 -- -- https://github.com/Drauthius/awesome-sharedtags
 -- local sharedtags = require("sharedtags")
 
--- Xrandr
--- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
-local xrandr = require("xrandr")
+-- -- Xrandr
+-- -- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
+-- local xrandr = require("xrandr")
+
+-- -- Foggy
+-- -- https://gitlab.com/k3rni/foggy
+-- local foggy = require("foggy")
 
 
 -- {{{ Bindings
@@ -280,8 +284,10 @@ bindings.globalkeys = gears.table.join(
     awful.key({ "Control", "Shift"   }, "x", function () awful.spawn("exit.sh message") end,
               { description = "message", group = "awesome"}),
     awful.key({ "Control", "Shift"   }, "m", function () awful.spawn("screen_toggle.sh -x") end,
-    { description = "screen toggle", group = "awesome"}),
+              { description = "screen toggle", group = "awesome"}),
     -- awful.key({ "Control", "Shift"   }, "m", function() xrandr.xrandr() end,
+    --           { description = "screen toggle", group = "awesome"}),
+    -- awful.key({ "Control", "Shift"   }, "m", foggy.menu,
     --           { description = "screen toggle", group = "awesome"}),
 
     -- Layout change
@@ -468,7 +474,7 @@ for i = 1, 10 do
                    tag:view_only()
                 end
                 --
-                -- -- (2) xmonad
+                -- -- (2) sharedtags
                 -- local screen = awful.screen.focused()
                 -- local tag = sharedtaglist[i]
                 -- if tag then
@@ -487,7 +493,7 @@ for i = 1, 10 do
                    awful.tag.viewtoggle(tag)
                 end
                 --
-                -- -- (2) xmonad
+                -- -- (2) sharedtags
                 -- local screen = awful.screen.focused()
                 -- local tag = sharedtaglist[i]
                 -- if tag then
@@ -507,7 +513,7 @@ for i = 1, 10 do
                     end
                 end
                 --
-                -- -- (2) xmonad
+                -- -- (2) sharedtags
                 -- if client.focus then
                 --     local tag = sharedtaglist[i]
                 --     if tag then
@@ -528,7 +534,7 @@ for i = 1, 10 do
                     end
                 end
                 --
-                -- -- (2) xmonad
+                -- -- (2) sharedtags
                 -- if client.focus then
                 --     local tag = sharedtaglist[i]
                 --     if tag then

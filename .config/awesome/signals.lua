@@ -148,6 +148,19 @@ client.connect_signal("manage", function(c)
     end
 end)
 
+-- removing screens: Moving all the nonempty tags to a different screen and make them volatile
+tag.connect_signal("request::screen", function(t)
+    clients = t:clients()
+    for s in screen do
+        if s ~= t.screen and clients and next(clients) then
+            t.screen = s
+            t.name = t.name .. "'"
+            awful.tag.setvolatile(true, t)
+            return
+        end
+    end
+end)
+
 -- Set mouse resize mode (live or after)
 awful.mouse.resize.set_mode("live")
 -- }}}

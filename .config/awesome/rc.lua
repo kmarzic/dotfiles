@@ -79,8 +79,12 @@ local wibar    = require("wibar")
 local vicious  = require("vicious")
 
 -- Xrandr
--- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
-local xrandr = require("xrandr")
+-- -- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
+-- local xrandr = require("xrandr")
+
+-- -- Foggy
+-- -- https://gitlab.com/k3rni/foggy
+-- local foggy = require("foggy")
 
 -- Startup applications
 awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/screen_toggle.sh -x")
