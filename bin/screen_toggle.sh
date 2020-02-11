@@ -134,14 +134,14 @@ function __theme()
             # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
             # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
             # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
-            # feh --bg-scale ~/wallpapers/nature/4543.jpg
+            feh --bg-scale ~/wallpapers/nature/4543.jpg
             # feh --bg-scale ~/wallpapers/nature/20-2.jpg
             # feh --bg-scale ~/wallpapers/nature/1504.jpg
             # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
             # feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
             # feh --bg-scale ~/wallpapers/gray/gXswE4.jpg
             # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
-            feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
+            # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.ansi ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.ansi .Xdefaults
