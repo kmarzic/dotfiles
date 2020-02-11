@@ -568,7 +568,7 @@ function __background()
     # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
     # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
     # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
-    # feh --bg-scale ~/wallpapers/nature/4543.jpg
+    feh --bg-scale ~/wallpapers/nature/4543.jpg
     # feh --bg-scale ~/wallpapers/nature/20-2.jpg
     # feh --bg-scale ~/wallpapers/nature/1504.jpg
     # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
@@ -617,7 +617,7 @@ function __background()
     #### Solarized Dark
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
     ####
-    feh --bg-scale ~/wallpapers/solarized/solarized.png
+    # feh --bg-scale ~/wallpapers/solarized/solarized.png
     # feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
 }
 
