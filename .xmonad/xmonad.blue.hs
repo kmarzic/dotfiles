@@ -193,8 +193,8 @@ lemonbarCommand1 :: String
 lemonbarCommand1 = "lemonbar -d -b -a 32 -u 2 -g x24 -f " ++ fontRegular ++ " -F \"#2199ee\" -B \"#000000\" -U \"#00ff00\" | bash "
 
 myTerminal :: String
--- myTerminal = "urxvt"
-myTerminal = "urxvtc"
+myTerminal = "urxvt"
+-- myTerminal = "urxvtc"
 -- myTerminal = "termite"
 -- myTerminal = "$HOME/bin/st"
 -- myTerminal = "$HOME/bin/st.solarized.light"
