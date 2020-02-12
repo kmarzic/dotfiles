@@ -1,13 +1,13 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-02-10 08:59:08 (CET)
+"" Last update: 2020-02-12 07:35:20 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
 
 "" ------------------------------------------------------------------------
-"" Plugins
+"" Package Manager
 "" ------------------------------------------------------------------------
 
 "" Pathogen: Vim package manager
@@ -17,12 +17,8 @@
 "" curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 "" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ""
-" set nocp
-" set rtp+=~/.vim/autoload
-call pathogen#infect()
-call pathogen#helptags()
-
-"" ----------------------------------------------------------------------------
+" call pathogen#infect()
+" call pathogen#helptags()
 
 "" vundle
 "" http://www.vim.org/scripts/script.php?script_id=3458
@@ -30,34 +26,58 @@ call pathogen#helptags()
 "" cd ~/.vim/bundle; git clone https://github.com/gmarik/Vundle.vim.git
 "" cd ~/.vim/bundle/Vundle.vim; git remote update
 ""
-set nocompatible              " be iMproved, required
-filetype off                  " required
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-call vundle#end()            " required
-filetype plugin indent on    " required
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" Plugin 'gmarik/Vundle.vim'
+" call vundle#end()            " required
+" filetype plugin indent on    " required
+
+"" vim-plug
+"" https://github.com/junegunn/vim-plug
+""
+call plug#begin('~/.vim/plugged')
+Plug 'w0rp/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'vimwiki/vimwiki'
+"
+Plug 'vim-scripts/bash-support.vim'
+Plug 'vim-scripts/c.vim'
+Plug 'faith/vim-go'
+Plug 'vim-scripts/perl-support.vim'
+Plug 'vim-perl/vim-perl'
+Plug 'hdima/python-syntax'
+Plug 'neovimhaskell/haskell-vim'
+"
+Plug 'altercation/vim-colors-solarized'
+Plug 'chriskempson/base16-vim'
+Plug 'romainl/flattened'
+Plug 'lifepillar/vim-solarized8'
+Plug 'miyakogi/seiya.vim'
+call plug#end()
+
+
+"" ------------------------------------------------------------------------
+"" Plugins
+"" ------------------------------------------------------------------------
 
 "" ale
 "" https://github.com/w0rp/ale
-"" cd ~/.vim/bundle/ale; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/w0rp/ale
 ""
 let b:ale_linters = ['pyflakes', 'flake8', 'pylint']
 let g:ale_completion_enabled = 1
 let b:ale_fixers = ['eslint']
 let b:ale_fix_on_save = 1
 
-"" Buffer Explorer
-"" http://www.vim.org/scripts/script.php?script_id=42
-"" https://github.com/vim-scripts/bufexplorer.zip
-"" cd ~/.vim/bundle; git clone https://github.com/vim-scripts/bufexplorer.zip
-"" cd ~/.vim/bundle/bufexplorer.zip; git remote update
-
 "" ctrlp.vim
 "" https://github.com/ctrlpvim/ctrlp.vim
-"" cd ~/.vim/bundle; git clone https://github.com/ctrlpvim/ctrlp.vim
-"" cd ~/.vim/bundle/ctrlp.vim; git remote update
 ""
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -68,8 +88,6 @@ let g:ctrlp_switch_buffer = 0
 
 "" fzf
 "" https://github.com/junegunn/fzf.vim
-"" cd ~/.vim/bundle/fzf.vim; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/junegunn/fzf.vim
 ""
 " let g:fzf_action = {
 "   \ 'ctrl-t': 'tab split',
@@ -79,25 +97,16 @@ let g:ctrlp_switch_buffer = 0
 
 "" gitgutter
 "" https://github.com/airblade/vim-gitgutter
-"" cd ~/.vim/bundle/vim-gitgutter.vim; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/airblade/vim-gitgutter.git
-""
-"" (no configuration required)
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
-"" cd ~/.vim/bundle/lightline.vim; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/itchyny/lightline.vim
 ""
 " let g:lightline = {
 "       \ 'colorscheme': 'solarized',
 "       \ }
 
 "" The NERD tree
-"" http://www.vim.org/scripts/script.php?script_id=1658
 "" https://github.com/scrooloose/nerdtree
-"" cd ~/.vim/bundle; git clone https://github.com/scrooloose/nerdtree.git
-"" cd ~/.vim/bundle/nerdtree; git remote update
 ""
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
@@ -119,16 +128,8 @@ vmap ,n <esc>:NERDTreeToggle<CR>
 imap ,n <esc>:NERDTreeToggle<CR>
 " au BufWinEnter * set number
 
-"" supertab
-"" https://github.com/ervandew/supertab
-"" cd ~/.vim/bundle; git clone https://github.com/ervandew/supertab"
-"" cd ~/.vim/bundle/supertab; git remote update
-
 "" syntastic
-"" http://www.vim.org/scripts/script.php?script_id=2736
 "" https://github.com/scrooloose/syntastic
-"" cd ~/.vim/bundle; git clone https://github.com/scrooloose/syntastic.git
-"" cd ~/.vim/bundle/syntastic; git remote update
 ""
 " let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_html_checkers=['']
@@ -137,74 +138,40 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 
-"" tabline.vim (2012-10-21)
-"" https://github.com/mkitt/tabline.vim
-"" cd ~/.vim/bundle; git clone https://github.com/mkitt/tabline.vim
-"" cd ~/.vim/bundle/tabline.vim; git remote update
-""
-" hi TabLine      ctermfg=Black  ctermbg=White     cterm=NONE
-" hi TabLineFill  ctermfg=Black  ctermbg=White     cterm=NONE
-" hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
-let g:tablineclosebutton=1
-
 "" tagbar
-"" http://www.vim.org/scripts/script.php?script_id=3465
-"" http://majutsushi.github.io/tagbar/
 "" https://github.com/majutsushi/tagbar
-"" cd ~/.vim/bundle; git clone https://github.com/majutsushi/tagbar
-"" cd ~/.vim/bundle/tagbar; git remote update
 ""
 nmap <silent><F8> :TagbarToggle<CR>
 nmap ,lt0 :TagbarToggle<CR>
 
 "" vimwiki
 "" https://github.com/vimwiki/vimwiki
-"" cd ~/.vim/bundle/vimwiki; git remote update; git pull --no-rebase --all
-"" cd ~/.vim/bundle; git clone https://github.com/vimwiki/vimwiki
 
 "" ----------------------------------------------------------------------------
 
 "" Bash-support
-"" http://www.vim.org/scripts/script.php?script_id=365
 "" https://github.com/vim-scripts/bash-support.vim
-"" cd ~/.vim/bundle; git clone https://github.com/vim-scripts/bash-support.vim
-"" cd ~/.vim/bundle/bash-support.vim; git remote update
 
 "" c.vim
-"" http://www.vim.org/scripts/script.php?script_id=213
 "" https://github.com/vim-scripts/c.vim
-"" cd ~/.vim/bundle; git clone https://github.com/vim-scripts/c.vim
-"" cd ~/.vim/bundle/c.vim; git remote update
 
 "" vim-go
 "" https://github.com/faith/vim-go
-"" cd ~/.vim/bundle; git clone https://github.com/faith/vim-go
-"" cd ~/.vim/bundle/vim-go; git remote update
 ""
 " au BufNewFile,BufRead *.go set filetype=go
 au BufNewFile,BufReadPost *.go set filetype=go
 
 "" perl-support
-"" http://www.vim.org/scripts/script.php?script_id=556
 "" https://github.com/vim-scripts/perl-support.vim
-"" cd ~/.vim/bundle; git clone https://github.com/vim-scripts/perl-support.vim
-"" cd ~/.vim/bundle/perl-support.vim; git remote update
 
 "" perl-vim
 "" https://github.com/vim-perl/vim-perl
-"" cd ~/.vim/bundle; git clone https://github.com/vim-perl/vim-perl
-"" cd ~/.vim/bundle/vim-perl; git remote update
 
 "" python-syntax
-"" http://www.vim.org/scripts/script.php?script_id=790
 "" https://github.com/hdima/python-syntax
-"" cd ~/.vim/bundle; git clone https://github.com/hdima/python-syntax
-"" cd ~/.vim/bundle/python-syntax; git remote update
 
 "" haskell-vim
 "" https://github.com/neovimhaskell/haskell-vim
-"" cd ~/.vim/bundle; git clone https://github.com/neovimhaskell/haskell-vim
-"" cd ~/.vim/bundle/haskell-vim; git remote update
 ""
 let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
@@ -222,15 +189,8 @@ let hs_allow_hash_operator = 1
 "" ----------------------------------------------------------------------------
 
 "" Solarized Colorscheme for Vim
-"" http://ethanschoonover.com/solarized
-"" http://www.vim.org/scripts/script.php?script_id=3520
 "" https://github.com/altercation/vim-colors-solarized
-"" cd ~/.vim/bundle; git clone https://github.com/altercation/vim-colors-solarized.git
-"" cd ~/.vim/bundle/vim-colors-solarized; git remote update
-""
-"" https://github.com/dolph/vim-colors-solarized-black.git
-"" cd ~/.vim/bundle/vim-colors-solarized-black; git remote update
-"" cd ~/.vim/bundle; git clone https://github.com/dolph/vim-colors-solarized-black.git
+"" https://github.com/dolph/vim-colors-solarized-black
 ""
 " set t_Co=16
 " set t_Co=256
@@ -255,9 +215,7 @@ let hs_allow_hash_operator = 1
 " highlight LineNr NONE
 
 "" Base 16 Solarized
-"" https://github.com/chriskempson/base16-vim.git
-"" cd ~/.vim/bundle; git clone https://github.com/chriskempson/base16-vim.git
-"" cd ~/.vim/bundle/base16-vim; git remote update
+"" https://github.com/chriskempson/base16-vim
 ""
 " set t_Co=16
 " set t_Co=256
@@ -295,8 +253,6 @@ let hs_allow_hash_operator = 1
 
 "" Flattened
 "" https://github.com/romainl/flattened
-"" cd ~/.vim/bundle; git clone https://github.com/romainl/flattened
-"" cd ~/.vim/bundle/flattened; git remote update
 ""
 " set t_Co=256
 " set background=light
@@ -306,8 +262,6 @@ let hs_allow_hash_operator = 1
 
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
-"" cd ~/.vim/bundle; git clone https://github.com/lifepillar/vim-solarized8
-"" cd ~/.vim/bundle/vim-solarized8; git remote update
 ""
 " let g:solarized_visibility = "normal"
 " let g:solarized_diffmode = "normal"
@@ -330,8 +284,6 @@ let hs_allow_hash_operator = 1
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
-"" cd ~/.vim/bundle; git clone https://github.com/miyakogi/seiya.vim
-"" cd ~/.vim/bundle/seiya-vim; git remote update
 ""
 let g:seiya_auto_enable=1
 

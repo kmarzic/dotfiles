@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-02-10 13:16:09 (CET)
+"" Last update: 2020-02-12 07:34:58 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -12,11 +12,17 @@
 
 "" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
-
+"
+Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'vimwiki/vimwiki'
+"
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
 Plug 'fatih/vim-go'
@@ -34,9 +40,17 @@ Plug 'chriskempson/base16-vim'
 " Plug 'marcopaganini/termschool-vim-theme'
 Plug 'lifepillar/vim-solarized8'
 Plug 'miyakogi/seiya.vim'
-
+"
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+"" ale
+"" https://github.com/w0rp/ale
+""
+let b:ale_linters = ['pyflakes', 'flake8', 'pylint']
+let g:ale_completion_enabled = 1
+let b:ale_fixers = ['eslint']
+let b:ale_fix_on_save = 1
 
 "" ctrlp.vim
 "" https://github.com/ctrlpvim/ctrlp.vim
@@ -48,8 +62,24 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 
+"" fzf
+"" https://github.com/junegunn/fzf.vim
+""
+" let g:fzf_action = {
+"   \ 'ctrl-t': 'tab split',
+"   \ 'ctrl-x': 'split',
+"   \ 'ctrl-v': 'vsplit' }
+" let g:fzf_layout = { 'down': '~40%' }
+
 "" gitgutter
 "" https://github.com/airblade/vim-gitgutter
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+""
+" let g:lightline = {
+"       \ 'colorscheme': 'solarized',
+"       \ }
 
 "" The NERD tree
 "" https://github.com/scrooloose/nerdtree
@@ -83,6 +113,17 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+"" tagbar
+"" https://github.com/majutsushi/tagbar
+""
+nmap <silent><F8> :TagbarToggle<CR>
+nmap ,lt0 :TagbarToggle<CR>
+
+"" vimwiki
+"" https://github.com/vimwiki/vimwiki
+
+"" --------------------------------------------------------------------
 
 "" Bash-support
 "" https://github.com/vim-scripts/bash-support.vim
