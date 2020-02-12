@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-02-08 21:44:25 (CET)
+-- Last update: 2020-02-12 21:34:36 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -193,7 +193,8 @@ lemonbarCommand1 :: String
 lemonbarCommand1 = "lemonbar -d -b -a 32 -u 2 -g x24 -f " ++ fontRegular ++ " -F \"#2199ee\" -B \"#000000\" -U \"#00ff00\" | bash "
 
 myTerminal :: String
-myTerminal = "urxvt"
+-- myTerminal = "urxvt"
+myTerminal = "urxvtc"
 -- myTerminal = "termite"
 -- myTerminal = "$HOME/bin/st"
 -- myTerminal = "$HOME/bin/st.solarized.light"
@@ -884,7 +885,7 @@ myKeys =
     ((mod1Mask .|. controlMask,  xK_Left),   DO.moveTo Prev HiddenNonEmptyWS), -- previous non empty workspace
     ((mod1Mask .|. controlMask,  xK_Right),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
     --
-    ((mod1Mask,                  xK_m      ), withFocused minimizeWindow),
+    ((mod1Mask,                  xK_m      ), withFocused minimizeWindow <+> windows W.focusDown),
     ((mod1Mask .|. shiftMask,    xK_m      ), withLastMinimized maximizeWindowAndFocus),
     --
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
