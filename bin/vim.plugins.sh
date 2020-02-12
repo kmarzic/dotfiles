@@ -39,6 +39,8 @@ function __neovim_bin()
 {
     echo "# curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o ~/bin/nvim"
     curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o ~/bin/nvim
+    echo "# chmod +x ~/bin/nvim"
+    chmod +x ~/bin/nvim
 }
 
 function __neovim_vimplug()
