@@ -382,31 +382,26 @@ URxvt.perl-lib: $HOME/.urxvt/ext/
 ! URxvt.perl-ext: default,tabbedex,font-size
 !
 ! URxvt.perl-ext-common: default,tabbed,font-size,matcher
-URxvt.perl-ext-common: default,tabbedex,font-size
+! URxvt.perl-ext-common: default,tabbedex,font-size
+URxvt.perl-ext-common: default,font-size
 
-!! matcher
-! URxvt.matcher.button: 1
-! URxvt.matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-! URxvt.matcher.pattern.2:  \\B(/\\S+?):(\\d+)(?=:|$)
-! URxvt.matcher.launcher.2: gvim +$2 $1
-
-!! tabs; https://jonasjacek.github.io/colors/
-URxvt.tabs.autohide: yes
-URxvt.tabs.new-button: yes
-URxvt.tabs.tab-position: 0
-URxvt.tabs.title: yes
-URxvt.tabs.tab-fg: 4
-URxvt.tabs.tab-bg: 0
-URxvt.tabs.tab-bar-fg: 4
-URxvt.tabs.tab-bar-bg: 0
-URxvt.tabs.tab-current-fg: 0
-URxvt.tabs.tab-current-bg: 4
-URxvt.tabs.tab-urgent-fg: 4
-URxvt.tabs.tab-urgent-bg: 0
-URxvt.tabs.tab-activity-fg: 4
-URxvt.tabs.tab-activity-bg: 0
-URxvt.tabs.tab-divider-color: 15
-URxvt.tabs.tab-rename-color: 15
+! !! tabs; https://jonasjacek.github.io/colors/
+! URxvt.tabs.autohide: yes
+! URxvt.tabs.new-button: yes
+! URxvt.tabs.tab-position: 0
+! URxvt.tabs.title: yes
+! URxvt.tabs.tab-fg: 4
+! URxvt.tabs.tab-bg: 0
+! URxvt.tabs.tab-bar-fg: 4
+! URxvt.tabs.tab-bar-bg: 0
+! URxvt.tabs.tab-current-fg: 0
+! URxvt.tabs.tab-current-bg: 4
+! URxvt.tabs.tab-urgent-fg: 4
+! URxvt.tabs.tab-urgent-bg: 0
+! URxvt.tabs.tab-activity-fg: 4
+! URxvt.tabs.tab-activity-bg: 0
+! URxvt.tabs.tab-divider-color: 15
+! URxvt.tabs.tab-rename-color: 15
 
 !! tabbed; https://jonasjacek.github.io/colors/
 !! To control tabs use:
@@ -451,16 +446,16 @@ URXvt.tabbed.reopen-on-close: yes
 ! URXvt.tabbed.reopen-on-close: yes
 
 !! tabbedex
-URxvt.tabbed.tabbedex-rs-prefix: %
-URxvt.tabbedex.no-tabbedex-keys: yes
-URxvt.tabbedex.bell-timeout: 1
-URxvt.keysym.Shift-Down:  tabbedex:new_tab
-URxvt.keysym.Shift-Left:  tabbedex:prev_tab
-URxvt.keysym.Shift-Right: tabbedex:next_tab
-URxvt.keysym.C-Left:      tabbedex:move_tab_left
-URxvt.keysym.C-Right:     tabbedex:move_tab_right
-URxvt.keysym.Shift-Up:    tabbedex:rename_tab
-URxvt.keysym.M-C-k:       tabbedex:kill_tab
+! URxvt.tabbed.tabbedex-rs-prefix: %
+! URxvt.tabbedex.no-tabbedex-keys: yes
+! URxvt.tabbedex.bell-timeout: 1
+! URxvt.keysym.Shift-Down:  tabbedex:new_tab
+! URxvt.keysym.Shift-Left:  tabbedex:prev_tab
+! URxvt.keysym.Shift-Right: tabbedex:next_tab
+! URxvt.keysym.C-Left:      tabbedex:move_tab_left
+! URxvt.keysym.C-Right:     tabbedex:move_tab_right
+! URxvt.keysym.Shift-Up:    tabbedex:rename_tab
+! URxvt.keysym.M-C-k:       tabbedex:kill_tab
 !! ansi
 URxvt.tabbedex.autohide: no
 URxvt.tabbedex.new-button: no
@@ -504,11 +499,6 @@ URXvt.tabbedex.reopen-on-close: yes
 ! URxvt.tabbed_new.tabsel-bg: 8
 ! URxvt.tabbed_new.tab-fg:    0
 ! URxvt.tabbed_new.tab-bg:    8
-
-!! solarized
-! URxvt.solarized.default:    light
-! URxvt.solarized.default:    dark
-! URxvt.keysym.M-F11: perl:solarized:toggle
 
 !! commands
 URxvt.keysym.C-6:   command:\033]710;xft:Monospace:pixelsize=12:antialias=true:style=regular\007
