@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2019-03-13 21:09:22 (CET)
+## Last update: 2020-02-16 10:14:37 (CET)
 
 ## Make it use C-a, similar to screen
 unbind C-b
@@ -85,6 +85,18 @@ bind-key M-j resize-pane -D
 bind-key M-k resize-pane -U
 bind-key M-h resize-pane -L
 bind-key M-l resize-pane -R
+
+## rename window
+bind-key -n S-Up command-prompt -I "#W" "rename-window '%%'"
+
+## new window
+bind-key -n S-Down new-window
+
+## swap window
+bind-key [ swap-window -t -1
+bind-key ] swap-window -t +1
+bind-key -n C-S-Left swap-window -t -1
+bind-key -n C-S-Right swap-window -t +1
 
 ## vim style pane selection
 bind h select-pane -L
