@@ -705,7 +705,7 @@ st.alpha: 0.95
 st.opacity: 185
 st.background: black
 st.foreground: white
-st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
+st.font: Liberation Mono:pixelsize=15:antialias=true:autohint=true;
 
 
 !! ---------------------------------------------------------------------
