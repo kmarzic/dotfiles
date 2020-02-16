@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-02-12 21:34:36 (CET)
+-- Last update: 2020-02-16 18:32:30 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -161,6 +161,7 @@ fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
 
 fontTerminalScratchpad :: String
 fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+-- fontTerminalScratchpad = "Liberation Mono:pixelsize=13:antialias=true:autohint=true"
 
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
@@ -197,15 +198,13 @@ myTerminal = "urxvt"
 -- myTerminal = "urxvtc"
 -- myTerminal = "termite"
 -- myTerminal = "$HOME/bin/st"
--- myTerminal = "$HOME/bin/st.solarized.light"
 
 myTerminalScratchpad :: String
 myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
--- myTerminalScratchpad = "$HOME/bin/st"
--- myTerminalScratchpad = "$HOME/bin/st.solarized.light"
+-- myTerminalScratchpad = "$HOME/bin/st -c scratchpad -n scratchpad"
 
 myModMask :: KeyMask
 myModMask = mod1Mask
