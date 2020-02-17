@@ -1,55 +1,55 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-02-16 10:14:37 (CET)
+## Last update: 2020-02-17 06:41:13 (CET)
 
 ## Make it use C-a, similar to screen
 unbind C-b
 unbind l
-set -g prefix C-a
+set-option -g prefix C-a
 bind C-a send-prefix
 bind-key C-a last-window
 
 ## vim
-set -g status-keys vi
-setw -g mode-keys vi
+set-option -g status-keys vi
+set-window-option -g mode-keys vi
 set-window-option -g mode-keys vi
 
 ## start windows numbering at 1
-set -g base-index 1
+set-option -g base-index 1
 
 ## make pane numbering consistent with windows
-setw -g pane-base-index 1
+set-window-option -g pane-base-index 1
 
 ## history limit
-set -g history-limit 10000
+set-option -g history-limit 10000
 
 ## slightly longer status messages display tim
-set -g display-time 1000
+set-option -g display-time 1000
 
 ## slightly longer pane indicators display time
-set -g display-panes-time 800
+set-option -g display-panes-time 800
 
 ## no delay for escape key press
-set -sg escape-time 0
+set-option -sg escape-time 0
 
 ## increase repeat timeout
-set -sg repeat-time 600
+set-option -sg repeat-time 600
 
 ## don't rename windows automatically
 set-option -g allow-rename off
 set-option -g set-titles off
-setw -g automatic-rename on
-set -g renumber-windows on
+set-window-option -g automatic-rename on
+set-option -g renumber-windows on
 
 ## improve colors
-set -g default-terminal "screen-256color"
+set-option -g default-terminal "screen-256color"
 
 ## constrain window size to the maximum size
-setw -g aggressive-resize on
+set-window-option -g aggressive-resize on
 
 ## utf8
-set -q -g status-utf8 on
-setw -q -g utf8 on
+set-option -q -g status-utf8 on
+set-window-option -q -g utf8 on
 
 ## loud or quiet?
 set-option -g visual-activity off
@@ -59,17 +59,17 @@ set-window-option -g monitor-activity on
 set-option -g bell-action none
 
 ## status bar
-set -g status-interval 1
-set -g status-attr default
-set -g status-left-length 30
+set-option -g status-interval 1
+set-option -g status-attr default
+set-option -g status-left-length 30
 set-option -g status-right-length 140
 
 ## don't erase terminal contents on editor exit
 set-window-option -g alternate-screen on
 
 ## mouse mode
-set -g mouse on
-setw -g mouse on
+set-option -g mouse on
+set-window-option -g mouse on
 
 ## split window
 bind-key v split-window -h
@@ -136,18 +136,18 @@ bind r source-file ~/.tmux.conf
 
 # ## Ansi
 # ## default statusbar colors
-# set-option -g status-bg black
-# set-option -g status-fg yellow
-# set -g status-left '(#S) '
-# set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
-# set -g window-status-format         '#I:#W#F'
-# set -g window-status-current-format '#[bg=cyan,fg=black]#I:#W '
+# set-option -g status-bg default
+# set-option -g status-fg cyan
+# set-option -g status-left '(#S) '
+# set-option -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+# set-option -g window-status-format         '#I:#W#F'
+# set-option -g window-status-current-format '#[bg=cyan,fg=black]#I:#W '
 # 
 # ## default window title colors
 # set-window-option -g window-status-fg cyan
 # set-window-option -g window-status-bg default
 # # set-window-option -g window-status-attr dim
-# # set -g window-status-current-attr bold
+# # set-option -g window-status-current-attr bold
 # 
 # ## active window title colors
 # set-window-option -g window-status-current-fg cyan
@@ -155,11 +155,11 @@ bind r source-file ~/.tmux.conf
 # # set-window-option -g window-status-current-attr bright
 # 
 # ## pane border
-# set-option -g pane-border-fg black
+# set-option -g pane-border-fg default
 # set-option -g pane-active-border-fg brightgreen
 # 
 # ## message text
-# set-option -g message-bg black
+# set-option -g message-bg default
 # set-option -g message-fg cyan
 # 
 # ## pane number display
@@ -172,28 +172,20 @@ bind r source-file ~/.tmux.conf
 # ## bell
 # set-window-option -g window-status-bell-style fg=black,bg=cyan
 
-## Solarized light (1)
-# set -g status-bg '#fdf6e3'
-# set -g status-fg '#586e75'
-# set -g status-left '#[fg=#268bd2](#S)#[default] '
-# set -g status-right '#[fg=#268bd2]#(whoami)@#H %Y-%m-%d %H:%M#[default]'
-# set -g window-status-format         '#I:#W#F'
-# set -g window-status-current-format '#[bg=#268bd2,fg=#fdf6e3]#I:#W '
-
-## Solarized light (2)
+## Solarized light
 # ## default statusbar colors
 # set-option -g status-bg black
 # set-option -g status-fg blue
-# set -g status-left '(#S) '
-# set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
-# set -g window-status-format         '#I:#W#F'
-# set -g window-status-current-format '#[bg=blue,fg=black]#I:#W '
+# set-option -g status-left '(#S) '
+# set-option -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+# set-option -g window-status-format         '#I:#W#F'
+# set-option -g window-status-current-format '#[bg=blue,fg=black]#I:#W '
 # 
 # ## default window title colors
 # set-window-option -g window-status-fg brightyellow #base00
 # set-window-option -g window-status-bg default
 # # set-window-option -g window-status-attr dim
-# set -g window-status-current-attr bold
+# set-option -g window-status-current-attr bold
 # 
 # ## active window title colors
 # set-window-option -g window-status-current-fg brightred #orange
@@ -218,28 +210,20 @@ bind r source-file ~/.tmux.conf
 # ## bell
 # set-window-option -g window-status-bell-style fg=white,bg=red #base2, red
 
-## Solarized black (1)
-# set -g status-bg '#073642'
-# set -g status-fg '#fdf6e3'
-# set -g status-left '#[fg=#cb4b16](#S)#[default] '
-# set -g status-right '#[fg=#cb4b16]#(whoami)@#H %Y-%m-%d %H:%M#[default]'
-# set -g window-status-format         '#I:#W#F'
-# set -g window-status-current-format '#[bg=#cb4b16,fg=#073642]#I:#W '
-
-## Solarized black (2)
+## Solarized black
 ## default statusbar colors
 set-option -g status-bg black #base02
 set-option -g status-fg yellow #yellow
-set -g status-left '(#S) '
-set -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
-set -g window-status-format         '#I:#W#F'
-set -g window-status-current-format '#[bg=brightred,fg=black]#I:#W '
+set-option -g status-left '(#S) '
+set-option -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+set-option -g window-status-format         '#I:#W#F'
+set-option -g window-status-current-format '#[bg=brightred,fg=black]#I:#W '
 
 ## default window title colors
 set-window-option -g window-status-fg brightblue #base0
 set-window-option -g window-status-bg default
 # set-window-option -g window-status-attr dim
-# set -g window-status-current-attr bold
+# set-option -g window-status-current-attr bold
 
 ## active window title colors
 set-window-option -g window-status-current-fg brightred #orange
