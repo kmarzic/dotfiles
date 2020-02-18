@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-02-16 18:00:55 (CET)
+!! Last update: 2020-02-18 19:49:39 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -613,6 +613,10 @@ URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic
 ! URxvt*italicfont: xft:Bitstream Vera Sans Mono:pixelsize=15:antialias=true:style=bold
 ! URxvt*italicfont: xft:Droid Sans Mono:pixelsize=15:style=italic
 ! URxvt*italicfont: xft:Droid Sans Mono:pixelsize=16:style=italic
+
+!! remap keysyms
+URxvt.keysym.C-S-Left:  string:\033[1;6D
+URxvt.keysym.C-S-Right: string:\033[1;6C
 
 
 !! ---------------------------------------------------------------------
