@@ -25,11 +25,11 @@ set-option -g base-index 1
 ## make pane numbering consistent with windows
 set-window-option -g pane-base-index 1
 
-## history limit
-set-option -g history-limit 50000
+#### ## history limit
+#### set-option -g history-limit 50000
 
-## slightly longer status messages display tim
-set-option -g display-time 4000
+#### ## slightly longer status messages display tim
+#### set-option -g display-time 4000
 
 ## slightly longer pane indicators display time
 set-option -g display-panes-time 800
@@ -46,19 +46,19 @@ set-option -g set-titles off
 set-window-option -g automatic-rename on
 set-option -g renumber-windows on
 
-## improve colors
-set-option -g default-terminal "tmux-256color"
-# set-option -g default-terminal "screen-256color"
+#### ## improve colors
+#### # set-option -g default-terminal "tmux-256color"
+#### set-option -g default-terminal "screen-256color"
 
 ## clock mode
 set-option -g clock-mode-style 24
 
-## constrain window size to the maximum size
-set-window-option -g aggressive-resize on
+#### ## constrain window size to the maximum size
+#### set-window-option -g aggressive-resize on
 
-## utf8
-set-option -q -g status-utf8 on
-set-window-option -q -g utf8 on
+#### ## utf8
+#### set-option -q -g status-utf8 on
+#### set-window-option -q -g utf8 on
 
 ## loud or quiet?
 set-option -g visual-activity off
@@ -68,8 +68,7 @@ set-window-option -g monitor-activity on
 set-option -g bell-action none
 
 ## status bar
-set-option -g status-interval 1
-set-option -g status-attr default
+#### set-option -g status-interval 5
 set-option -g status-left-length 30
 set-option -g status-right-length 140
 
@@ -79,6 +78,9 @@ set-window-option -g alternate-screen on
 ## mouse mode
 set-option -g mouse on
 set-window-option -g mouse on
+
+## use xterm keys
+setw -g xterm-keys on
 
 ## split window
 bind-key v split-window -h
@@ -147,7 +149,7 @@ bind-key -T copy-mode-vi WheelUpPane send-keys -X halfpage-up
 bind-key -T copy-mode-vi WheelDownPane send-keys -X halfpage-down
 
 ## Reload tmux config
-bind-key r source-file ~/.tmux.conf
+bind-key r source-file ~/.tmux.conf\; display "Reloaded config"
 
 ## Clipboard integration
 ## ctrl+c to send to clipboard
@@ -186,7 +188,7 @@ bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 # ## default statusbar colors
 # set-option -g status-style "bg=default, fg=cyan"
 # set-option -g status-left '(#S) '
-# set-option -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+# set-option -g status-right '#{prefix_highlight} #(whoami)@#H %Y-%m-%d %H:%M'
 # set-option -g window-status-format         '#I:#W#F'
 # set-option -g window-status-current-format '#[bg=cyan,fg=black]#I:#W '
 # 
@@ -201,11 +203,10 @@ bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 # 
 # ## pane border
 # set-option -g pane-border-style "bg=default, fg=default"
-# set-option -g pane-active-border-style "bg=default, fg=brightgreen"
+# set-option -g pane-active-border-style "bg=default, fg=cyan"
 # 
 # ## message text
-# set-option -g message-bg default
-# set-option -g message-fg cyan
+# set-option -g message-style "bg=default,fg=cyan"
 # 
 # ## pane number display
 # set-option -g display-panes-active-colour blue
@@ -216,12 +217,15 @@ bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 # 
 # ## bell
 # set-window-option -g window-status-bell-style "bg=cyan, fg=black"
+#
+# ## mode
+# set-option -g mode-style "bg=cyan, fg=black"
 
 ## Solarized light
 # ## default statusbar colors
 # set-option -g status-style "bg=black, fg=blue"
 # set-option -g status-left '(#S) '
-# set-option -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+# set-option -g status-right '#{prefix_highlight} #(whoami)@#H %Y-%m-%d %H:%M'
 # set-option -g window-status-format         '#I:#W#F'
 # set-option -g window-status-current-format '#[bg=blue,fg=black]#I:#W '
 # 
@@ -255,7 +259,7 @@ bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 ## default statusbar colors
 set-option -g status-style "bh=black, fg=yellow"
 set-option -g status-left '(#S) '
-set-option -g status-right '#(whoami)@#H %Y-%m-%d %H:%M'
+set-option -g status-right '#{prefix_highlight} #(whoami)@#H %Y-%m-%d %H:%M'
 set-option -g window-status-format         '#I:#W#F'
 set-option -g window-status-current-format '#[bg=brightred,fg=black]#I:#W '
 
@@ -284,5 +288,19 @@ set-window-option -g clock-mode-colour green #green
 
 ## bell
 set-window-option -g window-status-bell-style "bg=red,fg=black"
+
+## tmux-yank
+set -g @yank_selection 'clipboard' # 'primary' or 'secondary' or 'clipboard'
+set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
+set -g @yank_with_mouse on # 'off' or 'on'
+
+## List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run -b '~/.tmux/plugins/tpm/tpm'
 
 ## end
