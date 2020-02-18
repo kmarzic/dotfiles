@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-02-18 12:23:29 (CET)
+## Last update: 2020-02-18 17:26:33 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -8,6 +8,12 @@ unbind-key l
 set-option -g prefix C-a
 bind-key C-a send-prefix
 # bind-key C-a last-window
+
+## sessions
+new-session -s root
+new-session -s work
+new-session -s ssh
+new-session -s sp
 
 ## vim
 set-option -g status-keys vi
