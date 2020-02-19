@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-02-18 19:49:39 (CET)
+!! Last update: 2020-02-19 17:43:19 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -531,9 +531,9 @@ URxvt.keysym.C-slash:  perl:font-size:show
 ! URxvt*boldfont: xft:Terminus:pixelsize=18:antialias=true:style=bold
 ! URxvt*italicfont: xft:Terminus:pixelsize=18:antialias=true:style=italic
 !
-URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular
-URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold
-URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic
+URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true
+URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold
+URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style:italic
 !
 ! URxvt*font: xft:Monospace:pixelsize=15:antialias=true:style=regular
 ! URxvt*boldfont: xft:Monospace-Bold:pixelsize=15:antialias=true:style=bold
@@ -721,12 +721,12 @@ Fig.startfontsize: 14
 Fig.international: true
 Fig.inputStyle: Root
 Fig.eucEncoding: false
-!Fig.latinKeyboard: true
+! Fig.latinKeyboard: true
 
-!Fig.latexfonts: true
-!Fig.specialtext: true
-!Fig.fixedFontSet: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
-!Fig.normalFontSet: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
+! Fig.latexfonts: true
+! Fig.specialtext: true
+! Fig.fixedFontSet: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
+! Fig.normalFontSet: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
 
 
 !! ---------------------------------------------------------------------
