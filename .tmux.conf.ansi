@@ -1,13 +1,12 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-02-18 17:26:33 (CET)
+## Last update: 2020-02-19 06:20:46 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
 unbind-key l
 set-option -g prefix C-a
 bind-key C-a send-prefix
-# bind-key C-a last-window
 
 ## sessions
 new-session -s root
@@ -184,123 +183,26 @@ bind-key -n S-Right next-window
 #### ## Exit copy-mode with a Right click
 #### bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 
-## Ansi
-## default statusbar colors
-set-option -g status-style "bg=default, fg=cyan"
-set-option -g status-left '(#S) '
-set-option -g status-right '#{prefix_highlight} #(whoami)@#H %Y-%m-%d %H:%M'
-set-option -g window-status-format         '#I:#W#F'
-set-option -g window-status-current-format '#[bg=cyan,fg=black]#I:#W '
-
-## default window title colors
-set-window-option -g window-status-style "bg=default, fg=green"
-# set-window-option -g window-status-attr dim
-# set-option -g window-status-current-attr bold
-
-## active window title colors
-set-window-option -g window-status-current-style "bg=default, fg=cyan"
-# set-window-option -g window-status-current-attr bright
-
-## pane border
-set-option -g pane-border-style "bg=default, fg=default"
-set-option -g pane-active-border-style "bg=default, fg=cyan"
-
-## message text
-set-option -g message-style "bg=default,fg=cyan"
-
-## pane number display
-set-option -g display-panes-active-colour blue
-set-option -g display-panes-colour cyan
-
-## clock
-set-window-option -g clock-mode-colour green
-
-## bell
-set-window-option -g window-status-bell-style "bg=cyan, fg=black"
-
-## mode
-set-option -g mode-style "bg=cyan, fg=black"
-
-# ## Solarized light
-# ## default statusbar colors
-# set-option -g status-style "bg=black, fg=blue"
-# set-option -g status-left '(#S) '
-# set-option -g status-right '#{prefix_highlight} #(whoami)@#H %Y-%m-%d %H:%M'
-# set-option -g window-status-format         '#I:#W#F'
-# set-option -g window-status-current-format '#[bg=blue,fg=black]#I:#W '
-# 
-# ## default window title colors
-# set-window-option -g window-status-style "bg=default, fg brightyellow"
-# # set-window-option -g window-status-attr dim
-# set-option -g window-status-current-attr bold
-# 
-# ## active window title colors
-# set-window-option -g window-status-current-style "bg=default, fg=brightred"
-# # set-window-option -g window-status-current-attr bright
-# 
-# ## pane border
-# set-option -g pane-border-style "bg=default, fg=white"
-# set-option -g pane-active-border-style "bg=default, fg=brightcyan"
-# 
-# ## message text
-# set-option -g message-style "bg=white, fg=brightred"
-# 
-# ## pane number display
-# set-option -g display-panes-active-colour blue #blue
-# set-option -g display-panes-colour brightred #orange
-# 
-# ## clock
-# set-window-option -g clock-mode-colour green #green
-# 
-# ## bell
-# set-window-option -g window-status-bell-style "bg=red, fg=white"
-
-# ## Solarized black
-# ## default statusbar colors
-# set-option -g status-style "bh=black, fg=yellow"
-# set-option -g status-left '(#S) '
-# set-option -g status-right '#{prefix_highlight} #(whoami)@#H %Y-%m-%d %H:%M'
-# set-option -g window-status-format         '#I:#W#F'
-# set-option -g window-status-current-format '#[bg=brightred,fg=black]#I:#W '
-# 
-# ## default window title colors
-# set-window-option -g window-status-style "bg=default, fg=brightblue"
-# # set-window-option -g window-status-attr dim
-# # set-option -g window-status-current-attr bold
-# 
-# ## active window title colors
-# set-window-option -g window-status-current-style "bg=default, fg=brightred"
-# # set-window-option -g window-status-current-attr bright
-# 
-# ## pane border
-# set-option -g pane-border-style "bg=default, fg=black"
-# set-option -g pane-active-border-style "bg=default, fg=brightgreen"
-# 
-# ## message text
-# set-option -g message-bg black #base02
-# set-option -g message-fg brightred #orange
-# 
-# ## pane number display
-# set-option -g message-style "bg=black, fg=brightred"
-# 
-# ## clock
-# set-window-option -g clock-mode-colour green #green
-# 
-# ## bell
-# set-window-option -g window-status-bell-style "bg=red,fg=black"
-
 ## tmux-yank
 set -g @yank_selection 'clipboard' # 'primary' or 'secondary' or 'clipboard'
 set -g @yank_selection_mouse 'clipboard' # or 'primary' or 'secondary'
 set -g @yank_with_mouse on # 'off' or 'on'
+
+## tmux-themepack
+set -g @themepack 'basic'
+# set -g @themepack 'powerline/block/cyan'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'jimeh/tmux-themepack'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+## <prefix> + I - install
+## <prefix> + U - update
+## <prefix> + alt + u - update
 run -b '~/.tmux/plugins/tpm/tpm'
 
 ## end
