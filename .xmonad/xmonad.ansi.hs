@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-02-16 18:32:30 (CET)
+-- Last update: 2020-02-19 18:34:59 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -160,7 +160,7 @@ fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
 -- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
 
 fontTerminalScratchpad :: String
-fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
 -- fontTerminalScratchpad = "Liberation Mono:pixelsize=13:antialias=true:autohint=true"
 
 dmenuCommandAnsi :: String -- theme: ansi
