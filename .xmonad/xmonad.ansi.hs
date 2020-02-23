@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-02-19 18:34:59 (CET)
+-- Last update: 2020-02-23 19:14:12 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -149,19 +149,18 @@ help = unlines
   ]
 
 fontRegular :: String
-fontRegular = "xft:Monospace:pixelsize=14:antialias=true:style=regular"
+fontRegular = "xft:monospace:pixelsize=14:antialias=true:style=regular"
 
 fontBold :: String
-fontBold = "xft:Monospace:pixelsize=14:antialias=true:style=bold"
--- fontBold = "xft:Monospace:pixelsize=13:antialias=true:style=bold"
--- fontBold = "xft:Monospace:pixelsize=12:antialias=true:style=bold"
+fontBold = "xft:monospace:pixelsize=14:antialias=true:style=bold"
+-- fontBold = "xft:monospace:pixelsize=13:antialias=true:style=bold"
+-- fontBold = "xft:monospace:pixelsize=12:antialias=true:style=bold"
 -- fontBold = "xft:Terminus:pixelsize=14:antialias=true:style=bold"
 -- fontBold = "xft:Terminus:pixelsize=13:antialias=true:style=bold"
 -- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
 
 fontTerminalScratchpad :: String
-fontTerminalScratchpad = "xft:Monospace:pixelsize=14:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
--- fontTerminalScratchpad = "Liberation Mono:pixelsize=13:antialias=true:autohint=true"
+fontTerminalScratchpad = "xft:monospace:pixelsize=14:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
 
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
