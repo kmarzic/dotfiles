@@ -71,14 +71,14 @@ set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,ps,ts,c3,+s,(2s,us,)20,*30,gs,hs
 set cinkeys=0{,0},:,0#,!<Tab>,!^F
 set sidescroll=8
 set nostartofline
-set background=dark
 filetype on
 filetype plugin on
 filetype indent on
 syntax reset
 syntax on
 set t_Co=16
-set background=dark
+" set background=dark
+set background=light
 hi CursorLine   term=bold cterm=bold guibg=white
 hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
