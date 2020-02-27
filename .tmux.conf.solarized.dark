@@ -91,11 +91,11 @@ bind-key -n S-Down new-window
 bind-key [ swap-window -t -1
 bind-key ] swap-window -t +1
 ## tmux 2.x
-bind-key -n C-S-Left swap-window -t -1
-bind-key -n C-S-Right swap-window -t +1
+# bind-key -n C-S-Left swap-window -t -1
+# bind-key -n C-S-Right swap-window -t +1
 ## tmux 3.x
-# bind-key -n C-S-Left swap-window -t -1\; select-window -t -1
-# bind-key -n C-S-Right swap-window -t +1\; select-window -t +1
+bind-key -n C-S-Left swap-window -t -1\; select-window -t -1
+bind-key -n C-S-Right swap-window -t +1\; select-window -t +1
 
 ## shift arrow to switch windows
 bind-key -n S-Left  previous-window
