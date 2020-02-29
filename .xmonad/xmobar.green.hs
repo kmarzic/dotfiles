@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2020-01-31 07:14:44 (CET)
+-- Last update: 2020-02-29 19:08:07 (CET)
 
 Config {
    -- theme: ansi
@@ -27,9 +27,9 @@ Config {
    -- fgColor = "#a0afa0",
 
    -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
-   -- font = "xft:Monospace:pixelsize=14:antialias=true:style=bold",
-   font = "xft:Monospace:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Monospace:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:monospace:pixelsize=14:antialias=true:style=bold",
+   font = "xft:monospace:pixelsize=13:antialias=true:style=bold",
+   -- font = "xft:monospace:pixelsize=12:antialias=true:style=bold",
    -- font = "xft:Droid Sans Mono:pixelsize=14:antialias=true:style=bold",
    -- font = "xft:Droid Sans Mono:pixelsize=13:antialias=true:style=bold",
    -- font = "xft:Droid Sans Mono:pixelsize=12:antialias=true:style=bold",
