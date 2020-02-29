@@ -109,8 +109,8 @@ __help()
     __printf "   ${0} -s ansi"
     __printf "   ${0} -s blue"
     __printf "   ${0} -s green"
-    __printf "   ${0} -s dark"
-    __printf "   ${0} -s light"
+    __printf "   ${0} -s solarized.dark"
+    __printf "   ${0} -s solarized.light"
     __printf "   ${0} -s zenburn"
 }
 
@@ -258,7 +258,7 @@ function __theme()
                 xmonad --restart
             fi
             ;;
-        "dark")
+        "solarized.dark")
             __printf "solarized dark"
 
             #### Background
@@ -331,7 +331,7 @@ function __theme()
             # d=~/.dircolors.d/dircolors.solarized-dark
             # test -r $d && eval "$(dircolors -b $d)"
             ;;
-        "light")
+        "solaried.light")
             __printf "solarized light"
 
             #### Background
@@ -568,7 +568,7 @@ function __background()
     # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
     # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
     # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
-    feh --bg-scale ~/wallpapers/nature/4543.jpg
+    # feh --bg-scale ~/wallpapers/nature/4543.jpg
     # feh --bg-scale ~/wallpapers/nature/20-2.jpg
     # feh --bg-scale ~/wallpapers/nature/1504.jpg
     # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
@@ -599,6 +599,9 @@ function __background()
     # feh --bg-scale ~/wallpapers/gray/gXswE4.jpg
     # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
 
+    #### Space
+    # feh --bg-scale ~/wallpapers/space/6t8qdgtr42q31.jpg
+
     #### Blue
     # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
 
@@ -617,7 +620,7 @@ function __background()
     #### Solarized Dark
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
     ####
-    # feh --bg-scale ~/wallpapers/solarized/solarized.png
+    feh --bg-scale ~/wallpapers/solarized/solarized.png
     # feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
 }
 
