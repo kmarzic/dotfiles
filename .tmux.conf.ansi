@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-02-27 12:16:09 (CET)
+## Last update: 2020-03-01 09:02:40 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -194,7 +194,13 @@ set -g @yank_with_mouse on # 'off' or 'on'
 set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
+# set -g @theme-mode-fg '#2c2e34'
 set -g @theme-status-justify left
+# set -g @theme-status-left-bg '#2c2e34'
+# set -g @theme-status-right-bg '#2c2e34'
+# set -g @theme-status-bg '#2c2e34'
+# set -g @theme-window-status-activity-bg '#2c2e34'
+# set -g @theme-window-status-current-fg '#2c2e34'
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'

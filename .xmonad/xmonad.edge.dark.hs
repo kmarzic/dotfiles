@@ -1131,9 +1131,9 @@ main = do
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
   -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
   -- xmonad $ myConfigBlue xmobar2 nScreens -- theme: blue
-  -- xmonad $ myConfigEdgeDark xmobar2 nScreens -- theme: edge dark
+  xmonad $ myConfigEdgeDark xmobar2 nScreens -- theme: edge dark
   -- xmonad $ myConfigGreen xmobar2 nScreens -- theme: green
-  xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
+  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
   -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
   -- xmonad $ myConfigZenburn xmobar2 nScreens -- theme: zenburn
   --

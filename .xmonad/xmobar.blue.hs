@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2020-02-29 19:08:07 (CET)
+-- Last update: 2020-03-01 09:28:38 (CET)
 
 Config {
    -- theme: ansi
@@ -9,6 +9,10 @@ Config {
    -- theme: blue
    bgColor = "#222222",
    fgColor = "#ffffff",
+   --
+   -- theme: edge dark
+   -- bgColor = "#101010",
+   -- fgColor = "#f2f2f2",
    --
    -- theme: green
    -- bgColor = "#222222",

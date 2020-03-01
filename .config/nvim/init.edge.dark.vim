@@ -30,7 +30,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 "
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
 " Plug 'rakr/vim-one'
 " Plug 'rakr/vim-colors-rakr'
 " Plug 'jeffkreeftmeijer/vim-dim'
@@ -38,7 +38,8 @@ Plug 'chriskempson/base16-vim'
 " Plug 'joshdick/onedark.vim'
 " Plug 'andreasvc/vim-256noir'
 " Plug 'marcopaganini/termschool-vim-theme'
-Plug 'lifepillar/vim-solarized8'
+" Plug 'lifepillar/vim-solarized8'
+Plug 'sainnhe/edge'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
@@ -166,7 +167,7 @@ let hs_allow_hash_operator = 1
 ""
 " set t_Co=16
 " syntax on
-" colorscheme base16-solarized-dark
+" colorscheme base16-default-dark
 " set background=dark
 
 "" vim-one
@@ -200,20 +201,20 @@ let hs_allow_hash_operator = 1
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
 ""
-let g:solarized_visibility = "normal"
-let g:solarized_diffmode = "normal"
-let g:solarized_italics = 0
-set t_Co=256
-set background=dark
-colorscheme solarized8_high
+" let g:solarized_visibility = "normal"
+" let g:solarized_diffmode = "normal"
+" let g:solarized_italics = 0
+" set t_Co=256
+" set background=dark
+" colorscheme solarized8_high
 
 "" sainnhe/edge
 "" https://github.com/sainnhe/edge
 ""
-" set background=dark
-" let g:edge_style = 'neon'
-" let g:edge_disable_italic_comment = 0
-" colorscheme edge
+set background=dark
+let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 0
+colorscheme edge
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim

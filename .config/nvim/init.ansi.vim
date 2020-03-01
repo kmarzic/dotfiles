@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-02-12 07:34:58 (CET)
+"" Last update: 2020-03-01 09:49:22 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -206,6 +206,14 @@ let hs_allow_hash_operator = 1
 " set t_Co=256
 " set background=dark
 " colorscheme solarized8_high
+
+"" sainnhe/edge
+"" https://github.com/sainnhe/edge
+""
+" set background=dark
+" let g:edge_style = 'neon'
+" let g:edge_disable_italic_comment = 0
+" colorscheme edge
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
