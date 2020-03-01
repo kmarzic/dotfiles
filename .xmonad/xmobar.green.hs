@@ -23,7 +23,7 @@ Config {
    --
    -- theme: solarized dark
    -- bgColor = "#002b36", -- base03
-   -- fgColor = "#fdf6e3", -- base3
+   -- fgColor = "#93a1a1", -- base1
    --
    -- theme: solarized light
    -- bgColor = "#eee8d5", -- base2

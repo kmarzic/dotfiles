@@ -189,32 +189,6 @@ let hs_allow_hash_operator = 1
 
 "" ----------------------------------------------------------------------------
 
-"" Solarized Colorscheme for Vim
-"" https://github.com/altercation/vim-colors-solarized
-"" https://github.com/dolph/vim-colors-solarized-black
-""
-" set t_Co=16
-" set t_Co=256
-" let g:solarized_termcolors=16
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans = 1
-" let g:solarized_degrade = 1
-" let g:solarized_bold = 0
-" let g:solarized_underline = 0
-" let g:solarized_italic = 0
-" let g:solarized_contrast = "low"
-" let g:solarized_contrast = "normal"
-" let g:solarized_contrast = "high"
-" let g:solarized_visibility= "low"
-" let g:solarized_visibility= "normal"
-" let g:solarized_visibility= "high"
-" set term=xterm-256color
-" set background=light
-" set background=dark
-" syntax on
-" colorscheme solarized
-" highlight LineNr NONE
-
 "" Base 16 Solarized
 "" https://github.com/chriskempson/base16-vim
 ""
@@ -252,15 +226,6 @@ let hs_allow_hash_operator = 1
 " colorscheme base16-solarized-dark
 " " colorscheme base16-ocean
 
-"" Flattened
-"" https://github.com/romainl/flattened
-""
-" set t_Co=256
-" set background=light
-" set background=dark
-" syntax on
-" colorscheme flattened_dark
-
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
 ""
@@ -288,7 +253,7 @@ colorscheme solarized8_high
 ""
 " set background=dark
 " let g:edge_style = 'neon'
-" let g:edge_disable_italic_comment = 0
+" let g:edge_disable_italic_comment = 1
 " colorscheme edge
 
 "" seiya.vim

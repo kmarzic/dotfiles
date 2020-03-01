@@ -20,7 +20,7 @@ Config {
    --
    -- theme: solarized dark
    bgColor = "#002b36", -- base03
-   fgColor = "#fdf6e3", -- base3
+   fgColor = "#93a1a1", -- base1
    --
    -- theme: solarized light
    -- bgColor = "#eee8d5", -- base2
@@ -203,9 +203,11 @@ Config {
                              ] 50, -- 5s
 
        -- theme: default / orange
-       -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
-       -- theme: default / magenta
-       Run Date              "<icon=clock.xbm/> <fc=#fdf6e3>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- Run Date              "<icon=clock.xbm/> <fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / base03
+       -- Run Date              "<icon=clock.xbm/> <fc=#fdf6e3>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- theme: default / cyan
+       Run Date              "<icon=clock.xbm/> <fc=#2aa198>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "8"] "spaces1" 300, -- 30s

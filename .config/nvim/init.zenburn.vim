@@ -197,6 +197,24 @@ let hs_allow_hash_operator = 1
 ""
 " colorscheme termschool
 
+"" vim-solarized8
+"" https://github.com/lifepillar/vim-solarized8
+""
+" let g:solarized_visibility = "normal"
+" let g:solarized_diffmode = "normal"
+" let g:solarized_italics = 0
+" set t_Co=256
+" set background=light
+" colorscheme solarized8_high
+
+"" sainnhe/edge
+"" https://github.com/sainnhe/edge
+""
+" set background=dark
+" let g:edge_style = 'neon'
+" let g:edge_disable_italic_comment = 1
+" colorscheme edge
+
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
 ""

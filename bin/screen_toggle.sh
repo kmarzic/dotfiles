@@ -108,6 +108,7 @@ __help()
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
     __printf "   ${0} -s blue"
+    __printf "   ${0} -s edge.dark"
     __printf "   ${0} -s green"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
@@ -221,6 +222,50 @@ function __theme()
                 xmonad --restart
             fi
             ;;
+        "edge.dark")
+            __printf "edge.dark"
+
+            #### Background
+            # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+            feh --bg-scale ~/wallpapers/nature/4543.jpg
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.edge.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.edge.dark .Xdefaults
+            [[ -e ~/.Xdefaults.edge.dark ]] && xrdb -load ~/.Xdefaults.edge.dark
+
+            #### vim
+            [[ -e ~/.vimrc.edge.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.edge.dark .vimrc
+            [[ -e ~/.gvimrc.edge.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.edge.dark .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.edge.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.edge.dark.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.edge.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.edge.dark.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.edge.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.edge.dark .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.edge.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.edge.dark .tmux.conf
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.edge.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.edge.dark.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.edge.dark.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.edge.dark.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                xmonad --recompile
+                xmonad --restart
+            fi
+            ;;
         "green")
             __printf "green"
 
@@ -262,9 +307,9 @@ function __theme()
             __printf "solarized dark"
 
             #### Background
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
+            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
+            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
             # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
@@ -611,7 +656,7 @@ function __background()
     #### Solarized
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
+    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
     # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
     #### Solarized Light

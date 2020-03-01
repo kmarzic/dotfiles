@@ -212,7 +212,7 @@ colorscheme solarized8_high
 ""
 " set background=dark
 " let g:edge_style = 'neon'
-" let g:edge_disable_italic_comment = 0
+" let g:edge_disable_italic_comment = 1
 " colorscheme edge
 
 "" seiya.vim
