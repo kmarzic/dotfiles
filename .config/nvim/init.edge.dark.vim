@@ -207,6 +207,7 @@ let hs_allow_hash_operator = 1
 " set t_Co=256
 " set background=dark
 " colorscheme solarized8_high
+" colorscheme solarized8_flat
 
 "" sainnhe/edge
 "" https://github.com/sainnhe/edge
