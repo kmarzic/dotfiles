@@ -3,7 +3,7 @@
 #
 #          FILE: screen_toogle.sh
 #
-#         USAGE: ./screen_toogle.sh
+#         USAGE: ./screen_toogle.sh [ -h | -x | -s <theme> ]
 #
 #   DESCRIPTION:
 #
@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2020-03-03 18:56:32
+#       CREATED: 2020-03-04 18:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -99,7 +99,7 @@ function __banner()
 ####
 __help()
 {
-    __printf "Usage: ${0} [ -h | -x ]"
+    __printf "Usage: ${0} [ -h | -x | -s <theme> ]"
     __printf "  -h                Help"
     __printf "  -x                Xrandr"
     __printf "  -s <theme>        Theme"
@@ -132,17 +132,24 @@ function __theme()
             __printf "ansi"
 
             #### Background
-            # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
-            # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
-            # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
-            feh --bg-scale ~/wallpapers/nature/4543.jpg
-            # feh --bg-scale ~/wallpapers/nature/20-2.jpg
-            # feh --bg-scale ~/wallpapers/nature/1504.jpg
-            # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
-            # feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
-            # feh --bg-scale ~/wallpapers/gray/gXswE4.jpg
-            # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
-            # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/day-dive-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/4543.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/20-2.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/1504.jpg bg.jpg && cd -
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s gray/minimalistic-gray-2560x1440-wallpaper-2109511.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/170583-gorgerous-light-gray-background-2000x2000.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/gXswE4.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gray/kNse8Ue.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/Minimalistic_gray_colors_2560x1600.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.ansi ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.ansi .Xdefaults
@@ -189,7 +196,13 @@ function __theme()
             __printf "blue"
 
             #### Background
-            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.blue ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.blue .Xdefaults
@@ -226,8 +239,14 @@ function __theme()
             __printf "edge.dark"
 
             #### Background
-            # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
-            feh --bg-scale ~/wallpapers/nature/4543.jpg
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/4543.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.edge.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.edge.dark .Xdefaults
@@ -270,7 +289,13 @@ function __theme()
             __printf "green"
 
             #### Background
-            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.jpg && nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.green ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.green .Xdefaults
@@ -307,14 +332,21 @@ function __theme()
             __printf "solarized dark"
 
             #### Background
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
-            ##
-            feh --bg-scale ~/wallpapers/solarized/solarized.png
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/seed_of_life_by_lekremyelsew-d7bfnwj.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/dVMZsMn.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/TVDBMOt.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/BaocXcW.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/1OlbRnT.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/6aEOSOS.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/hnSuKgw.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.solarized.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.solarized.dark .Xdefaults
@@ -380,12 +412,17 @@ function __theme()
             __printf "solarized light"
 
             #### Background
-            cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
-            # cd ~/wallpapers/solarized && rm -f solarized.png && ln -s d48d4ca9f67739f39d2199e30ee3ec68c24e.png solarized.png && cd -
-            ##
-            feh --bg-scale ~/wallpapers/solarized/solarized.png
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.solarized.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.solarized.light .Xdefaults
@@ -451,7 +488,13 @@ function __theme()
             __printf "zenburn"
 
             #### Background
-            feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
             [[ -e ~/.Xdefaults.zenburn ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.zenburn .Xdefaults
@@ -609,64 +652,9 @@ function __background()
     # feh --bg-scale ~/wallpapers/elx40/wallpaper_4_0_research_purple.png
     # feh --bg-scale ~/wallpapers/elx40/wallpaper_blue_official.png
 
-    #### Nature
-    # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
-    # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
-    # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
-    # feh --bg-scale ~/wallpapers/nature/4543.jpg
-    # feh --bg-scale ~/wallpapers/nature/20-2.jpg
-    # feh --bg-scale ~/wallpapers/nature/1504.jpg
-    # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
-    # feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
-    # feh --bg-scale ~/wallpapers/gray/gXswE4.jpg
-    # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
-    # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
-
-    #### Gray
-    # feh --bg-scale ~/wallpapers/gray/Minimalistic_gray_colors_2560x1600.jpg
-    # feh --bg-scale ~/wallpapers/gray/grey-popular-wallpaper-backgrounds-filter-alexander-room-surface-resolutions-77891.jpg
-    # feh --bg-scale ~/wallpapers/gray/defruwallpaper1920x1200eo2.jpg
-    # feh --bg-scale ~/wallpapers/gray/ky7tee2.jpg
-    # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
-    # feh --bg-scale ~/wallpapers/gray/minimalistic-gray-2560x1440-wallpaper-2109511.png
-    # feh --bg-scale ~/wallpapers/gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg
-    # feh --bg-scale ~/wallpapers/gray/113256-popular-light-gray-background-1920x1200-for-windows.jpg
-    # feh --bg-scale ~/wallpapers/gray/170578-popular-light-gray-background-1920x1080-for-mobile-hd.jpg
-    # feh --bg-scale ~/wallpapers/gray/170583-gorgerous-light-gray-background-2000x2000.jpg
-
-    #### Ansi
-    # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
-    # feh --bg-scale ~/wallpapers/nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg
-    # feh --bg-scale ~/wallpapers/nature/day-dive-hd-wallpaper-1680x1050.jpeg
-    # feh --bg-scale ~/wallpapers/nature/4543.jpg
-    # feh --bg-scale ~/wallpapers/nature/20-2.jpg
-    # feh --bg-scale ~/wallpapers/nature/1504.jpg
-    # feh --bg-scale ~/wallpapers/gray/gXswE4.jpg
-    # feh --bg-scale ~/wallpapers/gray/kNse8Ue.png
-
-    #### Space
-    # feh --bg-scale ~/wallpapers/space/6t8qdgtr42q31.jpg
-
-    #### Blue
-    # feh --bg-scale ~/wallpapers/nature/6137182928_3fa8c655e4_o.jpg
-
-    #### Green
-    # feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg
-
-    #### Solarized
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized_mountains_by_9beat7-d8rkbit.png solarized.png && cd -
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s seed_of_life_by_lekremyelsew-d7bfnwj.png solarized.png && cd -
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s dVMZsMn.png solarized.png && cd -
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s TVDBMOt.png solarized.png && cd -
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s BaocXcW.png solarized.png && cd -
-    #### Solarized Light
-    [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s solarized-mountains-light.png solarized.png && cd -
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s AB_Wallpaper_Light.png solarized.png && cd -
-    #### Solarized Dark
-    # [[ ! -e ~/wallpapers/solarized/solarized.png ]] && cd ~/wallpapers/solarized && rm -f solarized.png && ln -s green-texture-wallpaper.png solarized.png && cd -
-    ####
-    feh --bg-scale ~/wallpapers/solarized/solarized.png
-    # feh --bg-tile ~/wallpapers/solarized/solarizedlightstripes.png
+    #### Default
+    [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+    [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 }
 
 
