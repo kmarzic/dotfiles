@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-03-01 09:02:40 (CET)
+## Last update: 2020-03-07 10:30:22 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -79,13 +79,14 @@ set-option -g mouse off
 set-window-option -g mouse off
 
 ## use xterm keys
-setw -g xterm-keys on
+set-window-option -g xterm-keys on
+set-option -g xterm-keys on
 
 ## rename window
 bind-key -n S-Up command-prompt -I "#W" "rename-window '%%'"
 
 ## new window
-bind-key -n S-Down new-window
+bind-key -n S-Down new-window -c "#{pane_current_path}"
 
 ## swap window
 bind-key [ swap-window -t -1

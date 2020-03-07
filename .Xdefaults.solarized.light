@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-03-01 06:26:34 (CET)
+!! Last update: 2020-03-07 10:27:47 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -418,8 +418,7 @@ URxvt*transparent: false
 ! URxvt.perl-lib: /usr/lib/urxvt/perl/
 URxvt.perl-lib: $HOME/.urxvt/ext/
 !
-! URxvt.perl-ext: default,tabbed,font-size,matcher
-! URxvt.perl-ext: default,tabbedex,font-size
+! URxvt.perl-ext: default
 !
 ! URxvt.perl-ext-common: default,tabbed,font-size,matcher
 ! URxvt.perl-ext-common: default,tabbedex,font-size
@@ -485,7 +484,7 @@ URxvt.tabbed.title-fg: 4
 URxvt.tabbed.title-bg: 0
 URXvt.tabbed.reopen-on-close: yes
 
-!! tabbedex
+!! tabbedex; https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex
 ! URxvt.tabbed.tabbedex-rs-prefix: %
 ! URxvt.tabbedex.no-tabbedex-keys: yes
 ! URxvt.tabbedex.bell-timeout: 1
@@ -531,26 +530,41 @@ URxvt.tabbedex.title-bg: 0
 URXvt.tabbedex.reopen-on-close: yes
 
 !! commands
-URxvt.keysym.C-6:   command:\033]710;xft:Monospace:pixelsize=12:antialias=true:style=regular\007
-URxvt.keysym.C-7:   command:\033]710;xft:Monospace:pixelsize=14:antialias=true:style=regular\007
-URxvt.keysym.C-8:   command:\033]710;xft:Monospace:pixelsize=15:antialias=true:style=regular\007
-URxvt.keysym.C-9:   command:\033]710;xft:Monospace:pixelsize=18:antialias=true:style=regular\007
-URxvt.keysym.C-0:   command:\033]710;xft:Monospace:pixelsize=20:antialias=true:style=regular\007
-URxvt.keysym.M-F8:  command:\033]11;#fdf6e3\007\033]10;#657b83\007\033]12;#586e75\007\033]13;#586e75\007\033]708;#fdf6e3\007
-URxvt.keysym.M-F9:  command:\033]11;#002b36\007\033]10;#839496\007\033]12;#93a1a1\007\033]13;#93a1a1\007\033]708;#002b36\007
-
-!! fonts
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
-URxvt.keysym.C-S-Up:   perl:font-size:incglobal
-URxvt.keysym.C-S-Down: perl:font-size:decglobal
-URxvt.keysym.C-equal:  perl:font-size:reset
-URxvt.keysym.C-slash:  perl:font-size:show
-!
+! URxvt.keysym.C-6:   command:\033]710;xft:Monospace:pixelsize=12:antialias=true:style=regular\007
+! URxvt.keysym.C-7:   command:\033]710;xft:Monospace:pixelsize=14:antialias=true:style=regular\007
+! URxvt.keysym.C-8:   command:\033]710;xft:Monospace:pixelsize=15:antialias=true:style=regular\007
+! URxvt.keysym.C-9:   command:\033]710;xft:Monospace:pixelsize=18:antialias=true:style=regular\007
+! URxvt.keysym.C-0:   command:\033]710;xft:Monospace:pixelsize=20:antialias=true:style=regular\007
+! URxvt.keysym.M-F8:  command:\033]11;#fdf6e3\007\033]10;#657b83\007\033]12;#586e75\007\033]13;#586e75\007\033]708;#fdf6e3\007
+! URxvt.keysym.M-F9:  command:\033]11;#002b36\007\033]10;#839496\007\033]12;#93a1a1\007\033]13;#93a1a1\007\033]708;#002b36\007
+!!
+! URxvt.keysym.C-Up:     perl:font-size:increase
+! URxvt.keysym.C-Down:   perl:font-size:decrease
+! URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+! URxvt.keysym.C-S-Down: perl:font-size:decglobal
+! URxvt.keysym.C-equal:  perl:font-size:reset
+! URxvt.keysym.C-slash:  perl:font-size:show
+!!
 ! URxvt.keysym.C-minus:     perl:resize-font:smaller
 ! URxvt.keysym.C-plus:      perl:resize-font:bigger
 ! URxvt.keysym.C-equal:     perl:resize-font:reset
 ! URxvt.keysym.C-question:  perl:resize-font:show
+
+!! remap keysyms
+URxvt*keysym.S-C-Up:         \033[1;6A
+URxvt*keysym.S-C-Down:       \033[1;6B
+URxvt*keysym.S-C-Left:       \033[1;6D
+URxvt*keysym.S-C-Right:      \033[1;6C
+URxvt*keysym.Control-Up:     \033[1;5A
+URxvt*keysym.Control-Down:   \033[1;5B
+URxvt*keysym.Control-Left:   \033[1;5D
+URxvt*keysym.Control-Right:  \033[1;5C
+URxvt*keysym.S-Page_Up:      \033[5;2~
+URxvt*keysym.S-Page_Down:    \033[6;2~
+URxvt*keysym.S-Up:           \033[1;2A
+URxvt*keysym.S-Down:         \033[1;2B
+URxvt*keysym.S-Left:         \033[1;2D
+URxvt*keysym.S-Right:        \033[1;2C
 
 !! fonts
 ! URxvt*font: xft:Terminus:pixelsize=16:antialias=true:style=regular
@@ -592,13 +606,9 @@ URxvt*italicfont: xft:monospace:pixelsize=14:style=italic,xft:Source\ Code\ Pro\
 ! URxvt*boldfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=bold
 ! URxvt*italicfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=italic
 !
-! URxvt.font: xft:Droid Sans Mono:pixelsize=15:style=regular
-! URxvt.boldfont: xft:Droid Sans Mono:pixelsize=15:style=bold
+! URxvt*font: xft:Droid Sans Mono:pixelsize=15:style=regular
+! URxvt*boldfont: xft:Droid Sans Mono:pixelsize=15:style=bold
 ! URxvt*italicfont: xft:Droid Sans Mono:pixelsize=15:style=italic
-
-!! remap keysyms
-URxvt.keysym.C-S-Left:  string:\033[1;6D
-URxvt.keysym.C-S-Right: string:\033[1;6C
 
 
 !! ---------------------------------------------------------------------
