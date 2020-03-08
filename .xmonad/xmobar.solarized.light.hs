@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2020-03-01 09:28:38 (CET)
+-- Last update: 2020-03-08 17:04:06 (CET)
 
 Config {
    -- theme: ansi
@@ -104,7 +104,7 @@ Config {
                                "--template" , "<icon=up.xbm/><tx>kB/s <icon=down.xbm/><rx>kB/s",
                                "--Low"      , "10000", -- units: 10 kB/s
                                "--High"     , "500000", -- units: 500 kB/s
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f", -- red
                                "--minwidth" , "4",
@@ -114,7 +114,7 @@ Config {
        Run Wireless "wlp1s0" [ "--template" , "<fc=#2aa198><essid>:</fc><quality>%", -- cyan
                                "--Low"      , "20",
                                "--High"     , "70",
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f", -- red
                                "--minwidth" , "3",
@@ -127,7 +127,7 @@ Config {
                                "--High"     , "80",
                                "--low"      , "#dc322f", -- red
                                "--normal"   , "#859900", -- green
-                               "--high"     , "#2aa198", -- cyan
+                               "--high"     , "#268bd2", -- blue
 
                                "--", -- battery specific options
                                -- discharging status
@@ -144,7 +144,7 @@ Config {
        Run MultiCpu          [ -- "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
                                "--template" , "<icon=cpu.xbm/><total0>%|<total1>%|<total2>%|<total3>%",
                                "--Low"      , "50",
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f", -- red
                                "--High"     , "85",
@@ -156,7 +156,7 @@ Config {
                                "--Low"      , "3",
                                "--High"     , "80",
                                "--minwidth" , "2",
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f", -- red
                                "--width"    , "3"
@@ -167,7 +167,7 @@ Config {
                                "--Low"      , "70",
                                "--High"     , "80",
                                "--minwidth" , "2",
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f" -- red
                              ] 50, -- 5s
@@ -177,7 +177,7 @@ Config {
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--minwidth" , "2",
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f" -- red
                              ] 10, -- 1s
@@ -187,7 +187,7 @@ Config {
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--minwidth" , "2",
-                               "--low"      , "#2aa198", -- cyan
+                               "--low"      , "#268bd2", -- blue
                                "--normal"   , "#859900", -- green
                                "--high"     , "#dc322f" -- red
                              ] 10, -- 1s
@@ -204,7 +204,7 @@ Config {
 
        -- theme: default / orange
        -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
-       -- theme: default / cyan
+       -- theme: default / blue
        Run Date              "<icon=clock.xbm/> <fc=#268bd2>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
