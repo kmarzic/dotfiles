@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-03-01 09:26:07 (CET)
+-- Last update: 2020-03-08 11:02:04 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -48,6 +48,43 @@ import qualified XMonad.StackSet as W
 -- Config
 -------------------------------------------------------------------------------
 
+ansi :: M.Map String String
+ansi = M.fromList
+  [
+    ("cyan",             "#00ffff"),
+    ("gray20",           "#333333"),
+    ("gray33",           "#555555"),
+    ("gray87",           "#dddddd"),
+    ("gray99",           "#999999"),
+    ("green",            "#00ff00"),
+    ("red",              "#ff0000"),
+    ("white",            "#ffffff"),
+    ("yellow",           "#ffff00")
+  ]
+
+blue :: M.Map String String
+blue = M.fromList
+  [
+    ("black",            "#000000"),
+    ("blue",             "#0088cc"),
+    ("white",            "#ffffff")
+  ]
+
+edgedark :: M.Map String String
+edgedark = M.fromList
+  [
+    ("blue",             "#0088cc"),
+    ("cyan",             "#00ffff"),
+    ("white",            "#ffffff")
+  ]
+
+green :: M.Map String String
+green = M.fromList
+  [
+    ("green",            "#009900"),
+    ("white",            "#ffffff")
+  ]
+
 solarized :: M.Map String String
 solarized = M.fromList
   [
@@ -67,6 +104,12 @@ solarized = M.fromList
     ("solarizedBlue",    "#268bd2"),
     ("solarizedCyan",    "#2aa198"),
     ("solarizedGreen",   "#859900")
+  ]
+
+zenburn :: M.Map String String
+zenburn = M.fromList
+  [
+    ("white",            "#ffffff")
   ]
 
 help :: String
@@ -220,24 +263,24 @@ myBorderWidth = 1
 -- myBorderWidth = 2
 
 myNormalBorderColorAnsi :: String -- theme: ansi
-myNormalBorderColorAnsi = "#ffffff"
+myNormalBorderColorAnsi = ansi M.! "white"
 myFocusedBorderColorAnsi :: String
-myFocusedBorderColorAnsi = "#00ffff"
+myFocusedBorderColorAnsi = ansi M.! "cyan"
 
 myNormalBorderColorBlue :: String -- theme: blue
-myNormalBorderColorBlue = "#ffffff"
+myNormalBorderColorBlue = blue M.! "white"
 myFocusedBorderColorBlue :: String
-myFocusedBorderColorBlue = "#0088cc"
+myFocusedBorderColorBlue = blue M.! "blue"
 
 myNormalBorderColorEdgeDark :: String -- theme: edge dark
-myNormalBorderColorEdgeDark = "#ffffff"
+myNormalBorderColorEdgeDark = edgedark M.! "white"
 myFocusedBorderColorEdgeDark :: String
-myFocusedBorderColorEdgeDark = "#00ffff"
+myFocusedBorderColorEdgeDark = edgedark M.! "cyan"
 
 myNormalBorderColorGreen :: String -- theme: green
-myNormalBorderColorGreen = "#ffffff"
+myNormalBorderColorGreen = green M.! "white"
 myFocusedBorderColorGreen :: String
-myFocusedBorderColorGreen = "#009900"
+myFocusedBorderColorGreen = green M.! "green"
 
 myNormalBorderColorSolarizedDark :: String -- theme: solarized dark
 myNormalBorderColorSolarizedDark = solarized M.! "solarizedBase02"
@@ -380,24 +423,24 @@ myManageHook = composeAll . concat $
 myTabConfigAnsi :: Theme -- theme: ansi
 myTabConfigAnsi = def
   {
-    activeColor = "#555555",
-    activeTextColor = "#ffffff",
-    activeBorderColor = "#00ffff",
-    inactiveColor = "#333333",
-    inactiveTextColor = "#dddddd",
-    inactiveBorderColor = "#ffffff",
-    urgentColor = "#ff0000",
-    urgentTextColor = "#ffffff",
-    urgentBorderColor = "#2f343a",
+    activeColor = ansi M.! "gray33",
+    activeTextColor = ansi M.! "white",
+    activeBorderColor = ansi M.! "cyan",
+    inactiveColor = ansi M.! "gray20",
+    inactiveTextColor = ansi M.! "gray87",
+    inactiveBorderColor = ansi M.! "white",
+    urgentColor = ansi M.! "red",
+    urgentTextColor = ansi M.! "white",
+    urgentBorderColor = ansi M.! "gray20",
     fontName = fontBold
   }
 
 myTabConfigBlue :: Theme -- theme: blue
 myTabConfigBlue = def
   {
-    activeColor = "#0088cc",
-    activeTextColor = "#ffffff",
-    activeBorderColor = "#000000",
+    activeColor = blue M.! "blue",
+    activeTextColor = blue M.! "white",
+    activeBorderColor = blue M.! "black",
     inactiveColor = "#5f676a",
     inactiveTextColor = "#dddddd",
     inactiveBorderColor = "#000000",
@@ -440,45 +483,45 @@ myTabConfigGreen = def
 myTabConfigSolarized :: Theme -- theme: solarized [ light and dark ]
 myTabConfigSolarized = def
   {
-    activeColor = solarized M.! "solarizedBase00", -- base00
-    activeTextColor = solarized M.! "solarizedBase2", -- base2
-    activeBorderColor = solarized M.! "solarizedBase1", -- base1
-    inactiveColor = solarized M.! "solarizedBase03", -- base03
-    inactiveTextColor = solarized M.! "solarizedBase1", -- base1
-    inactiveBorderColor = solarized M.! "solarizedBase1", -- base1
-    urgentColor = "#900000",
-    urgentTextColor = "#ffffff",
-    urgentBorderColor = "#2f343a",
+    activeColor = solarized M.! "solarizedBase00",
+    activeTextColor = solarized M.! "solarizedBase2",
+    activeBorderColor = solarized M.! "solarizedBase1",
+    inactiveColor = solarized M.! "solarizedBase03",
+    inactiveTextColor = solarized M.! "solarizedBase1",
+    inactiveBorderColor = solarized M.! "solarizedBase1",
+    urgentColor = solarized M.! "solarizedRed",
+    urgentTextColor = solarized M.! "solarizedBase3",
+    urgentBorderColor = solarized M.! "solarizedBase03",
     fontName = fontBold
   }
 
 myTabConfigSolarizedDark :: Theme -- theme: solarized dark
 myTabConfigSolarizedDark = def
   {
-    activeColor = solarized M.! "solarizedBase00", -- base00
-    activeTextColor = solarized M.! "solarizedBase2", -- base2
-    activeBorderColor = solarized M.! "solarizedBase1", -- base1
-    inactiveColor = solarized M.! "solarizedBase03", -- base03
-    inactiveTextColor = solarized M.! "solarizedBase1", -- base1
-    inactiveBorderColor = solarized M.! "solarizedBase1", -- base1
-    urgentColor = "#900000",
-    urgentTextColor = "#ffffff",
-    urgentBorderColor = "#2f343a",
+    activeColor = solarized M.! "solarizedBase00",
+    activeTextColor = solarized M.! "solarizedBase2",
+    activeBorderColor = solarized M.! "solarizedBase1",
+    inactiveColor = solarized M.! "solarizedBase03",
+    inactiveTextColor = solarized M.! "solarizedBase1",
+    inactiveBorderColor = solarized M.! "solarizedBase1",
+    urgentColor = solarized M.! "solarizedRed",
+    urgentTextColor = solarized M.! "solarizedBase3",
+    urgentBorderColor = solarized M.! "solarizedBase03",
     fontName = fontBold
   }
 
 myTabConfigSolarizedLight :: Theme -- theme: solarized light
 myTabConfigSolarizedLight = def
   {
-    activeColor = solarized M.! "solarizedGreen", -- green
-    activeTextColor = solarized M.! "solarizedBase3", -- base3
-    activeBorderColor = solarized M.! "solarizedBase03", -- base03
-    inactiveColor = solarized M.! "solarizedBase1", -- base1
-    inactiveTextColor = solarized M.! "solarizedBase3", -- base3
-    inactiveBorderColor = solarized M.! "solarizedBase03", -- base03
-    urgentColor = "#900000",
-    urgentTextColor = "#ffffff",
-    urgentBorderColor = "#2f343a",
+    activeColor = solarized M.! "solarizedGreen",
+    activeTextColor = solarized M.! "solarizedBase3",
+    activeBorderColor = solarized M.! "solarizedBase03",
+    inactiveColor = solarized M.! "solarizedBase1",
+    inactiveTextColor = solarized M.! "solarizedBase3",
+    inactiveBorderColor = solarized M.! "solarizedBase03",
+    urgentColor = solarized M.! "solarizedRed",
+    urgentTextColor = solarized M.! "solarizedBase3",
+    urgentBorderColor = solarized M.! "solarizedBase03",
     fontName = fontBold
   }
 
@@ -595,13 +638,13 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 myLogHookAnsiPP :: PP -- theme: ansi
 myLogHookAnsiPP = def
   {
-    ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
-    ppHidden          = xmobarColor "#ffffff" "",
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "cyan" "" . shorten 50,
+    ppCurrent         = xmobarColor (ansi M.! "cyan") "" . wrap "[" "]",
+    ppHidden          = xmobarColor (ansi M.! "white") "",
+    ppHiddenNoWindows = xmobarColor (ansi M.! "gray99") "",
+    ppTitle           = xmobarColor (ansi M.! "cyan") "" . shorten 50,
     ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "green" "" . (\layout -> myPPLayout (layout)),
+    ppUrgent          = xmobarColor (ansi M.! "red") (ansi M.! "yellow"),
+    ppLayout          = xmobarColor (ansi M.! "green") "" . (\layout -> myPPLayout (layout)),
     ppSep             = " ", -- separator between each object
     ppWsSep           = " ", -- separator between workspaces
     -- (1)
@@ -609,7 +652,7 @@ myLogHookAnsiPP = def
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
     ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (ansi M.! "red") "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookBluePP :: PP -- theme: blue
@@ -675,13 +718,13 @@ myLogHookGreenPP = def
 myLogHookSolarizedDarkPP :: PP -- theme: solarized dark
 myLogHookSolarizedDarkPP = def
   {
-    ppCurrent         = xmobarColor "#dc322f" "" . wrap "[" "]", -- red
-    ppHidden          = xmobarColor "#fdf6e3" "", -- base3
-    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
-    ppTitle           = xmobarColor "#2aa198" "" . shorten 50, -- cyan
+    ppCurrent         = xmobarColor (solarized M.! "solarizedRed") "" . wrap "[" "]",
+    ppHidden          = xmobarColor (solarized M.! "solarizedBase3") "",
+    ppHiddenNoWindows = xmobarColor (solarized M.! "solarizedBase1") "",
+    ppTitle           = xmobarColor (solarized M.! "solarizedCyan") "" . shorten 50,
     ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#2aa198" "" . (\layout -> myPPLayout (layout)), -- cyan
+    ppUrgent          = xmobarColor (solarized M.! "solarizedRed") (solarized M.! "solarizedYellow"),
+    ppLayout          = xmobarColor (solarized M.! "solarizedCyan") "" . (\layout -> myPPLayout (layout)),
     ppSep             = " ", -- separator between each object
     ppWsSep           = " ", -- separator between workspaces
     -- (1)
@@ -689,19 +732,19 @@ myLogHookSolarizedDarkPP = def
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
     ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "#dc322f" "" ts,"]",t] ++ ex ++ []
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (solarized M.! "solarizedRed") "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookSolarizedLightPP :: PP -- theme: solarized light
 myLogHookSolarizedLightPP = def
   {
-    ppCurrent         = xmobarColor "#fdf6e3" "#268bd2" . wrap "[" "]", -- base3/blue
-    ppHidden          = xmobarColor "#002b36" "", -- base03
-    ppHiddenNoWindows = xmobarColor "#93a1a1" "", -- base1
-    ppTitle           = xmobarColor "#268bd2" "" . shorten 50, -- blue
+    ppCurrent         = xmobarColor (solarized M.! "solarizedBase3") (solarized M.! "solarizedBlue") . wrap "[" "]",
+    ppHidden          = xmobarColor (solarized M.! "solarizedBase03") "",
+    ppHiddenNoWindows = xmobarColor (solarized M.! "solarizedBase1") "",
+    ppTitle           = xmobarColor (solarized M.! "solarizedBlue") "" . shorten 50,
     ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "#dc322f" "#b58900", -- red/yellow
-    ppLayout          = xmobarColor "#268bd2" "" . (\layout -> myPPLayout (layout)), -- blue
+    ppUrgent          = xmobarColor (solarized M.! "solarizedRed") (solarized M.! "solarizedYellow"),
+    ppLayout          = xmobarColor (solarized M.! "solarizedBlue") "" . (\layout -> myPPLayout (layout)),
     ppSep             = " ", -- separator between each object
     ppWsSep           = " ", -- separator between workspaces
     -- (1)
@@ -709,7 +752,7 @@ myLogHookSolarizedLightPP = def
     -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
     -- (2)
     ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (solarized M.! "solarizedRed") "" ts,"]",t] ++ ex ++ []
   }
 
 myLogHookZenburnPP :: PP -- theme: zenburn
