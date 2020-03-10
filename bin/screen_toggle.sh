@@ -107,9 +107,9 @@ __help()
     __printf "Examples:"
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
-    __printf "   ${0} -s blue"
     __printf "   ${0} -s edge.dark"
     __printf "   ${0} -s green"
+    __printf "   ${0} -s nord"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
     __printf "   ${0} -s zenburn"
@@ -192,49 +192,6 @@ function __theme()
                 xmonad --restart
             fi
             ;;
-        "blue")
-            __printf "blue"
-
-            #### Background
-            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
-            ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
-            ####
-            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
-
-            #### Xdefaults
-            [[ -e ~/.Xdefaults.blue ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.blue .Xdefaults
-            [[ -e ~/.Xdefaults.blue ]] && xrdb -load ~/.Xdefaults.blue
-
-            #### vim
-            [[ -e ~/.vimrc.blue ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.blue .vimrc
-            [[ -e ~/.gvimrc.blue ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.blue .gvimrc
-
-            #### neovim
-            [[ -e ~/.config/nvim/init.blue.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.blue.vim init.vim && cd -
-
-            #### redshift.conf
-            [[ -e ~/.config/redshift.blue.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.blue.conf redshift.conf && cd -
-
-            #### xmobar
-            [[ -e ~/.xmonad/xmobar.blue.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.blue.hs xmobar.hs
-
-            #### xmonad
-            [[ -e ~/.xmonad/xmonad.blue.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.blue.hs xmonad.hs
-
-            if [[ -d ~/data/cabal/xmonad ]]
-            then
-                ## custom compiled xmonad - used sandbox
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
-                ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
-            fi
-            ;;
         "edge.dark")
             __printf "edge.dark"
 
@@ -285,37 +242,43 @@ function __theme()
                 xmonad --restart
             fi
             ;;
-        "green")
-            __printf "green"
+        "nord")
+            __printf "nord"
 
             #### Background
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s nord/2560x1080.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
-            [[ -e ~/.Xdefaults.green ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.green .Xdefaults
-            [[ -e ~/.Xdefaults.green ]] && xrdb -load ~/.Xdefaults.green
+            [[ -e ~/.Xdefaults.nord ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.nord .Xdefaults
+            [[ -e ~/.Xdefaults.nord ]] && xrdb -load ~/.Xdefaults.nord
 
             #### vim
-            [[ -e ~/.vimrc.green ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.green .vimrc
-            [[ -e ~/.gvimrc.green ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.green .gvimrc
+            [[ -e ~/.vimrc.nord ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.nord .vimrc
+            [[ -e ~/.gvimrc.nord ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.nord .gvimrc
 
             #### neovim
-            [[ -e ~/.config/nvim/init.green.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.green.vim init.vim && cd -
+            [[ -e ~/.config/nvim/init.nord.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.nord.vim init.vim && cd -
 
             #### redshift.conf
-            [[ -e ~/.config/redshift.green.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.green.conf redshift.conf && cd -
+            [[ -e ~/.config/redshift.nord.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.nord.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.nord ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.nord .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.nord ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.nord .tmux.conf
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.green.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.green.hs xmobar.hs
+            [[ -e ~/.xmonad/xmobar.nord.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.nord.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.green.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.green.hs xmonad.hs
+            [[ -e ~/.xmonad/xmonad.nord.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.nord.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
