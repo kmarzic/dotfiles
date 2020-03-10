@@ -1,22 +1,18 @@
 -- xmobar.hs
--- Last update: 2020-03-01 09:28:38 (CET)
+-- Last update: 2020-03-10 19:31:07 (CET)
 
 Config {
    -- theme: ansi
    -- bgColor = "#101010",
    -- fgColor = "#f2f2f2",
    --
-   -- theme: blue
-   bgColor = "#222222",
-   fgColor = "#ffffff",
-   --
    -- theme: edge dark
    -- bgColor = "#101010",
    -- fgColor = "#f2f2f2",
    --
-   -- theme: green
-   -- bgColor = "#222222",
-   -- fgColor = "#ffffff",
+   -- theme: nord
+   bgColor = "#3B4252",
+   fgColor = "#E5E9F0",
    --
    -- theme: solarized dark
    -- bgColor = "#002b36", -- base03
@@ -66,7 +62,7 @@ Config {
    additionalFonts = [ "xft:Droid Sans Mono:pixelsize=12:antialias=true:style=bold" ],
    -- additionalFonts = [ "xft:Misc Fixed:pixelsize=12:antialias=true:style=bold" ],
 
-   borderColor = "black",
+   borderColor = "#3B4252",
    border = TopB,
    alpha = 255,
    -- alpha = 0,
@@ -104,9 +100,9 @@ Config {
                                "--template" , "<icon=up.xbm/><tx>kB/s <icon=down.xbm/><rx>kB/s",
                                "--Low"      , "10000", -- units: 10 kB/s
                                "--High"     , "500000", -- units: 500 kB/s
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A", -- red
                                "--minwidth" , "4",
                                "-c"         , " "
                              ] 10, -- 1s
@@ -114,9 +110,9 @@ Config {
        Run Wireless "wlp1s0" [ "--template" , "<fc=#2aa198><essid>:</fc><quality>%", -- cyan
                                "--Low"      , "20",
                                "--High"     , "70",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A", -- red
                                "--minwidth" , "3",
                                "--nastring" , "No Wifi"
                              ] 10, -- 1s
@@ -125,9 +121,9 @@ Config {
                                "--template" , "<acstatus>",
                                "--Low"      , "10",
                                "--High"     , "80",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#BF616A", -- red
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#88C0D0", -- cyan
 
                                "--", -- battery specific options
                                -- discharging status
@@ -144,9 +140,9 @@ Config {
        Run MultiCpu          [ -- "--template" , "CPU: <total0>%|<total1>%|<total2>%|<total3>%",
                                "--template" , "<icon=cpu.xbm/><total0>%|<total1>%|<total2>%|<total3>%",
                                "--Low"      , "50",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A", -- red
                                "--High"     , "85",
                                "--width"    , "2"
                              ] 10, -- 1s
@@ -156,9 +152,9 @@ Config {
                                "--Low"      , "3",
                                "--High"     , "80",
                                "--minwidth" , "2",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red", -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A", -- red
                                "--width"    , "3"
                              ] 10, -- 1s
 
@@ -167,9 +163,9 @@ Config {
                                "--Low"      , "70",
                                "--High"     , "80",
                                "--minwidth" , "2",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A" -- red
                              ] 50, -- 5s
 
        Run Memory            [ -- "--template" , "RAM: <usedratio>%",
@@ -177,9 +173,9 @@ Config {
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--minwidth" , "2",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A" -- red
                              ] 10, -- 1s
 
        Run Swap              [ -- "--template" ,"Swap: <usedratio>%",
@@ -187,9 +183,9 @@ Config {
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--minwidth" , "2",
-                               "--low"      , "cyan", -- cyan
-                               "--normal"   , "green", -- green
-                               "--high"     , "red" -- red
+                               "--low"      , "#88C0D0", -- cyan
+                               "--normal"   , "#A3BE8C", -- green
+                               "--high"     , "#BF616A" -- red
                              ] 10, -- 1s
 
        Run DiskU             [ ("/", "/: <used> <size>"),
@@ -205,7 +201,7 @@ Config {
        -- theme: default / orange
        -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / cyan
-       Run Date              "<icon=clock.xbm/> <fc=cyan>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       Run Date              "<icon=clock.xbm/> <fc=#88C0D0>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "8"] "spaces1" 300, -- 30s

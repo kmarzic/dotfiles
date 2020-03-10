@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-03-01 09:49:22 (CET)
+"" Last update: 2020-03-10 19:20:33 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -30,7 +30,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 "
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 " Plug 'rakr/vim-one'
 " Plug 'rakr/vim-colors-rakr'
 " Plug 'jeffkreeftmeijer/vim-dim'
@@ -38,8 +38,9 @@ Plug 'neovimhaskell/haskell-vim'
 " Plug 'joshdick/onedark.vim'
 " Plug 'andreasvc/vim-256noir'
 " Plug 'marcopaganini/termschool-vim-theme'
-" Plug 'lifepillar/vim-solarized8'
+Plug 'lifepillar/vim-solarized8'
 Plug 'sainnhe/edge'
+Plug 'arcticicestudio/nord-vim'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
@@ -216,6 +217,19 @@ set background=dark
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
 colorscheme edge
+
+"" arcticicestudio/nord-vim
+"" https://github.com/arcticicestudio/nord-vim
+""
+" augroup nord-overrides
+"   autocmd!
+"   autocmd ColorScheme nord highlight Comment ctermfg=14
+" augroup END
+" let g:nord_italic = 1
+" set t_Co=256
+" set background=dark
+" syntax on
+" colorscheme nord
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
