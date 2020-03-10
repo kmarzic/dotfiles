@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-03-08 20:43:43 (CET)
+## Last update: 2020-03-09 15:17:24 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -198,6 +198,8 @@ set -g @theme-status-justify left
 # set -g @theme-status-bg '#2c2e34'
 # set -g @theme-window-status-activity-bg '#2c2e34'
 # set -g @theme-window-status-current-fg '#2c2e34'
+# set -g @theme-mode-bg cyan
+# set -g @theme-mode-fg black
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'
