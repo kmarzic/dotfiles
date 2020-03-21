@@ -5,22 +5,6 @@ Config {
    -- theme: ansi
    bgColor = "#101010",
    fgColor = "#f2f2f2",
-   --
-   -- theme: edge dark
-   -- bgColor = "#101010",
-   -- fgColor = "#f2f2f2",
-   --
-   -- theme: solarized dark
-   -- bgColor = "#002b36", -- base03
-   -- fgColor = "#93a1a1", -- base1
-   --
-   -- theme: solarized light
-   -- bgColor = "#eee8d5", -- base2
-   -- fgColor = "#002b36", -- base03
-   --
-   -- theme: zenburn
-   -- bgColor = "#2e3330",
-   -- fgColor = "#a0afa0",
 
    -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
    -- font = "xft:monospace:pixelsize=14:antialias=true:style=bold",

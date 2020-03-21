@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-03-10 19:20:33 (CET)
+"" Last update: 2020-03-21 13:45:22 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -39,8 +39,8 @@ Plug 'chriskempson/base16-vim'
 " Plug 'andreasvc/vim-256noir'
 " Plug 'marcopaganini/termschool-vim-theme'
 Plug 'lifepillar/vim-solarized8'
-Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'
+Plug 'crusoexia/vim-monokai'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
@@ -163,42 +163,6 @@ let hs_allow_hash_operator = 1
 
 "" --------------------------------------------------------------------
 
-"" Base 16
-"" https://github.com/chriskempson/base16-vim
-""
-" set t_Co=16
-" syntax on
-" colorscheme base16-solarized-light
-" set background=dark
-
-"" vim-one
-"" https://github.com/rakr/vim-one
-""
-" let g:airline_theme='one'
-" colorscheme one
-" set background=dark " for the dark version
-" " set background=light " for the light version
-
-"" https://github.com/rakr/vim-colors-rakr
-
-"" https://github.com/jeffkreeftmeijer/vim-dim
-""
-" set t_Co=16
-" colorscheme dim
-" set background=dark
-
-"" https://github.com/kyoz/purify
-
-"" https://github.com/joshdick/onedark.vim
-
-"" https://github.com/andreasvc/vim-256noir
-""
-" colorscheme 256_noir
-
-"" https://github.com/marcopaganini/termschool-vim-theme
-""
-" colorscheme termschool
-
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
 ""
@@ -210,52 +174,10 @@ set background=light
 " colorscheme solarized8_high
 colorscheme solarized8_flat
 
-"" sainnhe/edge
-"" https://github.com/sainnhe/edge
-""
-" set background=dark
-" let g:edge_style = 'neon'
-" let g:edge_disable_italic_comment = 1
-" colorscheme edge
-
-"" arcticicestudio/nord-vim
-"" https://github.com/arcticicestudio/nord-vim
-""
-" augroup nord-overrides
-"   autocmd!
-"   autocmd ColorScheme nord highlight Comment ctermfg=14
-" augroup END
-" let g:nord_italic = 1
-" set t_Co=256
-" set background=dark
-" syntax on
-" colorscheme nord
-
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
 ""
 let g:seiya_auto_enable=1
-
-
-"" ------------------------------------------------------------------------
-"" Colorscheme
-"" ------------------------------------------------------------------------
-
-"" Custom
-" set t_Co=16
-" set t_Co=256
-" set background=dark
-" syntax on
-
-"" highlight CursorLine term=reverse cterm=reverse gui=reverse
-"" highlight CursorLine NONE
-"" highlight CursorLine ctermfg=black ctermbg=Cyan gui=reverse
-
-" hi CursorLine   term=bold cterm=bold guibg=white
-" hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-" hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-" hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
-" hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
 
 
 "" ------------------------------------------------------------------------

@@ -107,12 +107,10 @@ __help()
     __printf "Examples:"
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
-    __printf "   ${0} -s edge.dark"
-    __printf "   ${0} -s green"
+    __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
-    __printf "   ${0} -s zenburn"
 }
 
 
@@ -192,8 +190,8 @@ function __theme()
                 xmonad --restart
             fi
             ;;
-        "edge.dark")
-            __printf "edge.dark"
+        "monokai")
+            __printf "monokai"
 
             #### Background
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
@@ -206,30 +204,30 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
-            [[ -e ~/.Xdefaults.edge.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.edge.dark .Xdefaults
-            [[ -e ~/.Xdefaults.edge.dark ]] && xrdb -load ~/.Xdefaults.edge.dark
+            [[ -e ~/.Xdefaults.monokai ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.monokai .Xdefaults
+            [[ -e ~/.Xdefaults.monokai ]] && xrdb -load ~/.Xdefaults.monokai
 
             #### vim
-            [[ -e ~/.vimrc.edge.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.edge.dark .vimrc
-            [[ -e ~/.gvimrc.edge.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.edge.dark .gvimrc
+            [[ -e ~/.vimrc.monokai ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.monokai .vimrc
+            [[ -e ~/.gvimrc.monokai ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.monokai .gvimrc
 
             #### neovim
-            [[ -e ~/.config/nvim/init.edge.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.edge.dark.vim init.vim && cd -
+            [[ -e ~/.config/nvim/init.monokai.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.monokai.vim init.vim && cd -
 
             #### redshift.conf
-            [[ -e ~/.config/redshift.edge.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.edge.dark.conf redshift.conf && cd -
+            [[ -e ~/.config/redshift.monokai.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.monokai.conf redshift.conf && cd -
 
             #### screenrc
-            [[ -e ~/.screenrc.edge.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.edge.dark .screenrc
+            [[ -e ~/.screenrc.monokai ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.monokai .screenrc
 
             #### tmux.conf
-            [[ -e ~/.tmux.conf.edge.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.edge.dark .tmux.conf
+            [[ -e ~/.tmux.conf.monokai ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.monokai .tmux.conf
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.edge.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.edge.dark.hs xmobar.hs
+            [[ -e ~/.xmonad/xmobar.monokai.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.monokai.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.edge.dark.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.edge.dark.hs xmonad.hs
+            [[ -e ~/.xmonad/xmonad.monokai.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.monokai.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -448,59 +446,6 @@ function __theme()
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
             # test -r $d && eval "$(dircolors -b $d)"
-            ;;
-        "zenburn")
-            __printf "zenburn"
-
-            #### Background
-            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
-            ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
-            ####
-            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
-
-            #### Xdefaults
-            [[ -e ~/.Xdefaults.zenburn ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.zenburn .Xdefaults
-            [[ -e ~/.Xdefaults.zenburn ]] && xrdb -load ~/.Xdefaults.zenburn
-
-            #### vim
-            [[ -e ~/.vimrc.zenburn ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.zenburn .vimrc
-            [[ -e ~/.gvimrc.zenburn ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.zenburn .gvimrc
-
-            #### neovim
-            [[ -e ~/.config/nvim/init.zenburn.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.zenburn.vim init.vim && cd -
-
-            #### dunstrc
-            [[ -e ~/.config/dunst/dunstrc.zenburn ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.zenburn dunstrc
-            pkill dunst
-
-            #### redshift.conf
-            [[ -e ~/.config/redshift.zenburn.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.zenburn.conf redshift.conf && cd -
-
-            #### screenrc
-            [[ -e ~/.screenrc.zenburn ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.zenburn .screenrc
-
-            #### tmux.conf
-            [[ -e ~/.tmux.conf.zenburn ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.zenburn .tmux.conf
-
-            #### xmobar
-            [[ -e ~/.xmonad/xmobar.zenburn.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.zenburn.hs xmobar.hs
-
-            #### xmonad
-            [[ -e ~/.xmonad/xmonad.zenburn.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.zenburn.hs xmonad.hs
-
-            if [[ -d ~/data/cabal/xmonad ]]
-            then
-                ## custom compiled xmonad - used sandbox
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
-                ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
-            fi
             ;;
     esac
 }
