@@ -176,15 +176,27 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Vicious Widgets
     local my_cpu_temp = wibox.widget.textbox()
-    vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
+    -- ansi
+    -- vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
+    -- solarized white
+    vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="#2aa198"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
 
     local my_cpu_load = wibox.widget.textbox()
-    vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>CPU Load: </span><span color="cyan"><b>$1%</b></span>', my_update_interval)
+    -- ansi
+    -- vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>CPU Load: </span><span color="cyan"><b>$1%</b></span>', my_update_interval)
+    -- solarized white
+    vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>CPU Load: </span><span color="#2aa198"><b>$1%</b></span>', my_update_interval)
 
     local my_acpi_1 = wibox.widget.textbox()
+    -- ansi
     vicious.register (my_acpi_1, vicious.widgets.bat, '<span>Battery: </span><span color="cyan"><b>$1$2% $3 $4</b></span>', my_update_interval, "BAT0")
+    -- solarized white
+    vicious.register (my_acpi_1, vicious.widgets.bat, '<span>Battery: </span><span color="#2aa198"><b>$1$2% $3 $4</b></span>', my_update_interval, "BAT0")
     local my_acpi_2 = wibox.widget.textbox()
-    vicious.register (my_acpi_2, vicious.widgets.bat, '<span></span><span color="orange">$1$2%</span>', my_update_interval, "BAT0")
+    -- ansi
+    -- vicious.register (my_acpi_2, vicious.widgets.bat, '<span></span><span color="orange">$1$2%</span>', my_update_interval, "BAT0")
+    -- solarized white
+    vicious.register (my_acpi_2, vicious.widgets.bat, '<span></span><span color="#cb4b16">$1$2%</span>', my_update_interval, "BAT0")
 
     local my_battery_icon = wibox.widget.imagebox(beautiful.icon_batt)
     my_battery_icon.resize = true
@@ -192,22 +204,40 @@ awful.screen.connect_for_each_screen(function(s)
     -- my_battery_icon.forced_height = dpi(20)
 
     local my_mem = wibox.widget.textbox()
-    vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="cyan"><b>$2MB $1%</b></span>', my_update_interval)
+    -- ansi
+    -- vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="cyan"><b>$2MB $1%</b></span>', my_update_interval)
+    -- solarized white
+    vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="#2aa198"><b>$2MB $1%</b></span>', my_update_interval)
 
     local my_network = wibox.widget.textbox()
     -- (1) dle6440
-    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp3s0 up_kb}kB/s &#8595; ${wlp3s0 down_kb}kB/s</b></span>', my_update_interval_network)
+    -- ansi
+    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
+    -- solarized white
+    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="#2aa198"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="#2aa198"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) elxa4n8pyf2
-    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
+    -- ansi
+    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
+    -- solarized white
+    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="#2aa198"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="#2aa198"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
 
     local my_wifi = wibox.widget.textbox()
     -- (1) dle6440
-    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp3s0")
+    -- ansi
+    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
+    -- solarized white
+    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="#2aa198"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
     -- (2) elxa4n8pyf2
-    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
+    -- ansi
+    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
+    -- solarized white
+    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="#2aa198"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
 
     local my_text_clock = wibox.widget.textbox()
-    vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
+    -- ansi
+    -- vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
+    -- solarized white
+    vicious.register (my_text_clock, vicious.widgets.date, '<span color="#2aa198">%a %Y-%m-%d %H:%M:%S</span>', 1)
 
     local month_calendar = awful.widget.calendar_popup.month({})
     function month_calendar.call_calendar(self, offset, position, screen)
@@ -221,11 +251,17 @@ awful.screen.connect_for_each_screen(function(s)
     vicious.register(my_volume, vicious.widgets.volume,
         function (widget, args)
             local label = {["🔉"] = "♫", ["🔈"] = "♩"}
-            return ('<span color="#00ff00">%s %d%%</span>'):format(label[args[2]], args[1])
+            -- ansi
+            -- return ('<span color="#00ff00">%s %d%%</span>'):format(label[args[2]], args[1])
+            -- solarized white
+            return ('<span color="#859900">%s %d%%</span>'):format(label[args[2]], args[1])
         end, 1, "Master")
 
     local my_weather = wibox.widget.textbox()
-    vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="cyan"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
+    -- ansi
+    -- vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="cyan"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
+    -- solarized white
+    vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="#2aa198"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
 
     -- Create a wibox that will only show the stats widget.
     -- Hidden by default. Can be toggled with a keybind

@@ -39,13 +39,13 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Themes define colours, icons, font and wallpapers.
 -- local theme_name = "default"
-local theme_name = "ansi"
+-- local theme_name = "ansi"
 -- local theme_name = "gtk"
 -- local theme_name = "sky"
 -- local theme_name = "xresources"
--- local theme_name = "zenburn"
--- local theme_name = "solarized.dark"
+local theme_name = "solarized.dark"
 -- local theme_name = "solarized.light"
+-- local theme_name = "zenburn"
 beautiful.init( theme_dir .. theme_name .. "/theme.lua" )
 
 -- Local

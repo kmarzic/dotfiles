@@ -1,5 +1,5 @@
 ----------------------------------
---  "Solarized" awesome theme   --
+--  "Solarized Light" awesome theme   --
 --     By Gwenhael Le Moine     --
 --  Modified by Kresimir Marzic --
 ----------------------------------
@@ -9,6 +9,7 @@ theme = {}
 theme.path = os.getenv( "HOME" ) .. "/.config/awesome/themes/solarized.light"
 theme.default_themes_path = os.getenv("HOME") .. "/.config/awesome/themes"
 theme.wallpaper_cmd = { "awsetbg "..theme.default_themes_path.."/sky/sky-background.png" }
+
 theme.colors = {}
 theme.colors.base03  = "#002b36"
 theme.colors.base02  = "#073642"
