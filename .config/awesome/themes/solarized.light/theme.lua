@@ -6,6 +6,13 @@
 
 -- {{{ Main
 theme = {}
+
+local xresources = require("beautiful.xresources")
+local dpi = xresources.apply_dpi
+
+local gfs = require("gears.filesystem")
+local themes_path = gfs.get_themes_dir()
+
 theme.path = os.getenv( "HOME" ) .. "/.config/awesome/themes/solarized.light"
 theme.default_themes_path = os.getenv("HOME") .. "/.config/awesome/themes"
 theme.wallpaper_cmd = { "awsetbg "..theme.default_themes_path.."/sky/sky-background.png" }
@@ -34,32 +41,67 @@ theme.colors.green   = "#859900"
 theme.font       = "sans 10"
 
 -- {{{ Colors
-theme.fg_normal  = theme.colors.base02
-theme.fg_focus   = theme.colors.base03
-theme.fg_urgent  = theme.colors.base3
-
 theme.bg_normal  = theme.colors.base3
 theme.bg_focus   = theme.colors.base1
 theme.bg_urgent  = theme.colors.red
 theme.bg_systray = theme.bg_normal
+--
+theme.fg_normal  = theme.colors.base02
+theme.fg_focus   = theme.colors.base03
+theme.fg_urgent  = theme.colors.base3
+theme.fg_systray  = "#ffffff"
+theme.fg_minimize = "#888888"
 -- }}}
 
 -- {{{ Borders
-theme.border_width  = "1"
+theme.border_width  = dpi(1)
 theme.border_normal = theme.bg_normal
 theme.border_focus  = theme.bg_focus
 theme.border_marked = theme.bg_urgent
 -- }}}
+
+-- {{{ Hotkeys help
+theme.hotkeys_modifiers_fg = theme.colors.cyan
+theme.hotkeys_modifiers_bg = theme.colors.red
+theme.hotkeys_border_color = theme.colors.magenta
+--- }}}
 
 -- {{{ Titlebars
 theme.titlebar_bg_focus  = theme.bg_focus
 theme.titlebar_bg_normal = theme.bg_normal
 -- }}}
 
+-- {{{ Taglist
+theme.taglist_bg = theme.bg_normal
+theme.taglist_fg = theme.fg_normal
+theme.taglist_spacing = dpi(1)
+theme.taglist_shape_border_width = dpi(1)
+theme.taglist_shape_border_color = theme.colors.base0
+theme.taglist_shape_border_width_focus = dpi(1)
+theme.taglist_shape_border_color_focus = theme.colors.blue
+-- }}}
+
+-- {{{ Tasklist
+theme.tasklist_bg = theme.bg_normal
+theme.tasklist_fg = theme.fg_normal
+theme.tasklist_spacing = dpi(1)
+theme.tasklist_shape_border_width = dpi(1)
+theme.tasklist_shape_border_color = theme.colors.base0
+theme.tasklist_shape_border_width_focus = dpi(1)
+theme.tasklist_shape_border_color_focus = theme.colors.blue
+-- }}}
+
 -- {{{ Mouse finder
 theme.mouse_finder_color = theme.colors.green
 -- mouse_finder_[timeout|animate_timeout|radius|factor]
 -- }}}
+
+-- Gaps
+theme.useless_gap   = "2"
+theme.screen_margin = "2"
+
+-- Rounded corners
+theme.border_radius = dpi(6)
 
 -- {{{ Menu
 -- Variables set for theming the menu:
