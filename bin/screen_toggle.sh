@@ -136,9 +136,10 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/day-dive-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/4543.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/4543.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/20-2.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/1504.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/NATURE-SyltSunset_1600x1200.png bg.png && cd -
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gray/minimalistic-gray-2560x1440-wallpaper-2109511.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/170583-gorgerous-light-gray-background-2000x2000.jpg bg.jpg && cd -
@@ -197,8 +198,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/6137182928_3fa8c655e4_o.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/4543.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s monokai/minimal-minimalist-nature-sunrise-river-mountains-trees-8k-wallpaper-1920x1080.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s monokai/4TqeQei.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
