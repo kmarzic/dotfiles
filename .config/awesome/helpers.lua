@@ -22,6 +22,8 @@ local helpers = {}
 helpers.rrect = function(radius)
     return function(cr, width, height)
         gears.shape.rounded_rect(cr, width, height, radius)
+        -- gears.shape.octogon(cr, width, height, radius)
+        -- gears.shape.rounded_bar(cr, width, height)
     end
 end
 
@@ -59,8 +61,12 @@ helpers.circle = function()
     end
 end
 
-function helpers.colorize_text(txt, fg)
-    return "<span foreground='" .. fg .."'>" .. txt .. "</span>"
+function helpers.colorize_text(txt, fg, alpha)
+  local txt = tostring(txt) or tostring(nil)
+  local alpha = alpha or 100
+  --local naughty = require("naughty")
+  --naughty.notify({ text = "err "..tostring(txt) .. " and "..tostring(fg) })
+  return '<span foreground="'..fg..'" alpha="'..alpha..'%">'..txt..'</span>'
 end
 
 function helpers.client_menu_toggle()

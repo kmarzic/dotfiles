@@ -23,9 +23,19 @@ myawesomemenu = {
     { "quit", function() awesome.quit() end },
 }
 
+mysystemmenu = {
+    --{ "manual", tools.terminal .. " -e man awesome" },
+    { "lock", system_lock },
+    { "suspend", system_suspend },
+    { "hibernate", system_hibernate },
+    { "hybrid sleep", system_hybrid_sleep },
+    { "reboot", system_reboot },
+    { "power off", system_power_off } }
+
 mymainmenu = awful.menu({
     items = {
         { "awesome", myawesomemenu, beautiful.awesome_icon },
+        { "system", mysystemmenu },
         { "terminal", terminal },
         { "firefox", browser }
     }

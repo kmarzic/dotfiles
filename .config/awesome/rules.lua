@@ -89,6 +89,8 @@ awful.rules.rules = {
     { rule = { class = "Vivaldi" }, properties = { tag = "5" } },
     { rule = { class = "Vivaldi-stable" }, properties = { tag = "5" } },
     { rule = { class = "Pidgin" }, properties = { tag = "7" } },
+    { rule = { class = "Microsoft Teams - Preview" }, properties = { tag = "7" } },
+    { rule = { class = "Microsoft Teams Notification" }, properties = { tag = "7" } },
     { rule = { class = "Skype" }, properties = { tag = "7" } },
     { rule = { class = "Oracle VM VirtualBox Manager" }, properties = { tag = "8" } },
     { rule = { class = "VirtualBox Manager" }, properties = { tag = "8" } },

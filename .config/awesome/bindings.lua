@@ -9,6 +9,8 @@ local awful = require("awful")
 -- Notification library
 local menubar = require("menubar")
 
+-- Enable hotkeys help widget for VIM and other apps
+-- when client with a matching name is opened:
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 
@@ -36,24 +38,26 @@ local bindings = {}
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
+--
+-- Mod4     Also called Super, Windows and Command ⌘
+-- Mod1     Usually called Alt on PCs and Option on Macs
+-- Shift    Both left and right shift keys
+-- Control  Also called CTRL on some keyboards
+--
 -- modkey = "Mod4" -- meta
 local modkey = "Mod1" -- alt
 local winkey = "Mod4" -- windows key
 
 -- {{{ Mouse bindings
 bindings.mouse = {
+    -- (1) global buttons
     global = gears.table.join(
         awful.button({ }, 3, function () mymainmenu:toggle() end),
         awful.button({ }, 4, awful.tag.viewnext),
         awful.button({ }, 5, awful.tag.viewprev)
     ),
 
-    -- clientbuttons = gears.table.join(
-    --     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
-    --     awful.button({ modkey }, 1, awful.mouse.client.move),
-    --     awful.button({ modkey }, 3, awful.mouse.client.resize)
-    -- )
-
+    -- (2) window client response for mouse button click
     clientbuttons = gears.table.join(
         awful.button({ }, 1, function (c)
             c:emit_signal("request::activate", "mouse_click", {raise = true})
@@ -80,10 +84,6 @@ bindings.globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "w", function () mymainmenu:show() end,
               { description = "show main menu", group = "awesome"}),
 
-    -- History
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-              { description = "go back", group = "tag"} ),
-
     -- Restart
     -- awful.key({ modkey, "Control" }, "r", awesome.restart,
     --           {description = "reload awesome", group = "awesome"}),
@@ -96,7 +96,11 @@ bindings.globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "q", function () awful.spawn("exit.sh message") end,
               { description = "quit awesome", group = "awesome"}),
 
-    -- View tag (virtual workspace)
+    -- History
+    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
+              { description = "go back", group = "tag"} ),
+
+    -- Tag (virtual workspace) Browsing / View tag (virtual workspace)
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               { description = "view previous", group = "tag"} ),
     awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
@@ -302,7 +306,7 @@ bindings.globalkeys = gears.table.join(
 
     -- Toggle Stats
     awful.key({ modkey            }, "-", function () awful.screen.focused().stats.visible = not awful.screen.focused().stats.visible end,
-              { description = "toggle stats visibility", group = "awesome"}),
+              { description = "toggle stats visibility", group = "custom"}),
 
     -- Brightness
     awful.key( { }, "XF86MonBrightnessDown",
@@ -483,6 +487,7 @@ for i = 1, 10 do
             end,
             { description = "view tag #"..i, group = "tag"}
         ),
+
         -- Toggle tag display.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
             function ()
@@ -502,6 +507,7 @@ for i = 1, 10 do
             end,
             { description = "toggle tag #" .. i, group = "tag"}
         ),
+
         -- Move client to tag.
         awful.key({ modkey, "Shift" }, "#" .. i + 9,
             function ()
@@ -523,6 +529,7 @@ for i = 1, 10 do
             end,
             { description = "move focused client to tag #"..i, group = "tag"}
         ),
+
         -- Toggle tag on focused client.
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
             function ()

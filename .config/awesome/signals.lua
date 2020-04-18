@@ -23,6 +23,7 @@ local signals = {}
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
+    -- if not awesome.startup then awful.client.setslave(c) end
     if not awesome.startup then awful.client.setslave(c) end
 
     if awesome.startup
@@ -148,7 +149,7 @@ client.connect_signal("manage", function(c)
     end
 end)
 
--- removing screens: Moving all the nonempty tags to a different screen and make them volatile
+-- Removing screens: Moving all the nonempty tags to a different screen and make them volatile
 tag.connect_signal("request::screen", function(t)
     clients = t:clients()
     for s in screen do
