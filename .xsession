@@ -32,27 +32,27 @@ echo "" > ~/.xsession-errors
 # [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.dark.hs xmobar.hs && cd -
 # [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.light.hs xmobar.hs && cd -
 ## (1)
-cd ~/data/cabal/xmonad
-cabal v1-exec -- xmonad --recompile
-cd ~/
+# cd ~/data/cabal/xmonad
+# cabal v1-exec -- xmonad --recompile
+# cd ~/
 ## (2)
 # xmonad --recompile
 ##
-exec xmonad || exec xterm
+# exec xmonad || exec urxvt
 
 #### sctortwm or scrotwm or spectrwm
-# exec spectrwm || exec xterm
+# exec spectrwm || exec urxvt
 
 #### awesome
-# exec awesome || exec xterm
+exec awesome || exec urxvt
 
 #### bspwm
-# exec bspwm || exec xterm
+# exec bspwm || exec urxvt
 
 #### dwm
-# exec dwm.sh || exec xterm
+# exec dwm.sh || exec urxvt
 
 #### dwm
-# exec fvwm3 || exec xterm
+# exec fvwm3 || exec urxvt
 
 #### END
