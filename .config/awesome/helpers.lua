@@ -39,18 +39,18 @@ helpers.prrect = function(radius, tl, tr, br, bl)
     end
 end
 
+-- Create rectangle shape
+helpers.rect = function()
+    return function(cr, width, height)
+        gears.shape.rectangle(cr, width, height)
+    end
+end
+
 -- Create info bubble shape
 -- TODO
 helpers.infobubble = function(radius)
     return function(cr, width, height)
         gears.shape.infobubble(cr, width, height, radius)
-    end
-end
-
--- Create rectangle shape
-helpers.rect = function()
-    return function(cr, width, height)
-        gears.shape.rectangle(cr, width, height)
     end
 end
 
@@ -62,11 +62,11 @@ helpers.circle = function()
 end
 
 function helpers.colorize_text(txt, fg, alpha)
-  local txt = tostring(txt) or tostring(nil)
-  local alpha = alpha or 100
-  --local naughty = require("naughty")
-  --naughty.notify({ text = "err "..tostring(txt) .. " and "..tostring(fg) })
-  return '<span foreground="'..fg..'" alpha="'..alpha..'%">'..txt..'</span>'
+    local txt = tostring(txt) or tostring(nil)
+    local alpha = alpha or 100
+    --local naughty = require("naughty")
+    --naughty.notify({ text = "err "..tostring(txt) .. " and "..tostring(fg) })
+    return '<span foreground="'..fg..'" alpha="'..alpha..'%">'..txt..'</span>'
 end
 
 function helpers.client_menu_toggle()

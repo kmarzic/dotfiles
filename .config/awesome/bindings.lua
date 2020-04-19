@@ -280,6 +280,8 @@ bindings.globalkeys = gears.table.join(
               { description = "pidgin", group = "launcher"}),
     awful.key({ modkey, "Control" }, "g", function () awful.spawn("gajim") end,
               { description = "gajim", group = "launcher"}),
+    awful.key({ modkey, "Control" }, "t", function () awful.spawn("teams") end,
+              { description = "teams", group = "launcher"}),
     awful.key({ modkey, "Control" }, "v", function () awful.spawn("VirtualBox") end,
               { description = "virtualbox", group = "launcher"}),
     -- awful.key({ modkey,           }, "s", function () awful.spawn("xdotool search --onlyvisible --classname scratchpad windowunmap || xdotool search --classname scratchpad windowmap || urxvt -title \"scratchpad\" -name \"scratchpad\" -geometry 120x40+100+100") end,

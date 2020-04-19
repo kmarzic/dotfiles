@@ -144,6 +144,7 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons,
         style   = {
             shape = gears.shape.rectangle,
+            -- shape = helpers.rrect(beautiful.border_radius),
             font  = beautiful.font,
         },
     }
@@ -157,7 +158,8 @@ awful.screen.connect_for_each_screen(function(s)
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons,
         style   = {
-            shape = gears.shape.rectangle,
+            -- shape = gears.shape.rectangle,
+            shape = helpers.rrect(beautiful.border_radius),
             font  = beautiful.font,
         },
     }
