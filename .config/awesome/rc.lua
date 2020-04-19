@@ -23,6 +23,9 @@ local menubar = require("menubar")
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
 
+local config_path = os.getenv("HOME") .. "/.config/awesome/"
+local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/"
+
 -- Error handling
 dofile(config_path .. "error.lua")
 
@@ -36,8 +39,6 @@ editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Themes define colours, icons, font and wallpapers.
-local config_path = os.getenv("HOME") .. "/.config/awesome/"
-local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/"
 -- local theme_name = "default"
 local theme_name = "ansi"
 -- local theme_name = "gtk"
