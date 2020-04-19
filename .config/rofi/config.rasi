@@ -6,6 +6,7 @@ configuration {
 	lines: 10;
 /*	columns: 1;*/
 /*	font: "mono 12";*/
+	font: "mono 10";
 /*	bw: 1;*/
 	bw: 0;
 /*	location: 0;*/
