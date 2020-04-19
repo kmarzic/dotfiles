@@ -264,8 +264,14 @@ bindings.globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               { description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "d", function () awful.spawn("dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn  \"xft:Monospace:pixelsize=14:antialias=true:style=regular\" -p 'Run: '") end,
+
+    -- awful.key({ modkey,           }, "d", function () awful.spawn("dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn  \"xft:Monospace:pixelsize=14:antialias=true:style=regular\" -p 'Run: '") end,
+    --           { description = "dmenu", group = "launcher"}),
+    awful.key({ modkey,           }, "d", function () awful.spawn("rofi -show run") end,
               { description = "dmenu", group = "launcher"}),
+    awful.key({                   }, "Menu", function () awful.spawn('rofi -show run') end,
+              { description = "open rofi", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "f", function () awful.spawn(browser) end,
               { description = "firefox", group = "launcher"}),
     awful.key({ modkey, "Control" }, "m", function () awful.spawn(mail) end,
@@ -278,21 +284,27 @@ bindings.globalkeys = gears.table.join(
               { description = "virtualbox", group = "launcher"}),
     -- awful.key({ modkey,           }, "s", function () awful.spawn("xdotool search --onlyvisible --classname scratchpad windowunmap || xdotool search --classname scratchpad windowmap || urxvt -title \"scratchpad\" -name \"scratchpad\" -geometry 120x40+100+100") end,
     --           { description = "scratchpad", group="launcher"}),
-    awful.key({ modkey,           }, "s", function () awful.spawn ("scratchpad.sh") end,
+    awful.key({ modkey,           }, "s", function () awful.spawn.with_shell ("scratchpad.sh") end,
               { description = "scratchpad", group="launcher"}),
 
-    awful.key({ "Control", "Shift"   }, "l", function () awful.spawn("exit.sh lock") end,
+    awful.key({ "Control", "Shift"   }, "l", function () awful.spawn.with_shell("exit.sh lock") end,
               { description = "lock", group = "awesome"}),
-    awful.key({ "Control", "Shift"   }, "s", function () awful.spawn("exit.sh monitor_off") end,
+    awful.key({ "Control", "Shift"   }, "s", function () awful.spawn.with_shell("exit.sh monitor_off") end,
               { description = "monitor off", group = "awesome"}),
-    awful.key({ "Control", "Shift"   }, "x", function () awful.spawn("exit.sh message") end,
+    awful.key({ "Control", "Shift"   }, "x", function () awful.spawn.with_shell("exit.sh message") end,
               { description = "message", group = "awesome"}),
-    awful.key({ "Control", "Shift"   }, "m", function () awful.spawn("screen_toggle.sh -x") end,
+    awful.key({ "Control", "Shift"   }, "m", function () awful.spawn.with_shell("screen_toggle.sh -x") end,
               { description = "screen toggle", group = "awesome"}),
     -- awful.key({ "Control", "Shift"   }, "m", function() xrandr.xrandr() end,
     --           { description = "screen toggle", group = "awesome"}),
     -- awful.key({ "Control", "Shift"   }, "m", foggy.menu,
     --           { description = "screen toggle", group = "awesome"}),
+
+    -- Screenshots
+    awful.key({                   }, "Print", function () awful.spawn.with_shell ("~/bin/screenshot.sh") end,
+              { description = "select area to capture", group="screenshots"}),
+    awful.key({ modkey,           }, "Print", function () awful.spawn.with_shell ("~/bin/screenshot.sh") end,
+              { description = "select area to capture", group="screenshots"}),
 
     -- Layout change
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,

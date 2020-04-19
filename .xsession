@@ -6,8 +6,9 @@ export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/opt/ghc/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
-export PATH="$PATH:/opt/awesome/usr/local/bin"
 export PATH="$PATH:/opt/fvwm3/bin"
+export PATH="$PATH:/opt/awesome/usr/local/bin"
+export PATH="$PATH:/opt/rofi/bin"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 export LANG="en_US.UTF-8"

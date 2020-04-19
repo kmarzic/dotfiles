@@ -88,8 +88,8 @@ local vicious  = require("vicious")
 -- local foggy = require("foggy")
 
 -- Startup applications
-awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/screen_toggle.sh -x")
--- awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/trayer.sh")
+-- awful.spawn.with_shell("~/.config/awesome/screen_toggle.sh -x")
+-- awful.spawn.with_shell("~/.config/awesome/trayer.sh")
 awful.spawn.with_shell("/usr/bin/dropbox start")
 awful.spawn.with_shell("/usr/bin/nm-applet &")
 

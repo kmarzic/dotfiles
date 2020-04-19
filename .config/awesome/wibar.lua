@@ -236,10 +236,10 @@ awful.screen.connect_for_each_screen(function(s)
     -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="#2aa198"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
 
     local my_text_clock = wibox.widget.textbox()
-    -- ansi
-    -- vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
-    -- solarized white
-    vicious.register (my_text_clock, vicious.widgets.date, '<span color="#2aa198">%a %Y-%m-%d %H:%M:%S</span>', 1)
+    -- (1) ansi
+    vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
+    -- (2) solarized white
+    -- vicious.register (my_text_clock, vicious.widgets.date, '<span color="#2aa198">%a %Y-%m-%d %H:%M:%S</span>', 1)
 
     local month_calendar = awful.widget.calendar_popup.month({})
     function month_calendar.call_calendar(self, offset, position, screen)
