@@ -6,6 +6,9 @@
 local gears = require("gears")
 local awful = require("awful")
 
+-- Declarative object management
+local ruled = require("ruled")
+
 -- Theme handling library
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
@@ -21,6 +24,21 @@ local last_notification_id
 
 
 -- {{{ Notification
+ruled.notification.connect_signal('request::rules', function()
+    -- All notifications will match this rule.
+    ruled.notification.append_rule {
+        rule       = { },
+        properties = {
+            screen           = awful.screen.preferred,
+            implicit_timeout = 5,
+        }
+    }
+end)
+
+naughty.connect_signal("request::display", function(n)
+    naughty.layout.box { notification = n }
+end)
+
 -- Naughty config
 --
 -- Icon size
@@ -59,17 +77,17 @@ naughty.config.presets.ok = naughty.config.presets.low
 naughty.config.presets.info = naughty.config.presets.low
 naughty.config.presets.warn = naughty.config.presets.normal
 
--- naughty.config.presets.critical = {
---     font         = beautiful.notification_font,
---     fg           = beautiful.notification_crit_fg,
---     bg           = beautiful.notification_crit_bg,
---     border_width = beautiful.notification_border_width,
---     margin       = beautiful.notification_margin,
---     position     = beautiful.notification_position
--- }
+naughty.config.presets.critical = {
+    font         = beautiful.notification_font,
+    fg           = beautiful.notification_crit_fg,
+    bg           = beautiful.notification_crit_bg,
+    border_width = beautiful.notification_border_width,
+    margin       = beautiful.notification_margin,
+    position     = beautiful.notification_position
+}
 
-naughty.config.presets.critical.bg = beautiful.notification_crit_bg
-naughty.config.presets.critical.fg = beautiful.notification_crit_fg
+-- naughty.config.presets.critical.bg = beautiful.notification_crit_bg
+-- naughty.config.presets.critical.fg = beautiful.notification_crit_fg
 
 -- Battery notifications
 local function trim(s)

@@ -108,10 +108,12 @@ local function set_wallpaper(s)
     end
 end
 
+screen.connect_signal("request::wallpaper", set_wallpaper)
+
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
-awful.screen.connect_for_each_screen(function(s)
+screen.connect_signal("request::desktop_decoration", function(s)
     -- Wallpaper
     -- set_wallpaper(s)
 
@@ -126,18 +128,17 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
-    s.mylayoutbox:buttons(
-        gears.table.join(
+    s.mylayoutbox = awful.widget.layoutbox {
+        screen  = s,
+        buttons = {
             awful.button({ }, 1, function () awful.layout.inc( 1) end),
             awful.button({ }, 3, function () awful.layout.inc(-1) end),
             awful.button({ }, 4, function () awful.layout.inc( 1) end),
-            awful.button({ }, 5, function () awful.layout.inc(-1) end)
-        )
-    )
+            awful.button({ }, 5, function () awful.layout.inc(-1) end),
+        }
+    }
 
     -- Create a taglist widget
-    -- (1) new awesome version
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
@@ -148,11 +149,8 @@ awful.screen.connect_for_each_screen(function(s)
             font  = beautiful.font,
         },
     }
-    -- (2) old awesome version
-    -- s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, taglist_buttons)
 
     -- Create a tasklist widget
-    -- (1) new awesome version
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
@@ -163,8 +161,6 @@ awful.screen.connect_for_each_screen(function(s)
             font  = beautiful.font,
         },
     }
-    -- (2) old awesome version
-    -- s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- System Widgets
     -- local my_keyboard_layout = awful.widget.keyboardlayout()

@@ -15,13 +15,20 @@ require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
 
--- Notification library
-local naughty = require("naughty")
-local menubar = require("menubar")
-
 -- Theme handling library
 local beautiful = require("beautiful")
 local xresources = require("beautiful.xresources")
+
+-- Notification library
+local naughty = require("naughty")
+
+-- Declarative object management
+local ruled = require("ruled")
+local menubar = require("menubar")
+local hotkeys_popup = require("awful.hotkeys_popup")
+-- Enable hotkeys help widget for VIM and other apps
+-- when client with a matching name is opened:
+require("awful.hotkeys_popup.keys")
 
 local config_path = os.getenv("HOME") .. "/.config/awesome/"
 local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/"
@@ -50,14 +57,15 @@ local theme_name = "ansi"
 beautiful.init( theme_dir .. theme_name .. "/theme.lua" )
 
 -- Local
-local bindings = require("bindings")
-local helpers  = require("helpers")
-local layouts  = require("layouts")
-local menu     = require("menu")
-local notifs   = require("notifications")
-local rules    = require("rules")
-local signals  = require("signals")
-local wibar    = require("wibar")
+local bindings  = require("bindings")
+local helpers   = require("helpers")
+local layouts   = require("layouts")
+local menu      = require("menu")
+local notifs    = require("notifications")
+local rules     = require("rules")
+local signals   = require("signals")
+local titlebars = require("titlebars")
+local wibar     = require("wibar")
 
 -- -- Sharedtags
 -- -- https://github.com/Drauthius/awesome-sharedtags
@@ -79,13 +87,21 @@ local wibar    = require("wibar")
 -- https://github.com/vicious-widgets/vicious.git
 local vicious  = require("vicious")
 
--- Xrandr
+-- -- Xrandr
 -- -- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
 -- local xrandr = require("xrandr")
 
 -- -- Foggy
 -- -- https://gitlab.com/k3rni/foggy
 -- local foggy = require("foggy")
+
+-- -- awesome-scratch
+-- -- https://github.com/notnew/awesome-scratch
+-- local scratch = require("awesome-scratch/scratch")
+
+-- -- scratch
+-- -- https://github.com/proteansec/awesome-scratch
+-- local scratch = require("scratch")
 
 -- Startup applications
 -- awful.spawn.with_shell("~/.config/awesome/screen_toggle.sh -x")
