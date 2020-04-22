@@ -114,9 +114,6 @@ screen.connect_signal("request::wallpaper", set_wallpaper)
 screen.connect_signal("property::geometry", set_wallpaper)
 
 screen.connect_signal("request::desktop_decoration", function(s)
-    -- Wallpaper
-    -- set_wallpaper(s)
-
     -- (1) Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
     -- (2) Tags on all screens

@@ -22,10 +22,9 @@ ruled.client.connect_signal("request::rules", function()
             raise     = true,
             screen    = awful.screen.preferred,
             placement = awful.placement.no_overlap+awful.placement.no_offscreen,
---
             border_width = beautiful.border_width,
             border_color = beautiful.border_normal,
-            screen = awful.screen.preferred,
+            -- screen = awful.screen.preferred,
             size_hints_honor = false,
             honor_workarea = true,
             honor_padding = true,
@@ -39,8 +38,6 @@ ruled.client.connect_signal("request::rules", function()
             instance = {
                 "copyq",
                 "pinentry",
-                "Exit",        -- exit.sh
-                "scratchpad",  -- scratchpad.sh
             },
             class    = {
                 "Arandr",
@@ -51,12 +48,14 @@ ruled.client.connect_signal("request::rules", function()
                 "Tor Browser",
                 "Wpa_gui",
                 "veromix",
-                "xtightvncviewer"
+                "xtightvncviewer",
             },
             -- Note that the name property shown in xprop might be set slightly after creation of the client
             -- and the name shown there might not match defined rules here.
             name    = {
                 "Event Tester",  -- xev.
+                "Exit",          -- exit.sh
+                "scratchpad",    -- scratchpad.sh
             },
             role    = {
                 "AlarmWindow",    -- Thunderbird's calendar.
@@ -70,8 +69,17 @@ ruled.client.connect_signal("request::rules", function()
     -- Add titlebars to normal clients and dialogs
     ruled.client.append_rule {
         id         = "titlebars",
-        rule_any   = { type = { "normal", "dialog" } },
+        rule_any   = {
+            type = { "normal", "dialog" },
+        },
         properties = { titlebars_enabled = true      }
+    }
+
+    ruled.client.append_rule {
+        rule_any   = {
+            class = { "Exit", "Xmessage" },
+        },
+        properties = { floating=true, titlebars_enabled = true }
     }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -90,12 +98,13 @@ ruled.client.connect_signal("request::rules", function()
                 "Chromium-browser",
                 "Chrome",
                 "Opera",
+                "Navigator",
                 "Firefox",
                 "Firefox-esr",
                 "Mozilla Firefox",
             },
-            properties = { tag = "5" }
-        }
+        },
+        properties = { tag = "5" }
     }
 
     ruled.client.append_rule
@@ -109,8 +118,8 @@ ruled.client.connect_signal("request::rules", function()
                 "Microsoft Teams Notification",
                 "Skype",
             },
-            properties = { tag = "7" }
-        }
+        },
+        properties = { tag = "7" }
     }
 
     ruled.client.append_rule
@@ -122,8 +131,8 @@ ruled.client.connect_signal("request::rules", function()
                 "Oracle VM VirtualBox Manager",
                 "VirtualBox Manager",
             },
-            properties = { tag = "8" }
-        }
+        },
+        properties = { tag = "8" }
     }
 
     ruled.client.append_rule
@@ -135,8 +144,8 @@ ruled.client.connect_signal("request::rules", function()
                 "Evolution",
                 "Mozilla Thunderbird",
             },
-            properties = { tag = "9" }
-        }
+        },
+        properties = { tag = "9" }
     }
 
 end)

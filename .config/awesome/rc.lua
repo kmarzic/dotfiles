@@ -87,22 +87,6 @@ local wibar     = require("wibar")
 -- https://github.com/vicious-widgets/vicious.git
 local vicious  = require("vicious")
 
--- -- Xrandr
--- -- https://raw.githubusercontent.com/awesomeWM/awesome-www/master/recipes/xrandr.lua
--- local xrandr = require("xrandr")
-
--- -- Foggy
--- -- https://gitlab.com/k3rni/foggy
--- local foggy = require("foggy")
-
--- -- awesome-scratch
--- -- https://github.com/notnew/awesome-scratch
--- local scratch = require("awesome-scratch/scratch")
-
--- -- scratch
--- -- https://github.com/proteansec/awesome-scratch
--- local scratch = require("scratch")
-
 -- Startup applications
 -- awful.spawn.with_shell("~/.config/awesome/screen_toggle.sh -x")
 -- awful.spawn.with_shell("~/.config/awesome/trayer.sh")
