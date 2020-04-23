@@ -54,8 +54,6 @@ ruled.client.connect_signal("request::rules", function()
             -- and the name shown there might not match defined rules here.
             name    = {
                 "Event Tester",  -- xev.
-                "Exit",          -- exit.sh
-                "scratchpad",    -- scratchpad.sh
             },
             role    = {
                 "AlarmWindow",    -- Thunderbird's calendar.
@@ -75,11 +73,38 @@ ruled.client.connect_signal("request::rules", function()
         properties = { titlebars_enabled = true      }
     }
 
+    -- exit.sh
     ruled.client.append_rule {
         rule_any   = {
             class = { "Exit", "Xmessage" },
         },
-        properties = { floating=true, titlebars_enabled = true }
+        properties = { floating = true, titlebars_enabled = true }
+    }
+
+    -- scratchpad.sh
+    ruled.client.append_rule {
+        rule_any   = {
+            name = { "scratchpad" },
+        },
+        properties = { floating = true, sticky = true, width = 1200, height = 800 }
+    }
+
+    -- teams notification
+    ruled.client.append_rule {
+        id = "teams_notification",
+        rule_any = {
+            name = { "Microsoft Teams Notification" },
+        },
+        properties = {
+            titlebars_enabled = false,
+            floating = true,
+            focus = false,
+            draw_backdrop = false,
+            skip_decoration = true,
+            skip_taskbar = true,
+            ontop = true,
+            sticky = true,
+        },
     }
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
