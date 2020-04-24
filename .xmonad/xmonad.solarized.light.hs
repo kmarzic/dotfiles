@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-03-21 14:18:36 (CET)
+-- Last update: 2020-04-24 06:37:47 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -192,7 +192,8 @@ help = unlines
   ]
 
 fontRegular :: String
-fontRegular = "xft:monospace:pixelsize=14:antialias=true:style=regular"
+-- fontRegular = "xft:monospace:pixelsize=14:antialias=true:style=regular"
+fontRegular = "xft:monospace:pixelsize=13:antialias=true:style=regular"
 
 fontBold :: String
 fontBold = "xft:monospace:pixelsize=14:antialias=true:style=bold"
@@ -1023,9 +1024,9 @@ main = do
   -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
   xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
   --
-  -- (3) i3status
-  -- xmobar1 <- spawnPipe i3statusCommand1
-  -- xmonad $ myConfigAnsi xmobar1 1 -- theme: ansi
+  -- (3) lemonbar
+  -- lemonbar1 <- spawnPipe lemonbarCommand1
+  -- xmonad $ myConfigAnsi lemonbar1 1 -- theme: ansi
   -- xmonad $ myConfigMonokai xmobar1 1 -- theme: edge dark
   -- xmonad $ myConfigNord xmobar1 1 -- theme: nord
   -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
