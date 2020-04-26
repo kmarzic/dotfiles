@@ -1,12 +1,17 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-03-09 15:17:24 (CET)
+## Last update: 2020-04-26 10:01:14 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
 unbind-key l
 set-option -g prefix C-a
 bind-key C-a send-prefix
+
+## If running inside tmux ($TMUX is set), then change the status line to red
+%if #{TMUX}
+set -g status-bg red
+%endif
 
 ## sessions
 # new-session -s root
@@ -77,6 +82,8 @@ set-window-option -g alternate-screen on
 ## mouse mode
 set-option -g mouse off
 set-window-option -g mouse off
+unbind -n MouseDrag1Pane
+unbind -Tcopy-mode MouseDrag1Pane
 
 ## use xterm keys
 set-window-option -g xterm-keys on
@@ -121,6 +128,9 @@ bind-key r source-file ~/.tmux.conf\; display "Reloaded config"
 ## Toggle synchronization
 bind e setw synchronize-panes on
 bind E setw synchronize-panes off
+
+## Keep windows around after they exit
+# set -g remain-on-exit on
 
 #### ## Clipboard integration
 #### ## ctrl+c to send to clipboard
