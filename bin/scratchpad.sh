@@ -5,7 +5,7 @@ function __scratchpad_1()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
-      || urxvt -title "scratchpad" -name "scratchpad" -geometry 140x40+100-100 -fn "xft:Monospace:pixelsize=14:antialias=true:style=bold"
+      || urxvt -title "scratchpad" -name "scratchpad" -geometry 140x40+100-100 -fn "xft:monospace:pixelsize=14:antialias=true:style=bold"
 }
 
 function __scratchpad_2()
