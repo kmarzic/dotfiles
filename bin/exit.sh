@@ -39,8 +39,7 @@ function __logout()
 {
     [ $(ps -ef | grep "xmonad-x86_64-linux" | wc -l) -gt 0 ] && pkill xmonad; \
     [ $(ps -ef | grep "awesome" | wc -l) -gt 0 ] && pkill awesome; \
-    [ $(ps -ef | grep "dwh.sh" | wc -l) -gt 0 ] && pkill dwh.sh; \
-    [ $(ps -ef | grep "spectrwm" | wc -l) -gt 0 ] && pkill spectrwm; \
+    [ $(ps -ef | grep "dwm.sh" | wc -l) -gt 0 ] && pkill dwm.sh; \
     [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; \
     pkill -x panel; pkill -x panel; \
     [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
