@@ -78,7 +78,7 @@ ruled.client.connect_signal("request::rules", function()
         rule_any   = {
             class = { "Exit", "Xmessage" },
         },
-        properties = { floating = true, titlebars_enabled = true }
+        properties = { floating = true, titlebars_enabled = true, sticky = true, width = 800, height = 80 }
     }
 
     -- scratchpad.sh

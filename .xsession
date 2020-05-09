@@ -4,8 +4,10 @@
 #### ENV
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
-export PATH="$PATH:/opt/ghc/bin"
-export PATH="$PATH:$HOME/.cabal/bin"
+# export PATH="$PATH:/opt/ghc/bin"
+# export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:/opt/fluxbox/bin"
 export PATH="$PATH:/opt/fvwm3/bin"
 export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
 export PATH="$PATH:/opt/awesome/bin"
@@ -30,13 +32,16 @@ export TERMINAL=urxvt
 echo "" > ~/.xsession-errors
 
 #### awesome
-# exec awesome || exec urxvt
+exec awesome || exec urxvt
 
 #### bspwm
 # exec bspwm || exec urxvt
 
 #### dwm
 # exec dwm.sh || exec urxvt
+
+#### fluxbox
+# exec fluxbox || exec urxvt
 
 #### fvwm3
 # exec fvwm3 || exec urxvt
@@ -54,19 +59,19 @@ echo "" > ~/.xsession-errors
 # exec stumpwm || exec urxvt
 
 #### xmonad
-[[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.ansi.hs xmonad.hs && cd -
+# [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.ansi.hs xmonad.hs && cd -
 # [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.dark.hs xmonad.hs && cd -
 # [[ ! -e ~/.xmonad/xmonad.hs ]] && cd ~/.xmonad && ln -s xmonad.solarized.light.hs xmonad.hs && cd -
-[[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.ansi.hs xmobar.hs && cd -
+# [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.ansi.hs xmobar.hs && cd -
 # [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.dark.hs xmobar.hs && cd -
 # [[ ! -e ~/.xmonad/xmobar.hs ]] && cd ~/.xmonad && ln -s xmobar.solarized.light.hs xmobar.hs && cd -
 ## (1)
-cd ~/data/cabal/xmonad
-cabal v1-exec -- xmonad --recompile
-cd ~/
+# cd ~/data/cabal/xmonad
+# cabal v1-exec -- xmonad --recompile
+# cd ~/
 ## (2)
 # xmonad --recompile
 ##
-exec xmonad || exec urxvt
+# exec xmonad || exec urxvt
 
 #### END
