@@ -73,6 +73,7 @@ theme.tasklist_shape_border_color_focus = "#00ffff"
 theme.wibar_border_width = dpi(1)
 theme.wibar_border_color = "#666666"
 theme.wibar_height = dpi(25)
+theme.wibar_opacity = 0.7
 
 -- | Wibox | --
 theme.bg_wibox = "#666666"

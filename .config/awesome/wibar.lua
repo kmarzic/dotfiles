@@ -29,12 +29,12 @@ local vicious  = require("vicious")
 -- {{{ Wibar
 local my_update_interval = 15
 local my_update_interval_weather = 3600
-local my_update_interval_network = 5
+local my_update_interval_network = 1
 local my_update_interval_wifi = 5
 local dpi = xresources.apply_dpi
 local pad = helpers.pad
 
-local mytags = {
+local my_tags = {
     tags = {
         { names =  { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" },
           layout = { awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1], awful.layout.layouts[1],
@@ -118,7 +118,7 @@ screen.connect_signal("request::desktop_decoration", function(s)
     awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }, s, awful.layout.layouts[1])
     -- (2) Tags on all screens
     -- screen_index = s.index
-    -- awful.tag(mytags.tags[screen_index].names, s, mytags.tags[screen_index].layout)
+    -- awful.tag(my_tags.tags[screen_index].names, s, my_tags.tags[screen_index].layout)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -207,24 +207,26 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="#2aa198"><b>$2MB $1%</b></span>', my_update_interval)
 
     local my_network = wibox.widget.textbox()
-    -- (***) dle6440
+    -- (****) dle6440
     -- (1) ansi
     -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) solarized white
     -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="#2aa198"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="#2aa198"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
-    -- (***) elxa4n8pyf2
+    --
+    -- (****) elxa4n8pyf2
     -- (1) ansi
     vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) solarized white
     -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="#2aa198"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="#2aa198"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
 
     local my_wifi = wibox.widget.textbox()
-    -- (***) dle6440
+    -- (****) dle6440
     -- (1) ansi
     -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
     -- (2) solarized white
     -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="#2aa198"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
-    -- (***) elxa4n8pyf2
+    --
+    -- (****) elxa4n8pyf2
     -- (1) ansi
     vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
     -- (2) solarized white
@@ -236,12 +238,12 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- (2) solarized white
     -- vicious.register (my_text_clock, vicious.widgets.date, '<span color="#2aa198">%a %Y-%m-%d %H:%M:%S</span>', 1)
 
-    local month_calendar = awful.widget.calendar_popup.month({})
-    function month_calendar.call_calendar(self, offset, position, screen)
+    local my_month_calendar = awful.widget.calendar_popup.month({})
+    function my_month_calendar.call_calendar(self, offset, position, screen)
         local screen = awful.screen.focused()
         awful.widget.calendar_popup.call_calendar(self, offset, position, screen)
     end
-    month_calendar:attach(my_text_clock, "br" )
+    my_month_calendar:attach(my_text_clock, "br" )
 
     local my_volume = wibox.widget.textbox()
     -- vicious.register(my_volume, vicious.widgets.volume, '<span color="cyan"> <b>$2 $1%</b></span>', 1, "Master")
@@ -305,6 +307,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- s.systray.visible = false
     -- (2) visible
     s.systray.visible = true
+    -- position
+    -- local s1 = awful.screen.focused()
+    -- s.systray:set_screen (s1)
 
     -- Create the wibox
     -- (1) top
@@ -343,6 +348,27 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.systray,
         },
     }
+
+    my_volume:connect_signal("mouse::enter", function()
+        -- change cursor
+        local w = mouse.current_wibox
+        old_cursor, old_wibox = w.cursor, w
+        w.cursor = "cross"
+
+        -- stats visible
+        awful.screen.focused().stats.visible = true
+    end)
+
+    my_volume:connect_signal("mouse::leave", function()
+    if old_wibox then
+        -- change cursor
+        old_wibox.cursor = old_cursor
+        old_wibox = nil
+
+        -- stats visible
+        awful.screen.focused().stats.visible = false
+    end
+end)
 end)
 -- }}}
 

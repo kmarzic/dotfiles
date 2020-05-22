@@ -31,7 +31,7 @@ ruled.client.connect_signal("request::rules", function()
         }
     }
 
-    -- Floating clients.
+    -- Floating clients
     ruled.client.append_rule {
         id       = "floating",
         rule_any = {
