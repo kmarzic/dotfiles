@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-05-17 07:03:31 (CEST)
+!! Last update: 2020-05-21 21:36:41 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -429,7 +429,8 @@ pterm.Colour21: 253,246,227
 !! st
 !! ---------------------------------------------------------------------
 
-st.alpha: 0.90
+! st.alpha: 100
+st.opacity: 240
 st.termname: st-256color
 st.shell: /bin/bash
 st.background: red
@@ -439,6 +440,11 @@ st.borderpx: 2
 ! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
 ! st.font: xft:monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
 st.font: monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
+st.bellvolume: 100
+st.tabspaces: 8
+st.chscale: 1.0
+st.cwscale: 1.0
+st.prompt_char: $
 
 
 !! ---------------------------------------------------------------------
