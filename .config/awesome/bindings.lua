@@ -356,7 +356,7 @@ awful.keyboard.append_global_keybindings({
               { description = "toggle systray visibility", group = "custom"}),
 
     -- Toggle Stats
-    awful.key({ modkey            }, "-", function () awful.screen.focused().stats.visible = not awful.screen.focused().stats.visible end,
+    awful.key({ modkey            }, "-", function () awful.screen.focused().stats0.visible = not awful.screen.focused().stats0.visible end,
               { description = "toggle stats visibility", group = "custom"}),
 
     -- Brightness

@@ -183,6 +183,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
 theme.icon_theme = nil
 theme.icon_batt = theme_dir.."icons/battery_charging.png"
+theme.icon_cpu  = theme_dir.."icons/cpu.png"
 
 -- Notifications
 theme.notification_position = "top_right"

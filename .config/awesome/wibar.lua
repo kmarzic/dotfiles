@@ -27,7 +27,7 @@ local vicious  = require("vicious")
 
 
 -- {{{ Wibar
-local my_update_interval = 15
+local my_update_interval = 10
 local my_update_interval_weather = 3600
 local my_update_interval_network = 1
 local my_update_interval_wifi = 5
@@ -159,7 +159,9 @@ screen.connect_signal("request::desktop_decoration", function(s)
         },
     }
 
+    -------------------------------------------------------------------------
     -- System Widgets
+    -------------------------------------------------------------------------
     -- local my_keyboard_layout = awful.widget.keyboardlayout()
     -- local my_cpu_temp = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh temp"]], update_interval)
     -- local my_cpu_load = awful.widget.watch([[bash -c "~/.config/awesome/watch.sh load"]], update_interval)
@@ -170,19 +172,59 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- local month_calendar = awful.widget.calendar_popup.month()
     -- month_calendar:attach(my_text_clock, "br")
 
-    -- Vicious Widgets
-    local my_cpu_temp = wibox.widget.textbox()
+    -------------------------------------------------------------------------
+    -- Vicious Widgets CPU
+    -------------------------------------------------------------------------
+    local my_cpu_temp_1 = wibox.widget.textbox()
     -- (1) ansi
-    vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
+    vicious.register (my_cpu_temp_1, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="cyan"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
     -- (2) solarized white
-    -- vicious.register (my_cpu_temp, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="#2aa198"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
+    -- vicious.register (my_cpu_temp_1, vicious.widgets.thermal, '<span>CPU Temp: </span><span color="#2aa198"><b>$1&#8451;</b></span>', my_update_interval, "thermal_zone0")
 
-    local my_cpu_load = wibox.widget.textbox()
+    local my_cpu_temp_2 = wibox.widget.textbox()
     -- (1) ansi
-    vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>CPU Load: </span><span color="cyan"><b>$1%</b></span>', my_update_interval)
+    vicious.register (my_cpu_temp_2, vicious.widgets.thermal, '<span color="cyan">$1&#8451;</span>', my_update_interval, "thermal_zone0")
     -- (2) solarized white
-    -- vicious.register (my_cpu_load, vicious.widgets.cpu, '<span>CPU Load: </span><span color="#2aa198"><b>$1%</b></span>', my_update_interval)
+    -- vicious.register (my_cpu_temp_2, vicious.widgets.thermal, '<span color="#2aa198">$1&#8451;</span>', my_update_interval, "thermal_zone0")
 
+    local my_cpu_load_1 = wibox.widget.textbox()
+    -- (1) ansi
+    vicious.register (my_cpu_load_1, vicious.widgets.cpu, '<span>CPU Load: </span><span color="cyan"><b>$1%</b></span>', my_update_interval)
+    -- (2) solarized white
+    -- vicious.register (my_cpu_load_1, vicious.widgets.cpu, '<span>CPU Load: </span><span color="#2aa198"><b>$1%</b></span>', my_update_interval)
+    --
+    local my_cpu_load_2 = wibox.widget.textbox()
+    -- (1) ansi
+    vicious.register (my_cpu_load_2, vicious.widgets.cpu, '<span color="cyan">$1%</span>', my_update_interval)
+    -- (2) solarized white
+    -- vicious.register (my_cpu_load_2, vicious.widgets.cpu, '<span color="#2aa198">$1%</span>', my_update_interval)
+
+    local my_cpu_graph = awful.widget.graph()
+    my_cpu_graph:set_width(200)
+    my_cpu_graph:set_background_color("#000000")
+    my_cpu_graph:set_color(
+    {
+        type = "linear",
+        from = { 0, 0 },
+        to = { 10,0 },
+        stops = {
+            {0, "#FF5656"},
+            {0.5, "#88A175"},
+            {1, "#AECF96" }
+        },
+    })
+    vicious.register(my_cpu_graph, vicious.widgets.cpu, " $1")
+
+    local my_cpu_icon = wibox.widget.imagebox(beautiful.icon_cpu)
+    my_cpu_icon.resize = true
+    -- my_cpu_icon.forced_width = dpi(20)
+    -- my_cpu_icon.forced_height = dpi(20)
+
+    local my_cpu_text = wibox.widget.textbox('<span color="cyan">CPU:</span>')
+
+    -------------------------------------------------------------------------
+    -- Vicious Widgets ACPI
+    -------------------------------------------------------------------------
     local my_acpi_1 = wibox.widget.textbox()
     -- (1) ansi
     vicious.register (my_acpi_1, vicious.widgets.bat, '<span>Battery: </span><span color="cyan"><b>$1$2% $3 $4</b></span>', my_update_interval, "BAT0")
@@ -200,53 +242,103 @@ screen.connect_signal("request::desktop_decoration", function(s)
     -- my_battery_icon.forced_width = dpi(20)
     -- my_battery_icon.forced_height = dpi(20)
 
-    local my_mem = wibox.widget.textbox()
+    -------------------------------------------------------------------------
+    -- Vicious Widgets Memory
+    -------------------------------------------------------------------------
+    local my_mem_1 = wibox.widget.textbox()
     -- (1) ansi
-    vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="cyan"><b>$2MB $1%</b></span>', my_update_interval)
+    vicious.register (my_mem_1, vicious.widgets.mem, '<span>RAM: </span><span color="cyan"><b>$2MB $1%</b></span>', my_update_interval)
     -- (2) solarized white
-    -- vicious.register (my_mem, vicious.widgets.mem, '<span>RAM: </span><span color="#2aa198"><b>$2MB $1%</b></span>', my_update_interval)
+    -- vicious.register (my_mem_1, vicious.widgets.mem, '<span>RAM: </span><span color="#2aa198"><b>$2MB $1%</b></span>', my_update_interval)
 
+    local my_mem_2 = wibox.widget.textbox()
+    -- (1) ansi
+    vicious.register (my_mem_2, vicious.widgets.mem, '<span color="orange">$2MB $1%</span>', my_update_interval)
+    -- (2) solarized white
+    -- vicious.register (my_mem_2, vicious.widgets.mem, '<span color="#2aa198">$2MB $1%</span>', my_update_interval)
+
+    my_mem_graph = wibox.widget.progressbar()
+    my_mem_graph:set_width(100)
+    my_mem_graph:set_forced_height(50)
+    my_mem_graph:set_forced_width(100)
+    my_mem_graph:set_vertical(true)
+    my_mem_graph:set_background_color("#000000")
+    my_mem_graph:set_border_color(nil)
+    my_mem_graph:set_color(
+    {
+        type = "linear",
+        from = { 0, 0 },
+        to = { 10,0 },
+        stops = {
+            {0, "#AECF96"},
+            {0.5, "#88A175"},
+            {1, "#FF5656"}
+        },
+    })
+    vicious.register(my_mem_graph, vicious.widgets.mem, "$1", my_update_interval)
+
+    local my_mem_text = wibox.widget.textbox('<span color="orange">MEM:</span>')
+
+    -------------------------------------------------------------------------
+    -- Vicious Widgets Network
+    -------------------------------------------------------------------------
     local my_network = wibox.widget.textbox()
     -- (****) dle6440
     -- (1) ansi
-    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
+    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) solarized white
     -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="#2aa198"><b>&#8593; ${eno1 up_kb}kB/s &#8595; ${eno1 down_kb}kB/s</b></span>\rWifi: <span color="#2aa198"><b>&#8593; ${wlan0 up_kb}kB/s &#8595; ${wlan0 down_kb}kB/s</b></span>', my_update_interval_network)
     --
     -- (****) elxa4n8pyf2
     -- (1) ansi
-    vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
+    -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="cyan"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="cyan"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
     -- (2) solarized white
     -- vicious.register (my_network, vicious.widgets.net, '<span>Eth: </span><span color="#2aa198"><b>&#8593; ${enp0s31f6 up_kb}kB/s &#8595; ${enp0s31f6 down_kb}kB/s</b></span>\rWifi: <span color="#2aa198"><b>&#8593; ${wlp1s0 up_kb}kB/s &#8595; ${wlp1s0 down_kb}kB/s</b></span>', my_update_interval_network)
 
     local my_wifi = wibox.widget.textbox()
     -- (****) dle6440
     -- (1) ansi
-    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
+    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
     -- (2) solarized white
     -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="#2aa198"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlan0")
     --
     -- (****) elxa4n8pyf2
     -- (1) ansi
-    vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
+    -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="cyan"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
     -- (2) solarized white
     -- vicious.register (my_wifi, vicious.widgets.wifiiw, '<span>Wifi: </span><span color="#2aa198"><b>${bssid}, ${ssid}, ${mode}, ${chan} ch, ${rate} (Mb/s), ${freq} MHz, ${linp}%, ${txpw} dBm, ${sign} dBM</b></span>', my_update_interval_wifi, "wlp1s0")
 
+    -------------------------------------------------------------------------
+    -- Clock / Calendar
+    -------------------------------------------------------------------------
     local my_text_clock = wibox.widget.textbox()
     -- (1) ansi
     vicious.register (my_text_clock, vicious.widgets.date, '<span color="cyan">%a %Y-%m-%d %H:%M:%S</span>', 1)
     -- (2) solarized white
     -- vicious.register (my_text_clock, vicious.widgets.date, '<span color="#2aa198">%a %Y-%m-%d %H:%M:%S</span>', 1)
 
-    local my_month_calendar = awful.widget.calendar_popup.month({})
+    local my_month_calendar = awful.widget.calendar_popup.month(
+    {
+        week_numbers  = true,
+        start_sunday  = false,
+        long_weekdays = true,
+    })
+    -- local my_month_calendar = awful.widget.calendar_popup.year(
+    -- {
+    --     week_numbers  = true,
+    --     start_sunday  = false,
+    --     long_weekdays = true,
+    -- })
     function my_month_calendar.call_calendar(self, offset, position, screen)
         local screen = awful.screen.focused()
         awful.widget.calendar_popup.call_calendar(self, offset, position, screen)
     end
     my_month_calendar:attach(my_text_clock, "br" )
 
+    -------------------------------------------------------------------------
+    -- Volume
+    -------------------------------------------------------------------------
     local my_volume = wibox.widget.textbox()
-    -- vicious.register(my_volume, vicious.widgets.volume, '<span color="cyan"> <b>$2 $1%</b></span>', 1, "Master")
     vicious.register(my_volume, vicious.widgets.volume,
         function (widget, args)
             local label = {["🔉"] = "♫", ["🔈"] = "♩"}
@@ -256,15 +348,21 @@ screen.connect_signal("request::desktop_decoration", function(s)
             -- return ('<span color="#859900">%s %d%%</span>'):format(label[args[2]], args[1])
         end, 1, "Master")
 
+    -------------------------------------------------------------------------
+    -- Weather
+    -------------------------------------------------------------------------
     local my_weather = wibox.widget.textbox()
     -- (1) ansi
     vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="cyan"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
     -- (2) solarized white
     -- vicious.register(my_weather, vicious.widgets.weather, '<span>${city}: </span><span color="#2aa198"><b>${tempc}&#8451;, ${humid}%, ${windkmh}km/h, ${sky}, ${weather}</b></span>', my_update_interval_weather, "LDZA")
 
+    -------------------------------------------------------------------------
+    -- Stats
+    -------------------------------------------------------------------------
     -- Create a wibox that will only show the stats widget.
     -- Hidden by default. Can be toggled with a keybind
-    s.stats = wibox ({
+    s.stats0 = wibox ({
         visible = false,
         screen = s,
         ontop = true,
@@ -276,14 +374,14 @@ screen.connect_signal("request::desktop_decoration", function(s)
         opacity = 0.8,
         bg = beautiful.bg_wibox,
     })
-    s.stats:setup {
+    s.stats0:setup {
         pad(1),
         {
             pad(1),
-            my_cpu_temp,
-            my_cpu_load,
+            my_cpu_temp_1,
+            my_cpu_load_1,
             my_acpi_1,
-            my_mem,
+            my_mem_1,
             my_network,
             my_wifi,
             my_weather,
@@ -293,14 +391,124 @@ screen.connect_signal("request::desktop_decoration", function(s)
         pad(1),
         layout = wibox.layout.fixed.horizontal,
     }
-    s.stats:buttons(gears.table.join(
+    s.stats0:buttons(gears.table.join(
         -- Left click - Hide stats
         awful.button({ }, 1, function ()
-            s.stats.visible = false
+            s.stats0.visible = false
         end)
     ))
 
+    -- Create a wibox that will only show the stats widget.
+    s.stats_cpu = wibox ({
+        visible = false,
+        screen = s,
+        ontop = true,
+        shape = helpers.rrect(beautiful.border_radius),
+        width = dpi(400),
+        height = dpi(100),
+        x = dpi(50),
+        y = dpi(5),
+        opacity = 0.8,
+        bg = beautiful.bg_wibox,
+    })
+    s.stats_cpu:setup {
+        pad(1),
+        {
+            pad(1),
+            my_cpu_temp_1,
+            my_cpu_load_1,
+            my_cpu_graph,
+            pad(1),
+            layout = wibox.layout.fixed.vertical,
+        },
+        pad(1),
+        layout = wibox.layout.fixed.horizontal,
+    }
+    s.stats_cpu:buttons(gears.table.join(
+        -- Left click - Hide stats
+        awful.button({ }, 1, function ()
+            s.stats_cpu.visible = false
+        end)
+    ))
+
+    -- Create a wibox that will only show the stats widget.
+    s.stats_mem = wibox ({
+        visible = false,
+        screen = s,
+        ontop = true,
+        shape = helpers.rrect(beautiful.border_radius),
+        width = dpi(400),
+        height = dpi(100),
+        x = dpi(50),
+        y = dpi(5),
+        opacity = 0.8,
+        bg = beautiful.bg_wibox,
+    })
+    s.stats_mem:setup {
+        pad(1),
+        {
+            pad(1),
+            my_mem_1,
+            my_mem_graph,
+            pad(1),
+            layout = wibox.layout.fixed.vertical,
+        },
+        pad(1),
+        layout = wibox.layout.fixed.horizontal,
+    }
+    s.stats_mem:buttons(gears.table.join(
+        -- Left click - Hide stats
+        awful.button({ }, 1, function ()
+            s.stats_mem.visible = false
+        end)
+    ))
+
+    -- stats0 visible
+    my_volume:connect_signal("mouse::enter", function()
+        awful.screen.focused().stats0.visible = true
+    end)
+
+    my_volume:connect_signal("mouse::leave", function()
+        awful.screen.focused().stats0.visible = false
+    end)
+
+    my_acpi_2:connect_signal("mouse::enter", function()
+        awful.screen.focused().stats0.visible = true
+    end)
+
+    my_acpi_2:connect_signal("mouse::leave", function()
+        awful.screen.focused().stats0.visible = false
+    end)
+
+    -- stats_cpu visible
+    my_cpu_load_2:connect_signal("mouse::enter", function()
+        awful.screen.focused().stats_cpu.visible = true
+    end)
+
+    my_cpu_load_2:connect_signal("mouse::leave", function()
+        awful.screen.focused().stats_cpu.visible = false
+    end)
+
+    my_cpu_temp_2:connect_signal("mouse::enter", function()
+        awful.screen.focused().stats_cpu.visible = true
+    end)
+
+    my_cpu_temp_2:connect_signal("mouse::leave", function()
+        awful.screen.focused().stats_cpu.visible = false
+    end)
+
+    -- stats_mem visible
+    my_mem_2:connect_signal("mouse::enter", function()
+        awful.screen.focused().stats_mem.visible = true
+    end)
+
+    my_mem_2:connect_signal("mouse::leave", function()
+        awful.screen.focused().stats_mem.visible = false
+    end)
+
+    -------------------------------------------------------------------------
     -- Create systray
+    -------------------------------------------------------------------------
     s.systray = wibox.widget.systray()
     -- s.systray.forced_width = dpi(80)
     -- (1) not visible
@@ -337,6 +545,16 @@ screen.connect_signal("request::desktop_decoration", function(s)
         {
             layout = wibox.layout.fixed.horizontal,
             -- layout = wibox.layout.align.horizontal,
+            my_cpu_text,
+            pad(1),
+            my_cpu_load_2,
+            pad(1),
+            my_cpu_temp_2,
+            pad(1),
+            my_mem_text,
+            pad(1),
+            my_mem_2,
+            pad(1),
             my_volume,
             pad(1),
             my_battery_icon,
@@ -348,27 +566,6 @@ screen.connect_signal("request::desktop_decoration", function(s)
             s.systray,
         },
     }
-
-    my_volume:connect_signal("mouse::enter", function()
-        -- change cursor
-        local w = mouse.current_wibox
-        old_cursor, old_wibox = w.cursor, w
-        w.cursor = "cross"
-
-        -- stats visible
-        awful.screen.focused().stats.visible = true
-    end)
-
-    my_volume:connect_signal("mouse::leave", function()
-    if old_wibox then
-        -- change cursor
-        old_wibox.cursor = old_cursor
-        old_wibox = nil
-
-        -- stats visible
-        awful.screen.focused().stats.visible = false
-    end
-end)
 end)
 -- }}}
 
