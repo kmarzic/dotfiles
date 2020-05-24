@@ -1,5 +1,5 @@
 #!/bin/bash
-export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 #### dwm status
 dwm.status.sh &

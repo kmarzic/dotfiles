@@ -1,0 +1,601 @@
+## ----------------------------------------------------------------------------
+## .bashrc.local
+## E-mail: kresimir.marzic@ericsson.com
+## Last update: 2020-05-24 12:47:01 (CEST)
+## ----------------------------------------------------------------------------
+
+## ----------------------------------------------------------------------------
+## Prompt
+## ----------------------------------------------------------------------------
+
+## Reset
+Color_Off='\e[0m'       # Text Reset
+
+## Regular Colors
+Black='\e[0;30m'        # Black
+Red='\e[0;31m'          # Red
+Green='\e[0;32m'        # Green
+Yellow='\e[0;33m'       # Yellow
+Blue='\e[0;34m'         # Blue
+Purple='\e[0;35m'       # Purple
+Cyan='\e[0;36m'         # Cyan
+White='\e[0;37m'        # White
+
+## Bold
+BBlack='\e[1;30m'       # Black
+BRed='\e[1;31m'         # Red
+BGreen='\e[1;32m'       # Green
+BYellow='\e[1;33m'      # Yellow
+BBlue='\e[1;34m'        # Blue
+BPurple='\e[1;35m'      # Purple
+BCyan='\e[1;36m'        # Cyan
+BWhite='\e[1;37m'       # White
+
+## Underline
+UBlack='\e[4;30m'       # Black
+URed='\e[4;31m'         # Red
+UGreen='\e[4;32m'       # Green
+UYellow='\e[4;33m'      # Yellow
+UBlue='\e[4;34m'        # Blue
+UPurple='\e[4;35m'      # Purple
+UCyan='\e[4;36m'        # Cyan
+UWhite='\e[4;37m'       # White
+
+## Background
+On_Black='\e[40m'       # Black
+On_Red='\e[41m'         # Red
+On_Green='\e[42m'       # Green
+On_Yellow='\e[43m'      # Yellow
+On_Blue='\e[44m'        # Blue
+On_Purple='\e[45m'      # Purple
+On_Cyan='\e[46m'        # Cyan
+On_White='\e[47m'       # White
+
+## High Intensity
+IBlack='\e[0;90m'       # Black
+IRed='\e[0;91m'         # Red
+IGreen='\e[0;92m'       # Green
+IYellow='\e[0;93m'      # Yellow
+IBlue='\e[0;94m'        # Blue
+IPurple='\e[0;95m'      # Purple
+ICyan='\e[0;96m'        # Cyan
+IWhite='\e[0;97m'       # White
+
+## Bold High Intensity
+BIBlack='\e[1;90m'      # Black
+BIRed='\e[1;91m'        # Red
+BIGreen='\e[1;92m'      # Green
+BIYellow='\e[1;93m'     # Yellow
+BIBlue='\e[1;94m'       # Blue
+BIPurple='\e[1;95m'     # Purple
+BICyan='\e[1;96m'       # Cyan
+BIWhite='\e[1;97m'      # White
+
+## High Intensity backgrounds
+On_IBlack='\e[0;100m'   # Black
+On_IRed='\e[0;101m'     # Red
+On_IGreen='\e[0;102m'   # Green
+On_IYellow='\e[0;103m'  # Yellow
+On_IBlue='\e[0;104m'    # Blue
+On_IPurple='\e[0;105m'  # Purple
+On_ICyan='\e[0;106m'    # Cyan
+On_IWhite='\e[0;107m'   # White
+
+## stty columns 1000
+ALERT=${BWhite}${On_Red} # Bold White on red background
+
+## Window
+if [ ! -z "${WINDOW}" ];
+then
+   # __PROMPT_WINDOW="[\[${BRed}\]${WINDOW}\[${Color_Off}\]]"
+   __PROMPT_WINDOW=" [${WINDOW}]"
+else
+   __PROMPT_WINDOW=""
+fi
+
+## Git branch
+function __parse_git_branch()
+{
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
+# __GIT_BRANCH="\[${BRed}\]\$(__parse_git_branch)\[${Color_Off}\]"
+__GIT_BRANCH="\$(__parse_git_branch)"
+
+## Black and white
+# export PS1="\u@\h:\w \\$ \[$(tput sgr0)\]"
+## Color (light)
+# export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h:\[\e[33m\]\w\[\e[0m\] \$ "
+## Color (full)
+# export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BYellow}\]\w\[${Color_Off}\]\[${__PROMPT_WINDOW}\]\[${__GIT_BRANCH}\]\[${BGreen}\] \$\[${NC}\]\[${Color_Off}\] "
+# export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BYellow}\]\w\[${Color_Off}\]\[${__PROMPT_WINDOW}\]\[${BGreen}\] \$\[${NC}\]\[${Color_Off}\] "
+##
+# export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(__parse_git_branch)\[\033[00m\] $ "
+export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BYellow}\]\w\[${BRed}\]\[${__PROMPT_WINDOW}\]${__GIT_BRANCH}\[${Color_Off}\] $ "
+
+# PROMPT_COMMAND='echo -ne "\033]2;${PWD/#${HOME}/\~}\007"'
+
+
+## ----------------------------------------------------------------------------
+## System Settings
+## ----------------------------------------------------------------------------
+
+## Dircolors
+if [ -f ~/.coloursrc ];
+then
+    eval $(dircolors -b ~/.coloursrc)
+else
+    if [ -f /etc/coloursrc ];
+    then
+        eval $(dircolors -b /etc/coloursrc)
+    else
+        eval $(dircolors -b)
+    fi
+fi
+
+## history file size
+export HISTFILESIZE=1000000000
+export SAVEHIST=1000000
+export HISTSIZE=1000000
+
+## don't save duplicates
+export HISTCONTROL=erasespace:erasedups:ignoredups
+
+## history ignore
+export HISTIGNORE="export*:set*:ulimit*:umask*:shopt*:complete*:alias*:stty*:eval*:#*:_*"
+
+## history time format
+export HISTTIMEFORMAT='%F %T '
+
+## maximum size of directory stack
+export DIRSTACKSIZE=10
+
+## mail spool file
+MAIL=/var/mail/$USERNAME
+
+## check for mail every 30 seconds
+MAILCHECK=30
+
+## auto logout after 30 idle minutesx
+# TMOUT=1800
+
+## report login/logout events of all except ourself
+watch=(notme)
+
+## time in seconds between checks for login/logout activity
+LOGCHECK=30
+
+## login/logout report format
+WATCHFMT='%n %a %l from %m at %t.'
+
+## don't ask 'do you wish to see all XX possibilities' before menu selection
+LISTPROMPT=''
+
+## Shell options
+## set -o
+set keymap emacs
+set -o history
+set -o monitor
+set -o notify
+set -o noclobber
+# set -o ignoreeof
+
+## useful for debuging
+# set -o nounset
+set +o nounset
+#
+# set -o xtrace
+set +o xtrace
+#
+# set -o vi
+#
+set -H
+
+## shopt command
+## shopt -p
+shopt -s autocd
+shopt -s nocaseglob
+shopt -s cdable_vars
+shopt -s cdspell
+shopt -s checkhash
+shopt -s checkwinsize
+shopt -s cmdhist
+# shopt -s dotglob
+shopt -s gnu_errfmt
+shopt -s no_empty_cmd_completion
+shopt -s expand_aliases # expand aliases
+shopt -s extglob # Necessary for programmable completion
+shopt -s histappend histreedit histverify
+shopt -s mailwarn
+# shopt -s nullglob
+shopt -s progcomp
+shopt -s sourcepath
+
+## set limits
+ulimit -S -c 0      # core file size
+#ulimit -S -f 1024   # open files
+#ulimit -S -u 256    # max user processes
+#ulimit -S -s 8192   # stack size
+
+## umask
+umask 022
+
+## ----------------------------------------------------------------------------
+## Completition
+## ----------------------------------------------------------------------------
+
+## Bash Completition
+# if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#     . /etc/bash_completion
+# fi
+
+# Make directory commands see only directories
+complete -d pushd
+
+# user commands see only users
+complete -u write chfn groups slay w sux runuser
+
+# bg completes with stopped jobs
+complete -A stopped -P '"%' -S '"' bg
+
+# other job commands
+complete -j -P '"%' -S '"' fg jobs disown
+
+# readonly and unset complete with shell variables
+complete -v readonly unset
+
+# set completes with set options
+complete -A setopt set
+
+# shopt completes with shopt options
+complete -A shopt shopt
+
+# helptopics
+complete -A helptopic help
+
+# unalias completes with aliases
+complete -a unalias
+
+# bind completes with readline bindings (make this more intelligent)
+complete -A binding bind
+
+# type and which complete on commands
+complete -c command type which
+
+# builtin completes on builtins
+complete -b builtin
+
+complete -A hostname   rsh rcp telnet rlogin r ftp ping disk
+complete -A export     printenv
+complete -A variable   export local readonly unset
+complete -A alias      alias unalias
+complete -A function   function
+complete -A user       su mail finger
+complete -A directory  mkdir rmdir
+complete -A directory  -o default cd
+
+complete -c man which
+# complete -cf sudo
+
+complete -f -o default -X '*.+(zip|ZIP)'  zip
+complete -f -o default -X '!*.+(zip|ZIP)' unzip
+complete -f -o default -X '*.+(z|Z)'      compress
+complete -f -o default -X '!*.+(z|Z)'     uncompress
+complete -f -o default -X '*.+(gz|GZ)'    gzip
+complete -f -o default -X '!*.+(gz|GZ)'   gunzip
+complete -f -o default -X '*.+(bz2|BZ2)'  bzip2
+complete -f -o default -X '!*.+(bz2|BZ2)' bunzip2
+
+complete -f -o default -X '!*.+(ps|PS)'  gs ghostview ps2pdf ps2ascii
+complete -f -o default -X '!*.+(dvi|DVI)' dvips dvipdf xdvi dviselect dvitype
+complete -f -o default -X '!*.+(pdf|PDF)' acroread pdf2ps
+complete -f -o default -X '!*.@(@(?(e)ps|?(E)PS|pdf|PDF)? (.gz|.GZ|.bz2|.BZ2|.Z))' gv ggv
+complete -f -o default -X '!*.texi*' makeinfo texi2dvi texi2html texi2pdf
+complete -f -o default -X '!*.tex' tex latex slitex
+complete -f -o default -X '!*.lyx' lyx
+complete -f -o default -X '!*.+(htm*|HTM*)' lynx html2ps
+complete -f -o default -X '!*.+(doc|DOC|xls|XLS|ppt|PPT|sx?|SX?|csv|CSV|od?|OD?|ott|OTT)' soffice
+complete -f -o default -X '!*.+(jp*g|gif|xpm|png|bmp)' xv gimp
+complete -f -o default -X '!*.+(mp3|MP3)' mpg123 mpg321
+complete -f -o default -X '!*.+(ogg|OGG)' ogg123
+complete -f -o default -X '!*.pl' perl perl5
+complete -f -o default -X '!*.pl' python3 python
+
+
+## ----------------------------------------------------------------------------
+## Exports / Variables
+## ----------------------------------------------------------------------------
+
+#### Perl old
+# export PERL5LIB=/opt/perl5
+# export PERL5LIB="/opt/perl5/cpan/lib/perl5:/opt/perl5/cpan/lib/perl5/i386-linux:/opt/perl5/cpan/lib/perl5/x86_64-linux-thread-multi-ld:/home/etkkrma/perl5/lib/perl5"
+# export PERL5OPT="-I/opt/perl5/cpan"
+# export PERL_MB_OPT='--install_base /opt/perl5/cpan'
+# export PERL_MM_OPT='INSTALL_BASE=/opt/perl5/cpan'
+# eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
+
+#### Perl new, http://www.perl.org
+eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
+#### cperl, http://perl11.org/cperl
+# eval $(perl -I/opt/cperl5/cpan/lib/perl5 -Mlocal::lib=/opt/cperl5/cpan)
+
+#### Python
+# export PYTHONPATH=$PYTHONPATH:/opt/python2.ext/lib/python2.7/site-packages/
+# export PYTHONPATH=$PYTHONPATH:/opt/python3.ext/lib/python3.4/site-packages/
+# export PYTHONPATH=$PYTHONPATH:/opt/python3.ext/lib/python3.5/site-packages/
+# export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.6/site-packages
+# export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.7/site-packages
+export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.8/site-packages
+
+#### Oracle DB
+# export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_10.2
+# export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_11.1
+export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_11.2
+# export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_12.1
+
+#### Google GO
+export GOROOT=/opt/go
+export GOPATH=/opt/go.ext
+
+#### Haskell
+export GHCROOT=/opt/ghc
+
+#### PATH
+export __PATH_ORIG="$PATH"
+export __PATH_NEW="$HOME/bin:/usr/local/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/perl5/bin:/opt/perl5/cpan/bin"
+# export __PATH_NEW="$__PATH_NEW:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
+# export __PATH_NEW="$__PATH_NEW:/opt/rakudo-star-2017.10/bin:/opt/rakudo-star-2017.10/share/perl6/site/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/python3/bin:/opt/python3.ext/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/emacs/bin"
+export __PATH_NEW="$__PATH_NEW:$ORACLE_INSTANT_CLIENT"
+export __PATH_NEW="$__PATH_NEW:$GOROOT/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/lua/bin:/opt/luarocks/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/sbcl/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/rust/bin"
+export __PATH_NEW="$__PATH_NEW:$GHCROOT/bin"
+export __PATH_NEW="$__PATH_NEW:$HOME/.cabal/bin"
+# export __PATH_NEW="$__PATH_NEW:$HOME/.local/bin"
+export PATH="$__PATH_NEW:$__PATH_ORIG"
+# PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+
+#### Lua
+export LUA_DIR=/opt/lua
+export LUA_INCLUDE_DIR=$LUA_DIR/include
+eval $(luarocks path)
+
+#### LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/X11R6/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/libc5-compat:/lib/libc5-compat:/lib/libc5-compat
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/samba
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/share/qt/lib:/usr/share/qt3/lib
+#
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_INSTANT_CLIENT
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/perl5/lib/5.30.0/x86_64-linux-thread-multi-ld/CORE
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/python3/lib
+
+export EDITOR="vim"
+export VISUAL="vim"
+export BROWSER="w3m"
+
+export PAGER="less"
+export LESS="-cex3M"
+export LESSCHARSET="utf-8"
+## LESS man page colors (makes Man pages more readable).
+##
+## ansi
+export LESS_TERMCAP_mb=$'\E[01;36m'
+export LESS_TERMCAP_md=$'\E[01;36m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+##
+## solarized dark, solarized white
+# export LESS_TERMCAP_mb=$'\E[01;34m'
+# export LESS_TERMCAP_md=$'\E[01;34m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# # export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+# export LESS_TERMCAP_so=$'\E[01;44;30m' # begin standout-mode - info box
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;32m'
+
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_TIME="en_DK.UTF-8"
+export TZ="Europe/Zagreb"
+
+export CHOST="x86_64-pc-linux-gnu"
+export CFLAGS="-march=core2 -mtune=generic -pipe"
+export CXXFLAGS="${CFLAGS}"
+
+export QMAKESPEC="linux-g++"
+export QTDIR="/usr/share/qt3"
+export TMPDIR="/tmp"
+export TEMP="/tmp"
+export TMP="/tmp"
+export LYNX_CFG="~/.lynxrc"
+export COLUMNS=80
+export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+# export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
+# export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
+# export MC_SKIN=$HOME/.config/mc/mc_edge.ini
+
+#### Proxy
+## hrzg-proxy01.etk.extern.eu.ericsson.se = 172.17.64.132
+##
+## vipbc.etk.extern.eu.ericsson.se = s400.etk.extern.eu.ericsson.se
+##                                 = ehrzgbcs400.etk.extern.eu.ericsson.se
+##                                 = cpbc1.etk.extern.eu.ericsson.se
+##                                 = 172.17.64.132
+##
+## s-proxy.ericsson.se             = www-proxy.ericsson.se
+##                                 = 153.88.253.150
+##
+# export http_proxy="http://vipbc.etk.extern.eu.ericsson.se:8080/"
+# export https_proxy="http://s-proxy.ericsson.se:8080"
+# export ftp_proxy="http://vipbc.etk.extern.eu.ericsson.se:8080/"
+# export gopher_proxy="http://s-proxy.ericsson.se:8080"
+# export wais_proxy="http://s-proxy.ericsson.se:8080"
+##
+# export http_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"
+# export https_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"
+# export ftp_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"
+# export gopher_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"
+# export wais_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"
+##
+# export http_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
+# export https_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
+# export ftp_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
+# export gopher_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
+# export wais_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
+#
+export no_proxy="0,localhost,.ericsson.se,.ericsson.com,.pzz.hr,.cezih.hr,10,192.168,172.17"
+
+export NAME="Kresimir Marzic"
+export WEB="http://www.design.etk.extern.eu.ericsson.se/~etkkrma"
+export EMAIL="kresimir.marzic@ericsson.com"
+export MAILUSER="etkkrma"
+export MAILNAME="Kresimir Marzic"
+export MAILHOST="se-smtp.ericsson.se"
+export ORGANIZATION="Ericsson Nikola Tesla d.d."
+export DEBEMAIL="kresimir.marzic@ericsson.com"
+export DEBFULLNAME="Kresimir Marzic"
+
+#### 10.01 PZZ
+## \\ehrzgmw037\T-ZG1001218
+## Canon iR C3080/3480/3580 PCL5c
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG1001218
+# export PRINTER="T-ZG1001218"
+# export LPDEST="T-ZG1001218"
+
+#### 10.01 ZIS
+## \\ehrzgmw037\T-ZG1001101K
+## Canon iR C3080/3480/3580 PCL5c
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG1001101K
+# export PRINTER="T-ZG1001101K"
+# export LPDEST="T-ZG1001101K"
+
+#### 20.03 Westgate - ZIS
+## \\ehrzgmw037\T-ZG2003100
+## Canon iR-ADV C3325 05.04 (Canon iR-ADV C3325/3330 UFR I
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG2003100
+# export PRINTER="T-ZG2003100"
+# export LPDEST="T-ZG2003100"
+
+#### 20.03 Eastgate - M2M
+## \\ehrzgmw037\T-ZG2003200
+## Canon iR-ADV C3325 05.04 (Canon iR-ADV C3325/3330 UFR I
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG2003200
+# export PRINTER="T-ZG2003200"
+# export LPDEST="T-ZG2003200"
+
+#### 40.00 Kazakhstan
+## \\ehrzgmw037\T-ZG4000003A
+## Canon iR C3080/3480/3580 PCL5c
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG4000003A
+# export PRINTER="T-ZG4000003A"
+# export LPDEST="T-ZG4000003A"
+
+#### 40.00 AXE
+## \\ehrzgmw037\T-ZG4000003
+## Canon iR C3080/3480/3580 PCL5c
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG4000003
+# export PRINTER="T-ZG4000003"
+# export LPDEST="T-ZG4000003"
+
+#### 00.01 IT
+## \\ehrzgmw037\T-ZG1000011
+## Canon iR C3080/3480/3580 PCL5c
+## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG1000011
+# export PRINTER="T-ZG1000011"
+# export LPDEST="T-ZG1000011"
+
+
+## ----------------------------------------------------------------------------
+## Aliases
+## ----------------------------------------------------------------------------
+
+alias ls='/bin/ls -aFNX --color'
+alias lsd='ls -ld *(-/DN)'
+alias lsa='ls -ld .*'
+alias dir='ls -AlFNX --color'
+alias duh='du -h --max-depth=1'
+alias md='mkdir'
+alias rd='rmdir'
+alias cls='clear'
+alias l='links'
+alias j='jobs -l'
+alias h='history'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd......='cd ../../../../..'
+
+## applications
+alias btar='tar --use-compress-program bzip2'
+alias gtar='tar --use-compress-program gzip'
+alias mc='/usr/bin/mc -c'
+alias ppp="exec /usr/sbin/pppd -detach"
+alias wget="wget -b -t0 -Y on -o wget-log"
+alias wget_str="wget -x -nc -np -r -l 999 -b -t0 -Y on"
+alias w3m="/usr/bin/w3m -T text/html -cookie"
+alias rehash="hash -r"
+alias hrchar='echo -ne "\033(K"'
+alias x='startx -- -dpi 100 -bpp 24'
+alias perlcc="pp --bundle --par -f Bleach"
+alias ssh="TERM=xterm LC_TIME=C ~/bin/ssh.log.sh ssh"
+alias duh="du --si -d1 | sort -h"
+alias python=python3
+alias tmux="/opt/tmux/bin/tmux"
+
+# alias perl='perl5.26.2'
+# alias cpan='cpan5.26.2'
+# alias perl='cperl5.28.2'
+# alias cpan='cpan5.28.2'
+# alias perl='cperl5.30.0'
+# alias cpan='cpan5.30.0'
+
+alias proxy_none='export https_proxy=""; export http_proxy=""; export ftp_proxy="";'
+alias proxy_etk1='export https_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"'
+alias proxy_etk2='export https_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"'
+alias proxy_etk3='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/; export ftp_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/'
+alias proxy_ericsson1='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://s-proxy.ericsson.se:8080/; export ftp_proxy=http://s-proxy.ericsson.se:8080/'
+alias proxy_ericsson2='export https_proxy=http://www-proxy.ericsson.se:8080; export http_proxy=http://www-proxy.ericsson.se:80/; export ftp_proxy=http://www-proxy.ericsson.se:80/'
+alias proxy_ericsson3='export https_proxy=http://www-proxy.lmera.ericsson.se:8080; export http_proxy=http://www-proxy.lmera.ericsson.se:8080; export ftp_proxy=http://www-proxy.lmera.ericsson.se:8080'
+
+alias dropbox_proxy_none="dropbox proxy none"
+alias dropbox_proxy_etk1="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
+alias dropbox_proxy_etk2="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
+
+
+## ----------------------------------------------------------------------------
+## Run
+## ----------------------------------------------------------------------------
+
+[[ -e /usr/bin/linuxlogo ]] && /usr/bin/linuxlogo
+[[ -e /usr/bin/screenfetch ]] && /usr/bin/screenfetch
+
+## Just to be safe, if not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+## Tmux
+# [[ -z "$TMUX" ]] && command -v tmux > /dev/null && exec tmux -2
+
+[[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.ansi .vimrc
+# [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.solarized.dark .vimrc
+# [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.solarized.dark .vimrc
+####
+[[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.ansi .gvimrc
+# [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.solarized.light .gvimrc
+# [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.solarized.light .gvimrc
+
+## ----------------------------------------------------------------------------
+## END
+## ----------------------------------------------------------------------------

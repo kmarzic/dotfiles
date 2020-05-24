@@ -37,7 +37,8 @@ local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/"
 dofile(config_path .. "error.lua")
 
 -- Variables
-terminal = "urxvt"
+-- terminal = "urxvt"
+terminal = "st"
 awful.util.terminal = terminal
 browser = "firefox"
 mail = "evolution"

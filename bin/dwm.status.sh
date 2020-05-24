@@ -21,7 +21,7 @@ function __load()
 function __temp()
 {
     # temp="$(sensors | grep "CPU:" | awk {' print $2 '})"
-    temp="$(acpi -t | awk  '{ print $4 " °C" }')"
+    temp="$(acpi -t | awk '{ print $4 " °C" }')"
     echo "Temp: ${temp}"
 }
 

@@ -31,13 +31,13 @@ export TERMINAL=urxvt
 echo "" > ~/.xsession-errors
 
 #### awesome
-exec awesome || exec urxvt
+# exec awesome || exec urxvt
 
 #### bspwm
 # exec bspwm || exec urxvt
 
 #### dwm
-# exec dwm.sh || exec urxvt
+exec dwm.sh || exec urxvt
 
 #### fvwm3
 # exec fvwm3 || exec urxvt

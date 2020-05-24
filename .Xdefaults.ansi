@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-05-17 07:03:31 (CEST)
+!! Last update: 2020-05-24 16:49:57 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -31,6 +31,8 @@ urxvt*foreground: #f2f2f2
 urxvt*background: #101010
 scratchpad*foreground: #d2d2d2
 scratchpad*background: #101010
+! st.background: #101010
+! st.foreground: #f2f2f2
 
 !! Normal
 ! color0  black
@@ -42,7 +44,7 @@ scratchpad*background: #101010
 ! color6  cyan
 ! color7  white
 !
-! *color0:  #000000
+*color0:  #000000
 ! *color1:  #ff0000
 ! *color2:  #00d700
 ! *color3:  #d7ff00
@@ -61,7 +63,7 @@ scratchpad*background: #101010
 ! color14 cyan
 ! color15 white
 !
-! *color8:  #000000
+*color8:  #000000
 ! *color9:  #ff0000
 ! *color10: #00d700
 ! *color11: #d7ff00

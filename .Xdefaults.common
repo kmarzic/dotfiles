@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-05-21 21:36:41 (CEST)
+!! Last update: 2020-05-24 16:49:54 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -320,9 +320,10 @@ URxvt*keysym.S-Right:        \033[1;2C
 ! URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true
 ! URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold
 ! URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style:italic
-URxvt*font: xft:monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
-URxvt*boldfont: xft:monospace:pixelsize=14:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:bold
-URxvt*italicfont: xft:monospace:pixelsize=14:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:italic
+!
+! URxvt*font: xft:monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
+! URxvt*boldfont: xft:monospace:pixelsize=14:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:bold
+! URxvt*italicfont: xft:monospace:pixelsize=14:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:italic
 !
 ! URxvt*font: xft:Monospace:pixelsize=15:antialias=true:style=regular
 ! URxvt*boldfont: xft:Monospace-Bold:pixelsize=15:antialias=true:style=bold
@@ -351,6 +352,10 @@ URxvt*italicfont: xft:monospace:pixelsize=14:style=italic,xft:Source\ Code\ Pro\
 ! URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true
 ! URxvt*boldfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:bold
 ! URxvt*italicfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:italic
+!
+URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
+URxvt*boldfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:bold
+URxvt*italicfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:italic
 
 
 !! ---------------------------------------------------------------------
@@ -429,22 +434,21 @@ pterm.Colour21: 253,246,227
 !! st
 !! ---------------------------------------------------------------------
 
-! st.alpha: 100
-st.opacity: 240
+st.alpha: 0.8
+! st.opacity: 240
 st.termname: st-256color
 st.shell: /bin/bash
-st.background: red
-st.foreground: white
-st.cursorColor: black
-st.borderpx: 2
-! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
-! st.font: xft:monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
-st.font: monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
+! st.background: #101010
+! st.foreground: #d2d2d2
+st.cursorColor: #101010
+st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
+! st.font: monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true
+! st.font: Terminus:pixelsize=16:antialias=true:style=regular
 st.bellvolume: 100
 st.tabspaces: 8
+st.borderpx: 2
 st.chscale: 1.0
 st.cwscale: 1.0
-st.prompt_char: $
 
 
 !! ---------------------------------------------------------------------

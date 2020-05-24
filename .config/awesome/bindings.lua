@@ -84,10 +84,10 @@ awful.keyboard.append_global_keybindings({
               { description = "open a terminal", group = "launcher"}),
 
     -- Menubar
-    -- awful.key({ modkey,           }, "d", function () awful.spawn("dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn  \"xft:Monospace:pixelsize=14:antialias=true:style=regular\" -p 'Run: '") end,
-    --           { description = "dmenu", group = "launcher"}),
-    awful.key({ modkey,           }, "d", function () awful.spawn("rofi -show run") end,
+    awful.key({ modkey,           }, "d", function () awful.spawn("dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn  \"xft:Monospace:pixelsize=14:antialias=true:style=regular\" -p 'Run: '") end,
               { description = "dmenu", group = "launcher"}),
+    -- awful.key({ modkey,           }, "d", function () awful.spawn("rofi -show run") end,
+    --           { description = "dmenu", group = "launcher"}),
     awful.key({                   }, "Menu", function () awful.spawn('rofi -show run') end,
               { description = "open rofi", group = "launcher"}),
 })
