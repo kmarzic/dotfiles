@@ -4,10 +4,9 @@
 #### ENV
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
-# export PATH="$PATH:/opt/ghc/bin"
-# export PATH="$PATH:$HOME/.cabal/bin"
-export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/opt/fluxbox/bin"
+export PATH="$PATH:/opt/ghc/bin"
+export PATH="$PATH:$HOME/.cabal/bin"
+# export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/fvwm3/bin"
 export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
 export PATH="$PATH:/opt/awesome/bin"
@@ -39,9 +38,6 @@ exec awesome || exec urxvt
 
 #### dwm
 # exec dwm.sh || exec urxvt
-
-#### fluxbox
-# exec fluxbox || exec urxvt
 
 #### fvwm3
 # exec fvwm3 || exec urxvt

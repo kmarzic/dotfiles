@@ -70,7 +70,7 @@ ruled.client.connect_signal("request::rules", function()
         rule_any   = {
             type = { "normal", "dialog" },
         },
-        properties = { titlebars_enabled = true      }
+        properties = { titlebars_enabled = true },
     }
 
     -- exit.sh
@@ -78,7 +78,7 @@ ruled.client.connect_signal("request::rules", function()
         rule_any   = {
             class = { "Exit", "Xmessage" },
         },
-        properties = { floating = true, titlebars_enabled = true, sticky = true, width = 800, height = 80 }
+        properties = { floating = true, titlebars_enabled = true, sticky = true, height = 200 },
     }
 
     -- scratchpad.sh
@@ -86,7 +86,7 @@ ruled.client.connect_signal("request::rules", function()
         rule_any   = {
             name = { "scratchpad" },
         },
-        properties = { floating = true, sticky = true, width = 1200, height = 800 }
+        properties = { floating = true, sticky = true, width = 1200, height = 800 },
     }
 
     -- teams notification
