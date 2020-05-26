@@ -12,7 +12,7 @@ function __scratchpad_2()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
-      || st -T "scratchpad" -t "scratchpad" -n "scratchpad"
+      || st -T "scratchpad" -t "scratchpad" -n "scratchpad" -f "monospace:pixelsize=14:antialias=true:style=bold"
 }
 
 function __scratchpad_3()
@@ -41,8 +41,8 @@ function __scratchpad_3()
 }
 
 #### MAIN
-__scratchpad_1
-# __scratchpad_2
+# __scratchpad_1
+__scratchpad_2
 # __scratchpad_3
 
 #### END
