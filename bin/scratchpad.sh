@@ -41,8 +41,8 @@ function __scratchpad_3()
 }
 
 #### MAIN
-# __scratchpad_1
-__scratchpad_2
+__scratchpad_1
+# __scratchpad_2
 # __scratchpad_3
 
 #### END

@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-05-26 19:08:20 (CEST)
+!! Last update: 2020-05-27 14:56:55 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -450,8 +450,8 @@ st.borderpx: 2
 st.chscale: 1.0
 st.cwscale: 1.0
 
-scratchpad.shell: /bin/bash
-scratchpad.cursorColor: #101010
+! scratchpad.shell: /bin/bash
+! scratchpad.cursorColor: #101010
 
 
 !! ---------------------------------------------------------------------
