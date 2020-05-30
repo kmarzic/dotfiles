@@ -6,6 +6,8 @@ dwm.status.sh &
 
 #### trayer
 trayer.sh &
+# /usr/bin/dropbox start &
+# /usr/bin/nm-applet &
 
 #### xrandr
 screen_toggle.sh -x
