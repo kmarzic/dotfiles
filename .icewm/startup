@@ -1,0 +1,8 @@
+#!/bin/bash
+
+screen_toggle.sh -x
+# trayer.sh &
+/usr/bin/dropbox start &
+/usr/bin/nm-applet &
+
+#### end

@@ -8,6 +8,7 @@ export PATH="$PATH:/opt/ghc/bin"
 export PATH="$PATH:$HOME/.cabal/bin"
 # export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/fvwm3/bin"
+export PATH="$PATH:/opt/icewm/bin"
 export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
 export PATH="$PATH:/opt/awesome/bin"
 export PATH="$PATH:/opt/rofi/bin"
@@ -47,6 +48,9 @@ exec dwm.sh || exec urxvt
 
 #### i3
 # exec i3 || exec xterm
+
+#### icewm
+# exec icewm-session || exec xterm
 
 #### sctortwm or scrotwm or spectrwm
 # exec spectrwm || exec urxvt
