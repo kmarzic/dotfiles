@@ -2,11 +2,6 @@
 export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 DEFAULT_SPACES=7
-RED='\033[31m'
-GREEN='\033[32m'
-YELLOW='\033[33m'
-BOLD='\033[1m'
-NORMAL='\033[m'
 AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
 
