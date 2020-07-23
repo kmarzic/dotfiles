@@ -5,9 +5,10 @@
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/opt/ghc/bin"
-export PATH="$PATH:$HOME/.cabal/bin"
+# export PATH="$PATH:$HOME/.cabal/bin"
 # export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/fvwm3/bin"
+export PATH="$PATH:/opt/fluxbox/bin"
 export PATH="$PATH:/opt/icewm/bin"
 export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
 export PATH="$PATH:/opt/awesome/bin"
@@ -38,7 +39,13 @@ echo "" > ~/.xsession-errors
 # exec bspwm || exec urxvt
 
 #### dwm
-exec dwm.sh || exec urxvt
+# exec dwm.sh || exec urxvt
+
+#### fluxbox
+# exec fluxbox || exec urxvt
+
+#### frankenwm
+# exec frankenwm || exec urxvt
 
 #### fvwm3
 # exec fvwm3 || exec urxvt
@@ -71,7 +78,7 @@ exec dwm.sh || exec urxvt
 # cd ~/
 ## (2)
 # xmonad --recompile
-##
-# exec xmonad || exec urxvt
+## (3)
+exec xmonad || exec urxvt
 
 #### END

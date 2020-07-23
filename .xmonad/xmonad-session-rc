@@ -22,8 +22,8 @@ echo "PPID=$PPID" >> ${HOME}/.xmonad/xmonad.log
 # cd ~/
 
 ## (2) use sandbox
-sandbox_dir=$(dirname ~/data/cabal/xmonad/cabal.sandbox.config)
-cabal --require-sandbox --sandbox-config-file=${sandbox_dir}/cabal.sandbox.config v1-exec -- xmonad --recompile
+# sandbox_dir=$(dirname ~/data/cabal/xmonad/cabal.sandbox.config)
+# cabal --require-sandbox --sandbox-config-file=${sandbox_dir}/cabal.sandbox.config v1-exec -- xmonad --recompile
 
 ## xmonad
 ## NOTE: can be invoked from ~/.xprofile
