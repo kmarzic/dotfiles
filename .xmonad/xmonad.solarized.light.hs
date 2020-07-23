@@ -222,10 +222,10 @@ dmenuCommandSolarizedLight :: String -- theme: solarized light
 dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 xmobarCommand1 :: String
-xmobarCommand1 = "$HOME/.xmonad/xmobar $HOME/.xmonad/xmobar.hs"
+xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
 
 xmobarCommand2 :: ScreenId -> String
-xmobarCommand2 (S s) = unwords ["$HOME/.xmonad/xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs"]
+xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs"]
 
 dzenCommand2 :: ScreenId -> String
 dzenCommand2 (S s) = unwords ["dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l'", "-xs", show s]
