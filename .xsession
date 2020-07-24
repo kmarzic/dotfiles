@@ -3,7 +3,6 @@
 
 #### ENV
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
-export PATH="$PATH:$HOME/bin"
 export PATH="$PATH:/opt/ghc/bin"
 # export PATH="$PATH:$HOME/.cabal/bin"
 export PATH="$PATH:$HOME/.local/bin"
@@ -14,6 +13,7 @@ export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
 export PATH="$PATH:/opt/awesome/bin"
 export PATH="$PATH:/opt/rofi/bin"
 export PATH="$PATH:/opt/stumpwm/bin"
+export PATH="$PATH:$HOME/bin"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 export LUA_DIR=/opt/lua
 export LUA_INCLUDE_DIR=$LUA_DIR/include
