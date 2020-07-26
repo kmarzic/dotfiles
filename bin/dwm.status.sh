@@ -1,7 +1,12 @@
 #!/bin/bash
-export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 DEFAULT_SPACES=7
+RED='\033[31m'
+GREEN='\033[32m'
+YELLOW='\033[33m'
+BOLD='\033[1m'
+NORMAL='\033[m'
 AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
 
@@ -88,6 +93,30 @@ function __forecast()
     fi
 }
 
+#### network
+function __network()
+{
+    #### (1)
+    ip_private=$(hostname -I | awk {'print $1'})
+    ip_public=$(curl -s https://ipinfo.io/ip)
+    iface=$(ip -o addr show up primary scope global | grep $(hostname -I | awk {'print $1'}) | awk '{ print $2 }')
+
+    echo -e "${iface}, ${ip_private}, ${ip_public}"
+
+    #### (2)
+    # R1=$(cat /sys/class/net/${iface}/statistics/rx_bytes)
+    # T1=$(cat /sys/class/net/${iface}/statistics/tx_bytes)
+    # sleep 1
+    # R2=$(cat /sys/class/net/${iface}/statistics/rx_bytes)
+    # T2=$(cat /sys/class/net/${iface}/statistics/tx_bytes)
+    # TBPS=$(expr $T2 - $T1)
+    # RBPS=$(expr $R2 - $R1)
+    # TKBPS=$(expr $TBPS / 1024)
+    # RKBPS=$(expr $RBPS / 1024)
+
+    # echo -e "${iface} tx ${TKBPS} kB/s rx ${RKBPS} kB/s, ${ip_private}, ${ip_public}"
+}
+
 #### time
 function __time()
 {
@@ -110,8 +139,8 @@ function __spaces()
 while true;
 do
     #### xsetroot
-    # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__time) ]$(__spaces)"
-    xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__time) ]"
+    # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ]$(__spaces)"
+    xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__time) ]"
     sleep 1
 done
 
