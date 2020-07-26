@@ -2,27 +2,38 @@
 export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 DEFAULT_SPACES=7
-RED='\033[31m'
-GREEN='\033[32m'
-YELLOW='\033[33m'
-BOLD='\033[1m'
-NORMAL='\033[m'
+RED='^c#ff0000^'
+GREEN='^c#00ff00^'
+YELLOW='^c#ffff00^'
+CYAN='^c#00ffff^'
+NORMAL='^c#bbbbbb^'
 AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
+STATUSCOLOR=1
 
 #### load
 function __load()
 {
     load="$(cat /proc/loadavg | awk {' print $1 '})"
-    echo "CPU: ${load}%"
+    load_dec_temp="$(cat /proc/loadavg | awk {' print $1 '} | awk -F "." '{ print $2 }')"
+    load_dec="$(echo ${load_dec_0} | bc)"
+
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo "CPU: ${load}%"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${load_dec} -lt 50 ]] && echo "CPU: ${GREEN}${load}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${load_dec} -gt 50 ]] && [[ ${load_dec} -lt 80 ]] && echo "CPU: ${YELLOW}${load}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${load_dec} -gt 80 ]] && echo "CPU: ${RED}${load}%${NORMAL}"
 }
 
 #### temp
 function __temp()
 {
-    # temp="$(sensors | grep "CPU:" | awk {' print $2 '})"
     temp="$(acpi -t | awk '{ print $4 " °C" }')"
-    echo "Temp: ${temp}"
+    temp_dec="$(acpi -t | awk '{ print $4 }' | sed -e "s/\..*//g")"
+
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -lt 50 ]] && echo "Temp: ${GREEN}${temp}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -gt 40 ]] && [[ ${temp_dec} -lt 60 ]] && echo "Temp: ${YELLOW}${temp}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -gt 60 ]] && echo "Temp: ${RED}${temp}${NORMAL}"
 }
 
 #### memory
@@ -30,8 +41,12 @@ function __memory()
 {
     mem_free=$(cat /proc/meminfo | grep "MemFree:" | awk {' print $2'})
     mem_total=$(cat /proc/meminfo | grep "MemTotal:" | awk {' print $2'})
-    mem_percent=$(echo "scale=2; ${mem_free} / ${mem_total} * 100" | bc)
-    echo "MEM: ${mem_percent%.*}%"
+    mem_percent=$(echo "scale=2; ${mem_free} / ${mem_total} * 100" | bc | sed -e "s/\..*//g")
+
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo "MEM: ${mem_percent}%"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -lt 50 ]] && echo "MEM: ${GREEN}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -gt 50 ]] && [[ ${mem_percent} -lt 90 ]] && echo "MEM: ${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -gt 90 ]] && echo "MEM: ${RED}${mem_percent}%${NORMAL}"
 }
 
 #### battery
@@ -39,14 +54,22 @@ function __battery()
 {
     if [[ $(acpi --battery | grep "Discharging" | wc -l) -eq 1 ]]
     then
-        battery="D $(acpi --battery | cut -d, -f2 | sed -e "s/ //g")"
+        [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="D"
+        [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}D${NORMAL}"
     elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
     then
-        battery="C $(acpi --battery | cut -d, -f2 | sed -e "s/ //g")"
+        [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="C"
+        [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}C${NORMAL}"
     else
-        battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g")"
+        [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="F"
+        [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}F${NORMAL}"
     fi
-    echo "BAT: ${battery}"
+    battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
+
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: ${battery_status}${battery}%"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -lt 25 ]] && echo "BAT: ${battery_status} ${RED}${battery}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 25 ]] && [[ ${battery} -lt 80 ]] && echo "BAT: ${battery_status} ${YELLOW}${battery}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 80 ]] && echo "BAT: ${battery_status} ${GREEN}${battery}%${NORMAL}"
 }
 
 #### weather
@@ -63,7 +86,8 @@ function __weather()
             __forecast
         else [[ "${file}" != "" ]]
             # echo "file age ok"
-            echo -e "$(cat ${WTTR_FILE})"
+            [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "$(cat ${WTTR_FILE})"
+            [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}$(cat ${WTTR_FILE})${NORMAL}"
         fi
     else
         __forecast
@@ -121,7 +145,9 @@ function __network()
 function __time()
 {
     date="$(date +"%a %Y-%m-%d %H:%M:%S")"
-    echo "${date}"
+
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}${date}${NORMAL}"
 }
 
 #### spaces
