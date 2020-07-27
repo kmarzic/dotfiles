@@ -14,14 +14,14 @@ STATUSCOLOR=1
 #### load
 function __load()
 {
+    ncpu="$(cat /proc/cpuinfo | grep processor | wc -l)"
     load="$(cat /proc/loadavg | awk {' print $1 '})"
-    load_dec_temp="$(cat /proc/loadavg | awk {' print $1 '} | awk -F "." '{ print $2 }')"
-    load_dec="$(echo ${load_dec_0} | bc)"
+    load_percent="$(echo "${load}/${ncpu}*100" | bc -l)"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "CPU: ${load}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${load_dec} -le 50 ]] && echo "CPU: ${GREEN}${load}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${load_dec} -gt 50 ]] && [[ ${load_dec} -lt 80 ]] && echo "CPU: ${YELLOW}${load}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${load_dec} -ge 80 ]] && echo "CPU: ${RED}${load}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} <= 50" | bc -l) -eq 1 ]] && echo "CPU: ${GREEN}${load}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${load_percent} < 80" | bc -l) -eq 1 ]] && echo "CPU: ${YELLOW}${load}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] && echo "CPU: ${RED}${load}%${NORMAL}"
 }
 
 #### temp
@@ -31,7 +31,7 @@ function __temp()
     temp_dec="$(acpi -t | awk '{ print $4 }' | sed -e "s/\..*//g")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -le 50 ]] && echo "Temp: ${GREEN}${temp}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -le 40 ]] && echo "Temp: ${GREEN}${temp}${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -gt 40 ]] && [[ ${temp_dec} -lt 60 ]] && echo "Temp: ${YELLOW}${temp}${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -ge 60 ]] && echo "Temp: ${RED}${temp}${NORMAL}"
 }
@@ -44,7 +44,7 @@ function __memory()
     mem_percent=$(echo "scale=2; ${mem_free} / ${mem_total} * 100" | bc | sed -e "s/\..*//g")
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "MEM: ${mem_percent}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -lt 5e ]] && echo "MEM: ${GREEN}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -le 50 ]] && echo "MEM: ${GREEN}${mem_percent}%${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -gt 50 ]] && [[ ${mem_percent} -lt 90 ]] && echo "MEM: ${YELLOW}${mem_percent}%${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -ge 90 ]] && echo "MEM: ${RED}${mem_percent}%${NORMAL}"
 }
