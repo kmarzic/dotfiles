@@ -16,12 +16,12 @@ function __load()
 {
     ncpu="$(cat /proc/cpuinfo | grep processor | wc -l)"
     load="$(cat /proc/loadavg | awk {' print $1 '})"
-    load_percent="$(echo "${load}/${ncpu}*100" | bc -l)"
+    load_percent="$(echo "${load}/${ncpu}*100" | bc -l | sed -e "s/\..*//g")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "CPU: ${load}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} <= 50" | bc -l) -eq 1 ]] && echo "CPU: ${GREEN}${load}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${load_percent} < 80" | bc -l) -eq 1 ]] && echo "CPU: ${YELLOW}${load}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] && echo "CPU: ${RED}${load}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} <= 50" | bc -l) -eq 1 ]] && echo "CPU: ${GREEN}${load}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${load_percent} < 80" | bc -l) -eq 1 ]] && echo "CPU: ${YELLOW}${load}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] && echo "CPU: ${RED}${load}${NORMAL}"
 }
 
 #### temp
@@ -30,10 +30,13 @@ function __temp()
     temp="$(acpi -t | awk '{ print $4 " °C" }')"
     temp_dec="$(acpi -t | awk '{ print $4 }' | sed -e "s/\..*//g")"
 
-    [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -le 40 ]] && echo "Temp: ${GREEN}${temp}${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -gt 40 ]] && [[ ${temp_dec} -lt 60 ]] && echo "Temp: ${YELLOW}${temp}${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${temp_dec} -ge 60 ]] && echo "Temp: ${RED}${temp}${NORMAL}"
+    [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: -"
+    [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && echo "Temp: ${RED}-${NORMAL}"
+
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] && echo "Temp: ${GREEN}${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "Temp: ${YELLOW}${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] && echo "Temp: ${RED}${temp}${NORMAL}"
 }
 
 #### memory
@@ -41,35 +44,44 @@ function __memory()
 {
     mem_free=$(cat /proc/meminfo | grep "MemFree:" | awk {' print $2'})
     mem_total=$(cat /proc/meminfo | grep "MemTotal:" | awk {' print $2'})
-    mem_percent=$(echo "scale=2; ${mem_free} / ${mem_total} * 100" | bc | sed -e "s/\..*//g")
+    mem_available=$(cat /proc/meminfo | grep "MemAvailable:" | awk {' print $2'})
+    mem_percent=$(echo "scale=2; ${mem_available}/${mem_total}*100" | bc -l | sed -e "s/\..*//g")
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "MEM: ${mem_percent}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -le 50 ]] && echo "MEM: ${GREEN}${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -gt 50 ]] && [[ ${mem_percent} -lt 90 ]] && echo "MEM: ${YELLOW}${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${mem_percent} -ge 90 ]] && echo "MEM: ${RED}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <= 50" | bc -l) -eq 1 ]] && echo "MEM: ${RED}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "MEM: ${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] && echo "MEM: ${GREEN}${mem_percent}%${NORMAL}"
 }
 
 #### battery
 function __battery()
 {
-    if [[ $(acpi --battery | grep "Discharging" | wc -l) -eq 1 ]]
-    then
-        [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="D"
-        [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}D${NORMAL}"
-    elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
-    then
-        [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="C"
-        [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}C${NORMAL}"
-    else
-        [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="F"
-        [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}F${NORMAL}"
-    fi
-    battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
+    battery_enabled=$(find /sys/class/power_supply | grep -i bat | wc -l)
 
-    [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: ${battery_status}${battery}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -le 25 ]] && echo "BAT: ${battery_status} ${RED}${battery}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 25 ]] && [[ ${battery} -lt 80 ]] && echo "BAT: ${battery_status} ${YELLOW}${battery}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] && echo "BAT: ${battery_status} ${GREEN}${battery}%${NORMAL}"
+    if [[ ${battery_enabled} -eq 0 ]]
+    then
+        [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: -"
+        [[ ${STATUSCOLOR} -eq 1 ]] && echo "BAT: ${RED}-${NORMAL}"
+    else
+        if [[ $(acpi --battery | grep "Discharging" | wc -l) -eq 1 ]]
+        then
+            [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="D"
+            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}D${NORMAL}"
+        elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
+        then
+            [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="C"
+            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}C${NORMAL}"
+        else
+            [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="F"
+            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}F${NORMAL}"
+        fi
+        battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
+
+        [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: ${battery_status}${battery}%"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -le 25 ]] && echo "BAT: ${battery_status} ${RED}${battery}%${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 25 ]] && [[ ${battery} -lt 80 ]] && echo "BAT: ${battery_status} ${YELLOW}${battery}%${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] && echo "BAT: ${battery_status} ${GREEN}${battery}%${NORMAL}"
+    fi
 }
 
 #### weather
