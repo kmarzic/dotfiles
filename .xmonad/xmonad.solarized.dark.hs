@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-07-23 21:07:09 (CEST)
+-- Last update: 2020-08-05 06:16:02 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -122,7 +122,7 @@ help = unlines
     "mod-Enter            Launch xterminal",
     "mod-s                Launch scratchpad",
     "mod-p                Launch dmenu",
-    "mod-d                Launch dmenu",
+    "mod-d                Launch rofi",
     "mod-Menu             Launch dmenu",
     "mod-Shift-c          Close/kill the focused window",
     "mod-F4               Close/kill the focused window",
@@ -220,6 +220,9 @@ dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36
 
 dmenuCommandSolarizedLight :: String -- theme: solarized light
 dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
+rofiCommand :: String
+rofiCommand = "rofi -show run"
 
 xmobarCommand1 :: String
 xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
@@ -956,35 +959,35 @@ myDzen2LogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2Lo
 
 myKeysDmenuCommandAnsi =
   [
-    ((mod1Mask,                  xK_d      ), spawn dmenuCommandAnsi), -- theme: ansi
+    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: ansi
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandAnsi), -- theme: ansi
     ((0,                         xK_Menu   ), spawn dmenuCommandAnsi)  -- theme: ansi
   ]
 
 myKeysDmenuCommandMonokai =
   [
-    ((mod1Mask,                  xK_d      ), spawn dmenuCommandMonokai), -- theme: monokai
+    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: monokai
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandMonokai), -- theme: monokai
     ((0,                         xK_Menu   ), spawn dmenuCommandMonokai)  -- theme: monokai
   ]
 
 myKeysDmenuCommandNord =
   [
-    ((mod1Mask,                  xK_d      ), spawn dmenuCommandNord), -- theme: nord
+    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: nord
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandNord), -- theme: nord
     ((0,                         xK_Menu   ), spawn dmenuCommandNord)  -- theme: nord
   ]
 
 myKeysDmenuCommandSolarizedDark =
   [
-    ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
+    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: solarized dark
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
     ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedDark)  -- theme: solarized dark
   ]
 
 myKeysDmenuCommandSolarizedLight =
   [
-    ((mod1Mask,                  xK_d      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
+    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: solarized light
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
     ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
   ]

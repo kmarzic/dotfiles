@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2020-03-01 09:28:38 (CET)
+-- Last update: 2020-08-05 06:06:15 (CEST)
 
 Config {
    -- theme: edge dark
@@ -37,6 +37,9 @@ Config {
    -- font = "xft:xos4 Terminus:pixelsize=14:antialias=true:style=bold",
    -- font = "xft:xos4 Terminus:pixelsize=13:antialias=true:style=bold",
    -- font = "xft:xos4 Terminus:pixelsize=12:antialias=true:style=bold",
+   -- font = "xft:Bitstream Vera Sans Mono:size=14:bold:antialias=true",
+   -- font = "xft:Bitstream Vera Sans Mono:size=13:bold:antialias=true",
+   -- font = "xft:Bitstream Vera Sans Mono:size=12:bold:antialias=true",
    --
    -- additionalFonts = [ "xft:FontAwesome:pixelsize=13:style=bold" ],
    additionalFonts = [ "xft:Droid Sans Mono:pixelsize=12:antialias=true:style=bold" ],
@@ -159,7 +162,7 @@ Config {
                              ] 10, -- 1s
 
        Run Swap              [ -- "--template" ,"Swap: <usedratio>%",
-                               "--template" , "<icon=swap.xbm/><usedratio>%",
+                               "--template" , "<icon=mem_old.xbm/><usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
                                "--minwidth" , "2",
@@ -181,7 +184,8 @@ Config {
        -- theme: default / orange
        -- Run Date              "<fc=#cb4b16>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
        -- theme: default / cyan
-       Run Date              "<icon=clock.xbm/> <fc=cyan>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       -- Run Date              "<icon=clock.xbm/> <fc=cyan>%a %Y-%m-%d %H:%M:%S</fc>" "date" 10, -- 1s
+       Run Date              "<icon=calendar.xbm/> <fc=cyan>%a %Y-%m-%d %H:%M:%S</fc> <icon=clock.xbm/>" "date" 10, -- 1s
 
        Run Com               "uname" ["-s","-r"] "uname1" 36000, -- 1h
        Run Com               ".xmonad/spaces.sh" ["spaces", "8"] "spaces1" 300, -- 30s
