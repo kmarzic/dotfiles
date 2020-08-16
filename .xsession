@@ -18,6 +18,8 @@ export PATH="$PATH:$HOME/bin"
 export LUA_DIR=/opt/lua
 export LUA_INCLUDE_DIR=$LUA_DIR/include
 eval $(luarocks path)
+export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
