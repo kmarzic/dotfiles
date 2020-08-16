@@ -30,7 +30,7 @@ export TERMINAL=urxvt
 # [ -f ~/.xprofile ] && . ~/.xprofile
 
 #### Clean .xsesssion-errors
-echo "" > ~/.xsession-errors
+# echo "" > ~/.xsession-errors
 
 #### awesome
 # exec awesome || exec urxvt
@@ -78,7 +78,7 @@ echo "" > ~/.xsession-errors
 # cd ~/
 ## (2)
 # xmonad --recompile
-## (3)
+## (3) stack
 exec xmonad || exec urxvt
 
 #### END

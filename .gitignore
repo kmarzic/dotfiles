@@ -1,0 +1,15 @@
+**/.config/mc/ini
+**/.config/dunst/dunstrc
+**/.config/gtk-3.0/bookmarks
+**/.config/mc/panels.ini
+**/.xmonad/.stack-work
+**/.xmonad/stack.yaml.lock
+**/.xmonad/xmonad.errors
+**/.xmonad/xmobar.hs
+**/.xmonad/xmonad.hi
+**/.xmonad/xmonad.hs
+**/.xmonad/xmonad.o
+**/.xmonad/xmobar-git
+**/.xmonad/xmonad-contrib-git
+**/.xmonad/xmonad-git
+**/.xmonad/xmonad-x86_64-linux

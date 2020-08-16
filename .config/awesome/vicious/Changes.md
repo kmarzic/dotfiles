@@ -1,8 +1,10 @@
-# Changes in 2.4.1 (WIP)
+# Changes in 2.4.1
 
 Fixed:
 
-- [mdir] Remove trailing semicolon at the end of command
+- [pkg] Fallback the number of lines before packages listing to 0.
+  This fixes crashes on Arch, FreeBSD and Mandriva.
+- [mdir] Remove trailing semicolon at the end of command.
 
 # Changes in 2.4.0
 
