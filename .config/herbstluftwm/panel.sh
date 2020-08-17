@@ -1,11 +1,13 @@
 #!/bin/bash
 
-function quote() {
+function quote()
+{
     local q="$(printf '%q ' "$@")"
     printf '%s' "${q% }"
 }
 
-function hc() {
+function hc()
+{
     "${herbstclient_command[@]:-herbstclient}" "${@}" ;
 }
 
@@ -137,7 +139,8 @@ x=${GEOMETRY[0]}
 y=$((${GEOMETRY[3]} - ${GEOMETRY[1]} - ${PANEL_HEIGHT}))
 echo "x: $x, y: $y" >> /tmp/hlog
 # FONT="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
-FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
+# FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
+FONT="fixed"
 BGCOLOR=$(hc get frame_border_normal_color)
 SELBG=$(hc get window_border_active_color)
 SELFG='#101010'
@@ -279,7 +282,8 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
         right_text_only=$(echo -n "${right}" | sed 's.\^[^(]*([^)]*)..g')
 
         ##### get width of right aligned text.. and add some space..
-        width=$(${textwidth} "${FONT}" "${right_text_only}            ")
+        width=$(${textwidth} "${FONT}" "${right_text_only}     ")
+        echo "width: ${width}" >> /tmp/hlog
         echo -n "^pa($((${PANEL_WIDTH} - ${width})))${right}"
         echo
 
