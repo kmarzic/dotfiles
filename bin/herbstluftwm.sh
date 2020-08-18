@@ -1,14 +1,8 @@
 #!/bin/bash
 export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
-#### dwm status
-dwm.status.sh &
-
-#### dwm battery
-dwm.battery.sh &
-
 #### trayer
-trayer.sh &
+# trayer.sh &
 # /usr/bin/dropbox start &
 # /usr/bin/nm-applet &
 
@@ -16,14 +10,14 @@ trayer.sh &
 screen_toggle.sh -x
 screen_toggle.sh -s ansi
 
-#### dwm
+#### herbsluftwm
 while true;
 do
     #### Log stderror to a file
-    dwm 2> ~/.dwm.log
+    herbstluftwm 2> ~/.herbstluftwm.log
 
     #### No error logging
-    # dwm >/dev/null 2>&1
+    # herbstluftwm >/dev/null 2>&1
 done
 
 #### END

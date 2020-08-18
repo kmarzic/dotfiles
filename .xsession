@@ -15,11 +15,10 @@ export PATH="$PATH:/opt/rofi/bin"
 export PATH="$PATH:/opt/stumpwm/bin"
 export PATH="$PATH:$HOME/bin"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+
 export LUA_DIR=/opt/lua
 export LUA_INCLUDE_DIR=$LUA_DIR/include
 eval $(luarocks path)
-export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
-export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -27,6 +26,8 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_TIME="en_DK.UTF-8"
 
 export TERMINAL=urxvt
+# export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+# export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 
 #### xprofile
 # [ -f ~/.xprofile ] && . ~/.xprofile
@@ -53,7 +54,8 @@ export TERMINAL=urxvt
 # exec fvwm3 || exec urxvt
 
 ## herbstluftwm
-# exec herbstluftwm || exec urxvt
+exec herbstluftwm || exec urxvt
+# exec herbstluftwm.sh || exec urxvt
 
 #### i3
 # exec i3 || exec xterm
@@ -81,6 +83,6 @@ export TERMINAL=urxvt
 ## (2)
 # xmonad --recompile
 ## (3) stack
-exec xmonad || exec urxvt
+# exec xmonad || exec urxvt
 
 #### END

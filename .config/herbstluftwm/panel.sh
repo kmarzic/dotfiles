@@ -11,7 +11,8 @@ function hc()
     "${herbstclient_command[@]:-herbstclient}" "${@}" ;
 }
 
-function uniq_linebuffered() {
+function uniq_linebuffered()
+{
     awk '$0 != l { print ; l=$0 ; fflush(); }' "${@}"
 }
 
@@ -139,8 +140,9 @@ x=${GEOMETRY[0]}
 y=$((${GEOMETRY[3]} - ${GEOMETRY[1]} - ${PANEL_HEIGHT}))
 echo "x: $x, y: $y" >> /tmp/hlog
 # FONT="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
-# FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
-FONT="fixed"
+FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
+# FONT="fixed"
+# FONT="terminus-12"
 BGCOLOR=$(hc get frame_border_normal_color)
 SELBG=$(hc get window_border_active_color)
 SELFG='#101010'
@@ -204,18 +206,14 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
     ## e.g.
     ##   date    ^fg(#efefef)18:33^fg(#909090), 2013-10-^fg(#efefef)29
 
-    #### MPD
-    if [[ ${monitor} -eq 1 ]];
-    then
-        # $mpc idleloop player &
-        ## trigger an mpd event at the start
-        echo "player"
-    fi
-
     ## Time
-    while true ; do
+    while true;
+    do
         #### Time
         date +$'date ^fg(#efefef)%H:%M:%S^fg(#909090) %a %Y-%m-^fg(#efefef)%d'
+
+        LOAD=$(__load)
+        TEMP=$(__temp)
 
         #### sleep
         sleep 1 || break
@@ -229,7 +227,6 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
 } 2>> /tmp/hlog | {
     TAGS=( $(hc tag_status ${monitor}) )
     date=""
-    mpd_status=""
     windowtitle=""
     stats=""
 
@@ -278,16 +275,17 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
 
         #### small adjustments
-        right="${separator} $(__load) ${separator} $(__temp) ${separator} $(__memory) ${separator} $(__battery) ${separator} $(__weather) ${separator}${date} ${separator}"
+        # right="${separator} $(__load) ${separator} $(__temp) ${separator} $(__memory) ${separator} $(__battery) ${separator} $(__weather) ${separator}${date} ${separator}"
+        right="${separator} ${LOAD} ${TEMP} ${date} ${separator}"
         right_text_only=$(echo -n "${right}" | sed 's.\^[^(]*([^)]*)..g')
 
-        ##### get width of right aligned text.. and add some space..
+        #### get width of right aligned text.. and add some space..
         width=$(${textwidth} "${FONT}" "${right_text_only}     ")
-        echo "width: ${width}" >> /tmp/hlog
+        # echo "width: ${width}" >> /tmp/hlog
         echo -n "^pa($((${PANEL_WIDTH} - ${width})))${right}"
         echo
 
-        #### Data handling ###
+        #### Data handling
         ## This part handles the events generated in the event loop, and sets
         ## internal variables based on them. The event and its arguments are
         ## read into the array cmd, then action is taken depending on the event
@@ -298,6 +296,7 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
         #### wait for next event
         read line || break
         cmd=( ${line} )
+
         #### find out event origin
         case "${cmd[0]}" in
             tag*)

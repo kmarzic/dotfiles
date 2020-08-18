@@ -41,7 +41,8 @@ function __logout()
     [ $(ps -ef | grep "awesome" | wc -l) -gt 0 ] && pkill awesome; \
     [ $(ps -ef | grep "dwm.sh" | wc -l) -gt 0 ] && pkill dwm.sh; \
     [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; \
-    [ $(ps -ef | grep herbstluftwm | wc -l) -ne 0 ] && herbstclient quit; \
+    [ $(ps -ef | grep "herbstluftwm.sh" | wc -l) -ne 0 ] && pkill herbsluftwm; \
+    [ $(ps -ef | grep "herbstluftwm" | wc -l) -ne 0 ] && herbstclient quit; \
     [ $(ps -ef | grep panel | wc -l) -ne 0 ] && pkill -x panel; pkill -x panel; \
     [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
 }
