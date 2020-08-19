@@ -20,7 +20,6 @@ hc_quoted="$(quote "${herbstclient_command[@]:-herbstclient}")"
 
 function __load()
 {
-    #### Load
     ncpu="$(cat /proc/cpuinfo | grep processor | wc -l)"
     load="$(cat /proc/loadavg | awk {' print $1 '})"
     load_percent="$(echo "scale=2; ${load}/${ncpu}*100" | bc -l | sed -e "s/\..*//g")"
@@ -44,7 +43,6 @@ function __temp()
 
 function __memory()
 {
-    #### Memory
     mem_free=$(cat /proc/meminfo | grep "MemFree:" | awk {' print $2'})
     mem_total=$(cat /proc/meminfo | grep "MemTotal:" | awk {' print $2'})
     mem_available=$(cat /proc/meminfo | grep "MemAvailable:" | awk {' print $2'})
@@ -124,21 +122,21 @@ function __forecast()
 }
 
 #### monitor
-monitor=${1:-0}
-GEOMETRY=( $(hc monitor_rect "${monitor}") )
+MONITOR=${1:-0}
+GEOMETRY=( $(hc monitor_rect "${MONITOR}") )
+
 if [ -z "${GEOMETRY}" ];
 then
-    echo "Invalid monitor ${monitor}"
+    echo "Invalid monitor ${MONITOR}"
     exit 1
 fi
 
 #### GEOMETRY has the format: WxH+X+Y
 PANEL_WIDTH=${GEOMETRY[2]}
-# PANEL_HEIGHT=16
 PANEL_HEIGHT=16
 x=${GEOMETRY[0]}
 y=$((${GEOMETRY[3]} - ${GEOMETRY[1]} - ${PANEL_HEIGHT}))
-echo "x: $x, y: $y" >> /tmp/hlog
+echo "x: ${x}, y: ${y}" >> /tmp/hlog
 # FONT="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
 FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
 # FONT="fixed"
@@ -146,15 +144,14 @@ FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
 BGCOLOR=$(hc get frame_border_normal_color)
 SELBG=$(hc get window_border_active_color)
 SELFG='#101010'
-
-ICONS="${HOME}/.config/herbsluftwm/icons"
-AGE=15
-WTTR_FILE="/var/tmp/wttr.txt"
 RED='#ff0000'
 GREEN='#00ff00'
 YELLOW='#ffff00'
 CYAN='#00ffff'
 NORMAL='#efefef'
+ICONS="${HOME}/.config/herbsluftwm/icons"
+AGE=15
+WTTR_FILE="/var/tmp/wttr.txt"
 
 ####
 # Try to find textwidth binary.
@@ -197,8 +194,9 @@ else
 fi
 
 #### Add a space for the panel at the bottom of the screen.
-hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
+hc pad ${MONITOR} 0 0 ${PANEL_HEIGHT} 0
 
+#### Event generator
 {
     #### Event generator
     ## based on different input data (mpc, date, hlwm hooks, ...) this generates events, formed like this:
@@ -212,28 +210,38 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
         #### Time
         date +$'date ^fg(#efefef)%H:%M:%S^fg(#909090) %a %Y-%m-^fg(#efefef)%d'
 
-        LOAD=$(__load)
-        TEMP=$(__temp)
-
         #### sleep
         sleep 1 || break
     done > >(uniq_linebuffered) &
 
+    ## Hearbeat
+    while true ; do
+        echo "heartbeat"
+        sleep 1 || break
+    done &
+
     ## Herbsluftwm events
-    childpid1=$!
+    childpid1=${!}
     hc --idle
     kill ${childpid1}
 
-} 2>> /tmp/hlog | {
-    TAGS=( $(hc tag_status ${monitor}) )
+} 2>> /tmp/hlog |
+{
+    TAGS=( $(hc tag_status ${MONITOR}) )
+    LOAD=$(__load)
+    TEMP=$(__temp)
+    MEMORY=$(__memory)
+    BATTERY=$(__battery)
+    WEATHER=$(__weather)
+    visible=true
     date=""
     windowtitle=""
-    stats=""
+    bordercolor="#26221C"
+    separator="^bg()^fg(${SELBG})|"
 
     while true;
     do
-        bordercolor="#26221C"
-        separator="^bg()^fg(${SELBG})|"
+        CLIENTS=$(hc object_tree clients | egrep -v "clients|focus" | wc -l)
 
         #### draw tags
         for i in "${TAGS[@]}";
@@ -245,7 +253,8 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
                     ;;
                 '+')
                     #### Tag is focused, but monitor is not
-                    echo -n "^bg(#9CA668)^fg(#141414)"
+                    # echo -n "^bg(#9CA668)^fg(#141414)"
+                    echo -n "^bg(${SELFG})^fg(${SELBG})"
                     ;;
                 ':')
                     #### Tag is not focused, and is not empty
@@ -264,23 +273,28 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
             if [ ! -z "${dzen2_svn}" ];
             then
                 ## clickable tags if using SVN dzen
-                echo -n "^ca(1,${hc_quoted} focus_monitor \"${monitor}\" && "
+                echo -n "^ca(1,${hc_quoted} focus_monitor \"${MONITOR}\" && "
                 echo -n "${hc_quoted} use \"${i:1}\") ${i:1} ^ca()"
             else
                 ## non-clickable tags if using older dzen
                 echo -n " ${i:1} "
             fi
         done
+
+        #### number of clients
+        echo -n "${separator}"
+        echo -n "^bg(${SELFG})^fg(${GREEN})${CLIENTS}"
+
+        #### window title
         echo -n "${separator}"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
 
         #### small adjustments
-        # right="${separator} $(__load) ${separator} $(__temp) ${separator} $(__memory) ${separator} $(__battery) ${separator} $(__weather) ${separator}${date} ${separator}"
-        right="${separator} ${LOAD} ${TEMP} ${date} ${separator}"
+        right="${separator} ${LOAD} ${separator} ${TEMP} ${separator} ${MEMORY} ${separator} ${BATTERY} ${separator} ${WEATHER} ${separator} ${date} ${separator}"
         right_text_only=$(echo -n "${right}" | sed 's.\^[^(]*([^)]*)..g')
 
         #### get width of right aligned text.. and add some space..
-        width=$(${textwidth} "${FONT}" "${right_text_only}     ")
+        width=$(${textwidth} "${FONT}" "${right_text_only} ")
         # echo "width: ${width}" >> /tmp/hlog
         echo -n "^pa($((${PANEL_WIDTH} - ${width})))${right}"
         echo
@@ -301,7 +315,7 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
         case "${cmd[0]}" in
             tag*)
                 # echo "reseting tags" >&2
-                TAGS=( $(hc tag_status ${monitor}) )
+                TAGS=( $(hc tag_status ${MONITOR}) )
                 ;;
             date)
                 # echo "reseting date" >&2
@@ -310,6 +324,26 @@ hc pad ${monitor} 0 0 ${PANEL_HEIGHT} 0
                 ;;
             quit_panel)
                 exit
+                ;;
+            togglehidepanel)
+                currentmonidx=$(hc list_monitors | sed -n '/\[FOCUS\]$/s/:.*//p')
+                if [ "${cmd[1]}" -ne "${MONITOR}" ];
+                then
+                    continue
+                fi
+                if [ "${cmd[1]}" = "current" ] && [ "${currentmonidx}" -ne "${MONITOR}" ];
+                then
+                    continue
+                fi
+                echo "^togglehide()"
+                if ${visible};
+                then
+                    visible=false
+                    hc pad ${MONITOR} 0
+                else
+                    visible=true
+                    hc pad ${MONITOR} ${PANEL_HEIGHT}
+                fi
                 ;;
             reload)
                 exit
