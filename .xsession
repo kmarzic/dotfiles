@@ -42,7 +42,7 @@ export TERMINAL=urxvt
 # exec bspwm || exec urxvt
 
 #### dwm
-# exec dwm.sh || exec urxvt
+exec dwm.sh || exec urxvt
 
 #### fluxbox
 # exec fluxbox || exec urxvt
@@ -54,7 +54,7 @@ export TERMINAL=urxvt
 # exec fvwm3 || exec urxvt
 
 ## herbstluftwm
-exec herbstluftwm || exec urxvt
+# exec herbstluftwm || exec urxvt
 # exec herbstluftwm.sh || exec urxvt
 
 #### i3

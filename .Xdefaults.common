@@ -317,13 +317,13 @@ URxvt*keysym.S-Right:        \033[1;2C
 ! URxvt*boldfont: xft:Terminus:pixelsize=18:antialias=true:style=bold
 ! URxvt*italicfont: xft:Terminus:pixelsize=18:antialias=true:style=italic
 !
-! URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true
-! URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold
-! URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style:italic
+! URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true,style=regular
+! URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style=bold
+! URxvt*italicfont: xft:Monospace:pixelsize=14:antialias=true:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style=italic
 !
-! URxvt*font: xft:monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
-! URxvt*boldfont: xft:monospace:pixelsize=14:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:bold
-! URxvt*italicfont: xft:monospace:pixelsize=14:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:italic
+! URxvt*font: xft:monospace:pixelsize=14,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style=regular
+! URxvt*boldfont: xft:monospace:pixelsize=14:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style=bold
+! URxvt*italicfont: xft:monospace:pixelsize=14:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style=italic
 !
 ! URxvt*font: xft:Monospace:pixelsize=15:antialias=true:style=regular
 ! URxvt*boldfont: xft:Monospace-Bold:pixelsize=15:antialias=true:style=bold
@@ -337,9 +337,9 @@ URxvt*keysym.S-Right:        \033[1;2C
 ! URxvt*boldfont: xft:Inconsolata:pixelsize=16:antialias=true:style=bold
 ! URxvt*italicfont: xft:Inconsolata:pixelsize=16:antialias=true:style=italic
 !
-! URxvt*font: xft:DejaVu Sans Mono:pixelsize=15:style=regular
-! URxvt*boldfont: xft:DejaVu Sans Mono:pixelsize=15:style=bold
-! URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=15:style=italic
+! URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
+! URxvt*boldfont: xft:DejaVu Sans Mono:pixelsize=14:style=bold
+! URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=14:style=italic
 !
 ! URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=regular
 ! URxvt*boldfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=bold
@@ -349,13 +349,13 @@ URxvt*keysym.S-Right:        \033[1;2C
 ! URxvt*boldfont: xft:Droid Sans Mono:pixelsize=15:style=bold
 ! URxvt*italicfont: xft:Droid Sans Mono:pixelsize=15:style=italic
 !
-! URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true
-! URxvt*boldfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:bold
-! URxvt*italicfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:italic
+! URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+! URxvt*boldfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=bold
+! URxvt*italicfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=italic
 !
-URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true
-URxvt*boldfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:bold
-URxvt*italicfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style:italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style:italic
+URxvt*font: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true,style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style=regular
+URxvt*boldfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style=bold
+URxvt*italicfont: xft:Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=italic,xft:Source\ Code\ Pro\ Medium:pixelsize=16:antialias=true:hinting=true:style=italic
 
 
 !! ---------------------------------------------------------------------
