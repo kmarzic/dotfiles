@@ -91,13 +91,22 @@ colors:
   #  background: '#404040'
 
   normal:
+    # black:   '#000000'
+    # red:     '#870000'
+    # green:   '#005700'
+    # yellow:  '#ffff00'
+    # blue:    '#000087'
+    # magenta: '#870087'
+    # cyan:    '#00af87'
+    # white:   '#ffffff'
+
     black:   '#000000'
-    red:     '#870000'
-    green:   '#005700'
+    red:     '#ff0000'
+    green:   '#00ff00'
     yellow:  '#ffff00'
-    blue:    '#000087'
-    magenta: '#870087'
-    cyan:    '#00af87'
+    blue:    '#0000ff'
+    magenta: '#ff00ff'
+    cyan:    '#00ffff'
     white:   '#ffffff'
 
   bright:
