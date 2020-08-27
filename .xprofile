@@ -108,7 +108,8 @@ xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -co
 ## compton
 [[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b
 # [[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --blur-method kernel -b
-[[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
+# [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
+[[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
 # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 --backend glx --blur-background --blur-background-fixed --blur-kern 5x5box -b
 
 ## Xeyes
