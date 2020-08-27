@@ -1,4 +1,5 @@
 #!/bin/bash
+
 export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 function __scratchpad_1()
@@ -19,7 +20,7 @@ function __scratchpad_3()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
-      || alacritty -t "scratchpad"
+      || alacritty -t "scratchpad" --class "scratchpad"
 }
 
 function __scratchpad_4()
