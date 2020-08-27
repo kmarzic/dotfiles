@@ -17,6 +17,13 @@ function __scratchpad_2()
 
 function __scratchpad_3()
 {
+    xdotool search --onlyvisible --classname scratchpad windowunmap \
+      || xdotool search --classname scratchpad windowmap \
+      || alacritty -t "scratchpad"
+}
+
+function __scratchpad_4()
+{
     windowname="scratchpad"
     desk=$(wmctrl -d | grep '*' | cut -d ' ' -f '1')
     scratch_desk=$(wmctrl -l | grep " ${windowname}$" | cut -d ' ' -f '3')
@@ -41,8 +48,9 @@ function __scratchpad_3()
 }
 
 #### MAIN
-__scratchpad_1
+# __scratchpad_1
 # __scratchpad_2
-# __scratchpad_3
+__scratchpad_3
+# __scratchpad_4
 
 #### END
