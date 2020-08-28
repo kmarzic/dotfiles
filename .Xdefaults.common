@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-08-27 07:03:54 (CEST)
+!! Last update: 2020-08-28 12:49:54 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -441,9 +441,10 @@ st.shell: /bin/bash
 ! st.background: #101010
 ! st.foreground: #d2d2d2
 st.cursorColor: #101010
-st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true;
 ! st.font: monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true
+! st.font: monospace:pixelsize=14:antialias=true:style=regular
 ! st.font: Terminus:pixelsize=16:antialias=true:style=regular
+st.font: DejaVu Sans Mono:pixelsize=14:style=regular
 st.bellvolume: 100
 st.tabspaces: 8
 st.borderpx: 2
