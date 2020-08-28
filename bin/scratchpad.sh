@@ -13,7 +13,7 @@ function __scratchpad_2()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
-      || st -T "scratchpad" -t "scratchpad" -n "scratchpad" -f "monospace:pixelsize=14:antialias=true:style=bold"
+      || st -T "scratchpad" -t "scratchpad" -n "scratchpad" -f " DejaVu Sans Mono:pixelsize=14:style=bold"
 }
 
 function __scratchpad_3()
@@ -50,8 +50,8 @@ function __scratchpad_4()
 
 #### MAIN
 # __scratchpad_1
-# __scratchpad_2
-__scratchpad_3
+__scratchpad_2
+# __scratchpad_3
 # __scratchpad_4
 
 #### END

@@ -144,8 +144,8 @@ URxvt*fading: 20
 ! URxvt*fading: 100
 
 !! transparent
-URxvt*transparent: true
-! URxvt*transparent: false
+! URxvt*transparent: true
+URxvt*transparent: false
 
 !! Perl extensions
 !! There are two variables here because `perl-ext-common` is supposed to apply
@@ -440,19 +440,17 @@ st.termname: st-256color
 st.shell: /bin/bash
 ! st.background: #101010
 ! st.foreground: #d2d2d2
-st.cursorColor: #101010
+! st.cursorColor: #101010
 ! st.font: monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true
 ! st.font: monospace:pixelsize=14:antialias=true:style=regular
 ! st.font: Terminus:pixelsize=16:antialias=true:style=regular
 st.font: DejaVu Sans Mono:pixelsize=14:style=regular
+! st.font: Liberation Mono for Powerline:pixelsize=14:antialias=true:autohint=true:style=regular
 st.bellvolume: 100
 st.tabspaces: 8
 st.borderpx: 2
 st.chscale: 1.0
 st.cwscale: 1.0
-
-! scratchpad.shell: /bin/bash
-! scratchpad.cursorColor: #101010
 
 
 !! ---------------------------------------------------------------------
