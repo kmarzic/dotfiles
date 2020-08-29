@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-08-28 12:49:59 (CEST)
+!! Last update: 2020-08-29 15:13:00 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -29,10 +29,9 @@
 
 urxvt*foreground: #f2f2f2
 urxvt*background: #101010
-scratchpad*foreground: #d2d2d2
-scratchpad*background: #101010
 st.foreground: #f2f2f2
-st.background: cyan
+st.background: #101010
+st.CursorColor: #f2f2f2
 
 !! Normal
 ! color0  black
@@ -72,6 +71,41 @@ st.background: cyan
 ! *color14: #00ffd7
 ! *color15: #ffffff
 
+st.color0: black
+st.color1: red3
+st.color2: green3
+st.color3: yellow3
+st.color4: blue2
+st.color5: magenta3
+st.color6: cyan3
+st.color7: gray90
+
+st.color8:  gray50
+st.color9:  red
+st.color10: green
+st.color11: yellow
+st.color12: #5c5cff
+st.color13: magenta
+st.color14: cyan
+st.color15: white
+
+scratchpad.color0: black
+scratchpad.color1: red3
+scratchpad.color2: green3
+scratchpad.color3: yellow
+scratchpad.color4: blue2
+scratchpad.color5: magent
+scratchpad.color6: cyan3
+scratchpad.color7: gray90
+
+scratchpad.color8:  gray50
+scratchpad.color9:  red
+scratchpad.color10: green
+scratchpad.color11: yellow
+scratchpad.color12: #5c5cff
+scratchpad.color13: magenta
+scratchpad.color14: cyan
+scratchpad.color15: white
 
 !! ---------------------------------------------------------------------
 !! EOF
