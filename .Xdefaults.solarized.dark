@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-05-17 07:03:31 (CEST)
+!! Last update: 2020-08-29 07:53:36 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -54,7 +54,6 @@
 *color5:       base0E
 *color6:       base0C
 *color7:       base05
-
 *color8:       base03
 *color9:       base09
 *color10:      base01
@@ -64,6 +63,39 @@
 *color14:      base0F
 *color15:      base07
 
+st.color0:     base00
+st.color1:     base08
+st.color2:     base0B
+st.color3:     base0A
+st.color4:     base0D
+st.color5:     base0E
+st.color6:     base0C
+st.color7:     base05
+st.color8:     base03
+st.color9:     base08
+st.color10:    base0B
+st.color11:    base0A
+st.color12:    base0D
+st.color13:    base0E
+st.color14:    base0C
+st.color15:    base07
+
+scratchpad.color0:     base00
+scratchpad.color1:     base08
+scratchpad.color2:     base0B
+scratchpad.color3:     base0A
+scratchpad.color4:     base0D
+scratchpad.color5:     base0E
+scratchpad.color6:     base0C
+scratchpad.color7:     base05
+scratchpad.color8:     base03
+scratchpad.color9:     base08
+scratchpad.color10:    base0B
+scratchpad.color11:    base0A
+scratchpad.color12:    base0D
+scratchpad.color13:    base0E
+scratchpad.color14:    base0C
+scratchpad.color15:    base07
 
 !! ---------------------------------------------------------------------
 !! EOF
