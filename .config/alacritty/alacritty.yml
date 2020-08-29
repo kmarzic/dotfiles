@@ -72,62 +72,32 @@ font:
 draw_bold_text_with_bright_colors: true
 
 colors:
+  # Default colors
   primary:
-    background: '#101010'
-    foreground: '#f2f2f2'
-    #dim_foreground: '#9a9a9a'
-    #bright_foreground: '#ffffff'
+    background: '0xfdf6e3'
+    foreground: '0x586e75'
 
-  #cursor:
-  #  text: '#000000'
-  #  cursor: '#ffffff'
-
-  #vi_mode_cursor:
-  #  text: CellBackground
-  #  cursor: CellForeground
-
-  #selection:
-  #  text: '#eaeaea'
-  #  background: '#404040'
-
+  # Normal colors
   normal:
-    # black:   '#000000'
-    # red:     '#870000'
-    # green:   '#005700'
-    # yellow:  '#ffff00'
-    # blue:    '#000087'
-    # magenta: '#870087'
-    # cyan:    '#00af87'
-    # white:   '#ffffff'
+    black:   '0x073642'
+    red:     '0xdc322f'
+    green:   '0x859900'
+    yellow:  '0xb58900'
+    blue:    '0x268bd2'
+    magenta: '0xd33682'
+    cyan:    '0x2aa198'
+    white:   '0xeee8d5'
 
-    black:   '#000000'
-    red:     '#ff0000'
-    green:   '#00ff00'
-    yellow:  '#ffff00'
-    blue:    '#0000ff'
-    magenta: '#ff00ff'
-    cyan:    '#00ffff'
-    white:   '#ffffff'
-
+  # Bright colors
   bright:
-    black:   '#000000'
-    red:     '#ff0000'
-    green:   '#00ff00'
-    yellow:  '#ffff00'
-    blue:    '#0000ff'
-    magenta: '#ff00ff'
-    cyan:    '#00ffff'
-    white:   '#ffffff'
-
-  #dim:
-  #  black:   '#000000'
-  #  red:     '#8c3336'
-  #  green:   '#7a8530'
-  #  yellow:  '#97822e'
-  #  blue:    '#506d8f'
-  #  magenta: '#80638e'
-  #  cyan:    '#497e7a'
-  #  white:   '#9a9a9a'
+    black:   '0x002b36'
+    red:     '0xcb4b16'
+    green:   '0x586e75'
+    yellow:  '0x657b83'
+    blue:    '0x839496'
+    magenta: '0x6c71c4'
+    cyan:    '0x93a1a1'
+    white:   '0xfdf6e3'
 
   indexed_colors: []
 
@@ -137,7 +107,7 @@ bell:
   color: '#ffffff'
   #command: None
 
-background_opacity: 0.70
+# background_opacity: 0.70
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"

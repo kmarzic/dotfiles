@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2020-05-24 12:47:01 (CEST)
+## Last update: 2020-08-29 18:45:22 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -315,7 +315,7 @@ complete -f -o default -X '!*.pl' python3 python
 # eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
 
 #### Perl new, http://www.perl.org
-eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
+# eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
 #### cperl, http://perl11.org/cperl
 # eval $(perl -I/opt/cperl5/cpan/lib/perl5 -Mlocal::lib=/opt/cperl5/cpan)
 
@@ -351,19 +351,19 @@ export __PATH_NEW="$__PATH_NEW:/opt/emacs/bin"
 export __PATH_NEW="$__PATH_NEW:$ORACLE_INSTANT_CLIENT"
 export __PATH_NEW="$__PATH_NEW:$GOROOT/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/lua/bin:/opt/luarocks/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
+# export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/sbcl/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/rust/bin"
 export __PATH_NEW="$__PATH_NEW:$GHCROOT/bin"
-export __PATH_NEW="$__PATH_NEW:$HOME/.cabal/bin"
-# export __PATH_NEW="$__PATH_NEW:$HOME/.local/bin"
+# export __PATH_NEW="$__PATH_NEW:$HOME/.cabal/bin"
+export __PATH_NEW="$__PATH_NEW:$HOME/.local/bin"
 export PATH="$__PATH_NEW:$__PATH_ORIG"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 #### Lua
 export LUA_DIR=/opt/lua
 export LUA_INCLUDE_DIR=$LUA_DIR/include
-eval $(luarocks path)
+# eval $(luarocks path)
 
 #### LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/X11R6/lib
@@ -385,24 +385,24 @@ export LESSCHARSET="utf-8"
 ## LESS man page colors (makes Man pages more readable).
 ##
 ## ansi
-export LESS_TERMCAP_mb=$'\E[01;36m'
-export LESS_TERMCAP_md=$'\E[01;36m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-# export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-##
-## solarized dark, solarized white
-# export LESS_TERMCAP_mb=$'\E[01;34m'
-# export LESS_TERMCAP_md=$'\E[01;34m'
+# export LESS_TERMCAP_mb=$'\E[01;36m'
+# export LESS_TERMCAP_md=$'\E[01;36m'
 # export LESS_TERMCAP_me=$'\E[0m'
 # export LESS_TERMCAP_se=$'\E[0m'
 # # export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-# export LESS_TERMCAP_so=$'\E[01;44;30m' # begin standout-mode - info box
+# export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
 # export LESS_TERMCAP_ue=$'\E[0m'
 # export LESS_TERMCAP_us=$'\E[01;32m'
+##
+## solarized dark, solarized white
+export LESS_TERMCAP_mb=$'\E[01;34m'
+export LESS_TERMCAP_md=$'\E[01;34m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+# export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+export LESS_TERMCAP_so=$'\E[01;44;30m' # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -553,7 +553,7 @@ alias perlcc="pp --bundle --par -f Bleach"
 alias ssh="TERM=xterm LC_TIME=C ~/bin/ssh.log.sh ssh"
 alias duh="du --si -d1 | sort -h"
 alias python=python3
-alias tmux="/opt/tmux/bin/tmux"
+# alias tmux="/opt/tmux/bin/tmux"
 
 # alias perl='perl5.26.2'
 # alias cpan='cpan5.26.2'

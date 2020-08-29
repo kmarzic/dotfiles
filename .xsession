@@ -26,8 +26,8 @@ export LC_CTYPE="en_US.UTF-8"
 export LC_TIME="en_DK.UTF-8"
 
 export TERMINAL=urxvt
-# export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
-# export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+[[ -e /etc/arch-release ]] && export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+[[ -e /etc/arch-release ]] && export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 
 #### xprofile
 # [ -f ~/.xprofile ] && . ~/.xprofile
