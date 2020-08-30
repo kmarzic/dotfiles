@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2020-03-04 18:56:32
+#       CREATED: 2020-08-30 08:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -177,6 +177,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.ansi ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.ansi .tmux.conf
 
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.ansi ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.ansi alacritty.yml && cd -
+
             #### xmobar
             [[ -e ~/.xmonad/xmobar.ansi.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.ansi.hs xmobar.hs
 
@@ -190,8 +193,11 @@ function __theme()
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
             else
                 ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
             fi
             ;;
         "monokai")
@@ -227,6 +233,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.monokai ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.monokai .tmux.conf
 
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.monokai ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.monokai alacritty.yml && cd -
+
             #### xmobar
             [[ -e ~/.xmonad/xmobar.monokai.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.monokai.hs xmobar.hs
 
@@ -240,8 +249,11 @@ function __theme()
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
             else
                 ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
             fi
             ;;
         "nord")
@@ -276,6 +288,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.nord ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.nord .tmux.conf
 
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.nord ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.nord alacritty.yml && cd -
+
             #### xmobar
             [[ -e ~/.xmonad/xmobar.nord.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.nord.hs xmobar.hs
 
@@ -289,8 +304,11 @@ function __theme()
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
             else
                 ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
             fi
             ;;
         "solarized.dark")
@@ -346,6 +364,9 @@ function __theme()
             #### termite
             [[ -e ~/.config/termite/config.solarized.dark ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.dark config
 
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.solarized.dark ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.solarized.dark alacritty.yml && cd -
+
             #### xmobar
             [[ -e ~/.xmonad/xmobar.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
 
@@ -359,8 +380,11 @@ function __theme()
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
             else
                 ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
             fi
 
             #### bspwm
@@ -424,6 +448,9 @@ function __theme()
             #### termite
             [[ -e ~/.config/termite/config.solarized.light ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.light config
 
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.solarized.light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.solarized.light alacritty.yml && cd -
+
             #### xmobar
             [[ -e ~/.xmonad/xmobar.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
 
@@ -437,8 +464,11 @@ function __theme()
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
             else
                 ## xmonad installed from package
-                xmonad --recompile
-                xmonad --restart
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
             fi
 
             #### bspwm
