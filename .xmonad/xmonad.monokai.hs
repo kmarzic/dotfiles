@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-08-05 06:16:02 (CEST)
+-- Last update: 2020-08-30 11:20:55 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -234,17 +234,19 @@ dzenCommand2 :: ScreenId -> String
 dzenCommand2 (S s) = unwords ["dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l'", "-xs", show s]
 
 myTerminal :: String
-myTerminal = "urxvt"
+-- myTerminal = "urxvt"
 -- myTerminal = "urxvtc"
 -- myTerminal = "termite"
 -- myTerminal = "$HOME/bin/st"
+myTerminal = "alacritty"
 
 myTerminalScratchpad :: String
-myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
+-- myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
--- myTerminalScratchpad = "$HOME/bin/st -c scratchpad -n scratchpad"
+-- myTerminalScratchpad = "$HOME/bin/st -c scratchpad -n scratchpad &"
+myTerminalScratchpad = "alacritty --class scratchpad -t scratchpad &"
 
 myModMask :: KeyMask
 myModMask = mod1Mask

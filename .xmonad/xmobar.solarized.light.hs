@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2020-08-05 06:06:02 (CEST)
+-- Last update: 2020-08-30 11:28:45 (CEST)
 
 Config {
    -- theme: solarized light
@@ -8,42 +8,11 @@ Config {
 
    -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
    -- font = "xft:monospace:pixelsize=14:antialias=true:style=bold",
-   font = "xft:monospace:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:monospace:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Droid Sans Mono:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Droid Sans Mono:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Droid Sans Mono:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Terminus:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Terminus:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Terminus:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Dejavu Sans Mono:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Dejavu Sans Mono:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Dejavu Sans Mono:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Inconsolata:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Inconsolata:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Inconsolata:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Dec Terminal Bold:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Dec Terminal Bold:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Dec Terminal Bold:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Courier New Bold:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Courier New Bold:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Courier New Bold:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Free Mono:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Free Mono:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Free Mono:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Misc Fixed:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:Misc Fixed:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:Misc Fixed:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:xos4 Terminus:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:xos4 Terminus:pixelsize=13:antialias=true:style=bold",
-   -- font = "xft:xos4 Terminus:pixelsize=12:antialias=true:style=bold",
-   -- font = "xft:Bitstream Vera Sans Mono:size=14:bold:antialias=true",
-   -- font = "xft:Bitstream Vera Sans Mono:size=13:bold:antialias=true",
-   -- font = "xft:Bitstream Vera Sans Mono:size=12:bold:antialias=true",
+   font = "xft:monospace:size=10:antialias=true:style=bold",
    --
-   -- additionalFonts = [ "xft:FontAwesome:pixelsize=13:style=bold" ],
-   additionalFonts = [ "xft:Droid Sans Mono:pixelsize=12:antialias=true:style=bold" ],
-   -- additionalFonts = [ "xft:Misc Fixed:pixelsize=12:antialias=true:style=bold" ],
+   -- additionalFonts = [ "xft:FontAwesome:size=10:style=bold" ],
+   additionalFonts = [ "xft:Droid Sans Mono:size=10:antialias=true:style=bold" ],
+   -- additionalFonts = [ "xft:Misc Fixed:size=10:antialias=true:style=bold" ],
 
    borderColor = "black",
    border = TopB,
