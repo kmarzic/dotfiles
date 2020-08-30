@@ -106,8 +106,10 @@ bind-key -n S-Down new-window -c "#{pane_current_path}"
 # bind-key -n C-S-Left swap-window -t -1
 # bind-key -n C-S-Right swap-window -t +1
 ## tmux 3.x
-bind-key -n C-S-Left swap-window -t -1\; select-window -t -1
-bind-key -n C-S-Right swap-window -t +1\; select-window -t +1
+# bind-key -n C-S-Left swap-window -t -1\; select-window -t -1
+# bind-key -n C-S-Right swap-window -t +1\; select-window -t +1
+bind-key -n C-S-Left swap-window -t -1\; select-window -t -0
+bind-key -n C-S-Right swap-window -t +1\; select-window -t +0
 
 ## shift arrow to switch windows
 bind-key -n S-Left  previous-window
