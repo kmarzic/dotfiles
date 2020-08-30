@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-04-26 10:01:14 (CEST)
+## Last update: 2020-08-30 07:42:05 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -50,9 +50,13 @@ set-option -g set-titles off
 set-window-option -g automatic-rename on
 set-option -g renumber-windows on
 
-#### ## improve colors
-#### # set-option -g default-terminal "tmux-256color"
-#### set-option -g default-terminal "screen-256color"
+## terminal
+# set-option -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
+
+## fixes shift-pageup/shift-pagedown
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+set -as terminal-overrides ',st*:kind@:kri@'
 
 ## clock mode
 set-option -g clock-mode-style 24
@@ -205,7 +209,6 @@ set -g @yank_with_mouse on # 'off' or 'on'
 set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
-set -g @theme-mode-fg '#2c2e34'
 set -g @theme-status-justify left
 set -g @theme-status-left-bg '#2c2e34'
 set -g @theme-status-right-bg '#2c2e34'

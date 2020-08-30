@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-04-26 10:01:14 (CEST)
+## Last update: 2020-08-30 07:42:05 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -50,9 +50,13 @@ set-option -g set-titles off
 set-window-option -g automatic-rename on
 set-option -g renumber-windows on
 
-#### ## improve colors
-#### # set-option -g default-terminal "tmux-256color"
-#### set-option -g default-terminal "screen-256color"
+## terminal
+# set-option -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
+
+## fixes shift-pageup/shift-pagedown
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+set -as terminal-overrides ',st*:kind@:kri@'
 
 ## clock mode
 set-option -g clock-mode-style 24
@@ -182,11 +186,6 @@ bind E setw synchronize-panes off
 # set-option -g pane-border-style 'bg=black, fg=#555555'
 # set-option -g pane-active-border-style 'bg=black, fg=cyan'
 
-## tmux-yank
-set -g @yank_selection 'primary' # 'primary' or 'secondary' or 'clipboard'
-set -g @yank_selection_mouse 'primary' # 'primary' or 'secondary' or 'clipboard'
-set -g @yank_with_mouse on # 'off' or 'on'
-
 ## tmux-prefix-highlight
 set -g @prefix_highlight_prefix_prompt 'Wait'
 set -g @prefix_highlight_fg 'black'
@@ -195,6 +194,11 @@ set -g @prefix_highlight_show_copy_mode 'on'
 set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=cyan'
 set -g @prefix_highlight_show_sync_mode 'on'
 set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=cyan'
+
+## tmux-yank
+set -g @yank_selection 'primary' # 'primary' or 'secondary' or 'clipboard'
+set -g @yank_selection_mouse 'primary' # 'primary' or 'secondary' or 'clipboard'
+set -g @yank_with_mouse on # 'off' or 'on'
 
 ## tmux-continuum
 # set -g @continuum-boot 'on'
