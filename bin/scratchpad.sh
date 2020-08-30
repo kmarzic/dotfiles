@@ -2,21 +2,21 @@
 
 export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
-function __scratchpad_1()
+function __scratchpad_urxvt()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
       || urxvt -title "scratchpad" -name "scratchpad" -geometry 140x40+100-100 -fn "xft:monospace:pixelsize=14:antialias=true:style=bold"
 }
 
-function __scratchpad_2()
+function __scratchpad_st()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
       || st -T "scratchpad" -t "scratchpad" -n "scratchpad" -f " DejaVu Sans Mono:pixelsize=14:style=bold"
 }
 
-function __scratchpad_3()
+function __scratchpad_alacritty()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
@@ -49,9 +49,9 @@ function __scratchpad_4()
 }
 
 #### MAIN
-# __scratchpad_1
-__scratchpad_2
-# __scratchpad_3
+# __scratchpad_urxvt
+# __scratchpad_st
+__scratchpad_alacritty
 # __scratchpad_4
 
 #### END
