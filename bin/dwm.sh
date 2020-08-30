@@ -14,7 +14,7 @@ trayer.sh &
 
 #### xrandr
 screen_toggle.sh -x
-screen_toggle.sh -s ansi
+# screen_toggle.sh -s ansi
 # screen_toggle.sh -s monokai
 # screen_toggle.sh -s nord
 # screen_toggle.sh -s solarized.dark
