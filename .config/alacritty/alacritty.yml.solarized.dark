@@ -1,4 +1,4 @@
-#### alacritty.yml
+#### alacritty.yml.solarized.dark
 
 env:
   TERM: rxvt-256color
@@ -74,70 +74,6 @@ font:
 draw_bold_text_with_bright_colors: false
 
 schemes:
-  ## Ansi
-  ansi: &ansi
-    # Colors (Terminal.app)
-    # Default colors
-    primary:
-      background: '#000000'
-      foreground: '#b6b6b6'
-
-    # Normal colors
-    normal:
-      black:   '#000000'
-      red:     '#990000'
-      green:   '#00a600'
-      yellow:  '#999900'
-      blue:    '#0000b2'
-      magenta: '#b200b2'
-      cyan:    '#00a6b2'
-      white:   '#bfbfbf'
-
-    # Bright colors
-    bright:
-      black:   '#666666'
-      red:     '#e50000'
-      green:   '#00d900'
-      yellow:  '#e5e500'
-      blue:    '#0000ff'
-      magenta: '#e500e5'
-      cyan:    '#00e5e5'
-      white:   '#e5e5e5'
-
-  ## Solarized Light
-  solarized_light: &solarized_light
-    # Default colors
-    primary:
-      background: '0xfdf6e3'
-      foreground: '0x586e75'
-
-    # Colors the cursor will use if `custom_cursor_colors` is true
-    cursor:
-      text:    '0xfdf6e3'
-      cursor:  '0x586e75'
-
-    # Normal colors
-    normal:
-      black:   '0x073642'
-      red:     '0xdc322f'
-      green:   '0x859900'
-      yellow:  '0xb58900'
-      blue:    '0x268bd2'
-      magenta: '0xd33682'
-      cyan:    '0x2aa198'
-      white:   '0xeee8d5'
-
-    # Bright colors
-    bright:
-      black:   '0x002b36'
-      red:     '0xcb4b16'
-      green:   '0x586e75'
-      yellow:  '0x657b83'
-      blue:    '0x839496'
-      magenta: '0x6c71c4'
-      cyan:    '0x93a1a1'
-      white:   '0xfdf6e3'
-
   ## Solarized Dark
   solarized_dark: &solarized_dark
     # Default colors
@@ -172,11 +108,7 @@ schemes:
       cyan:    '0xd33682'
       white:   '0xfdf6e3'
 
-
-# colors: *solarized_light
 colors: *solarized_dark
-# colors: *ansi
-
 
 bell:
   animation: EaseOutExpo
