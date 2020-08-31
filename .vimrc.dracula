@@ -291,18 +291,20 @@ let g:dracula_italic = 0
 set background=dark
 syntax enable
 colorscheme dracula
-color dracula
 
 augroup dracula_customization
+    au!
+
     " hi DraculaComment ctermfg=61 guifg=#6272A4
     hi DraculaComment ctermfg=141 guifg=#BD93F9
 
-    hi CursorLine   term=bold cterm=bold guibg=white
     hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
     hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
     hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
     hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
 augroup END
+
+
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
