@@ -107,6 +107,7 @@ __help()
     __printf "Examples:"
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
+    __printf "   ${0} -s dracula"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s solarized.dark"
@@ -185,6 +186,62 @@ function __theme()
 
             #### xmonad
             [[ -e ~/.xmonad/xmonad.ansi.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.ansi.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
+            fi
+            ;;
+        "dracula")
+            __printf "dracula"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s space/batman-nebula-4k-z4.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s space/outer-digital-space-tq.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.dracula ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.dracula .Xdefaults
+            [[ -e ~/.Xdefaults.dracula ]] && xrdb -load ~/.Xdefaults.dracula
+
+            #### vim
+            [[ -e ~/.vimrc.dracula ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.dracula .vimrc
+            [[ -e ~/.gvimrc.dracula ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.dracula .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.dracula.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.dracula.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.dracula.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.dracula.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.dracula ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.dracula .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.dracula ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.dracula .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.dracula ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.dracula alacritty.yml && cd -
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.dracula.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.dracula.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.dracula.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.dracula.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then

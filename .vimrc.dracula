@@ -1,18 +1,43 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-08-31 18:20:59 (CEST)
-"" Current file: ~/.config/nvim/init.vim
-"" init.vim
+"" Last update: 2020-08-31 18:23:43 (CEST)
+"" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
+
 "" ------------------------------------------------------------------------
-"" Plugins
+"" Package Manager
 "" ------------------------------------------------------------------------
 
-"" Plugins will be downloaded under the specified directory.
+"" Pathogen: Vim package manager
+"" http://www.vim.org/scripts/script.php?script_id=2332
+"" https://github.com/tpope/vim-pathogen
+"" mkdir -p ~/.vim/autoload ~/.vim/bundle;
+"" curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+"" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+""
+" call pathogen#infect()
+" call pathogen#helptags()
+
+"" vundle
+"" http://www.vim.org/scripts/script.php?script_id=3458
+"" https://github.com/VundleVim/Vundle.vim
+"" cd ~/.vim/bundle; git clone https://github.com/gmarik/Vundle.vim.git
+"" cd ~/.vim/bundle/Vundle.vim; git remote update
+""
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" Plugin 'gmarik/Vundle.vim'
+" call vundle#end()            " required
+" filetype plugin indent on    " required
+
+"" vim-plug
+"" https://github.com/junegunn/vim-plug
+""
 call plug#begin('~/.vim/plugged')
-"
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf.vim'
@@ -26,28 +51,25 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-scripts/perl-support.vim'
 Plug 'vim-perl/vim-perl'
 Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 "
 Plug 'chriskempson/base16-vim'
-" Plug 'rakr/vim-one'
-" Plug 'rakr/vim-colors-rakr'
-" Plug 'jeffkreeftmeijer/vim-dim'
-" Plug 'kyoz/purify'
-" Plug 'joshdick/onedark.vim'
-" Plug 'andreasvc/vim-256noir'
-" Plug 'marcopaganini/termschool-vim-theme'
 Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
+Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'
-Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'miyakogi/seiya.vim'
-"
-"" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+
+"" ------------------------------------------------------------------------
+"" Plugins
+"" ------------------------------------------------------------------------
 
 "" ale
 "" https://github.com/w0rp/ale
@@ -82,9 +104,9 @@ let g:ctrlp_switch_buffer = 0
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
-" let g:lightline = {
-"       \ 'colorscheme': 'solarized',
-"       \ }
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ }
 
 "" The NERD tree
 "" https://github.com/scrooloose/nerdtree
@@ -219,7 +241,8 @@ nmap <C-m> <Plug>MarkdownPreview
 nmap <S-s> <Plug>MarkdownPreviewStop
 nmap <C-t> <Plug>MarkdownPreviewToggle
 
-"" --------------------------------------------------------------------
+
+"" ----------------------------------------------------------------------------
 
 "" Bash-support
 "" https://github.com/vim-scripts/bash-support.vim
@@ -232,6 +255,9 @@ nmap <C-t> <Plug>MarkdownPreviewToggle
 ""
 " au BufNewFile,BufRead *.go set filetype=go
 au BufNewFile,BufReadPost *.go set filetype=go
+
+"" perl-support
+"" https://github.com/vim-scripts/perl-support.vim
 
 "" perl-vim
 "" https://github.com/vim-perl/vim-perl
@@ -255,20 +281,28 @@ let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 let hs_allow_hash_operator = 1
 
-"" --------------------------------------------------------------------
+"" ----------------------------------------------------------------------------
 
-"" arcticicestudio/nord-vim
-"" https://github.com/arcticicestudio/nord-vim
-""
-augroup nord-overrides
-  autocmd!
-  autocmd ColorScheme nord highlight Comment ctermfg=14
-augroup END
-let g:nord_italic = 1
-set t_Co=256
+"" Dracula
+"" https://draculatheme.com/vim
+let g:dracula_colorterm = 0
+let g:dracula_italic = 0
+
 set background=dark
-syntax on
-colorscheme nord
+syntax enable
+colorscheme dracula
+color dracula
+
+augroup dracula_customization
+    " hi DraculaComment ctermfg=61 guifg=#6272A4
+    hi DraculaComment ctermfg=141 guifg=#BD93F9
+
+    hi CursorLine   term=bold cterm=bold guibg=white
+    hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
+    hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
+    hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
+    hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
+augroup END
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
@@ -290,6 +324,18 @@ endif
 "" List of directories for the backup file.
 if has ("unix")
     set backupdir=.,~/tmp,/tmp,/var/tmp
+endif
+
+"" List of directories which will be searched
+if has ("unix")
+    set path=.,~/.vim
+endif
+
+"" vimrc
+if has ("unix")
+    let vimrc='$HOME/.vimrc'
+else
+    let vimrc='$VIM\_vimrc'
 endif
 
 "" List of file names, separated by commas, that are used to lookup words
@@ -333,7 +379,7 @@ set makeprg=make\ #<.o
 set nojoinspaces
 
 "" Function keys that start with an <Esc> are recognized in Insert mode.
-" set esckeys
+set esckeys
 
 "" Make a backup before overwriting a file.
 set nobackup
@@ -352,7 +398,7 @@ set keywordprg=man\ -a
 set infercase
 
 "" Use PC BIOS to read keyboard, for better ^C detection.
-" set bioskey
+set bioskey
 
 "" Be incompatible with vi, please.
 set nocompatible
@@ -393,7 +439,7 @@ set fileformats=unix,dos,mac
 set noinfercase
 
 "" Scroll at most 20 lines at a time.
-" set ttyscroll=0
+set ttyscroll=0
 
 "" Indicates a fast terminal connection.
 set ttyfast
@@ -731,14 +777,14 @@ endif
 "" ------------------------------------------------------------------------
 
 "" When on the title of the window will be set to "VIM - filename".
-" set title
+set title
 
 "" Title String
-" set titlestring=%<%F%=%l/%L-%P
+set titlestring=%<%F%=%l/%L-%P
 
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
-" set titlelen=70
+set titlelen=70
 
 
 "" ------------------------------------------------------------------------
