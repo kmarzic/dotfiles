@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-08-31 18:23:43 (CEST)
+"" Last update: 2020-09-01 06:57:17 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -105,7 +105,7 @@ let g:ctrlp_switch_buffer = 0
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'desert',
       \ }
 
 "" The NERD tree
@@ -296,15 +296,9 @@ augroup dracula_customization
     au!
 
     " hi DraculaComment ctermfg=61 guifg=#6272A4
-    hi DraculaComment ctermfg=141 guifg=#BD93F9
-
-    hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-    hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-    hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
-    hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
+    " hi DraculaComment ctermfg=141 guifg=#BD93F9
+    " hi DraculaComment ctermfg=141 guifg=#6272A4
 augroup END
-
-
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
