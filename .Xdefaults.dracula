@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-08-31 18:35:36 (CEST)
+!! Last update: 2020-09-01 07:03:09 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -18,114 +18,119 @@
 !! Dracula
 !! ---------------------------------------------------------------------
 
-! !! Dracula Xresources palette
-! *.foreground: #F8F8F2
-! *.background: #282A36
-! *.color0:     #000000
-! *.color8:     #4D4D4D
-! *.color1:     #FF5555
-! *.color9:     #FF6E67
-! *.color2:     #50FA7B
-! *.color10:    #5AF78E
-! *.color3:     #F1FA8C
-! *.color11:    #F4F99D
-! *.color4:     #BD93F9
-! *.color12:    #CAA9FA
-! *.color5:     #FF79C6
-! *.color13:    #FF92D0
-! *.color6:     #8BE9FD
-! *.color14:    #9AEDFE
-! *.color7:     #BFBFBF
-! *.color15:    #E6E6E6
+!! Dracula Xresources palette
+!! https://github.com/dracula/xresources/blob/master/Xresources
+*.foreground: #F8F8F2
+*.background: #282A36
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
+Exit*foreground: #e9e9f4
+Exit*background: #282936
+
 
 !! ---------------------------------------------------------------------
-!! Dracula
+!! Dracula, base16
 !! ---------------------------------------------------------------------
 
-#define base00 #282936
-#define base01 #3a3c4e
-#define base02 #4d4f68
-#define base03 #626483
-#define base04 #62d6e8
-#define base05 #e9e9f4
-#define base06 #f1f2f8
-#define base07 #f7f7fb
-#define base08 #ea51b2
-#define base09 #b45bcf
-#define base0A #00f769
-#define base0B #ebff87
-#define base0C #a1efe4
-#define base0D #62d6e8
-#define base0E #b45bcf
-#define base0F #00f769
-
-*foreground:   base05
-#ifdef background_opacity
-*background:   [background_opacity]base00
-#else
-*background:   base00
-#endif
-*cursorColor:  base05
-
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-
-*color8:       base03
-*color9:       base08
-*color10:      base0B
-*color11:      base0A
-*color12:      base0D
-*color13:      base0E
-*color14:      base0C
-*color15:      base07
-
-Exit*foreground: base06
-Exit*background: base01
-urxvt*foreground: base06
-urxvt*background: base01
-st.foreground: base06
-st.background: base01
-st.cursorColor: base06
-
-st.color0:     base00
-st.color1:     base08
-st.color2:     base0B
-st.color3:     base0A
-st.color4:     base0D
-st.color5:     base0E
-st.color6:     base0C
-st.color7:     base05
-st.color8:     base03
-st.color9:     base08
-st.color10:    base0B
-st.color11:    base0A
-st.color12:    base0D
-st.color13:    base0E
-st.color14:    base0C
-st.color15:    base07
-
-scratchpad.color0:     base00
-scratchpad.color1:     base08
-scratchpad.color2:     base0B
-scratchpad.color3:     base0A
-scratchpad.color4:     base0D
-scratchpad.color5:     base0E
-scratchpad.color6:     base0C
-scratchpad.color7:     base05
-scratchpad.color8:     base03
-scratchpad.color9:     base08
-scratchpad.color10:    base0B
-scratchpad.color11:    base0A
-scratchpad.color12:    base0D
-scratchpad.color13:    base0E
-scratchpad.color14:    base0C
-scratchpad.color15:    base07
+! #define base00 #282936
+! #define base01 #3a3c4e
+! #define base02 #4d4f68
+! #define base03 #626483
+! #define base04 #62d6e8
+! #define base05 #e9e9f4
+! #define base06 #f1f2f8
+! #define base07 #f7f7fb
+! #define base08 #ea51b2
+! #define base09 #b45bcf
+! #define base0A #00f769
+! #define base0B #ebff87
+! #define base0C #a1efe4
+! #define base0D #62d6e8
+! #define base0E #b45bcf
+! #define base0F #00f769
+! 
+! *foreground:   base05
+! #ifdef background_opacity
+! *background:   [background_opacity]base00
+! #else
+! *background:   base00
+! #endif
+! *cursorColor:  base05
+! 
+! *color0:       base00
+! *color1:       base08
+! *color2:       base0B
+! *color3:       base0A
+! *color4:       base0D
+! *color5:       base0E
+! *color6:       base0C
+! *color7:       base05
+! 
+! *color8:       base03
+! *color9:       base08
+! *color10:      base0B
+! *color11:      base0A
+! *color12:      base0D
+! *color13:      base0E
+! *color14:      base0C
+! *color15:      base07
+! 
+! Exit*foreground: base05
+! Exit*background: base00
+! ! urxvt*foreground: base06
+! ! urxvt*background: base01
+! ! st.foreground: base06
+! ! st.background: base01
+! ! st.cursorColor: base06
+! 
+! st.color0:     base00
+! st.color1:     base08
+! st.color2:     base0B
+! st.color3:     base0A
+! st.color4:     base0D
+! st.color5:     base0E
+! st.color6:     base0C
+! st.color7:     base05
+! st.color8:     base03
+! st.color9:     base08
+! st.color10:    base0B
+! st.color11:    base0A
+! st.color12:    base0D
+! st.color13:    base0E
+! st.color14:    base0C
+! st.color15:    base07
+! 
+! scratchpad.color0:     base00
+! scratchpad.color1:     base08
+! scratchpad.color2:     base0B
+! scratchpad.color3:     base0A
+! scratchpad.color4:     base0D
+! scratchpad.color5:     base0E
+! scratchpad.color6:     base0C
+! scratchpad.color7:     base05
+! scratchpad.color8:     base03
+! scratchpad.color9:     base08
+! scratchpad.color10:    base0B
+! scratchpad.color11:    base0A
+! scratchpad.color12:    base0D
+! scratchpad.color13:    base0E
+! scratchpad.color14:    base0C
+! scratchpad.color15:    base07
 
 !! ---------------------------------------------------------------------
 !! EOF
