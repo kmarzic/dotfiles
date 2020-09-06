@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2020-08-30 08:56:32
+#       CREATED: 2020-09-06 08:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -224,6 +224,10 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.dracula.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.dracula.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.dracula ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.dracula dunstrc
+            pkill dunst
 
             #### redshift.conf
             [[ -e ~/.config/redshift.dracula.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.dracula.conf redshift.conf && cd -
