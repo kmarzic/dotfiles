@@ -17,7 +17,7 @@ Config {
    borderColor = "black",
    border = TopB,
    -- alpha = 255,
-   alpha = 136,
+   alpha = 186,
    -- alpha = 0,
    position = Bottom,
    textOffset = -1,
