@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-08-30 11:20:55 (CEST)
+-- Last update: 2020-09-12 20:48:29 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -60,6 +60,23 @@ ansi = M.fromList
     ("red",              "#ff0000"),
     ("white",            "#ffffff"),
     ("yellow",           "#ffff00")
+  ]
+
+dracula :: M.Map String String
+dracula = M.fromList
+  [
+    ("background",       "#282a36"),
+    ("line",             "#44475a"),
+    ("selection",        "#44475a"),
+    ("foreground",       "#f8f8f2"),
+    ("comment",          "#6272a4"),
+    ("cyan",             "#8be9fd"),
+    ("green",            "#50fa7b"),
+    ("orange",           "#ffb86c"),
+    ("pink",             "#ff79c6"),
+    ("purple",           "#bd93f9"),
+    ("red",              "#ff5555"),
+    ("yellow",           "#f1fa8c")
   ]
 
 monokai :: M.Map String String
@@ -209,6 +226,9 @@ fontTerminalScratchpad = "xft:monospace:pixelsize=14:antialias=true:style=bold,x
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
+dmenuCommandDracula :: String -- theme: dracula
+dmenuCommandDracula = "/usr/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+
 dmenuCommandMonokai :: String -- theme: monokai
 dmenuCommandMonokai = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
@@ -234,19 +254,17 @@ dzenCommand2 :: ScreenId -> String
 dzenCommand2 (S s) = unwords ["dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l'", "-xs", show s]
 
 myTerminal :: String
--- myTerminal = "urxvt"
+myTerminal = "urxvt"
 -- myTerminal = "urxvtc"
 -- myTerminal = "termite"
 -- myTerminal = "$HOME/bin/st"
-myTerminal = "alacritty"
 
 myTerminalScratchpad :: String
--- myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
+myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
--- myTerminalScratchpad = "$HOME/bin/st -c scratchpad -n scratchpad &"
-myTerminalScratchpad = "alacritty --class scratchpad -t scratchpad &"
+-- myTerminalScratchpad = "$HOME/bin/st -c scratchpad -n scratchpad"
 
 myModMask :: KeyMask
 myModMask = mod1Mask
@@ -262,7 +280,12 @@ myBorderWidth = 1
 myNormalBorderColorAnsi :: String -- theme: ansi
 myNormalBorderColorAnsi = ansi M.! "white"
 myFocusedBorderColorAnsi :: String
-myFocusedBorderColorAnsi = ansi M.! "cyan"
+myFocusedBorderColorAnsi = ansi M.! "cyan0"
+
+myNormalBorderColorDracula :: String -- theme: dracula
+myNormalBorderColorDracula = dracula M.! "foreground"
+myFocusedBorderColorDracula :: String
+myFocusedBorderColorDracula = dracula M.! "cyan"
 
 myNormalBorderColorMonokai :: String -- theme: monokai
 myNormalBorderColorMonokai = monokai M.! "white"
@@ -421,6 +444,21 @@ myTabConfigAnsi = def
     urgentColor = ansi M.! "red",
     urgentTextColor = ansi M.! "white",
     urgentBorderColor = ansi M.! "gray20",
+    fontName = fontBold
+  }
+
+myTabConfigDracula :: Theme -- theme: dracula
+myTabConfigDracula = def
+  {
+    activeColor = dracula M.! "comment",
+    activeTextColor = dracula M.! "foreground",
+    activeBorderColor = dracula M.! "cyan",
+    inactiveColor = dracula M.! "line",
+    inactiveTextColor = dracula M.! "foreground",
+    inactiveBorderColor = dracula M.! "foreground",
+    urgentColor = dracula M.! "red",
+    urgentTextColor = dracula M.! "foreground",
+    urgentBorderColor = dracula M.! "green",
     fontName = fontBold
   }
 
@@ -634,6 +672,46 @@ myDzen2LogHookAnsiPP = def
     ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (ansi M.! "red") "" ts,"]",t] ++ ex ++ []
   }
 
+myXmobarLogHookDraculaPP :: PP -- theme: dracula
+myXmobarLogHookDraculaPP = def
+  {
+    ppCurrent         = xmobarColor (dracula M.! "cyan") "" . wrap "[" "]",
+    ppHidden          = xmobarColor (dracula M.! "foreground") "",
+    ppHiddenNoWindows = xmobarColor (dracula M.! "comment") "",
+    ppTitle           = xmobarColor (dracula M.! "cyan") "" . shorten 50,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = xmobarColor (dracula M.! "red") (dracula M.! "yellow"),
+    ppLayout          = xmobarColor (dracula M.! "green") "" . (\layout -> myPPLayout (layout)),
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (dracula M.! "red") "" ts,"]",t] ++ ex ++ []
+  }
+
+myDzen2LogHookDraculaPP :: PP -- theme: dracula
+myDzen2LogHookDraculaPP = def
+  {
+    ppCurrent         = dzenColor (dracula M.! "cyan") "" . wrap "[" "]",
+    ppHidden          = dzenColor (dracula M.! "foreground") "",
+    ppHiddenNoWindows = dzenColor (dracula M.! "comment") "",
+    ppTitle           = dzenColor (dracula M.! "cyan") "" . shorten 50,
+    ppVisible         = wrap "(" ")",
+    ppUrgent          = dzenColor (dracula M.! "red") (dracula M.! "yellow"),
+    ppLayout          = dzenColor (dracula M.! "green") "" . (\layout -> myPPLayout (layout)),
+    ppSep             = " ", -- separator between each object
+    ppWsSep           = " ", -- separator between workspaces
+    -- (1)
+    -- ppExtras          = [ logTitles ],
+    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [dzenColor "gray" "" ts]
+    -- (2)
+    ppExtras          = [ windowCount ],
+    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (dracula M.! "red") "" ts,"]",t] ++ ex ++ []
+  }
+
 myXmobarLogHookMonokaiPP :: PP -- theme: monokai
 myXmobarLogHookMonokaiPP = def
   {
@@ -826,6 +904,38 @@ myDzen2LogHookAnsi2a h s = myDzen2LogHookAnsiPP
 myDzen2LogHookAnsi2 :: [Handle] -> ScreenId -> X ()
 myDzen2LogHookAnsi2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookAnsi2a hs [0..ns-1]
 
+-- dracula
+
+myXmobarLogHookDracula1 :: Handle -> X()
+myXmobarLogHookDracula1 h = dynamicLogWithPP myXmobarLogHookDraculaPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myXmobarLogHookDracula2a :: Handle -> ScreenId -> PP
+myXmobarLogHookDracula2a h s = myXmobarLogHookDraculaPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myXmobarLogHookDracula2 :: [Handle] -> ScreenId -> X ()
+myXmobarLogHookDracula2 hs ns = mapM_ dynamicLogWithPP $ zipWith myXmobarLogHookDracula2a hs [0..ns-1]
+
+myDzen2LogHookDracula1 :: Handle -> X()
+myDzen2LogHookDracula1 h = dynamicLogWithPP myDzen2LogHookDraculaPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myDzen2LogHookDracula2a :: Handle -> ScreenId -> PP
+myDzen2LogHookDracula2a h s = myDzen2LogHookDraculaPP
+  {
+    ppOutput = hPutStrLn h
+  }
+
+myDzen2LogHookDracula2 :: [Handle] -> ScreenId -> X ()
+myDzen2LogHookDracula2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookDracula2a hs [0..ns-1]
+
 -- monokai
 
 myXmobarLogHookMonokai1 :: Handle -> X()
@@ -964,6 +1074,13 @@ myKeysDmenuCommandAnsi =
     ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: ansi
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandAnsi), -- theme: ansi
     ((0,                         xK_Menu   ), spawn dmenuCommandAnsi)  -- theme: ansi
+  ]
+
+myKeysDmenuCommandDracula =
+  [
+    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: dracula
+    ((mod1Mask,                  xK_p      ), spawn dmenuCommandDracula), -- theme: dracula
+    ((0,                         xK_Menu   ), spawn dmenuCommandDracula)  -- theme: dracula
   ]
 
 myKeysDmenuCommandMonokai =
@@ -1128,6 +1245,19 @@ myConfigAnsi xmobar nScreens = myConfigDefault -- theme: ansi
       -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookAnsi2 xmobar nScreens
     } `additionalKeys` myKeysDmenuCommandAnsi
 
+myConfigDracula xmobar nScreens = myConfigDefault -- theme: dracula
+    {
+      normalBorderColor    = myNormalBorderColorDracula,
+      focusedBorderColor   = myFocusedBorderColorDracula,
+      layoutHook           = myLayoutHook myTabConfigDracula,
+      -- (1) single xmobar
+      -- logHook              = myXmobarLogHookDracula1 xmobar
+      -- (2) multiple xmobar
+      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myXmobarLogHookDracula2 xmobar nScreens
+      -- (3) multiple dzen2
+      -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookDracula2 xmobar nScreens
+    } `additionalKeys` myKeysDmenuCommandDracula
+
 myConfigMonokai xmobar nScreens = myConfigDefault -- theme: monokai
     {
       normalBorderColor    = myNormalBorderColorMonokai,
@@ -1206,6 +1336,7 @@ main = do
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
   -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
+  -- xmonad $ myConfigDracula xmobar2 nScreens -- theme: dracula
   -- xmonad $ myConfigMonokai xmobar2 nScreens -- theme: monokai
   -- xmonad $ myConfigNord xmobar2 nScreens -- theme: nord
   xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
