@@ -49,9 +49,9 @@ function __scratchpad_4()
 }
 
 #### MAIN
-# __scratchpad_urxvt
+__scratchpad_urxvt
 # __scratchpad_st
-__scratchpad_alacritty
+# __scratchpad_alacritty
 # __scratchpad_4
 
 #### END
