@@ -1,5 +1,5 @@
 ## dunstrc.solarized.light
-## Last update: 2018-07-16 11:34:29 (CEST)
+## Last update: 2020-09-13 10:15:53 (CEST)
 
 [global]
     # font = Monospace 8
@@ -154,7 +154,9 @@
 
 [frame]
     width = 3
-    color = "#586e75" # base01
+    # color = "#2f343f" # ansi
+    # color = "#bd93f9" # dracula
+    color = "#586e75" # base01, solarized
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -181,6 +183,12 @@
     ## Default
     # background = "#222222"
     # foreground = "#888888"
+    ## Ansi
+    # background = "#ffffff"
+    # foreground = "#000000"
+    ## Dracula
+    # background = "#6272a4"
+    # foreground = "#282a36"
     ## Green
     # background = "#003300"
     # foreground = "#888888"
@@ -197,6 +205,12 @@
     ## Default
     # background = "#285577"
     # foreground = "#ffffff"
+    ## Ansi
+    # background = "#94DBFF"
+    # foreground = "#000000"
+    ## Dracula
+    # background = "#6272a4"
+    # foreground = "#f8f8f2"
     ## Green
     # background = "#003300"
     # foreground = "#ffffff"
@@ -213,6 +227,12 @@
     ## Default
     # background = "#900000"
     # foreground = "#ffffff"
+    ## Ansi
+    # background = "#ff9999"
+    # foreground = "#000000"
+    ##  Dracula
+    # background = "#6272a4"
+    # foreground = "#ff5555"
     ## Green
     # background = "#003300"
     # foreground = "#b58900"
@@ -224,5 +244,9 @@
     # foreground = "#dc322f" # red
     #
     timeout = 0
+
+[play_sound]
+    summary = "*"
+    script = ~/bin/dunst.sound.sh
 
 ## end
