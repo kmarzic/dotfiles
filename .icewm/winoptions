@@ -1,4 +1,4 @@
-# This is an example for icewm 1.8.2 window options file.
+# This is an example for icewm 1.8.3 window options file.
 # It will be installed as /opt/icewm/share/icewm/winoptions.
 # Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
