@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-09-12 19:30:53 (CEST)
+!! Last update: 2020-09-27 11:16:26 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -442,15 +442,27 @@ st.shell: /bin/bash
 ! st.background: #101010
 ! st.foreground: #d2d2d2
 ! st.cursorColor: #101010
-! st.font: Monospace:size=11
-! st.font: Terminus:size=12
-! st.font: DejaVu Sans Mono:size=11
-st.font: Liberation Mono for Powerline:size=11
+! st.font: Monospace:pixelsize=14:antialias=true:autohint=true:autohint=true:style=regular
+! st.font: Terminus:pixelsize=14:antialias=true:autohint=true:autohint=true:style=regular
+st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:autohint=true:style=regular
+! st.font: Liberation Mono for Powerline:pixelsize=14:antialias=true:autohint=true:style=regular
+! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true:autohint=true::style=regular
 st.bellvolume: 100
 st.tabspaces: 8
 st.borderpx: 2
 st.chscale: 1.0
 st.cwscale: 1.0
+
+spterm.alpha: 0.8
+! spterm.opacity: 240
+spterm.termname: st-256color
+spterm.shell: /bin/bash
+spterm.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:autohint=true:style=regular
+spterm.bellvolume: 100
+spterm.tabspaces: 8
+spterm.borderpx: 2
+spterm.chscale: 1.0
+spterm.cwscale: 1.0
 
 
 !! ---------------------------------------------------------------------
