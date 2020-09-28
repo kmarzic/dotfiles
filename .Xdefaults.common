@@ -436,8 +436,12 @@ pterm.Colour21: 253,246,227
 !! ---------------------------------------------------------------------
 
 ! st.alpha: 0.85
+! st.alpha: 0.90
+! st.alpha: 0.95
+st.alpha: 0.96
+! st.alpha: 0.98
 ! st.alpha: 0.99
-st.alpha: 1.00
+! st.alpha: 1.00
 ! st.opacity: 240
 st.termname: st-256color
 st.shell: /bin/bash
@@ -456,8 +460,12 @@ st.chscale: 1.0
 st.cwscale: 1.0
 
 ! spterm.alpha: 0.85
+! spterm.alpha: 0.90
+! spterm.alpha: 0.95
+spterm.alpha: 0.96
+! spterm.alpha: 0.98
 ! spterm.alpha: 0.99
-spterm.alpha: 1.00
+! spterm.alpha: 1.00
 ! spterm.opacity: 240
 spterm.termname: st-256color
 spterm.shell: /bin/bash
