@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-09-12 20:48:29 (CEST)
+-- Last update: 2020-10-25 17:40:32 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -221,7 +221,8 @@ fontBold = "xft:monospace:pixelsize=14:antialias=true:style=bold"
 -- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
 
 fontTerminalScratchpad :: String
-fontTerminalScratchpad = "xft:monospace:pixelsize=14:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
+-- fontTerminalScratchpad = "xft:monospace:pixelsize=14:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
+fontTerminalScratchpad = "xft:monospace:pixelsize=12:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
 
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
@@ -283,9 +284,9 @@ myFocusedBorderColorAnsi :: String
 myFocusedBorderColorAnsi = ansi M.! "cyan0"
 
 myNormalBorderColorDracula :: String -- theme: dracula
-myNormalBorderColorDracula = dracula M.! "foreground"
+myNormalBorderColorDracula = dracula M.! "comment"
 myFocusedBorderColorDracula :: String
-myFocusedBorderColorDracula = dracula M.! "cyan"
+myFocusedBorderColorDracula = dracula M.! "purple"
 
 myNormalBorderColorMonokai :: String -- theme: monokai
 myNormalBorderColorMonokai = monokai M.! "white"
@@ -365,9 +366,9 @@ myStartUp = do
 myManageScratchPad :: ManageHook
 myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
   where
-    h = 0.6 -- terminal height, 60%
-    w = 0.6 -- terminal width, 60%
-    t = 0.3 -- distance from top edge, 30%
+    h = 0.7 -- terminal height, 70%
+    w = 0.7 -- terminal width, 70%
+    t = 0.2 -- distance from top edge, 20%
     l = 0.1 -- distance from left edge, 10%
 
 myManageHook :: ManageHook
@@ -452,7 +453,7 @@ myTabConfigDracula = def
   {
     activeColor = dracula M.! "comment",
     activeTextColor = dracula M.! "foreground",
-    activeBorderColor = dracula M.! "cyan",
+    activeBorderColor = dracula M.! "purple",
     inactiveColor = dracula M.! "line",
     inactiveTextColor = dracula M.! "foreground",
     inactiveBorderColor = dracula M.! "foreground",
@@ -675,12 +676,12 @@ myDzen2LogHookAnsiPP = def
 myXmobarLogHookDraculaPP :: PP -- theme: dracula
 myXmobarLogHookDraculaPP = def
   {
-    ppCurrent         = xmobarColor (dracula M.! "cyan") "" . wrap "[" "]",
-    ppHidden          = xmobarColor (dracula M.! "foreground") "",
+    ppCurrent         = xmobarColor (dracula M.! "purple") "" . wrap "[" "]",
+    ppHidden          = xmobarColor (dracula M.! "cyan") "",
     ppHiddenNoWindows = xmobarColor (dracula M.! "comment") "",
-    ppTitle           = xmobarColor (dracula M.! "cyan") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor (dracula M.! "red") (dracula M.! "yellow"),
+    ppTitle           = xmobarColor (dracula M.! "purple") "" . shorten 50,
+    ppVisible         = xmobarColor (dracula M.! "purple") "" . wrap "(" ")",
+    ppUrgent          = xmobarColor (dracula M.! "green") (dracula M.! "yellow"),
     ppLayout          = xmobarColor (dracula M.! "green") "" . (\layout -> myPPLayout (layout)),
     ppSep             = " ", -- separator between each object
     ppWsSep           = " ", -- separator between workspaces
@@ -1335,8 +1336,8 @@ main = do
   -- -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
-  -- xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
-  xmonad $ myConfigDracula xmobar2 nScreens -- theme: dracula
+  xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
+  -- xmonad $ myConfigDracula xmobar2 nScreens -- theme: dracula
   -- xmonad $ myConfigMonokai xmobar2 nScreens -- theme: monokai
   -- xmonad $ myConfigNord xmobar2 nScreens -- theme: nord
   -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
