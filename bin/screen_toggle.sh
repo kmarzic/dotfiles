@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2020-09-06 08:56:32
+#       CREATED: 2020-11-01 08:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -208,8 +208,17 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s space/batman-nebula-4k-z4.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s space/batman-nebula-4k-z4.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s space/outer-digital-space-tq.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s space/1314200.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s space/31367.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s space/655045.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s space/729708.jpg bg.jpg && cd -
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s dracula/base.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s dracula/dracula.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s dracula/dracula-purplish.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s dracula/Ycjig3q.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
