@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-10-25 17:40:32 (CET)
+-- Last update: 2020-11-10 06:21:03 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -676,7 +676,7 @@ myDzen2LogHookAnsiPP = def
 myXmobarLogHookDraculaPP :: PP -- theme: dracula
 myXmobarLogHookDraculaPP = def
   {
-    ppCurrent         = xmobarColor (dracula M.! "purple") "" . wrap "[" "]",
+    ppCurrent         = xmobarColor (dracula M.! "red") "" . wrap "[" "]",
     ppHidden          = xmobarColor (dracula M.! "cyan") "",
     ppHiddenNoWindows = xmobarColor (dracula M.! "comment") "",
     ppTitle           = xmobarColor (dracula M.! "purple") "" . shorten 50,
