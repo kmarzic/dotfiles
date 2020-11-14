@@ -180,11 +180,12 @@ do
     if [[ ${STATUSCOLOR} -eq 0 ]]
     then
         # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ]$(__spaces)"
-        xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__time) ]"
+        # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__time) ]"
+        xsetroot -name "[ $(__load) | $(__memory) | $(__battery) | $(__time) ]"
     elif [[ ${STATUSCOLOR} -eq 1 ]]
     then
-        # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ]$(__spaces)"
-        xsetroot -name "${NORMAL}[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__time) ]${NORMAL}"
+        # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ] $(__spaces)"
+        xsetroot -name "${NORMAL}[ $(__load) | $(__memory) | $(__battery) | $(__time) ]${NORMAL}"
     fi
     sleep 1
 done

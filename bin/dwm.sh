@@ -8,9 +8,9 @@ dwm.status.sh &
 dwm.battery.sh &
 
 #### trayer
-trayer.sh &
-# /usr/bin/dropbox start &
-# /usr/bin/nm-applet &
+# trayer.sh &
+/usr/bin/dropbox start &
+/usr/bin/nm-applet &
 
 #### xrandr
 screen_toggle.sh -x
