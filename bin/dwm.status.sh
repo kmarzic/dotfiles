@@ -2,14 +2,24 @@
 export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 DEFAULT_SPACES=7
-RED='^c#ff0000^'
-GREEN='^c#00ff00^'
-YELLOW='^c#ffff00^'
-CYAN='^c#00ffff^'
-NORMAL='^c#bbbbbb^'
 AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
 STATUSCOLOR=1
+
+# RED='^c#ff0000^'
+# GREEN='^c#00ff00^'
+# YELLOW='^c#ffff00^'
+# CYAN='^c#00ffff^'
+# NORMAL='^c#bbbbbb^'
+
+CYAN='^c#8be9fd^'
+GREEN='^c#50fa7b^'
+ORANGE='^c#ffb86c^'
+PINK='^c#ff79c6^'
+PURPLE='^c#bd93f9^'
+RED='^c#ff5555^'
+YELLOW='^c#f1fa8c^'
+NORMAL='^c#f8f8f2^'
 
 #### load
 function __load()
@@ -66,14 +76,14 @@ function __battery()
         if [[ $(acpi --battery | grep "Discharging" | wc -l) -eq 1 ]]
         then
             [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="D"
-            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}D${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${RED}D${NORMAL}"
         elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
         then
             [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="C"
-            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}C${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${RED}C${NORMAL}"
         else
             [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="F"
-            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${CYAN}F${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${RED}F${NORMAL}"
         fi
         battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
 
@@ -159,7 +169,7 @@ function __time()
     date="$(date +"%a %Y-%m-%d %H:%M:%S")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}${date}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${ORANGE}${date}${NORMAL}"
 }
 
 #### spaces
