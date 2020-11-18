@@ -21,6 +21,8 @@ RED='^c#ff5555^'
 YELLOW='^c#f1fa8c^'
 NORMAL='^c#f8f8f2^'
 
+GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
+
 #### load
 function __load()
 {
