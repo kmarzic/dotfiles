@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-10-03 16:04:00 (CEST)
+!! Last update: 2020-11-28 16:46:17 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -24,14 +24,14 @@
 #else
 *background: #f2f2f2
 #endif
-*cursorColor: cyan
+*cursorColor: #add8f6
 *fadeColor: gray
 
-urxvt*foreground: #f2f2f2
+urxvt*foreground: #e5e5e5
 urxvt*background: #101010
-st.foreground: #f2f2f2
+st.foreground: #e5e5e5
 st.background: #101010
-spterm.foreground: #f2f2f2
+spterm.foreground: #e5e5e5
 spterm.background: #101010
 
 !! Normal
@@ -44,14 +44,14 @@ spterm.background: #101010
 ! color6  cyan
 ! color7  white
 !
-*color0:  #000000
-! *color1:  #ff0000
-! *color2:  #00d700
-! *color3:  #d7ff00
-*color4:  #005fff
-! *color5:  #ff00ff
-! *color6:  #00ffd7
-! *color7:  #ffffff
+*color0:  black
+*color1:  red3
+*color2:  green3
+*color3:  yellow3
+*color4:  blue2
+*color5:  magenta3
+*color6:  cyan3
+*color7:  gray90
 !
 !! Light
 ! color8  black
@@ -63,14 +63,14 @@ spterm.background: #101010
 ! color14 cyan
 ! color15 white
 !
-*color8:  #000000
-! *color9:  #ff0000
-! *color10: #00d700
-! *color11: #d7ff00
-*color12: #005fff
-! *color13: #ff00ff
-! *color14: #00ffd7
-! *color15: #ffffff
+*color8:  gray50
+*color9:  red
+*color10: green
+*color11: yellow
+*color12: #5c5cff
+*color13: magenta
+*color14: cyan
+*color15: white
 
 !! ---------------------------------------------------------------------
 !! EOF

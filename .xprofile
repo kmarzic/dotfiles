@@ -93,11 +93,11 @@ xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -co
 # if [[ -e /usr/bin/wicd-gtk ]] && /usr/bin/wicd-client &
 
 ## redshift
-# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
+[[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
 # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.blue.conf redshift.conf && cd -
 # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.green.conf redshift.conf && cd -
 # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.dark.conf redshift.conf && cd -
-[[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
+# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
 [[ -e /usr/bin/redshift ]] && /usr/bin/redshift &
 
 ## xcompmgr - sample X compositing manager
@@ -107,7 +107,7 @@ xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -co
 # [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -c -l0 -t0 -r0 -o.00 &
 
 ## compton
-[[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -b
+[[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null -b
 # [[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --blur-method kernel -b
 # [[ -e /usr/bin/picom ]] && /usr/bin/picom --config ~/.config/compton.conf -b
 # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
