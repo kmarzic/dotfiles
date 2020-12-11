@@ -6,15 +6,17 @@ AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
 STATUSCOLOR=1
 
-CYAN='^c#00ffff^'
-GREEN='^c#00d700^'
-ORANGE='^c#d78700^'
-PINK='^c#d787af^'
-PURPLE='^c#d700af^'
-RED='^c#ff0000^'
-YELLOW='^c#ffff00^'
-NORMAL='^c#bbbbbb^'
+#### ansi
+# CYAN='^c#00ffff^'
+# GREEN='^c#00d700^'
+# ORANGE='^c#d78700^'
+# PINK='^c#d787af^'
+# PURPLE='^c#d700af^'
+# RED='^c#ff0000^'
+# YELLOW='^c#ffff00^'
+# NORMAL='^c#bbbbbb^'
 
+#### dracula
 # CYAN='^c#8be9fd^'
 # GREEN='^c#50fa7b^'
 # ORANGE='^c#ffb86c^'
@@ -23,6 +25,16 @@ NORMAL='^c#bbbbbb^'
 # RED='^c#ff5555^'
 # YELLOW='^c#f1fa8c^'
 # NORMAL='^c#f8f8f2^'
+
+#### solarized
+CYAN='^c#2aa198^'
+GREEN='^c#859900^'
+ORANGE='^c#cb4b16^'
+PINK='^c#d33682^'
+PURPLE='^c#6c71c4^'
+RED='^c#dc322f^'
+YELLOW='^c#b58900^'
+NORMAL='^c#073642^'
 
 GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
 

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-08-31 18:20:56 (CEST)
+"" Last update: 2020-12-11 10:07:13 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -266,7 +266,6 @@ colorscheme monokai
 "" https://github.com/miyakogi/seiya.vim
 ""
 let g:seiya_auto_enable=1
-
 
 "" ------------------------------------------------------------------------
 "" Syntax
@@ -547,7 +546,6 @@ set foldmethod=indent
 " Highlight current line
 set cursorline
 
-
 "" ------------------------------------------------------------------------
 "" Indenting
 "" ------------------------------------------------------------------------
@@ -584,7 +582,6 @@ set sidescroll=8
 
 "" Do not home cursor to beginning of line.
 set nostartofline
-
 
 "" ------------------------------------------------------------------------
 "" Look
@@ -717,7 +714,6 @@ if has ("unix")
     augroup END
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Title
 "" ------------------------------------------------------------------------
@@ -731,7 +727,6 @@ endif
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
 " set titlelen=70
-
 
 "" ------------------------------------------------------------------------
 "" Status line
@@ -779,7 +774,6 @@ set showcmd
 "" Number of lines to use for the command-line.
 set cmdheight=1
 
-
 "" ------------------------------------------------------------------------
 "" Tabs
 "" ------------------------------------------------------------------------
@@ -799,7 +793,6 @@ if has ("gui_running")
 else
     set showtabline=1
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Search
@@ -831,7 +824,6 @@ set magic
 if &t_Co > 1 || has ("gui_running")
     set hlsearch
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Key Mappings

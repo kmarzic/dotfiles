@@ -1,10 +1,9 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-08-31 18:23:46 (CEST)
+"" Last update: 2020-12-11 10:02:56 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
-
 
 "" ------------------------------------------------------------------------
 "" Package Manager
@@ -66,7 +65,6 @@ Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'miyakogi/seiya.vim'
 call plug#end()
-
 
 "" ------------------------------------------------------------------------
 "" Plugins
@@ -333,7 +331,6 @@ colorscheme monokai
 "" https://github.com/miyakogi/seiya.vim
 ""
 let g:seiya_auto_enable=1
-
 
 "" ------------------------------------------------------------------------
 "" Syntax
@@ -626,7 +623,6 @@ set foldmethod=indent
 " Highlight current line
 set cursorline
 
-
 "" ------------------------------------------------------------------------
 "" Indenting
 "" ------------------------------------------------------------------------
@@ -796,7 +792,6 @@ if has ("unix")
     augroup END
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Title
 "" ------------------------------------------------------------------------
@@ -810,7 +805,6 @@ set titlestring=%<%F%=%l/%L-%P
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
 set titlelen=70
-
 
 "" ------------------------------------------------------------------------
 "" Status line
@@ -878,7 +872,6 @@ if has ("gui_running")
 else
     set showtabline=1
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Search

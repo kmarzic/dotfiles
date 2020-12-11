@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-11-23 16:43:00 (CET)
+## Last update: 2020-12-11 09:34:39 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -212,9 +212,13 @@ set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
 set -g @theme-status-justify left
+set -g @theme-status-left-bg '#2aa198' # cyan
 set -g @theme-status-left-fg '#dc322f' # red
+set -g @theme-status-right-bg '#2aa198' # cyan
 set -g @theme-status-right-fg '#dc322f' # red
+set -g @theme-status-bg '#2aa198' # cyan
 set -g @theme-status-fg '#2aa198' # cyan
+set -g @theme-window-status-activity-bg '#2aa198' # cyan
 set -g @theme-window-status-activity-fg '#dc322f' # red
 set -g @theme-mode-bg '#2aa198' # cyan
 set -g @theme-mode-fg '#002b36' # black
@@ -255,6 +259,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
+# set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)

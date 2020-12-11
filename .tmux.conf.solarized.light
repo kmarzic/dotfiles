@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-12-11 06:37:06 (CET)
+## Last update: 2020-12-11 09:34:30 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -56,7 +56,7 @@ set -g default-terminal "tmux-256color"
 
 ## fixes shift-pageup/shift-pagedown
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
-set -as terminal-overrides ',st*:kind@:kri@'
+set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
 
 ## clock mode
 set-option -g clock-mode-style 24
@@ -177,7 +177,9 @@ bind E setw synchronize-panes off
 ## theming
 # set-option -g status-style "bg=black,fg=cyan"
 # set-option -g status-right '#[fg=cyan,bg=black]#{prefix_highlight}#[fg=#555555,bg=cyan]#[bg=#555555,fg=white] %Y-%m-%d #[fg=#999999,bg=#555555]#[bg=#999999,fg=black] %H:%M:%S #[bg=#999999,fg=#cccccc]#[bg=#cccccc,fg=black] #H #[default]' 
+# set-option -g status-right '#H %Y-%m-%d %H:%M:%S'
 # set-option -g status-left '#[bg=#999999,fg=black] #S #[bg=black,fg=#999999]'
+# set-option -g status-left '#[bg=#999999,fg=black] #S '
 # set-option -g status-interval 1
 # set-option -g status-justify left
 # set-window-option -g window-status-current-format "#[bg=#555555,fg=white] #W #[bg=black,fg=#555555]"
@@ -208,16 +210,20 @@ set -g @yank_with_mouse on # 'off' or 'on'
 
 ## tmux-themepack
 # set -g @themepack 'default'
-set -g @themepack 'basic'
+# set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
-set -g @theme-status-justify left
-set -g @theme-status-left-fg '#002b36' # black
-set -g @theme-status-right-fg '#002b36' # black
-set -g @theme-status-fg '#073642' # black
-set -g @theme-window-status-activity-fg '#dc322f' # red
-set -g @theme-mode-bg '#2aa198' # cyan
-set -g @theme-mode-fg '#002b36' # black
+# set -g @theme-status-justify left
+# set -g @theme-status-left-bg '#fdf6e3' # base3
+# set -g @theme-status-left-fg '#002b36' # base03
+# set -g @theme-status-right-bg '#fdf6e3' # base3
+# set -g @theme-status-right-fg '#002b36' # base03
+# set -g @theme-status-bg '#fdf6e3' # base3
+# set -g @theme-status-fg '#002b36' # base03
+# set -g @theme-window-status-activity-bg '#fdf6e3' # base3
+# set -g @theme-window-status-activity-fg '#dc322f' # red
+# set -g @theme-mode-bg '#2aa198' # cyan
+# set -g @theme-mode-fg '#002b36' # black
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'
@@ -226,22 +232,42 @@ set -g @theme-mode-fg '#002b36' # black
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-solarized
+## default statusbar colors
+set-option -g status-style fg=brightblue,bg=black #yellow and base02
+## default window title colors
+set-window-option -g window-status-style fg=brightblue,bg=default #base0 and default
+#set-window-option -g window-status-style dim
+## active window title colors
+set-window-option -g window-status-current-style fg=black,bg=red #orange and default
+#set-window-option -g window-status-current-style bright
+## pane border
+set-option -g pane-border-style fg=black #base02
+set-option -g pane-active-border-style fg=brightgreen #base01
+## message text
+set-option -g message-style fg=brightred,bg=black #orange and base01
+## pane number display
+set-option -g display-panes-active-colour blue #blue
+set-option -g display-panes-colour brightred #orange
+## clock
+set-window-option -g clock-mode-colour green #green
+## bell
+set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 # set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
 # set -g @colors-solarized 'base16'
 
 ## dracula/tmux
-# set -g @dracula-show-battery false
-# set -g @dracula-show-network false
-# set -g @dracula-show-weather false
-# set -g @dracula-military-time true
-# set -g @dracula-show-timezone false
-# set -g @dracula-show-left-icon session
-# set -g @dracula-border-contrast true
-# set -g @dracula-cpu-usage false
-# set -g @dracula-ram-usage false
-# set -g @dracula-gpu-usage false
+set -g @dracula-show-battery false
+set -g @dracula-show-network false
+set -g @dracula-show-weather false
+set -g @dracula-military-time true
+set -g @dracula-show-timezone false
+set -g @dracula-show-left-icon session
+set -g @dracula-border-contrast true
+set -g @dracula-cpu-usage false
+set -g @dracula-ram-usage false
+set -g @dracula-gpu-usage false
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
@@ -252,9 +278,10 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'tmux-plugins/tmux-resurrect'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
-set -g @plugin 'jimeh/tmux-themepack'
+# set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
+# set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)

@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-08-29 07:53:36 (CEST)
+!! Last update: 2020-12-11 08:02:31 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -96,6 +96,23 @@ scratchpad.color12:    base0D
 scratchpad.color13:    base0E
 scratchpad.color14:    base0C
 scratchpad.color15:    base07
+
+spterm.color0:     base00
+spterm.color1:     base08
+spterm.color2:     base0B
+spterm.color3:     base0A
+spterm.color4:     base0D
+spterm.color5:     base0E
+spterm.color6:     base0C
+spterm.color7:     base05
+spterm.color8:     base03
+spterm.color9:     base08
+spterm.color10:    base0B
+spterm.color11:    base0A
+spterm.color12:    base0D
+spterm.color13:    base0E
+spterm.color14:    base0C
+spterm.color15:    base07
 
 !! ---------------------------------------------------------------------
 !! EOF

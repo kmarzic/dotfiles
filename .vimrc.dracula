@@ -1,10 +1,9 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-09-01 06:57:17 (CEST)
+"" Last update: 2020-12-11 10:02:39 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
-
 
 "" ------------------------------------------------------------------------
 "" Package Manager
@@ -65,7 +64,6 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'miyakogi/seiya.vim'
 call plug#end()
-
 
 "" ------------------------------------------------------------------------
 "" Plugins
@@ -282,7 +280,6 @@ nmap <C-m> <Plug>MarkdownPreview
 nmap <S-s> <Plug>MarkdownPreviewStop
 nmap <C-t> <Plug>MarkdownPreviewToggle
 
-
 "" ----------------------------------------------------------------------------
 
 "" Bash-support
@@ -345,7 +342,6 @@ augroup END
 "" https://github.com/miyakogi/seiya.vim
 ""
 let g:seiya_auto_enable=1
-
 
 "" ------------------------------------------------------------------------
 "" Syntax
@@ -638,7 +634,6 @@ set foldmethod=indent
 " Highlight current line
 set cursorline
 
-
 "" ------------------------------------------------------------------------
 "" Indenting
 "" ------------------------------------------------------------------------
@@ -675,7 +670,6 @@ set sidescroll=8
 
 "" Do not home cursor to beginning of line.
 set nostartofline
-
 
 "" ------------------------------------------------------------------------
 "" Look
@@ -808,7 +802,6 @@ if has ("unix")
     augroup END
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Title
 "" ------------------------------------------------------------------------
@@ -822,7 +815,6 @@ set titlestring=%<%F%=%l/%L-%P
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
 set titlelen=70
-
 
 "" ------------------------------------------------------------------------
 "" Status line
@@ -891,7 +883,6 @@ else
     set showtabline=1
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Search
 "" ------------------------------------------------------------------------
@@ -922,7 +913,6 @@ set magic
 if &t_Co > 1 || has ("gui_running")
     set hlsearch
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Key Mappings

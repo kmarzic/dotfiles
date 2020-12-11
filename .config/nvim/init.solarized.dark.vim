@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-08-31 18:20:52 (CEST)
+"" Last update: 2020-12-11 10:08:27 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -257,16 +257,26 @@ let hs_allow_hash_operator = 1
 
 "" --------------------------------------------------------------------
 
-"" Dracula
-"" https://draculatheme.com/vim
-syntax enable
-colorscheme dracula
+"" flattened
+" colorscheme flattened_light
+
+"" vim-solarized8
+"" https://github.com/lifepillar/vim-solarized8
+""
+let g:solarized_visibility = "normal"
+let g:solarized_diffmode = "normal"
+let g:solarized_italics = 0
+set t_Co=256
+set background=dark
+" colorscheme solarized8
+" colorscheme solarized8_low
+colorscheme solarized8_high
+" colorscheme solarized8_flat
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
 ""
 let g:seiya_auto_enable=1
-
 
 "" ------------------------------------------------------------------------
 "" Syntax
@@ -547,7 +557,6 @@ set foldmethod=indent
 " Highlight current line
 set cursorline
 
-
 "" ------------------------------------------------------------------------
 "" Indenting
 "" ------------------------------------------------------------------------
@@ -584,7 +593,6 @@ set sidescroll=8
 
 "" Do not home cursor to beginning of line.
 set nostartofline
-
 
 "" ------------------------------------------------------------------------
 "" Look
@@ -717,7 +725,6 @@ if has ("unix")
     augroup END
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Title
 "" ------------------------------------------------------------------------
@@ -731,7 +738,6 @@ endif
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
 " set titlelen=70
-
 
 "" ------------------------------------------------------------------------
 "" Status line
@@ -779,7 +785,6 @@ set showcmd
 "" Number of lines to use for the command-line.
 set cmdheight=1
 
-
 "" ------------------------------------------------------------------------
 "" Tabs
 "" ------------------------------------------------------------------------
@@ -799,7 +804,6 @@ if has ("gui_running")
 else
     set showtabline=1
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Search
@@ -831,7 +835,6 @@ set magic
 if &t_Co > 1 || has ("gui_running")
     set hlsearch
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Key Mappings

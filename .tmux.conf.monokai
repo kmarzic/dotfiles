@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-11-23 16:43:04 (CET)
+## Last update: 2020-12-11 09:34:45 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -256,6 +256,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
+# set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)

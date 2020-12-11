@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-08-31 18:20:49 (CEST)
+"" Last update: 2020-12-11 10:05:55 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" init.vim
 "" ------------------------------------------------------------------------
@@ -277,7 +277,6 @@ hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
 hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
-
 
 "" ------------------------------------------------------------------------
 "" Syntax
@@ -558,7 +557,6 @@ set foldmethod=indent
 " Highlight current line
 set cursorline
 
-
 "" ------------------------------------------------------------------------
 "" Indenting
 "" ------------------------------------------------------------------------
@@ -595,7 +593,6 @@ set sidescroll=8
 
 "" Do not home cursor to beginning of line.
 set nostartofline
-
 
 "" ------------------------------------------------------------------------
 "" Look
@@ -728,7 +725,6 @@ if has ("unix")
     augroup END
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Title
 "" ------------------------------------------------------------------------
@@ -742,7 +738,6 @@ endif
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
 " set titlelen=70
-
 
 "" ------------------------------------------------------------------------
 "" Status line
@@ -811,7 +806,6 @@ else
     set showtabline=1
 endif
 
-
 "" ------------------------------------------------------------------------
 "" Search
 "" ------------------------------------------------------------------------
@@ -842,7 +836,6 @@ set magic
 if &t_Co > 1 || has ("gui_running")
     set hlsearch
 endif
-
 
 "" ------------------------------------------------------------------------
 "" Key Mappings

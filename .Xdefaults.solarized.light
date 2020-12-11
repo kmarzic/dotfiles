@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-08-31 16:53:52 (CEST)
+!! Last update: 2020-12-11 08:00:46 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -36,7 +36,7 @@
 ! color12   blue
 ! color13   purple
 ! color14   cyan
-! color15    white
+! color15   white
 
 #define base00 #fdf6e3
 #define base01 #eee8d5
@@ -68,7 +68,8 @@ urxvt*foreground: base06
 urxvt*background: base01
 st.foreground: base06
 st.background: base01
-st.cursorColor: base06
+spterm.foreground: base06
+spterm.background: base01
 
 !! Base16 Solarized Light Theme
 *color0:       base00
@@ -121,6 +122,23 @@ scratchpad.color12:    base0D
 scratchpad.color13:    base0E
 scratchpad.color14:    base0C
 scratchpad.color15:    base07
+
+spterm.color0:     base00
+spterm.color1:     base08
+spterm.color2:     base0B
+spterm.color3:     base0A
+spterm.color4:     base0D
+spterm.color5:     base0E
+spterm.color6:     base0C
+spterm.color7:     base05
+spterm.color8:     base03
+spterm.color9:     base08
+spterm.color10:    base0B
+spterm.color11:    base0A
+spterm.color12:    base0D
+spterm.color13:    base0E
+spterm.color14:    base0C
+spterm.color15:    base07
 
 !! ---------------------------------------------------------------------
 !! EOF
