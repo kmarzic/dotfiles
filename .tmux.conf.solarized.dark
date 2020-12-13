@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-12-11 09:34:39 (CET)
+## Last update: 2020-12-13 17:59:09 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -56,7 +56,7 @@ set -g default-terminal "tmux-256color"
 
 ## fixes shift-pageup/shift-pagedown
 set -g terminal-overrides 'xterm*:smcup@:rmcup@'
-set -as terminal-overrides ',st*:kind@:kri@'
+set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
 
 ## clock mode
 set-option -g clock-mode-style 24

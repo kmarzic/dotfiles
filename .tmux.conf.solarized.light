@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-12-11 09:34:30 (CET)
+## Last update: 2020-12-13 17:58:57 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
