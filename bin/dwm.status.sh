@@ -7,24 +7,24 @@ WTTR_FILE="/var/tmp/wttr.txt"
 STATUSCOLOR=1
 
 #### ansi
-# CYAN='^c#00ffff^'
-# GREEN='^c#00d700^'
-# ORANGE='^c#d78700^'
-# PINK='^c#d787af^'
-# PURPLE='^c#d700af^'
-# RED='^c#ff0000^'
-# YELLOW='^c#ffff00^'
-# NORMAL='^c#bbbbbb^'
+CYAN='^c#00ffff^'
+GREEN='^c#00d700^'
+ORANGE='^c#d78700^'
+PINK='^c#d787af^'
+PURPLE='^c#d700af^'
+RED='^c#ff0000^'
+YELLOW='^c#ffff00^'
+NORMAL='^c#bbbbbb^'
 
 #### dracula
-CYAN='^c#8be9fd^'
-GREEN='^c#50fa7b^'
-ORANGE='^c#ffb86c^'
-PINK='^c#ff79c6^'
-PURPLE='^c#bd93f9^'
-RED='^c#ff5555^'
-YELLOW='^c#f1fa8c^'
-NORMAL='^c#f8f8f2^'
+# CYAN='^c#8be9fd^'
+# GREEN='^c#50fa7b^'
+# ORANGE='^c#ffb86c^'
+# PINK='^c#ff79c6^'
+# PURPLE='^c#bd93f9^'
+# RED='^c#ff5555^'
+# YELLOW='^c#f1fa8c^'
+# NORMAL='^c#f8f8f2^'
 
 #### solarized light
 # CYAN='^c#2aa198^'

@@ -232,6 +232,7 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-solarized
+set-option -g status-left '#[fg=black,bg=red] #S '
 ## default statusbar colors
 set-option -g status-style fg=brightblue,bg=black #yellow and base02
 ## default window title colors
