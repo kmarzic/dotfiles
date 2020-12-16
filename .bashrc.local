@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2020-08-29 18:45:22 (CEST)
+## Last update: 2020-12-15 08:27:07 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -351,7 +351,7 @@ export __PATH_NEW="$__PATH_NEW:/opt/emacs/bin"
 export __PATH_NEW="$__PATH_NEW:$ORACLE_INSTANT_CLIENT"
 export __PATH_NEW="$__PATH_NEW:$GOROOT/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/lua/bin:/opt/luarocks/bin"
-# export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/sbcl/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/rust/bin"
 export __PATH_NEW="$__PATH_NEW:$GHCROOT/bin"
@@ -385,24 +385,24 @@ export LESSCHARSET="utf-8"
 ## LESS man page colors (makes Man pages more readable).
 ##
 ## ansi
-# export LESS_TERMCAP_mb=$'\E[01;36m'
-# export LESS_TERMCAP_md=$'\E[01;36m'
+export LESS_TERMCAP_mb=$'\E[01;36m'
+export LESS_TERMCAP_md=$'\E[01;36m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+# export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+##
+## solarized dark, solarized white
+# export LESS_TERMCAP_mb=$'\E[01;34m'
+# export LESS_TERMCAP_md=$'\E[01;34m'
 # export LESS_TERMCAP_me=$'\E[0m'
 # export LESS_TERMCAP_se=$'\E[0m'
 # # export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-# export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
+# export LESS_TERMCAP_so=$'\E[01;44;30m' # begin standout-mode - info box
 # export LESS_TERMCAP_ue=$'\E[0m'
 # export LESS_TERMCAP_us=$'\E[01;32m'
-##
-## solarized dark, solarized white
-export LESS_TERMCAP_mb=$'\E[01;34m'
-export LESS_TERMCAP_md=$'\E[01;34m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-# export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-export LESS_TERMCAP_so=$'\E[01;44;30m' # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"

@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-11-28 16:46:17 (CET)
+!! Last update: 2020-12-15 08:12:53 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -48,7 +48,8 @@ spterm.background: #101010
 *color1:  red3
 *color2:  green3
 *color3:  yellow3
-*color4:  blue2
+! *color4:  blue2
+*color4:  DodgerBlue1
 *color5:  magenta3
 *color6:  cyan3
 *color7:  gray90
@@ -67,7 +68,8 @@ spterm.background: #101010
 *color9:  red
 *color10: green
 *color11: yellow
-*color12: #5c5cff
+! *color12: #5c5cff
+*color12: SteelBlue1
 *color13: magenta
 *color14: cyan
 *color15: white
