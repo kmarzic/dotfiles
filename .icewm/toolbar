@@ -1,6 +1,6 @@
-# This is an example for icewm 1.9.0 toolbar definition file.
+# This is an example for icewm 2.0.0 toolbar definition file.
 # It will be installed as /opt/icewm/share/icewm/toolbar.
 # Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
 #
-prog "xterm" xterm urxvt
+prog "xterm" xterm st

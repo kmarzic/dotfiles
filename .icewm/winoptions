@@ -1,11 +1,13 @@
-# This is an example for icewm 1.9.0 window options file.
+# This is an example for icewm 2.0.0 window options file.
 # It will be installed as /opt/icewm/share/icewm/winoptions.
 # Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
 
 
 urxvt.icon: xterm
-# urxvt.startMaximized: 1
+st.icon: xterm
+urxvt.startMaximized: 1
+st.startMaximized: 1
 
 Firefox.workspace: 4
 Chromium.workspace: 4

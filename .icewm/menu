@@ -1,8 +1,9 @@
-# This is an example for icewm 1.9.0 menu definition file.
+# This is an example for icewm 2.0.0 menu definition file.
 # It will be installed as /opt/icewm/share/icewm/menu.
 # Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
 #
+prog "st" xterm st
 prog "xterm" xterm xterm
 prog "urxvt" xterm urxvt
 prog gvim gvim gvim

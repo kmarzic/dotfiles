@@ -3,7 +3,7 @@
 
 #### ENV
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
-export PATH="$PATH:/opt/ghc/bin"
+# export PATH="$PATH:/opt/ghc/bin"
 # export PATH="$PATH:$HOME/.cabal/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:/opt/fvwm3/bin"

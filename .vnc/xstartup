@@ -1,0 +1,38 @@
+#!/bin/sh
+export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
+export PATH="$PATH:$HOME/bin"
+# export PATH="$PATH:/opt/ghc/bin"
+# export PATH="$PATH:$HOME/.cabal/bin"
+export PATH="$PATH:/opt/awesome/bin"
+export PATH="$PATH:/opt/fvwm3/bin"
+export PATH="$PATH:/opt/icewm/bin"
+
+export LANG="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_TIME="en_DK.UTF-8"
+
+# unset SESSION_MANAGER
+# unset DBUS_SESSION_BUS_ADDRESS
+
+# vncconfig -iconic &
+xsetroot -cursor_name left_ptr
+setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
+
+#### awesome
+# exec awesome || exec urxvt
+
+#### gnome-session
+# exec gnome-session &
+
+#### icewm
+exec /opt/icewm/bin/icewm || exec urxvt
+# exec icewm || exec urxvt
+
+#### xmonad
+# cd ~/data/cabal/xmonad
+# cabal v1-exec -- xmonad --recompile
+# cd ~/
+# exec xmonad || exec urxvt
+
+#### END
