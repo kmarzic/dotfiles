@@ -144,7 +144,8 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/o1odnceofk351.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/viper_1600x900.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/x2dezef8sn351.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mguoNgT.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mguoNgT.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/02enw77lod861.jpg bg.jpg && cd -
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gray/minimalistic-gray-2560x1440-wallpaper-2109511.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/170583-gorgerous-light-gray-background-2000x2000.jpg bg.jpg && cd -
