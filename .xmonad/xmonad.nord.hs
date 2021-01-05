@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2020-11-10 06:21:03 (CET)
+-- Last update: 2021-01-04 19:13:07 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -209,20 +209,25 @@ help = unlines
   ]
 
 fontRegular :: String
+fontRegular = "monospace:size=10:antialias=true:style=regular"
+-- fontRegular = "monospace:size=11:antialias=true:style=regular"
+-- fontRegular = "xft:monospace:size=12:antialias=true:style=regular"
+-- fontRegular = "xft:monospace:pixelsize=13:antialias=true:style=regular"
 -- fontRegular = "xft:monospace:pixelsize=14:antialias=true:style=regular"
-fontRegular = "xft:monospace:pixelsize=13:antialias=true:style=regular"
+-- fontRegular = "Liberation Mono:pixelsize=12:antialias=true:autohint=true:style=regular"
 
 fontBold :: String
-fontBold = "xft:monospace:pixelsize=14:antialias=true:style=bold"
+fontBold = "monospace:size=10:antialias=true:style=bold"
+-- fontBold = "monospace:size=11:antialias=true:style=bold"
+-- fontBold = "xft:monospace:size=12:antialias=true:style=bold"
 -- fontBold = "xft:monospace:pixelsize=13:antialias=true:style=bold"
--- fontBold = "xft:monospace:pixelsize=12:antialias=true:style=bold"
--- fontBold = "xft:Terminus:pixelsize=14:antialias=true:style=bold"
--- fontBold = "xft:Terminus:pixelsize=13:antialias=true:style=bold"
--- fontBold = "xft:Terminus:pixelsize=12:antialias=true:style=bold"
+-- fontBold = "xft:monospace:pixelsize=14:antialias=true:style=bold"
+-- fontBold = "xft:Liberation Mono:size=12:antialias=true:autohint=true:style=bold"
 
 fontTerminalScratchpad :: String
--- fontTerminalScratchpad = "xft:monospace:pixelsize=14:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
-fontTerminalScratchpad = "xft:monospace:pixelsize=12:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
+fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
+-- fontTerminalScratchpad = "xft:monospace:size=12:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
+-- fontTerminalScratchpad = "xft:DejaVu Sans Mono:size=12:antialias=true:autohint=true:style=regular"
 
 dmenuCommandAnsi :: String -- theme: ansi
 dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
@@ -255,17 +260,18 @@ dzenCommand2 :: ScreenId -> String
 dzenCommand2 (S s) = unwords ["dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l'", "-xs", show s]
 
 myTerminal :: String
-myTerminal = "urxvt"
+-- myTerminal = "urxvt"
 -- myTerminal = "urxvtc"
 -- myTerminal = "termite"
--- myTerminal = "$HOME/bin/st"
+myTerminal = "$HOME/bin/st"
 
 myTerminalScratchpad :: String
-myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
+-- myTerminalScratchpad = "urxvt -fn " ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
--- myTerminalScratchpad = "$HOME/bin/st -c scratchpad -n scratchpad"
+myTerminalScratchpad = "$HOME/bin/st -n scratchpad -f " ++ fontTerminalScratchpad ++ " &"
+-- myTerminalScratchpad = "gnome-terminal &"
 
 myModMask :: KeyMask
 myModMask = mod1Mask
@@ -281,7 +287,7 @@ myBorderWidth = 1
 myNormalBorderColorAnsi :: String -- theme: ansi
 myNormalBorderColorAnsi = ansi M.! "white"
 myFocusedBorderColorAnsi :: String
-myFocusedBorderColorAnsi = ansi M.! "cyan0"
+myFocusedBorderColorAnsi = ansi M.! "cyan"
 
 myNormalBorderColorDracula :: String -- theme: dracula
 myNormalBorderColorDracula = dracula M.! "comment"
@@ -1189,6 +1195,7 @@ myKeys =
   -- (1) Replacing greedyView with view
   -- mod-[1..9] %! Switch to workspace N
   -- mod-shift-[1..9] %! Move client to workspace N
+  -- 
   [ ((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
     | (i, k) <- zip myWorkspaces ([xK_1 .. xK_9] ++ [ xK_0 ])
     -- , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)] -- default (greedyView)
@@ -1196,6 +1203,9 @@ myKeys =
   ]
   ++
   -- (2) Reorder screens
+  -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
+  -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
+  -- 
   [ ((m .|. mod1Mask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
     -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..] -- default map
     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***

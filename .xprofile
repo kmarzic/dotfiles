@@ -42,6 +42,12 @@ xset m 1
 # # xset fp+ unix/:7101
 # # xset fp rehash
 
+## enable numlock at start
+if [ -x /usr/bin/numlockx ];
+then
+    /usr/bin/numlockx on
+fi
+
 ## disable bell
 xset -b
 

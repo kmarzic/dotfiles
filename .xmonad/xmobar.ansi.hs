@@ -7,12 +7,15 @@ Config {
    fgColor = "#f2f2f2",
 
    -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
-   font = "xft:monospace:pixelsize=14:antialias=true:style=bold",
-   -- font = "xft:monospace:size=10:antialias=true:style=bold",
+   -- font = "xft:monospace:size=11:antialias=true:style=bold",
+   -- font = "xft:monospace:size=11:antialias=true:style=regular",
+   -- font = "xft:Liberation Mono:size=12:antialias=true:autohint=true:style=regular",
+   font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true",
    --
    -- additionalFonts = [ "xft:FontAwesome:size=10:style=bold" ],
-   additionalFonts = [ "xft:Droid Sans Mono:size=10:antialias=true:style=bold" ],
+   -- additionalFonts = [ "xft:Droid Sans Mono:size=10:antialias=true:style=bold" ],
    -- additionalFonts = [ "xft:Misc Fixed:size=10:antialias=true:style=bold" ],
+   additionalFonts = [ "xft:Bitstream Vera Sans Mono:size=10:antialias=true", "xft:Source Code Pro:size=10:regular:antialias=true"],
 
    borderColor = "black",
    border = TopB,
