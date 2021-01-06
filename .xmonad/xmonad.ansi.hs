@@ -7,7 +7,7 @@ import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
 import XMonad
 import XMonad.Actions.CycleWS
-import XMonad.Actions.Minimize(minimizeWindow, withLastMinimized, maximizeWindowAndFocus)
+import XMonad.Actions.Minimize (minimizeWindow, withLastMinimized, maximizeWindowAndFocus)
 import XMonad.Actions.UpdatePointer
 import XMonad.Config
 import XMonad.Config.Desktop
@@ -28,7 +28,7 @@ import XMonad.Layout.ToggleLayouts
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Util.EZConfig
-import XMonad.Util.NamedWindows ( getName )
+import XMonad.Util.NamedWindows (getName)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.Scratchpad
 import XMonad.Util.SpawnOnce
@@ -279,6 +279,9 @@ myModMask = mod1Mask
 myFocusFollowsMouse :: Bool
 -- myFocusFollowsMouse = True
 myFocusFollowsMouse = False
+
+myClickJustFocuses :: Bool
+myClickJustFocuses = False
 
 myBorderWidth :: Dimension
 myBorderWidth = 1
@@ -545,12 +548,13 @@ myTabConfigSolarizedLight = def
   }
 
 myLayoutHook tabConfig =
-  gaps0
+  -- gaps0
   -- gaps1
   -- $ smartSpacing 1
   -- $ spacing 1
-  $ spacingRaw True (Border 0 0 0 0) True (Border 1 1 1 1) True
-  -- $ smartBorders
+  -- $ spacingRaw True (Border 0 0 0 0) True (Border 1 1 1 1) True
+  -- $ spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True
+  smartBorders
   $ avoidStruts
   -- $ toggleLayouts (noBorders $ full')
   -- $ toggleLayouts (noBorders $ tab2')
@@ -565,19 +569,22 @@ myLayoutHook tabConfig =
     -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
     -- myLayouts  = full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
     --
-    tab2'      = tabbedAlways shrinkText tabConfig
-    -- tab2'      = spacingRaw True (Border 0 1 1 1) True (Border 1 1 1 1) True $ tabbedAlways shrinkText tabConfig
+    -- tab2'      = tabbedAlways shrinkText tabConfig
+    -- tab2'      = gaps1 $ tabbedAlways shrinkText tabConfig
+    tab2'      = spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig
     --
-    tiled'     = Tall nmaster0 delta0 ratio0
-    -- tiled'     = spacingRaw True (Border 0 1 1 1) True (Border 1 1 1 1) True $ Tall nmaster0 delta0 ratio0
+    -- tiled'     = Tall nmaster0 delta0 ratio0
+    -- tiled'     = gaps1 $ Tall nmaster0 delta0 ratio0
+    tiled'     = spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0
     --
     mirror'    = Mirror tiled'
     --
     threecol'  = ThreeColMid nmaster0 delta0 ratio0
     --
+    -- full'      = Full
     -- full'      = gaps0 $ Full
-    -- full'      = gaps1 $ Full
-    full'      = Full
+    full'      = gaps1 $ Full
+    -- full'      = spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True $ Full
     --
     resizetab' = ResizableTall 1 (3/100) (1/2) []
     --
@@ -594,7 +601,7 @@ myLayoutHook tabConfig =
     --
     -- Gaps
     gaps0      = gaps [(U,0), (D,0), (L,0), (R,0)]
-    gaps1      = gaps [(U,2), (D,2), (L,2), (R,2)]
+    gaps1      = gaps [(U,4), (D,4), (L,4), (R,4)]
 
 
 -------------------------------------------------------------------------------
@@ -1235,6 +1242,7 @@ myConfigDefault = def
       terminal             = myTerminal,
       modMask              = myModMask,
       focusFollowsMouse    = myFocusFollowsMouse,
+      clickJustFocuses     = myClickJustFocuses,
       borderWidth          = myBorderWidth,
       workspaces           = myWorkspaces,
       startupHook          = myStartUp >> myStartUpScreen,
