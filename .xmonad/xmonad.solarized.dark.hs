@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-01-04 19:13:07 (CET)
+-- Last update: 2021-01-22 18:35:35 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -348,14 +348,16 @@ myStartUpScreen = do
     windows $ W.greedyView "1"
     screenWorkspace 1 >>= flip whenJust (windows . W.view)
     windows $ W.greedyView "9"
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
   else if nScreens == 3
   then do
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-    screenWorkspace 1 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "0"
     screenWorkspace 2 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "1"
+    screenWorkspace 0 >>= flip whenJust (windows . W.view)
+    windows $ W.greedyView "0"
+    screenWorkspace 1 >>= flip whenJust (windows . W.view)
     windows $ W.greedyView "9"
+    screenWorkspace 2 >>= flip whenJust (windows . W.view)
   else
     return ()
 
@@ -631,6 +633,7 @@ myPPLayout layout = case layout of
       "Full by Full"                    -> myIcon ".xmonad/icons/layout_full.xbm"
       "Spacing Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
+      "Mirror Spacing Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Spacing Roledex by Full"         -> myIcon ".xmonad/icons/layout_roledex.xbm"
