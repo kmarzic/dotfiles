@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-01-22 18:35:43 (CET)
+-- Last update: 2021-01-22 18:46:11 (CET)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -552,12 +552,12 @@ myTabConfigSolarizedLight = def
 myLayoutHook tabConfig =
   -- gaps0
   -- gaps1
+  avoidStruts
   -- $ smartSpacing 1
   -- $ spacing 1
   -- $ spacingRaw True (Border 0 0 0 0) True (Border 1 1 1 1) True
   -- $ spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True
-  smartBorders
-  $ avoidStruts
+  -- $ smartBorders
   -- $ toggleLayouts (noBorders $ full')
   -- $ toggleLayouts (noBorders $ tab2')
   -- $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
