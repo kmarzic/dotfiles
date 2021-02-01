@@ -7,14 +7,14 @@ WTTR_FILE="/var/tmp/wttr.txt"
 STATUSCOLOR=1
 
 #### ansi
-CYAN='^c#00ffff^'
-GREEN='^c#00d700^'
-ORANGE='^c#d78700^'
-PINK='^c#d787af^'
-PURPLE='^c#d700af^'
-RED='^c#ff0000^'
-YELLOW='^c#ffff00^'
-NORMAL='^c#bbbbbb^'
+# CYAN='^c#00ffff^'
+# GREEN='^c#00d700^'
+# ORANGE='^c#d78700^'
+# PINK='^c#d787af^'
+# PURPLE='^c#d700af^'
+# RED='^c#ff0000^'
+# YELLOW='^c#ffff00^'
+# NORMAL='^c#bbbbbb^'
 
 #### dracula
 # CYAN='^c#8be9fd^'
@@ -27,14 +27,14 @@ NORMAL='^c#bbbbbb^'
 # NORMAL='^c#f8f8f2^'
 
 #### solarized light
-# CYAN='^c#2aa198^'
-# GREEN='^c#859900^'
-# ORANGE='^c#cb4b16^'
-# PINK='^c#d33682^'
-# PURPLE='^c#6c71c4^'
-# RED='^c#dc322f^'
-# YELLOW='^c#b58900^'
-# NORMAL='^c#073642^'
+CYAN='^c#2aa198^'
+GREEN='^c#859900^'
+ORANGE='^c#cb4b16^'
+PINK='^c#d33682^'
+PURPLE='^c#6c71c4^'
+RED='^c#dc322f^'
+YELLOW='^c#b58900^'
+NORMAL='^c#073642^'
 
 GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
 
@@ -186,7 +186,8 @@ function __time()
     date="$(date +"%a %Y-%m-%d %H:%M:%S")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${ORANGE}${date}${NORMAL}"
+    # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${ORANGE}${date}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${NORMAL}${date}${NORMAL}"
 }
 
 #### spaces
