@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:08:23 (CET)
+"" Last update: 2021-02-02 19:08:18 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -56,6 +56,13 @@ set t_Co=256
 set background=dark
 syntax on
 colorscheme nord
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+        \ 'colorscheme': 'wombat',
+        \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim

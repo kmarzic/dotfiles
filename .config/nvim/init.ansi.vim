@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:08:55 (CET)
+"" Last update: 2021-02-02 19:08:05 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -57,6 +57,13 @@ hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
 hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim

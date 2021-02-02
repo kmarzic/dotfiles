@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:10:29 (CET)
+"" Last update: 2021-02-02 19:08:08 (CET)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 
@@ -37,10 +37,51 @@ let g:ctrlp_switch_buffer = 0
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
-""
-" let g:lightline = {
-"       \ 'colorscheme': 'solarized',
-"       \ }
+
+let g:lightline = {
+    \ 'colorscheme': 'default',
+    \ }
+
+let g:lightline.active = {
+    \ 'left': [ [ 'mode', 'paste', 'sep1' ],
+    \           [ 'readonly', 'filename', 'modified' ],
+    \           [ ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \            [ 'filetype' ] ]
+    \ }
+
+let g:lightline.inactive = {
+    \ 'left': [ [ 'mode', 'paste', 'sep1' ],
+    \           [ 'readonly', 'filename', 'modified' ] ],
+    \ 'right': [ [ 'lineinfo' ],
+    \            [ 'percent' ],
+    \            [ 'filetype' ] ]
+    \ }
+
+let g:lightline.tabline = {
+    \ 'left': [ [ 'tabs' ] ],
+    \ 'right': [ ] }
+
+let g:lightline.tab = {
+    \ 'active': [ 'tabnum', 'filename', 'modified' ],
+    \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
+
+let g:lightline.separator = {
+    \   'left': '', 'right': ''
+    \}
+
+let g:lightline.subseparator = {
+    \   'left': '', 'right': ''.
+    \}
+
+let g:lightline.tabline_separator = g:lightline.separator
+let g:lightline.tabline_subseparator = g:lightline.subseparator
+
+let g:lightline.enable = {
+    \ 'statusline': 1,
+    \ 'tabline': 1
+    \ }
 
 "" The NERD tree
 "" https://github.com/scrooloose/nerdtree

@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-12-13 17:58:57 (CET)
+## Last update: 2021-02-02 19:02:33 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -259,16 +259,16 @@ set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
 # set -g @colors-solarized 'base16'
 
 ## dracula/tmux
-set -g @dracula-show-battery false
-set -g @dracula-show-network false
-set -g @dracula-show-weather false
-set -g @dracula-military-time true
-set -g @dracula-show-timezone false
-set -g @dracula-show-left-icon session
-set -g @dracula-border-contrast true
-set -g @dracula-cpu-usage false
-set -g @dracula-ram-usage false
-set -g @dracula-gpu-usage false
+# set -g @dracula-show-battery false
+# set -g @dracula-show-network false
+# set -g @dracula-show-weather false
+# set -g @dracula-military-time true
+# set -g @dracula-show-timezone false
+# set -g @dracula-show-left-icon session
+# set -g @dracula-border-contrast true
+# set -g @dracula-cpu-usage false
+# set -g @dracula-ram-usage false
+# set -g @dracula-gpu-usage false
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:08:02 (CET)
+"" Last update: 2021-02-02 19:08:25 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -59,6 +59,13 @@ set background=light
 " colorscheme solarized8_low
 colorscheme solarized8_high
 " colorscheme solarized8_flat
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+        \ 'colorscheme': 'solarized light',
+        \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim

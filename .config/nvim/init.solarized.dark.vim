@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:08:55 (CET)
+"" Last update: 2021-02-02 19:08:21 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -44,19 +44,28 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" Custom
-set t_Co=16
-" set t_Co=256
+"" flattened
+" colorscheme flattened_light
+
+"" vim-solarized8
+"" https://github.com/lifepillar/vim-solarized8
+""
+let g:solarized_visibility = "normal"
+let g:solarized_diffmode = "normal"
+let g:solarized_italics = 0
+set t_Co=256
 set background=dark
-syntax on
-" highlight CursorLine term=reverse cterm=reverse gui=reverse
-" highlight CursorLine NONE
-" highlight CursorLine ctermfg=black ctermbg=Cyan gui=reverse
-hi CursorLine   term=bold cterm=bold guibg=white
-hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
-hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
+" colorscheme solarized8
+" colorscheme solarized8_low
+colorscheme solarized8_high
+" colorscheme solarized8_flat
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+        \ 'colorscheme': 'solarized dark',
+        \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim
