@@ -27,6 +27,16 @@ STATUSCOLOR=1
 # NORMAL='^c#f8f8f2^'
 
 #### solarized light
+# CYAN='^c#2aa198^'
+# GREEN='^c#859900^'
+# ORANGE='^c#cb4b16^'
+# PINK='^c#d33682^'
+# PURPLE='^c#6c71c4^'
+# RED='^c#dc322f^'
+# YELLOW='^c#b58900^'
+# NORMAL='^c#073642^'
+
+#### solarized dark
 CYAN='^c#2aa198^'
 GREEN='^c#859900^'
 ORANGE='^c#cb4b16^'
@@ -34,7 +44,7 @@ PINK='^c#d33682^'
 PURPLE='^c#6c71c4^'
 RED='^c#dc322f^'
 YELLOW='^c#b58900^'
-NORMAL='^c#073642^'
+NORMAL='^c#eee8d5^'
 
 GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
 
