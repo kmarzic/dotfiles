@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:07:24 (CET)
+"" Last update: 2021-02-02 12:45:29 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -66,6 +66,13 @@ call plug#end()
 set background=dark
 syntax on
 colorscheme monokai
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
 
 "" Common
 source ~/.vimrc.common

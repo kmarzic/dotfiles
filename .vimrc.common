@@ -40,7 +40,7 @@ let g:ctrlp_switch_buffer = 0
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'default',
     \ }
 
 let g:lightline.active = {
@@ -924,7 +924,7 @@ else
 endif
 
 "" Last Update
-iab LaUpp Last update: <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<cr>
+iab LaUpp Last update: 2021-02-02 12:44:14 (CET)
 iab LaUp <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<CR>
 iab YDATE <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<CR>
 map ,lu 1G/Last update: \s*/e+1<CR>CYDATE<ESC>

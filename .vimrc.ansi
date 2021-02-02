@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:00:19 (CET)
+"" Last update: 2021-02-02 12:41:33 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -74,6 +74,13 @@ hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
 hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
 hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
 
 "" Common
 source ~/.vimrc.common

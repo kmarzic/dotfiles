@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:07:18 (CET)
+"" Last update: 2021-02-02 12:45:15 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -77,6 +77,13 @@ augroup dracula_customization
     " hi DraculaComment ctermfg=141 guifg=#BD93F9
     " hi DraculaComment ctermfg=141 guifg=#6272A4
 augroup END
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ }
 
 "" Common
 source ~/.vimrc.common

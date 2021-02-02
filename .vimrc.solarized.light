@@ -81,6 +81,13 @@ syntax on
 colorscheme solarized8_high
 " colorscheme solarized8_flat
 
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+    \ 'colorscheme': 'solarized light',
+    \ }
+
 "" Common
 source ~/.vimrc.common
 

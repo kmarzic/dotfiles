@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:07:06 (CET)
+"" Last update: 2021-02-02 12:43:53 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -82,6 +82,13 @@ syntax on
 colorscheme solarized8_flat
 " colorscheme solarized8_dark
 " colorscheme solarized8_light
+
+"" lightline
+"" https://github.com/itchyny/lightline.vim
+
+let g:lightline = {
+    \ 'colorscheme': 'solarized dark',
+    \ }
 
 "" Common
 source ~/.vimrc.common
