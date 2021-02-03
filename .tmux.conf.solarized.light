@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-02-02 19:02:33 (CET)
+## Last update: 2021-02-03 09:01:13 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -232,27 +232,28 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-solarized
-set-option -g status-left '#[fg=black,bg=red] #S '
+set-option -g status-left '#[fg=black,bg=#2aa198] #S ' # black / cyan
 ## default statusbar colors
-set-option -g status-style fg=brightblue,bg=black #yellow and base02
+set-option -g status-style fg=brightblue,bg=black # yellow and base02
 ## default window title colors
-set-window-option -g window-status-style fg=brightblue,bg=default #base0 and default
-#set-window-option -g window-status-style dim
+set-window-option -g window-status-style fg=brightblue,bg=default # base0 and default
+# set-window-option -g window-status-style dim
 ## active window title colors
-set-window-option -g window-status-current-style fg=black,bg=red #orange and default
+set-window-option -g window-status-current-style fg=black,bg=red # orange and default
 #set-window-option -g window-status-current-style bright
 ## pane border
-set-option -g pane-border-style fg=brightgreen #base02
-set-option -g pane-active-border-style fg=brightblue #base01
+set-option -g pane-border-style fg=brightgreen # base02
+set-option -g pane-active-border-style fg=brightblue # base01
 ## message text
-set-option -g message-style fg=brightred,bg=black #orange and base01
+set-option -g message-style fg=brightred,bg=black # orange and base01
 ## pane number display
-set-option -g display-panes-active-colour blue #blue
-set-option -g display-panes-colour brightred #orange
+set-option -g display-panes-active-colour blue # blue
+set-option -g display-panes-colour brightred # orange
 ## clock
-set-window-option -g clock-mode-colour green #green
+set-window-option -g clock-mode-colour green # green
 ## bell
-set-window-option -g window-status-bell-style fg=black,bg=red #base02, red
+set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
+## Colors
 # set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
