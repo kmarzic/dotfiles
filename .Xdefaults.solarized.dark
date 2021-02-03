@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-12-11 08:02:31 (CET)
+!! Last update: 2021-02-03 17:31:18 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -44,6 +44,15 @@
 #endif
 *cursorColor:  base05
 *fadeColor:    base07
+
+urxvt*foreground: base05
+urxvt*background: base00
+st.foreground: base05
+st.background: base00
+spterm.foreground: base05
+spterm.background: base00
+Exit*foreground: base05
+Exit*background: base00
 
 !! Base16 Solarized Dark Theme
 *color0:       base00
