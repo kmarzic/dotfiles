@@ -145,7 +145,9 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/viper_1600x900.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/x2dezef8sn351.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mguoNgT.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/02enw77lod861.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/02enw77lod861.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/gpwq7rbsjof61.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/r9y8ud7z6jf61.jpg bg.jpg && cd -
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gray/minimalistic-gray-2560x1440-wallpaper-2109511.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/170583-gorgerous-light-gray-background-2000x2000.jpg bg.jpg && cd -
@@ -476,12 +478,12 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarizedlightstripes.png bg.png && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/wallpaperbetter.jpg.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
