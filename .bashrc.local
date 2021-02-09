@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2020-12-15 08:27:07 (CET)
+## Last update: 2021-02-09 07:32:49 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -554,6 +554,7 @@ alias ssh="TERM=xterm LC_TIME=C ~/bin/ssh.log.sh ssh"
 alias duh="du --si -d1 | sort -h"
 alias python=python3
 # alias tmux="/opt/tmux/bin/tmux"
+alias tmux="tmux -2"
 
 # alias perl='perl5.26.2'
 # alias cpan='cpan5.26.2'
