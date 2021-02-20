@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2020-12-13 17:07:00 (CET)
+"" Last update: 2021-02-19 09:42:26 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -43,6 +43,7 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'chrisbra/vim-diff-enhanced'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
@@ -57,6 +58,7 @@ Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'
+Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'miyakogi/seiya.vim'
 call plug#end()

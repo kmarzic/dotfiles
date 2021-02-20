@@ -1,5 +1,8 @@
 "" ------------------------------------------------------------------------
-"" vimrc.common
+"" Author: Kresimir Marzic
+"" E-mail: kmarzic@gmail.com
+"" Last update: 2021-02-19 09:42:26 (CET)
+"" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
 "" ------------------------------------------------------------------------
@@ -216,6 +219,8 @@ let g:mkdp_page_title = '「${name}」'
 nmap <C-m> <Plug>MarkdownPreview
 nmap <S-s> <Plug>MarkdownPreviewStop
 nmap <C-t> <Plug>MarkdownPreviewToggle
+
+"" chrisbra/vim-diff-enhanced
 
 "" ----------------------------------------------------------------------------
 
