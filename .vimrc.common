@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-02-19 09:42:26 (CET)
+"" Last update: 2021-02-20 17:00:25 (CET)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -72,11 +72,11 @@ let g:lightline.tab = {
     \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
 
 let g:lightline.separator = {
-    \   'left': '', 'right': ''
+    \ 'left': '', 'right': ''
     \}
 
 let g:lightline.subseparator = {
-    \   'left': '', 'right': '' 
+    \ 'left': '', 'right': ''
     \}
 
 let g:lightline.tabline_separator = g:lightline.separator

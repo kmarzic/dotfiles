@@ -68,11 +68,11 @@ let g:lightline.tab = {
     \ 'inactive': [ 'tabnum', 'filename', 'modified' ] }
 
 let g:lightline.separator = {
-    \   'left': '', 'right': ''
+    \ 'left': '', 'right': ''
     \}
 
 let g:lightline.subseparator = {
-    \   'left': '', 'right': ''.
+    \ 'left': '', 'right': ''
     \}
 
 let g:lightline.tabline_separator = g:lightline.separator
@@ -215,6 +215,8 @@ let g:mkdp_page_title = '「${name}」'
 nmap <C-m> <Plug>MarkdownPreview
 nmap <S-s> <Plug>MarkdownPreviewStop
 nmap <C-t> <Plug>MarkdownPreviewToggle
+
+"" chrisbra/vim-diff-enhanced
 
 "" --------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-02-02 19:08:05 (CET)
+"" Last update: 2021-02-20 17:02:58 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -18,6 +18,7 @@ Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'chrisbra/vim-diff-enhanced'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
