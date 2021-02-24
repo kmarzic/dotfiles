@@ -1,8 +1,12 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-02-02 19:08:08 (CET)
+"" Last update: 2021-02-24 19:35:15 (CET)
 "" Current file: ~/.config/nvim/init.common.vim
+"" ------------------------------------------------------------------------
+"
+"" ------------------------------------------------------------------------
+"" Plugins
 "" ------------------------------------------------------------------------
 
 "" ale
@@ -26,18 +30,15 @@ let g:ctrlp_switch_buffer = 0
 "" fzf
 "" https://github.com/junegunn/fzf.vim
 ""
-" let g:fzf_action = {
-"   \ 'ctrl-t': 'tab split',
-"   \ 'ctrl-x': 'split',
-"   \ 'ctrl-v': 'vsplit' }
-" let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_command_prefix = 'Fzf'
+map ; :FzfFiles<CR>
 
 "" gitgutter
 "" https://github.com/airblade/vim-gitgutter
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
-
+""
 let g:lightline = {
     \ 'colorscheme': 'default',
     \ }
@@ -127,6 +128,7 @@ nmap ,lt0 :TagbarToggle<CR>
 
 "" markdown-preview.nvim
 "" https://github.com/iamcco/markdown-preview.nvim
+""
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
@@ -217,6 +219,12 @@ nmap <S-s> <Plug>MarkdownPreviewStop
 nmap <C-t> <Plug>MarkdownPreviewToggle
 
 "" chrisbra/vim-diff-enhanced
+"" https://github.com/chrisbra/vim-diff-enhanced
+""
+:let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
+
+"" maxboisvert/vim-simple-complete
+"" https://github.com/maxboisvert/vim-simple-complete
 
 "" --------------------------------------------------------------------
 
