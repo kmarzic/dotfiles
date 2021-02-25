@@ -222,8 +222,12 @@ nmap <C-t> <Plug>MarkdownPreviewToggle
 ""
 :let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
 
-"" maxboisvert/vim-simple-complete
-"" https://github.com/maxboisvert/vim-simple-complete
+"" maralla/completor.vim
+"" https://github.com/maralla/completor.vim
+""
+inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
+let g:completor_complete_options='menuone,noinsert'
+let g:completor_completion_delay=0
 
 "" ----------------------------------------------------------------------------
 
