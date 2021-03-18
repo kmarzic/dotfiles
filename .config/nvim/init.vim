@@ -1,1 +1,0 @@
-init.solarized.dark.vim

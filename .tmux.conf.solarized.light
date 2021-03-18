@@ -271,6 +271,8 @@ set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
 # set -g @dracula-ram-usage false
 # set -g @dracula-gpu-usage false
 
+## dev-ninjas-org/papercolor-light/tmux
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -285,6 +287,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
+# set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install

@@ -1,4 +1,4 @@
-"" ------------------------------------------------------------------------
+" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
 "" Last update: 2021-03-16 20:33:46 (CET)
@@ -66,24 +66,18 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'miyakogi/seiya.vim'
 call plug#end()
 
-"" arcticicestudio/nord-vim
-"" https://github.com/arcticicestudio/nord-vim
+"" PaperColor
+"" https://draculatheme.com/vim
 ""
-augroup nord-overrides
-  autocmd!
-  autocmd ColorScheme nord highlight Comment ctermfg=14
-augroup END
-let g:nord_italic = 1
-set t_Co=256
-set background=dark
-syntax on
-colorscheme nord
+set background=light
+syntax enable
+colorscheme PaperColor
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'PaperColor light',
     \ }
 
 "" Common

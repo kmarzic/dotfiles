@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-12-13 17:59:02 (CET)
+## Last update: 2021-02-03 09:01:13 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -177,7 +177,9 @@ bind E setw synchronize-panes off
 ## theming
 # set-option -g status-style "bg=black,fg=cyan"
 # set-option -g status-right '#[fg=cyan,bg=black]#{prefix_highlight}#[fg=#555555,bg=cyan]#[bg=#555555,fg=white] %Y-%m-%d #[fg=#999999,bg=#555555]#[bg=#999999,fg=black] %H:%M:%S #[bg=#999999,fg=#cccccc]#[bg=#cccccc,fg=black] #H #[default]' 
+# set-option -g status-right '#H %Y-%m-%d %H:%M:%S'
 # set-option -g status-left '#[bg=#999999,fg=black] #S #[bg=black,fg=#999999]'
+# set-option -g status-left '#[bg=#999999,fg=black] #S '
 # set-option -g status-interval 1
 # set-option -g status-justify left
 # set-window-option -g window-status-current-format "#[bg=#555555,fg=white] #W #[bg=black,fg=#555555]"
@@ -207,21 +209,21 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @continuum-restore 'on'
 
 ## tmux-themepack
-# set -g @themepack 'default'
-set -g @themepack 'basic'
+set -g @themepack 'default'
+# set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
 set -g @theme-status-justify left
-# set -g @theme-status-left-bg '#282a36'
-# set -g @theme-status-left-fg '#4d4d4d'
-# set -g @theme-status-right-bg '#282a36'
-# set -g @theme-status-right-fg '#4d4d4d'
-# set -g @theme-status-bg '#282a36'
-# set -g @theme-status-fg '#4d4d4d'
-# set -g @theme-window-status-activity-bg '#ff5555' # red
-# set -g @theme-window-status-current-fg '#4d4d4d'
-# set -g @theme-mode-bg 'cyan'
-# set -g @theme-mode-fg 'red'
+# set -g @theme-status-left-bg '#fdf6e3' # base3
+# set -g @theme-status-left-fg '#002b36' # base03
+# set -g @theme-status-right-bg '#fdf6e3' # base3
+# set -g @theme-status-right-fg '#002b36' # base03
+# set -g @theme-status-bg '#fdf6e3' # base3
+# set -g @theme-status-fg '#002b36' # base03
+# set -g @theme-window-status-activity-bg '#fdf6e3' # base3
+# set -g @theme-window-status-activity-fg '#dc322f' # red
+# set -g @theme-mode-bg '#2aa198' # cyan
+# set -g @theme-mode-fg '#002b36' # black
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'
@@ -236,16 +238,16 @@ set -g @theme-status-justify left
 # set -g @colors-solarized 'base16'
 
 ## dracula/tmux
-set -g @dracula-show-battery false
-set -g @dracula-show-network false
-set -g @dracula-show-weather false
-set -g @dracula-military-time true
-set -g @dracula-show-timezone false
-set -g @dracula-show-left-icon session
-set -g @dracula-border-contrast true
-set -g @dracula-cpu-usage false
-set -g @dracula-ram-usage false
-set -g @dracula-gpu-usage false
+# set -g @dracula-show-battery false
+# set -g @dracula-show-network false
+# set -g @dracula-show-weather false
+# set -g @dracula-military-time true
+# set -g @dracula-show-timezone false
+# set -g @dracula-show-left-icon session
+# set -g @dracula-border-contrast true
+# set -g @dracula-cpu-usage false
+# set -g @dracula-ram-usage false
+# set -g @dracula-gpu-usage false
 
 ## dev-ninjas-org/papercolor-light/tmux
 
@@ -262,7 +264,7 @@ set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
-set -g @plugin 'dracula/tmux'
+# set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
