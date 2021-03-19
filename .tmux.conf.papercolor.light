@@ -175,20 +175,19 @@ bind E setw synchronize-panes off
 #### bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 
 ## theming
-# set-option -g status-style "bg=black,fg=cyan"
-# set-option -g status-right '#[fg=cyan,bg=black]#{prefix_highlight}#[fg=#555555,bg=cyan]#[bg=#555555,fg=white] %Y-%m-%d #[fg=#999999,bg=#555555]#[bg=#999999,fg=black] %H:%M:%S #[bg=#999999,fg=#cccccc]#[bg=#cccccc,fg=black] #H #[default]' 
-# set-option -g status-right '#H %Y-%m-%d %H:%M:%S'
-# set-option -g status-left '#[bg=#999999,fg=black] #S #[bg=black,fg=#999999]'
-# set-option -g status-left '#[bg=#999999,fg=black] #S '
-# set-option -g status-interval 1
-# set-option -g status-justify left
-# set-window-option -g window-status-current-format "#[bg=#555555,fg=white] #W #[bg=black,fg=#555555]"
-# set-window-option -g mode-style 'bg=black, fg=cyan bold'
-# setw -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
-# set-window-option -g clock-mode-colour cyan
-# set-option -g message-style "bg=black,fg=cyan"
-# set-option -g pane-border-style 'bg=black, fg=#555555'
-# set-option -g pane-active-border-style 'bg=black, fg=cyan'
+# set -g message-command-style bg="colour31"
+# set -g pane-active-border-style fg="colour254"
+# set -g pane-border-style fg="colour31"
+# set -g status "on"
+# set -g status-style bg="colour24"
+# set -g status-justify "left"
+# set -g status-left "#[fg=colour240,bg=colour254] #S #[fg=colour254,bg=colour24,nobold,nounderscore,noitalics]"
+# set -g status-left-length "100"
+# set -g status-right "#[fg=colour31,bg=colour24,nobold,nounderscore,noitalics]#[fg=colour254,bg=colour31] %Y-%m-%d  %H:%M #[fg=colour254,bg=colour31,nobold,nounderscore,noitalics]#[fg=colour240,bg=colour254] #h "
+# set -g status-right-length "100"
+# setw -g window-status-current-format '#[fg=colour24,bg=colour31,nobold,nounderscore,noitalics]#[fg=colour254,bg=colour31] #I #[fg=colour254,bg=colour31]  #I:#(pwd="#{pane_current_path}"; echo ${pwd####*/}) #W #[fg=colour31,bg=colour24,nobold,nounderscore,noitalics]'
+# setw -g window-status-format '#[fg=colour255,bg=colour24] #I:#{window_panes} #[fg=colour255,bg=colour24] #I:#(pwd="#{pane_current_path}"; echo ${pwd####*/}) #W '
+# setw -g window-status-separator ""
 
 ## tmux-prefix-highlight
 set -g @prefix_highlight_prefix_prompt 'Wait'
@@ -209,8 +208,8 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @continuum-restore 'on'
 
 ## tmux-themepack
-set -g @themepack 'default'
-# set -g @themepack 'basic'
+# set -g @themepack 'default'
+set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
 set -g @theme-status-justify left
@@ -222,7 +221,7 @@ set -g @theme-status-justify left
 # set -g @theme-status-fg '#002b36' # base03
 # set -g @theme-window-status-activity-bg '#fdf6e3' # base3
 # set -g @theme-window-status-activity-fg '#dc322f' # red
-# set -g @theme-mode-bg '#2aa198' # cyan
+set -g @theme-mode-bg 'cyan' # cyan
 # set -g @theme-mode-fg '#002b36' # black
 
 ## tmux-base16-statusline
