@@ -58,7 +58,7 @@ colorscheme nord
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
+        \ 'colorscheme': 'nord',
         \ }
 
 "" Common

@@ -366,24 +366,25 @@ URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=14:style=italic
 !! Xterm
 !! ---------------------------------------------------------------------
 
-xterm*font: xft:Monospace:pixelsize=15:antialias=true:style=regular
+xterm*font: xft:Monospace:pixelsize=14:antialias=true:style=regular
 
 
 !! ---------------------------------------------------------------------
 !! stterm
 !! ---------------------------------------------------------------------
 
-stterm*font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
+! stterm*font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
 ! stterm*font: -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 ! stterm*font: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
+stterm*font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 
 
 !! ---------------------------------------------------------------------
 !! pterm
 !! ---------------------------------------------------------------------
 
-pterm.Font: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
-pterm.BoldFont: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
+pterm.Font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+pterm.BoldFont: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=bold
 
 !! solarized dark
 pterm.Colour0:  147,161,161

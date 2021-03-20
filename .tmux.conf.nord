@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-12-13 17:59:07 (CET)
+## Last update: 2021-03-20 10:53:26 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -173,20 +173,6 @@ bind E setw synchronize-panes off
 
 #### ## Exit copy-mode with a Right click
 #### bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
-
-## theming
-# set-option -g status-style "bg=black,fg=cyan"
-# set-option -g status-right '#[fg=cyan,bg=black]#{prefix_highlight}#[fg=#555555,bg=cyan]#[bg=#555555,fg=white] %Y-%m-%d #[fg=#999999,bg=#555555]#[bg=#999999,fg=black] %H:%M:%S #[bg=#999999,fg=#cccccc]#[bg=#cccccc,fg=black] #H #[default]' 
-# set-option -g status-left '#[bg=#999999,fg=black] #S #[bg=black,fg=#999999]'
-# set-option -g status-interval 1
-# set-option -g status-justify left
-# set-window-option -g window-status-current-format "#[bg=#555555,fg=white] #W #[bg=black,fg=#555555]"
-# set-window-option -g mode-style 'bg=black, fg=cyan bold'
-# setw -g window-status-bell-style 'fg=colour255 bg=colour1 bold'
-# set-window-option -g clock-mode-colour cyan
-# set-option -g message-style "bg=black,fg=cyan"
-# set-option -g pane-border-style 'bg=black, fg=#555555'
-# set-option -g pane-active-border-style 'bg=black, fg=cyan'
 
 ## tmux-prefix-highlight
 set -g @prefix_highlight_prefix_prompt 'Wait'

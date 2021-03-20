@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-18 21:35:35 (CET)
+"" Last update: 2021-03-20 10:40:01 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -20,7 +20,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'maralla/completor.vim'                                                                                           │syntax on
+Plug 'maralla/completor.vim'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
@@ -61,7 +61,7 @@ colorscheme solarized8_high
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-        \ 'colorscheme': 'solarized light',
+        \ 'colorscheme': 'solarized',
         \ }
 
 "" Common

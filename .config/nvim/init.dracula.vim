@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-18 21:35:35 (CET)
+"" Last update: 2021-03-20 10:39:10 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ colorscheme dracula
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
+        \ 'colorscheme': 'dracula',
         \ }
 
 "" Common

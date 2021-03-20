@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-02-24 19:35:15 (CET)
+"" Last update: 2021-03-20 10:39:00 (CET)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -39,10 +39,6 @@ map ; :FzfFiles<CR>
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
-let g:lightline = {
-    \ 'colorscheme': 'default',
-    \ }
-
 let g:lightline.active = {
     \ 'left': [ [ 'mode', 'paste', 'sep1' ],
     \           [ 'readonly', 'filename', 'modified' ],

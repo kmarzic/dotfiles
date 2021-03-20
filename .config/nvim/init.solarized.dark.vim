@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-18 21:35:35 (CET)
+"" Last update: 2021-03-20 10:39:51 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -41,19 +41,28 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" PaperColor
-"" https://draculatheme.com/vim
+"" flattened
+" colorscheme flattened_light
+
+"" vim-solarized8
+"" https://github.com/lifepillar/vim-solarized8
 ""
-set background=light
-syntax enable
-colorscheme PaperColor
+let g:solarized_visibility = "normal"
+let g:solarized_diffmode = "normal"
+let g:solarized_italics = 0
+set t_Co=256
+set background=dark
+" colorscheme solarized8
+" colorscheme solarized8_low
+colorscheme solarized8_high
+" colorscheme solarized8_flat
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-    \ 'colorscheme': 'PaperColor light',
-    \ }
+        \ 'colorscheme': 'solarized',
+        \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim

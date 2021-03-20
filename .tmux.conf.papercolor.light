@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-02-03 09:01:13 (CET)
+## Last update: 2021-03-20 10:53:24 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -173,21 +173,6 @@ bind E setw synchronize-panes off
 
 #### ## Exit copy-mode with a Right click
 #### bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
-
-## theming
-# set -g message-command-style bg="colour31"
-# set -g pane-active-border-style fg="colour254"
-# set -g pane-border-style fg="colour31"
-# set -g status "on"
-# set -g status-style bg="colour24"
-# set -g status-justify "left"
-# set -g status-left "#[fg=colour240,bg=colour254] #S #[fg=colour254,bg=colour24,nobold,nounderscore,noitalics]"
-# set -g status-left-length "100"
-# set -g status-right "#[fg=colour31,bg=colour24,nobold,nounderscore,noitalics]#[fg=colour254,bg=colour31] %Y-%m-%d  %H:%M #[fg=colour254,bg=colour31,nobold,nounderscore,noitalics]#[fg=colour240,bg=colour254] #h "
-# set -g status-right-length "100"
-# setw -g window-status-current-format '#[fg=colour24,bg=colour31,nobold,nounderscore,noitalics]#[fg=colour254,bg=colour31] #I #[fg=colour254,bg=colour31]  #I:#(pwd="#{pane_current_path}"; echo ${pwd####*/}) #W #[fg=colour31,bg=colour24,nobold,nounderscore,noitalics]'
-# setw -g window-status-format '#[fg=colour255,bg=colour24] #I:#{window_panes} #[fg=colour255,bg=colour24] #I:#(pwd="#{pane_current_path}"; echo ${pwd####*/}) #W '
-# setw -g window-status-separator ""
 
 ## tmux-prefix-highlight
 set -g @prefix_highlight_prefix_prompt 'Wait'
