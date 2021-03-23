@@ -454,13 +454,13 @@ st.shell: /bin/bash
 ! st.cursorColor: #101010
 ! st.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
-st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+! st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=14:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=13:antialias=true:autohint=true:style=regular
-! st.font: Monospace:pixelsize=14:antialias=true:autohint=true:style=regular
+st.font: Monospace:pixelsize=14:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=14:antialias=true:autohint=true:style=regular
