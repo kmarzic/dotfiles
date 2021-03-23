@@ -20,7 +20,7 @@ Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'maralla/completor.vim'                                                                                           │syntax on
+Plug 'maralla/completor.vim'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
