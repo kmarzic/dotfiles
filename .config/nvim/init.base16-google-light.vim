@@ -1,37 +1,11 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-20 10:38:13 (CET)
-"" Current file: .vimrc
+"" Last update: 2021-03-20 10:40:01 (CET)
+"" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
-"" Pathogen: Vim package manager
-"" http://www.vim.org/scripts/script.php?script_id=2332
-"" https://github.com/tpope/vim-pathogen
-"" mkdir -p ~/.vim/autoload ~/.vim/bundle;
-"" curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-"" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-""
-" call pathogen#infect()
-" call pathogen#helptags()
-
-"" vundle
-"" http://www.vim.org/scripts/script.php?script_id=3458
-"" https://github.com/VundleVim/Vundle.vim
-"" cd ~/.vim/bundle; git clone https://github.com/gmarik/Vundle.vim.git
-"" cd ~/.vim/bundle/Vundle.vim; git remote update
-""
-" set nocompatible              " be iMproved, required
-" filetype off                  " required
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" Plugin 'gmarik/Vundle.vim'
-" call vundle#end()            " required
-" filetype plugin indent on    " required
-
-"" vim-plug
-"" https://github.com/junegunn/vim-plug
-""
+"" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 "
 Plug 'w0rp/ale'
@@ -50,8 +24,7 @@ Plug 'maralla/completor.vim'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-scripts/perl-support.vim'
+Plug 'fatih/vim-go'
 Plug 'vim-perl/vim-perl'
 Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
@@ -59,30 +32,34 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'chriskempson/base16-vim'
 Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
-Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'miyakogi/seiya.vim'
 "
+"" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" https://github.com/crusoexia/vim-monokai
+"" base16-vim
+"" https://github.com/chriskempson/base16-vim.git
 ""
-set background=dark
+let base16colorspace=256  " Access colors present in 256 colorspace
+set t_Co=256
+" set background=dark
+set background=light
 syntax on
-colorscheme monokai
+colorscheme base16-google-light
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
+        \ 'colorscheme': 'powerline',
+        \ }
 
 "" Common
-source ~/.vimrc.common
+source ~/.config/nvim/init.common.vim
 
 "" ------------------------------------------------------------------------
 "" eof

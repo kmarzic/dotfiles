@@ -33,6 +33,7 @@
 "" https://github.com/junegunn/vim-plug
 ""
 call plug#begin('~/.vim/plugged')
+"
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf'
@@ -64,6 +65,7 @@ Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'miyakogi/seiya.vim'
+"
 call plug#end()
 
 "" Custom

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-20 10:38:17 (CET)
+"" Last update: 2021-03-20 10:36:15 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -68,24 +68,21 @@ Plug 'miyakogi/seiya.vim'
 "
 call plug#end()
 
-"" arcticicestudio/nord-vim
-"" https://github.com/arcticicestudio/nord-vim
+"" base16-vim
+"" https://github.com/chriskempson/base16-vim.git
 ""
-augroup nord-overrides
-  autocmd!
-  autocmd ColorScheme nord highlight Comment ctermfg=14
-augroup END
-let g:nord_italic = 1
+let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256
-set background=dark
+" set background=dark
+set background=light
 syntax on
-colorscheme nord
+colorscheme base16-atelier-lakeside-light
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-    \ 'colorscheme': 'nord',
+    \ 'colorscheme': 'powerline',
     \ }
 
 "" Common

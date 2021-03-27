@@ -107,12 +107,14 @@ __help()
     __printf "Examples:"
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
+    __printf "   ${0} -s base16-atelier-lakeside-light"
+    __printf "   ${0} -s base16-google-light"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
+    __printf "   ${0} -s papercolor.light"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
-    __printf "   ${0} -s papercolor.light"
 }
 
 
@@ -205,6 +207,64 @@ function __theme()
                 ## xmonad installed from stack
                 cd ~/.xmonad && ./recompile.sh
             fi
+            ;;
+        "base16-atelier-lakeside-light")
+            __printf "base16-atelier-lakeside-light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-atelier-lakeside-light .Xdefaults
+            [[ -e ~/.Xdefaults.base16-atelier-lakeside-light ]] && xrdb -load ~/.Xdefaults.base16-atelier-lakeside-light
+
+            #### vim
+            [[ -e ~/.vimrc.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.base16-atelier-lakeside-light .vimrc
+            [[ -e ~/.gvimrc.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.base16-atelier-lakeside-light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.base16-atelier-lakeside-light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-atelier-lakeside-light.vim init.vim && cd -
+
+            #### tmux.conf
+            [[ -e ~/.tmux.base16-atelier-lakeside-light.conf ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.base16-atelier-lakeside-light.conf .tmux.conf
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.base16-atelier-lakeside-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-atelier-lakeside-light.conf redshift.conf && cd -
+            ;;
+        "base16-google-light")
+            __printf "base16-google-light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.base16-google-light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-google-light .Xdefaults
+            [[ -e ~/.Xdefaults.base16-google-light ]] && xrdb -load ~/.Xdefaults.base16-google-light
+
+            #### vim
+            [[ -e ~/.vimrc.base16-google-light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.base16-google-light .vimrc
+            [[ -e ~/.gvimrc.base16-google-light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.base16-google-light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.base16-google-light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-google-light.vim init.vim && cd -
+
+            #### tmux.conf
+            [[ -e ~/.tmux.base16-google-light.conf ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.base16-google-light.conf .tmux.conf
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.base16-google-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-google--light.conf redshift.conf && cd -
             ;;
         "dracula")
             __printf "dracula"
@@ -386,6 +446,49 @@ function __theme()
                 cd ~/.xmonad && ./recompile.sh
             fi
             ;;
+        "papercolor.light")
+            __printf "papercolor light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarizedlightstripes.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/wallpaperbetter.jpg.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.papercolor.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.papercolor.light .Xdefaults
+            [[ -e ~/.Xdefaults.papercolor.light ]] && xrdb -load ~/.Xdefaults.papercolor.light
+
+            #### vim
+            [[ -e ~/.vimrc.papercolor.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.papercolor.light .vimrc
+            [[ -e ~/.gvimrc.papercolor.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.papercolor.light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.papercolor.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.papercolor.light.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.papercolor.light ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.papercolor.light dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.papercolor.light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.papercolor.light.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.papercolor.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.papercolor.light .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.solarized.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.papercolor.light .tmux.conf
+            ;;
         "solarized.dark")
             __printf "solarized dark"
 
@@ -556,49 +659,6 @@ function __theme()
             #### dircolors
             # d=~/.dircolors.d/dircolors.solarized-light
             # test -r $d && eval "$(dircolors -b $d)"
-            ;;
-        "papercolor.light")
-            __printf "papercolor light"
-
-            #### Background
-            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
-            ####
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarizedlightstripes.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/wallpaperbetter.jpg.jpg bg.jpg && cd -
-            ####
-            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
-
-            #### Xdefaults
-            [[ -e ~/.Xdefaults.papercolor.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.papercolor.light .Xdefaults
-            [[ -e ~/.Xdefaults.papercolor.light ]] && xrdb -load ~/.Xdefaults.papercolor.light
-
-            #### vim
-            [[ -e ~/.vimrc.papercolor.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.papercolor.light .vimrc
-            [[ -e ~/.gvimrc.papercolor.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.papercolor.light .gvimrc
-
-            #### neovim
-            [[ -e ~/.config/nvim/init.papercolor.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.papercolor.light.vim init.vim && cd -
-
-            #### dunstrc
-            [[ -e ~/.config/dunst/dunstrc.papercolor.light ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.papercolor.light dunstrc
-            pkill dunst
-
-            #### redshift.conf
-            [[ -e ~/.config/redshift.papercolor.light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.papercolor.light.conf redshift.conf && cd -
-
-            #### screenrc
-            [[ -e ~/.screenrc.papercolor.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.papercolor.light .screenrc
-
-            #### tmux.conf
-            [[ -e ~/.tmux.conf.solarized.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.papercolor.light .tmux.conf
             ;;
     esac
 }
