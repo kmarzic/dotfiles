@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-03-27 20:46:34 (CET)
+## Last update: 2021-03-27 20:52:58 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -433,7 +433,7 @@ export TEMP="/tmp"
 export TMP="/tmp"
 export LYNX_CFG="~/.lynxrc"
 export COLUMNS=80
-export MC_SKIN=$HOME/.config/mc/darkfar.ini
+# export MC_SKIN=$HOME/.config/mc/darkfar.ini
 # export MC_SKIN=$HOME/.config/mc/default.ini
 # export MC_SKIN=$HOME/.config/mc/double-lines.ini
 # export MC_SKIN=$HOME/.config/mc/dracula.ini
@@ -444,6 +444,7 @@ export MC_SKIN=$HOME/.config/mc/darkfar.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/nicedark.ini
+export MC_SKIN=/usr/share/mc/skins/modarcon16-defbg.ini
 
 #### Proxy
 ## hrzg-proxy01.etk.extern.eu.ericsson.se = 172.17.64.132
