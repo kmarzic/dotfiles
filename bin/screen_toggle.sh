@@ -215,7 +215,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s nature/20-2.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
@@ -244,7 +245,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s nature/20-2.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
