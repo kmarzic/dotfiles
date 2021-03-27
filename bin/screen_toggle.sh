@@ -232,7 +232,7 @@ function __theme()
             [[ -e ~/.config/nvim/init.base16-atelier-lakeside-light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-atelier-lakeside-light.vim init.vim && cd -
 
             #### tmux.conf
-            [[ -e ~/.tmux.base16-atelier-lakeside-light.conf ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.base16-atelier-lakeside-light.conf .tmux.conf
+            [[ -e ~/.tmux.conf.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-atelier-lakeside-light .tmux.conf
 
             #### redshift.conf
             [[ -e ~/.config/redshift.base16-atelier-lakeside-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-atelier-lakeside-light.conf redshift.conf && cd -
@@ -261,7 +261,7 @@ function __theme()
             [[ -e ~/.config/nvim/init.base16-google-light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-google-light.vim init.vim && cd -
 
             #### tmux.conf
-            [[ -e ~/.tmux.base16-google-light.conf ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.base16-google-light.conf .tmux.conf
+            [[ -e ~/.tmux.conf.base16-google-light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-google-light .tmux.conf
 
             #### redshift.conf
             [[ -e ~/.config/redshift.base16-google-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-google--light.conf redshift.conf && cd -
