@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-20 10:38:06 (CET)
+"" Last update: 2021-04-01 07:06:32 (CEST)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -520,9 +520,9 @@ set whichwrap=b,s,h,l,<,>,[,]
 
 "" Number of characters from the right window border where wrapping starts.
 "" (1)
-" set wrapmargin=0
+set wrapmargin=0
 "" (2)
-set wrapmargin=1
+" set wrapmargin=1
 
 "" Display unprintable characters
 " set nolist

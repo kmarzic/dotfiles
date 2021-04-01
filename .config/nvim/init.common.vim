@@ -506,9 +506,9 @@ set whichwrap=b,s,h,l,<,>,[,]
 
 "" Number of characters from the right window border where wrapping starts.
 "" (1)
-" set wrapmargin=0
+set wrapmargin=0
 "" (2)
-set wrapmargin=1
+" set wrapmargin=1
 
 "" Display unprintable characters
 " set nolist

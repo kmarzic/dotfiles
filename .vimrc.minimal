@@ -57,7 +57,7 @@ set scrolloff=3
 set nowrap
 set number
 set whichwrap=b,s,h,l,<,>,[,]
-set wrapmargin=1
+set wrapmargin=0
 set list
 set listchars=tab:>.,trail:.,extends:#
 set lazyredraw
