@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-03-27 20:52:58 (CET)
+## Last update: 2021-04-02 06:44:57 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -433,6 +433,7 @@ export TEMP="/tmp"
 export TMP="/tmp"
 export LYNX_CFG="~/.lynxrc"
 export COLUMNS=80
+
 # export MC_SKIN=$HOME/.config/mc/darkfar.ini
 # export MC_SKIN=$HOME/.config/mc/default.ini
 # export MC_SKIN=$HOME/.config/mc/double-lines.ini
@@ -584,16 +585,16 @@ alias tmux="tmux -2"
 # alias cpan='cpan5.30.0'
 
 alias proxy_none='export https_proxy=""; export http_proxy=""; export ftp_proxy="";'
-alias proxy_etk1='export https_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"'
-alias proxy_etk2='export https_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"'
-alias proxy_etk3='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/; export ftp_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/'
-alias proxy_ericsson1='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://s-proxy.ericsson.se:8080/; export ftp_proxy=http://s-proxy.ericsson.se:8080/'
-alias proxy_ericsson2='export https_proxy=http://www-proxy.ericsson.se:8080; export http_proxy=http://www-proxy.ericsson.se:80/; export ftp_proxy=http://www-proxy.ericsson.se:80/'
-alias proxy_ericsson3='export https_proxy=http://www-proxy.lmera.ericsson.se:8080; export http_proxy=http://www-proxy.lmera.ericsson.se:8080; export ftp_proxy=http://www-proxy.lmera.ericsson.se:8080'
+# alias proxy_etk1='export https_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"'
+# alias proxy_etk2='export https_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"'
+# alias proxy_etk3='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/; export ftp_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/'
+# alias proxy_ericsson1='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://s-proxy.ericsson.se:8080/; export ftp_proxy=http://s-proxy.ericsson.se:8080/'
+# alias proxy_ericsson2='export https_proxy=http://www-proxy.ericsson.se:8080; export http_proxy=http://www-proxy.ericsson.se:80/; export ftp_proxy=http://www-proxy.ericsson.se:80/'
+# alias proxy_ericsson3='export https_proxy=http://www-proxy.lmera.ericsson.se:8080; export http_proxy=http://www-proxy.lmera.ericsson.se:8080; export ftp_proxy=http://www-proxy.lmera.ericsson.se:8080'
 
 alias dropbox_proxy_none="dropbox proxy none"
-alias dropbox_proxy_etk1="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
-alias dropbox_proxy_etk2="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
+# alias dropbox_proxy_etk1="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
+# alias dropbox_proxy_etk2="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
 
 
 ## ----------------------------------------------------------------------------
