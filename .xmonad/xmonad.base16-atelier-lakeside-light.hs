@@ -541,6 +541,7 @@ myKeysDmenuCommandBase16AtelierLakesideLight =
     ((0,                         xK_Menu   ), spawn dmenuCommandBase16AtelierLakesideLight)
   ]
 
+myKeys :: [((KeyMask, KeySym), X ())]
 myKeys =
   [
     ((mod1Mask,                  xK_Return ), spawn myTerminal),
@@ -624,6 +625,10 @@ myKeys =
     -- , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)] -- default (greedyView)
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)] -- view
   ]
+  --
+  -- [ ((m .|. mod1Mask, k), windows $ onCurrentScreen f i)
+  --       | (i, k) <- zip (workspaces' conf) [xK_1 .. xK_9]
+  --       , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
   ++
   -- (2) Reorder screens
   -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
