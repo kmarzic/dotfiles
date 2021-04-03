@@ -232,11 +232,37 @@ function __theme()
             #### neovim
             [[ -e ~/.config/nvim/init.base16-atelier-lakeside-light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-atelier-lakeside-light.vim init.vim && cd -
 
+            #### redshift.conf
+            [[ -e ~/.config/redshift.base16-atelier-lakeside-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-atelier-lakeside-light.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.base16-atelier-lakeside-light .screenrc
+
             #### tmux.conf
             [[ -e ~/.tmux.conf.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-atelier-lakeside-light .tmux.conf
 
-            #### redshift.conf
-            [[ -e ~/.config/redshift.base16-atelier-lakeside-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-atelier-lakeside-light.conf redshift.conf && cd -
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.base16-atelier-lakeside-light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.base16-atelier-lakeside-light alacritty.yml && cd -
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.base16-atelier-lakeside-light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.base16-atelier-lakeside-light.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.base16-atelier-lakeside-light.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.base16-atelier-lakeside-light.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
+            fi
             ;;
         "base16-google-light")
             __printf "base16-google-light"
