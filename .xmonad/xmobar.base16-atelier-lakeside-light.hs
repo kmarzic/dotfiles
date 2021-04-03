@@ -10,8 +10,8 @@ Config {
    -- font = "xft:monospace:size=11:antialias=true:style=bold",
    -- font = "xft:monospace:size=11:antialias=true:style=regular",
    -- font = "xft:Liberation Mono:size=11:antialias=true:autohint=true:style=bold",
-   font = "xft:Bitstream Vera Sans Mono:size=10:bold:antialias=true",
-   -- font = "xft:DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular"
+   -- font = "xft:Bitstream Vera Sans Mono:size=11:antialias=true:autohint=true:style=regular",
+   font = "xft:DejaVu Sans Mono:size=11:antialias=true:autohint=true:style=bold",
    --
    -- additionalFonts = [ "xft:FontAwesome:size=10:style=bold" ],
    -- additionalFonts = [ "xft:Droid Sans Mono:size=10:antialias=true:style=bold" ],
