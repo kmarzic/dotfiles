@@ -752,15 +752,35 @@ function __xrandr()
             ;;
         3)
             #### 3 monitors
-            __printf "# xrandr \\"
-            __printf "    --output ${IN-} --auto \\"
-            __printf "    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \\"
-            __printf "    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}"
 
-            xrandr \
-                --output ${IN-} --auto \
-                --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \
-                --output ${EXT1-} --auto ${POSITION-} ${EXT2-}
+            #### dle6440
+            # xrandr_connect[0]='eDP1'
+            # xrandr_connect[1]='HDMI2' - Dell
+            # xrandr_connect[2]='HDMI3' - LG
+            if [[ "$(hostname)" == "dle6440" ]]
+            then
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto \\"
+                __printf "    --output ${EXT1-} --auto --primary ${POSITION-} ${IN-} \\"
+                __printf "    --output ${EXT2-} --auto ${POSITION-} ${EXT1-}"
+
+                xrandr \
+                    --output ${IN-} --auto \
+                    --output ${EXT1-} --auto --primary ${POSITION-} ${IN-} \
+                    --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
+            fi
+            if [[ "$(hostname)" == "elxa4n8pyf2" ]]
+            then
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto \\"
+                __printf "    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \\"
+                __printf "    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}"
+
+                xrandr \
+                    --output ${IN-} --auto \
+                    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \
+                    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}
+            fi
             ;;
     esac
 }
