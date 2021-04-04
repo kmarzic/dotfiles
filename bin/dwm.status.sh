@@ -16,6 +16,16 @@ STATUSCOLOR=1
 # YELLOW='^c#ffff00^'
 # NORMAL='^c#bbbbbb^'
 
+#### base16-atelier-lakeside-ligh
+CYAN='^c#2d8f6f^'
+GREEN='^c#568c3b^'
+ORANGE='^c#935c25^'
+PINK='^c#b72dd2^'
+PURPLE='^c#6b6bb8^'
+RED='^c#d22d72^'
+YELLOW='^c#8a8a0f^'
+NORMAL='^c#1f292e^'
+
 #### dracula
 # CYAN='^c#8be9fd^'
 # GREEN='^c#50fa7b^'
@@ -27,14 +37,14 @@ STATUSCOLOR=1
 # NORMAL='^c#f8f8f2^'
 
 #### solarized light
-CYAN='^c#2aa198^'
-GREEN='^c#859900^'
-ORANGE='^c#cb4b16^'
-PINK='^c#d33682^'
-PURPLE='^c#6c71c4^'
-RED='^c#dc322f^'
-YELLOW='^c#b58900^'
-NORMAL='^c#073642^'
+# CYAN='^c#2aa198^'
+# GREEN='^c#859900^'
+# ORANGE='^c#cb4b16^'
+# PINK='^c#d33682^'
+# PURPLE='^c#6c71c4^'
+# RED='^c#dc322f^'
+# YELLOW='^c#b58900^'
+# NORMAL='^c#073642^'
 
 #### solarized dark
 # CYAN='^c#2aa198^'

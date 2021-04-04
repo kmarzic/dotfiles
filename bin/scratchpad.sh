@@ -13,7 +13,7 @@ function __scratchpad_st()
 {
     xdotool search --onlyvisible --classname scratchpad windowunmap \
       || xdotool search --classname scratchpad windowmap \
-      || st -T "scratchpad" -t "scratchpad" -n "scratchpad" -f " DejaVu Sans Mono:pixelsize=14:style=bold"
+      || st -T "scratchpad" -t "scratchpad" -n "scratchpad" -f "DejaVu Sans Mono:pixelsize=14:style=regular"
 }
 
 function __scratchpad_alacritty()
@@ -49,8 +49,8 @@ function __scratchpad_4()
 }
 
 #### MAIN
-__scratchpad_urxvt
-# __scratchpad_st
+# __scratchpad_urxvt
+__scratchpad_st
 # __scratchpad_alacritty
 # __scratchpad_4
 

@@ -37,8 +37,8 @@ local theme_dir = os.getenv("HOME") .. "/.config/awesome/themes/"
 dofile(config_path .. "error.lua")
 
 -- Variables
-terminal = "urxvt"
--- terminal = "st"
+-- terminal = "urxvt"
+terminal = "st"
 awful.util.terminal = terminal
 browser = "firefox"
 mail = "evolution"
@@ -48,8 +48,8 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Themes define colours, icons, font and wallpapers.
 -- local theme_name = "default"
--- local theme_name = "ansi"
-local theme_name = "dracula"
+local theme_name = "ansi"
+-- local theme_name = "dracula"
 -- local theme_name = "gtk"
 -- local theme_name = "sky"
 -- local theme_name = "xresources"
