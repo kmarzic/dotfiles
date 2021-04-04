@@ -769,6 +769,8 @@ function __xrandr()
                     --output ${EXT1-} --auto --primary ${POSITION-} ${IN-} \
                     --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
             fi
+
+            #### elxa4n8pyf2
             if [[ "$(hostname)" == "elxa4n8pyf2" ]]
             then
                 __printf "# xrandr \\"
