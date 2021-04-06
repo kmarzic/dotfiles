@@ -387,7 +387,7 @@ set noinfercase
 
 "" Scroll at most 20 lines at a time.
 " set ttyscroll=0
-set ttyscroll=4
+" set ttyscroll=4
 
 "" Indicates a fast terminal connection.
 set ttyfast
