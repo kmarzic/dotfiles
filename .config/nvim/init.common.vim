@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-20 10:39:00 (CET)
+"" Last update: 2021-04-06 06:16:21 (CEST)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -387,6 +387,7 @@ set noinfercase
 
 "" Scroll at most 20 lines at a time.
 " set ttyscroll=0
+set ttyscroll=4
 
 "" Indicates a fast terminal connection.
 set ttyfast

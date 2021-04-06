@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-04-01 07:06:32 (CEST)
+"" Last update: 2021-04-06 06:16:24 (CEST)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -359,7 +359,7 @@ set keywordprg=man\ -a
 set infercase
 
 "" Use PC BIOS to read keyboard, for better ^C detection.
-set bioskey
+" set bioskey
 
 "" Be incompatible with vi, please.
 set nocompatible
@@ -400,7 +400,8 @@ set fileformats=unix,dos,mac
 set noinfercase
 
 "" Scroll at most 20 lines at a time.
-set ttyscroll=0
+" set ttyscroll=0
+set ttyscroll=4
 
 "" Indicates a fast terminal connection.
 set ttyfast
@@ -737,14 +738,14 @@ endif
 "" ------------------------------------------------------------------------
 
 "" When on the title of the window will be set to "VIM - filename".
-set title
+" set title
 
 "" Title String
-set titlestring=%<%F%=%l/%L-%P
+" set titlestring=%<%F%=%l/%L-%P
 
 "" Gives the percentage of 'columns' to use for the length of the window
 "" title.
-set titlelen=70
+" set titlelen=70
 
 "" ------------------------------------------------------------------------
 "" Status line
