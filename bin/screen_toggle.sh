@@ -109,6 +109,7 @@ __help()
     __printf "   ${0} -s ansi"
     __printf "   ${0} -s base16-atelier-lakeside-light"
     __printf "   ${0} -s base16-google-light"
+    __printf "   ${0} -s base16-gruvbox-dark-soft"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
@@ -293,6 +294,62 @@ function __theme()
 
             #### redshift.conf
             [[ -e ~/.config/redshift.base16-google-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-google--light.conf redshift.conf && cd -
+            ;;
+        "base16-gruvbox-dark-soft")
+            __printf "base16-gruvbox-dark-soft"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.png && ln -s nature/20-2.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-gruvbox-dark-soft .Xdefaults
+            [[ -e ~/.Xdefaults.base16-gruvbox-dark-soft ]] && xrdb -load ~/.Xdefaults.base16-gruvbox-dark-soft
+
+            #### vim
+            [[ -e ~/.vimrc.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.base16-gruvbox-dark-soft .vimrc
+            [[ -e ~/.gvimrc.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.base16-gruvbox-dark-soft .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.base16-gruvbox-dark-soft.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-gruvbox-dark-soft.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.base16-gruvbox-dark-soft.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-gruvbox-dark-soft.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.base16-gruvbox-dark-soft .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-gruvbox-dark-soft .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.base16-gruvbox-dark-soft ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.base16-gruvbox-dark-soft alacritty.yml && cd -
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.base16-gruvbox-dark-soft.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.base16-gruvbox-dark-soft.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.base16-gruvbox-dark-soft.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.base16-gruvbox-dark-soft.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
+            fi
             ;;
         "dracula")
             __printf "dracula"
