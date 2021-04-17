@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-04-13 18:18:21 (CEST)
+## Last update: 2021-04-17 19:54:57 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -120,11 +120,11 @@ export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BY
 ## Base16 Shell
 ## ----------------------------------------------------------------------------
 
-## Base16 Shell
-BASE16_SHELL="$HOME/git/themes/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# ## Base16 Shell
+# BASE16_SHELL="$HOME/git/themes/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 
 ## ----------------------------------------------------------------------------
