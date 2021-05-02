@@ -111,6 +111,7 @@ __help()
     __printf "   ${0} -s base16-google-light"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
     __printf "   ${0} -s dracula"
+    __printf "   ${0} -s gruvbox"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s papercolor.light"
@@ -419,6 +420,39 @@ function __theme()
                 ## xmonad installed from stack
                 cd ~/.xmonad && ./recompile.sh
             fi
+            ;;
+        "gruvbox")
+            __printf "gruvbox"
+            :
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.png && ln -s nature/20-2.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nature/13250.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-gruvbox-dark-soft .Xdefaults
+            [[ -e ~/.Xdefaults.base16-gruvbox-dark-soft ]] && xrdb -load ~/.Xdefaults.base16-gruvbox-dark-soft
+
+            #### vim
+            [[ -e ~/.vimrc.gruvbox ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox .vimrc
+            [[ -e ~/.gvimrc.gruvbox ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.gruvbox .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.gruvbox.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.gruvbox.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.gruvbox ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.gruvbox .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.gruvbox ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox .tmux.conf
             ;;
         "monokai")
             __printf "monokai"

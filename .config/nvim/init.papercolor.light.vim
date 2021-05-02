@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-20 10:39:43 (CET)
+"" Last update: 2021-05-02 14:27:14 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -35,6 +35,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'arcticicestudio/nord-vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'miyakogi/seiya.vim'
 "
