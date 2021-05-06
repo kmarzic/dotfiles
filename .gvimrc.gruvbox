@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-05-02 14:20:41 (CEST)
+"" Last update: 2021-05-06 07:46:31 (CEST)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -135,7 +135,10 @@ set guitablabel=%N:%M%t " Show tab numbers
 " colorscheme zellner
 
 " colorscheme solarized
+" colorscheme base16-solarized-dark
 " colorscheme base16-solarized-light
+" colorscheme base16-google-light
+" colorscheme base16-atelier-lakeside-light
 " colorscheme flattened_light
 " colorscheme solarized8
 " colorscheme dracula

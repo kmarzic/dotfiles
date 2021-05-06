@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-03-20 10:53:24 (CET)
+## Last update: 2021-05-06 07:03:15 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -235,6 +235,12 @@ set -g @theme-mode-bg 'cyan' # cyan
 
 ## dev-ninjas-org/papercolor-light/tmux
 
+## tmux-gruvbox
+# set -g @tmux-gruvbox 'dark'
+# set -g @tmux-gruvbox 'light'
+
+## tmux-gruvbox-truecolor
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -250,6 +256,8 @@ set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
+# set -g @plugin 'egel/tmux-gruvbox'
+# set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install
