@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-04-15 19:48:00 (CEST)
+!! Last update: 2021-05-16 16:09:47 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -12,6 +12,9 @@
 !! ---------------------------------------------------------------------
 
 *customization: -color
+! *console.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+! *console.font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
+! *font: xft:DejaVu Sans Mono:pixelsize=14:style=oblique
 
 
 !! ---------------------------------------------------------------------
