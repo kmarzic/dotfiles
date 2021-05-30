@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-05-27 08:56:32
+#       CREATED: 2021-05-30 08:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -835,21 +835,26 @@ function __xrandr()
             ;;
         2)
             #### 2 monitors
-            __printf "# xrandr \\"
-            __printf "    --output ${IN-} --auto \\"
-            __printf "    --output ${EXT1-} --auto --primary ${POSITION-} ${IN-}"
 
             #### dle6440
             if [[ "$(hostname)" == "dle6440" ]]
             then
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto \\"
+                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}"
+
                 xrandr \
                     --output ${IN-} --auto \
-                    --output ${EXT1-} --auto --primary ${POSITION-} ${IN-}
+                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
             #### elx711804dr - HP
             if [[ "$(hostname)" == "elx711804dr" ]]
             then
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto \\"
+                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}"
+
                 xrandr \
                     --output ${IN-} --auto \
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
@@ -859,9 +864,6 @@ function __xrandr()
             #### 3 monitors
 
             #### dle6440
-            # xrandr_connect[0]='eDP1'
-            # xrandr_connect[1]='HDMI2' - Dell
-            # xrandr_connect[2]='HDMI3' - LG
             if [[ "$(hostname)" == "dle6440" ]]
             then
                 __printf "# xrandr \\"
@@ -892,35 +894,10 @@ function __xrandr()
             #### elx711804dr - HP
             if [[ "$(hostname)" == "elx711804dr" ]]
             then
-                __printf "# xrandr \\"
-                __printf "    --output ${IN-} --auto \\"
-                __printf "    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \\"
-                __printf "    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}"
-
-                # xrandr \
-                #     --output ${IN-} --auto \
-                #     --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \
-                #     --output ${EXT1-} --auto ${POSITION-} ${EXT2-}
-
-                echo xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 800x600 --primary ${POSITION-} ${IN-} \
-                    --output ${EXT2-} --mode 800x600 ${POSITION-} ${EXT1-}
-
-                echo xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 1280x1024 --primary ${POSITION-} ${IN-} \
-                    --output ${EXT2-} --mode 1280x1024 ${POSITION-} ${EXT1-}
-
-                echo xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
-                    --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
-
-                echo xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \
-                    --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}
+                __printf " xrandr \\"
+                __printf "--output ${IN-} --auto \\"
+                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \\"
+                __printf "    --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}"
 
                 xrandr \
                     --output ${IN-} --auto \
