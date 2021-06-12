@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-04-06 06:16:24 (CEST)
+"" Last update: 2021-06-12 19:21:31 (CEST)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -121,6 +121,11 @@ nmap ,lt0 :TagbarToggle<CR>
 
 "" vimwiki
 "" https://github.com/vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimwiki_html/', 'syntax': 'markdown', 'ext': '.md'}]
+au FileType vimwiki set syntax=markdown.pandoc
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:vimwiki_ext2syntax = {'.md': 'markdown'}
+let g:vimwiki_folding='expr'
 
 "" markdown-preview.nvim
 "" https://github.com/iamcco/markdown-preview.nvim
