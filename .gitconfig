@@ -1,0 +1,39 @@
+[user]
+	name = Kresimir Marzic
+	email = kresimir.marzic@ericsson.com
+[core]
+	editor = vim
+	pager = cat
+	autocrlf = input
+	excludesfile = /home/etkkrmaadm/.gitignore
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	ui = true
+	grep = auto
+	interactive = auto
+	showbranch = auto
+[gui]
+	encoding = utf-8
+[push]
+	default = upstream
+[branch]
+	autosetupmerge = always
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	up = pull --rebase
+	lol = log --graph --decorate --oneline
+	unadd = reset HEAD --
+	sf = show --pretty='format:' --name-only
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg-ascii = log --graph --pretty=format:'%h -%d %s (%cr) <%an>' --abbrev-commit
+[http]
+	sslVerify = false
+[log]
+	decorate = auto
+[merge]
+	tool = vimdiff
