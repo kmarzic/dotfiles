@@ -1,9 +1,11 @@
 ## dunstrc.dracula
-## Last update: 2020-09-13 10:15:44 (CEST)
+## Last update: 2021-07-01 09:08:36 (CEST)
 
 [global]
     # font = Monospace 8
-    font = Terminus 10
+    # font = Monospace 9
+    font = Monospace 10
+    # font = Terminus 10
     # font = "xft:Terminus\ Bold\ 7"
     # font = "xft:Terminus\ Bold\ 8"
     # font = "xft:Terminus\ Bold\ 9"
@@ -11,6 +13,7 @@
     # font = "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso10646-1"
     # font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
     # font = "xft:Terminus:pixelsize=8:antialias=true:style=regular"
+    # font = "xft:DejaVu Sans Mono:pixelsize=14:style=regular"
 
     # allow a small subset of html markup:
     # <b>bold</b>
