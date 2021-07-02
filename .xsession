@@ -6,13 +6,13 @@ export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 # export PATH="$PATH:/opt/ghc/bin"
 # export PATH="$PATH:$HOME/.cabal/bin"
 export PATH="$PATH:$HOME/.local/bin"
-export PATH="$PATH:/opt/fvwm3/bin"
-export PATH="$PATH:/opt/fluxbox/bin"
-export PATH="$PATH:/opt/icewm/bin"
-export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
-export PATH="$PATH:/opt/awesome/bin"
-export PATH="$PATH:/opt/rofi/bin"
-export PATH="$PATH:/opt/stumpwm/bin"
+# export PATH="$PATH:/opt/fvwm3/bin"
+# export PATH="$PATH:/opt/fluxbox/bin"
+# export PATH="$PATH:/opt/icewm/bin"
+# export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
+# export PATH="$PATH:/opt/awesome/bin"
+# export PATH="$PATH:/opt/rofi/bin"
+# export PATH="$PATH:/opt/stumpwm/bin"
 export PATH="$PATH:$HOME/bin"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
@@ -42,7 +42,7 @@ export TERMINAL=urxvt
 # exec bspwm || exec urxvt
 
 #### dwm
-# exec dwm.sh || exec urxvt
+exec dwm.sh || exec urxvt
 
 #### fluxbox
 # exec fluxbox || exec urxvt
@@ -83,6 +83,6 @@ export TERMINAL=urxvt
 ## (2)
 # xmonad --recompile
 ## (3) stack
-exec xmonad || exec urxvt
+# exec xmonad || exec urxvt
 
 #### END
