@@ -109,6 +109,7 @@ __help()
     __printf "   ${0} -s ansi"
     __printf "   ${0} -s base16-atelier-lakeside-light"
     __printf "   ${0} -s base16-google-light"
+    __printf "   ${0} -s base16-gruvbox-dark-pale"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s gruvbox"
@@ -296,6 +297,41 @@ function __theme()
             #### redshift.conf
             [[ -e ~/.config/redshift.base16-google-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-google--light.conf redshift.conf && cd -
             ;;
+        "base16-gruvbox-dark-pale")
+            __printf "base16-gruvbox-dark-pale"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.base16-gruvbox-dark-pale ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-gruvbox-dark-pale .Xdefaults
+            [[ -e ~/.Xdefaults.base16-gruvbox-dark-pale ]] && xrdb -load ~/.Xdefaults.base16-gruvbox-dark-pale
+
+            #### vim
+            [[ -e ~/.vimrc.base16-gruvbox-dark-pale ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.base16-gruvbox-dark-pale .vimrc
+            [[ -e ~/.gvimrc.base16-gruvbox-dark-pale ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.base16-gruvbox-dark-pale .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.base16-gruvbox-dark-pale.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-gruvbox-dark-pale.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.base16-gruvbox-dark-pale.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-gruvbox-dark-pale.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.base16-gruvbox-dark-pale ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.base16-gruvbox-dark-pale .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.base16-gruvbox-dark-pale ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-gruvbox-dark-pale .tmux.conf
+            ;;
         "base16-gruvbox-dark-soft")
             __printf "base16-gruvbox-dark-soft"
 
@@ -330,29 +366,6 @@ function __theme()
 
             #### tmux.conf
             [[ -e ~/.tmux.conf.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-gruvbox-dark-soft .tmux.conf
-
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.yml.base16-gruvbox-dark-soft ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.base16-gruvbox-dark-soft alacritty.yml && cd -
-
-            #### xmobar
-            [[ -e ~/.xmonad/xmobar.base16-gruvbox-dark-soft.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.base16-gruvbox-dark-soft.hs xmobar.hs
-
-            #### xmonad
-            [[ -e ~/.xmonad/xmonad.base16-gruvbox-dark-soft.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.base16-gruvbox-dark-soft.hs xmonad.hs
-
-            if [[ -d ~/data/cabal/xmonad ]]
-            then
-                ## custom compiled xmonad - used sandbox
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
-                ## xmonad installed from package
-                # xmonad --recompile
-                # xmonad --restart
-
-                ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
-            fi
             ;;
         "dracula")
             __printf "dracula"

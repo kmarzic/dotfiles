@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-05-16 16:09:47 (CEST)
+!! Last update: 2021-07-03 16:53:44 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -11,7 +11,7 @@
 !! General
 !! ---------------------------------------------------------------------
 
-*customization: -color
+! *customization: -color
 ! *console.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 ! *console.font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
 ! *font: xft:DejaVu Sans Mono:pixelsize=14:style=oblique
@@ -389,54 +389,6 @@ stterm*font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=re
 
 pterm.Font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 pterm.BoldFont: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=bold
-
-!! solarized dark
-pterm.Colour0:  147,161,161
-pterm.Colour1:  147,161,161
-pterm.Colour2:  0,43,54
-pterm.Colour3:  0,43,54
-pterm.Colour4:  0,43,54
-pterm.Colour5:  147,161,161
-pterm.Colour6:  0,43,54
-pterm.Colour7:  101,123,131
-pterm.Colour8:  220,50,47
-pterm.Colour9:  203,75,22
-pterm.Colour10: 133,153,0
-pterm.Colour11: 7,54,66
-pterm.Colour12: 181,137,0
-pterm.Colour13: 88,110,117
-pterm.Colour14: 38,139,210
-pterm.Colour15: 131,148,150
-pterm.Colour16: 108,113,196
-pterm.Colour17: 238,232,213
-pterm.Colour18: 42,161,152
-pterm.Colour19: 211,54,130
-pterm.Colour20: 147,161,161
-pterm.Colour21: 253,246,227
-
-!! solarized light
-! pterm.Colour0:  88,110,117
-! pterm.Colour1:  88,110,117
-! pterm.Colour2:  253,246,227
-! pterm.Colour3:  253,246,227
-! pterm.Colour4:  253,246,227
-! pterm.Colour5:  88,110,117
-! pterm.Colour6:  253,246,227
-! pterm.Colour7:  131,148,150
-! pterm.Colour8:  220,50,47
-! pterm.Colour9:  203,75,22
-! pterm.Colour10: 133,153,0
-! pterm.Colour11: 238,232,213
-! pterm.Colour12: 181,137,0
-! pterm.Colour13: 147,161,161
-! pterm.Colour14: 38,139,210
-! pterm.Colour15: 101,123,131
-! pterm.Colour16: 108,113,196
-! pterm.Colour17: 7,54,66
-! pterm.Colour18: 42,161,152
-! pterm.Colour19: 211,54,130
-! pterm.Colour20: 88,110,117
-! pterm.Colour21: 0,43,54
 
 
 !! ---------------------------------------------------------------------

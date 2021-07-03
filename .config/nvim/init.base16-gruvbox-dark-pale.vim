@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-18 21:35:35 (CET)
+"" Last update: 2021-07-03 13:22:53 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -43,19 +43,21 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" vim-monokai
-"" https://github.com/crusoexia/vim-monokai
+"" base16-vim
+"" https://github.com/chriskempson/base16-vim.git
 ""
+let base16colorspace=256  " Access colors present in 256 colorspace
+set t_Co=256
 set background=dark
+# set background=light
 syntax on
-colorscheme gruvbox
-" colorscheme gruvbox-material
+colorscheme base16-gruvbox-dark-pale
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
+        \ 'colorscheme': 'powerline',
         \ }
 
 "" Common

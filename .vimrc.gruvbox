@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-05-02 14:22:15 (CEST)
+"" Last update: 2021-07-03 16:55:09 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -74,8 +74,8 @@ call plug#end()
 ""
 set background=dark
 syntax on
-" colorscheme gruvbox
-colorscheme gruvbox-material
+colorscheme gruvbox
+" colorscheme gruvbox-material
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
