@@ -303,9 +303,10 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
@@ -429,16 +430,17 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
-            [[ -e ~/.Xdefaults.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-gruvbox-dark-soft .Xdefaults
-            [[ -e ~/.Xdefaults.base16-gruvbox-dark-soft ]] && xrdb -load ~/.Xdefaults.base16-gruvbox-dark-soft
+            [[ -e ~/.Xdefaults.gruvbox.material.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.material.dark .Xdefaults
+            [[ -e ~/.Xdefaults.gruvbox.material.dark ]] && xrdb -load ~/.Xdefaults.gruvbox.material.dark
 
             #### vim
             [[ -e ~/.vimrc.gruvbox ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox .vimrc

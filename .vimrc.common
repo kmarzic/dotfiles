@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-06-18 12:08:35 (CEST)
+"" Last update: 2021-07-03 13:27:13 (CEST)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -801,6 +801,7 @@ set showcmd
 "" Number of lines to use for the command-line.
 set cmdheight=1
 
+
 "" ------------------------------------------------------------------------
 "" Tabs
 "" ------------------------------------------------------------------------
@@ -941,7 +942,7 @@ else
 endif
 
 "" Last Update
-iab LaUpp Last update: 2021-02-02 12:44:14 (CET)
+iab LaUpp Last update: <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<cr>
 iab LaUp <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<CR>
 iab YDATE <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<CR>
 map ,lu 1G/Last update: \s*/e+1<CR>CYDATE<ESC>

@@ -36,6 +36,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'miyakogi/seiya.vim'
 "
@@ -47,7 +48,8 @@ call plug#end()
 ""
 set background=dark
 syntax on
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme gruvbox-material
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

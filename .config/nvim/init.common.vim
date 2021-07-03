@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-04-06 06:16:21 (CEST)
+"" Last update: 2021-07-03 13:27:13 (CEST)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -121,6 +121,13 @@ nmap ,lt0 :TagbarToggle<CR>
 
 "" vimwiki
 "" https://github.com/vimwiki/vimwiki
+""
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimwiki_html/', 'syntax': 'markdown', 'ext': '.md'}]
+au FileType vimwiki set syntax=markdown.pandoc
+let g:pandoc#filetypes#pandoc_markdown = 0
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+let g:vimwiki_folding='expr'
+let g:vimwiki_global_ext = 0
 
 "" markdown-preview.nvim
 "" https://github.com/iamcco/markdown-preview.nvim
@@ -226,7 +233,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
 let g:completor_complete_options='menuone,noinsert'
 let g:completor_completion_delay=0
 
-"" --------------------------------------------------------------------
+"" ----------------------------------------------------------------------------
 
 "" Bash-support
 "" https://github.com/vim-scripts/bash-support.vim
@@ -239,6 +246,9 @@ let g:completor_completion_delay=0
 ""
 " au BufNewFile,BufRead *.go set filetype=go
 au BufNewFile,BufReadPost *.go set filetype=go
+
+"" perl-support
+"" https://github.com/vim-scripts/perl-support.vim
 
 "" perl-vim
 "" https://github.com/vim-perl/vim-perl
@@ -262,7 +272,7 @@ let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 let hs_allow_hash_operator = 1
 
-"" --------------------------------------------------------------------
+"" ----------------------------------------------------------------------------
 
 "" seiya.vim
 "" https://github.com/miyakogi/seiya.vim
