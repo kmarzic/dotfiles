@@ -323,6 +323,10 @@ function __theme()
             #### neovim
             [[ -e ~/.config/nvim/init.base16-gruvbox-dark-pale.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-gruvbox-dark-pale.vim init.vim && cd -
 
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.gruvbox ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.gruvbox dunstrc
+            pkill dunst
+
             #### redshift.conf
             [[ -e ~/.config/redshift.base16-gruvbox-dark-pale.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-gruvbox-dark-pale.conf redshift.conf && cd -
 
@@ -357,6 +361,10 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.base16-gruvbox-dark-soft.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-gruvbox-dark-soft.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.gruvbox ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.gruvbox dunstrc
+            pkill dunst
 
             #### redshift.conf
             [[ -e ~/.config/redshift.base16-gruvbox-dark-soft.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-gruvbox-dark-soft.conf redshift.conf && cd -
@@ -461,6 +469,10 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.gruvbox.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.gruvbox ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.gruvbox dunstrc
+            pkill dunst
 
             #### redshift.conf
             [[ -e ~/.config/redshift.gruvbox.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -

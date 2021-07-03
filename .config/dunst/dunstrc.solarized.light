@@ -1,5 +1,5 @@
 ## dunstrc.solarized.light
-## Last update: 2021-07-01 09:08:31 (CEST)
+## Last update: 2021-07-03 19:59:40 (CEST)
 
 [global]
     # font = Monospace 8
@@ -187,21 +187,9 @@
     ## Default
     # background = "#222222"
     # foreground = "#888888"
-    ## Ansi
-    # background = "#ffffff"
-    # foreground = "#000000"
-    ## Dracula
-    # background = "#6272a4"
-    # foreground = "#282a36"
-    ## Green
-    # background = "#003300"
-    # foreground = "#888888"
     ## Solarized Light
     background = "#eee8d5" # base2
     foreground = "#657b83" # base00
-    ## Solarized Dark
-    # background = "#073642" # base02
-    # foreground = "#839496" # base0
     #
     timeout = 10
 
@@ -209,21 +197,9 @@
     ## Default
     # background = "#285577"
     # foreground = "#ffffff"
-    ## Ansi
-    # background = "#94DBFF"
-    # foreground = "#000000"
-    ## Dracula
-    # background = "#6272a4"
-    # foreground = "#f8f8f2"
-    ## Green
-    # background = "#003300"
-    # foreground = "#ffffff"
     ## Solarized Light
     background = "#eee8d5" # base2
     foreground = "#073642" # base02
-    ## Solarized Dark
-    # background = "#073642" # base02
-    # foreground = "#eee8d5" # base2
     #
     timeout = 10
 
@@ -231,21 +207,9 @@
     ## Default
     # background = "#900000"
     # foreground = "#ffffff"
-    ## Ansi
-    # background = "#ff9999"
-    # foreground = "#000000"
-    ##  Dracula
-    # background = "#6272a4"
-    # foreground = "#ff5555"
-    ## Green
-    # background = "#003300"
-    # foreground = "#b58900"
     ## Solarized Light
     background = "#eee8d5" # base2
     foreground = "#dc322f" # red
-    ## Solarized Dark
-    # background = "#073642" # base02
-    # foreground = "#dc322f" # red
     #
     timeout = 0
 

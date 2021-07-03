@@ -1,5 +1,5 @@
-## dunstrc.dracula
-## Last update: 2021-07-03 19:59:47 (CEST)
+## dunstrc.gruvbox
+## Last update: 2021-07-03 19:59:45 (CEST)
 
 [global]
     # font = Monospace 8
@@ -157,7 +157,10 @@
 
 [frame]
     width = 3
-    color = "#bd93f9" # dracula
+    # color = "#2f343f" # ansi
+    # color = "#bd93f9" # dracula
+    # color = "#586e75" # base01, solarized
+    color = "#3a3a3a" # base01, gruvbox
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -184,9 +187,9 @@
     ## Default
     # background = "#222222"
     # foreground = "#888888"
-    ## Dracula
-    background = "#6272a4"
-    foreground = "#282a36"
+    ## Gruvbox
+    background = "#32302f"
+    foreground = "#d4be98"
     #
     timeout = 10
 
@@ -194,9 +197,9 @@
     ## Default
     # background = "#285577"
     # foreground = "#ffffff"
-    ## Dracula
-    background = "#6272a4"
-    foreground = "#f8f8f2"
+    ## Gruvbox
+    background = "#32302f"
+    foreground = "#e78a4e"
     #
     timeout = 10
 
@@ -204,9 +207,9 @@
     ## Default
     # background = "#900000"
     # foreground = "#ffffff"
-    ##  Dracula
-    background = "#6272a4"
-    foreground = "#ff5555"
+    ## Gruvbox
+    background = "#32302f"
+    foreground = "#ea6962"
     #
     timeout = 0
 
