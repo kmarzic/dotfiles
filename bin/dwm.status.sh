@@ -1,4 +1,5 @@
 #!/bin/bash
+
 export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 
 DEFAULT_SPACES=7
@@ -59,7 +60,7 @@ STATUSCOLOR=1
 # YELLOW='^c#b27e28^'
 # NORMAL='^c#eee8d5^'
 
-## gruvbox
+#### gruvbox
 CYAN='^c#89b482^'
 GREEN='^c#a9b665^'
 ORANGE='^c#a9b665^'
@@ -236,20 +237,28 @@ function __spaces()
 }
 
 #### MAIN
-while true;
-do
-    #### xsetroot
-    if [[ ${STATUSCOLOR} -eq 0 ]]
-    then
-        # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ]$(__spaces)"
-        # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__time) ]"
-        xsetroot -name "[ $(__load) | $(__memory) | $(__battery) | $(__time) ]"
-    elif [[ ${STATUSCOLOR} -eq 1 ]]
-    then
-        # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ] $(__spaces)"
-        xsetroot -name "${NORMAL}[ $(__load) | $(__memory) | $(__battery) | $(__time) ]${NORMAL}"
-    fi
-    sleep 1
-done
+dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l)
+echo "dwm_status_detect='${dwm_status_detect}'"
+
+if [[ ${dwm_status_detect} -eq 2 ]]
+then
+    while true;
+    do
+        #### xsetroot
+        if [[ ${STATUSCOLOR} -eq 0 ]]
+        then
+            # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ]$(__spaces)"
+            # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__time) ]"
+            xsetroot -name "[ $(__load) | $(__memory) | $(__battery) | $(__time) ]"
+        elif [[ ${STATUSCOLOR} -eq 1 ]]
+        then
+            # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ] $(__spaces)"
+            xsetroot -name "${NORMAL}[ $(__load) | $(__memory) | $(__battery) | $(__time) ]${NORMAL}"
+        fi
+        sleep 1
+    done
+else
+    echo "dwm.status.sh is running"
+fi
 
 #### END

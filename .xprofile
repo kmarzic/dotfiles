@@ -77,51 +77,57 @@ setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)
 ## xautolock
 xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 
-## Conky
-# if [[ -e /usr/bin/conky ]] && /usr/bin/conky -q &
-# if [[ -e /usr/bin/conky ]] && /usr/bin/conky -c ~/.conkyrc.weather -q &
-
-## Dropbox
-# if [[ -e /usr/bin/dropbox ]] && /usr/bin/dropbox start &
-
-## NM applet
-# if [[ -e /usr/bin/nm-applet ]] && /usr/bin/nm-applet &
-
-## NSGClient
-# if [[ -e /usr/local/bin/NSGClient ]] && /usr/local/bin/NSGClient &
-
 ## Urxvt daemon
-[[ -e /usr/bin/urxvtd ]] && /usr/bin/urxvtd -q -f -o
+function __urxvtd()
+{
+    urxvtd_detect=$(ps -ef | grep -v "grep" | grep "urxvtd" | wc -l)
 
-## Wicd GTK
-# [[ -e /usr/bin/wicd-gtk ]] && (sleep 3 && /usr/bin/wicd-gtk -t &)
-# [[ -e /usr/bin/wicd-gtk ]] && /usr/bin/wicd-gtk -t &
-# [[ -e /usr/bin/wicd-gtk ]] && /usr/bin/wicd-client &
+    if [[ ${urxvtd_detect} -eq 0 ]]
+    then
+        echo "# /usr/bin/urxvtd -q -f -o"
+        [[ -e /usr/bin/urxvtd ]] && /usr/bin/urxvtd -q -f -o
+    else
+        echo "urxvtd is running"
+    fi
+}
+__urxvtd
 
 ## redshift
-# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
-# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.blue.conf redshift.conf && cd -
-# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.green.conf redshift.conf && cd -
-# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.dark.conf redshift.conf && cd -
-# [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
-# [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
+function __redshift()
+{
+    redshift_detect=$(ps -ef | grep -v "grep" | grep "redshift" | wc -l)
 
-## xcompmgr - sample X compositing manager
-# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -CcfF -I-20 -O-10 -D1 -t-5 -l-5 -r4.2 -o.82 &
-# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -F -c -C -t-5 -l-5 -r4.2 -o.55 &
-# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -FCc &
-# [[ -e /usr/bin/xcompmgr ]] && /usr/bin/xcompmgr -c -l0 -t0 -r0 -o.00 &
+    if [[ ${redshift_detect} -eq 0 ]]
+    then
+        echo "# /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &"
+        [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
+        # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.dark.conf redshift.conf && cd -
+        # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
+        [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
+    else
+        echo "redshift is running"
+    fi
+}
+# __redshift
 
 ## compton
-[[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null -b
-# [[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --blur-method kernel -b
-# [[ -e /usr/bin/picom ]] && /usr/bin/picom --config ~/.config/compton.conf -b
-# [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
-[[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
-# [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 --backend glx --blur-background --blur-background-fixed --blur-kern 5x5box -b
+function __compton()
+{
+    compton_detect=$(ps -ef | grep -v "grep" | egrep "compton|picom" | wc -l)
 
-## Xeyes
-# [[ -e /usr/bin/xeyes ]] && /usr/bin/xeyes &
+    if [[ ${compton_detect} -eq 0 ]]
+    then
+        [[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null -b
+        # [[ -e /usr/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --blur-method kernel -b
+        # [[ -e /usr/bin/picom ]] && /usr/bin/picom --config ~/.config/compton.conf -b
+        # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
+        [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
+        # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 --backend glx --blur-background --blur-background-fixed --blur-kern 5x5box -b
+    else
+        echo "compton|picom is running"
+    fi
+}
+__compton
 
 ## Clean .xsesssion-errors
 echo "" > ~/.xsession-errors
