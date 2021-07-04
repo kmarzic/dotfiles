@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-05-30 08:56:32
+#       CREATED: 2021-07-04 08:56:32
 #      REVISION: ---
 #===============================================================================
 
@@ -305,6 +305,10 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
             cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
@@ -344,6 +348,10 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
             cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
@@ -452,8 +460,12 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg

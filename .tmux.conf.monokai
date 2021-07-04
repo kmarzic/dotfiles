@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-05-06 07:03:25 (CEST)
+## Last update: 2021-07-04 08:03:26 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -55,8 +55,10 @@ set-option -g renumber-windows on
 set -g default-terminal "tmux-256color"
 
 ## fixes shift-pageup/shift-pagedown
-set -g terminal-overrides 'xterm*:smcup@:rmcup@'
-set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
+set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
+# set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
+# set -as terminal-overrides ',st*:Ss@'
+# set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
 
 ## clock mode
 set-option -g clock-mode-style 24
