@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-03-18 21:35:35 (CET)
+"" Last update: 2021-07-04 14:19:20 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ colorscheme gruvbox
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-        \ 'colorscheme': 'wombat',
+        \ 'colorscheme': 'gruvbox',
         \ }
 
 "" Common

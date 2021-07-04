@@ -81,7 +81,7 @@ colorscheme gruvbox
 "" https://github.com/itchyny/lightline.vim
 
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
+    \ 'colorscheme': 'gruvbox',
     \ }
 
 "" Common
