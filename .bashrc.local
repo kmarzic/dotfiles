@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-07-03 13:18:24 (CEST)
+## Last update: 2021-07-04 09:52:38 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -318,7 +318,7 @@ complete -f -o default -X '!*.pl' python3 python
 ## Exports / Variables
 ## ----------------------------------------------------------------------------
 
-#### Perl old
+#### Perl old 2, http://www.perl.org
 # export PERL5LIB=/opt/perl5
 # export PERL5LIB="/opt/perl5/cpan/lib/perl5:/opt/perl5/cpan/lib/perl5/i386-linux:/opt/perl5/cpan/lib/perl5/x86_64-linux-thread-multi-ld:/home/etkkrma/perl5/lib/perl5"
 # export PERL5OPT="-I/opt/perl5/cpan"
@@ -326,10 +326,17 @@ complete -f -o default -X '!*.pl' python3 python
 # export PERL_MM_OPT='INSTALL_BASE=/opt/perl5/cpan'
 # eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
 
-#### Perl new, http://www.perl.org
+#### Perl old 1, http://www.perl.org
 # eval $(perl -I/opt/perl5/cpan/lib/perl5 -Mlocal::lib=/opt/perl5/cpan)
 #### cperl, http://perl11.org/cperl
 # eval $(perl -I/opt/cperl5/cpan/lib/perl5 -Mlocal::lib=/opt/cperl5/cpan)
+
+#### Perl new, http://www.perl.org
+PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; export PATH;
+export PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 
 #### Python
 # export PYTHONPATH=$PYTHONPATH:/opt/python2.ext/lib/python2.7/site-packages/
@@ -337,7 +344,8 @@ complete -f -o default -X '!*.pl' python3 python
 # export PYTHONPATH=$PYTHONPATH:/opt/python3.ext/lib/python3.5/site-packages/
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.6/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.7/site-packages
-export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.8/site-packages
+# export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.8/site-packages
+export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.9/site-packages
 
 #### Oracle DB
 # export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_10.2
@@ -354,21 +362,20 @@ export GHCROOT=/opt/ghc
 
 #### PATH
 export __PATH_ORIG="$PATH"
-export __PATH_NEW="$HOME/bin:/usr/local/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/perl5/bin:/opt/perl5/cpan/bin"
+export __PATH_NEW="$HOME/bin:$HOME/.local/bin:/usr/local/bin"
+export __PATH_NEW="$__PATH_NEW:/opt/perl5/bin:/opt/perl5/cpan/bin:${HOME}/perl5/bin"
 # export __PATH_NEW="$__PATH_NEW:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
 # export __PATH_NEW="$__PATH_NEW:/opt/rakudo-star-2017.10/bin:/opt/rakudo-star-2017.10/share/perl6/site/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/python3/bin:/opt/python3.ext/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/emacs/bin"
-export __PATH_NEW="$__PATH_NEW:$ORACLE_INSTANT_CLIENT"
-export __PATH_NEW="$__PATH_NEW:$GOROOT/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/lua/bin:/opt/luarocks/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/sbcl/bin"
 export __PATH_NEW="$__PATH_NEW:/opt/rust/bin"
+export __PATH_NEW="$__PATH_NEW:$ORACLE_INSTANT_CLIENT"
+export __PATH_NEW="$__PATH_NEW:$GOROOT/bin"
 export __PATH_NEW="$__PATH_NEW:$GHCROOT/bin"
 # export __PATH_NEW="$__PATH_NEW:$HOME/.cabal/bin"
-export __PATH_NEW="$__PATH_NEW:$HOME/.local/bin"
 export PATH="$__PATH_NEW:$__PATH_ORIG"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
@@ -483,7 +490,7 @@ export WEB="http://www.design.etk.extern.eu.ericsson.se/~etkkrma"
 export EMAIL="kresimir.marzic@ericsson.com"
 export MAILUSER="etkkrma"
 export MAILNAME="Kresimir Marzic"
-export MAILHOST="se-smtp.ericsson.se"
+export MAILHOST="smtp.etk.extern.eu.ericsson.se"
 export ORGANIZATION="Ericsson Nikola Tesla d.d."
 export DEBEMAIL="kresimir.marzic@ericsson.com"
 export DEBFULLNAME="Kresimir Marzic"
@@ -584,7 +591,7 @@ alias tmux="tmux -2"
 # alias perl='cperl5.30.0'
 # alias cpan='cpan5.30.0'
 
-alias proxy_none='export https_proxy=""; export http_proxy=""; export ftp_proxy="";'
+# alias proxy_none='export https_proxy=""; export http_proxy=""; export ftp_proxy="";'
 # alias proxy_etk1='export https_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy01.etk.extern.eu.ericsson.se:8080"'
 # alias proxy_etk2='export https_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export http_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"; export ftp_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"'
 # alias proxy_etk3='export https_proxy=http://s-proxy.ericsson.se:8080; export http_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/; export ftp_proxy=http://cpbc0.etk.extern.eu.ericsson.se:8080/'
@@ -592,7 +599,7 @@ alias proxy_none='export https_proxy=""; export http_proxy=""; export ftp_proxy=
 # alias proxy_ericsson2='export https_proxy=http://www-proxy.ericsson.se:8080; export http_proxy=http://www-proxy.ericsson.se:80/; export ftp_proxy=http://www-proxy.ericsson.se:80/'
 # alias proxy_ericsson3='export https_proxy=http://www-proxy.lmera.ericsson.se:8080; export http_proxy=http://www-proxy.lmera.ericsson.se:8080; export ftp_proxy=http://www-proxy.lmera.ericsson.se:8080'
 
-alias dropbox_proxy_none="dropbox proxy none"
+# alias dropbox_proxy_none="dropbox proxy none"
 # alias dropbox_proxy_etk1="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
 # alias dropbox_proxy_etk2="dropbox proxy manual http hrzg-proxy01.etk.extern.eu.ericsson.se 8080"
 
