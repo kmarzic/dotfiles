@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-07-04 09:04:32
+#       CREATED: 2021-07-04 14:14:32
 #      REVISION: ---
 #===============================================================================
 
@@ -305,10 +305,11 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
@@ -349,10 +350,11 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
@@ -462,10 +464,11 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
@@ -475,8 +478,11 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
-            [[ -e ~/.Xdefaults.gruvbox.material.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.material.dark .Xdefaults
-            [[ -e ~/.Xdefaults.gruvbox.material.dark ]] && xrdb -load ~/.Xdefaults.gruvbox.material.dark
+            # [[ -e ~/.Xdefaults.gruvbox.material.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.material.dark .Xdefaults
+            # [[ -e ~/.Xdefaults.gruvbox.material.dark ]] && xrdb -load ~/.Xdefaults.gruvbox.material.dark
+            ####
+            [[ -e ~/.Xdefaults.gruvbox.original.dark.soft ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.original.dark.soft .Xdefaults
+            [[ -e ~/.Xdefaults.gruvbox.original.dark.soft ]] && xrdb -load ~/.Xdefaults.gruvbox.original.dark.soft
 
             #### vim
             [[ -e ~/.vimrc.gruvbox ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox .vimrc
