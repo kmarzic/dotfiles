@@ -108,7 +108,7 @@ function __redshift()
         echo "redshift is running"
     fi
 }
-# __redshift
+__redshift
 
 ## compton
 function __compton()
