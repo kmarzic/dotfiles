@@ -1,7 +1,7 @@
 " ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-07-03 13:24:32 (CEST)
+"" Last update: 2021-07-10 18:39:28 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -66,12 +66,14 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'sainnhe/everforest'
 Plug 'miyakogi/seiya.vim'
 "
 call plug#end()
 
 "" Dracula
 "" https://draculatheme.com/vim
+"
 let g:dracula_colorterm = 0
 let g:dracula_italic = 0
 
@@ -89,7 +91,7 @@ augroup END
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
-
+""
 let g:lightline = {
     \ 'colorscheme': 'dracula',
     \ }

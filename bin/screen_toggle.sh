@@ -112,6 +112,7 @@ __help()
     __printf "   ${0} -s base16-gruvbox-dark-pale"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
     __printf "   ${0} -s dracula"
+    __printf "   ${0} -s everforest"
     __printf "   ${0} -s gruvbox"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
@@ -455,6 +456,23 @@ function __theme()
                 ## xmonad installed from stack
                 cd ~/.xmonad && ./recompile.sh
             fi
+            ;;
+        "everforest")
+            __printf "everforest"
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.everforest ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.everforest .Xdefaults
+            [[ -e ~/.Xdefaults.everforest ]] && xrdb -load ~/.Xdefaults.everforest
+
+            #### vim
+            [[ -e ~/.vimrc.everforest ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.everforest .vimrc
+            [[ -e ~/.gvimrc.everforest ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.everforest .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.everforest.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.everforest.vim init.vim && cd -
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.everforest ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.everforest .tmux.conf
             ;;
         "gruvbox")
             __printf "gruvbox"

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-07-10 18:49:48 (CEST)
+"" Last update: 2021-07-10 18:49:33 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -44,27 +44,24 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" Custom
+"" vim-monokai
+"" https://github.com/crusoexia/vim-monokai
 ""
-set t_Co=16
-" set t_Co=256
+let g:everforest_background = 'soft'
+let g:everforest_enable_italic = 0
+let g:everforest_disable_italic_comment = 1
+let g:everforest_show_eob = 0
+let g:everforest_transparent_background = 0
 set background=dark
 syntax on
-" highlight CursorLine term=reverse cterm=reverse gui=reverse
-" highlight CursorLine NONE
-" highlight CursorLine ctermfg=black ctermbg=Cyan gui=reverse
-hi CursorLine   term=bold cterm=bold guibg=white
-hi TabLine      ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineFill  ctermfg=Black  ctermbg=Gray      cterm=NONE
-hi TabLineSel   ctermfg=Black  ctermbg=Cyan      cterm=NONE
-hi Visual       ctermfg=Black  ctermbg=Gray      cterm=NONE
+colorscheme everforest
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'wombat',
-    \ }
+        \ 'colorscheme': 'everforest',
+        \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim

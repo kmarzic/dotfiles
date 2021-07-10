@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-07-03 13:22:27 (CEST)
+"" Last update: 2021-07-10 18:49:21 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -38,6 +38,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
+Plug 'sainnhe/everforest'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
@@ -61,7 +62,7 @@ colorscheme solarized8_high
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
-
+""
 let g:lightline = {
         \ 'colorscheme': 'solarized',
         \ }

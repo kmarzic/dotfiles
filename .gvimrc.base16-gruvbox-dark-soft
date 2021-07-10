@@ -144,6 +144,7 @@ colorscheme base16-atelier-lakeside-light
 " colorscheme dracula
 " colorscheme gruvbox
 " colorscheme PaperColor
+" colorscheme everforest
 
 " highlight LineNr NONE
 
