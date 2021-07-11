@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-05-17 20:39:55 (CEST)
+!! Last update: 2021-07-11 14:58:46 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -18,135 +18,136 @@
 !! Base16 Solarized Dark Theme
 !! https://github.com/chriskempson/base16-xresources
 !! ---------------------------------------------------------------------
-!!
-!! #define base00 #002b36
-!! #define base01 #073642
-!! #define base02 #586e75
-!! #define base03 #657b83
-!! #define base04 #839496
-!! #define base05 #93a1a1
-!! #define base06 #eee8d5
-!! #define base07 #fdf6e3
-!! #define base08 #dc322f
-!! #define base09 #cb4b16
-!! #define base0A #b58900
-!! #define base0B #859900
-!! #define base0C #2aa198
-!! #define base0D #268bd2
-!! #define base0E #6c71c4
-!! #define base0F #d33682
-!! 
-!! *foreground:   base05
-!! #ifdef background_opacity
-!! *background:   [background_opacity]base00
-!! #else
-!! *background:   base00
-!! #endif
-!! *cursorColor:  base05
-!! *fadeColor:    base07
-!! 
-!! urxvt*foreground: base05
-!! urxvt*background: base00
-!! st.foreground: base05
-!! st.background: base00
-!! spterm.foreground: base05
-!! spterm.background: base00
-!! Exit*foreground: base05
-!! Exit*background: base00
-!! 
-!! !! Base16 Solarized Dark Theme
-!! *color0:       base00
-!! *color1:       base08
-!! *color2:       base0B
-!! *color3:       base0A
-!! *color4:       base0D
-!! *color5:       base0E
-!! *color6:       base0C
-!! *color7:       base05
-!! *color8:       base03
-!! *color9:       base09
-!! *color10:      base01
-!! *color11:      base02
-!! *color12:      base04
-!! *color13:      base06
-!! *color14:      base0F
-!! *color15:      base07
-!! 
-!! st.color0:     base00
-!! st.color1:     base08
-!! st.color2:     base0B
-!! st.color3:     base0A
-!! st.color4:     base0D
-!! st.color5:     base0E
-!! st.color6:     base0C
-!! st.color7:     base05
-!! st.color8:     base03
-!! st.color9:     base08
-!! st.color10:    base0B
-!! st.color11:    base0A
-!! st.color12:    base0D
-!! st.color13:    base0E
-!! st.color14:    base0C
-!! st.color15:    base07
-!! 
-!! scratchpad.color0:     base00
-!! scratchpad.color1:     base08
-!! scratchpad.color2:     base0B
-!! scratchpad.color3:     base0A
-!! scratchpad.color4:     base0D
-!! scratchpad.color5:     base0E
-!! scratchpad.color6:     base0C
-!! scratchpad.color7:     base05
-!! scratchpad.color8:     base03
-!! scratchpad.color9:     base08
-!! scratchpad.color10:    base0B
-!! scratchpad.color11:    base0A
-!! scratchpad.color12:    base0D
-!! scratchpad.color13:    base0E
-!! scratchpad.color14:    base0C
-!! scratchpad.color15:    base07
-!! 
-!! spterm.color0:     base00
-!! spterm.color1:     base08
-!! spterm.color2:     base0B
-!! spterm.color3:     base0A
-!! spterm.color4:     base0D
-!! spterm.color5:     base0E
-!! spterm.color6:     base0C
-!! spterm.color7:     base05
-!! spterm.color8:     base03
-!! spterm.color9:     base08
-!! spterm.color10:    base0B
-!! spterm.color11:    base0A
-!! spterm.color12:    base0D
-!! spterm.color13:    base0E
-!! spterm.color14:    base0C
-!! spterm.color15:    base07
+
+#define base00 #002b36
+#define base01 #073642
+#define base02 #586e75
+#define base03 #657b83
+#define base04 #839496
+#define base05 #93a1a1
+#define base06 #eee8d5
+#define base07 #fdf6e3
+#define base08 #dc322f
+#define base09 #cb4b16
+#define base0A #b58900
+#define base0B #859900
+#define base0C #2aa198
+#define base0D #268bd2
+#define base0E #6c71c4
+#define base0F #d33682
+
+*foreground:   base05
+#ifdef background_opacity
+*background:   [background_opacity]base00
+#else
+*background:   base00
+#endif
+*cursorColor:  base05
+*fadeColor:    base07
+
+urxvt*foreground: base05
+urxvt*background: base00
+st.foreground: base05
+st.background: base00
+spterm.foreground: base05
+spterm.background: base00
+Exit*foreground: base05
+Exit*background: base00
+
+!! Base16 Solarized Dark Theme
+*color0:       base00
+*color1:       base08
+*color2:       base0B
+*color3:       base0A
+*color4:       base0D
+*color5:       base0E
+*color6:       base0C
+*color7:       base05
+*color8:       base03
+*color9:       base09
+*color10:      base01
+*color11:      base02
+*color12:      base04
+*color13:      base06
+*color14:      base0F
+*color15:      base07
+
+st.color0:     base00
+st.color1:     base08
+st.color2:     base0B
+st.color3:     base0A
+st.color4:     base0D
+st.color5:     base0E
+st.color6:     base0C
+st.color7:     base05
+st.color8:     base03
+st.color9:     base08
+st.color10:    base0B
+st.color11:    base0A
+st.color12:    base0D
+st.color13:    base0E
+st.color14:    base0C
+st.color15:    base07
+
+scratchpad.color0:     base00
+scratchpad.color1:     base08
+scratchpad.color2:     base0B
+scratchpad.color3:     base0A
+scratchpad.color4:     base0D
+scratchpad.color5:     base0E
+scratchpad.color6:     base0C
+scratchpad.color7:     base05
+scratchpad.color8:     base03
+scratchpad.color9:     base08
+scratchpad.color10:    base0B
+scratchpad.color11:    base0A
+scratchpad.color12:    base0D
+scratchpad.color13:    base0E
+scratchpad.color14:    base0C
+scratchpad.color15:    base07
+
+spterm.color0:     base00
+spterm.color1:     base08
+spterm.color2:     base0B
+spterm.color3:     base0A
+spterm.color4:     base0D
+spterm.color5:     base0E
+spterm.color6:     base0C
+spterm.color7:     base05
+spterm.color8:     base03
+spterm.color9:     base08
+spterm.color10:    base0B
+spterm.color11:    base0A
+spterm.color12:    base0D
+spterm.color13:    base0E
+spterm.color14:    base0C
+spterm.color15:    base07
+
 
 !! ---------------------------------------------------------------------
 !! Solarized Dark Higher Contrast
 !! ---------------------------------------------------------------------
 
-*color0:  #002831
-*color1:  #d11c24
-*color2:  #6cbe6c
-*color3:  #a57706
-*color4:  #2176c7
-*color5:  #c61c6f
-*color6:  #259286
-*color7:  #eae3cb
-*color8:  #006488
-*color9:  #f5163b
-*color10: #51ef84
-*color11: #b27e28
-*color12: #178ec8
-*color13: #e24d8e
-*color14: #00b39e
-*color15: #fcf4dc
-
-*background: #001e27
-*foreground: #9cc2c3
-*cursorColor: #9cc2c3
+! *color0:  #002831
+! *color1:  #d11c24
+! *color2:  #6cbe6c
+! *color3:  #a57706
+! *color4:  #2176c7
+! *color5:  #c61c6f
+! *color6:  #259286
+! *color7:  #eae3cb
+! *color8:  #006488
+! *color9:  #f5163b
+! *color10: #51ef84
+! *color11: #b27e28
+! *color12: #178ec8
+! *color13: #e24d8e
+! *color14: #00b39e
+! *color15: #fcf4dc
+! 
+! *background: #001e27
+! *foreground: #9cc2c3
+! *cursorColor: #9cc2c3
 
 !! ---------------------------------------------------------------------
 !! EOF

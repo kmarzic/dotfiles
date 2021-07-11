@@ -305,14 +305,19 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/fzhbA9C.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
             cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/jtLyKzv.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
@@ -342,6 +347,9 @@ function __theme()
 
             #### tmux.conf
             [[ -e ~/.tmux.conf.base16-gruvbox-dark-pale ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-gruvbox-dark-pale .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
             ;;
         "base16-gruvbox-dark-soft")
             __printf "base16-gruvbox-dark-soft"
@@ -350,14 +358,19 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/fzhbA9C.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
             cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/jtLyKzv.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
@@ -387,6 +400,9 @@ function __theme()
 
             #### tmux.conf
             [[ -e ~/.tmux.conf.base16-gruvbox-dark-soft ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-gruvbox-dark-soft .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
             ;;
         "dracula")
             __printf "dracula"
@@ -481,14 +497,19 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/fzhbA9C.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
             cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/jtLyKzv.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpeg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpeg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
@@ -521,6 +542,9 @@ function __theme()
 
             #### tmux.conf
             [[ -e ~/.tmux.conf.gruvbox ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
             ;;
         "monokai")
             __printf "monokai"

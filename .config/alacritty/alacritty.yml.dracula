@@ -75,7 +75,7 @@ draw_bold_text_with_bright_colors: false
 
 schemes:
   ## Dracula
-  solarized_light: &dracula
+  dracula: &dracula
     primary:
       background: '0x282a36'
       foreground: '0xf8f8f2'
@@ -151,7 +151,6 @@ schemes:
     #
     indexed_colors: []
 
-
 colors: *dracula
 
 bell:
@@ -185,11 +184,6 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
   hide_when_typing: false
-  url:
-    # launcher:
-    #   program: xdg-open
-    #   args: []
-    modifiers: None
 
 mouse_bindings:
   - { mouse: Middle, action: PasteSelection }
@@ -265,5 +259,12 @@ key_bindings:
   - { key: Minus,    mods: Control,                 action: DecreaseFontSize }
   # (Windows only)
   - { key: Return,   mods: Control|Shift,           action: ToggleFullscreen }
+
+hints:
+  url:
+    # launcher:
+    #   program: xdg-open
+    #   args: []
+    modifiers: None
 
 #### end

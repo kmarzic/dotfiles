@@ -1,4 +1,4 @@
-#### alacritty.yml.alacritty.yml.base16-atelier-lakeside-light
+#### alacritty.yml.dracula
 
 env:
   TERM: rxvt-256color
@@ -74,41 +74,33 @@ font:
 draw_bold_text_with_bright_colors: false
 
 schemes:
-  ## base16-atelier-lakeside-light
-  base16-atelier-lakeside-light: &base16-atelier-lakeside-light
-  # Default colors
+  ## Gruvbox Material Dark Medium
+  gruvbox: &gruvbox
     primary:
-      background: '0xebf8ff'
-      foreground: '0x516d7b'
+      background: '0x282828'
+      foreground: '0xdfbf8e'
 
-    # Colors the cursor will use if `custom_cursor_colors` is true
-    cursor:
-      text: '0xebf8ff'
-      cursor: '0x516d7b'
-
-    # Normal colors
     normal:
-      black:   '0xebf8ff'
-      red:     '0xd22d72'
-      green:   '0x568c3b'
-      yellow:  '0x8a8a0f'
-      blue:    '0x257fad'
-      magenta: '0x6b6bb8'
-      cyan:    '0x2d8f6f'
-      white:   '0x516d7b'
+      black:   '0x665c54'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xe78a4e'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xdfbf8e'
 
-    # Bright colors
     bright:
-      black:   '0x7195a8'
-      red:     '0xd22d72'
-      green:   '0x568c3b'
-      yellow:  '0x8a8a0f'
-      blue:    '0x257fad'
-      magenta: '0x6b6bb8'
-      cyan:    '0x2d8f6f'
-      white:   '0x161b1d'
+      black:   '0x928374'
+      red:     '0xea6962'
+      green:   '0xa9b665'
+      yellow:  '0xe3a84e'
+      blue:    '0x7daea3'
+      magenta: '0xd3869b'
+      cyan:    '0x89b482'
+      white:   '0xdfbf8e'
 
-colors: *base16-atelier-lakeside-light
+colors: *gruvbox
 
 bell:
   animation: EaseOutExpo
@@ -116,7 +108,7 @@ bell:
   color: '#ffffff'
   # command: None
 
-# background_opacity: 0.70
+# background_opacity: 1.00
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
