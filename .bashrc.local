@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-07-04 09:59:06 (CEST)
+## Last update: 2021-07-22 21:39:38 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -153,7 +153,7 @@ export HISTSIZE=1000000
 export HISTCONTROL=erasespace:erasedups:ignoredups
 
 ## history ignore
-export HISTIGNORE="export*:set*:ulimit*:umask*:shopt*:complete*:alias*:stty*:eval*:#*:_*"
+export HISTIGNORE="export*:set*:ulimit*:umask*:shopt*:complete*:alias*:stty*:eval*:#*:_*:clear:ls:[bf]g:exit"
 
 ## history time format
 export HISTTIMEFORMAT='%F %T '
@@ -162,7 +162,7 @@ export HISTTIMEFORMAT='%F %T '
 export DIRSTACKSIZE=10
 
 ## mail spool file
-MAIL=/var/mail/$USERNAME
+MAIL=/var/mail/${USERNAME}
 
 ## check for mail every 30 seconds
 MAILCHECK=30
@@ -205,7 +205,6 @@ set -H
 ## shopt command
 ## shopt -p
 shopt -s autocd
-shopt -s nocaseglob
 shopt -s cdable_vars
 shopt -s cdspell
 shopt -s checkhash
@@ -219,6 +218,7 @@ shopt -s extglob # Necessary for programmable completion
 shopt -s histappend histreedit histverify
 shopt -s mailwarn
 # shopt -s nullglob
+shopt -s nocaseglob
 shopt -s progcomp
 shopt -s sourcepath
 
@@ -236,82 +236,83 @@ umask 022
 ## Completition
 ## ----------------------------------------------------------------------------
 
-## Bash Completition
-# if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-#     . /etc/bash_completion
-# fi
-
-# Make directory commands see only directories
-complete -d pushd
-
-# user commands see only users
-complete -u write chfn groups slay w sux runuser
-
-# bg completes with stopped jobs
-complete -A stopped -P '"%' -S '"' bg
-
-# other job commands
-complete -j -P '"%' -S '"' fg jobs disown
-
-# readonly and unset complete with shell variables
-complete -v readonly unset
-
-# set completes with set options
-complete -A setopt set
-
-# shopt completes with shopt options
-complete -A shopt shopt
-
-# helptopics
-complete -A helptopic help
-
-# unalias completes with aliases
-complete -a unalias
-
-# bind completes with readline bindings (make this more intelligent)
-complete -A binding bind
-
-# type and which complete on commands
-complete -c command type which
-
-# builtin completes on builtins
-complete -b builtin
-
-complete -A hostname   rsh rcp telnet rlogin r ftp ping disk
-complete -A export     printenv
-complete -A variable   export local readonly unset
-complete -A alias      alias unalias
-complete -A function   function
-complete -A user       su mail finger
-complete -A directory  mkdir rmdir
-complete -A directory  -o default cd
-
-complete -c man which
-# complete -cf sudo
-
-complete -f -o default -X '*.+(zip|ZIP)'  zip
-complete -f -o default -X '!*.+(zip|ZIP)' unzip
-complete -f -o default -X '*.+(z|Z)'      compress
-complete -f -o default -X '!*.+(z|Z)'     uncompress
-complete -f -o default -X '*.+(gz|GZ)'    gzip
-complete -f -o default -X '!*.+(gz|GZ)'   gunzip
-complete -f -o default -X '*.+(bz2|BZ2)'  bzip2
-complete -f -o default -X '!*.+(bz2|BZ2)' bunzip2
-
-complete -f -o default -X '!*.+(ps|PS)'  gs ghostview ps2pdf ps2ascii
-complete -f -o default -X '!*.+(dvi|DVI)' dvips dvipdf xdvi dviselect dvitype
-complete -f -o default -X '!*.+(pdf|PDF)' acroread pdf2ps
-complete -f -o default -X '!*.@(@(?(e)ps|?(E)PS|pdf|PDF)? (.gz|.GZ|.bz2|.BZ2|.Z))' gv ggv
-complete -f -o default -X '!*.texi*' makeinfo texi2dvi texi2html texi2pdf
-complete -f -o default -X '!*.tex' tex latex slitex
-complete -f -o default -X '!*.lyx' lyx
-complete -f -o default -X '!*.+(htm*|HTM*)' lynx html2ps
-complete -f -o default -X '!*.+(doc|DOC|xls|XLS|ppt|PPT|sx?|SX?|csv|CSV|od?|OD?|ott|OTT)' soffice
-complete -f -o default -X '!*.+(jp*g|gif|xpm|png|bmp)' xv gimp
-complete -f -o default -X '!*.+(mp3|MP3)' mpg123 mpg321
-complete -f -o default -X '!*.+(ogg|OGG)' ogg123
-complete -f -o default -X '!*.pl' perl perl5
-complete -f -o default -X '!*.pl' python3 python
+# ## Bash Completition
+# # if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+# #     . /etc/bash_completion
+# # fi
+# 
+# # Make directory commands see only directories
+# complete -d pushd
+# 
+# # user commands see only users
+# complete -u write chfn groups slay w sux runuser
+# 
+# # bg completes with stopped jobs
+# complete -A stopped -P '"%' -S '"' bg
+# 
+# # other job commands
+# complete -j -P '"%' -S '"' fg jobs disown
+# 
+# # readonly and unset complete with shell variables
+# complete -v readonly unset
+# 
+# # set completes with set options
+# complete -A setopt set
+# 
+# # shopt completes with shopt options
+# complete -A shopt shopt
+# 
+# # helptopics
+# complete -A helptopic help
+# 
+# # unalias completes with aliases
+# complete -a unalias
+# 
+# # bind completes with readline bindings (make this more intelligent)
+# complete -A binding bind
+# 
+# # type and which complete on commands
+# complete -c command type which
+# 
+# # builtin completes on builtins
+# complete -b builtin
+# 
+# complete -A hostname   rsh rcp telnet rlogin r ftp ping disk
+# complete -A export     printenv
+# complete -A variable   export local readonly unset
+# complete -A alias      alias unalias
+# complete -A function   function
+# complete -A user       su mail finger
+# complete -A directory  mkdir rmdir
+# complete -A directory  -o default cd
+# 
+# complete -c man which
+# # complete -cf sudo
+# 
+# complete -f -o default -X '*.+(zip|ZIP)' zip
+# complete -f -o default -X '!*.+(zip|ZIP)' unzip
+# complete -f -o default -X '*.+(z|Z)' compress
+# complete -f -o default -X '!*.+(z|Z)' uncompress
+# complete -f -o default -X '*.+(gz|GZ)' gzip
+# complete -f -o default -X '!*.+(gz|GZ)' gunzip
+# complete -f -o default -X '*.+(bz2|BZ2)' bzip2
+# complete -f -o default -X '!*.+(bz2|BZ2)' bunzip2
+# complete -f -o default -X '!*.+(tar*|TAR*|tgz|TGZ|tbz2|TBZ2)' tar
+# 
+# complete -f -o default -X '!*.+(ps|PS)' gs ghostview ps2pdf ps2ascii
+# complete -f -o default -X '!*.+(dvi|DVI)' dvips dvipdf xdvi dviselect dvitype
+# complete -f -o default -X '!*.+(pdf|PDF)' acroread pdf2ps
+# complete -f -o default -X '!*.@(@(?(e)ps|?(E)PS|pdf|PDF)? (.gz|.GZ|.bz2|.BZ2|.Z))' gv ggv
+# complete -f -o default -X '!*.texi*' makeinfo texi2dvi texi2html texi2pdf
+# complete -f -o default -X '!*.tex' tex latex slitex
+# complete -f -o default -X '!*.lyx' lyx
+# complete -f -o default -X '!*.+(htm*|HTM*)' lynx html2ps
+# complete -f -o default -X '!*.+(doc|DOC|xls|XLS|ppt|PPT|sx?|SX?|csv|CSV|od?|OD?|ott|OTT)' soffice
+# complete -f -o default -X '!*.+(jp*g|gif|xpm|png|bmp)' xv gimp display
+# complete -f -o default -X '!*.+(mp3|MP3)' mpg123 mpg321
+# complete -f -o default -X '!*.+(ogg|OGG)' ogg123
+# complete -f -o default -X '!*.pl' perl perl5
+# complete -f -o default -X '!*.py' python3 python
 
 
 ## ----------------------------------------------------------------------------
@@ -332,16 +333,16 @@ complete -f -o default -X '!*.pl' python3 python
 # eval $(perl -I/opt/cperl5/cpan/lib/perl5 -Mlocal::lib=/opt/cperl5/cpan)
 
 #### Perl new, http://www.perl.org
-PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"; export PATH;
+export PATH="${HOME}/perl5/bin${PATH:+:${PATH}}"
 export PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 
 #### Python
-# export PYTHONPATH=$PYTHONPATH:/opt/python2.ext/lib/python2.7/site-packages/
-# export PYTHONPATH=$PYTHONPATH:/opt/python3.ext/lib/python3.4/site-packages/
-# export PYTHONPATH=$PYTHONPATH:/opt/python3.ext/lib/python3.5/site-packages/
+# export PYTHONPATH=${PYTHONPATH}:/opt/python2.ext/lib/python2.7/site-packages/
+# export PYTHONPATH=${PYTHONPATH}:/opt/python3.ext/lib/python3.4/site-packages/
+# export PYTHONPATH=${PYTHONPATH}:/opt/python3.ext/lib/python3.5/site-packages/
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.6/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.7/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.8/site-packages
@@ -360,39 +361,41 @@ export GOPATH=/opt/go.ext
 #### Haskell
 export GHCROOT=/opt/ghc
 
-#### PATH
-export __PATH_ORIG="$PATH"
-export __PATH_NEW="$HOME/bin:$HOME/.local/bin:/usr/local/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/perl5/bin:/opt/perl5/cpan/bin:${HOME}/perl5/bin"
-# export __PATH_NEW="$__PATH_NEW:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
-# export __PATH_NEW="$__PATH_NEW:/opt/rakudo-star-2017.10/bin:/opt/rakudo-star-2017.10/share/perl6/site/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/python3/bin:/opt/python3.ext/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/emacs/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/lua/bin:/opt/luarocks/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/tmux/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/sbcl/bin"
-export __PATH_NEW="$__PATH_NEW:/opt/rust/bin"
-export __PATH_NEW="$__PATH_NEW:$ORACLE_INSTANT_CLIENT"
-export __PATH_NEW="$__PATH_NEW:$GOROOT/bin"
-export __PATH_NEW="$__PATH_NEW:$GHCROOT/bin"
-# export __PATH_NEW="$__PATH_NEW:$HOME/.cabal/bin"
-export PATH="$__PATH_NEW:$__PATH_ORIG"
-# PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
-
 #### Lua
 export LUA_DIR=/opt/lua
-export LUA_INCLUDE_DIR=$LUA_DIR/include
+export LUA_INCLUDE_DIR=${LUA_DIR}/include
 # eval $(luarocks path)
+
+#### PATH
+export __PATH_ORIG="${PATH}"
+#
+export __PATH_NEW="${HOME}/bin:${HOME}/.local/bin:/usr/local/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/perl5/bin:/opt/perl5/cpan/bin:${HOME}/perl5/bin"
+# export __PATH_NEW="${__PATH_NEW}:/opt/cperl5/bin:/opt/cperl5/cpan/bin"
+# export __PATH_NEW="${__PATH_NEW}:/opt/rakudo-star-2017.10/bin:/opt/rakudo-star-2017.10/share/perl6/site/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/python3/bin:/opt/python3.ext/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/emacs/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/lua/bin:/opt/luarocks/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/tmux/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/sbcl/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/rust/bin"
+export __PATH_NEW="${__PATH_NEW}:${ORACLE_INSTANT_CLIENT}"
+export __PATH_NEW="${__PATH_NEW}:${GOROOT}/bin"
+export __PATH_NEW="${__PATH_NEW}:${GHCROOT}/bin"
+# export __PATH_NEW="${__PATH_NEW}:${HOME}/.cabal/bin"
+#
+export PATH="${__PATH_NEW}:${__PATH_ORIG}"
+# PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 #### LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/lib:/usr/lib:/usr/X11R6/lib
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/libc5-compat:/lib/libc5-compat:/lib/libc5-compat
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/samba
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/share/qt/lib:/usr/share/qt3/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib/libc5-compat:/lib/libc5-compat:/lib/libc5-compat
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib/samba
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/share/qt/lib:/usr/share/qt3/lib
 #
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_INSTANT_CLIENT
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/perl5/lib/5.30.0/x86_64-linux-thread-multi-ld/CORE
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/python3/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${ORACLE_INSTANT_CLIENT}
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/perl5/lib/5.34.0/x86_64-linux-thread-multi-ld/CORE
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/opt/python3/lib
 
 export EDITOR="vim"
 export VISUAL="vim"
