@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-07-04 14:14:32
+#       CREATED: 2021-07-22 14:14:32
 #      REVISION: ---
 #===============================================================================
 
@@ -522,6 +522,9 @@ function __theme()
             ####
             [[ -e ~/.Xdefaults.gruvbox.original.dark.soft ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.original.dark.soft .Xdefaults
             [[ -e ~/.Xdefaults.gruvbox.original.dark.soft ]] && xrdb -load ~/.Xdefaults.gruvbox.original.dark.soft
+            ####
+            # [[ -e ~/.Xdefaults.gruvbox.original.dark.medium ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.original.dark.medium .Xdefaults
+            # [[ -e ~/.Xdefaults.gruvbox.original.dark.medium ]] && xrdb -load ~/.Xdefaults.gruvbox.original.dark.medium
 
             #### vim
             [[ -e ~/.vimrc.gruvbox ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox .vimrc
