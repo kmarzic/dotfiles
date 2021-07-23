@@ -22,6 +22,7 @@ function __lock()
     # i3lock -c 005088
 
     ## bluring
+    rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
     scrot /var/tmp/screen_locked.png
     convert /var/tmp/screen_locked.png -scale 10% -scale 1000% /var/tmp/screen_locked2.png
     i3lock -i /var/tmp/screen_locked2.png
