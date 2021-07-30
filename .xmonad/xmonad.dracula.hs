@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-01-22 18:46:11 (CET)
+-- Last update: 2021-07-30 21:43:05 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -75,8 +75,7 @@ help = unlines
     "mod-Enter            Launch xterminal",
     "mod-s                Launch scratchpad",
     "mod-p                Launch dmenu",
-    "mod-d                Launch rofi",
-    "mod-Menu             Launch dmenu",
+    "mod-Menu             Launch rofi",
     "mod-Shift-c          Close/kill the focused window",
     "mod-F4               Close/kill the focused window",
     "PrintScreen          Root screenshot",
@@ -104,6 +103,8 @@ help = unlines
     "mod-f                Toggle full screen",
     "mod-a                Shrink resizable area",
     "mod-z                Expand resizable area",
+    "mod-i                Increment the number of windows in the master area",
+    "mod-d                Deincrement the number of windows in the master area",
     "",
     "-- Workspaces & screens",
     "mod-Shift-[0/~,1..9] Move client to Workspace N",
@@ -166,7 +167,8 @@ fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ C
 -- fontTerminalScratchpad = "xft:DejaVu Sans Mono:size=12:antialias=true:autohint=true:style=regular"
 
 dmenuCommandDracula :: String -- theme: dracula
-dmenuCommandDracula = "/usr/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+-- dmenuCommandDracula = "/usr/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandDracula = "$HOME/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 rofiCommand :: String
 rofiCommand = "rofi -show run"
@@ -534,9 +536,8 @@ myDzen2LogHookDracula2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookDr
 
 myKeysDmenuCommandDracula =
   [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: dracula
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandDracula), -- theme: dracula
-    ((0,                         xK_Menu   ), spawn dmenuCommandDracula)  -- theme: dracula
+    ((0,                         xK_Menu   ), spawn rofiCommand)  -- theme: dracula
   ]
 
 myKeys =
@@ -552,8 +553,10 @@ myKeys =
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
     ((mod1Mask,                  xK_f      ), sendMessage (Toggle "Full")),
-    ((mod1Mask,                  xK_a      ), sendMessage MirrorShrink), -- shrink resizable area
-    ((mod1Mask,                  xK_z      ), sendMessage MirrorExpand), -- expand resizable area
+    ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
+    ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
+    ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
+    ((mod1Mask,                  xK_d      ), sendMessage (IncMasterN (-1))), -- Deincrement the number of windows in the master area
     --
     -- ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
     -- ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace

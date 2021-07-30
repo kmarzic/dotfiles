@@ -11,7 +11,7 @@ Config {
    -- font = "xft:monospace:size=11:antialias=true:style=regular",
    -- font = "xft:Liberation Mono:size=11:antialias=true:autohint=true:style=bold",
    -- font = "xft:Bitstream Vera Sans Mono:size=11:antialias=true:autohint=true:style=regular",
-   font = "xft:DejaVu Sans Mono:size=11:antialias=true:autohint=true:style=bold",
+   font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
    --
    -- additionalFonts = [ "xft:FontAwesome:size=10:style=bold" ],
    -- additionalFonts = [ "xft:Droid Sans Mono:size=10:antialias=true:style=bold" ],
@@ -21,7 +21,7 @@ Config {
    borderColor = "black",
    border = TopB,
    -- alpha = 255,
-   alpha = 136,
+   alpha = 180,
    -- alpha = 0,
    position = Bottom,
    textOffset = -1,
@@ -38,7 +38,8 @@ Config {
 
    -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%",
    -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%",
-   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
+   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
+   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% ] %spaces1%",
    -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%",
    -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
 

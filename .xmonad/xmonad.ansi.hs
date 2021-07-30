@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-01-22 18:46:11 (CET)
+-- Last update: 2021-07-30 21:43:10 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -62,73 +62,6 @@ ansi = M.fromList
     ("yellow",           "#ffff00")
   ]
 
-dracula :: M.Map String String
-dracula = M.fromList
-  [
-    ("background",       "#282a36"),
-    ("line",             "#44475a"),
-    ("selection",        "#44475a"),
-    ("foreground",       "#f8f8f2"),
-    ("comment",          "#6272a4"),
-    ("cyan",             "#8be9fd"),
-    ("green",            "#50fa7b"),
-    ("orange",           "#ffb86c"),
-    ("pink",             "#ff79c6"),
-    ("purple",           "#bd93f9"),
-    ("red",              "#ff5555"),
-    ("yellow",           "#f1fa8c")
-  ]
-
-monokai :: M.Map String String
-monokai = M.fromList
-  [
-    ("blue",             "#0088cc"),
-    ("cyan",             "#00ffff"),
-    ("white",            "#ffffff")
-  ]
-
-nord :: M.Map String String
-nord = M.fromList
-  [
-    ("black0",           "#3B4252"), -- 0
-    ("red0",             "#BF616A"), -- 1
-    ("green0",           "#A3BE8C"), -- 2
-    ("yellow0",          "#EBCB8B"), -- 3
-    ("blue0",            "#81A1C1"), -- 4
-    ("purple0",          "#B48EAD"), -- 5
-    ("cyan0",            "#88C0D0"), -- 6
-    ("white0",           "#E5E9F0"), -- 7
-    ("black1",           "#4C566A"), -- 8
-    ("red1",             "#BF616A"), -- 9
-    ("green1",           "#A3BE8C"), -- 10
-    ("yellow1",          "#EBCB8B"), -- 11
-    ("blue1",            "#81A1C1"), -- 12
-    ("purple1",          "#B48EAD"), -- 13
-    ("cyan1",            "#8FBCBB"), -- 14
-    ("white1",           "#ECEFF4")  -- 15
-  ]
-
-solarized :: M.Map String String
-solarized = M.fromList
-  [
-    ("solarizedBase03",  "#002b36"),
-    ("solarizedBase02",  "#073642"),
-    ("solarizedBase01",  "#586e75"),
-    ("solarizedBase00",  "#657b83"),
-    ("solarizedBase0",   "#839496"),
-    ("solarizedBase1",   "#93a1a1"),
-    ("solarizedBase2",   "#eee8d5"),
-    ("solarizedBase3",   "#fdf6e3"),
-    ("solarizedYellow",  "#b58900"),
-    ("solarizedOrange",  "#cb4b16"),
-    ("solarizedRed",     "#dc322f"),
-    ("solarizedMagenta", "#d33682"),
-    ("solarizedViolet",  "#6c71c4"),
-    ("solarizedBlue",    "#268bd2"),
-    ("solarizedCyan",    "#2aa198"),
-    ("solarizedGreen",   "#859900")
-  ]
-
 help :: String
 help = unlines
   [
@@ -139,8 +72,7 @@ help = unlines
     "mod-Enter            Launch xterminal",
     "mod-s                Launch scratchpad",
     "mod-p                Launch dmenu",
-    "mod-d                Launch rofi",
-    "mod-Menu             Launch dmenu",
+    "mod-Menu             Launch rofi",
     "mod-Shift-c          Close/kill the focused window",
     "mod-F4               Close/kill the focused window",
     "PrintScreen          Root screenshot",
@@ -168,6 +100,8 @@ help = unlines
     "mod-f                Toggle full screen",
     "mod-a                Shrink resizable area",
     "mod-z                Expand resizable area",
+    "mod-i                Increment the number of windows in the master area",
+    "mod-d                Deincrement the number of windows in the master area",
     "",
     "-- Workspaces & screens",
     "mod-Shift-[0/~,1..9] Move client to Workspace N",
@@ -230,22 +164,8 @@ fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ C
 -- fontTerminalScratchpad = "xft:DejaVu Sans Mono:size=12:antialias=true:autohint=true:style=regular"
 
 dmenuCommandAnsi :: String -- theme: ansi
-dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
-
-dmenuCommandDracula :: String -- theme: dracula
-dmenuCommandDracula = "/usr/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
-
-dmenuCommandMonokai :: String -- theme: monokai
-dmenuCommandMonokai = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
-
-dmenuCommandNord :: String -- theme: nord
-dmenuCommandNord = "/usr/bin/dmenu_run -i -nf \"#ffffff\" -nb \"#222222\" -sb \"#009910\" -sf \"#ffffff\" -fn " ++ fontRegular ++ " -p 'Run: '"
-
-dmenuCommandSolarizedDark :: String -- theme: solarized dark
-dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
-
-dmenuCommandSolarizedLight :: String -- theme: solarized light
-dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+-- dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandAnsi = "$HOME/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 rofiCommand :: String
 rofiCommand = "rofi -show run"
@@ -291,31 +211,6 @@ myNormalBorderColorAnsi :: String -- theme: ansi
 myNormalBorderColorAnsi = ansi M.! "white"
 myFocusedBorderColorAnsi :: String
 myFocusedBorderColorAnsi = ansi M.! "cyan"
-
-myNormalBorderColorDracula :: String -- theme: dracula
-myNormalBorderColorDracula = dracula M.! "comment"
-myFocusedBorderColorDracula :: String
-myFocusedBorderColorDracula = dracula M.! "purple"
-
-myNormalBorderColorMonokai :: String -- theme: monokai
-myNormalBorderColorMonokai = monokai M.! "white"
-myFocusedBorderColorMonokai :: String
-myFocusedBorderColorMonokai = monokai M.! "cyan"
-
-myNormalBorderColorNord :: String -- theme: nord
-myNormalBorderColorNord = nord M.! "black1"
-myFocusedBorderColorNord :: String
-myFocusedBorderColorNord = nord M.! "red0"
-
-myNormalBorderColorSolarizedDark :: String -- theme: solarized dark
-myNormalBorderColorSolarizedDark = solarized M.! "solarizedBase02"
-myFocusedBorderColorSolarizedDark :: String
-myFocusedBorderColorSolarizedDark = solarized M.! "solarizedCyan"
-
-myNormalBorderColorSolarizedLight :: String -- theme: solarized light
-myNormalBorderColorSolarizedLight = solarized M.! "solarizedBase3"
-myFocusedBorderColorSolarizedLight :: String
-myFocusedBorderColorSolarizedLight = solarized M.! "solarizedBlue"
 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
@@ -459,96 +354,6 @@ myTabConfigAnsi = def
     fontName = fontBold
   }
 
-myTabConfigDracula :: Theme -- theme: dracula
-myTabConfigDracula = def
-  {
-    activeColor = dracula M.! "comment",
-    activeTextColor = dracula M.! "foreground",
-    activeBorderColor = dracula M.! "purple",
-    inactiveColor = dracula M.! "line",
-    inactiveTextColor = dracula M.! "foreground",
-    inactiveBorderColor = dracula M.! "foreground",
-    urgentColor = dracula M.! "red",
-    urgentTextColor = dracula M.! "foreground",
-    urgentBorderColor = dracula M.! "green",
-    fontName = fontBold
-  }
-
-myTabConfigMonokai :: Theme -- theme: monokai
-myTabConfigMonokai = def
-  {
-    activeColor = "#555555",
-    activeTextColor = "#ffffff",
-    activeBorderColor = "#00ffff",
-    inactiveColor = "#333333",
-    inactiveTextColor = "#dddddd",
-    inactiveBorderColor = "#ffffff",
-    urgentColor = "#ff0000",
-    urgentTextColor = "#ffffff",
-    urgentBorderColor = "#2f343a",
-    fontName = fontBold
-  }
-
-myTabConfigNord :: Theme -- theme: nord
-myTabConfigNord = def
-  {
-    activeColor = nord M.! "black1",
-    activeTextColor = nord M.! "white1",
-    activeBorderColor = nord M.! "red1",
-    inactiveColor = nord M.! "black0",
-    inactiveTextColor = nord M.! "white0",
-    inactiveBorderColor = nord M.! "red0",
-    urgentColor = nord M.! "red1",
-    urgentTextColor = nord M.! "white1",
-    urgentBorderColor = nord M.! "yellow1",
-    fontName = fontBold
-  }
-
-myTabConfigSolarized :: Theme -- theme: solarized [ light and dark ]
-myTabConfigSolarized = def
-  {
-    activeColor = solarized M.! "solarizedBase00",
-    activeTextColor = solarized M.! "solarizedBase2",
-    activeBorderColor = solarized M.! "solarizedBase1",
-    inactiveColor = solarized M.! "solarizedBase03",
-    inactiveTextColor = solarized M.! "solarizedBase1",
-    inactiveBorderColor = solarized M.! "solarizedBase1",
-    urgentColor = solarized M.! "solarizedRed",
-    urgentTextColor = solarized M.! "solarizedBase3",
-    urgentBorderColor = solarized M.! "solarizedBase03",
-    fontName = fontBold
-  }
-
-myTabConfigSolarizedDark :: Theme -- theme: solarized dark
-myTabConfigSolarizedDark = def
-  {
-    activeColor = solarized M.! "solarizedBase00",
-    activeTextColor = solarized M.! "solarizedBase2",
-    activeBorderColor = solarized M.! "solarizedBase1",
-    inactiveColor = solarized M.! "solarizedBase03",
-    inactiveTextColor = solarized M.! "solarizedBase1",
-    inactiveBorderColor = solarized M.! "solarizedBase1",
-    urgentColor = solarized M.! "solarizedRed",
-    urgentTextColor = solarized M.! "solarizedBase3",
-    urgentBorderColor = solarized M.! "solarizedBase03",
-    fontName = fontBold
-  }
-
-myTabConfigSolarizedLight :: Theme -- theme: solarized light
-myTabConfigSolarizedLight = def
-  {
-    activeColor = solarized M.! "solarizedGreen",
-    activeTextColor = solarized M.! "solarizedBase3",
-    activeBorderColor = solarized M.! "solarizedBase03",
-    inactiveColor = solarized M.! "solarizedBase1",
-    inactiveTextColor = solarized M.! "solarizedBase3",
-    inactiveBorderColor = solarized M.! "solarizedBase03",
-    urgentColor = solarized M.! "solarizedRed",
-    urgentTextColor = solarized M.! "solarizedBase3",
-    urgentBorderColor = solarized M.! "solarizedBase03",
-    fontName = fontBold
-  }
-
 myLayoutHook tabConfig =
   -- gaps0
   -- gaps1
@@ -689,206 +494,6 @@ myDzen2LogHookAnsiPP = def
     ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (ansi M.! "red") "" ts,"]",t] ++ ex ++ []
   }
 
-myXmobarLogHookDraculaPP :: PP -- theme: dracula
-myXmobarLogHookDraculaPP = def
-  {
-    ppCurrent         = xmobarColor (dracula M.! "red") "" . wrap "[" "]",
-    ppHidden          = xmobarColor (dracula M.! "cyan") "",
-    ppHiddenNoWindows = xmobarColor (dracula M.! "comment") "",
-    ppTitle           = xmobarColor (dracula M.! "purple") "" . shorten 50,
-    ppVisible         = xmobarColor (dracula M.! "purple") "" . wrap "(" ")",
-    ppUrgent          = xmobarColor (dracula M.! "green") (dracula M.! "yellow"),
-    ppLayout          = xmobarColor (dracula M.! "green") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (dracula M.! "red") "" ts,"]",t] ++ ex ++ []
-  }
-
-myDzen2LogHookDraculaPP :: PP -- theme: dracula
-myDzen2LogHookDraculaPP = def
-  {
-    ppCurrent         = dzenColor (dracula M.! "cyan") "" . wrap "[" "]",
-    ppHidden          = dzenColor (dracula M.! "foreground") "",
-    ppHiddenNoWindows = dzenColor (dracula M.! "comment") "",
-    ppTitle           = dzenColor (dracula M.! "cyan") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = dzenColor (dracula M.! "red") (dracula M.! "yellow"),
-    ppLayout          = dzenColor (dracula M.! "green") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [dzenColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (dracula M.! "red") "" ts,"]",t] ++ ex ++ []
-  }
-
-myXmobarLogHookMonokaiPP :: PP -- theme: monokai
-myXmobarLogHookMonokaiPP = def
-  {
-    ppCurrent         = xmobarColor "cyan" "" . wrap "[" "]",
-    ppHidden          = xmobarColor "#ffffff" "",
-    ppHiddenNoWindows = xmobarColor "#999999" "",
-    ppTitle           = xmobarColor "cyan" "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor "red" "yellow",
-    ppLayout          = xmobarColor "green" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor "red" "" ts,"]",t] ++ ex ++ []
-  }
-
-myDzen2LogHookMonokaiPP :: PP -- theme: monokai
-myDzen2LogHookMonokaiPP = def
-  {
-    ppCurrent         = dzenColor "cyan" "" . wrap "[" "]",
-    ppHidden          = dzenColor "#ffffff" "",
-    ppHiddenNoWindows = dzenColor "#999999" "",
-    ppTitle           = dzenColor "cyan" "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = dzenColor "red" "yellow",
-    ppLayout          = dzenColor "green" "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [dzenColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor "red" "" ts,"]",t] ++ ex ++ []
-  }
-
-myXmobarLogHookNordPP :: PP -- theme: nord
-myXmobarLogHookNordPP = def
-  {
-    ppCurrent         = xmobarColor (nord M.! "cyan0") "" . wrap "[" "]",
-    ppHidden          = xmobarColor (nord M.! "yellow1") "",
-    ppHiddenNoWindows = xmobarColor (nord M.! "white0") "",
-    ppTitle           = xmobarColor (nord M.! "cyan0") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor (nord M.! "red0") (nord M.! "yellow0"),
-    ppLayout          = xmobarColor (nord M.! "cyan0") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (nord M.! "red0") "" ts,"]",t] ++ ex ++ []
-  }
-
-myDzen2LogHookNordPP :: PP -- theme: nord
-myDzen2LogHookNordPP = def
-  {
-    ppCurrent         = dzenColor (nord M.! "cyan0") "" . wrap "[" "]",
-    ppHidden          = dzenColor (nord M.! "yellow1") "",
-    ppHiddenNoWindows = dzenColor (nord M.! "white0") "",
-    ppTitle           = dzenColor (nord M.! "cyan0") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = dzenColor (nord M.! "red0") (nord M.! "yellow0"),
-    ppLayout          = dzenColor (nord M.! "cyan0") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [dzenColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (nord M.! "red0") "" ts,"]",t] ++ ex ++ []
-  }
-
-myXmobarLogHookSolarizedDarkPP :: PP -- theme: solarized dark
-myXmobarLogHookSolarizedDarkPP = def
-  {
-    ppCurrent         = xmobarColor (solarized M.! "solarizedRed") "" . wrap "[" "]",
-    ppHidden          = xmobarColor (solarized M.! "solarizedBase3") "",
-    ppHiddenNoWindows = xmobarColor (solarized M.! "solarizedBase1") "",
-    ppTitle           = xmobarColor (solarized M.! "solarizedCyan") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor (solarized M.! "solarizedRed") (solarized M.! "solarizedYellow"),
-    ppLayout          = xmobarColor (solarized M.! "solarizedCyan") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (solarized M.! "solarizedRed") "" ts,"]",t] ++ ex ++ []
-  }
-
-myDzen2LogHookSolarizedDarkPP :: PP -- theme: solarized dark
-myDzen2LogHookSolarizedDarkPP = def
-  {
-    ppCurrent         = dzenColor (solarized M.! "solarizedRed") "" . wrap "[" "]",
-    ppHidden          = dzenColor (solarized M.! "solarizedBase3") "",
-    ppHiddenNoWindows = dzenColor (solarized M.! "solarizedBase1") "",
-    ppTitle           = dzenColor (solarized M.! "solarizedCyan") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = dzenColor (solarized M.! "solarizedRed") (solarized M.! "solarizedYellow"),
-    ppLayout          = dzenColor (solarized M.! "solarizedCyan") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [dzenColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (solarized M.! "solarizedRed") "" ts,"]",t] ++ ex ++ []
-  }
-
-myXmobarLogHookSolarizedLightPP :: PP -- theme: solarized light
-myXmobarLogHookSolarizedLightPP = def
-  {
-    ppCurrent         = xmobarColor (solarized M.! "solarizedBase3") (solarized M.! "solarizedBlue") . wrap "[" "]",
-    ppHidden          = xmobarColor (solarized M.! "solarizedBase03") "",
-    ppHiddenNoWindows = xmobarColor (solarized M.! "solarizedBase1") "",
-    ppTitle           = xmobarColor (solarized M.! "solarizedBlue") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = xmobarColor (solarized M.! "solarizedRed") (solarized M.! "solarizedYellow"),
-    ppLayout          = xmobarColor (solarized M.! "solarizedBlue") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [xmobarColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",xmobarColor (solarized M.! "solarizedRed") "" ts,"]",t] ++ ex ++ []
-  }
-
-myDzen2LogHookSolarizedLightPP :: PP -- theme: solarized light
-myDzen2LogHookSolarizedLightPP = def
-  {
-    ppCurrent         = dzenColor (solarized M.! "solarizedBase3") (solarized M.! "solarizedBlue") . wrap "[" "]",
-    ppHidden          = dzenColor (solarized M.! "solarizedBase03") "",
-    ppHiddenNoWindows = dzenColor (solarized M.! "solarizedBase1") "",
-    ppTitle           = dzenColor (solarized M.! "solarizedBlue") "" . shorten 50,
-    ppVisible         = wrap "(" ")",
-    ppUrgent          = dzenColor (solarized M.! "solarizedRed") (solarized M.! "solarizedYellow"),
-    ppLayout          = dzenColor (solarized M.! "solarizedBlue") "" . (\layout -> myPPLayout (layout)),
-    ppSep             = " ", -- separator between each object
-    ppWsSep           = " ", -- separator between workspaces
-    -- (1)
-    -- ppExtras          = [ logTitles ],
-    -- ppOrder           = \(ws:l:t:ts:_) -> ws : l : t : [dzenColor "gray" "" ts]
-    -- (2)
-    ppExtras          = [ windowCount ],
-    ppOrder           = \(ws:l:t:ts:ex) -> [ws,l,"[",dzenColor (solarized M.! "solarizedRed") "" ts,"]",t] ++ ex ++ []
-  }
-
 -- ansi
 
 myXmobarLogHookAnsi1 :: Handle -> X()
@@ -921,211 +526,14 @@ myDzen2LogHookAnsi2a h s = myDzen2LogHookAnsiPP
 myDzen2LogHookAnsi2 :: [Handle] -> ScreenId -> X ()
 myDzen2LogHookAnsi2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookAnsi2a hs [0..ns-1]
 
--- dracula
-
-myXmobarLogHookDracula1 :: Handle -> X()
-myXmobarLogHookDracula1 h = dynamicLogWithPP myXmobarLogHookDraculaPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookDracula2a :: Handle -> ScreenId -> PP
-myXmobarLogHookDracula2a h s = myXmobarLogHookDraculaPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookDracula2 :: [Handle] -> ScreenId -> X ()
-myXmobarLogHookDracula2 hs ns = mapM_ dynamicLogWithPP $ zipWith myXmobarLogHookDracula2a hs [0..ns-1]
-
-myDzen2LogHookDracula1 :: Handle -> X()
-myDzen2LogHookDracula1 h = dynamicLogWithPP myDzen2LogHookDraculaPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookDracula2a :: Handle -> ScreenId -> PP
-myDzen2LogHookDracula2a h s = myDzen2LogHookDraculaPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookDracula2 :: [Handle] -> ScreenId -> X ()
-myDzen2LogHookDracula2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookDracula2a hs [0..ns-1]
-
--- monokai
-
-myXmobarLogHookMonokai1 :: Handle -> X()
-myXmobarLogHookMonokai1 h = dynamicLogWithPP myXmobarLogHookMonokaiPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookMonokai2a :: Handle -> ScreenId -> PP
-myXmobarLogHookMonokai2a h s = myXmobarLogHookMonokaiPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookMonokai2 :: [Handle] -> ScreenId -> X ()
-myXmobarLogHookMonokai2 hs ns = mapM_ dynamicLogWithPP $ zipWith myXmobarLogHookMonokai2a hs [0..ns-1]
-
-myDzen2LogHookMonokai1 :: Handle -> X()
-myDzen2LogHookMonokai1 h = dynamicLogWithPP myDzen2LogHookMonokaiPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookMonokai2a :: Handle -> ScreenId -> PP
-myDzen2LogHookMonokai2a h s = myDzen2LogHookMonokaiPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookMonokai2 :: [Handle] -> ScreenId -> X ()
-myDzen2LogHookMonokai2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookMonokai2a hs [0..ns-1]
-
--- nord
-
-myXmobarLogHookNord1 :: Handle -> X ()
-myXmobarLogHookNord1 h = dynamicLogWithPP myXmobarLogHookNordPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookNord2a :: Handle -> ScreenId -> PP
-myXmobarLogHookNord2a h s = myXmobarLogHookNordPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookNord2 :: [Handle] -> ScreenId -> X ()
-myXmobarLogHookNord2 hs ns = mapM_ dynamicLogWithPP $ zipWith myXmobarLogHookNord2a hs [0..ns-1]
-
-myDzen2LogHookNord1 :: Handle -> X ()
-myDzen2LogHookNord1 h = dynamicLogWithPP myDzen2LogHookNordPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookNord2a :: Handle -> ScreenId -> PP
-myDzen2LogHookNord2a h s = myDzen2LogHookNordPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookNord2 :: [Handle] -> ScreenId -> X ()
-myDzen2LogHookNord2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookNord2a hs [0..ns-1]
-
--- solarized dark
-
-myXmobarLogHookSolarizedDark1 :: Handle -> X ()
-myXmobarLogHookSolarizedDark1 h = dynamicLogWithPP myXmobarLogHookSolarizedDarkPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookSolarizedDark2a :: Handle -> ScreenId -> PP
-myXmobarLogHookSolarizedDark2a h s = myXmobarLogHookSolarizedDarkPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookSolarizedDark2 :: [Handle] -> ScreenId -> X ()
-myXmobarLogHookSolarizedDark2 hs ns = mapM_ dynamicLogWithPP $ zipWith myXmobarLogHookSolarizedDark2a hs [0..ns-1]
-
-myDzen2LogHookSolarizedDark1 :: Handle -> X ()
-myDzen2LogHookSolarizedDark1 h = dynamicLogWithPP myDzen2LogHookSolarizedDarkPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookSolarizedDark2a :: Handle -> ScreenId -> PP
-myDzen2LogHookSolarizedDark2a h s = myDzen2LogHookSolarizedDarkPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookSolarizedDark2 :: [Handle] -> ScreenId -> X ()
-myDzen2LogHookSolarizedDark2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookSolarizedDark2a hs [0..ns-1]
-
--- solarized light
-
-myXmobarLogHookSolarizedLight1 :: Handle -> X ()
-myXmobarLogHookSolarizedLight1 h = dynamicLogWithPP myXmobarLogHookSolarizedLightPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookSolarizedLight2a :: Handle -> ScreenId -> PP
-myXmobarLogHookSolarizedLight2a h s = myXmobarLogHookSolarizedLightPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myXmobarLogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
-myXmobarLogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myXmobarLogHookSolarizedLight2a hs [0..ns-1]
-
-myDzen2LogHookSolarizedLight1 :: Handle -> X ()
-myDzen2LogHookSolarizedLight1 h = dynamicLogWithPP myDzen2LogHookSolarizedLightPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookSolarizedLight2a :: Handle -> ScreenId -> PP
-myDzen2LogHookSolarizedLight2a h s = myDzen2LogHookSolarizedLightPP
-  {
-    ppOutput = hPutStrLn h
-  }
-
-myDzen2LogHookSolarizedLight2 :: [Handle] -> ScreenId -> X ()
-myDzen2LogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2LogHookSolarizedLight2a hs [0..ns-1]
-
-
 -------------------------------------------------------------------------------
 -- Bindings
 -------------------------------------------------------------------------------
 
 myKeysDmenuCommandAnsi =
   [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: ansi
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandAnsi), -- theme: ansi
-    ((0,                         xK_Menu   ), spawn dmenuCommandAnsi)  -- theme: ansi
-  ]
-
-myKeysDmenuCommandDracula =
-  [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: dracula
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandDracula), -- theme: dracula
-    ((0,                         xK_Menu   ), spawn dmenuCommandDracula)  -- theme: dracula
-  ]
-
-myKeysDmenuCommandMonokai =
-  [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: monokai
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandMonokai), -- theme: monokai
-    ((0,                         xK_Menu   ), spawn dmenuCommandMonokai)  -- theme: monokai
-  ]
-
-myKeysDmenuCommandNord =
-  [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: nord
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandNord), -- theme: nord
-    ((0,                         xK_Menu   ), spawn dmenuCommandNord)  -- theme: nord
-  ]
-
-myKeysDmenuCommandSolarizedDark =
-  [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: solarized dark
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
-    ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedDark)  -- theme: solarized dark
-  ]
-
-myKeysDmenuCommandSolarizedLight =
-  [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: solarized light
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
-    ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
+    ((0,                         xK_Menu   ), spawn rofiCommand)  -- theme: ansi
   ]
 
 myKeys =
@@ -1140,9 +548,11 @@ myKeys =
     ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/.xmonad/exit.sh message"),
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
-    ((mod1Mask,                  xK_f      ), sendMessage (Toggle "Full")),
-    ((mod1Mask,                  xK_a      ), sendMessage MirrorShrink), -- shrink resizable area
-    ((mod1Mask,                  xK_z      ), sendMessage MirrorExpand), -- expand resizable area
+    ((mod1Mask,                  xK_f      ), sendMessage (Toggle "full'")),
+    ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
+    ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
+    ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
+    ((mod1Mask,                  xK_d      ), sendMessage (IncMasterN (-1))), -- Deincrement the number of windows in the master area
     --
     -- ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
     -- ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace
@@ -1267,77 +677,6 @@ myConfigAnsi xmobar nScreens = myConfigDefault -- theme: ansi
       -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookAnsi2 xmobar nScreens
     } `additionalKeys` myKeysDmenuCommandAnsi
 
-myConfigDracula xmobar nScreens = myConfigDefault -- theme: dracula
-    {
-      normalBorderColor    = myNormalBorderColorDracula,
-      focusedBorderColor   = myFocusedBorderColorDracula,
-      layoutHook           = myLayoutHook myTabConfigDracula,
-      -- (1) single xmobar
-      -- logHook              = myXmobarLogHookDracula1 xmobar
-      -- (2) multiple xmobar
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myXmobarLogHookDracula2 xmobar nScreens
-      -- (3) multiple dzen2
-      -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookDracula2 xmobar nScreens
-    } `additionalKeys` myKeysDmenuCommandDracula
-
-myConfigMonokai xmobar nScreens = myConfigDefault -- theme: monokai
-    {
-      normalBorderColor    = myNormalBorderColorMonokai,
-      focusedBorderColor   = myFocusedBorderColorMonokai,
-      layoutHook           = myLayoutHook myTabConfigMonokai,
-      -- (1) single xmobar
-      -- logHook              = myXmobarLogHookMonokai xmobar
-      -- (2) multiple xmobar
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myXmobarLogHookMonokai2 xmobar nScreens
-      -- (3) multiple dzen2
-      -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookMonokai2 xmobar nScreens
-    } `additionalKeys` myKeysDmenuCommandMonokai
-
-myConfigNord xmobar nScreens = myConfigDefault -- theme: nord
-    {
-      normalBorderColor    = myNormalBorderColorNord,
-      focusedBorderColor   = myFocusedBorderColorNord,
-      layoutHook           = myLayoutHook myTabConfigNord,
-      -- (1) single xmobar
-      -- logHook              = myXmobarLogHookNord1 xmobar
-      -- (2) multiple xmobar
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myXmobarLogHookNord2 xmobar nScreens
-      -- (3) multiple dzen2
-      -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookNord2 xmobar nScreens
-    } `additionalKeys` myKeysDmenuCommandNord
-
-myConfigSolarizedDark xmobar nScreens = myConfigDefault -- theme: solarized dark
-    {
-      normalBorderColor    = myNormalBorderColorSolarizedDark,
-      focusedBorderColor   = myFocusedBorderColorSolarizedDark,
-      -- (1) Solarized Dark
-      -- layoutHook           = myLayoutHook myTabConfigSolarizedDark,
-      -- (2) Solarized
-      layoutHook           = myLayoutHook myTabConfigSolarized,
-      -- (1) single xmobar
-      -- logHook              = myXmobarLogHookSolarizedDark1 xmobar
-      -- (2) multiple xmobar
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myXmobarLogHookSolarizedDark2 xmobar nScreens
-      -- (3) multiple dzen2
-      -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookSolarizedDark2 xmobar nScreens
-    } `additionalKeys` myKeysDmenuCommandSolarizedDark
-
-myConfigSolarizedLight xmobar nScreens = myConfigDefault -- theme: solarized light
-    {
-      normalBorderColor    = myNormalBorderColorSolarizedLight,
-      focusedBorderColor   = myFocusedBorderColorSolarizedLight,
-      -- (1) Solarized Light
-      -- layoutHook           = myLayoutHook myTabConfigSolarizedLight,
-      -- (2) Solarized
-      layoutHook           = myLayoutHook myTabConfigSolarized,
-      -- (1) single xmobar
-      -- logHook              = myXmobarLogHookSolarizedLight1 xmobar
-      -- (2) multiple xmobar
-      logHook              = updatePointer (0.5, 0.5) (0, 0) >> myXmobarLogHookSolarizedLight2 xmobar nScreens
-      -- (3) multiple dzen2
-      -- logHook              = updatePointer (0.5, 0.5) (0, 0) >> myDzen2LogHookSolarizedLight2 xmobar nScreens
-    } `additionalKeys` myKeysDmenuCommandSolarizedLight
-
 
 -------------------------------------------------------------------------------
 -- Main
@@ -1348,31 +687,18 @@ main = do
   -- (1) single xmobar
   -- xmobar1 <- spawnPipe xmobarCommand1
   -- xmonad $ myConfigAnsi xmobar1 1 -- theme: ansi
-  -- xmonad $ myConfigMonokai xmobar1 1 -- theme: monokai
-  -- xmonad $ myConfigNord xmobar1 1 -- theme: nord
-  -- xmonad $ myConfigSolarizedDark xmobar1 1 -- theme: solarized dark
-  -- xmonad $ myConfigSolarizedLight xmobar1 1 -- theme: solarized light
   --
   -- (2) multiple xmobar
   -- -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 xmobar", "killall -s 9 conky"]
   nScreens <- countScreens
   xmobar2  <- mapM (spawnPipe . xmobarCommand2) [0 .. (nScreens - 1)]
   xmonad $ myConfigAnsi xmobar2 nScreens -- theme: ansi
-  -- xmonad $ myConfigDracula xmobar2 nScreens -- theme: dracula
-  -- xmonad $ myConfigMonokai xmobar2 nScreens -- theme: monokai
-  -- xmonad $ myConfigNord xmobar2 nScreens -- theme: nord
-  -- xmonad $ myConfigSolarizedDark xmobar2 nScreens -- theme: solarized dark
-  -- xmonad $ myConfigSolarizedLight xmobar2 nScreens -- theme: solarized light
   --
   -- (3) multiple dzen2
   -- -- kill <- mapM_ spawn ["killall -s 9 trayer", "killall -s 9 dzen2", "killall -s 9 conky"]
   -- nScreens <- countScreens
   -- dzen2  <- mapM (spawnPipe . dzenCommand2) [0 .. (nScreens - 1)]
   -- xmonad $ myConfigAnsi dzen2 nScreens -- theme: ansi
-  -- xmonad $ myConfigMonokai dzen2 nScreens -- theme: monokai
-  -- xmonad $ myConfigNord dzen2 nScreens -- theme: nord
-  -- xmonad $ myConfigSolarizedDark dzen2 nScreens -- theme: solarized dark
-  -- xmonad $ myConfigSolarizedLight dzen2 nScreens -- theme: solarized light
 
 -------------------------------------------------------------------------------
 -- end

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-01-22 18:46:11 (CET)
+-- Last update: 2021-07-30 21:42:56 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -79,8 +79,7 @@ help = unlines
     "mod-Enter            Launch xterminal",
     "mod-s                Launch scratchpad",
     "mod-p                Launch dmenu",
-    "mod-d                Launch rofi",
-    "mod-Menu             Launch dmenu",
+    "mod-Menu             Launch rofi",
     "mod-Shift-c          Close/kill the focused window",
     "mod-F4               Close/kill the focused window",
     "PrintScreen          Root screenshot",
@@ -108,6 +107,8 @@ help = unlines
     "mod-f                Toggle full screen",
     "mod-a                Shrink resizable area",
     "mod-z                Expand resizable area",
+    "mod-i                Increment the number of windows in the master area",
+    "mod-d                Deincrement the number of windows in the master area",
     "",
     "-- Workspaces & screens",
     "mod-Shift-[0/~,1..9] Move client to Workspace N",
@@ -170,10 +171,12 @@ fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ C
 -- fontTerminalScratchpad = "xft:DejaVu Sans Mono:size=12:antialias=true:autohint=true:style=regular"
 
 dmenuCommandSolarizedDark :: String -- theme: solarized dark
-dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+-- dmenuCommandSolarizedDark = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandSolarizedDark = "$HOME/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#002b36\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 dmenuCommandSolarizedLight :: String -- theme: solarized light
-dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+-- dmenuCommandSolarizedLight = "/usr/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandSolarizedLight = "$HOME/bin/dmenu_run -i -nf \"#2aa198\" -nb \"#fdf6e3\" -sb \"#2aa198\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 rofiCommand :: String
 rofiCommand = "rofi -show run"
@@ -648,16 +651,14 @@ myDzen2LogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2Lo
 
 myKeysDmenuCommandSolarizedDark =
   [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: solarized dark
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
-    ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedDark)  -- theme: solarized dark
+    ((0,                         xK_Menu   ), spawn rofiCommand)  -- theme: solarized dark
   ]
 
 myKeysDmenuCommandSolarizedLight =
   [
-    ((mod1Mask,                  xK_d      ), spawn rofiCommand), -- theme: solarized light
     ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
-    ((0,                         xK_Menu   ), spawn dmenuCommandSolarizedLight)  -- theme: solarized light
+    ((0,                         xK_Menu   ), spawn rofiCommand)  -- theme: solarized light
   ]
 
 myKeys =
@@ -673,8 +674,10 @@ myKeys =
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
     ((mod1Mask,                  xK_f      ), sendMessage (Toggle "Full")),
-    ((mod1Mask,                  xK_a      ), sendMessage MirrorShrink), -- shrink resizable area
-    ((mod1Mask,                  xK_z      ), sendMessage MirrorExpand), -- expand resizable area
+    ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
+    ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
+    ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
+    ((mod1Mask,                  xK_d      ), sendMessage (IncMasterN (-1))), -- Deincrement the number of windows in the master area
     --
     -- ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
     -- ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace
