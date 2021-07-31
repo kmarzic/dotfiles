@@ -5,7 +5,7 @@
 
 import Data.Maybe ( maybeToList )
 import Data.List ( (\\) )
-import XMonad
+import XMonad hiding ( (|||) )
 import XMonad.Actions.CycleWS
 import XMonad.Actions.Minimize (minimizeWindow, withLastMinimized, maximizeWindowAndFocus)
 import XMonad.Actions.UpdatePointer
@@ -13,11 +13,14 @@ import XMonad.Config
 import XMonad.Config.Desktop
 import XMonad.Hooks.DynamicHooks
 import XMonad.Hooks.DynamicLog
+import XMonad.Layout hiding ( (|||) )
 import XMonad.Layout.Column
 import XMonad.Layout.Gaps
 import XMonad.Layout.Groups.Helpers
+import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Minimize(minimize)
+import XMonad.Layout.Named
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Roledex
@@ -362,47 +365,23 @@ myTabConfigNord = def
   }
 
 myLayoutHook tabConfig =
-  -- gaps0
-  -- gaps1
   avoidStruts
-  -- $ smartSpacing 1
-  -- $ spacing 1
-  -- $ spacingRaw True (Border 0 0 0 0) True (Border 1 1 1 1) True
-  -- $ spacingRaw True (Border 5 5 5 5) True (Border 5 5 5 5) True
-  -- $ smartBorders
-  -- $ toggleLayouts (noBorders $ full')
-  -- $ toggleLayouts (noBorders $ tab2')
-  -- $ (flip G.group) (Full ||| Mirror (Column 1.41) ||| Mirror (Column 1))
   $ (flip G.group) (Full)
-  -- $ myLayouts
-  -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| threecol' ||| resizetab' ||| roledex'
-  -- $ tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
   $ full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
   where
-    -- myLayouts  = tab2' ||| tiled' ||| mirror' ||| threecol' ||| full' ||| resizetab' ||| roledex'
-    -- myLayouts  = tab2' ||| full' ||| tiled' ||| mirror' ||| roledex'
-    -- myLayouts  = full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
+    tab2'      = named "tab2'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
     --
-    -- tab2'      = tabbedAlways shrinkText tabConfig
-    -- tab2'      = gaps1 $ tabbedAlways shrinkText tabConfig
-    tab2'      = spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig
+    tiled'     = named "tiled'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0)
     --
-    -- tiled'     = Tall nmaster0 delta0 ratio0
-    -- tiled'     = gaps1 $ Tall nmaster0 delta0 ratio0
-    tiled'     = spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0
+    mirror'    = named "mirror'" (Mirror tiled')
     --
-    mirror'    = Mirror tiled'
+    threecol'  = named "threecol'" (ThreeColMid nmaster0 delta0 ratio0)
     --
-    threecol'  = ThreeColMid nmaster0 delta0 ratio0
+    full'      = named "full'" (gaps1 $ Full)
     --
-    -- full'      = Full
-    -- full'      = gaps0 $ Full
-    full'      = gaps1 $ Full
-    -- full'      = spacingRaw True (Border 0 5 5 5) True (Border 5 5 5 5) True $ Full
+    resizetab' = named "resizetab'" (ResizableTall 1 (3/100) (1/2) [])
     --
-    resizetab' = ResizableTall 1 (3/100) (1/2) []
-    --
-    roledex'   = Roledex
+    roledex'   = named "roledex'" (Roledex)
     --
     -- The default number of windows in the master pane
     nmaster0   = 1
@@ -554,7 +533,8 @@ myKeys =
     ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/.xmonad/exit.sh message"),
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
-    ((mod1Mask,                  xK_f      ), sendMessage $ JumpToLayout "Full"),
+    ((mod1Mask,                  xK_f      ), sendMessage $ JumpToLayout "full'"),
+    ((mod1Mask,                  xK_t      ), sendMessage $ JumpToLayout "tiled'"),
     ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
     ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
     ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
