@@ -555,7 +555,7 @@ myKeys =
     ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/.xmonad/exit.sh message"),
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
-    ((mod1Mask,                  xK_f      ), sendMessage (Toggle "Full")),
+    ((mod1Mask,                  xK_f      ), sendMessage $ JumpToLayout "Full"),
     ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
     ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
     ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
