@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-07-03 13:27:13 (CEST)
+"" Last update: 2021-08-17 16:04:53 (CEST)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -283,6 +283,11 @@ let g:seiya_auto_enable=1
 "" Syntax
 "" ------------------------------------------------------------------------
 
+"" Check OS
+if has ("unix")
+    let uname=system('uname -s')
+endif
+
 "" Where to search for swap files.
 if has ("unix")
     set directory=.,~/tmp,/tmp,/var/tmp
@@ -544,7 +549,11 @@ function PrintFile(fname)
 endfunc
 
 "" Shell
-set shell=/bin/bash
+if (uname == 'Linux')
+    set shell=/bin/bash
+elseif (uname == 'FreeBSD')
+    set shell=/usr/local/bin/bash
+endif
 
 "" Undo
 set undolevels=1000
