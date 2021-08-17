@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-export PATH=$HOME/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
+#### variables
+OS=$(uname -s)
 DEFAULT_SPACES=7
 AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
@@ -73,7 +75,7 @@ NORMAL='^c#d4be98^'
 GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
 
 #### load
-function __load()
+function __load_linux()
 {
     ncpu="$(cat /proc/cpuinfo | grep processor | wc -l)"
     load="$(cat /proc/loadavg | awk {' print $1 '})"
@@ -85,8 +87,13 @@ function __load()
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] && echo "${NORMAL}CPU: ${RED}${load}${NORMAL}"
 }
 
+function __load_freebsd()
+{
+    echo .
+}
+
 #### temp
-function __temp()
+function __temp_linux()
 {
     temp="$(acpi -t | awk '{ print $4 " °C" }')"
     temp_dec="$(acpi -t | awk '{ print $4 }' | sed -e "s/\..*//g")"
@@ -100,8 +107,13 @@ function __temp()
     [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] && echo "${NORMAL}Temp: ${RED}${temp}${NORMAL}"
 }
 
+function __temp_freebsd()
+{
+    echo .
+}
+
 #### memory
-function __memory()
+function __memory_linux()
 {
     mem_free=$(cat /proc/meminfo | grep "MemFree:" | awk {' print $2'})
     mem_total=$(cat /proc/meminfo | grep "MemTotal:" | awk {' print $2'})
@@ -114,8 +126,13 @@ function __memory()
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] && echo "${NORMAL}MEM: ${GREEN}${mem_percent}%${NORMAL}"
 }
 
+function __memory_freebsd()
+{
+    echo .
+}
+
 #### battery
-function __battery()
+function __battery_linux()
 {
     battery_enabled=$(find /sys/class/power_supply | grep -i bat | wc -l)
 
@@ -143,6 +160,11 @@ function __battery()
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 25 ]] && [[ ${battery} -lt 80 ]] && echo "${NORMAL}BAT: ${battery_status} ${YELLOW}${battery}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] && echo "${NORMAL}BAT: ${battery_status} ${GREEN}${battery}%${NORMAL}"
     fi
+}
+
+function __bettery_freebsd()
+{
+    echo .
 }
 
 #### weather
@@ -191,7 +213,7 @@ function __forecast()
 }
 
 #### network
-function __network()
+function __network_linux()
 {
     #### (1)
     ip_private=$(hostname -I | awk {'print $1'})
@@ -212,6 +234,11 @@ function __network()
     # RKBPS=$(expr $RBPS / 1024)
 
     # echo -e "${iface} tx ${TKBPS} kB/s rx ${RKBPS} kB/s, ${ip_private}, ${ip_public}"
+}
+
+function __network_freebsd()
+{
+    echo .
 }
 
 #### time
@@ -237,28 +264,53 @@ function __spaces()
 }
 
 #### MAIN
-dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l)
+dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l | awk '{$1=$1};1')
 echo "dwm_status_detect='${dwm_status_detect}'"
 
-if [[ ${dwm_status_detect} -eq 2 ]]
+if [[ "${OS}" = "Linux" ]]
 then
-    while true;
-    do
-        #### xsetroot
-        if [[ ${STATUSCOLOR} -eq 0 ]]
-        then
-            # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ]$(__spaces)"
-            # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__time) ]"
-            xsetroot -name "[ $(__load) | $(__memory) | $(__battery) | $(__time) ]"
-        elif [[ ${STATUSCOLOR} -eq 1 ]]
-        then
-            # xsetroot -name "[ $(__load) | $(__temp) | $(__memory) | $(__battery) | $(__weather) | $(__network) | $(__time) ] $(__spaces)"
-            xsetroot -name "${NORMAL}[ $(__load) | $(__memory) | $(__battery) | $(__time) ]${NORMAL}"
-        fi
-        sleep 1
-    done
-else
-    echo "dwm.status.sh is running"
+    if [[ ${dwm_status_detect} -eq 2 ]]
+    then
+        while true;
+        do
+            #### xsetroot
+            if [[ ${STATUSCOLOR} -eq 0 ]]
+            then
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | # $(__weather) | $(__network_linux) | $(__time) ]$(__spaces)"
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
+                xsetroot -name "[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
+            elif [[ ${STATUSCOLOR} -eq 1 ]]
+            then
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | # $(__weather) | $(__network_linux) | $(__time) ] $(__spaces)"
+                xsetroot -name "${NORMAL}[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]${NORMAL}"
+            fi
+            sleep 1
+        done
+    else
+        echo "dwm.status.sh is running"
+    fi
+elif [[ "${OS}" = "FreeBSD" ]]
+then
+    if [[ ${dwm_status_detect} -eq 0 ]]
+    then
+        while true;
+        do
+            #### xsetroot
+            if [[ ${STATUSCOLOR} -eq 0 ]]
+            then
+                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # $(__weather) | $(__network_freebsd) | $(__time) ]$(__spaces)"
+                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
+                xsetroot -name "[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
+            elif [[ ${STATUSCOLOR} -eq 1 ]]
+            then
+                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # # $(__weather_freebsd) | $(__network_freebsd) | $(__time) ] $(__spaces)"
+                xsetroot -name "${NORMAL}[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]${NORMAL}"
+            fi
+            sleep 1
+        done
+    else
+        echo "dwm.status.sh is running"
+    fi
 fi
 
 #### END

@@ -1,8 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
+export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
-function __dwm_battery()
+#### Variables
+OS=$(uname -s)
+
+#### Functions
+function __dwm_battery_linux()
 {
     while true;
     do
@@ -24,15 +28,38 @@ function __dwm_battery()
     done
 }
 
+function __dwm_battery_freebsd()
+{
+    while true;
+    do
+        #### capacity
+        capacity="$(sysctl hw.acpi.battery | grep hw.acpi.battery.life | awk -F ' ' '{ print $2 }')"
+
+        #### sleep
+        sleep 60
+    done
+}
+
 #### MAIN
-dwm_battery_detect=$(ps -ef | grep -v "grep" | grep "dwm.battery.sh" | wc -l)
+dwm_battery_detect=$(ps -ef | grep -v "grep" | grep "dwm.battery.sh" | wc -l | awk '{$1=$1};1')
 echo "dwm_battery_detect='${dwm_battery_detect}'"
 
-if [[ ${dwm_battery_detect} -eq 2 ]]
+if [[ "${OS}" = "Linux" ]]
 then
-    __dwm_battery
-else
-    echo "dwm.battery.sh is running"
+    if [[ ${dwm_battery_detect} -eq 2 ]]
+    then
+        __dwm_battery
+    else
+        echo "dwm.battery.sh is running"
+    fi
+elif [[ "${OS}" = "FreeBSD" ]]
+then
+    if [[ ${dwm_battery_detect} -eq 0 ]]
+    then
+        __dwm_battery
+    else
+        echo "dwm.battery.sh is running"
+    fi
 fi
 
 #### END
