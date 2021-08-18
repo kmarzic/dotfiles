@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-07-04 08:03:17 (CEST)
+## Last update: 2021-08-18 12:54:27 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -218,28 +218,28 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-solarized
-set-option -g status-left '#[fg=black,bg=#2aa198] #S ' # black / cyan
-## default statusbar colors
-set-option -g status-style fg=#268bd2,bg=#073642 # blue and base02
-## default window title colors
-set-window-option -g window-status-style fg=brightblue,bg=#073642 # brightblue and base02
-## active window title colors
-set-window-option -g window-status-current-style fg=black,bg=red # orange and default
-## pane border
-set-option -g pane-border-style fg=brightgreen # base02
-set-option -g pane-active-border-style fg=brightblue # base01
-## message text
-set-option -g message-style fg=brightred,bg=black # orange and base01
-## pane number display
-set-option -g display-panes-active-colour blue # blue
-set-option -g display-panes-colour brightred # orange
-## clock
-set-window-option -g clock-mode-colour green # green
-## bell
-set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
-## Colors
+# set-option -g status-left '#[fg=black,bg=#2aa198] #S ' # black / cyan
+# ## default statusbar colors
+# set-option -g status-style fg=#268bd2,bg=#073642 # blue and base02
+# ## default window title colors
+# set-window-option -g window-status-style fg=brightblue,bg=#073642 # brightblue and base02
+# ## active window title colors
+# set-window-option -g window-status-current-style fg=black,bg=red # orange and default
+# ## pane border
+# set-option -g pane-border-style fg=brightgreen # base02
+# set-option -g pane-active-border-style fg=brightblue # base01
+# ## message text
+# set-option -g message-style fg=brightred,bg=black # orange and base01
+# ## pane number display
+# set-option -g display-panes-active-colour blue # blue
+# set-option -g display-panes-colour brightred # orange
+# ## clock
+# set-window-option -g clock-mode-colour green # green
+# ## bell
+# set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
+## Colors, 'seebi/tmux-colors-solarized'
 # set -g @colors-solarized '256'
-# set -g @colors-solarized 'dark'
+set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
 # set -g @colors-solarized 'base16'
 
@@ -263,6 +263,12 @@ set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
 
 ## tmux-gruvbox-truecolor
 
+## mattdavis90/base16-tmux
+# set -g @colors-base16 'gruvbox-dark-pale'
+# set -g @colors-base16 'gruvbox-dark-hard'
+# set -g @colors-base16 'gruvbox-dark-medium'
+# set -g @colors-base16 'gruvbox-dark-soft'
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -274,12 +280,13 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
 # set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
-# set -g @plugin 'seebi/tmux-colors-solarized'
+set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
+# set -g @plugin 'mattdavis90/base16-tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install

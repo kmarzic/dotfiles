@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-07-04 08:03:15 (CEST)
+## Last update: 2021-08-18 12:54:25 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -263,6 +263,12 @@ set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
 
 ## tmux-gruvbox-truecolor
 
+## mattdavis90/base16-tmux
+# set -g @colors-base16 'gruvbox-dark-pale'
+# set -g @colors-base16 'gruvbox-dark-hard'
+# set -g @colors-base16 'gruvbox-dark-medium'
+# set -g @colors-base16 'gruvbox-dark-soft'
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 set -g @plugin 'tmux-plugins/tmux-sensible'
@@ -280,6 +286,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
+# set -g @plugin 'mattdavis90/base16-tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install
