@@ -196,18 +196,18 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @continuum-restore 'on'
 
 ## tmux-themepack
-# # set -g @themepack 'default'
-# set -g @themepack 'basic'
-# # set -g @themepack 'powerline/default/cyan'
-# # set -g @themepack 'powerline/block/cyan'
-# set -g @theme-status-justify left
-# set -g @theme-status-left-bg '#2c2e34'
-# set -g @theme-status-right-bg '#2c2e34'
-# set -g @theme-status-bg '#2c2e34'
-# set -g @theme-window-status-activity-bg '#2c2e34'
-# set -g @theme-window-status-current-fg '#2c2e34'
-# # set -g @theme-mode-bg cyan
-# # set -g @theme-mode-fg black
+# set -g @themepack 'default'
+set -g @themepack 'basic'
+# set -g @themepack 'powerline/default/cyan'
+# set -g @themepack 'powerline/block/cyan'
+set -g @theme-status-justify left
+set -g @theme-status-left-bg '#2c2e34'
+set -g @theme-status-right-bg '#2c2e34'
+set -g @theme-status-bg '#2c2e34'
+set -g @theme-window-status-activity-bg '#2c2e34'
+set -g @theme-window-status-current-fg '#2c2e34'
+# set -g @theme-mode-bg cyan
+# set -g @theme-mode-fg black
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'
@@ -256,7 +256,7 @@ set -g @plugin 'tmux-plugins/tmux-pain-control'
 set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'tmux-plugins/tmux-resurrect'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
-# set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
@@ -264,7 +264,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-set -g @plugin 'mattdavis90/base16-tmux'
+# set -g @plugin 'mattdavis90/base16-tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install
