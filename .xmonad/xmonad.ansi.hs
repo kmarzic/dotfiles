@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-07-30 21:43:10 (CEST)
+-- Last update: 2021-08-21 19:38:36 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -558,10 +558,10 @@ myKeys =
     ((mod1Mask,                  xK_bracketright), nextWS), -- next workspace
     ((mod1Mask .|. shiftMask,    xK_Left), prevWS), -- previous workspace
     ((mod1Mask .|. shiftMask,    xK_Right), nextWS), -- next workspace
-    ((mod1Mask .|. shiftMask,    xK_bracketleft),   DO.moveTo Prev HiddenNonEmptyWS), -- previous non empty workspace
-    ((mod1Mask .|. shiftMask,    xK_bracketright),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
-    ((mod1Mask .|. controlMask,  xK_Left),   DO.moveTo Prev HiddenNonEmptyWS), -- previous non empty workspace
-    ((mod1Mask .|. controlMask,  xK_Right),  DO.moveTo Next HiddenNonEmptyWS), -- previous non empty workspace
+    ((mod1Mask .|. shiftMask,    xK_bracketleft),   DO.moveTo Prev hiddenWS), -- previous non empty workspace
+    ((mod1Mask .|. shiftMask,    xK_bracketright),  DO.moveTo Next hiddenWS), -- previous non empty workspace
+    ((mod1Mask .|. controlMask,  xK_Left),   DO.moveTo Prev hiddenWS), -- previous non empty workspace
+    ((mod1Mask .|. controlMask,  xK_Right),  DO.moveTo Next hiddenWS), -- previous non empty workspace
     --
     ((mod1Mask,                  xK_m      ), withFocused minimizeWindow <+> windows W.focusDown),
     ((mod1Mask .|. shiftMask,    xK_m      ), withLastMinimized maximizeWindowAndFocus),
