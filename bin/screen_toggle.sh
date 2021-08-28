@@ -930,7 +930,7 @@ function __xrandr()
             #### 2 monitors
 
             #### dle6440
-            if [[ "$(hostname)" == "dle6440" ]]
+            if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
@@ -957,7 +957,7 @@ function __xrandr()
             #### 3 monitors
 
             #### dle6440
-            if [[ "$(hostname)" == "dle6440" ]]
+            if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
