@@ -119,9 +119,9 @@ function __compton()
     then
         [[ -e /opt/picom/bin/picom ]] && /opt/picom/bin/picom -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null -b
         ##
-        [[ -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null -b
-        # [[ -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --blur-method kernel -b
-        # [[ -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/picom --config ~/.config/compton.conf -b
+        [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --config /dev/null -b
+        # [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 --blur-method kernel -b
+        # [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom --config ~/.config/compton.conf -b
         ##
         # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
         # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 -i 0 -b
