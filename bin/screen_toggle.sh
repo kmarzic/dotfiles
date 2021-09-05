@@ -508,9 +508,9 @@ function __theme()
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
