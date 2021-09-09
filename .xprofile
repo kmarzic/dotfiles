@@ -119,7 +119,6 @@ function __compton()
     then
         [[ -e /opt/picom/bin/picom ]] && /opt/picom/bin/picom \
           -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
-          --backend glx --blur-method kernel --blur-kern 7x7gaussian \
           --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
           --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
           --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
@@ -128,7 +127,6 @@ function __compton()
         ##
         [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom \
           -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
-          --backend glx --blur-method kernel --blur-kern 7x7gaussian \
           --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
           --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
           --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
@@ -137,7 +135,6 @@ function __compton()
         ##
         [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton \
           -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
-          --backend glx --blur-method kernel --blur-kern 7x7gaussian \
           --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
           --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
           --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
