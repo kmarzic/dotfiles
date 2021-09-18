@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-09-03 20:04:49 (CEST)
+!! Last update: 2021-09-18 11:52:24 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -12,9 +12,15 @@
 !! ---------------------------------------------------------------------
 
 ! *customization: -color
+!
 ! *console.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 ! *console.font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
+!
+! *console.font: DejaVuSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
+*console.font: xft:DejaVuSansMono Nerd Font:pixelsize=14:style=regular
+!
 ! *font: xft:DejaVu Sans Mono:pixelsize=14:style=oblique
+! *font: xft:DejaVuSansMono\ Nerd\ Font:pixelsize=14:style=oblique
 
 
 !! ---------------------------------------------------------------------
@@ -414,8 +420,9 @@ st.shell: /bin/bash
 ! st.cursorColor: #101010
 ! st.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
-st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+! st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
+st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=12:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=13:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=14:antialias=true:style=regular
@@ -450,7 +457,7 @@ st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regula
 ! st*font: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
 ! st*font: Ubuntu Mono Nerd Font Mono:pixelsize=15:antialias=true:autohint=true:style=regular
 !
-st*font2: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
+! st*font2: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
 
 st.bellvolume: 100
 st.tabspaces: 8
