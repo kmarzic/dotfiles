@@ -1,7 +1,8 @@
 #### alacritty.yml.dracula
 
 env:
-  TERM: rxvt-256color
+  # TERM: rxvt-256color
+  TERM: alacritty
 
 window:
   dimensions:
@@ -21,44 +22,43 @@ window:
   startup_mode: Maximized
   # title: Alacritty
   dynamic_title: true
-  # class:
-    # instance: Alacritty
-    # general: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
   # gtk_theme_variant: None
 
 scrolling:
   history: 20000
-
   multiplier: 3
 
 font:
-  normal:
-    family: monospace
-    style: Regular
-  bold:
-    family: monospace
-    style: Bold
-  italic:
-    family: monospace
-    style: Italic
-  bold_italic:
-    family: monospace
-    style: Bold Italic
-
   # normal:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Regular
   # bold:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Bold
   # italic:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Italic
   # bold_italic:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Bold Italic
 
-  size: 11.0
+  normal:
+    family: DejaVuSansMono Nerd Font
+    style: Regular
+  bold:
+    family: DejaVuSansMono Nerd Font
+    style: Bold
+  italic:
+    family: DejaVuSansMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: DejaVuSansMono Nerd Font
+    style: Bold Italic
+
+  size: 10.0
 
   offset:
     x: 0
@@ -76,31 +76,17 @@ draw_bold_text_with_bright_colors: false
 schemes:
   ## Dracula
   dracula: &dracula
+    # Default colors
     primary:
       background: '0x282a36'
       foreground: '0xf8f8f2'
 
-      # Bright and dim foreground colors
-      #
-      # The dimmed foreground color is calculated automatically if it is not present.
-      # If the bright foreground color is not set, or `draw_bold_text_with_bright_colors`
-      # is `false`, the normal foreground color will be used.
-      #dim_foreground: '0x9a9a9a'
-      #bright_foreground: '0xffffff'
-
-    # Cursor colors
-    #
-    # Colors which should be used to draw the terminal cursor. If these are unset,
-    # the cursor color will be the inverse of the cell color.
+    # Colors the cursor will use if `custom_cursor_colors` is true
     cursor:
       text: '0x44475a'
       cursor: '0xf8f8f2'
 
     # Selection colors
-    #
-    # Colors which should be used to draw the selection area. If selection
-    # background is unset, selection color will be the inverse of the cell colors.
-    # If only text is unset the cell text color will remain the same.
     selection:
       text: '0xf8f8f2'
       background: '0x44475a'
@@ -128,9 +114,6 @@ schemes:
       white:   '0xe6e6e6'
 
     # Dim colors
-    #
-    # If the dim colors are not set, they will be calculated automatically based
-    # on the `normal` colors.
     dim:
       black:   '0x14151b'
       red:     '0xff2222'
@@ -142,13 +125,6 @@ schemes:
       white:   '0xe6e6d1'
 
     # Indexed Colors
-    #
-    # The indexed colors include all colors from 16 to 256.
-    # When these are not set, they're filled with sensible defaults.
-    #
-    # Example:
-    #   `- { index: 16, color: '0xff00ff' }`
-    #
     indexed_colors: []
 
 colors: *dracula
@@ -159,7 +135,7 @@ bell:
   color: '#ffffff'
   # command: None
 
-# background_opacity: 1.00
+background_opacity: 0.95
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -192,6 +168,8 @@ mouse_bindings:
 key_bindings:
   - { key: Paste,                                action: Paste          }
   - { key: Copy,                                 action: Copy           }
+  - { key: P,         mods: Control,             action: Paste          }
+  - { key: Y,         mods: Control,             action: Copy           }
   - { key: L,         mods: Control,             action: ClearLogNotice }
   - { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
   - { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
@@ -262,9 +240,9 @@ key_bindings:
 
 hints:
   url:
-    # launcher:
-    #   program: xdg-open
-    #   args: []
-    modifiers: None
+    launcher:
+      program: firefox
+      # args: []
+    # modifiers: None
 
 #### end

@@ -477,6 +477,15 @@ spterm.cwscale: 1.0
 
 
 !! ---------------------------------------------------------------------
+!! alacritty
+!! ---------------------------------------------------------------------
+
+alacritty*font: xft:DejaVu\ Sans\ Mono:pixelsize=18:antialias=true:hinting=true,style:Regular
+alacritty*boldfont: xft:DejaVu\ Sans\ Mono:pixelsize=18:antialias=true:hinting=true:style:Bold
+alacritty*italicfont: xft:DejaVu\ Sans\ Mono:pixelsize=18:antialias=true:hinting=true:style:Italic
+
+
+!! ---------------------------------------------------------------------
 !! Xlock
 !! ---------------------------------------------------------------------
 

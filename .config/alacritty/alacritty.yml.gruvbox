@@ -1,7 +1,8 @@
 #### alacritty.yml.dracula
 
 env:
-  TERM: rxvt-256color
+  # TERM: rxvt-256color
+  TERM: alacritty
 
 window:
   dimensions:
@@ -21,44 +22,43 @@ window:
   startup_mode: Maximized
   # title: Alacritty
   dynamic_title: true
-  # class:
-    # instance: Alacritty
-    # general: Alacritty
+  class:
+    instance: Alacritty
+    general: Alacritty
   # gtk_theme_variant: None
 
 scrolling:
   history: 20000
-
   multiplier: 3
 
 font:
-  normal:
-    family: monospace
-    style: Regular
-  bold:
-    family: monospace
-    style: Bold
-  italic:
-    family: monospace
-    style: Italic
-  bold_italic:
-    family: monospace
-    style: Bold Italic
-
   # normal:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Regular
   # bold:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Bold
   # italic:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Italic
   # bold_italic:
-  #   family: DejaVu Sans Mono
+  #   family: monospace
   #   style: Bold Italic
 
-  size: 11.0
+  normal:
+    family: DejaVuSansMono Nerd Font
+    style: Regular
+  bold:
+    family: DejaVuSansMono Nerd Font
+    style: Bold
+  italic:
+    family: DejaVuSansMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: DejaVuSansMono Nerd Font
+    style: Bold Italic
+
+  size: 10.0
 
   offset:
     x: 0
@@ -76,10 +76,17 @@ draw_bold_text_with_bright_colors: false
 schemes:
   ## Gruvbox Material Dark Medium
   gruvbox: &gruvbox
+    # Default colors
     primary:
       background: '0x282828'
       foreground: '0xdfbf8e'
 
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    # cursor:
+    #   text:    '0xfdf6e3'
+    #   cursor:  '0x586e75'
+
+    # Normal colors
     normal:
       black:   '0x665c54'
       red:     '0xea6962'
@@ -90,6 +97,7 @@ schemes:
       cyan:    '0x89b482'
       white:   '0xdfbf8e'
 
+    # Bright colors
     bright:
       black:   '0x928374'
       red:     '0xea6962'
@@ -108,7 +116,7 @@ bell:
   color: '#ffffff'
   # command: None
 
-# background_opacity: 1.00
+background_opacity: 0.95
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
@@ -141,6 +149,8 @@ mouse_bindings:
 key_bindings:
   - { key: Paste,                                action: Paste          }
   - { key: Copy,                                 action: Copy           }
+  - { key: P,         mods: Control,             action: Paste          }
+  - { key: Y,         mods: Control,             action: Copy           }
   - { key: L,         mods: Control,             action: ClearLogNotice }
   - { key: L,         mods: Control, mode: ~Vi,  chars: "\x0c"          }
   - { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
@@ -211,9 +221,9 @@ key_bindings:
 
 hints:
   url:
-    # launcher:
-    #   program: xdg-open
-    #   args: []
-    modifiers: None
+    launcher:
+      program: firefox
+      # args: []
+    # modifiers: None
 
 #### end

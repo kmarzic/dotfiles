@@ -117,23 +117,23 @@ function __compton()
 
     if [[ ${compton_detect} -eq 0 ]]
     then
-        [[ -e /opt/picom/bin/picom ]] && /opt/picom/bin/picom \
-          -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
-          --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
-          --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
-          --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
-          --config /dev/null -b
-        # [[ -e /opt/picom/bin/picom ]] && /opt/picom/bin/picom --config ~/.config/compton.conf -b
+        # [[ -e /opt/picom/bin/picom ]] && /opt/picom/bin/picom \
+        #   -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
+        #   --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
+        #   --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
+        #   --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
+        #   --config /dev/null -b
+        [[ -e /opt/picom/bin/picom ]] && /opt/picom/bin/picom --config ~/.config/picom.conf -b
         ##
-        [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom \
-          -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
-          --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
-          --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
-          --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
-          --config /dev/null -b
-        # [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom --config ~/.config/compton.conf -b
+        # [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom \
+        #   -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
+        #   --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
+        #   --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
+        #   --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
+        #   --config /dev/null -b
+        [[ -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/picom --config ~/.config/picom.conf -b
         ##
-        [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton \
+        [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! -e /opt/picom/bin/picom ]] && /usr/bin/compton \
           -cCGfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
           --opacity-rule '99:class_g = "St" && focused' --opacity-rule '80:class_g = "St" && !focused' \
           --opacity-rule '99:class_g = "URxvt" && focused' --opacity-rule '80:class_g = "URxvt" && !focused' \
