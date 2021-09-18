@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-07-10 18:45:00 (CEST)
+"" Last update: 2021-09-18 14:48:37 (CEST)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -35,30 +35,12 @@ if has ("unix")
     "" Fonts
     " set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
     " set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
-    "
-    " set guifont=Courier\ 10\ Pitch\ 9
     " set guifont=Courier\ 10\ Pitch\ 10
-    " set guifont=Courier\ 10\ Pitch\ 11
-    " set guifont=Courier\ 10\ Pitch\ 12
-    "
-    " set guifont=Courier\ New\ 9
     " set guifont=Courier\ New\ 10
-    " set guifont=Courier\ New\ 11
-    " set guifont=Courier\ New\ 12
-    "
-    " set guifont=Terminus\ 9
     " set guifont=Terminus\ 10
-    " set guifont=Terminus\ 11
-    " set guifont=Terminus\ 12
-    "
-    " set guifont=Monospace\ 9
-    set guifont=Monospace\ 10
-    " set guifont=Monospace\ 11
-    " set guifont=Monospace\ 12
-    " set guifont=Monospace\ 13
-    " set guifont=Monospace\ 14
-    "
+    " set guifont=Monospace\ 10
     " set guifont=Inconsolata\ Medium\ 12
+    set guifont=DejaVu\ Sans\ Mono\ 10
 else
     " set guifont=Courier:h9:cEASTEUROPE
     set guifont=Courier_New:h11:cANSI
@@ -168,133 +150,6 @@ colorscheme gruvbox
 "     " autocmd ColorScheme * call s:base16_customize_solarized_dark()
 " augroup END
 
-
-"" -----------------------------------------------------------------------
-"" Custom color scheme
-"" -----------------------------------------------------------------------
-
-"" Color Schemes
-"" http://vimcolorschemetest.googlecode.com
-
-"" http://astonj.com/tech/vim-for-ruby-rails-and-a-sexy-theme/
-" colorscheme codeschool
-
-"" http://www.vim.org/scripts/script.php?script_id=2034
-" colorscheme colorful256
-
-"" http://www.vim.org/scripts/script.php?script_id=1576
-" colorscheme crt
-
-"" http://vimcolorschemetest.googlecode.com/svn/colors/darkslategray.vim
-" colorscheme darkslategray
-
-"" http://www.vim.org/scripts/script.php?script_id=2650
-" colorscheme darkZ
-
-"" http://www.vim.org/scripts/script.php?script_id=2215
-" colorscheme darkspectrum
-
-"" http://www.vim.org/scripts/script.php?script_id=1802
-" colorscheme eclipse
-
-"" http://www.vim.org/scripts/script.php?script_id=1253
-" colorscheme greens
-
-"" http://www.vim.org/scripts/script.php?script_id=2155
-" colorscheme greenvision
-
-"" http://www.vim.org/scripts/script.php?script_id=1483
-" colorscheme marklar
-
-"" http://www.vim.org/scripts/script.php?script_id=1354
-" colorscheme night_vision
-
-"" http://www.vim.org/scripts/script.php?script_id=2577
-" colorscheme summerfruit256
-
-"" http://www.vim.org/scripts/script.php?script_id=1718
-" colorscheme tabula
-
-"" http://www.vim.org/scripts/script.php?script_id=791
-" colorscheme relaxedgreen
-
-"" http://files.werx.dk/wombat.vim
-" colorscheme wombat
-
-"" http://www.vim.org/scripts/script.php?script_id=2140
-" colorscheme xoria256
-
-"" http://slinky.imukuppi.org/zenburnpage/
-" colorscheme zenburn
-
-"" Color Scheme - etkkrma
-" colorscheme etkkrma
-" colorscheme night_vision_etkkrma
-" colorscheme green_black_etkkrma
-
-
-"" -----------------------------------------------------------------------
-"" Custom color scheme (in bundle)
-"" -----------------------------------------------------------------------
-
-"" last256
-"" http://www.vim.org/scripts/script.php?script_id=4489
-"" https://github.com/sk1418/last256
-"" cd ~/.vim/bundle; git clone https://github.com/sk1418/last256
-"" cd ~/.vim/bundle/last256; git remote update
-"" NOTE: configured in ~/.gvimrc
-" colorscheme last256
-
-"" LithoChromatic Color Theme
-"" http://www.vim.org/scripts/script.php?script_id=4406
-"" https://github.com/vim-scripts/lithochromatic
-"" cd ~/.vim/bundle; git clone https://github.com/vim-scripts/lithochromatic
-"" cd ~/.vim/bundle/lithochromatic; git remote update
-"" NOTE: configured in ~/.gvimrc
-" colorscheme lithochromatic
-
-"" Solarized Colorscheme for Vim
-"" http://ethanschoonover.com/solarized
-"" http://www.vim.org/scripts/script.php?script_id=3520
-"" https://github.com/altercation/vim-colors-solarized
-"" cd ~/.vim/bundle; git clone https://github.com/altercation/vim-colors-solarized.git
-"" cd ~/.vim/bundle/vim-colors-solarized; git remote update
-"" NOTE: configured in ~/.gvimrc
-" set t_Co=8
-" set t_Co=16
-" set t_Co=256
-" let g:solarized_termcolors=16
-" let g:solarized_termcolors=256
-" let g:solarized_termtrans = 0
-" let g:solarized_degrade = 0
-" let g:solarized_bold = 0
-" let g:solarized_underline = 0
-" let g:solarized_italic = 0
-" let g:solarized_contrast = "low"
-" let g:solarized_contrast = "normal"
-" let g:solarized_contrast = "high"
-" let g:solarized_visibility= "low"
-" let g:solarized_visibility= "normal"
-" let g:solarized_visibility= "high"
-" syntax on
-" set term=xterm-256color
-" set background=light
-" set background=dark
-" colorscheme solarized
-" let g:indent_guides_auto_colors = 0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#073642 ctermbg=0
-" autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#073642 ctermbg=0
-" autocmd VimEnter,Colorscheme * :hi SignColumn guibg=#073642  ctermbg=0
-
-"" vim-hemisu
-"" http://www.vim.org/scripts/script.php?script_id=4470
-"" https://github.com/noahfrederick/vim-hemisu
-"" cd ~/.vim/bundle; git clone https://github.com/noahfrederick/vim-hemisu
-"" cd ~/.vim/bundle/vim-hemisu; git remote update
-"" NOTE: configured in ~/.gvimrc
-" set background=light
-" set background=dark
-" colorscheme hemisu
 
 "" -----------------------------------------------------------------------
 "" EOF

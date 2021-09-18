@@ -117,10 +117,10 @@ function __compton()
 
     if [[ ${compton_detect} -eq 0 ]]
     then
-        [[ "$(hostname)" == "elx711804dr" ]] && /opt/picom/bin/picom --config ~/.config/picom.conf.elx711804dr -b
-        [[ "$(hostname)" == "dle5570" ]] && /usr/bin/picom --config ~/.config/picom.conf.dle5570 -b
-        [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/picom --config ~/.config/picom.conf.dle5570 -b
-        [[ "$(hostname)" == "dle6440" ]] && /usr/bin/picom --config ~/.config/picom.conf.dle6440 -b
+        [[ "$(hostname)" == "elx711804dr" ]] && /opt/picom/bin/picom --config ~/.config/picom.conf.glx -b
+        [[ "$(hostname)" == "dle5570" ]] && /usr/bin/picom --config ~/.config/picom.conf.glx -b
+        [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/picom --config ~/.config/picom.conf.glx -b
+        [[ "$(hostname)" == "dle6440" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
     else
         echo "compton|picom is running"
