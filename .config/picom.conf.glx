@@ -74,9 +74,11 @@ blur-deviation = 0.2;
 blur-strength = 2;
 
 blur-background-exclude = [
-    "class_g = 'Microsoft Teams'", "name = 'Microsoft Teams'",
-    "name = 'cpt_frame_window'",
-    "name *= 'rect-overlay'"
+    ## microsoft teams
+    "name *= 'rect-overlay'",
+    ## screenshot with `maim`, https://github.com/naelstrof/maim/issues/130
+    "class_g = 'slop'",
+    "_GTK_FRAME_EXTENTS@:c"
 ];
 
 
