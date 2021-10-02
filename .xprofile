@@ -100,9 +100,10 @@ function __redshift()
     if [[ ${redshift_detect} -eq 0 ]]
     then
         echo "# /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &"
-        [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
+        # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
         # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.dark.conf redshift.conf && cd -
         # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
+        [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
         [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
     else
         echo "redshift is running"
