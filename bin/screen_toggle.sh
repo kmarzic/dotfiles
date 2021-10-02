@@ -499,6 +499,26 @@ function __theme()
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
+
+            #### xmobar
+            [[ -e ~/.xmonad/xmobar.gruvbox.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.gruvbox.hs xmobar.hs
+
+            #### xmonad
+            [[ -e ~/.xmonad/xmonad.gruvbox.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.gruvbox.hs xmonad.hs
+
+            if [[ -d ~/data/cabal/xmonad ]]
+            then
+                ## custom compiled xmonad - used sandbox
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
+                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
+            else
+                ## xmonad installed from package
+                # xmonad --recompile
+                # xmonad --restart
+
+                ## xmonad installed from stack
+                cd ~/.xmonad && ./recompile.sh
+            fi
             ;;
         "monokai")
             __printf "monokai"
