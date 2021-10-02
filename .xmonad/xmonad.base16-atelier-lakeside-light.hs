@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-08-21 19:38:32 (CEST)
+-- Last update: 2021-10-02 18:27:14 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -207,8 +207,8 @@ myModMask :: KeyMask
 myModMask = mod1Mask
 
 myFocusFollowsMouse :: Bool
--- myFocusFollowsMouse = True
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
+-- myFocusFollowsMouse = False
 
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
@@ -422,13 +422,17 @@ myPPLayout layout = case layout of
       "Tabbed Simplest by Full"         -> myIcon ".xmonad/icons/layout_tabbed.xbm"
       "Spacing Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
       "Full by Full"                    -> myIcon ".xmonad/icons/layout_full.xbm"
+      "full' by Full"                   -> myIcon ".xmonad/icons/layout_full.xbm"
       "Spacing Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
+      "tiled' by Full"                  -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Mirror Spacing Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
+      "mirror' by Full"                 -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Spacing Roledex by Full"         -> myIcon ".xmonad/icons/layout_roledex.xbm"
       "Roledex by Full"                 -> myIcon ".xmonad/icons/layout_roledex.xbm"
+      "roledex' by Full"                -> myIcon ".xmonad/icons/layout_roledex.xbm"
       _                                 -> layout
 
 logTitles :: X (Maybe String) -- this is a Logger

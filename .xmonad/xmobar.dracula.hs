@@ -2,7 +2,7 @@
 -- Last update: 2021-01-05 08:35:49 (CET)
 
 Config {
-   -- theme: ansi
+   -- theme: dracula
    bgColor = "#101010",
    fgColor = "#f2f2f2",
 

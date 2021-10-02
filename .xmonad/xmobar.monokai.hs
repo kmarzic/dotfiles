@@ -2,7 +2,7 @@
 -- Last update: 2021-07-30 20:39:22 (CEST)
 
 Config {
-   -- theme: edge dark
+   -- theme: monokai
    bgColor = "#101010",
    fgColor = "#f2f2f2",
 

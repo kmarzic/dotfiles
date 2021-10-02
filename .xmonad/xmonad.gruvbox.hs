@@ -54,16 +54,16 @@ import qualified XMonad.StackSet as W
 gruvbox :: M.Map String String
 gruvbox = M.fromList
   [
-    ("background",       "#32302f"),
-    ("line",             "#ebdbb2"),
-    ("selection",        "#b8bb26"),
-    ("foreground",       "#ebdbb2"),
-    ("comment",          "#b8bb26"),
+    ("background",       "#32302f"), -- dark
+    ("line",             "#ebdbb2"), -- fg
+    ("selection",        "#b8bb26"), -- green
+    ("foreground",       "#ebdbb2"), -- fg
+    ("comment",          "#b8bb26"), -- green
     ("cyan",             "#8ec07c"),
     ("green",            "#b8bb26"),
-    ("orange",           "#"),
+    ("orange",           "#fe8019"),
     ("pink",             "#d3869b"),
-    ("purple",           "#83a598"),
+    ("purple",           "#d3869b"),
     ("red",              "#fb4934"),
     ("yellow",           "#fabd2f")
   ]
@@ -171,7 +171,7 @@ fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ C
 
 dmenuCommandGruvbox :: String -- theme: gruvbox
 -- dmenuCommandGruvbox = "/usr/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
-dmenuCommandGruvbox = "$HOME/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
+dmenuCommandGruvbox = "$HOME/bin/dmenu_run -i -nf \"#b8bb26\" -nb \"#101010\" -sb \"#b8bb26\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
 
 rofiCommand :: String
 rofiCommand = "rofi -show run"
@@ -203,8 +203,8 @@ myModMask :: KeyMask
 myModMask = mod1Mask
 
 myFocusFollowsMouse :: Bool
--- myFocusFollowsMouse = True
-myFocusFollowsMouse = False
+myFocusFollowsMouse = True
+-- myFocusFollowsMouse = False
 
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
@@ -214,9 +214,9 @@ myBorderWidth = 1
 -- myBorderWidth = 2
 
 myNormalBorderColorGruvbox :: String -- theme: gruvbox
-myNormalBorderColorGruvbox = gruvbox M.! "comment"
+myNormalBorderColorGruvbox = gruvbox M.! "background"
 myFocusedBorderColorGruvbox :: String
-myFocusedBorderColorGruvbox = gruvbox M.! "purple"
+myFocusedBorderColorGruvbox = gruvbox M.! "selection"
 
 xmobarEscape :: String -> String
 xmobarEscape = concatMap doubleLts
@@ -418,13 +418,17 @@ myPPLayout layout = case layout of
       "Tabbed Simplest by Full"         -> myIcon ".xmonad/icons/layout_tabbed.xbm"
       "Spacing Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
       "Full by Full"                    -> myIcon ".xmonad/icons/layout_full.xbm"
+      "full' by Full"                   -> myIcon ".xmonad/icons/layout_full.xbm"
       "Spacing Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
+      "tiled' by Full"                  -> myIcon ".xmonad/icons/layout_tall.xbm"
       "Mirror Spacing Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
+      "mirror' by Full"                 -> myIcon ".xmonad/icons/layout_mirror.xbm"
       "Spacing Roledex by Full"         -> myIcon ".xmonad/icons/layout_roledex.xbm"
       "Roledex by Full"                 -> myIcon ".xmonad/icons/layout_roledex.xbm"
+      "roledex' by Full"                -> myIcon ".xmonad/icons/layout_roledex.xbm"
       _                                 -> layout
 
 logTitles :: X (Maybe String) -- this is a Logger
@@ -440,9 +444,9 @@ myXmobarLogHookGruvboxPP :: PP -- theme: gruvbox
 myXmobarLogHookGruvboxPP = def
   {
     ppCurrent         = xmobarColor (gruvbox M.! "red") "" . wrap "[" "]",
-    ppHidden          = xmobarColor (gruvbox M.! "cyan") "",
-    ppHiddenNoWindows = xmobarColor (gruvbox M.! "comment") "",
-    ppTitle           = xmobarColor (gruvbox M.! "purple") "" . shorten 50,
+    ppHidden          = xmobarColor (gruvbox M.! "green") "",
+    ppHiddenNoWindows = xmobarColor (gruvbox M.! "line") "",
+    ppTitle           = xmobarColor (gruvbox M.! "green") "" . shorten 50,
     ppVisible         = xmobarColor (gruvbox M.! "purple") "" . wrap "(" ")",
     ppUrgent          = xmobarColor (gruvbox M.! "green") (gruvbox M.! "yellow"),
     ppLayout          = xmobarColor (gruvbox M.! "green") "" . (\layout -> myPPLayout (layout)),
