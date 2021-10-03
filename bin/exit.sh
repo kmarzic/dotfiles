@@ -40,7 +40,7 @@ function __logout()
 {
     [ $(ps -ef | grep "xmonad-x86_64-linux" | wc -l) -gt 0 ] && pkill xmonad; \
     [ $(ps -ef | grep "awesome" | wc -l) -gt 0 ] && pkill awesome; \
-    [ $(ps -ef | grep "dwm.sh" | wc -l) -gt 0 ] && pkill dwm.sh; \
+    [ $(ps -ef | grep "dwm.sh" | grep bash | wc -l) -gt 0 ] && kill $(ps -ef | grep "dwm.sh" | grep bash | awk '{ print $2 }'); \
     [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; \
     [ $(ps -ef | grep "herbstluftwm.sh" | wc -l) -ne 0 ] && pkill herbsluftwm; \
     [ $(ps -ef | grep "herbstluftwm" | wc -l) -ne 0 ] && herbstclient quit; \
