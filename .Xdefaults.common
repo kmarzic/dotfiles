@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-10-09 16:17:20 (CEST)
+!! Last update: 2021-10-09 18:48:19 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -428,6 +428,11 @@ st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=reg
 ! st.font: DejaVuSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: DejaVuSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
 !
+! st.font: Hack:size=10:antialias=true:autohint=true:style=regular
+! st.font: Hack:pixelsize=12:antialias=true:style=regular
+! st.font: Hack:pixelsize=13:antialias=true:style=regular
+! st.font: Hack:pixelsize=14:antialias=true:style=regular
+!
 ! st*font: Droid Sans Mono:pixelsize=12:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=13:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=14:antialias=true:style=regular
@@ -444,10 +449,14 @@ st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=reg
 ! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
 !
+! st.font: Source Code Pro For Powerline:size=11:antialias=true:autohint=true:style=regular
+!
+! st.font: Source Code Pro Medium:size=10:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=14:antialias=true:autohint=true:style=regular
 !
+! st.font: Monospace:size=10:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=14:antialias=true:autohint=true:style=regular
@@ -462,18 +471,15 @@ st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=reg
 ! st.font: Terminus:pixelsize=13:antialias=true:autohint=true:style=bold
 ! st.font: Terminus:pixelsize=14:antialias=true:autohint=true:style=bold
 !
+! st.font: Liberation Mono for Powerline:size=10:antialias=true:style=regular
 ! st.font: Liberation Mono for Powerline:pixelsize=12:antialias=true:style=regular
 ! st.font: Liberation Mono for Powerline:pixelsize=13:antialias=true:style=regular
 ! st.font: Liberation Mono for Powerline:pixelsize=14:antialias=true:style=regular
 !
+! st.font: Liberation Mono:size=10:antialias=true:autohint=true:style=regular
 ! st.font: Liberation Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Liberation Mono:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=regular
-! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=bold
-!
-! st.font: Hack:pixelsize=12:antialias=true:style=regular
-! st.font: Hack:pixelsize=13:antialias=true:style=regular
-! st.font: Hack:pixelsize=14:antialias=true:style=regular
 !
 ! st.font: Inconsolata Regular:pixelsize=14:antialias=true:style=regular
 ! st.font: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
