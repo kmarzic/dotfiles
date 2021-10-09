@@ -17,7 +17,7 @@
 ! *console.font: xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 !
 ! *console.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
-! *console.font: xft:DejaVuSansMono Nerd Font:size=10:style=regular
+*console.font: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
 !
 ! *font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
 
