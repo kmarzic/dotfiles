@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-09-18 11:52:24 (CEST)
+!! Last update: 2021-10-09 16:17:20 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -315,25 +315,29 @@ URxvt*keysym.S-Left:         \033[1;2D
 URxvt*keysym.S-Right:        \033[1;2C
 
 !! fonts
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
-URxvt*boldfont: xft:DejaVu Sans Mono:pixelsize=14:style=bold
-URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=14:style=italic
+! URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
+! URxvt*boldfont: xft:DejaVu Sans Mono:pixelsize=14:style=bold
+! URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=14:style=italic
 !
-! URxvt*font: xft:Source Code Pro Medium:pixelsize=14:style=regular
-! URxvt*boldfont: xft:Source Code Pro Medium:pixelsize=14:style=bold
-! URxvt*italicfont: xft:Source Code Pro Medium:pixelsize=14:style=italic
+URxvt*font: xft:DejaVu Sans Mono Nerd Font:pixelsize=13:style=regular
+URxvt*boldfont: xft:DejaVu Sans Mono Nerd Font:pixelsize=13:style=bold
+URxvt*italicfont: xft:DejaVu Sans Mono Nerd Font:pixelsize=13:style=italic
 !
-! URxvt*font: xft:Terminus:pixelsize=16:antialias=true:style=regular
-! URxvt*boldfont: xft:Terminus:pixelsize=16:antialias=true:style=bold
-! URxvt*italicfont: xft:Terminus:pixelsize=16:antialias=true:style=italic
+! URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=regular
+! URxvt*boldfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=bold
+! URxvt*italicfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=italic
+!
+! URxvt*font: xft:Source Code Pro Medium:size=10:style=regular
+! URxvt*boldfont: xft:Source Code Pro Medium:size=10:style=bold
+! URxvt*italicfont: xft:Source Code Pro Medium:size=10:style=italic
+!
+! URxvt*font: xft:Terminus:size=14:antialias=true:style=regular
+! URxvt*boldfont: xft:Terminus:size=14:antialias=true:style=bold
+! URxvt*italicfont: xft:Terminus:size=14:antialias=true:style=italic
 !
 ! URxvt*font: xft:Terminus:pixelsize=17:antialias=true:style=regular
 ! URxvt*boldfont: xft:Terminus:pixelsize=17:antialias=true:style=bold
 ! URxvt*italicfont: xft:Terminus:pixelsize=17:antialias=true:style=italic
-!
-! URxvt*font: xft:Terminus:pixelsize=18:antialias=true:style=regular
-! URxvt*boldfont: xft:Terminus:pixelsize=18:antialias=true:style=bold
-! URxvt*italicfont: xft:Terminus:pixelsize=18:antialias=true:style=italic
 !
 ! URxvt*font: xft:Monospace:pixelsize=14:antialias=true:style=regular,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true,style=regular
 ! URxvt*boldfont: xft:Monospace-Bold:pixelsize=14:antialias=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=18:antialias=true:hinting=true:style=bold
@@ -355,17 +359,13 @@ URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=14:style=italic
 ! URxvt*boldfont: xft:Inconsolata:pixelsize=16:antialias=true:style=bold
 ! URxvt*italicfont: xft:Inconsolata:pixelsize=16:antialias=true:style=italic
 !
-! URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=regular
-! URxvt*boldfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=bold
-! URxvt*italicfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=italic
-!
 ! URxvt*font: xft:Droid Sans Mono:pixelsize=15:style=regular
 ! URxvt*boldfont: xft:Droid Sans Mono:pixelsize=15:style=bold
 ! URxvt*italicfont: xft:Droid Sans Mono:pixelsize=15:style=italic
 !
-! URxvt*font: xft:Liberation Mono for Powerline:pixelsize=14:antialias=true:autohint=true:style=regular
-! URxvt*boldfont: xft:Liberation Mono for Powerline:pixelsize=14:antialias=true:autohint=true:style=bold
-! URxvt*italicfont: xft:Liberation Mono for Powerline:pixelsize=14:antialias=true:autohint=true:style=italic
+! URxvt*font: xft:Liberation Mono for Powerline:pixelsize=13:antialias=true:autohint=true:style=regular
+! URxvt*boldfont: xft:Liberation Mono for Powerline:pixelsize=13:antialias=true:autohint=true:style=bold
+! URxvt*italicfont: xft:Liberation Mono for Powerline:pixelsize=13:antialias=true:autohint=true:style=italic
 !
 ! URxvt*font: xft:Liberation Mono for Powerline,Literation Mono Powerline:pixelsize=10:style=Regular:antialias=true:autohint=true,xft:Source\ Code\ Pro\ Medium:pixelsize=10:antialias=true:hinting=true:style=regular
 ! URxvt*boldfont: xft:Liberation Mono for Powerline,Literation Mono Powerline:pixelsize=10:antialias=true:autohint=true:style=bold,xft:Source\ Code\ Pro\ Medium:pixelsize=10:antialias=true:hinting=true:style=bold
@@ -418,46 +418,68 @@ st.shell: /bin/bash
 ! st.background: #101010
 ! st.foreground: #d2d2d2
 ! st.cursorColor: #101010
+!
+! st.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
-! st.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
+!
 st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
+! st.font: DejaVuSansMono Nerd Font:pixelsize=12:antialias=true:autohint=true:style=regular
+! st.font: DejaVuSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=regular
+! st.font: DejaVuSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
+!
 ! st*font: Droid Sans Mono:pixelsize=12:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=13:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=14:antialias=true:style=regular
+!
 ! st*font: Free Mono:pixelsize=14:antialias=true:style=regular
-! st*font: Bitstream Vera Sans Mono:pixelsize=12:antialias=true:style=regular
-! st*font: Bitstream Vera Sans Mono:pixelsize=13:antialias=true:style=regular
-! st*font: Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=regular
+!
+! st*font: Bitstream Vera Sans Mono:size=10:antialias=true:autohint=true:style=regular
+! st*font: Bitstream Vera Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
+! st*font: Bitstream Vera Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
+! st*font: Bitstream Vera Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+!
+! st*font: BitstreamVeraSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
+! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=12:antialias=true:autohint=true:style=regular
+! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=regular
+! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
+!
 ! st.font: Source Code Pro Medium:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=14:antialias=true:autohint=true:style=regular
+!
 ! st.font: Monospace:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Monospace:pixelsize=14:antialias=true:autohint=true:style=regular
+!
 ! st.font: Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+!
+! st.font: Terminus:size=12:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=14:antialias=true:autohint=true:style=regular
 ! st.font: Terminus:pixelsize=12:antialias=true:autohint=true:style=bold
 ! st.font: Terminus:pixelsize=13:antialias=true:autohint=true:style=bold
 ! st.font: Terminus:pixelsize=14:antialias=true:autohint=true:style=bold
+!
 ! st.font: Liberation Mono for Powerline:pixelsize=12:antialias=true:style=regular
 ! st.font: Liberation Mono for Powerline:pixelsize=13:antialias=true:style=regular
 ! st.font: Liberation Mono for Powerline:pixelsize=14:antialias=true:style=regular
+!
 ! st.font: Liberation Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Liberation Mono:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 ! st.font: Liberation Mono:pixelsize=14:antialias=true:autohint=true:style=bold
-! st*font: Hack:pixelsize=12:antialias=true:style=regular
-! st*font: Hack:pixelsize=13:antialias=true:style=regular
-! st*font: Hack:pixelsize=14:antialias=true:style=regular
-! st*font: Inconsolata Regular:pixelsize=14:antialias=true:style=regular
-! st*font: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
-! st*font: Ubuntu Mono Nerd Font Mono:pixelsize=15:antialias=true:autohint=true:style=regular
 !
-! st*font2: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
+! st.font: Hack:pixelsize=12:antialias=true:style=regular
+! st.font: Hack:pixelsize=13:antialias=true:style=regular
+! st.font: Hack:pixelsize=14:antialias=true:style=regular
+!
+! st.font: Inconsolata Regular:pixelsize=14:antialias=true:style=regular
+! st.font: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
+!
+! st.font: Ubuntu Mono Nerd Font Mono:pixelsize=15:antialias=true:autohint=true:style=regular
 
 st.bellvolume: 100
 st.tabspaces: 8
@@ -475,7 +497,11 @@ spterm.alpha: 0.96
 ! spterm.opacity: 240
 spterm.termname: st-256color
 spterm.shell: /bin/bash
-spterm.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:autohint=true:style=regular
+!
+! spterm.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:autohint=true:style=regular
+! spterm.font: DejaVu Sans Mono:size=9:antialias=true:autohint=true:autohint=true:style=regular
+spterm.font: DejaVuSansMono Nerd Font:size=9:antialias=true:autohint=true:style=regular
+!
 spterm.bellvolume: 100
 spterm.tabspaces: 8
 spterm.borderpx: 2
