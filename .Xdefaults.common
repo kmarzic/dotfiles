@@ -13,14 +13,13 @@
 
 ! *customization: -color
 !
-! *console.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
-! *console.font: xft:DejaVu Sans Mono:pixelsize=14:style=regular
+! *console.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
+! *console.font: xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 !
-! *console.font: DejaVuSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
-! *console.font: xft:DejaVuSansMono Nerd Font:pixelsize=14:style=regular
+! *console.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
+! *console.font: xft:DejaVuSansMono Nerd Font:size=10:style=regular
 !
-! *font: xft:DejaVu Sans Mono:pixelsize=14:style=oblique
-! *font: xft:DejaVuSansMono\ Nerd\ Font:pixelsize=14:style=oblique
+! *font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
 
 
 !! ---------------------------------------------------------------------
