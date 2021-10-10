@@ -18,7 +18,7 @@ Config {
    -- additionalFonts = [ "xft:Misc Fixed:size=10:antialias=true:style=bold" ],
    additionalFonts = [ "xft:Bitstream Vera Sans Mono:size=10:antialias=true", "xft:Source Code Pro:size=10:regular:antialias=true"],
 
-   borderColor = "black",
+   borderColor = "#32302f",
    border = TopB,
    -- alpha = 255,
    alpha = 186,
