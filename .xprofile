@@ -126,7 +126,7 @@ function __compton()
         #   --opacity-rule '99:class_g = "Alacritty" && focused' --opacity-rule '80:class_g = "Alacritty" && !focused' \
         #   --config /dev/null -b
         [[ "$(hostname)" == "dle5570" ]] && /usr/bin/picom --config ~/.config/picom.conf.glx -b
-        [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/picom --config ~/.config/picom.conf.glx -b
+        [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "dle6440" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
         ####
