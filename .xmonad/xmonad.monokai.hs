@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-10-02 18:28:21 (CEST)
+-- Last update: 2021-10-23 11:34:12 (CEST)
 -------------------------------------------------------------------------------
 
 import Data.Maybe ( maybeToList )
@@ -627,7 +627,7 @@ myMouse =
 -- Configurations
 -------------------------------------------------------------------------------
 
-myConfigDefault = def
+myConfigDefault = docks $ def
     {
       terminal             = myTerminal,
       modMask              = myModMask,
@@ -637,7 +637,8 @@ myConfigDefault = def
       workspaces           = myWorkspaces,
       startupHook          = myStartUp >> myStartUpScreen,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      handleEventHook      = handleEventHook def <+> docksEventHook
+      -- handleEventHook      = handleEventHook def <+> docksEventHook
+      handleEventHook      = handleEventHook def
     } `additionalKeys` myKeys
       `additionalMouseBindings` myMouse
 

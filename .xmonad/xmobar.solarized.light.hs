@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2021-01-05 08:36:23 (CET)
+-- Last update: 2021-10-23 11:32:09 (CEST)
 
 Config {
    -- theme: solarized light
@@ -17,7 +17,7 @@ Config {
    border = TopB,
    alpha = 255,
    -- alpha = 0,
-   position = BottomP 5 2,
+   position = BottomP 4 2,
    textOffset = -1,
    iconOffset = -1,
    lowerOnStart = True,     -- send to bottom of window stack on start
