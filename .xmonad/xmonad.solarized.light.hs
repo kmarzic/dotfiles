@@ -759,7 +759,7 @@ myMouse =
 -- Configurations
 -------------------------------------------------------------------------------
 
-myConfigDefault = def
+myConfigDefault = docks $ def
     {
       terminal             = myTerminal,
       modMask              = myModMask,
@@ -769,7 +769,8 @@ myConfigDefault = def
       workspaces           = myWorkspaces,
       startupHook          = myStartUp >> myStartUpScreen,
       manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
-      handleEventHook      = handleEventHook def <+> docksEventHook
+      -- handleEventHook      = handleEventHook def <+> docksEventHook
+      handleEventHook      = handleEventHook def
     } `additionalKeys` myKeys
       `additionalMouseBindings` myMouse
 

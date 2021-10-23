@@ -6,23 +6,18 @@ Config {
    bgColor = "#eee8d5", -- base2
    fgColor = "#002b36", -- base03
 
-   -- font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso8859-1",
    -- font = "xft:monospace:size=11:antialias=true:style=bold",
    -- font = "xft:monospace:size=11:antialias=true:style=regular",
-   -- font = "xft:Liberation Mono:size=11:antialias=true:autohint=true:style=bold",
-   -- font = "xft:Bitstream Vera Sans Mono:size=11:antialias=true:autohint=true:style=regular",
+   -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular",
    font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
    --
-   -- additionalFonts = [ "xft:FontAwesome:size=10:style=bold" ],
-   -- additionalFonts = [ "xft:Droid Sans Mono:size=10:antialias=true:style=bold" ],
-   -- additionalFonts = [ "xft:Misc Fixed:size=10:antialias=true:style=bold" ],
-   additionalFonts = [ "xft:Bitstream Vera Sans Mono:size=10:antialias=true", "xft:Source Code Pro:size=10:regular:antialias=true"],
+   additionalFonts = [ "xft:DejaVu Sans Mono:size=10:antialias=true", "xft:DejaVuSansMono Nerd Font:size=10:regular:antialias=true"],
 
    borderColor = "black",
    border = TopB,
    alpha = 255,
    -- alpha = 0,
-   position = Bottom,
+   position = BottomP 5 2,
    textOffset = -1,
    iconOffset = -1,
    lowerOnStart = True,     -- send to bottom of window stack on start
