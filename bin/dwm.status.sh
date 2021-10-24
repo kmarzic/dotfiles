@@ -2,12 +2,17 @@
 
 export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
+## ----------------------------------------------------------------------------
+## variables
+## ----------------------------------------------------------------------------
+
 #### variables
 OS=$(uname -s)
 DEFAULT_SPACES=7
 AGE=15
 WTTR_FILE="/var/tmp/wttr.txt"
 STATUSCOLOR=1
+GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
 
 #### ansi
 # CYAN='^c#00ffff^'
@@ -72,7 +77,9 @@ NORMAL='^c#073642^'
 # YELLOW='^c#e78a4e^'
 # NORMAL='^c#d4be98^'
 
-GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
+## ----------------------------------------------------------------------------
+## functions
+## ----------------------------------------------------------------------------
 
 #### load
 function __load_linux()
@@ -215,25 +222,47 @@ function __forecast()
 #### network
 function __network_linux()
 {
-    #### (1)
-    ip_private=$(hostname -i | awk {'print $1'})
-    ip_public=$(curl -s https://ipinfo.io/ip)
-    iface=$(ip -o addr show up primary scope global | grep $(hostname -i | awk {'print $1'}) | awk '{ print $2 }')
+    logfile=/dev/shm/netlog
 
-    echo -e "${iface}, ${ip_private}, ${ip_public}"
+    [ -f "${logfile}" ] || echo "0 0" > "${logfile}"
+    read -r rxprev txprev < "${logfile}"
 
-    #### (2)
-    R1=$(cat /sys/class/net/${iface}/statistics/rx_bytes)
-    T1=$(cat /sys/class/net/${iface}/statistics/tx_bytes)
-    sleep 1
-    R2=$(cat /sys/class/net/${iface}/statistics/rx_bytes)
-    T2=$(cat /sys/class/net/${iface}/statistics/tx_bytes)
-    TBPS=$(expr $T2 - $T1)
-    RBPS=$(expr $R2 - $R1)
-    TKBPS=$(expr $TBPS / 1024)
-    RKBPS=$(expr $RBPS / 1024)
+    rxcurrent="$(($(paste -d '+' /sys/class/net/[ew]*/statistics/rx_bytes)))"
+    txcurrent="$(($(paste -d '+' /sys/class/net/[ew]*/statistics/tx_bytes)))"
 
-    echo -e "${iface} tx ${TKBPS} kB/s rx ${RKBPS} kB/s, ${ip_private}, ${ip_public}"
+    rx=$(echo "scale=2; (${rxcurrent}-${rxprev})" | bc)
+    tx=$(echo "scale=2; (${txcurrent}-${txprev})" | bc)
+
+    if [[ ${rx} -gt 1048576 ]]
+    then
+        rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
+        rx="${rx} MB/s"
+    elif [[ ${rx} -gt 1024 ]]
+    then
+        rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%04d", $1)}')
+        rx="${rx} KB/s"
+    else
+        rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%04d", $1)}')
+        rx="${rx}  B/s"
+    fi
+
+    if [[ ${tx} -gt 1048576 ]]
+    then
+        tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
+        tx="${tx} MB/s"
+    elif [[ ${tx} -gt 1024 ]]
+    then
+        tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%04d", $1)}')
+        tx="${tx} KB/s"
+    else
+        tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%04d", $1)}')
+        tx="${tx}  B/s"
+    fi
+
+    echo "${rxcurrent} ${txcurrent}" > "${logfile}"
+
+    # echo "$(bc <<< "scale=2; (${rxcurrent}-${rxprev}) / 10^6")" "$(bc <<< "scale=2; (${txcurrent}-${txprev}) / 10^6")"
+    echo -e "${NORMAL}⬇️ ${rx} ⬆️ ${tx} ${NORMAL}"
 }
 
 function __network_freebsd()
@@ -263,26 +292,30 @@ function __spaces()
     echo "${space}"
 }
 
-#### MAIN
+## ----------------------------------------------------------------------------
+## main
+## ----------------------------------------------------------------------------
+
 dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l | awk '{$1=$1};1')
 echo "dwm_status_detect='${dwm_status_detect}'"
 
 if [[ "${OS}" = "Linux" ]]
 then
     if [[ ${dwm_status_detect} -eq 2 ]]
+    # if [[ ${dwm_status_detect} -eq 3 ]]
     then
         while true;
         do
             #### xsetroot
             if [[ ${STATUSCOLOR} -eq 0 ]]
             then
-                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | # $(__weather) | $(__network_linux) | $(__time) ]$(__spaces)"
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
                 # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
                 xsetroot -name "[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
             elif [[ ${STATUSCOLOR} -eq 1 ]]
             then
-                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | # $(__weather) | $(__network_linux) | $(__time) ] $(__spaces)"
-                xsetroot -name "${NORMAL}[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]${NORMAL}"
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
+                xsetroot -name "${NORMAL}[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
             fi
             sleep 1
         done
