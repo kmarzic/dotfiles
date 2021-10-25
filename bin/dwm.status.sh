@@ -102,8 +102,8 @@ function __load_freebsd()
 #### temp
 function __temp_linux()
 {
-    temp="$(acpi -t | awk '{ print $4 " °C" }')"
-    temp_dec="$(acpi -t | awk '{ print $4 }' | sed -e "s/\..*//g")"
+    temp="$(acpi -t | head -1 | awk '{ print $4 " °C" }')"
+    temp_dec="$(acpi -t | awk '{ print $4 }' | head -1 | sed -e "s/\..*//g")"
 
     [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: -"
     [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${RED}-${NORMAL}"
