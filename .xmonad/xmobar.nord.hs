@@ -17,7 +17,8 @@ Config {
    border = TopB,
    alpha = 255,
    -- alpha = 0,
-   position = BottomP 2 2,
+   -- position = BottomP 2 2,
+   position = BottomSize L 100 25,
    textOffset = -1,
    iconOffset = -1,
    lowerOnStart = True,     -- send to bottom of window stack on start
@@ -100,7 +101,7 @@ Config {
                                "--template" , "<icon=cpu.xbm/><total>%",
                                "--Low"      , "3",
                                "--High"     , "80",
-                               "--minwidth" , "2",
+                               "--minwidth" , "3",
                                "--low"      , "#88C0D0", -- cyan
                                "--normal"   , "#A3BE8C", -- green
                                "--high"     , "#BF616A", -- red
@@ -111,7 +112,7 @@ Config {
                                "--template" , "<icon=temp.xbm/><core0>°C",
                                "--Low"      , "70",
                                "--High"     , "80",
-                               "--minwidth" , "2",
+                               "--minwidth" , "3",
                                "--low"      , "#88C0D0", -- cyan
                                "--normal"   , "#A3BE8C", -- green
                                "--high"     , "#BF616A" -- red
@@ -121,7 +122,7 @@ Config {
                                "--template" , "<icon=mem.xbm/><usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--minwidth" , "2",
+                               "--minwidth" , "3",
                                "--low"      , "#88C0D0", -- cyan
                                "--normal"   , "#A3BE8C", -- green
                                "--high"     , "#BF616A" -- red
@@ -131,7 +132,7 @@ Config {
                                "--template" , "<icon=mem_old.xbm/><usedratio>%",
                                "--Low"      , "20",
                                "--High"     , "90",
-                               "--minwidth" , "2",
+                               "--minwidth" , "3",
                                "--low"      , "#88C0D0", -- cyan
                                "--normal"   , "#A3BE8C", -- green
                                "--high"     , "#BF616A" -- red

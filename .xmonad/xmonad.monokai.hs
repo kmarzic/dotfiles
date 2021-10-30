@@ -107,6 +107,8 @@ help = unlines
     "",
     "-- Resizing the master/slave ratio",
     "mod-f                Toggle full screen",
+    "mod-t                Toggle tiled screen",
+    "mod-x                Toggle roledex screen",
     "mod-a                Shrink resizable area",
     "mod-z                Expand resizable area",
     "mod-i                Increment the number of windows in the master area",
@@ -541,6 +543,7 @@ myKeys =
     --
     ((mod1Mask,                  xK_f      ), sendMessage $ JumpToLayout "full'"),
     ((mod1Mask,                  xK_t      ), sendMessage $ JumpToLayout "tiled'"),
+    ((mod1Mask,                  xK_x      ), sendMessage $ JumpToLayout "roledex'"),
     ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
     ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
     ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
