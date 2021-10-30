@@ -42,7 +42,7 @@ export TERMINAL=urxvt
 # exec bspwm || exec urxvt
 
 #### dwm
-# exec dwm.sh || exec urxvt
+exec dwm.sh || exec urxvt
 
 #### fluxbox
 # exec fluxbox || exec urxvt
@@ -77,6 +77,6 @@ export TERMINAL=urxvt
 ## (2)
 # xmonad --recompile
 ## (3) stack
-exec xmonad || exec urxvt
+# exec xmonad || exec urxvt
 
 #### END
