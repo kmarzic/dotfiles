@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2021-10-23 11:32:24 (CEST)
+-- Last update: 2021-10-30 09:51:42 (CEST)
 
 Config {
    -- theme: gruvbox
@@ -18,7 +18,7 @@ Config {
    -- alpha = 255,
    alpha = 186,
    -- alpha = 0,
-   position = BottomP 4 2,
+   position = BottomP 2 2,
    textOffset = -1,
    iconOffset = -1,
    lowerOnStart = True,     -- send to bottom of window stack on start
@@ -31,22 +31,19 @@ Config {
    sepChar = "%",
    alignSep = "}{",
 
-   -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% | %battery% }{ %LDZA% | %date%",
-   -- template = "%UnsafeStdinReader% | %multicpu% | %coretemp% | %memory% %swap% | %disku% | %dynnetwork% <fc=green>%wireless1%</fc> | %battery% }{ %date% | %spaces1%",
-   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% ] [ %memory% %swap% ] [ %dynnetwork% ] [ %battery% ] [ %date% ] %spaces1%",
-   template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% ] %spaces1%",
-   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%",
-   -- template = "%UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
+   template = " <icon=haskell_20_light.xpm/> %UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %date% ] %spaces1%",
+   -- template = " <icon=haskell_20_light.xpm/> %UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | %LDZA% | %date% ] %spaces1%",
+   -- template = " <icon=haskell_20_light.xpm/> %UnsafeStdinReader% }{ [ %cpu% %coretemp% | %memory% %swap% | %dynnetwork% | %battery% | <fn=1>%forecast1%</fn> | %date% ] %spaces1%",
 
    commands =
      [
-       -- Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=green><rh></fc>% <fc=green><pressure></fc>hPa",
-       --                         "--Low"      , "10",
-       --                         "--High"     , "25",
-       --                         "--low"      , "cyan", -- cyan
-       --                         "--normal"   , "green", -- green
-       --                         "--high"     , "red" -- red
-       --                       ] 36000, -- 1h
+       Run Weather "LDZA"    [ "--template" ,"<tempC>°C <fc=green><rh></fc>% <fc=green><pressure></fc>hPa",
+                               "--Low"      , "10",
+                               "--High"     , "25",
+                               "--low"      , "#8ec07c", -- cyan
+                               "--normal"   , "#b8bb26", -- green
+                               "--high"     , "#fb4934" -- red
+                             ] 36000, -- 1h
 
        Run DynNetwork        [ -- "--template" , "<dev>: <tx>kB/s <rx>kB/s",
                                -- "--template" , "UL: <tx>kB/s DL: <rx>kB/s",
@@ -160,7 +157,6 @@ Config {
        Run Com               ".xmonad/spaces.sh" ["spaces", "8"] "spaces1" 300, -- 30s
        Run Com               ".xmonad/wireless.sh" [] "wireless1" 300, -- 30s
        Run Com               ".xmonad/forecast.sh" [] "forecast1" 600, -- 1m
-       -- Run StdinReader
        Run UnsafeStdinReader
      ]
 }

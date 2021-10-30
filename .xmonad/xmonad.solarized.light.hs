@@ -1,18 +1,38 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-10-23 11:36:00 (CEST)
+-- Last update: 2021-10-30 09:52:01 (CEST)
 -------------------------------------------------------------------------------
 
-import Data.Maybe ( maybeToList )
-import Data.List ( (\\) )
+-- Base
 import XMonad hiding ( (|||) )
+import XMonad.Config
+import XMonad.Config.Desktop
+import System.IO
+import System.Environment (getEnv)
+import System.IO.Unsafe
+import qualified XMonad.StackSet as W
+import Graphics.X11.ExtraTypes.XF86
+
+-- Actions
 import XMonad.Actions.CycleWS
 import XMonad.Actions.Minimize (minimizeWindow, withLastMinimized, maximizeWindowAndFocus)
 import XMonad.Actions.UpdatePointer
-import XMonad.Config
-import XMonad.Config.Desktop
+import qualified XMonad.Actions.DynamicWorkspaceOrder as DO
+import qualified XMonad.Actions.FlexibleResize as Flex
+
+-- Data
+import Data.Maybe ( maybeToList )
+import Data.List ( (\\) )
+import qualified Data.Map as M
+
+-- Hooks
 import XMonad.Hooks.DynamicHooks
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
+
+-- Layouts
 import XMonad.Layout hiding ( (|||) )
 import XMonad.Layout.Column
 import XMonad.Layout.Gaps
@@ -28,23 +48,15 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ThreeColumns
 import XMonad.Layout.ToggleLayouts
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers
-import XMonad.Util.EZConfig
-import XMonad.Util.NamedWindows (getName)
-import XMonad.Util.Run (spawnPipe)
-import XMonad.Util.Scratchpad
-import XMonad.Util.SpawnOnce
-import Graphics.X11.ExtraTypes.XF86
-import System.Environment (getEnv)
-import System.IO
-import System.IO.Unsafe
-import qualified Data.Map as M
-import qualified XMonad.Actions.DynamicWorkspaceOrder as DO
-import qualified XMonad.Actions.FlexibleResize as Flex
 import qualified XMonad.Layout.Groups as G
 import qualified XMonad.Layout.Groups.Helpers as Group
-import qualified XMonad.StackSet as W
+
+-- Utilities
+import XMonad.Util.EZConfig
+import XMonad.Util.Scratchpad
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.SpawnOnce
+import XMonad.Util.NamedWindows (getName)
 
 
 -------------------------------------------------------------------------------
@@ -204,7 +216,7 @@ myTerminalScratchpad :: String
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
-myTerminalScratchpad = "$HOME/bin/st -n scratchpad -f " ++ fontTerminalScratchpad ++ " &"
+myTerminalScratchpad = "$HOME/bin/st -n scratchpad &"
 -- myTerminalScratchpad = "gnome-terminal &"
 
 myModMask :: KeyMask
@@ -280,8 +292,9 @@ myStartUp = do
   -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
   -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
   -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
-  spawn "$HOME/.xmonad/screen_toggle.sh -x"
-  spawn "$HOME/.xmonad/trayer.sh"
+  spawnOnce "$HOME/.xmonad/screen_toggle.sh -x"
+  spawnOnce "$HOME/.xmonad/trayer.sh"
+  setWMName "LG3D"
 
 
 -------------------------------------------------------------------------------
@@ -303,6 +316,7 @@ myManageHook = composeAll . concat $
     [className =? "Chromium-browser" --> doShift (myWorkspaces !! 4)],
     [className =? "Chrome" --> doShift (myWorkspaces !! 4)],
     [className =? "Opera" --> doShift (myWorkspaces !! 4)],
+    [className =? "firefox" --> doShift (myWorkspaces !! 4)],
     [className =? "Firefox" --> doShift (myWorkspaces !! 4)],
     [className =? "Firefox-esr" --> doShift (myWorkspaces !! 4)],
     [className =? "Mozilla Firefox" --> doShift (myWorkspaces !! 4)],
@@ -314,6 +328,8 @@ myManageHook = composeAll . concat $
     [className =? "Microsoft Teams Notification" --> doShift (myWorkspaces !! 6)],
     [className =? "Skype" --> doShift (myWorkspaces !! 6)],
     [className =? "VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
+    [className =? "Oracle VM VirtualBox Manager" --> doShift (myWorkspaces !! 7)],
+    [className =? "VirtualBox Macine" --> doShift (myWorkspaces !! 7)],
     [className =? "Evolution" --> doShift (myWorkspaces !! 8)],
     [className =? "Mozilla Thunderbird" --> doShift (myWorkspaces !! 8)],
     --
