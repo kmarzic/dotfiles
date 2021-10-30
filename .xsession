@@ -41,6 +41,9 @@ export TERMINAL=urxvt
 #### bspwm
 # exec bspwm || exec urxvt
 
+#### dusk
+# exec dusk.sh || exec urxvt
+
 #### dwm
 exec dwm.sh || exec urxvt
 
