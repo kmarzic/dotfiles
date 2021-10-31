@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-10-31 15:56:53 (CET)
+"" Last update: 2021-10-31 15:56:24 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -45,23 +45,18 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" vim-monokai
-"" https://github.com/crusoexia/vim-monokai
+"" srcery-vim
+"" https://github.com/srcery-colors/srcery-vim
 ""
-let g:everforest_background = 'soft'
-let g:everforest_enable_italic = 0
-let g:everforest_disable_italic_comment = 1
-let g:everforest_show_eob = 0
-let g:everforest_transparent_background = 0
 set background=dark
 syntax on
-colorscheme everforest
+colorscheme srcery
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-        \ 'colorscheme': 'everforest',
+        \ 'colorscheme': 'srcery',
         \ }
 
 "" Common

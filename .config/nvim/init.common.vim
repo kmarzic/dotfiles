@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-08-17 16:04:53 (CEST)
+"" Last update: 2021-10-31 15:56:59 (CET)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "

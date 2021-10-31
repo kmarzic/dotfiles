@@ -118,6 +118,7 @@ __help()
     __printf "   ${0} -s papercolor.light"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
+    __printf "   ${0} -s srcery"
 }
 
 
@@ -848,6 +849,59 @@ function __theme()
             # d=~/.dircolors.d/dircolors.solarized-light
             # test -r $d && eval "$(dircolors -b $d)"
             ;;
+        "srcery")
+            __printf "srcery"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/fzhbA9C.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/jtLyKzv.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/teahub.io-4k-ultra-wide-wallpaper-1941315.jpeg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/mZ5NENY.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.srcery ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.srcery .Xdefaults
+            [[ -e ~/.Xdefaults.srcery ]] && xrdb -load ~/.Xdefaults.srcery
+
+            #### vim
+            [[ -e ~/.vimrc.srcery ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.srcery .vimrc
+            [[ -e ~/.gvimrc.srcery ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.srcery .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.srcery.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.srcery.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.srcery ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.srcery dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.srcery.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.srcery.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.srcery ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.srcery .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.srcery ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.srcery .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.srcery ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.srcery alacritty.yml && cd -
     esac
 }
 

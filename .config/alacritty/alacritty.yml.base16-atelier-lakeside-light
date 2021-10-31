@@ -44,17 +44,30 @@ font:
   #   family: monospace
   #   style: Bold Italic
 
+  # normal:
+  #   family: DejaVu Sans Mono
+  #   style: Regular
+  # bold:
+  #   family: DejaVu Sans Mono
+  #   style: Bold
+  # italic:
+  #   family: DejaVu Sans Mono
+  #   style: Italic
+  # bold_italic:
+  #   family: DejaVu Sans Mono
+  #   style: Bold Italic
+
   normal:
-    family: DejaVu Sans Mono
+    family: DejaVuSansMono Nerd Font
     style: Regular
   bold:
-    family: DejaVu Sans Mono
+    family: DejaVuSansMono Nerd Font
     style: Bold
   italic:
-    family: DejaVu Sans Mono
+    family: DejaVuSansMono Nerd Font
     style: Italic
   bold_italic:
-    family: DejaVu Sans Mono
+    family: DejaVuSansMono Nerd Font
     style: Bold Italic
 
   size: 10.0

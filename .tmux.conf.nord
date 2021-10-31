@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-08-18 12:54:32 (CEST)
+## Last update: 2021-10-31 17:06:57 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -176,6 +176,10 @@ bind E setw synchronize-panes off
 #### ## Exit copy-mode with a Right click
 #### bind -Tcopy-mode-vi MouseDown3Pane if -F -t= '#{pane_in_mode}' 'send -X cancel'
 
+## tmux-continuum
+# set -g @continuum-boot 'on'
+# set -g @continuum-restore 'on'
+
 ## tmux-prefix-highlight
 set -g @prefix_highlight_prefix_prompt 'Wait'
 set -g @prefix_highlight_fg 'black'
@@ -189,10 +193,6 @@ set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=cyan'
 set -g @yank_selection 'primary' # 'primary' or 'secondary' or 'clipboard'
 set -g @yank_selection_mouse 'primary' # 'primary' or 'secondary' or 'clipboard'
 set -g @yank_with_mouse on # 'off' or 'on'
-
-## tmux-continuum
-# set -g @continuum-boot 'on'
-# set -g @continuum-restore 'on'
 
 ## tmux-themepack
 # set -g @themepack 'default'
@@ -243,7 +243,7 @@ set -g @theme-mode-fg black
 # set -g @tmux-gruvbox 'dark'
 # set -g @tmux-gruvbox 'light'
 
-## tmux-gruvbox-truecolor
+## lawabidingcactus/tmux-gruvbox-truecolor
 
 ## mattdavis90/base16-tmux
 # set -g @colors-base16 'gruvbox-dark-pale'
@@ -251,15 +251,19 @@ set -g @theme-mode-fg black
 # set -g @colors-base16 'gruvbox-dark-medium'
 # set -g @colors-base16 'gruvbox-dark-soft'
 
+## srcery-colors/srcery-tmux
+# set -g @srcery_tmux_patched_font '1'
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'tmux-plugins/tmux-logging'
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
-set -g @plugin 'tmux-plugins/tmux-pain-control'
-set -g @plugin 'tmux-plugins/tmux-yank'
-# set -g @plugin 'tmux-plugins/tmux-resurrect'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
+set -g @plugin 'tmux-plugins/tmux-logging'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-yank'
+##
 set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
@@ -269,6 +273,7 @@ set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
 # set -g @plugin 'mattdavis90/base16-tmux'
+# set -g @plugin 'srcery-colors/srcery-tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install

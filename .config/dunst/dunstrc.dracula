@@ -2,16 +2,8 @@
 ## Last update: 2021-07-03 19:59:47 (CEST)
 
 [global]
-    # font = Monospace 8
-    # font = Monospace 9
     font = Monospace 10
     # font = Terminus 10
-    # font = "xft:Terminus\ Bold\ 7"
-    # font = "xft:Terminus\ Bold\ 8"
-    # font = "xft:Terminus\ Bold\ 9"
-    # font = "xft:Terminus\ Bold\ 10"
-    # font = "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso10646-1"
-    # font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
     # font = "xft:Terminus:pixelsize=8:antialias=true:style=regular"
     # font = "xft:DejaVu Sans Mono:pixelsize=14:style=regular"
 
@@ -157,7 +149,7 @@
 
 [frame]
     width = 3
-    color = "#bd93f9" # dracula
+    color = "#bd93f9" # Dracula
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -179,11 +171,6 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the '#' and following  would be interpreted as a comment.
-    ## Default
-    # background = "#222222"
-    # foreground = "#888888"
     ## Dracula
     background = "#6272a4"
     foreground = "#282a36"
@@ -191,9 +178,6 @@
     timeout = 10
 
 [urgency_normal]
-    ## Default
-    # background = "#285577"
-    # foreground = "#ffffff"
     ## Dracula
     background = "#6272a4"
     foreground = "#f8f8f2"
@@ -201,9 +185,6 @@
     timeout = 10
 
 [urgency_critical]
-    ## Default
-    # background = "#900000"
-    # foreground = "#ffffff"
     ##  Dracula
     background = "#6272a4"
     foreground = "#ff5555"

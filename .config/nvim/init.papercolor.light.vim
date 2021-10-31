@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-07-10 18:49:24 (CEST)
+"" Last update: 2021-10-31 15:56:38 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -39,6 +39,7 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/everforest'
+Plug 'srcery-colors/srcery-vim'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.

@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-09-18 14:49:25 (CEST)
+"" Last update: 2021-10-31 16:13:07 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -116,17 +116,19 @@ set guitablabel=%N:%M%t " Show tab numbers
 " colorscheme torte
 " colorscheme zellner
 
-" colorscheme solarized
 " colorscheme base16-solarized-dark
 " colorscheme base16-solarized-light
 " colorscheme base16-google-light
 " colorscheme base16-atelier-lakeside-light
-" colorscheme flattened_light
-" colorscheme solarized8
 " colorscheme dracula
-colorscheme gruvbox
-" colorscheme PaperColor
 " colorscheme everforest
+" colorscheme flattened_light
+colorscheme gruvbox
+" colorscheme monokai
+" colorscheme PaperColor
+" colorscheme solarized
+" colorscheme solarized8
+" colorscheme srcery
 
 " highlight LineNr NONE
 

@@ -1,4 +1,4 @@
-#### alacritty.yml.gruvbox
+#### alacritty.yml.srcery
 
 env:
   # TERM: rxvt-256color
@@ -87,41 +87,41 @@ font:
 draw_bold_text_with_bright_colors: false
 
 schemes:
-  ## Gruvbox Material Dark Medium
-  gruvbox: &gruvbox
+  ## Srcery
+  gruvbox: &srcery
     # Default colors
     primary:
-      background: '0x282828'
-      foreground: '0xdfbf8e'
+      background: '#1c1b19'
+      foreground: '#fce8c3'
 
-    # Colors the cursor will use if `custom_cursor_colors` is true
-    # cursor:
-    #   text:    '0xfdf6e3'
-    #   cursor:  '0x586e75'
+    # Cursor colors
+    cursor:
+      text: CellBackground
+      cursor: '#fbb829'
 
     # Normal colors
     normal:
-      black:   '0x665c54'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xe78a4e'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xdfbf8e'
+      black:   '#1c1b19'
+      red:     '#ef2f27'
+      green:   '#519f50'
+      yellow:  '#fbb829'
+      blue:    '#2c78bf'
+      magenta: '#e02c6d'
+      cyan:    '#0aaeb3'
+      white:   '#baa67f'
 
     # Bright colors
     bright:
-      black:   '0x928374'
-      red:     '0xea6962'
-      green:   '0xa9b665'
-      yellow:  '0xe3a84e'
-      blue:    '0x7daea3'
-      magenta: '0xd3869b'
-      cyan:    '0x89b482'
-      white:   '0xdfbf8e'
+      black:   '#918175'
+      red:     '#f75341'
+      green:   '#98bc37'
+      yellow:  '#fed06e'
+      blue:    '#68a8e4'
+      magenta: '#ff5c8f'
+      cyan:    '#2be4d0'
+      white:   '#fce8c3'
 
-colors: *gruvbox
+colors: *srcery
 
 bell:
   animation: EaseOutExpo

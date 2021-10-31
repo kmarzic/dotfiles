@@ -1,11 +1,11 @@
-## dunstrc.gruvbox
+## dunstrc.srcery
 ## Last update: 2021-07-03 19:59:45 (CEST)
 
 [global]
     font = Monospace 10
     # font = Terminus 10
     # font = "xft:Terminus:pixelsize=8:antialias=true:style=regular"
-    # font = "xft:DejaVu Sans Mono:pixelsize=14:style=regular"
+    # font = "xft:DejaVu Sans Mono:pixelsize=8:style=regular"
 
     # allow a small subset of html markup:
     # <b>bold</b>
@@ -149,7 +149,7 @@
 
 [frame]
     width = 3
-    color = "#3a3a3a" # Gruvbox
+    color = "#3a3a3a"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -171,22 +171,22 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    ## Gruvbox
-    background = "#32302f"
+    ## Srcery
+    background = "#1c1b19"
     foreground = "#d4be98"
     #
     timeout = 10
 
 [urgency_normal]
-    ## Gruvbox
-    background = "#32302f"
+    ## Srcery
+    background = "#1c1b19"
     foreground = "#e78a4e"
     #
     timeout = 10
 
 [urgency_critical]
-    ## Gruvbox
-    background = "#32302f"
+    ## Srcery
+    background = "#1c1b19"
     foreground = "#ea6962"
     #
     timeout = 0

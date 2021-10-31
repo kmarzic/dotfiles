@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-10-31 17:06:55 (CET)
+## Last update: 2021-10-31 17:07:13 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -55,10 +55,8 @@ set-option -g renumber-windows on
 set -g default-terminal "tmux-256color"
 
 ## fixes shift-pageup/shift-pagedown
-set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
-# set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
-# set -as terminal-overrides ',st*:Ss@'
-# set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
+set -g terminal-overrides 'xterm*:smcup@:rmcup@'
+set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
 
 ## clock mode
 set-option -g clock-mode-style 24
@@ -195,21 +193,18 @@ set -g @yank_selection_mouse 'primary' # 'primary' or 'secondary' or 'clipboard'
 set -g @yank_with_mouse on # 'off' or 'on'
 
 ## tmux-themepack
-# set -g @themepack 'default'
-set -g @themepack 'basic'
-# set -g @themepack 'powerline/default/cyan'
-# set -g @themepack 'powerline/block/cyan'
-set -g @theme-status-justify left
-# set -g @theme-status-left-bg '#fdf6e3' # base3
-# set -g @theme-status-left-fg '#002b36' # base03
-# set -g @theme-status-right-bg '#fdf6e3' # base3
-# set -g @theme-status-right-fg '#002b36' # base03
-# set -g @theme-status-bg '#fdf6e3' # base3
-# set -g @theme-status-fg '#002b36' # base03
-# set -g @theme-window-status-activity-bg '#fdf6e3' # base3
-# set -g @theme-window-status-activity-fg '#dc322f' # red
-set -g @theme-mode-bg 'cyan' # cyan
-# set -g @theme-mode-fg '#002b36' # black
+# # set -g @themepack 'default'
+# set -g @themepack 'basic'
+# # set -g @themepack 'powerline/default/cyan'
+# # set -g @themepack 'powerline/block/cyan'
+# set -g @theme-status-justify left
+# set -g @theme-status-left-bg '#2c2e34'
+# set -g @theme-status-right-bg '#2c2e34'
+# set -g @theme-status-bg '#2c2e34'
+# set -g @theme-window-status-activity-bg '#2c2e34'
+# set -g @theme-window-status-current-fg '#2c2e34'
+# # set -g @theme-mode-bg cyan
+# # set -g @theme-mode-fg black
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'
@@ -262,14 +257,14 @@ set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ##
-set -g @plugin 'jimeh/tmux-themepack'
+# set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
-# set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
+set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
 # set -g @plugin 'mattdavis90/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 
