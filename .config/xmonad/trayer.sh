@@ -1,0 +1,1 @@
+../../bin/trayer.sh

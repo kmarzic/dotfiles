@@ -288,7 +288,7 @@ function __time()
     [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date}"
     # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${ORANGE}${date}${NORMAL}"
     # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}${date}${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e " ${NORMAL}${date}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "  ${NORMAL}${date}${NORMAL}"
 }
 
 #### spaces
