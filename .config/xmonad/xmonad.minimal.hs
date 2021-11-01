@@ -28,7 +28,7 @@ myRed :: String
 myRed    = "#FF4A36"
 
 xmobarCommand1 :: String
-xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
+xmobarCommand1 = "xmobar $HOME/.config/xmonad/xmobar.hs"
 
 -- Define how xmonad-workspace-status is presented in what color.
 myXmobarPP :: PP

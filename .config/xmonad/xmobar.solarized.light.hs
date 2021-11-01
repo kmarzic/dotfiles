@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2021-10-30 09:51:32 (CEST)
+-- Last update: 2021-11-01 07:41:51 (CET)
 
 Config {
    -- theme: solarized light
@@ -25,7 +25,7 @@ Config {
    pickBroadest = False,    -- choose widest display (multi-monitor)
    persistent = False,      -- enable/disable hiding (True = disabled)
    hideOnStart = False,     -- start with window unmapped (hidden)
-   iconRoot = ".xmonad/icons/",
+   iconRoot = ".config/xmonad/icons/",
    allDesktops = True,      -- show on all desktops
    overrideRedirect = True, -- set the Override Redirect flag (Xlib)
    sepChar = "%",

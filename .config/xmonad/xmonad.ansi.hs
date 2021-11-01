@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-10-30 09:52:19 (CEST)
+-- Last update: 2021-11-01 07:37:03 (CET)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -160,20 +160,14 @@ help = unlines
   ]
 
 fontRegular :: String
-fontRegular = "monospace:size=10:antialias=true:style=regular"
--- fontRegular = "monospace:size=11:antialias=true:style=regular"
--- fontRegular = "xft:monospace:size=12:antialias=true:style=regular"
--- fontRegular = "xft:monospace:pixelsize=13:antialias=true:style=regular"
--- fontRegular = "xft:monospace:pixelsize=14:antialias=true:style=regular"
+-- fontRegular = "monospace:size=10:antialias=true:style=regular"
 -- fontRegular = "Liberation Mono:pixelsize=12:antialias=true:autohint=true:style=regular"
+fontRegular = "DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular"
 
 fontBold :: String
-fontBold = "monospace:size=10:antialias=true:style=bold"
--- fontBold = "monospace:size=11:antialias=true:style=bold"
--- fontBold = "xft:monospace:size=12:antialias=true:style=bold"
--- fontBold = "xft:monospace:pixelsize=13:antialias=true:style=bold"
--- fontBold = "xft:monospace:pixelsize=14:antialias=true:style=bold"
+-- fontBold = "monospace:size=10:antialias=true:style=bold"
 -- fontBold = "xft:Liberation Mono:size=12:antialias=true:autohint=true:style=bold"
+fontBold = "DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=bold"
 
 fontTerminalScratchpad :: String
 fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
@@ -188,10 +182,10 @@ rofiCommand :: String
 rofiCommand = "rofi -show run"
 
 xmobarCommand1 :: String
-xmobarCommand1 = "xmobar $HOME/.xmonad/xmobar.hs"
+xmobarCommand1 = "xmobar $HOME/.config/xmonad/xmobar.hs"
 
 xmobarCommand2 :: ScreenId -> String
-xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.xmonad/xmobar.hs"]
+xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.config/xmonad/xmobar.hs"]
 
 dzenCommand2 :: ScreenId -> String
 dzenCommand2 (S s) = unwords ["dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l'", "-xs", show s]
