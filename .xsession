@@ -81,6 +81,6 @@ exec dwm.sh || exec urxvt
 # xmonad --recompile
 ## (3) stack
 # exec xmonad || exec urxvt
-exec $HOME/.cache/xmonad/xmonad-x86_64-linux || exec urxvt
+# exec $HOME/.cache/xmonad/xmonad-x86_64-linux || exec urxvt
 
 #### END
