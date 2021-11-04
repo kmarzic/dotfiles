@@ -37,11 +37,15 @@ function __dirs()
 
 function __neovim_bin()
 {
+    #### nightly
     # echo "# curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o ~/bin/nvim"
     # curl -L https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage -o ~/bin/nvim
-    ####
-    echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage -o ~/bin/nvim"
-    curl -L https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage -o ~/bin/nvim
+    #### 0.5.0
+    # echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage -o ~/bin/nvim"
+    # curl -L https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage -o ~/bin/nvim
+    #### 0.5.1
+    echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -o ~/bin/nvim"
+    curl -L https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -o ~/bin/nvim
     ####
     echo "# chmod +x ~/bin/nvim"
     chmod +x ~/bin/nvim
