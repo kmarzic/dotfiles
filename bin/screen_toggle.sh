@@ -193,10 +193,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.ansi ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.ansi alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.ansi.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.ansi.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.ansi.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.ansi.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.ansi.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.ansi.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.ansi.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.ansi.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -209,7 +209,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "base16-atelier-lakeside-light")
@@ -249,10 +249,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.base16-atelier-lakeside-light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.base16-atelier-lakeside-light alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.base16-atelier-lakeside-light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.base16-atelier-lakeside-light.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.base16-atelier-lakeside-light.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.base16-atelier-lakeside-light.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.base16-atelier-lakeside-light.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.base16-atelier-lakeside-light.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.base16-atelier-lakeside-light.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.base16-atelier-lakeside-light.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -265,7 +265,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "base16-google-light")
@@ -401,10 +401,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.dracula ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.dracula alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.dracula.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.dracula.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.dracula.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.dracula.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.dracula.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.dracula.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.dracula.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.dracula.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -417,7 +417,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "everforest")
@@ -502,10 +502,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.gruvbox.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.gruvbox.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.gruvbox.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.gruvbox.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.gruvbox.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.gruvbox.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.gruvbox.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.gruvbox.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -518,7 +518,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "monokai")
@@ -558,10 +558,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.monokai ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.monokai alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.monokai.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.monokai.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.monokai.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.monokai.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.monokai.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.monokai.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.monokai.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.monokai.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -574,7 +574,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "nord")
@@ -613,10 +613,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.nord ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.nord alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.nord.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.nord.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.nord.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.nord.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.nord.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.nord.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.nord.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.nord.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -629,7 +629,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "papercolor.light")
@@ -733,10 +733,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.solarized.dark ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.solarized.dark alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.solarized.dark.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.solarized.dark.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.solarized.dark.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.dark.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -749,7 +749,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
 
             #### bspwm
@@ -820,10 +820,10 @@ function __theme()
             [[ -e ~/.config/alacritty/alacritty.yml.solarized.light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.solarized.light alacritty.yml && cd -
 
             #### xmobar
-            [[ -e ~/.xmonad/xmobar.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.solarized.light.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.xmonad/xmonad.solarized.light.hs ]] && cd ~/.xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.solarized.light.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.solarized.light.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
@@ -836,7 +836,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.xmonad && ./recompile.sh
+                cd ~/.config/xmonad && ./recompile.sh
             fi
 
             #### bspwm
