@@ -1,10 +1,34 @@
 #!/usr/bin/env bash
+#===============================================================================
+#
+#          FILE: dwm.status.sh
+#
+#         USAGE: ./screen_toogle.sh [ -h | -s <theme> ]
+#
+#   DESCRIPTION:
+#
+#       OPTIONS: ---
+#  REQUIREMENTS: ---
+#          BUGS: ---
+#         NOTES: ---
+#        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
+#  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
+#       CREATED: 2021-11-06 14:14:32
+#      REVISION: ---
+#===============================================================================
 
 export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
-## ----------------------------------------------------------------------------
-## variables
-## ----------------------------------------------------------------------------
+#### Banner
+BANNER="DWM Status"
+
+#### Debug
+DEBUG=0 # debug is off
+# DEBUG=1 # debug is on
+
+## Exit
+EXIT_OK=0
+EXIT_ERROR=1
 
 #### variables
 OS=$(uname -s)
@@ -14,84 +38,197 @@ WTTR_FILE="/var/tmp/wttr.txt"
 STATUSCOLOR=1
 GLYPH_BATTERY="^r0,7,2,4^^r2,4,22,10^^c#000000^^r3,5,20,8^^c#ffffff^^r10,5,13,8^^d^^f24^"
 
-#### ansi
-# CYAN='^c#00ffff^'
-# GREEN='^c#00d700^'
-# ORANGE='^c#d78700^'
-# PINK='^c#d787af^'
-# PURPLE='^c#d700af^'
-# RED='^c#ff0000^'
-# YELLOW='^c#ffff00^'
-# NORMAL='^c#bbbbbb^'
+#### ansi - default
+CYAN='^c#00ffff^'
+GREEN='^c#00d700^'
+ORANGE='^c#d78700^'
+PINK='^c#d787af^'
+PURPLE='^c#d700af^'
+RED='^c#ff0000^'
+YELLOW='^c#ffff00^'
+NORMAL='^c#bbbbbb^'
 
-#### base16-atelier-lakeside-ligh
-# CYAN='^c#2d8f6f^'
-# GREEN='^c#568c3b^'
-# ORANGE='^c#935c25^'
-# PINK='^c#b72dd2^'
-# PURPLE='^c#6b6bb8^'
-# RED='^c#d22d72^'
-# YELLOW='^c#8a8a0f^'
-# NORMAL='^c#1f292e^'
 
-#### dracula
-# CYAN='^c#8be9fd^'
-# GREEN='^c#50fa7b^'
-# ORANGE='^c#ffb86c^'
-# PINK='^c#ff79c6^'
-# PURPLE='^c#bd93f9^'
-# RED='^c#ff5555^'
-# YELLOW='^c#f1fa8c^'
-# NORMAL='^c#f8f8f2^'
-
-#### solarized light
-CYAN='^c#2aa198^'
-GREEN='^c#859900^'
-ORANGE='^c#cb4b16^'
-PINK='^c#d33682^'
-PURPLE='^c#6c71c4^'
-RED='^c#dc322f^'
-YELLOW='^c#b58900^'
-NORMAL='^c#073642^'
-
-#### solarized dark
-# CYAN='^c#2aa198^'
-# # GREEN='^c#859900^'
-# GREEN='^c#51ef84^'
-# ORANGE='^c#cb4b16^'
-# PINK='^c#d33682^'
-# PURPLE='^c#6c71c4^'
-# # RED='^c#dc322f^'
-# RED='^c#f5163b^'
-# # YELLOW='^c#b58900^'
-# YELLOW='^c#b27e28^'
-# NORMAL='^c#eee8d5^'
-
-#### gruvbox
-# CYAN='^c#89b482^'
-# GREEN='^c#a9b665^'
-# ORANGE='^c#a9b665^'
-# PINK='^c#ea6962^'
-# PURPLE='^c#d3869b^'
-# RED='^c#ea6962^'
-# YELLOW='^c#e78a4e^'
-# NORMAL='^c#d4be98^'
-
-#### srcery
-# CYAN='^c#0aaeb3^'
-# GREEN='^c#98BC37^'
-# ORANGE='^c#ff5f00^'
-# PINK='^c#f75341^'
-# PURPLE='^c#e02c6d^'
-# RED='^c#ef2f27^'
-# YELLOW='^c#fbb829^'
-# NORMAL='^c#fce8c3^'
-
-## ----------------------------------------------------------------------------
+###############################################################################
 ## functions
-## ----------------------------------------------------------------------------
+###############################################################################
 
-#### load
+#### Function: Printf
+####
+function __printf()
+{
+    ## defining colors for outputs
+    RED='\033[31m'
+    GREEN='\033[32m'
+    YELLOW='\033[33m'
+    BOLD='\033[1m'
+    NORMAL='\033[m'
+
+    [ "${3-}" = "nolb" ] && ECHOSWITCH="-ne" || ECHOSWITCH="-e"
+
+    if [[ ! -z ${2-} && ! -z ${1-} ]]
+    then
+        case ${2} in
+            error)
+                echo -e "${RED}${1}${NORMAL}" >&2
+                ;;
+            info)
+                echo ${ECHOSWITCH} "${YELLOW}${1}${NORMAL}"
+                ;;
+            success)
+                echo -e "${GREEN}${1}${NORMAL}"
+                ;;
+            header)
+                echo -e "${BOLD}${1}${NORMAL}"
+                ;;
+            debug)
+                [ ${DEBUG-} -eq 1 ] && echo -e "${1}"
+                ;;
+            log)
+                if [ ${LOG_ENABLED-} ]
+                then
+                    if [ ! -d ${LOG_DIR} ]
+                    then
+                        mkdir ${LOG_DIR}
+                    fi
+
+                    echo -e "$(date +%Y%m%dT%H%M%S);${1}" >> ${LOG_FILE-}
+                fi
+                ;;
+            *)
+                echo -e "${1}"
+                ;;
+        esac
+    else
+        echo "${1}"
+    fi
+}
+
+#### Function: Banner
+####
+function __banner()
+{
+    __printf "${BANNER}" info
+}
+
+#### Function: Help
+####
+__help()
+{
+    __printf "Usage: ${0} [ -h | -s <theme> ]"
+    __printf "  -h                Help"
+    __printf "  -s <theme>        Theme"
+    __printf "  -l <file>  Log to <file>"
+    __printf "Examples:"
+    __printf "   ${0} -s ansi"
+    __printf "   ${0} -s base16-atelier-lakeside-light"
+    __printf "   ${0} -s base16-google-light"
+    __printf "   ${0} -s base16-gruvbox-dark-soft"
+    __printf "   ${0} -s dracula"
+    __printf "   ${0} -s everforest"
+    __printf "   ${0} -s gruvbox"
+    __printf "   ${0} -s monokai"
+    __printf "   ${0} -s nord"
+    __printf "   ${0} -s papercolor.light"
+    __printf "   ${0} -s solarized.dark"
+    __printf "   ${0} -s solarized.light"
+    __printf "   ${0} -s srcery"
+}
+
+#### Function: Theme environment
+####
+function __theme()
+{
+    #### arg
+    theme="${1}"
+    __printf "theme='${theme}'" debug
+
+    #### ansi
+    case ${theme} in
+        "ansi")
+            __printf "ansi"
+            CYAN='^c#00ffff^'
+            GREEN='^c#00d700^'
+            ORANGE='^c#d78700^'
+            PINK='^c#d787af^'
+            PURPLE='^c#d700af^'
+            RED='^c#ff0000^'
+            YELLOW='^c#ffff00^'
+            NORMAL='^c#bbbbbb^'
+            ;;
+        "base16-atelier-lakeside-ligh")
+            __printf "base16-atelier-lakeside-light"
+            CYAN='^c#2d8f6f^'
+            GREEN='^c#568c3b^'
+            ORANGE='^c#935c25^'
+            PINK='^c#b72dd2^'
+            PURPLE='^c#6b6bb8^'
+            RED='^c#d22d72^'
+            YELLOW='^c#8a8a0f^'
+            NORMAL='^c#1f292e^'
+            ;;
+        "dracula")
+            __printf "dracula"
+            CYAN='^c#8be9fd^'
+            GREEN='^c#50fa7b^'
+            ORANGE='^c#ffb86c^'
+            PINK='^c#ff79c6^'
+            PURPLE='^c#bd93f9^'
+            RED='^c#ff5555^'
+            YELLOW='^c#f1fa8c^'
+            NORMAL='^c#f8f8f2^'
+            ;;
+        "gruvbox")
+            __printf "gruvbox"
+            CYAN='^c#89b482^'
+            GREEN='^c#a9b665^'
+            ORANGE='^c#a9b665^'
+            PINK='^c#ea6962^'
+            PURPLE='^c#d3869b^'
+            RED='^c#ea6962^'
+            YELLOW='^c#e78a4e^'
+            NORMAL='^c#d4be98^'
+            ;;
+        "solarized.light")
+            __printf "solarized light"
+            CYAN='^c#2aa198^'
+            GREEN='^c#859900^'
+            ORANGE='^c#cb4b16^'
+            PINK='^c#d33682^'
+            PURPLE='^c#6c71c4^'
+            RED='^c#dc322f^'
+            YELLOW='^c#b58900^'
+            NORMAL='^c#073642^'
+            ;;
+        "solarizded.dark")
+            __printf "solarized dark"
+            CYAN='^c#2aa198^'
+            # GREEN='^c#859900^'
+            GREEN='^c#51ef84^'
+            ORANGE='^c#cb4b16^'
+            PINK='^c#d33682^'
+            PURPLE='^c#6c71c4^'
+            # RED='^c#dc322f^'
+            RED='^c#f5163b^'
+            # YELLOW='^c#b58900^'
+            YELLOW='^c#b27e28^'
+            NORMAL='^c#eee8d5^'
+            ;;
+        "srcery")
+            CYAN='^c#0aaeb3^'
+            GREEN='^c#98BC37^'
+            ORANGE='^c#ff5f00^'
+            PINK='^c#f75341^'
+            PURPLE='^c#e02c6d^'
+            RED='^c#ef2f27^'
+            YELLOW='^c#fbb829^'
+            NORMAL='^c#fce8c3^'
+            ;;
+    esac
+}
+
+#### Function: load
+####
 function __load_linux()
 {
     ncpu="$(cat /proc/cpuinfo | grep processor | wc -l)"
@@ -109,7 +246,8 @@ function __load_freebsd()
     echo .
 }
 
-#### temp
+#### Function: temp
+####
 function __temp_linux()
 {
     temp="$(acpi -t | head -1 | awk '{ print $4 " °C" }')"
@@ -129,7 +267,8 @@ function __temp_freebsd()
     echo .
 }
 
-#### memory
+#### Function: memory
+####
 function __memory_linux()
 {
     mem_free=$(cat /proc/meminfo | grep "MemFree:" | awk {' print $2'})
@@ -148,7 +287,8 @@ function __memory_freebsd()
     echo .
 }
 
-#### battery
+#### Function:  battery
+####
 function __battery_linux()
 {
     battery_enabled=$(find /sys/class/power_supply | grep -i bat | wc -l)
@@ -184,7 +324,8 @@ function __battery_freebsd()
     echo .
 }
 
-#### weather
+#### Function: weather
+####
 function __weather()
 {
     if [[ -e ${WTTR_FILE} ]]
@@ -229,7 +370,8 @@ function __forecast()
     fi
 }
 
-#### network
+#### Function: network
+####
 function __network_linux()
 {
     logfile=/dev/shm/netlog
@@ -280,7 +422,8 @@ function __network_freebsd()
     echo .
 }
 
-#### time
+#### Function: time
+####
 function __time()
 {
     date="$(date +"%a %Y-%m-%d %H:%M:%S")"
@@ -291,7 +434,8 @@ function __time()
     [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "  ${NORMAL}${date}${NORMAL}"
 }
 
-#### spaces
+#### Function: spaces
+####
 function __spaces()
 {
     space=""
@@ -302,58 +446,119 @@ function __spaces()
     echo "${space}"
 }
 
-## ----------------------------------------------------------------------------
-## main
-## ----------------------------------------------------------------------------
+#### Function: process
+####
+function __process()
+{
+    dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l | awk '{$1=$1};1')
+    echo "dwm_status_detect='${dwm_status_detect}'"
 
-dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l | awk '{$1=$1};1')
-echo "dwm_status_detect='${dwm_status_detect}'"
-
-if [[ "${OS}" = "Linux" ]]
-then
-    if [[ ${dwm_status_detect} -eq 2 ]]
-    # if [[ ${dwm_status_detect} -eq 3 ]]
+    if [[ "${OS}" = "Linux" ]]
     then
-        while true;
-        do
-            #### xsetroot
-            if [[ ${STATUSCOLOR} -eq 0 ]]
-            then
-                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
-                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
-                xsetroot -name "[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
-            elif [[ ${STATUSCOLOR} -eq 1 ]]
-            then
-                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
-                xsetroot -name "${NORMAL}[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
-            fi
-            sleep 1
-        done
-    else
-        echo "dwm.status.sh is running"
+        if [[ ${dwm_status_detect} -eq 2 ]]
+        # if [[ ${dwm_status_detect} -eq 3 ]]
+        then
+            while true;
+            do
+                #### xsetroot
+                if [[ ${STATUSCOLOR} -eq 0 ]]
+                then
+                    # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
+                    # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
+                    xsetroot -name "[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
+                elif [[ ${STATUSCOLOR} -eq 1 ]]
+                then
+                    # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
+                    xsetroot -name "${NORMAL}[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
+                fi
+                sleep 1
+            done
+        else
+            echo "dwm.status.sh is running"
+        fi
+    elif [[ "${OS}" = "FreeBSD" ]]
+    then
+        if [[ ${dwm_status_detect} -eq 0 ]]
+        then
+            while true;
+            do
+                #### xsetroot
+                if [[ ${STATUSCOLOR} -eq 0 ]]
+                then
+                    # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # $(__weather) | $(__network_freebsd) | $(__time) ]$(__spaces)"
+                    # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
+                    xsetroot -name "[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
+                elif [[ ${STATUSCOLOR} -eq 1 ]]
+                then
+                    # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # # $(__weather_freebsd) | $(__network_freebsd) | $(__time) ] $(__spaces)"
+                    xsetroot -name "${NORMAL}[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]${NORMAL}"
+                fi
+                sleep 1
+            done
+        else
+            echo "dwm.status.sh is running"
+        fi
     fi
-elif [[ "${OS}" = "FreeBSD" ]]
+}
+
+
+###############################################################################
+## main
+###############################################################################
+
+#### Banner
+__banner
+
+#### Command Line
+__theme_flag=""
+
+while getopts "hxs:l:" opt;
+do
+    case ${opt} in
+        h)
+            __help
+            exit ${EXIT_OK}
+            ;;
+        s)
+            __theme_flag="true"
+            THEME=${OPTARG}
+            ;;
+        l)
+            LOG_ENABLED="true"
+            LOG_FILE=${OPTARG}
+            __printf "enabling logging to '${LOG_FILE}' ..." info
+            ;;
+        :)
+            __printf "Option -${opt} requires an argument!" error
+            exit ${EXIT_ERROR}
+            ;;
+    esac
+done
+
+#### This tells getopts to move on to the next argument.
+shift $((OPTIND-1))
+
+if [[ -z "${__theme_flag}" ]]
 then
-    if [[ ${dwm_status_detect} -eq 0 ]]
+    __printf "Missing arguments!" error
+    __help
+    exit ${EXIT_ERROR}
+else
+    if [[ "${__theme_flag-}" == "true" ]]
     then
-        while true;
-        do
-            #### xsetroot
-            if [[ ${STATUSCOLOR} -eq 0 ]]
-            then
-                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # $(__weather) | $(__network_freebsd) | $(__time) ]$(__spaces)"
-                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
-                xsetroot -name "[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
-            elif [[ ${STATUSCOLOR} -eq 1 ]]
-            then
-                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # # $(__weather_freebsd) | $(__network_freebsd) | $(__time) ] $(__spaces)"
-                xsetroot -name "${NORMAL}[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]${NORMAL}"
-            fi
-            sleep 1
-        done
-    else
-        echo "dwm.status.sh is running"
+        #### Theme
+        __theme ${THEME}
+        #### keyboard
+        __process
     fi
 fi
 
-#### END
+#### Done
+__printf "done!"
+
+#### Exit
+exit ${EXIT_OK}
+
+###############################################################################
+## END
+###############################################################################
