@@ -3,7 +3,7 @@
 #
 #          FILE: dwm.status.sh
 #
-#         USAGE: ./screen_toogle.sh [ -h | -s <theme> ]
+#         USAGE: ./dwm.status.sh [ -h | -s <theme> ]
 #
 #   DESCRIPTION:
 #
@@ -512,7 +512,7 @@ __banner
 #### Command Line
 __theme_flag=""
 
-while getopts "hxs:l:" opt;
+while getopts "hs:l:" opt;
 do
     case ${opt} in
         h)

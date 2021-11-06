@@ -1,1 +1,0 @@
-../../bin/screen_toggle.sh

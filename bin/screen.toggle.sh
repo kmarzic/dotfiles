@@ -1,9 +1,9 @@
 #!/bin/bash
 #===============================================================================
 #
-#          FILE: screen_toogle.sh
+#          FILE: screen.toggle.sh
 #
-#         USAGE: ./screen_toogle.sh [ -h | -x | -s <theme> ]
+#         USAGE: ./screen.toggle.sh [ -h | -x | -s <theme> ]
 #
 #   DESCRIPTION:
 #
@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-07-22 14:14:32
+#       CREATED: 2021-11-06
 #      REVISION: ---
 #===============================================================================
 

@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-10-30 09:52:08 (CEST)
+-- Last update: 2021-11-06 17:58:13 (CET)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -266,7 +266,7 @@ myStartUp = do
   -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
   -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
   -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
-  spawn "$HOME/.xmonad/screen_toggle.sh -x"
+  spawn "$HOME/.xmonad/screen.toogle.sh -x"
   spawn "$HOME/.xmonad/trayer.sh"
   setWMName "LG3D"
 
@@ -597,7 +597,7 @@ myKeys =
     --
     ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/.xmonad/exit.sh lock"),
     ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/.xmonad/exit.sh monitor_off"),
-    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/.xmonad/screen_toggle.sh -x"),
+    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/.xmonad/screen.toogle.sh -x"),
     ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/.xmonad/exit.sh message")
   ]
   ++
