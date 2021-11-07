@@ -1,11 +1,19 @@
 ## dunstrc.srcery
-## Last update: 2021-07-03 19:59:45 (CEST)
+## Last update: 2021-11-07 18:46:44 (CET)
 
 [global]
+    # font = Monospace 8
+    # font = Monospace 9
     font = Monospace 10
     # font = Terminus 10
+    # font = "xft:Terminus\ Bold\ 7"
+    # font = "xft:Terminus\ Bold\ 8"
+    # font = "xft:Terminus\ Bold\ 9"
+    # font = "xft:Terminus\ Bold\ 10"
+    # font = "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso10646-1"
+    # font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
     # font = "xft:Terminus:pixelsize=8:antialias=true:style=regular"
-    # font = "xft:DejaVu Sans Mono:pixelsize=8:style=regular"
+    # font = "xft:DejaVu Sans Mono:pixelsize=14:style=regular"
 
     # allow a small subset of html markup:
     # <b>bold</b>
@@ -149,7 +157,7 @@
 
 [frame]
     width = 3
-    color = "#3a3a3a"
+    color = "#FBB829" # srcery, yellow
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -171,23 +179,34 @@
     context = ctrl+shift+period
 
 [urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the '#' and following  would be interpreted as a comment.
+    ## Default
+    # background = "#222222"
+    # foreground = "#888888"
     ## Srcery
-    background = "#1c1b19"
-    foreground = "#d4be98"
+    background = "#1C1B19" # black
+    foreground = "#BAA67F" # white
     #
     timeout = 10
 
 [urgency_normal]
+    ## Default
+    # background = "#285577"
+    # foreground = "#ffffff"
     ## Srcery
-    background = "#1c1b19"
-    foreground = "#e78a4e"
+    background = "#1C1B19" # black
+    foreground = "#0AAEB3" # cyan
     #
     timeout = 10
 
 [urgency_critical]
+    ## Default
+    # background = "#900000"
+    # foreground = "#ffffff"
     ## Srcery
-    background = "#1c1b19"
-    foreground = "#ea6962"
+    background = "#1C1B19" # black
+    foreground = "#EF2F27" # red
     #
     timeout = 0
 
