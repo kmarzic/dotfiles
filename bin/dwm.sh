@@ -9,13 +9,13 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-gruvbox-dark-soft &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s dracula &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s everforest &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox &
+[[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s monokai &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s nord &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s papercolor.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s solarized.dark &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s solarized.light &
-[[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s srcery &
+# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s srcery &
 
 #### dwm battery
 [[ -e ${HOME}/bin/dwm.battery.sh ]] && dwm.battery.sh &
