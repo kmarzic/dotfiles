@@ -19,6 +19,7 @@ window:
 
   dynamic_padding: false
   decorations: full
+  opacity: 0.95
   startup_mode: Maximized
   # title: Alacritty
   dynamic_title: true
@@ -147,8 +148,6 @@ bell:
   duration: 0
   color: '#ffffff'
   # command: None
-
-background_opacity: 0.95
 
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
