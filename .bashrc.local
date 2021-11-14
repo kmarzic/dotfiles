@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-11-09 20:02:47 (CET)
+## Last update: 2021-11-14 12:24:49 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -462,9 +462,9 @@ export COLUMNS=80
 # export MC_SKIN=$HOME/.config/mc/gotar.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/nicedark.ini
-export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
+# export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
 # export MC_SKIN=/usr/share/mc/skins/modarcon16-defbg.ini
 
 #### Proxy
