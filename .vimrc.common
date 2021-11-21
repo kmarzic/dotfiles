@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-08-17 16:04:57 (CEST)
+"" Last update: YDATE
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -89,19 +89,30 @@ let NERDTreeQuitOnOpen = 0
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 0
 let NERDTreeDirArrows = 1
+" let NERDTreeShowLineNumbers=1
+let g:NERDTreeWinSize = 50
+""
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
 else
-    " let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
+    let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
 endif
-let g:NERDTreeWinSize = 50
-" autocmd VimEnter * NERDTree
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map ,n :NERDTreeToggle<CR>
-vmap ,n <esc>:NERDTreeToggle<CR>
-imap ,n <esc>:NERDTreeToggle<CR>
-" au BufWinEnter * set number
+""
+" autocmd StdinReadPre * let s:std_in=1
+" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" " autocmd VimEnter * wincmd p
+"
+augroup NERD
+    au!
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    " autocmd VimEnter * wincmd p
+    autocmd VimEnter * call lightline#update()
+augroup END
+"
+" map ,n :NERDTreeToggle<CR>
+" vmap ,n <esc>:NERDTreeToggle<CR>
+" imap ,n <esc>:NERDTreeToggle<CR>
 
 "" syntastic
 "" https://github.com/scrooloose/syntastic

@@ -61,12 +61,12 @@ xsetroot -cursor_name left_ptr
 # synclient TouchpadOff=0
 
 ## screen_toggle.sh
-[[ -e ~/bin/screen_toggle.sh ]] && ~/bin/screen_toggle.sh -x
+[[ -e ~/bin/screen.toggle.sh ]] && ~/bin/screen.toggle.sh -x
 
 ## xrdb
-[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
+# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
 # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
-# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
+[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
 xrdb -load ~/.Xdefaults
 xrdb -merge ~/.Xdefaults
 
