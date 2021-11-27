@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2021-10-30 09:39:34 (CEST)
+!! Last update: 2021-11-27 16:20:40 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -405,10 +405,10 @@ pterm.BoldFont: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style
 ! st.alpha: 0.80
 ! st.alpha: 0.85
 ! st.alpha: 0.90
-st.alpha: 0.95
+! st.alpha: 0.95
 ! st.alpha: 0.96
 ! st.alpha: 0.97
-! st.alpha: 0.98
+st.alpha: 0.98
 ! st.alpha: 0.99
 ! st.alpha: 1.00
 ! st.opacity: 240
@@ -418,32 +418,38 @@ st.shell: /bin/bash
 ! st.foreground: #d2d2d2
 ! st.cursorColor: #101010
 !
+! st.font: DejaVu Sans Mono:size=9:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 !
+! st.font: DejaVuSansMono Nerd Font:size=9:antialias=true:autohint=true:style=regular
 st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
 ! st.font: DejaVuSansMono Nerd Font:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: DejaVuSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: DejaVuSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
 !
+! st.font: Hack:size=9:antialias=true:autohint=true:style=regular
 ! st.font: Hack:size=10:antialias=true:autohint=true:style=regular
 ! st.font: Hack:pixelsize=12:antialias=true:style=regular
 ! st.font: Hack:pixelsize=13:antialias=true:style=regular
 ! st.font: Hack:pixelsize=14:antialias=true:style=regular
 !
+! st*font: Droid Sans Mono:size=10:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=12:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=13:antialias=true:style=regular
 ! st*font: Droid Sans Mono:pixelsize=14:antialias=true:style=regular
 !
 ! st*font: Free Mono:pixelsize=14:antialias=true:style=regular
 !
+! st*font: Bitstream Vera Sans Mono:size=9:antialias=true:autohint=true:style=regular
 ! st*font: Bitstream Vera Sans Mono:size=10:antialias=true:autohint=true:style=regular
 ! st*font: Bitstream Vera Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st*font: Bitstream Vera Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st*font: Bitstream Vera Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 !
+! st*font: BitstreamVeraSansMono Nerd Font:size=9:antialias=true:autohint=true:style=regular
 ! st*font: BitstreamVeraSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular
 ! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st*font: BitstreamVeraSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=regular
@@ -451,6 +457,7 @@ st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=reg
 !
 ! st.font: Source Code Pro For Powerline:size=11:antialias=true:autohint=true:style=regular
 !
+! st.font: Source Code Pro Medium:size=9:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:size=10:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=12:antialias=true:autohint=true:style=regular
 ! st.font: Source Code Pro Medium:pixelsize=13:antialias=true:autohint=true:style=regular
