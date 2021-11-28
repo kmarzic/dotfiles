@@ -110,6 +110,7 @@ __help()
     __printf "   ${0} -s base16-atelier-lakeside-light"
     __printf "   ${0} -s base16-google-light"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
+    __printf "   ${0} -s doom-one"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
     __printf "   ${0} -s gruvbox"
@@ -349,6 +350,33 @@ function __theme()
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
+            ;;
+        "doom-one")
+            __printf "doom-one"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.doom-one ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.doom-one .Xdefaults
+            [[ -e ~/.Xdefaults.doom-one ]] && xrdb -load ~/.Xdefaults.doom-one
+
+            #### vim
+            [[ -e ~/.vimrc.doom-one ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.doom-one .vimrc
+            [[ -e ~/.gvimrc.doom-one ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.doom-one .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.doom-one.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.doom-one.vim init.vim && cd -
+
             ;;
         "dracula")
             __printf "dracula"

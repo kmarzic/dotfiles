@@ -1,7 +1,7 @@
-" ------------------------------------------------------------------------
+"" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-11-28 09:03:15 (CET)
+"" Last update: 2021-07-10 18:40:17 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -67,33 +67,22 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/everforest'
+Plug 'srcery-colors/srcery-vim'
 Plug 'miyakogi/seiya.vim'
 "
 call plug#end()
 
-"" Dracula
-"" https://draculatheme.com/vim
-"
-let g:dracula_colorterm = 0
-let g:dracula_italic = 0
-set t_Co=256
+"" doom-one
+""
 set background=dark
-syntax enable
-colorscheme dracula
-
-augroup dracula_customization
-    au!
-    " hi DraculaComment ctermfg=61 guifg=#6272A4
-    " hi DraculaComment ctermfg=141 guifg=#BD93F9
-    " hi DraculaComment ctermfg=121
-    " hi TabLine ctermfg=141
-augroup END
+syntax on
+colorscheme default
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'powerlineish',
+    \ 'colorscheme': 'powerline',
     \ }
 
 "" Common

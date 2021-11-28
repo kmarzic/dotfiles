@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-11-28 09:03:13 (CET)
+"" Last update: 2021-10-31 15:56:24 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -45,29 +45,17 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" Dracula
-"" https://draculatheme.com/vim
+"" doom-one
 ""
-let g:dracula_colorterm = 0
-let g:dracula_italic = 0
-set t_Co=256
 set background=dark
-syntax enable
-colorscheme dracula
-
-augroup dracula_customization
-    au!
-    " hi DraculaComment ctermfg=61 guifg=#6272A4
-    " hi DraculaComment ctermfg=141 guifg=#BD93F9
-    " hi DraculaComment ctermfg=121
-    " hi TabLine ctermfg=141
-augroup END
+syntax on
+colorscheme default
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-        \ 'colorscheme': 'powerlineish',
+        \ 'colorscheme': 'powerline',
         \ }
 
 "" Common
