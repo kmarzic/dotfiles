@@ -58,8 +58,7 @@ colorscheme dracula
 augroup dracula_customization
     au!
     " hi DraculaComment ctermfg=61 guifg=#6272A4
-    " hi DraculaComment ctermfg=141 guifg=#BD93F9
-    " hi DraculaComment ctermfg=121
+    hi DraculaComment ctermfg=140
     " hi TabLine ctermfg=141
 augroup END
 

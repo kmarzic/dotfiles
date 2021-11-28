@@ -40,16 +40,19 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/everforest'
 Plug 'srcery-colors/srcery-vim'
+Plug 'romgrk/doom-one.vim'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 "" doom-one
+"" https://github.com/romgrk/doom-one.vim
 ""
+set t_Co=256
 set background=dark
 syntax on
-colorscheme default
+colorscheme doom-one
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
