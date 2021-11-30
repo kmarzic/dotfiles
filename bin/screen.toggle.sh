@@ -492,7 +492,8 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/ktu605keuzx71.jpg bg.jpg && cd -
             #
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
