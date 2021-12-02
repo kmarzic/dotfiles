@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-11-21 16:49:34 (CET)
+"" Last update: 2021-12-02 07:15:26 (CET)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -578,6 +578,9 @@ set foldmethod=indent
 
 " Highlight current line
 set cursorline
+
+" Copy/paste between vim and other programs
+set clipboard=unnamedplus
 
 "" ------------------------------------------------------------------------
 "" Indenting
