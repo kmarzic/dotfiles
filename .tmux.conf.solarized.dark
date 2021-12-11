@@ -238,8 +238,8 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # ## bell
 # set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
 ## Colors, 'seebi/tmux-colors-solarized'
-# set -g @colors-solarized '256'
-set -g @colors-solarized 'dark'
+set -g @colors-solarized '256'
+# set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
 # set -g @colors-solarized 'base16'
 
