@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-11-06 14:14:32
+#       CREATED: 2021-12-11 14:14:32
 #      REVISION: ---
 #===============================================================================
 
@@ -58,11 +58,11 @@ NORMAL='^c#bbbbbb^'
 function __printf()
 {
     ## defining colors for outputs
-    RED='\033[31m'
-    GREEN='\033[32m'
-    YELLOW='\033[33m'
-    BOLD='\033[1m'
-    NORMAL='\033[m'
+    __RED='\033[31m'
+    __GREEN='\033[32m'
+    __YELLOW='\033[33m'
+    __BOLD='\033[1m'
+    __NORMAL='\033[m'
 
     [ "${3-}" = "nolb" ] && ECHOSWITCH="-ne" || ECHOSWITCH="-e"
 
@@ -70,16 +70,16 @@ function __printf()
     then
         case ${2} in
             error)
-                echo -e "${RED}${1}${NORMAL}" >&2
+                echo -e "${__RED}${1}${__NORMAL}" >&2
                 ;;
             info)
-                echo ${ECHOSWITCH} "${YELLOW}${1}${NORMAL}"
+                echo ${ECHOSWITCH} "${__YELLOW}${1}${__NORMAL}"
                 ;;
             success)
-                echo -e "${GREEN}${1}${NORMAL}"
+                echo -e "${__GREEN}${1}${__NORMAL}"
                 ;;
             header)
-                echo -e "${BOLD}${1}${NORMAL}"
+                echo -e "${__BOLD}${1}${__NORMAL}"
                 ;;
             debug)
                 [ ${DEBUG-} -eq 1 ] && echo -e "${1}"
@@ -200,7 +200,7 @@ function __theme()
             YELLOW='^c#b58900^'
             NORMAL='^c#073642^'
             ;;
-        "solarizded.dark")
+        "solarized.dark")
             __printf "solarized dark"
             CYAN='^c#2aa198^'
             # GREEN='^c#859900^'
@@ -215,6 +215,7 @@ function __theme()
             NORMAL='^c#eee8d5^'
             ;;
         "srcery")
+            __printf "srcery"
             CYAN='^c#0aaeb3^'
             GREEN='^c#98BC37^'
             ORANGE='^c#ff5f00^'

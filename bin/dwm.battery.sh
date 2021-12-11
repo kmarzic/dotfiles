@@ -48,7 +48,7 @@ if [[ "${OS}" = "Linux" ]]
 then
     if [[ ${dwm_battery_detect} -eq 2 ]]
     then
-        __dwm_battery
+        __dwm_battery_linux
     else
         echo "dwm.battery.sh is running"
     fi
@@ -56,7 +56,7 @@ elif [[ "${OS}" = "FreeBSD" ]]
 then
     if [[ ${dwm_battery_detect} -eq 0 ]]
     then
-        __dwm_battery
+        __dwm_battery_freebsd
     else
         echo "dwm.battery.sh is running"
     fi
