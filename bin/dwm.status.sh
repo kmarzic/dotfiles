@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2021-12-11 14:14:32
+#       CREATED: 2021-12-12 14:14:32
 #      REVISION: ---
 #===============================================================================
 
@@ -389,33 +389,33 @@ function __network_linux()
     if [[ ${rx} -gt 1048576 ]]
     then
         rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
-        rx="${rx} MB/s"
+        rx="${RED}${rx}${NORMAL} MB/s"
     elif [[ ${rx} -gt 1024 ]]
     then
         rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%04d", $1)}')
-        rx="${rx} KB/s"
+        rx="${YELLOW}${rx}${NORMAL} KB/s"
     else
         rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%04d", $1)}')
-        rx="${rx}  B/s"
+        rx="${GREEN}${rx}${NORMAL}  B/s"
     fi
 
     if [[ ${tx} -gt 1048576 ]]
     then
         tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
-        tx="${tx} MB/s"
+        tx="${RED}${tx}${NORMAL} MB/s"
     elif [[ ${tx} -gt 1024 ]]
     then
         tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%04d", $1)}')
-        tx="${tx} KB/s"
+        tx="${YELLOW}${tx}${NORMAL} KB/s"
     else
         tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%04d", $1)}')
-        tx="${tx}  B/s"
+        tx="${GREEN}${tx}${NORMAL}  B/s"
     fi
 
     echo "${rxcurrent} ${txcurrent}" > "${logfile}"
 
     # echo "$(bc <<< "scale=2; (${rxcurrent}-${rxprev}) / 10^6")" "$(bc <<< "scale=2; (${txcurrent}-${txprev}) / 10^6")"
-    echo -e "${NORMAL}⬇️ ${rx} ⬆️ ${tx} ${NORMAL}"
+    echo -e "${NORMAL}⬇️ ${rx} ⬆️ ${tx}${NORMAL}"
 }
 
 function __network_freebsd()

@@ -114,6 +114,7 @@ __help()
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
     __printf "   ${0} -s gruvbox"
+    __printf "   ${0} -s gruvbox.light"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s papercolor.light"
@@ -553,6 +554,18 @@ function __theme()
                 ## xmonad installed from stack
                 cd ~/.config/xmonad && ./recompile.sh
             fi
+            ;;
+        "gruvbox.light")
+            __printf "gruvbox.light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.gruvbox.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.light .Xdefaults
+            [[ -e ~/.Xdefaults.gruvbox.light ]] && xrdb -load ~/.Xdefaults.gruvbox.light
             ;;
         "monokai")
             __printf "monokai"
