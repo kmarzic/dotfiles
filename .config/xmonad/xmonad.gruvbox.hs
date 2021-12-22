@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-11-06 17:57:59 (CET)
+-- Last update: 2021-12-22 18:01:50 (CET)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -66,11 +66,11 @@ import XMonad.Util.NamedWindows (getName)
 gruvbox :: M.Map String String
 gruvbox = M.fromList
   [
-    ("background",       "#32302f"), -- dark
-    ("line",             "#ebdbb2"), -- fg
-    ("selection",        "#b8bb26"), -- green
-    ("foreground",       "#ebdbb2"), -- fg
-    ("comment",          "#b8bb26"), -- green
+    ("background",       "#32302f"),
+    ("line",             "#ebdbb2"),
+    ("selection",        "#b8bb26"),
+    ("foreground",       "#ebdbb2"),
+    ("comment",          "#b8bb26"),
     ("cyan",             "#8ec07c"),
     ("green",            "#b8bb26"),
     ("orange",           "#fe8019"),
@@ -164,18 +164,15 @@ help = unlines
 
 fontRegular :: String
 -- fontRegular = "monospace:size=10:antialias=true:style=regular"
--- fontRegular = "Liberation Mono:pixelsize=12:antialias=true:autohint=true:style=regular"
-fontRegular = "DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular"
+fontRegular = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=regular"
 
 fontBold :: String
 -- fontBold = "monospace:size=10:antialias=true:style=bold"
--- fontBold = "xft:Liberation Mono:size=12:antialias=true:autohint=true:style=bold"
 fontBold = "DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=bold"
 
 fontTerminalScratchpad :: String
-fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
--- fontTerminalScratchpad = "xft:monospace:size=12:antialias=true:style=bold,xft:Source\\ Code\\ Pro\\ Medium:pixelsize=18:antialias=true:hinting=true:style:bold"
--- fontTerminalScratchpad = "xft:DejaVu Sans Mono:size=12:antialias=true:autohint=true:style=regular"
+-- fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
+fontTerminalScratchpad = "DejaVu\\ Sans\\ Mono:size=9:antialias=true:autohint=true:style=regular,DejaVuSansMono\\ Nerd\\ Font:size=9:antialias=true:autohint=true:style=regular"
 
 dmenuCommandGruvbox :: String -- theme: gruvbox
 -- dmenuCommandGruvbox = "/usr/bin/dmenu_run -i -nf \"#8be9fd\" -nb \"#101010\" -sb \"#8be9fd\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"
@@ -188,7 +185,7 @@ xmobarCommand1 :: String
 xmobarCommand1 = "xmobar $HOME/.config/xmonad/xmobar.hs"
 
 xmobarCommand2 :: ScreenId -> String
-xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/config/.xmonad/xmobar.hs"]
+xmobarCommand2 (S s) = unwords ["xmobar", "-x", show s, "$HOME/.config/xmonad/xmobar.hs"]
 
 dzenCommand2 :: ScreenId -> String
 dzenCommand2 (S s) = unwords ["dzen2 -x '1440' -y '0' -h '24' -w '640' -ta 'l'", "-xs", show s]
@@ -204,7 +201,7 @@ myTerminalScratchpad :: String
 -- myTerminalScratchpad = "kitty &"
 -- myTerminalScratchpad = "termite --class=termscratch"
 -- myTerminalScratchpad = "tilda -f " ++ fontTerminalScratchpad
-myTerminalScratchpad = "$HOME/bin/st -n scratchpad -f &"
+myTerminalScratchpad = "$HOME/bin/st -n scratchpad -f" ++ fontTerminalScratchpad ++ " &"
 -- myTerminalScratchpad = "gnome-terminal &"
 
 myModMask :: KeyMask
@@ -275,8 +272,8 @@ myStartUp = do
   -- spawnOnce "feh --bg-scale ~/wallpapers/green/lines_spots_color_texture_50390_3840x2400.jpg"
   -- spawnOnce "setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:nocaps' 'hr(us)'"
   -- spawnOnce "dunst -config $HOME/.config/dunst/dunstrc"
-  spawn "$HOME/.xmonad/screen.toogle.sh -x"
-  spawn "$HOME/.xmonad/trayer.sh"
+  spawn "$HOME/bin/screen.toogle.sh -x"
+  spawn "$HOME/bin/trayer.sh"
   setWMName "LG3D"
 
 
@@ -543,8 +540,8 @@ myKeys =
     -- ((mod1Mask,                  xK_m      ), myStartUpScreen),
     ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
     ((mod1Mask,                  xK_Print  ), spawn "$HOME/bin/screenshot.sh"),
-    ((mod1Mask,                  xK_q      ), spawn "$HOME/.xmonad/recompile.sh"),
-    ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/.xmonad/exit.sh message"),
+    ((mod1Mask,                  xK_q      ), spawn "$HOME/.config/xmonad/recompile.sh"),
+    ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/bin/exit.sh message"),
     ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
     ((mod1Mask,                  xK_f      ), sendMessage $ JumpToLayout "full'"),
@@ -590,9 +587,9 @@ myKeys =
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
     ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
     ((0, xF86XK_AudioMute                  ), spawn "amixer -q set Master,0 toggle"),
-    ((0, xF86XK_MonBrightnessUp            ), spawn "$HOME/.xmonad/brigtness.sh inc 10"),
-    ((0, xF86XK_MonBrightnessDown          ), spawn "$HOME/.xmonad/brigtness.sh dec 10"),
-    ((0, xF86XK_ModeLock                   ), spawn "$HOME/.xmonad/exit.sh lock"),
+    ((0, xF86XK_MonBrightnessUp            ), spawn "$HOME/.config/xmonad/brigtness.sh inc 10"),
+    ((0, xF86XK_MonBrightnessDown          ), spawn "$HOME/.config/xmonad/brigtness.sh dec 10"),
+    ((0, xF86XK_ModeLock                   ), spawn "$HOME/bin/exit.sh lock"),
     ((0, xF86XK_Mail                       ), spawn "evolution"),
     ((0, xF86XK_WWW                        ), spawn "$HOME/bin/vivaldi.sh noproxy"),
     ((0, xF86XK_Terminal                   ), spawn myTerminal),
@@ -607,10 +604,10 @@ myKeys =
     ((mod1Mask .|. controlMask,  xK_t      ), spawn "thunderbird"),
     ((mod1Mask .|. controlMask,  xK_v      ), spawn "VirtualBox"),
     --
-    ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/.xmonad/exit.sh lock"),
-    ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/.xmonad/exit.sh monitor_off"),
-    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/.xmonad/screen.toogle.sh -x"),
-    ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/.xmonad/exit.sh message")
+    ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/bin/exit.sh lock"),
+    ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/bin/exit.sh monitor_off"),
+    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/bin/screen.toogle.sh -x"),
+    ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/bin/exit.sh message")
   ]
   ++
   -- (1) Replacing greedyView with view

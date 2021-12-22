@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2021-11-01 07:41:51 (CET)
+-- Last update: 2021-12-22 17:17:33 (CET)
 
 Config {
    -- theme: solarized light
@@ -9,9 +9,11 @@ Config {
    -- font = "xft:monospace:size=11:antialias=true:style=bold",
    -- font = "xft:monospace:size=11:antialias=true:style=regular",
    -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular",
-   font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
+   -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
+   -- font = "xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular",
+   font = "xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=bold",
    --
-   additionalFonts = [ "xft:DejaVu Sans Mono:size=10:antialias=true", "xft:DejaVuSansMono Nerd Font:size=10:regular:antialias=true"],
+   additionalFonts = [ "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true", "xft:DejaVuSansMono Nerd Font:size=10:regular:antialias=true:autohint=true"],
 
    borderColor = "black",
    border = TopB,
