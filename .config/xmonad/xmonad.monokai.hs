@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2021-12-22 18:01:35 (CET)
+-- Last update: 2021-12-23 10:13:04 (CET)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -362,9 +362,9 @@ myTabConfigMonokai = def
 myLayoutHook tabConfig =
   avoidStruts
   $ (flip G.group) (Full)
-  $ full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
+  $ full' ||| tab' ||| tiled' ||| mirror' ||| roledex'
   where
-    tab2'      = named "tab2'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
+    tab'       = named "tab'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
     --
     tiled'     = named "tiled'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0)
     --
@@ -404,31 +404,21 @@ myIcon name = abc
 
 myPPLayout :: String -> String
 myPPLayout layout = case layout of
-      -- (1) ascii layout
-      -- "Tabbed Simplest by Full" -> "[_]"
-      -- "Full by Full"            -> "[ ]"
-      -- "Tall by Full"            -> "[|]"
-      -- "Mirror Tall by Full"     -> "[-]"
-      -- "Roledex by Full"         -> "[@]"
-      -- _                         -> layout
-      --
-      -- (2) icon layout
-      "Spacing Tabbed Simplest by Full" -> myIcon ".xmonad/icons/layout_tabbed.xbm"
-      "Tabbed Simplest by Full"         -> myIcon ".xmonad/icons/layout_tabbed.xbm"
-      "Spacing Full by Full"            -> myIcon ".xmonad/icons/layout_full.xbm"
-      "Full by Full"                    -> myIcon ".xmonad/icons/layout_full.xbm"
-      "full' by Full"                   -> myIcon ".xmonad/icons/layout_full.xbm"
-      "Spacing Tall by Full"            -> myIcon ".xmonad/icons/layout_tall.xbm"
-      "Tall by Full"                    -> myIcon ".xmonad/icons/layout_tall.xbm"
-      "tiled' by Full"                  -> myIcon ".xmonad/icons/layout_tall.xbm"
-      "Mirror Spacing Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Spacing Mirror Tall by Full"     -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Mirror Tall by Full"             -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "mirror' by Full"                 -> myIcon ".xmonad/icons/layout_mirror.xbm"
-      "Spacing Roledex by Full"         -> myIcon ".xmonad/icons/layout_roledex.xbm"
-      "Roledex by Full"                 -> myIcon ".xmonad/icons/layout_roledex.xbm"
-      "roledex' by Full"                -> myIcon ".xmonad/icons/layout_roledex.xbm"
-      _                                 -> layout
+   -- (1) ascii layout
+   -- "tab' by Full"            -> "[_]"
+   -- "full' by Full"           -> "[ ]"
+   -- "tiled' by Full"          -> "[|]"
+   -- "mirror' by Full"         -> "[-]"
+   -- "roledex' by Full"        -> "[@]"
+   -- _                         -> layout
+   --
+   -- (2) icon layout
+   "tab' by Full"            -> myIcon ".config/xmonad/icons/layout_tabbed.xbm"
+   "full' by Full"           -> myIcon ".config/xmonad/icons/layout_full.xbm"
+   "tiled' by Full"          -> myIcon ".config/xmonad/icons/layout_tall.xbm"
+   "mirror' by Full"         -> myIcon ".config/xmonad/icons/layout_mirror.xbm"
+   "roledex' by Full"        -> myIcon ".config/xmonad/icons/layout_roledex.xbm"
+   _                         -> layout
 
 logTitles :: X (Maybe String) -- this is a Logger
 logTitles =

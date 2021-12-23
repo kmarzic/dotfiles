@@ -45,7 +45,7 @@ export TERMINAL=urxvt
 # exec dusk.sh || exec urxvt
 
 #### dwm
-# exec dwm.sh || exec urxvt
+exec dwm.sh || exec urxvt
 
 #### dwl
 # exec dwl || exec urxvt
@@ -83,7 +83,7 @@ export TERMINAL=urxvt
 ## (2)
 # xmonad --recompile
 ## (3) stack
-exec xmonad || exec urxvt
+# exec xmonad || exec urxvt
 # exec $HOME/.cache/xmonad/xmonad-x86_64-linux || exec urxvt
 
 #### END
