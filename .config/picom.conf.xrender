@@ -48,7 +48,7 @@ frame-opacity = 1.0;
 
 opacity-rule = [
   "100:class_g  = 'dwm' && !focused",
-  "100:class_g  = 'xmobar' && !focused",
+  "100:class_g  = 'xmobar' && !focused"
 ]
 
 
