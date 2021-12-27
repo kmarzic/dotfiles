@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-12-27 08:21:55 (CET)
+"" Last update: 2021-12-27 18:54:18 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -59,7 +59,7 @@ colorscheme dracula
 
 augroup dracula_customization
     au!
-    " hi DraculaComment ctermfg=140
+    hi DraculaComment ctermfg=141
     highlight CursorLine cterm=NONE ctermbg=234 guibg=#1a1b23
 augroup END
 
