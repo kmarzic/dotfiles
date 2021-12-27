@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-12-27 08:21:32 (CET)
+"" Last update: 2021-12-27 19:48:00 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -47,19 +47,29 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" vim-monokai
-"" https://github.com/crusoexia/vim-monokai
+"" gruvbox
+"" https://github.com/morhetz/gruvbox
+"" https://github.com/sainnhe/gruvbox-material
 ""
 set background=dark
 syntax on
-colorscheme gruvbox
-" colorscheme gruvbox-material
+" colorscheme gruvbox
+""
+" let g:gruvbox_material_background = 'soft'
+" let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_disable_italic_comment = 1
+colorscheme gruvbox-material
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
+" let g:lightline = {
+"     \ 'colorscheme': 'gruvbox',
+"     \ }
+
 let g:lightline = {
-        \ 'colorscheme': 'gruvbox',
+        \ 'colorscheme': 'gruvbox-material',
         \ }
 
 "" Common
