@@ -113,6 +113,7 @@ __help()
     __printf "   ${0} -s doom-one"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
+    __printf "   ${0} -s lucario"
     __printf "   ${0} -s gruvbox"
     __printf "   ${0} -s gruvbox.light"
     __printf "   ${0} -s monokai"
@@ -480,6 +481,23 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.everforest ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.everforest .tmux.conf
             ;;
+        "lucario")
+            __printf "lucario"
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.lucario ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.lucario .Xdefaults
+            [[ -e ~/.Xdefaults.lucario ]] && xrdb -load ~/.Xdefaults.lucario
+
+            #### vim
+            [[ -e ~/.vimrc.lucario ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.lucario .vimrc
+            [[ -e ~/.gvimrc.lucario ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.lucario .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.lucario.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.lucario.vim init.vim && cd -
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.lucario ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.lucario .tmux.conf
+            ;;
         "gruvbox")
             __printf "gruvbox"
 
@@ -730,7 +748,7 @@ function __theme()
             ####
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/seed_of_life_by_lekremyelsew-d7bfnwj.png bg.png && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s solarized/dVMZsMn.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/dVMZsMn.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/TVDBMOt.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/BaocXcW.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
@@ -738,6 +756,8 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/6aEOSOS.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/hnSuKgw.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/burst2.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png

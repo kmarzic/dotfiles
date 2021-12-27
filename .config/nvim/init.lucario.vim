@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-12-27 08:20:40 (CET)
+"" Last update: 2021-12-27 08:21:21 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -47,27 +47,19 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" flattened
-" colorscheme flattened_light
-
-"" vim-solarized8
-"" https://github.com/lifepillar/vim-solarized8
+"" lucario
+"" https://github.com/raphamorim/lucario
 ""
-let g:solarized_visibility = "normal"
-let g:solarized_diffmode = "normal"
-let g:solarized_italics = 0
 set t_Co=256
 set background=dark
-" colorscheme solarized8
-" colorscheme solarized8_low
-colorscheme solarized8_high
-" colorscheme solarized8_flat
+syntax on
+colorscheme lucario
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-        \ 'colorscheme': 'solarized',
+        \ 'colorscheme': 'powerline',
         \ }
 
 "" Common

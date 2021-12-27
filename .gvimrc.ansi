@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-10-31 16:13:53 (CET)
+"" Last update: 2021-12-27 08:26:51 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -129,6 +129,8 @@ colorscheme desert
 " colorscheme solarized
 " colorscheme solarized8
 " colorscheme srcery
+" colorscheme doom-one
+" colorscheme lucario
 
 " highlight LineNr NONE
 

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-10-31 15:56:24 (CET)
+"" Last update: 2021-12-27 08:22:11 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -41,6 +41,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/everforest'
 Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
+Plug 'raphamorim/lucario'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.

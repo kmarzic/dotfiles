@@ -1,0 +1,79 @@
+!! ---------------------------------------------------------------------
+!! Settings
+!! (C) Kresimir Marzic <kmarzic@gmail.com>
+!! Last update: 2021-12-27 08:09:27 (CET)
+!! ---------------------------------------------------------------------
+!! $ xrdb -load $HOME/.Xdefaults
+!! $ xrdb -merge $HOME/.Xdefaults
+!! ---------------------------------------------------------------------
+
+!! ---------------------------------------------------------------------
+!! Common
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.common"
+
+
+!! ---------------------------------------------------------------------
+!! Lucario
+!! ---------------------------------------------------------------------
+
+!BLK Cursor
+#define _color0        #4f4f4f
+#define _color8        #4f4f4f
+!RED Tag
+#define _color1        #ff6c60
+#define _color9        #fa6960
+!GRN SpecialKey
+#define _color2        #fbb036
+#define _color10       #fbb036
+!YEL Keyword
+#define _color3        #ffffb6
+#define _color11       #feffb9
+!BLU Number
+#define _color4        #5796ed
+#define _color12       #6b9fed
+!MAG Precondit
+#define _color5        #ff73fd
+#define _color13       #fc6ffa
+!CYN Float
+#define _color6        #8ee478
+#define _color14       #8ee478
+!WHT Search
+#define _color7        #eeeeee
+#define _color15       #ffffff
+!FMT Include, StatusLine, ErrorMsg
+#define _colorBD       #ffffff
+#define _colorUL       #ffffff
+#define _colorIT       #ffffff
+!TXT Normal, Normal, Cursor
+#define _foreground    #f8f8f2
+#define _background    #2b3e50
+#define _cursorColor   #e3bf21
+
+*color0         : _color0
+*color1         : _color1
+*color2         : _color2
+*color3         : _color3
+*color4         : _color4
+*color5         : _color5
+*color6         : _color6
+*color7         : _color7
+*color8         : _color8
+*color9         : _color9
+*color10        : _color10
+*color11        : _color11
+*color12        : _color12
+*color13        : _color13
+*color14        : _color14
+*color15        : _color15
+*colorBD        : _colorBD
+*colorIT        : _colorIT
+*colorUL        : _colorUL
+*foreground     : _foreground
+*background     : _background
+*cursorColor    : _cursorColor
+
+!! ---------------------------------------------------------------------
+!! EOF
+!! ---------------------------------------------------------------------
