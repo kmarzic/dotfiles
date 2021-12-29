@@ -180,14 +180,24 @@ function __theme()
             ;;
         "gruvbox")
             __printf "gruvbox"
-            CYAN='^c#89b482^'
-            GREEN='^c#a9b665^'
+            #### Gruvbox Original Dark Hard
+            # CYAN='^c#89b482^'
+            # GREEN='^c#a9b665^'
+            # ORANGE='^c#a9b665^'
+            # PINK='^c#ea6962^'
+            # PURPLE='^c#d3869b^'
+            # RED='^c#ea6962^'
+            # YELLOW='^c#e78a4e^'
+            # NORMAL='^c#d4be98^'
+            #### Gruvbox Base16 Gruvbox dark hard 256
+            CYAN='^c#8ec07c^'
+            GREEN='^c#b8bb26^'
             ORANGE='^c#a9b665^'
             PINK='^c#ea6962^'
             PURPLE='^c#d3869b^'
-            RED='^c#ea6962^'
-            YELLOW='^c#e78a4e^'
-            NORMAL='^c#d4be98^'
+            RED='^c#fb4934^'
+            YELLOW='^c#fabd2f^'
+            NORMAL='^c#fbf1c7^'
             ;;
         "solarized.light")
             __printf "solarized light"
