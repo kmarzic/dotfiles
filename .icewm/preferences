@@ -281,108 +281,110 @@ HorizontalEdgeSwitch=1 # 0/1
 
 #  Goes to workspace 1.
 # KeySysWorkspace1="Alt+Ctrl+1"
-KeySysWorkspace1="Alt+1"
+KeySysWorkspace1="Super+1"
 
 #  Goes to workspace 10.
 # KeySysWorkspace10="Alt+Ctrl+0"
-KeySysWorkspace10="Alt+0"
+KeySysWorkspace10="Super+0"
 
 #  Takes the active window to workspace 10.
 # KeySysWorkspace10TakeWin="Alt+Ctrl+Shift+0"
-KeySysWorkspace10TakeWin="Alt+Shift+0"
+KeySysWorkspace10TakeWin="Super+Shift+0"
 
 #  Goes to workspace 11.
 # KeySysWorkspace11="Alt+Ctrl+bracketleft"
-KeySysWorkspace11="Alt+bracketleft"
+KeySysWorkspace11="Super+bracketleft"
 
 #  Takes the active window to workspace 11.
 # KeySysWorkspace11TakeWin="Alt+Ctrl+Shift+bracketleft"
-KeySysWorkspace11TakeWin="Alt+Shift+bracketleft"
+KeySysWorkspace11TakeWin="Super+Shift+bracketleft"
 
 #  Goes to workspace 12.
 # KeySysWorkspace12="Alt+Ctrl+bracketright"
-KeySysWorkspace12="Alt+bracketright"
+KeySysWorkspace12="Super+bracketright"
 
 #  Takes the active window to workspace 12.
 # KeySysWorkspace12TakeWin="Alt+Ctrl+Shift+bracketright"
-KeySysWorkspace12TakeWin="Alt+Shift+bracketright"
+KeySysWorkspace12TakeWin="Super+Shift+bracketright"
 
 #  Takes the active window to workspace 1.
 # KeySysWorkspace1TakeWin="Alt+Ctrl+Shift+1"
-KeySysWorkspace1TakeWin="Alt+Shift+1"
+KeySysWorkspace1TakeWin="Super+Shift+1"
 
 #  Goes to workspace 2.
 # KeySysWorkspace2="Alt+Ctrl+2"
-KeySysWorkspace2="Alt+2"
+KeySysWorkspace2="Super+2"
 
 #  Takes the active window to workspace 2.
 # KeySysWorkspace2TakeWin="Alt+Ctrl+Shift+2"
-KeySysWorkspace2TakeWin="Alt+Shift+2"
+KeySysWorkspace2TakeWin="Super+Shift+2"
 
 #  Goes to workspace 3.
 # KeySysWorkspace3="Alt+Ctrl+3"
-KeySysWorkspace3="Alt+3"
+KeySysWorkspace3="Super+3"
 
 #  Takes the active window to workspace 3.
 # KeySysWorkspace3TakeWin="Alt+Ctrl+Shift+3"
-KeySysWorkspace3TakeWin="Alt+Shift+3"
+KeySysWorkspace3TakeWin="Super+Shift+3"
 
 #  Goes to workspace 4.
 # KeySysWorkspace4="Alt+Ctrl+4"
-KeySysWorkspace4="Alt+4"
+KeySysWorkspace4="Super+4"
 
 #  Takes the active window to workspace 4.
 # KeySysWorkspace4TakeWin="Alt+Ctrl+Shift+4"
-KeySysWorkspace4TakeWin="Alt+Shift+4"
+KeySysWorkspace4TakeWin="Super+Shift+4"
 
 #  Goes to workspace 5.
 # KeySysWorkspace5="Alt+Ctrl+5"
-KeySysWorkspace5="Alt+5"
+KeySysWorkspace5="Super+5"
 
 #  Takes the active window to workspace 5.
 # KeySysWorkspace5TakeWin="Alt+Ctrl+Shift+5"
-KeySysWorkspace5TakeWin="Alt+Shift+5"
+KeySysWorkspace5TakeWin="Super+Shift+5"
 
 #  Goes to workspace 6.
 # KeySysWorkspace6="Alt+Ctrl+6"
-KeySysWorkspace6="Alt+6"
+KeySysWorkspace6="Super+6"
 
 #  Takes the active window to workspace 6.
 # KeySysWorkspace6TakeWin="Alt+Ctrl+Shift+6"
-KeySysWorkspace6TakeWin="Alt+Shift+6"
+KeySysWorkspace6TakeWin="Super+Shift+6"
 
 #  Goes to workspace 7.
 # KeySysWorkspace7="Alt+Ctrl+7"
-KeySysWorkspace7="Alt+7"
+KeySysWorkspace7="Super+7"
 
 #  Takes the active window to workspace 7.
 # KeySysWorkspace7TakeWin="Alt+Ctrl+Shift+7"
-KeySysWorkspace7TakeWin="Alt+Shift+7"
+KeySysWorkspace7TakeWin="Super+Shift+7"
 
 #  Goes to workspace 8.
 # KeySysWorkspace8="Alt+Ctrl+8"
-KeySysWorkspace8="Alt+8"
+KeySysWorkspace8="Super+8"
 
 #  Takes the active window to workspace 8.
 # KeySysWorkspace8TakeWin="Alt+Ctrl+Shift+8"
-KeySysWorkspace8TakeWin="Alt+Shift+8"
+KeySysWorkspace8TakeWin="Super+Shift+8"
 
 #  Goes to workspace 9.
 # KeySysWorkspace9="Alt+Ctrl+9"
-KeySysWorkspace9="Alt+9"
+KeySysWorkspace9="Super+9"
 
 #  Takes the active window to workspace 9.
 # KeySysWorkspace9TakeWin="Alt+Ctrl+Shift+9"
-KeySysWorkspace9TakeWin="Alt+Shift+9"
+KeySysWorkspace9TakeWin="Super+Shift+9"
 
 #  Goes to the previous workspace.
 # KeySysWorkspaceLast="Alt+Ctrl+Down"
+KeySysWorkspaceLast="Super+Ctrl+Down"
 
 #  Takes the active window to the previous workspace.
 # KeySysWorkspaceLastTakeWin="Alt+Ctrl+Shift+Down"
 
 #  Goes one workspace to the right.
 # KeySysWorkspaceNext="Alt+Ctrl+Right"
+KeySysWorkspaceNext="Super+Ctrl+Right"
 
 #  Takes the active window one workspace to the right.
 # KeySysWorkspaceNextTakeWin="Alt+Ctrl+Shift+Right"

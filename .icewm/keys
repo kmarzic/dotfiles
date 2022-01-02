@@ -8,18 +8,18 @@
 # You'll have to omit XK_ prefixs and to replace XF86XK_ prefixes by
 # XF86. Valid modifiers are Alt, Ctrl, Shift, Meta, Super and Hyper.
 #
-key "Alt+Enter"             st
-key "Alt+d"                 rofi -show run
-key "Alt+p"                 dmenu_run
-key "Alt+q"                 icewm --restart
+key "Super+Enter"           st
+key "Super+d"               rofi -show run
+key "Super+p"               dmenu_run
+key "Super+q"               icewm --restart
 key "Ctrl+Shift+l"          exit.sh lock
 key "Ctrl+Shift+m"          screen_toogle.sh -x
 key "Alt+Shift+q"           exit.sh message
-key "Alt+s"                 scratchpad.sh
-key "Ctrl+Alt+f"            firefox
-key "Ctrl+Alt+v"            VirtualBox
-key "Ctrl+Alt+m"            evolution
-key "Ctrl+Alt+t"            teams
+key "Super+s"               scratchpad.sh
+key "Ctrl+Super+f"          firefox
+key "Ctrl+Super+v"          VirtualBox
+key "Ctrl+Super+m"          evolution
+key "Ctrl+Super+t"          teams
 
 key "Super+KP_Subtract"     amixer sset Master 5%-
 key "Super+KP_Add"          amixer sset Master 5%+
@@ -41,4 +41,4 @@ key "XF86Search"            xdg-open https://www.google.com
 key "XF86Eject"             eject
 key "XF86Calculator"        /bin/sh -c "gnome-calculator || xcalc || ( type bc >/dev/null 2>&1 && xterm -e bc -l)"
 
-switchkey "Super+p"         icewm-menu-xrandr
+# switchkey "Super+p"         icewm-menu-xrandr
