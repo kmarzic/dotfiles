@@ -213,7 +213,8 @@ myTerminalScratchpad = "$HOME/bin/st -n scratchpad -f" ++ fontTerminalScratchpad
 -- myTerminalScratchpad = "gnome-terminal &"
 
 myModMask :: KeyMask
-myModMask = mod1Mask
+-- myModMask = mod1Mask
+myModMask = mod4Mask
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
@@ -255,30 +256,7 @@ myWorkspaces = clickable . (map xmobarEscape) $ ["1","2","3","4","5","6","7","8"
 -------------------------------------------------------------------------------
 
 myStartUpScreen :: X()
-myStartUpScreen = do
-  nScreens <- countScreens
-  if nScreens == 1
-  then do
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-  else if nScreens == 2
-  then do
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-    screenWorkspace 1 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "9"
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-  else if nScreens == 3
-  then do
-    screenWorkspace 2 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "1"
-    screenWorkspace 0 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "0"
-    screenWorkspace 1 >>= flip whenJust (windows . W.view)
-    windows $ W.greedyView "9"
-    screenWorkspace 2 >>= flip whenJust (windows . W.view)
-  else
-    return ()
+  return ()
 
 myStartUp :: X()
 myStartUp = do
@@ -633,67 +611,68 @@ myDzen2LogHookSolarizedLight2 hs ns = mapM_ dynamicLogWithPP $ zipWith myDzen2Lo
 
 myKeysDmenuCommandSolarizedDark =
   [
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
+    ((myModMask,                 xK_p      ), spawn dmenuCommandSolarizedDark), -- theme: solarized dark
     ((0,                         xK_Menu   ), spawn rofiCommand)  -- theme: solarized dark
   ]
 
 myKeysDmenuCommandSolarizedLight =
   [
-    ((mod1Mask,                  xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
+    ((myModMask,                 xK_p      ), spawn dmenuCommandSolarizedLight), -- theme: solarized light
     ((0,                         xK_Menu   ), spawn rofiCommand)  -- theme: solarized light
   ]
 
+myKeys :: [((KeyMask, KeySym), X ())]
 myKeys =
   [
-    ((mod1Mask,                  xK_Return ), spawn myTerminal),
-    ((mod1Mask,                  xK_s      ), scratchPad),
-    ((mod1Mask,                  xK_F4     ), kill),
-    -- ((mod1Mask,                  xK_m      ), myStartUpScreen),
+    ((myModMask,                 xK_Return ), spawn myTerminal),
+    ((myModMask,                 xK_s      ), scratchPad),
+    ((myModMask,                 xK_F4     ), kill),
+    -- ((myModMask,                 xK_m      ), myStartUpScreen),
     ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
-    ((mod1Mask,                  xK_Print  ), spawn "$HOME/bin/screenshot.sh"),
-    ((mod1Mask,                  xK_q      ), spawn "$HOME/.config/xmonad/recompile.sh"),
-    ((mod1Mask .|. shiftMask,    xK_q      ), spawn "$HOME/bin/exit.sh message"),
-    ((mod1Mask .|. shiftMask,    xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
+    ((myModMask,                 xK_Print  ), spawn "$HOME/bin/screenshot.sh"),
+    ((myModMask,                 xK_q      ), spawn "$HOME/.config/xmonad/recompile.sh"),
+    ((myModMask .|. shiftMask,   xK_q      ), spawn "$HOME/bin/exit.sh message"),
+    ((myModMask .|. shiftMask,   xK_slash  ), spawn ("echo \"" ++ help ++ "\" | xmessage -file -")),
     --
-    ((mod1Mask,                  xK_f      ), sendMessage $ JumpToLayout "full'"),
-    ((mod1Mask,                  xK_t      ), sendMessage $ JumpToLayout "tiled'"),
-    ((mod1Mask,                  xK_x      ), sendMessage $ JumpToLayout "roledex'"),
-    ((mod1Mask,                  xK_a      ), sendMessage Shrink), -- shrink resizable area
-    ((mod1Mask,                  xK_z      ), sendMessage Expand), -- expand resizable area
-    ((mod1Mask,                  xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
-    ((mod1Mask,                  xK_d      ), sendMessage (IncMasterN (-1))), -- Deincrement the number of windows in the master area
+    ((myModMask,                 xK_f      ), sendMessage $ JumpToLayout "full'"),
+    ((myModMask,                 xK_t      ), sendMessage $ JumpToLayout "tiled'"),
+    ((myModMask,                 xK_x      ), sendMessage $ JumpToLayout "roledex'"),
+    ((myModMask,                 xK_a      ), sendMessage Shrink), -- shrink resizable area
+    ((myModMask,                 xK_z      ), sendMessage Expand), -- expand resizable area
+    ((myModMask,                 xK_i      ), sendMessage (IncMasterN 1)),    -- Increment the number of windows in the master area
+    ((myModMask,                 xK_d      ), sendMessage (IncMasterN (-1))), -- Deincrement the number of windows in the master area
     --
-    -- ((mod1Mask,                  xK_j      ), windows W.focusUp), -- switch to previous workspace
-    -- ((mod1Mask,                  xK_k      ), windows W.focusDown), -- switch to next workspace
-    ((mod1Mask,                  xK_j      ), Group.focusUp), -- switch to previous workspace
-    ((mod1Mask,                  xK_k      ), Group.focusDown), -- switch to next workspace
-    -- ((mod1Mask .|. shiftMask,    xK_j      ), windows W.swapUp),  -- swap the focused window with the previous window
-    -- ((mod1Mask .|. shiftMask,    xK_k      ), windows W.swapDown), -- swap the focused window with the next window
-    ((mod1Mask .|. shiftMask,    xK_j      ), Group.swapUp >> refresh),  -- swap the focused window with the previous window
-    ((mod1Mask .|. shiftMask,    xK_k      ), Group.swapDown >> refresh), -- swap the focused window with the next window
-    -- ((mod1Mask,                  xK_Down   ), nextScreen), -- cycling through screens
-    -- ((mod1Mask,                  xK_Up     ), prevScreen), -- cycling through screens
-    ((mod1Mask,                  xK_comma  ), prevScreen), -- previous screen
-    ((mod1Mask,                  xK_period ), nextScreen), -- next screen
-    ((mod1Mask .|. shiftMask,    xK_comma  ), shiftPrevScreen >> prevScreen), -- shift to previous screen
-    ((mod1Mask .|. shiftMask,    xK_period ), shiftNextScreen >> nextScreen), -- shift to next screen
-    -- ((mod1Mask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
-    -- ((mod1Mask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
-    ((mod1Mask,                  xK_h      ), Group.focusGroupUp), -- move the focus to the previous group
-    ((mod1Mask,                  xK_l      ), Group.focusGroupDown), -- move the focus to the next group
-    ((mod1Mask .|. shiftMask,    xK_h      ), Group.moveToGroupUp False), -- move the focused window to the previous group
-    ((mod1Mask .|. shiftMask,    xK_l      ), Group.moveToGroupDown False), -- move the focused window to the next group
-    ((mod1Mask,                  xK_bracketleft), prevWS), -- previous workspace
-    ((mod1Mask,                  xK_bracketright), nextWS), -- next workspace
-    ((mod1Mask .|. shiftMask,    xK_Left), prevWS), -- previous workspace
-    ((mod1Mask .|. shiftMask,    xK_Right), nextWS), -- next workspace
-    ((mod1Mask .|. shiftMask,    xK_bracketleft),   DO.moveTo Prev hiddenWS), -- previous non empty workspace
-    ((mod1Mask .|. shiftMask,    xK_bracketright),  DO.moveTo Next hiddenWS), -- previous non empty workspace
-    ((mod1Mask .|. controlMask,  xK_Left),   DO.moveTo Prev hiddenWS), -- previous non empty workspace
-    ((mod1Mask .|. controlMask,  xK_Right),  DO.moveTo Next hiddenWS), -- previous non empty workspace
+    -- ((myModMask,                 xK_j      ), windows W.focusUp), -- switch to previous workspace
+    -- ((myModMask,                 xK_k      ), windows W.focusDown), -- switch to next workspace
+    ((myModMask,                 xK_j      ), Group.focusUp), -- switch to previous workspace
+    ((myModMask,                 xK_k      ), Group.focusDown), -- switch to next workspace
+    -- ((myModMask .|. shiftMask,   xK_j      ), windows W.swapUp),  -- swap the focused window with the previous window
+    -- ((myModMask .|. shiftMask,   xK_k      ), windows W.swapDown), -- swap the focused window with the next window
+    ((myModMask .|. shiftMask,   xK_j      ), Group.swapUp >> refresh),  -- swap the focused window with the previous window
+    ((myModMask .|. shiftMask,   xK_k      ), Group.swapDown >> refresh), -- swap the focused window with the next window
+    -- ((myModMask,                 xK_Down   ), nextScreen), -- cycling through screens
+    -- ((myModMask,                 xK_Up     ), prevScreen), -- cycling through screens
+    ((myModMask,                 xK_comma  ), prevScreen), -- previous screen
+    ((myModMask,                 xK_period ), nextScreen), -- next screen
+    ((myModMask .|. shiftMask,   xK_comma  ), shiftPrevScreen >> prevScreen), -- shift to previous screen
+    ((myModMask .|. shiftMask,   xK_period ), shiftNextScreen >> nextScreen), -- shift to next screen
+    -- ((myModMask .|. shiftMask,    xK_Down   ), swapNextScreen), -- cycling through screens
+    -- ((myModMask .|. shiftMask,    xK_Up     ), swapPrevScreen), -- cycling through screens
+    ((myModMask,                  xK_h     ), Group.focusGroupUp), -- move the focus to the previous group
+    ((myModMask,                  xK_l     ), Group.focusGroupDown), -- move the focus to the next group
+    ((myModMask .|. shiftMask,    xK_h     ), Group.moveToGroupUp False), -- move the focused window to the previous group
+    ((myModMask .|. shiftMask,    xK_l     ), Group.moveToGroupDown False), -- move the focused window to the next group
+    ((myModMask,                  xK_bracketleft), prevWS), -- previous workspace
+    ((myModMask,                  xK_bracketright), nextWS), -- next workspace
+    ((myModMask .|. shiftMask,    xK_Left), prevWS), -- previous workspace
+    ((myModMask .|. shiftMask,    xK_Right), nextWS), -- next workspace
+    ((myModMask .|. shiftMask,    xK_bracketleft),   DO.moveTo Prev hiddenWS), -- previous non empty workspace
+    ((myModMask .|. shiftMask,    xK_bracketright),  DO.moveTo Next hiddenWS), -- previous non empty workspace
+    ((myModMask .|. controlMask,  xK_Left),   DO.moveTo Prev hiddenWS), -- previous non empty workspace
+    ((myModMask .|. controlMask,  xK_Right),  DO.moveTo Next hiddenWS), -- previous non empty workspace
     --
-    ((mod1Mask,                  xK_m      ), withFocused minimizeWindow <+> windows W.focusDown),
-    ((mod1Mask .|. shiftMask,    xK_m      ), withLastMinimized maximizeWindowAndFocus),
+    ((myModMask,                  xK_m     ), withFocused minimizeWindow <+> windows W.focusDown),
+    ((myModMask .|. shiftMask,    xK_m     ), withLastMinimized maximizeWindowAndFocus),
     --
     ((0, xF86XK_AudioLowerVolume           ), spawn "amixer -q set Master,0 5%- unmute"),
     ((0, xF86XK_AudioRaiseVolume           ), spawn "amixer -q set Master,0 5%+ unmute"),
@@ -705,27 +684,27 @@ myKeys =
     ((0, xF86XK_WWW                        ), spawn "$HOME/bin/vivaldi.sh noproxy"),
     ((0, xF86XK_Terminal                   ), spawn myTerminal),
     --
-    ((mod1Mask .|. controlMask,  xK_c      ), spawn "$HOME/bin/vivaldi.sh noproxy"),
-    ((mod1Mask .|. controlMask,  xK_f      ), spawn "firefox"),
-    ((mod1Mask .|. controlMask,  xK_o      ), spawn "$HOME/bin/opera.sh proxy"),
-    ((mod1Mask .|. controlMask,  xK_g      ), spawn "gajim"),
-    ((mod1Mask .|. controlMask,  xK_m      ), spawn "evolution"),
-    ((mod1Mask .|. controlMask,  xK_p      ), spawn "pidgin"),
-    ((mod1Mask .|. controlMask,  xK_s      ), spawn "$HOME/bin/skype"),
-    ((mod1Mask .|. controlMask,  xK_t      ), spawn "thunderbird"),
-    ((mod1Mask .|. controlMask,  xK_v      ), spawn "VirtualBox"),
+    ((myModMask .|. controlMask,  xK_c     ), spawn "$HOME/bin/vivaldi.sh noproxy"),
+    ((myModMask .|. controlMask,  xK_f     ), spawn "firefox"),
+    ((myModMask .|. controlMask,  xK_o     ), spawn "$HOME/bin/opera.sh proxy"),
+    ((myModMask .|. controlMask,  xK_g     ), spawn "gajim"),
+    ((myModMask .|. controlMask,  xK_m     ), spawn "evolution"),
+    ((myModMask .|. controlMask,  xK_p     ), spawn "pidgin"),
+    ((myModMask .|. controlMask,  xK_s     ), spawn "$HOME/bin/skype"),
+    ((myModMask .|. controlMask,  xK_t     ), spawn "thunderbird"),
+    ((myModMask .|. controlMask,  xK_v     ), spawn "VirtualBox"),
     --
-    ((shiftMask .|. controlMask, xK_l      ), spawn "$HOME/bin/exit.sh lock"),
-    ((shiftMask .|. controlMask, xK_s      ), spawn "$HOME/bin/exit.sh monitor_off"),
-    ((shiftMask .|. controlMask, xK_m      ), spawn "$HOME/bin/screen.toogle.sh -x"),
-    ((shiftMask .|. controlMask, xK_x      ), spawn "$HOME/bin/exit.sh message")
+    ((myModMask .|. controlMask, xK_l      ), spawn "$HOME/bin/exit.sh lock"),
+    ((myModMask .|. controlMask, xK_s      ), spawn "$HOME/bin/exit.sh monitor_off"),
+    ((myModMask .|. controlMask, xK_m      ), spawn "$HOME/bin/screen.toogle.sh -x"),
+    ((myModMask .|. controlMask, xK_x      ), spawn "$HOME/bin/exit.sh message")
   ]
   ++
   -- (1) Replacing greedyView with view
   -- mod-[1..9] %! Switch to workspace N
   -- mod-shift-[1..9] %! Move client to workspace N
   -- 
-  [ ((m .|. mod1Mask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
+  [ ((m .|. myModMask, k), windows $ f i) -- Replace 'mod1Mask' with your mod key of choice.
     | (i, k) <- zip myWorkspaces ([xK_1 .. xK_9] ++ [ xK_0 ])
     -- , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)] -- default (greedyView)
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)] -- view
@@ -735,7 +714,7 @@ myKeys =
   -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
   -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
   -- 
-  [ ((m .|. mod1Mask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
+  [ ((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
     -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..] -- default map
     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
@@ -745,13 +724,13 @@ myKeys =
 
 myMouse =
   [
-    ((mod1Mask, button1), (\w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster)), -- Set the window to floating mode and move by dragging
-    ((mod1Mask, button2), (\w -> focus w >> windows W.shiftMaster)),                      -- Raise the window to the top of the stack
-    ((mod1Mask, button3), (\w -> focus w >> Flex.mouseResizeWindow w)),                   -- Set the window to floating mode and resize by dragging
-    ((mod1Mask, button4), (\_ -> prevWS)),                                                -- Switch to previous workspace
-    ((mod1Mask, button5), (\_ -> nextWS)),                                                -- Switch to next workspace
-    ((mod1Mask .|. shiftMask, button4), (\_ -> shiftToPrev)),                             -- Send client to previous workspace
-    ((mod1Mask .|. shiftMask, button5), (\_ -> shiftToNext))                              -- Send client to next workspace
+    ((myModMask, button1), (\w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster)), -- Set the window to floating mode and move by dragging
+    ((myModMask, button2), (\w -> focus w >> windows W.shiftMaster)),                      -- Raise the window to the top of the stack
+    ((myModMask, button3), (\w -> focus w >> Flex.mouseResizeWindow w)),                   -- Set the window to floating mode and resize by dragging
+    ((myModMask, button4), (\_ -> prevWS)),                                                -- Switch to previous workspace
+    ((myModMask, button5), (\_ -> nextWS)),                                                -- Switch to next workspace
+    ((myModMask .|. shiftMask, button4), (\_ -> shiftToPrev)),                             -- Send client to previous workspace
+    ((myModMask .|. shiftMask, button5), (\_ -> shiftToNext))                              -- Send client to next workspace
   ]
 
 
