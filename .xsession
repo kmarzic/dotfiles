@@ -16,16 +16,17 @@ export PATH="$PATH:/opt/icewm/bin"
 export PATH="$PATH:$HOME/bin"
 # PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
-export LUA_DIR=/opt/lua
-export LUA_INCLUDE_DIR=$LUA_DIR/include
-eval $(luarocks path)
+# export LUA_DIR=/opt/lua
+# export LUA_INCLUDE_DIR=$LUA_DIR/include
+# eval $(luarocks path)
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_TIME="en_DK.UTF-8"
 
-export TERMINAL=urxvt
+[[ -e $HOME/bin/st ]] && export TERMINAL=st
+[[ ! -e $HOME/bin/st ]] && export TERMINAL=urxvt
 [[ -e /etc/arch-release ]] && export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 [[ -e /etc/arch-release ]] && export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 
@@ -42,13 +43,10 @@ export TERMINAL=urxvt
 # exec bspwm || exec urxvt
 
 #### dusk
-# exec dusk.sh || exec urxvt
+exec dusk.sh || exec urxvt
 
 #### dwm
-exec dwm.sh || exec urxvt
-
-#### dwl
-# exec dwl || exec urxvt
+# exec dwm.sh || exec urxvt
 
 #### fluxbox
 # exec fluxbox || exec urxvt
@@ -85,5 +83,11 @@ exec dwm.sh || exec urxvt
 ## (3) stack
 # exec xmonad || exec urxvt
 # exec $HOME/.cache/xmonad/xmonad-x86_64-linux || exec urxvt
+
+#### dwl (wayland)
+# exec dwl || exec alacritty
+
+#### sway (wayland)
+# exec sway || exec alacritty
 
 #### END
