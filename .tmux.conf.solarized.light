@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2021-10-31 17:06:49 (CET)
+## Last update: 2022-01-05 17:14:48 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -139,6 +139,9 @@ bind E setw synchronize-panes off
 
 ## Keep windows around after they exit
 # set -g remain-on-exit on
+
+## layouts
+bind-key -r Space next-layout
 
 #### ## Clipboard integration
 #### ## ctrl+c to send to clipboard
