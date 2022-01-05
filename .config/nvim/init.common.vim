@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-12-02 07:15:26 (CET)
+"" Last update: 2022-01-05 19:56:41 (CET)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -811,7 +811,6 @@ set showcmd
 
 "" Number of lines to use for the command-line.
 set cmdheight=1
-
 
 "" ------------------------------------------------------------------------
 "" Tabs

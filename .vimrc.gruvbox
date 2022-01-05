@@ -95,7 +95,7 @@ colorscheme gruvbox-material
 "     \ }
 
 let g:lightline = {
-    \ 'colorscheme': 'gruvbox-material',
+    \ 'colorscheme': 'powerline',
     \ }
 
 "" Common

@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2020-09-01 07:03:09 (CEST)
+!! Last update: 2022-01-05 19:46:12 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -19,7 +19,7 @@
 !! ---------------------------------------------------------------------
 
 !! Dracula Xresources palette
-!! https://github.com/dracula/xresources/blob/master/Xresources
+!! https://github.com/dracula/xresources/blob/master/xresources
 *.foreground: #F8F8F2
 *.background: #282A36
 *.color0:     #000000
