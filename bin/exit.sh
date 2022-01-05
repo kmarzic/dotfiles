@@ -38,15 +38,29 @@ function __monitor_off()
 
 function __logout()
 {
-    [ $(ps -ef | grep "xmonad-x86_64-linux" | wc -l) -gt 0 ] && pkill xmonad; \
-    [ $(ps -ef | grep "awesome" | wc -l) -gt 0 ] && pkill awesome; \
-    [ $(ps -ef | grep "dwm.sh" | grep bash | wc -l) -gt 0 ] && kill $(ps -ef | grep "dwm.sh" | grep bash | awk '{ print $2 }'); \
-    [ $(ps -ef | grep "dusk.sh" | grep bash | wc -l) -gt 0 ] && kill $(ps -ef | grep "dusk.sh" | grep bash | awk '{ print $2 }'); \
-    [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit; \
-    [ $(ps -ef | grep "herbstluftwm.sh" | wc -l) -ne 0 ] && pkill herbsluftwm; \
-    [ $(ps -ef | grep "herbstluftwm" | wc -l) -ne 0 ] && herbstclient quit; \
-    [ $(ps -ef | grep panel | wc -l) -ne 0 ] && pkill -x panel; pkill -x panel; \
-    [ $(which bspc | wc -l) -ne 0 ] && bspc quit; [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
+    ## xmonad
+    [ $(ps -ef | grep "xmonad-x86_64-linux" | grep -v "grep" | wc -l) -gt 0 ] && pkill xmonad
+
+    ## awesome
+    [ $(ps -ef | grep "awesome" | grep -v "grep" | wc -l) -gt 0 ] && pkill awesome
+
+    ## dwm
+    [ $(ps -ef | grep "dwm.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ] && kill $(ps -ef | grep "dwm.sh" | grep bash | awk '{ print $2 }')
+
+    ## dusk
+    [ $(ps -ef | grep "dusk.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ] && kill $(ps -ef | grep "dusk.sh" | grep bash | awk '{ print $2 }')
+
+    ## i3
+    [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit
+
+    ## herbstluftwm
+    [ $(ps -ef | grep "herbstluftwm.sh" | grep -v "grep" | wc -l) -ne 0 ] && pkill herbsluftwm
+    [ $(ps -ef | grep "herbstluftwm" | grep -v "grep" | wc -l) -ne 0 ] && herbstclient quit
+
+    ## bspwm
+    [ $(ps -ef | grep "panel" | grep -v "grep" | wc -l) -ne 0 ] && pkill -x panel; pkill -x panel
+    [ $(which bspc | wc -l) -ne 0 ] && bspc quit
+    [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
 }
 
 function __suspend()

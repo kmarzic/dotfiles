@@ -466,55 +466,55 @@ function __spaces()
 ####
 function __process()
 {
-    dwm_status_detect=$(ps -ef | grep -v "grep" | grep "dwm.status.sh" | wc -l | awk '{$1=$1};1')
-    echo "dwm_status_detect='${dwm_status_detect}'"
+    #### check status
+    for pid in $(pidof -x "dwm.status.sh");
+    do
+        if [ ${pid} != $$ ];
+        then
+            echo "$(date +"%F %T"): dwm.status.sh is already running with PID ${pid}, killing"
+            kill ${pid}
+        fi
+    done
 
+    #### Add an artificial sleep to wait for the IPC handler to be ready to process requests
+    sleep 0.2
+
+    #### draw status
     if [[ "${OS}" = "Linux" ]]
     then
-        if [[ ${dwm_status_detect} -eq 2 ]]
-        # if [[ ${dwm_status_detect} -eq 3 ]]
-        then
-            while true;
-            do
-                #### xsetroot
-                if [[ ${STATUSCOLOR} -eq 0 ]]
-                then
-                    # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
-                    # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
-                    xsetroot -name "[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
-                elif [[ ${STATUSCOLOR} -eq 1 ]]
-                then
-                    # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
-                    # xsetroot -name "${NORMAL}[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
-                    xsetroot -name "${NORMAL}[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
-                fi
-                sleep 1
-            done
-        else
-            echo "dwm.status.sh is running"
-        fi
+        while true;
+        do
+            #### xsetroot
+            if [[ ${STATUSCOLOR} -eq 0 ]]
+            then
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
+                xsetroot -name "[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__time) ]"
+            elif [[ ${STATUSCOLOR} -eq 1 ]]
+            then
+                # xsetroot -name "[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__weather) | $(__network_linux) | $(__time) ]"
+                # xsetroot -name "${NORMAL}[ $(__load_linux) | $(__temp_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
+                xsetroot -name "${NORMAL}[ $(__load_linux) | $(__memory_linux) | $(__battery_linux) | $(__network_linux) | $(__time) ]${NORMAL}"
+            fi
+            sleep 1
+        done
     elif [[ "${OS}" = "FreeBSD" ]]
     then
-        if [[ ${dwm_status_detect} -eq 0 ]]
-        then
-            while true;
-            do
-                #### xsetroot
-                if [[ ${STATUSCOLOR} -eq 0 ]]
-                then
-                    # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # $(__weather) | $(__network_freebsd) | $(__time) ]$(__spaces)"
-                    # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
-                    xsetroot -name "[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
-                elif [[ ${STATUSCOLOR} -eq 1 ]]
-                then
-                    # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # # $(__weather_freebsd) | $(__network_freebsd) | $(__time) ] $(__spaces)"
-                    xsetroot -name "${NORMAL}[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]${NORMAL}"
-                fi
-                sleep 1
-            done
-        else
-            echo "dwm.status.sh is running"
-        fi
+        while true;
+        do
+            #### xsetroot
+            if [[ ${STATUSCOLOR} -eq 0 ]]
+            then
+                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # $(__weather) | $(__network_freebsd) | $(__time) ]$(__spaces)"
+                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
+                xsetroot -name "[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]"
+            elif [[ ${STATUSCOLOR} -eq 1 ]]
+            then
+                # xsetroot -name "[ $(__load_freebsd) | $(__temp_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | # # $(__weather_freebsd) | $(__network_freebsd) | $(__time) ] $(__spaces)"
+                xsetroot -name "${NORMAL}[ $(__load_freebsd) | $(__memory_freebsd) | $(__battery_freebsd) | $(__time) ]${NORMAL}"
+            fi
+            sleep 1
+        done
     fi
 }
 
