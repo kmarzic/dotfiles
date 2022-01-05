@@ -247,9 +247,9 @@ function __load_linux()
     load_percent="$(echo "${load}/${ncpu}*100" | bc -l | sed -e "s/\..*//g")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "CPU: ${load}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} <= 50" | bc -l) -eq 1 ]] && echo "${NORMAL}: ${GREEN}${load}${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${load_percent} < 80" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${YELLOW}${load}${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${RED}${load}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} <= 50" | bc -l) -eq 1 ]] &&                                                       echo "${NORMAL} ${NORMAL}${GREEN}${load}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${load_percent} < 80" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${load}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] &&                                                       echo "${NORMAL} ${NORMAL}${RED}${load}${NORMAL}"
 }
 
 function __load_freebsd()
@@ -265,12 +265,12 @@ function __temp_linux()
     temp_dec="$(acpi -t | awk '{ print $4 }' | head -1 | sed -e "s/\..*//g")"
 
     [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: -"
-    [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${RED}-${NORMAL}"
+    [[ -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL} ${NORMAL}${RED}-${NORMAL}"
 
     [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
-    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${GREEN}${temp}${NORMAL}"
-    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL} ${YELLOW}${temp}${NORMAL}"
-    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${RED}${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${GREEN}${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${RED}${temp}${NORMAL}"
 }
 
 function __temp_freebsd()
@@ -288,9 +288,9 @@ function __memory_linux()
     mem_percent=$(echo "scale=2; ${mem_available}/${mem_total}*100" | bc -l | sed -e "s/\..*//g")
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "MEM: ${mem_percent}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <= 50" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${RED}${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${YELLOW}${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${GREEN}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <= 50" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${GREEN}${mem_percent}%${NORMAL}"
 }
 
 function __memory_freebsd()
@@ -307,26 +307,30 @@ function __battery_linux()
     if [[ ${battery_enabled} -eq 0 ]]
     then
         [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: -"
-        [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${RED}-${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${NORMAL}${RED}-${NORMAL}"
     else
-        if [[ $(acpi --battery | grep "Discharging" | wc -l) -eq 1 ]]
-        then
-            [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="D"
-            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${RED}D${NORMAL}"
-        elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
-        then
-            [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="C"
-            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${RED}C${NORMAL}"
-        else
-            [[ ${STATUSCOLOR} -eq 0 ]] && battery_status="F"
-            [[ ${STATUSCOLOR} -eq 1 ]] && battery_status="${RED}F${NORMAL}"
-        fi
         battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
 
-        [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: ${battery_status}${battery}%"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -le 25 ]] && echo "${NORMAL} ${battery_status} ${RED}${battery}%${NORMAL}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 25 ]] && [[ ${battery} -lt 80 ]] && echo "${NORMAL} ${battery_status} ${YELLOW}${battery}%${NORMAL}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] && echo "${NORMAL}  ${battery_status} ${GREEN}${battery}%${NORMAL}"
+        if [[ $(acpi --battery | grep "Discharging" | wc -l) -eq 1 ]]
+        then
+            [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: D ${battery}%"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -le 20 ]] &&                            echo "${NORMAL}  ${NORMAL}${RED}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 20 ]] && [[ ${battery} -le 40 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 40 ]] && [[ ${battery} -le 60 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 60 ]] && [[ ${battery} -le 80 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] &&                            echo "${NORMAL}  ${NORMAL}${GREEN}${battery}%${NORMAL}"
+        elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
+        then
+            [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: C ${battery}%"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -le 20 ]] &&                            echo "${NORMAL} ${NORMAL}${RED}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 20 ]] && [[ ${battery} -le 40 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 40 ]] && [[ ${battery} -le 60 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 60 ]] && [[ ${battery} -le 80 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] &&                            echo "${NORMAL} ${NORMAL}${GREEN}${battery}%${NORMAL}"
+        else
+            [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: F ${battery}%"
+            [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${NORMAL}${GREEN}${battery}%${NORMAL}"
+        fi
     fi
 }
 
@@ -425,7 +429,7 @@ function __network_linux()
     echo "${rxcurrent} ${txcurrent}" > "${logfile}"
 
     # echo "$(bc <<< "scale=2; (${rxcurrent}-${rxprev}) / 10^6")" "$(bc <<< "scale=2; (${txcurrent}-${txprev}) / 10^6")"
-    echo -e "${NORMAL}⬇️ ${rx} ⬆️ ${tx}${NORMAL}"
+    echo -e "${NORMAL} ${rx}  ${tx}${NORMAL} "
 }
 
 function __network_freebsd()
@@ -437,12 +441,13 @@ function __network_freebsd()
 ####
 function __time()
 {
-    date="$(date +"%a %Y-%m-%d %H:%M:%S")"
+    date="$(date +"%a %Y-%m-%d")"
+    time="$(date +"%H:%M:%S")"
 
-    [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date}"
-    # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${ORANGE}${date}${NORMAL}"
-    # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}${date}${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "  ${NORMAL}${date}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date} ${time}"
+    # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${ORANGE}${date}${NORMAL} ${ORANGE}${time}${NORMAL}"
+    # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}${date}${NORMAL} ${CYAN}${time}${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN} ${NORMAL}${time}${NORMAL}"
 }
 
 #### Function: spaces
