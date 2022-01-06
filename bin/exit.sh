@@ -21,7 +21,7 @@ function __lock()
     # i3lock -c 005088
 
     #### i3lock bluring
-    if [[ "$(hostname)" == "elx711804dr" ]]
+    if [[ "$(hostname)" == "elx711804dr" ]] || [[ "$(hostname)" == "elxd648894f" ]]
     then
         rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
         scrot /var/tmp/screen_locked.png
