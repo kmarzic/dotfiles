@@ -21,13 +21,19 @@ function __lock()
     # i3lock -c 005088
 
     #### i3lock bluring
-    # rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
-    # scrot /var/tmp/screen_locked.png
-    # convert /var/tmp/screen_locked.png -scale 10% -scale 1000% /var/tmp/screen_locked2.png
-    # i3lock -i /var/tmp/screen_locked2.png
+    if [[ "$(hostname)" == "elx711804dr" ]]
+    then
+        rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
+        scrot /var/tmp/screen_locked.png
+        convert /var/tmp/screen_locked.png -scale 10% -scale 1000% /var/tmp/screen_locked2.png
+        i3lock -i /var/tmp/screen_locked2.png
+    fi
 
     #### slock bluring
-    ~/bin/slock
+    if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
+    then
+        ~/bin/slock
+    fi
 
     #### turn off monitor
     sleep 10 && xset dpms force off
