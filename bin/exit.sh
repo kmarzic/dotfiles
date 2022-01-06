@@ -8,26 +8,28 @@ export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:${HOME}/bin
 
 function __lock()
 {
-    ## i3lock
+    #### i3lock
     # i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -d 5 -b
     # i3lock -i /opt/elx/share/wallpapers/elx_wallpaper_blue.png -n -p default
-
-    ## black
+    #### black
     # i3lock -c 000000
-    ## dark green
+    #### dark green
     # i3lock -c 073642
-    ## gray
+    #### gray
     # i3lock -c 3f3f3f
-    ## blue
+    #### blue
     # i3lock -c 005088
 
-    ## bluring
-    rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
-    scrot /var/tmp/screen_locked.png
-    convert /var/tmp/screen_locked.png -scale 10% -scale 1000% /var/tmp/screen_locked2.png
-    i3lock -i /var/tmp/screen_locked2.png
+    #### i3lock bluring
+    # rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
+    # scrot /var/tmp/screen_locked.png
+    # convert /var/tmp/screen_locked.png -scale 10% -scale 1000% /var/tmp/screen_locked2.png
+    # i3lock -i /var/tmp/screen_locked2.png
 
-    ## turn off monitor
+    #### slock bluring
+    ~/bin/slock
+
+    #### turn off monitor
     sleep 10 && xset dpms force off
 }
 
@@ -39,28 +41,30 @@ function __monitor_off()
 function __logout()
 {
     ## xmonad
-    [ $(ps -ef | grep "xmonad-x86_64-linux" | grep -v "grep" | wc -l) -gt 0 ] && pkill xmonad
+    [[ $(ps -ef | grep "xmonad-x86_64-linux" | grep -v "grep" | wc -l) -gt 0 ]] && pkill xmonad
 
     ## awesome
-    [ $(ps -ef | grep "awesome" | grep -v "grep" | wc -l) -gt 0 ] && pkill awesome
+    [[ $(ps -ef | grep "awesome" | grep -v "grep" | wc -l) -gt 0 ]] && pkill awesome
 
     ## dwm
-    [ $(ps -ef | grep "dwm.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ] && kill $(ps -ef | grep "dwm.sh" | grep bash | awk '{ print $2 }')
+    [[ $(ps -ef | grep "dwm.status.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dwm.status.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
+    [[ $(ps -ef | grep "dwm.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dwm.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
 
     ## dusk
-    [ $(ps -ef | grep "dusk.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ] && kill $(ps -ef | grep "dusk.sh" | grep bash | awk '{ print $2 }')
+    [[ $(ps -ef | grep "dusk.status.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dusk.status.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
+    [[ $(ps -ef | grep "dusk.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dusk.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
 
     ## i3
-    [ $(which i3-msg | wc -l) -ne 0 ] && i3-msg exit
+    [[ $(which i3-msg | wc -l) -ne 0 ]] && i3-msg exit
 
     ## herbstluftwm
-    [ $(ps -ef | grep "herbstluftwm.sh" | grep -v "grep" | wc -l) -ne 0 ] && pkill herbsluftwm
-    [ $(ps -ef | grep "herbstluftwm" | grep -v "grep" | wc -l) -ne 0 ] && herbstclient quit
+    [[ $(ps -ef | grep "herbstluftwm.sh" | grep -v "grep" | wc -l) -ne 0 ]] && pkill herbsluftwm
+    [[ $(ps -ef | grep "herbstluftwm" | grep -v "grep" | wc -l) -ne 0 ]] && herbstclient quit
 
     ## bspwm
-    [ $(ps -ef | grep "panel" | grep -v "grep" | wc -l) -ne 0 ] && pkill -x panel; pkill -x panel
-    [ $(which bspc | wc -l) -ne 0 ] && bspc quit
-    [ $(which bspc | wc -l) -ne 0 ] && bspc quit 1
+    [[ $(ps -ef | grep "panel" | grep -v "grep" | wc -l) -ne 0 ]] && pkill -x panel; pkill -x panel
+    [[ $(which bspc | wc -l) -ne 0 ]] && bspc quit
+    [[ $(which bspc | wc -l) -ne 0 ]] && bspc quit 1
 }
 
 function __suspend()
@@ -163,7 +167,7 @@ function __message()
 ## Main
 ## ----------------------------------------------------------------------------
 
-case "$1" in
+case "${1}" in
     lock)
         __lock
         ;;

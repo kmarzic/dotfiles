@@ -479,14 +479,8 @@ function __dusk_logo()
 function __process()
 {
     #### check status
-    for pid in $(pidof -x "dusk.status.sh");
-    do
-        if [ ${pid} != $$ ];
-        then
-            echo "$(date +"%F %T"): dusk.status.sh is already running with PID ${pid}, killing"
-            kill ${pid}
-        fi
-    done
+    IAM=(`pgrep -d " " -f ${0//*\//}`)
+    [ ${#IAM[@]} -gt 1 ] && { echo I AM running; exit 127; } || echo "I AM not running. Running now ;-p"
 
     #### Add an artificial sleep to wait for the IPC handler to be ready to process requests
     sleep 0.2

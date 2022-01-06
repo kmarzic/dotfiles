@@ -7,9 +7,11 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-atelier-lakeside-light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-google-light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-gruvbox-dark-soft &
+# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s doom-one &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s dracula &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s everforest &
 [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox &
+# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s monokai &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s nord &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s papercolor.light &
@@ -21,7 +23,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 [[ -e ${HOME}/bin/dwm.battery.sh ]] && dwm.battery.sh &
 
 #### trayer
-# trayer.sh &
+# [[ -e ${HOME}/bin/trayer.sh ]] && ${HOME}/bin/trayer.sh &
 [[ -e /usr/bin/dropbox ]] && /usr/bin/dropbox start &
 [[ -e /usr/bin/nm-applet ]] && /usr/bin/nm-applet &
 
@@ -33,9 +35,11 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-atelier-lakeside-light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-google-light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-gruvbox-dark-soft
+# [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s doom-one
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s dracula
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s everforest
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s gruvbox
+# [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s gruvbox.light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s monokai
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s nord
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s papercolor.light

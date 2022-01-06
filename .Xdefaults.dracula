@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-01-05 19:46:12 (CET)
+!! Last update: 2022-01-06 14:57:09 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -12,6 +12,19 @@
 !! ---------------------------------------------------------------------
 
 #include ".Xdefaults.common"
+
+
+!! ---------------------------------------------------------------------
+!! Dusk Themes
+!! https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.nord_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.fjord_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.gruvbox_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.dracula_theme.txt"
+#include "git/suckless/dusk.resources/themes/dusk.xresources.dwm_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.one_dark_theme.txt"
 
 
 !! ---------------------------------------------------------------------
