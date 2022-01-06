@@ -41,8 +41,8 @@ function __dwm_battery_freebsd()
 }
 
 #### MAIN
-dwm_battery_detect=$(ps -ef | grep -v "grep" | grep "dwm.battery.sh" | wc -l | awk '{$1=$1};1')
-echo "dwm_battery_detect='${dwm_battery_detect}'"
+IAM=(`pgrep -d " " -f ${0//*\//}`)
+[ ${#IAM[@]} -gt 1 ] && { echo I AM running; exit 127; } || echo "I AM not running. Running now ;-p"
 
 if [[ "${OS}" = "Linux" ]]
 then

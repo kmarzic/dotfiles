@@ -41,8 +41,8 @@ function __dusk_battery_freebsd()
 }
 
 #### MAIN
-dusk_battery_detect=$(ps -ef | grep -v "grep" | grep "dusk.battery.sh" | wc -l | awk '{$1=$1};1')
-echo "dusk_battery_detect='${dusk_battery_detect}'"
+IAM=(`pgrep -d " " -f ${0//*\//}`)
+[ ${#IAM[@]} -gt 1 ] && { echo I AM running; exit 127; } || echo "I AM not running. Running now ;-p"
 
 if [[ "${OS}" = "Linux" ]]
 then
