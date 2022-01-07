@@ -648,7 +648,18 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.png && ln -s nord/2560x1080.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853699_nord-night.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853721_debora-pilati-dog0z4-gqp0-unsplash-modded.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853730_nord-peeks.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853757_amir-matin-pour-unsplash-modded.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853777_nord-day.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/2560x1080.png bg.png && cd -
+            ####
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853722_kurt-cotoaga-cqblg3lzepk-unsplash-modded.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853756_damian-mccoig-2hqpqsqy0zg-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853769_fabrizio-conti-mbm0wnj5emc-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853771_daniel-leone-v7datklzzaw-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853772_gabriel-santiago-lnetu9zcwpm-unsplash-modded.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
