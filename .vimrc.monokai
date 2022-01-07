@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2021-12-27 08:30:29 (CET)
+"" Last update: 2022-01-07 19:14:28 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -36,28 +36,27 @@ call plug#begin('~/.vim/plugged')
 "
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'preservim/nerdtree'
+Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'chrisbra/vim-diff-enhanced'
-Plug 'maralla/completor.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-scripts/perl-support.vim'
 Plug 'vim-perl/vim-perl'
-Plug 'hdima/python-syntax'
 Plug 'neovimhaskell/haskell-vim'
 "
 Plug 'chriskempson/base16-vim'
-Plug 'romainl/flattened'
 Plug 'lifepillar/vim-solarized8'
 Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'

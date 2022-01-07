@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-01-05 19:56:47 (CET)
+"" Last update: 2022-01-07 19:13:48 (CET)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -9,7 +9,7 @@
 "" Plugins
 "" ------------------------------------------------------------------------
 
-"" ale
+"" ale (Asynchronous Lint Engine)
 "" https://github.com/w0rp/ale
 ""
 let b:ale_linters = ['pyflakes', 'flake8', 'pylint']
@@ -17,7 +17,7 @@ let g:ale_completion_enabled = 1
 let b:ale_fixers = ['eslint']
 let b:ale_fix_on_save = 1
 
-"" ctrlp.vim
+"" ctrlp.vim (full path fuzzy file, buffer, mru, tag, ... finder)
 "" https://github.com/ctrlpvim/ctrlp.vim
 ""
 let g:ctrlp_map = '<c-p>'
@@ -27,7 +27,10 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_switch_buffer = 0
 
-"" fzf
+"" fzf (general-purpose command-line fuzzy finder)
+"" https://github.com/junegunn/fzf
+
+"" fzf.vim
 "" https://github.com/junegunn/fzf.vim
 ""
 let g:fzf_command_prefix = 'Fzf'
@@ -35,6 +38,8 @@ map ; :FzfFiles<CR>
 
 "" gitgutter
 "" https://github.com/airblade/vim-gitgutter
+""
+let g:gitgutter_terminal_reports_focus=0
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
@@ -66,11 +71,11 @@ let g:lightline.tab = {
 
 let g:lightline.separator = {
     \ 'left': '', 'right': ''
-    \}
+    \ }
 
 let g:lightline.subseparator = {
     \ 'left': '', 'right': ''
-    \}
+    \ }
 
 let g:lightline.tabline_separator = g:lightline.separator
 let g:lightline.tabline_subseparator = g:lightline.subseparator
@@ -81,7 +86,7 @@ let g:lightline.enable = {
     \ }
 
 "" The NERD tree
-"" https://github.com/scrooloose/nerdtree
+"" https://github.com/preservim/nerdtree
 ""
 let NERDTreeShowHidden = 1
 let NERDTreeShowBookmarks = 1
@@ -114,8 +119,8 @@ augroup END
 " vmap ,n <esc>:NERDTreeToggle<CR>
 " imap ,n <esc>:NERDTreeToggle<CR>
 
-"" syntastic
-"" https://github.com/scrooloose/syntastic
+"" syntastic (Syntastic is a syntax checking plugin)
+"" https://github.com/vim-syntastic/syntastic
 ""
 " let g:syntastic_disabled_filetypes=['html']
 let g:syntastic_html_checkers=['']
@@ -235,14 +240,25 @@ nmap <C-t> <Plug>MarkdownPreviewToggle
 "" chrisbra/vim-diff-enhanced
 "" https://github.com/chrisbra/vim-diff-enhanced
 ""
-:let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
+let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
 
-"" maralla/completor.vim
-"" https://github.com/maralla/completor.vim
+"" prabirshrestha/asyncomplete.vim
+"" https://github.com/prabirshrestha/asyncomplete.vim
 ""
-inoremap <expr> <Tab> pumvisible() ? "\<C-Y>" : "\<Tab>"
-let g:completor_complete_options='menuone,noinsert'
-let g:completor_completion_delay=0
+"" prabirshrestha/asyncomplete-buffer.vim
+"" https://github.com/prabirshrestha/asyncomplete-buffer.vim
+""
+let g:asyncomplete_buffer_clear_cache = 1
+inoremap <expr> <cr> pumvisible() ? asyncomplete#close_popup() . "\<cr>" : "\<cr>"
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'allowlist': ['*'],
+    \ 'blocklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': {
+    \    'max_buffer_size': 5000000,
+    \  },
+    \ }))
 
 "" ----------------------------------------------------------------------------
 
@@ -263,9 +279,6 @@ au BufNewFile,BufReadPost *.go set filetype=go
 
 "" perl-vim
 "" https://github.com/vim-perl/vim-perl
-
-"" python-syntax
-"" https://github.com/hdima/python-syntax
 
 "" haskell-vim
 "" https://github.com/neovimhaskell/haskell-vim
