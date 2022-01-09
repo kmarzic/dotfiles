@@ -379,6 +379,8 @@ function __theme()
             #### neovim
             [[ -e ~/.config/nvim/init.doom-one.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.doom-one.vim init.vim && cd -
 
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.doom-one ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.doom-one alacritty.yml && cd -
             ;;
         "dracula")
             __printf "dracula"
