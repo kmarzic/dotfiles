@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-01-05 19:31:20 (CET)
+"" Last update: 2022-01-13 18:53:01 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -40,8 +40,8 @@ if has ("unix")
     " set guifont=Terminus\ 10
     " set guifont=Monospace\ 10
     " set guifont=Inconsolata\ Medium\ 12
-    " set guifont=DejaVu\ Sans\ Mono\ 10
-    set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 10
+    set guifont=DejaVu\ Sans\ Mono\ 10
+    " set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 10
 else
     " set guifont=Courier:h9:cEASTEUROPE
     set guifont=Courier_New:h11:cANSI
