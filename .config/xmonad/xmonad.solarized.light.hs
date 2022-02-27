@@ -394,7 +394,7 @@ myTabConfigSolarizedLight = def
 myLayoutHook tabConfig =
   avoidStruts
   $ (flip G.group) (Full)
-  $ full' ||| tab2' ||| tiled' ||| mirror' ||| roledex'
+  $ full' ||| tab' ||| tiled' ||| mirror' ||| roledex'
   where
     tab'       = named "tab'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
     --
