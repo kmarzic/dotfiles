@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2022-03-06 10:03:29 (CET)
+## Last update: 2022-03-06 10:16:19 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -469,7 +469,8 @@ export COLUMNS=80
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
-export MC_SKIN=$HOME/.config/mc/onedark.ini
+# export MC_SKIN=$HOME/.config/mc/onedark.ini
+ export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini
 #
 # export MC_SKIN=/usr/share/mc/skins/darkfar.ini
