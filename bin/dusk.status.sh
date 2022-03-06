@@ -125,6 +125,7 @@ __help()
     __printf "   ${0} -s base16-atelier-lakeside-light"
     __printf "   ${0} -s base16-google-light"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
+    __printf "   ${0} -s doom-one"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
     __printf "   ${0} -s gruvbox"
@@ -167,6 +168,16 @@ function __theme()
             RED='^c#d22d72^'
             YELLOW='^c#8a8a0f^'
             NORMAL='^c#1f292e^'
+            ;;
+        "doom-one")
+            CYAN='^c#5699af^'
+            GREEN='^c#98be65^'
+            ORANGE='^c#ff6c6b^'
+            PINK='^c#c678dd^'
+            PURPLE='^c#c678dd^'
+            RED='^c#ff6c6b^'
+            YELLOW='^c#da8548^'
+            NORMAL='^c#dfdfdf^'
             ;;
         "dracula")
             __printf "dracula"

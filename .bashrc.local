@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2021-12-17 07:05:07 (CET)
+## Last update: 2022-03-06 10:03:29 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -346,7 +346,8 @@ export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.6/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.7/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.8/site-packages
-export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.9/site-packages
+# export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.9/site-packages
+export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.10/site-packages
 
 #### Oracle DB
 # export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_10.2
@@ -425,7 +426,7 @@ export LESSCHARSET="utf-8"
 # export LESS_TERMCAP_ue=$'\E[0m'
 # export LESS_TERMCAP_us=$'\E[01;32m'
 ##
-## gruvbox
+## gruvbox / doom-one
 export LESS_TERMCAP_mb=$'\E[01;33m'
 export LESS_TERMCAP_md=$'\E[01;33m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -462,19 +463,43 @@ export TMP="/tmp"
 export LYNX_CFG="~/.lynxrc"
 export COLUMNS=80
 
-# export MC_SKIN=$HOME/.config/mc/darkfar.ini
-# export MC_SKIN=$HOME/.config/mc/default.ini
-# export MC_SKIN=$HOME/.config/mc/double-lines.ini
 # export MC_SKIN=$HOME/.config/mc/dracula.ini
 # export MC_SKIN=$HOME/.config/mc/dracula256.ini
-# export MC_SKIN=$HOME/.config/mc/featured.ini
-# export MC_SKIN=$HOME/.config/mc/gotar.ini
+# export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
-# export MC_SKIN=$HOME/.config/mc/nicedark.ini
-export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
+export MC_SKIN=$HOME/.config/mc/onedark.ini
+# export MC_SKIN=$HOME/.config/mc/onedark16M.ini
+#
+# export MC_SKIN=/usr/share/mc/skins/darkfar.ini
+# export MC_SKIN=/usr/share/mc/skins/dark.ini
+# export MC_SKIN=/usr/share/mc/skins/default.ini
+# export MC_SKIN=/usr/share/mc/skins/double-lines.ini
+# export MC_SKIN=/usr/share/mc/skins/featured.ini
+# export MC_SKIN=/usr/share/mc/skins/featured-plus.ini
+# export MC_SKIN=/usr/share/mc/skins/gotar.ini
+# export MC_SKIN=/usr/share/mc/skins/gray-green-purple256.ini
+# export MC_SKIN=/usr/share/mc/skins/gray-orange-blue256.ini
+# export MC_SKIN=/usr/share/mc/skins/julia256.ini
+# export MC_SKIN=/usr/share/mc/skins/mc46.ini
 # export MC_SKIN=/usr/share/mc/skins/modarcon16-defbg.ini
+# export MC_SKIN=/usr/share/mc/skins/modarcon16.ini
+# export MC_SKIN=/usr/share/mc/skins/modarcon16root-defbg.ini
+# export MC_SKIN=/usr/share/mc/skins/modarcon16root.ini
+# export MC_SKIN=/usr/share/mc/skins/modarin256-defbg.ini
+# export MC_SKIN=/usr/share/mc/skins/modarin256.ini
+# export MC_SKIN=/usr/share/mc/skins/modarin256root-defbg.ini
+# export MC_SKIN=/usr/share/mc/skins/modarin256root.ini
+# export MC_SKIN=/usr/share/mc/skins/nicedark.ini
+# export MC_SKIN=/usr/share/mc/skins/sand256.ini
+# export MC_SKIN=/usr/share/mc/skins/seasons-autumn16M.ini
+# export MC_SKIN=/usr/share/mc/skins/seasons-spring16M.ini
+# export MC_SKIN=/usr/share/mc/skins/seasons-summer16M.ini
+# export MC_SKIN=/usr/share/mc/skins/seasons-winter16M.ini
+# export MC_SKIN=/usr/share/mc/skins/xoria256.ini
+# export MC_SKIN=/usr/share/mc/skins/yadt256-defbg.ini
+# export MC_SKIN=/usr/share/mc/skins/yadt256.ini
 
 #### Proxy
 ## hrzg-proxy01.etk.extern.eu.ericsson.se = 172.17.64.132

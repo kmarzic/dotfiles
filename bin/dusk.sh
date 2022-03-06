@@ -7,10 +7,10 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s base16-atelier-lakeside-light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s base16-google-light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s base16-gruvbox-dark-soft &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s doom-one &
+[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s doom-one &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s dracula &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s everforest &
-[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s gruvbox &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s gruvbox &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s gruvbox.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s monokai &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s nord &
