@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2022-03-06 10:16:19 (CET)
+## Last update: 2022-03-07 07:54:01 (CET)
 ## ----------------------------------------------------------------------------
 
 ## ----------------------------------------------------------------------------
@@ -418,23 +418,23 @@ export LESSCHARSET="utf-8"
 # export LESS_TERMCAP_us=$'\E[01;32m'
 ##
 ## solarized dark, solarized white
-# export LESS_TERMCAP_mb=$'\E[01;34m'
-# export LESS_TERMCAP_md=$'\E[01;34m'
-# export LESS_TERMCAP_me=$'\E[0m'
-# export LESS_TERMCAP_se=$'\E[0m'
-# export LESS_TERMCAP_so=$'\E[01;34;34m' # begin standout-mode - info box
-# export LESS_TERMCAP_ue=$'\E[0m'
-# export LESS_TERMCAP_us=$'\E[01;32m'
-##
-## gruvbox / doom-one
-export LESS_TERMCAP_mb=$'\E[01;33m'
-export LESS_TERMCAP_md=$'\E[01;33m'
+export LESS_TERMCAP_mb=$'\E[01;34m'
+export LESS_TERMCAP_md=$'\E[01;34m'
 export LESS_TERMCAP_me=$'\E[0m'
 export LESS_TERMCAP_se=$'\E[0m'
-# export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-export LESS_TERMCAP_so=$'\E[01;42;30m' # begin standout-mode - info box
+export LESS_TERMCAP_so=$'\E[01;34;34m' # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+##
+## gruvbox / doom-one
+# export LESS_TERMCAP_mb=$'\E[01;33m'
+# export LESS_TERMCAP_md=$'\E[01;33m'
+# export LESS_TERMCAP_me=$'\E[0m'
+# export LESS_TERMCAP_se=$'\E[0m'
+# # export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+# export LESS_TERMCAP_so=$'\E[01;42;30m' # begin standout-mode - info box
+# export LESS_TERMCAP_ue=$'\E[0m'
+# export LESS_TERMCAP_us=$'\E[01;32m'
 ##
 ## dracula
 # export LESS_TERMCAP_mb=$'\E[6m'        # begin blinking
@@ -468,9 +468,9 @@ export COLUMNS=80
 # export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/onedark.ini
- export MC_SKIN=$HOME/.config/mc/onedark2.ini
+# export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini
 #
 # export MC_SKIN=/usr/share/mc/skins/darkfar.ini
