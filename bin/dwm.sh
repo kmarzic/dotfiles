@@ -7,10 +7,10 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-atelier-lakeside-light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-google-light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s base16-gruvbox-dark-soft &
-[[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s doom-one &
+# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s doom-one &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s dracula &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s everforest &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox &
+[[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s monokai &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s nord &
@@ -26,6 +26,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/trayer.sh ]] && ${HOME}/bin/trayer.sh &
 [[ -e /usr/bin/dropbox ]] && /usr/bin/dropbox start &
 [[ -e /usr/bin/nm-applet ]] && /usr/bin/nm-applet &
+[[ -e /bin/globalprotect ]] && /bin/globalprotect launch-ui &
 
 #### xrandr
 [[ -e ${HOME}/bin/screen.toggle.sh ]] && screen.toggle.sh -x
