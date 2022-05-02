@@ -122,6 +122,7 @@ __help()
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
     __printf "   ${0} -s srcery"
+    __printf "   ${0} -s tokyo.night"
 }
 
 
@@ -989,6 +990,13 @@ function __theme()
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.yml.srcery ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.srcery alacritty.yml && cd -
+            ;;
+        "tokyo.night")
+            __printf "tokyo.night"
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.tokyo.night ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.tokyo.night .Xdefaults
+            [[ -e ~/.Xdefaults.tokyo.night ]] && xrdb -load ~/.Xdefaults.tokyo.night
     esac
 }
 
