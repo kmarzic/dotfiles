@@ -1048,11 +1048,12 @@ function __xrandr()
 
             xrandr \
                 --output ${IN-} --auto --primary ${off}
+
             ;;
         2)
             #### 2 monitors
 
-            #### dle6440
+            #### Dell - dle6440, dle5570
             if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
             then
                 __printf "# xrandr \\"
@@ -1064,7 +1065,7 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### elx711804dr - HP
+            #### HP EliteBook 850 G7 Notebook - elx711804dr
             if [[ "$(hostname)" == "elx711804dr" ]]
             then
                 __printf "# xrandr \\"
@@ -1075,11 +1076,24 @@ function __xrandr()
                     --output ${IN-} --auto \
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
+
+            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - elxd648894f
+            if [[ "$(hostname)" == "elxd648894f" ]]
+            then
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto \\"
+                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}"
+
+                xrandr \
+                    --output ${IN-} --auto \
+                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
+            fi
+
             ;;
         3)
             #### 3 monitors
 
-            #### dle6440
+            #### Dell - dle6440, dle5570
             if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
             then
                 __printf "# xrandr \\"
@@ -1093,21 +1107,7 @@ function __xrandr()
                     --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
             fi
 
-            #### elxa4n8pyf2 - Dell
-            if [[ "$(hostname)" == "elxa4n8pyf2" ]]
-            then
-                __printf "# xrandr \\"
-                __printf "    --output ${IN-} --auto \\"
-                __printf "    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \\"
-                __printf "    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}"
-
-                xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT2-} --auto --primary ${POSITION-} ${IN-} \
-                    --output ${EXT1-} --auto ${POSITION-} ${EXT2-}
-            fi
-
-            #### elx711804dr - HP
+            #### HP EliteBook 850 G7 Notebook - elx711804dr
             if [[ "$(hostname)" == "elx711804dr" ]]
             then
                 __printf " xrandr \\"
@@ -1120,6 +1120,7 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \
                     --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}
             fi
+
             ;;
     esac
 }
