@@ -237,6 +237,9 @@ HorizontalEdgeSwitch=1 # 0/1
 #  Hides all windows.
 # KeySysHideAll="Alt+Shift+F11"
 
+#  Switch to the next keyboard layout in the KeyboardLayouts list.
+# KeySysKeyboardNext=""
+#
 #  Activates the IceWM root menu in the lower left corner.
 # KeySysMenu="Ctrl+Esc"
 
@@ -1104,7 +1107,7 @@ WorkspaceNames="1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
 #  Background of non-LCD clock, leave empty to force transparency.
 # ColorClock="rgb:00/00/00"
 
-#  Background of non-LCD monitor.
+#  Text color of non-LCD clock.
 # ColorClockText="rgb:00/FF/00"
 
 #  Background of the taskbar.
@@ -1136,6 +1139,9 @@ WorkspaceNames="1", "2", "3", "4", "5", "6", "7", "8", "9", "0"
 
 #  Text color for task buttons of windows on other workspaces.
 # ColorInvisibleTaskBarAppText="rgb:00/00/00"
+
+#  Color of keyboard layout indicator.
+# ColorKeyboardLayoutText=""
 
 #  Background of labels, leave empty to force transparency.
 # ColorLabel="rgb:C0/C0/C0"

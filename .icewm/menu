@@ -6,6 +6,7 @@
 prog "st" xterm st
 prog "xterm" xterm xterm
 prog "urxvt" xterm urxvt
+prog "alacritty" xterm alacritty
 prog gvim gvim gvim
 prog Firefox mozilla firefox
 prog "Chromium" chromium-browser chromium-browser
