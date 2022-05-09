@@ -1043,9 +1043,6 @@ function __xrandr()
             done
             __printf "off='${off}'" debug
 
-            __printf "# xrandr \\"
-            __printf "    --output ${IN-} --auto --primary ${off}"
-
             #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - elxd648894f
             if [[ "$(hostname)" == "elxd648894f" ]]
             then
@@ -1055,6 +1052,9 @@ function __xrandr()
                 xrandr \
                     --output ${IN-} --mode 1920x1200 --auto --primary ${off}
             else
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto --primary ${off}"
+
                 xrandr \
                     --output ${IN-} --auto --primary ${off}
             fi
