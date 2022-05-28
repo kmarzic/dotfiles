@@ -54,6 +54,7 @@
 
 ! blue
 *.color4:       #51afef
+! *.color12:      #2257a0 ! This is 2257a0 in Doom Emacs but I lightened it.
 *.color12:      #3071db
 
 ! magenta
