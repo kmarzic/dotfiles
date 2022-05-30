@@ -1,0 +1,13 @@
+" vimrc
+call plug#begin('~/.vim/plugged')
+Plug 'chriskempson/base16-vim'
+Plug 'romgrk/doom-one.vim'
+call plug#end()
+filetype on
+set t_Co=256
+set background=dark
+" set background=light
+syntax on
+colorscheme doom-one
+" colorscheme base16-apathy
+"" eof

@@ -1,0 +1,74 @@
+!! ---------------------------------------------------------------------
+!! Settings
+!! (C) Kresimir Marzic <kmarzic@gmail.com>
+!! Last update: 2022-05-30 09:12:08 (CEST)
+!! ---------------------------------------------------------------------
+!! $ xrdb -load $HOME/.Xdefaults
+!! $ xrdb -merge $HOME/.Xdefaults
+!! ---------------------------------------------------------------------
+
+!! ---------------------------------------------------------------------
+!! Common
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.common"
+
+
+!! ---------------------------------------------------------------------
+!! Dusk Themes
+!! https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.nord_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.fjord_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.gruvbox_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.dracula_theme.txt"
+#include "git/suckless/dusk.resources/themes/dusk.xresources.dwm_theme.txt"
+! #include "git/suckless/dusk.resources/themes/dusk.xresources.one_dark_theme.txt"
+
+
+!! ---------------------------------------------------------------------
+!! catppuccin
+!! https://github.com/catppuccin/catppuccin
+!! ---------------------------------------------------------------------
+
+! special
+*.foreground: #DADAE8
+*.background: #1E1E29
+*.cursorColor: #B1E3AD
+
+! black
+*.color0: #6E6C7E
+*.color8: #6E6C7E
+
+! red
+*.color1: #E38C8F
+*.color9: #E38C8F
+
+! green
+*.color2: #B1E3AD
+*.color10: #B1E3AD
+
+! yellow
+*.color3: #EBDDAA
+*.color11: #EBDDAA
+
+! blue
+*.color4: #A4B9EF
+*.color12: #A4B9EF
+
+! magenta
+*.color5: #C6AAE8
+*.color13: #C6AAE8
+
+! cyan
+*.color6: #E5B4E2
+*.color14: #E5B4E2
+
+! white
+*color7: #DADAE8
+*color15: #DADAE8
+
+!! ---------------------------------------------------------------------
+!! EOF
+!! ---------------------------------------------------------------------

@@ -1,0 +1,164 @@
+"" -----------------------------------------------------------------------
+"" Author: Kresimir Marzic
+"" E-mail: kmarzic@gmail.com
+"" Last update: 2022-05-30 09:10:25 (CEST)
+"" Current file: .gvimrc
+"" -----------------------------------------------------------------------
+
+
+"" -----------------------------------------------------------------------
+"" GUI settings
+"" -----------------------------------------------------------------------
+
+"" Show the current filename in the title:
+"" Many users also want to see the name of the file associated with the current edit buffer in the title:
+" let &titlestring = expand ("%:p:~:.:h")
+"" (1)
+" au BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
+"" (2)
+au BufEnter * let &titlestring = "VIM [" . expand("%:p") . "]"
+
+"" Normally, Vim takes control of all Alt-<Key> combinations, to increase the
+"" number of possible mappings. This clashes with the standard use of Alt as
+"" the key for accessing menus.
+" simalt ~x
+
+"" To delete a menu item or a whole submenu, use the unmenu commands, which
+"" are analogous to the unmap commands.
+"" (1)
+" :unmenu *
+"" (2)
+" :unmenu! *
+
+"" This is a list of fonts which will be used for the GUI version of Vim.
+if has ("unix")
+    "" Fonts
+    " set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
+    " set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
+    " set guifont=Courier\ 10\ Pitch\ 10
+    " set guifont=Courier\ New\ 10
+    " set guifont=Terminus\ 10
+    " set guifont=Monospace\ 10
+    " set guifont=Inconsolata\ Medium\ 12
+    set guifont=DejaVu\ Sans\ Mono\ 10
+    " set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 10
+else
+    " set guifont=Courier:h9:cEASTEUROPE
+    set guifont=Courier_New:h11:cANSI
+endif
+
+"" Full Screen Mode
+" if ! has ("unix")
+"     set lines=999 columns=999
+" endif
+
+"" WOmdpw Position
+" if has ("unix")
+"     winsize 180 45
+"     winpos 20 20
+" endif
+
+"" GUI Options
+if has ("unix")
+    "" Menu bar
+    set guioptions+=m
+
+    "" Toolbar
+    set guioptions-=T
+
+    "" Right-hand scrollbar is always present.
+    set guioptions+=r
+
+    "" Use console dialogs instead of popup dialogs for simple choices.
+    set guioptions+=c
+endif
+
+"" UTF Encoding
+" if has("multi_byte")
+"     set encoding=utf-8
+"     set fileencoding=utf-8
+"     set fileencodings=utf-8
+"     set termencoding=utf-8
+" endif
+
+"" Select mode
+" set selectmode=mouse,key,cmd
+
+"" GUI Tab
+set guitablabel=%N:%M%t " Show tab numbers
+
+"" Gtk application (Gvim) rendering troubleshooting
+" :au FocusGained * :redraw!<CR>
+
+
+"" -----------------------------------------------------------------------
+"" Default color scheme
+"" -----------------------------------------------------------------------
+" set t_Co=8
+" set t_Co=16
+" let g:solarized_termcolors=16
+" set t_Co=256
+
+" colorscheme blue
+" colorscheme darkblue
+" colorscheme default
+" colorscheme delek
+" colorscheme desert
+" colorscheme elflord
+" colorscheme evening
+" colorscheme koehler
+" colorscheme morning
+" colorscheme murphy
+" colorscheme pablo
+" colorscheme peachpuff
+" colorscheme ron
+" colorscheme shine
+" colorscheme slate
+" colorscheme torte
+" colorscheme zellner
+
+" colorscheme base16-solarized-dark
+" colorscheme base16-solarized-light
+" colorscheme base16-google-light
+" colorscheme base16-atelier-lakeside-light
+colorscheme cattpucin
+" colorscheme doom-one
+" colorscheme dracula
+" colorscheme everforest
+" colorscheme flattened_dark
+" colorscheme flattened_light
+" colorscheme gruvbox
+" colorscheme gruvbox-material
+" colorscheme lucario
+" colorscheme monokai
+" colorscheme PaperColor
+" colorscheme solarized
+" colorscheme solarized8
+" colorscheme srcery
+
+" highlight LineNr NONE
+
+" function! s:base16_customize_solarized_ligth() abort
+"     call Base16hi("Search",     g:base16_gui03, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
+"     call Base16hi("StatusLine", g:base16_gui00, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
+"     call Base16hi("Substitute", g:base16_gui01, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
+"     call Base16hi("Visual",     g:base16_gui00, g:base16_gui0D, g:base16_cterm00, g:base16_cterm0D, "", "")
+" endfunction
+
+" function! s:base16_customize_solarized_dark() abort
+"     call Base16hi("Search",     g:base16_gui03, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+"     call Base16hi("StatusLine", g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+"     call Base16hi("Substitute", g:base16_gui01, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+"     call Base16hi("Visual",     g:base16_gui00, g:base16_gui0A, g:base16_cterm00, g:base16_cterm0A, "", "")
+" endfunction
+
+" augroup on_change_colorschema
+"     " autocmd!
+"     " autocmd ColorScheme * call s:base16_customize_solarized_ligth()
+"     " autocmd ColorScheme * call s:base16_customize_solarized_dark()
+" augroup END
+
+
+"" -----------------------------------------------------------------------
+"" EOF
+"" -----------------------------------------------------------------------
