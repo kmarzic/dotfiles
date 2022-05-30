@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-01-07 19:15:26 (CET)
+"" Last update: 2022-05-30 09:09:37 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -43,6 +43,7 @@ Plug 'sainnhe/everforest'
 Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
+Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
@@ -64,8 +65,8 @@ colorscheme everforest
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-        \ 'colorscheme': 'everforest',
-        \ }
+    \ 'colorscheme': 'everforest',
+    \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim

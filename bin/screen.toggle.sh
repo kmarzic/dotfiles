@@ -110,6 +110,7 @@ __help()
     __printf "   ${0} -s base16-atelier-lakeside-light"
     __printf "   ${0} -s base16-google-light"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
+    __printf "   ${0} -s catppuccin"
     __printf "   ${0} -s doom-one"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
@@ -357,6 +358,20 @@ function __theme()
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
+            ;;
+        "catppuccin")
+            __printf "catppuccin"
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.catppuccin ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.catppuccin .Xdefaults
+            [[ -e ~/.Xdefaults.catppuccin ]] && xrdb -load ~/.Xdefaults.catppuccin
+
+            #### vim
+            [[ -e ~/.vimrc.cattpucin ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.cattpucin .vimrc
+            [[ -e ~/.gvimrc.cattpucin ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.cattpucin .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.cattpuchin.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.cattpuchin.vim init.vim && cd -
             ;;
         "doom-one")
             __printf "doom-one"

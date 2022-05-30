@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-01-06 14:53:18 (CET)
+!! Last update: 2022-05-30 09:16:45 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -34,49 +34,72 @@
 ! Base16 Atelier Lakeside Light
 ! Scheme: Bram de Haan (http://atelierbramdehaan.nl)
 
-#define base00 #ebf8ff
-#define base01 #c1e4f6
-#define base02 #7ea2b4
-#define base03 #7195a8
-#define base04 #5a7b8c
-#define base05 #516d7b
-#define base06 #1f292e
-#define base07 #161b1d
-#define base08 #d22d72
-#define base09 #935c25
-#define base0A #8a8a0f
-#define base0B #568c3b
-#define base0C #2d8f6f
-#define base0D #257fad
-#define base0E #6b6bb8
-#define base0F #b72dd2
+! #define base00 #ebf8ff
+! #define base01 #c1e4f6
+! #define base02 #7ea2b4
+! #define base03 #7195a8
+! #define base04 #5a7b8c
+! #define base05 #516d7b
+! #define base06 #1f292e
+! #define base07 #161b1d
+! #define base08 #d22d72
+! #define base09 #935c25
+! #define base0A #8a8a0f
+! #define base0B #568c3b
+! #define base0C #2d8f6f
+! #define base0D #257fad
+! #define base0E #6b6bb8
+! #define base0F #b72dd2
+! 
+! *foreground:   base05
+! #ifdef background_opacity
+! *background:   [background_opacity]base00
+! #else
+! *background:   base00
+! #endif
+! *cursorColor:  base05
+! 
+! *color0:       base00
+! *color1:       base08
+! *color2:       base0B
+! *color3:       base0A
+! *color4:       base0D
+! *color5:       base0E
+! *color6:       base0C
+! *color7:       base05
+! 
+! *color8:       base03
+! *color9:       base09
+! *color10:      base01
+! *color11:      base02
+! *color12:      base04
+! *color13:      base06
+! *color14:      base0F
+! *color15:      base07
 
-*foreground:   base05
-#ifdef background_opacity
-*background:   [background_opacity]base00
-#else
-*background:   base00
-#endif
-*cursorColor:  base05
+!! ---------------------------------------------------------------------
+!! https://github.com/lemnos/theme.sh
+!! ---------------------------------------------------------------------
 
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-
-*color8:       base03
-*color9:       base09
-*color10:      base01
-*color11:      base02
-*color12:      base04
-*color13:      base06
-*color14:      base0F
-*color15:      base07
-
+*.color0: #ebf8ff
+*.color1: #d22d72
+*.color2: #568c3b
+*.color3: #8a8a0f
+*.color4: #257fad
+*.color5: #6b6bb8
+*.color6: #2d8f6f
+*.color7: #516d7b
+*.color8: #7195a8
+*.color9: #d22d72
+*.color10: #568c3b
+*.color11: #8a8a0f
+*.color12: #257fad
+*.color13: #6b6bb8
+*.color14: #2d8f6f
+*.color15: #161b1d
+*.background: #ebf8ff
+*.foreground: #516d7b
+*.cursor: #516d7b
 
 !! ---------------------------------------------------------------------
 !! EOF

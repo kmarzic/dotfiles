@@ -1,7 +1,7 @@
 " ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-01-07 19:14:15 (CET)
+"" Last update: 2022-05-30 09:11:50 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -68,6 +68,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/everforest'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
+Plug 'catppuccin/vim', { 'as': 'cattpuccin' }
 Plug 'miyakogi/seiya.vim'
 "
 call plug#end()

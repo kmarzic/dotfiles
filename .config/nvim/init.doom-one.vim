@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-01-09 20:17:55 (CET)
+"" Last update: 2022-05-30 09:09:31 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -43,6 +43,7 @@ Plug 'sainnhe/everforest'
 Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
+Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
@@ -63,8 +64,8 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-        \ 'colorscheme': 'powerline',
-        \ }
+    \ 'colorscheme': 'powerline',
+    \ }
 
 "" Common
 source ~/.config/nvim/init.common.vim
