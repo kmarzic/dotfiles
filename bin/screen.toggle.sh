@@ -1144,15 +1144,30 @@ function __xrandr()
             #### HP EliteBook 850 G7 Notebook - elx711804dr
             if [[ "$(hostname)" == "elx711804dr" ]]
             then
-                __printf " xrandr \\"
-                __printf "--output ${IN-} --auto \\"
-                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \\"
-                __printf "    --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}"
+                if [[ "${EXT1-}" == "DP-1-1" ]] && [[ "${EXT2-}" == "DP-1-2" ]]
+                then
+                    #### ETK
+                    __printf " xrandr \\"
+                    __printf "--output ${IN-} --auto \\"
+                    __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \\"
+                    __printf "    --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}"
 
-                xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \
-                    --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}
+                    xrandr \
+                        --output ${IN-} --auto \
+                        --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
+                        --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
+                else
+                    #### Home
+                    __printf " xrandr \\"
+                    __printf "--output ${IN-} --auto \\"
+                    __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \\"
+                    __printf "    --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}"
+
+                    xrandr \
+                        --output ${IN-} --auto \
+                        --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \
+                        --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}
+                fi
             fi
 
             ;;
