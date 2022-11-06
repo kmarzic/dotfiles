@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:18:12 (CEST)
+!! Last update: 2022-11-06 09:29:18 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -26,6 +26,25 @@
 !! Base16 Solarized Dark Theme
 !! https://github.com/chriskempson/base16-xresources
 !! ---------------------------------------------------------------------
+
+!! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+!! Light
+! color8    black
+! color9    red
+! color10   green
+! color11   yellow
+! color12   blue
+! color13   purple
+! color14   cyan
+! color15   white
 
 #define base00 #002b36
 #define base01 #073642
@@ -71,13 +90,14 @@ Exit*background: base00
 *color5:       base0E
 *color6:       base0C
 *color7:       base05
+
 *color8:       base03
-*color9:       base09
-*color10:      base01
-*color11:      base02
-*color12:      base04
-*color13:      base06
-*color14:      base0F
+*color9:       base08
+*color10:      base0B
+*color11:      base0A
+*color12:      base0D
+*color13:      base0E
+*color14:      base0C
 *color15:      base07
 
 st.color0:     base00
@@ -97,23 +117,6 @@ st.color13:    base0E
 st.color14:    base0C
 st.color15:    base07
 
-scratchpad.color0:     base00
-scratchpad.color1:     base08
-scratchpad.color2:     base0B
-scratchpad.color3:     base0A
-scratchpad.color4:     base0D
-scratchpad.color5:     base0E
-scratchpad.color6:     base0C
-scratchpad.color7:     base05
-scratchpad.color8:     base03
-scratchpad.color9:     base08
-scratchpad.color10:    base0B
-scratchpad.color11:    base0A
-scratchpad.color12:    base0D
-scratchpad.color13:    base0E
-scratchpad.color14:    base0C
-scratchpad.color15:    base07
-
 spterm.color0:     base00
 spterm.color1:     base08
 spterm.color2:     base0B
@@ -131,6 +134,22 @@ spterm.color13:    base0E
 spterm.color14:    base0C
 spterm.color15:    base07
 
+scratchpad.color0:     base00
+scratchpad.color1:     base08
+scratchpad.color2:     base0B
+scratchpad.color3:     base0A
+scratchpad.color4:     base0D
+scratchpad.color5:     base0E
+scratchpad.color6:     base0C
+scratchpad.color7:     base05
+scratchpad.color8:     base03
+scratchpad.color9:     base08
+scratchpad.color10:    base0B
+scratchpad.color11:    base0A
+scratchpad.color12:    base0D
+scratchpad.color13:    base0E
+scratchpad.color14:    base0C
+scratchpad.color15:    base07
 
 !! ---------------------------------------------------------------------
 !! Solarized Dark Higher Contrast
@@ -152,10 +171,16 @@ spterm.color15:    base07
 ! *color13: #e24d8e
 ! *color14: #00b39e
 ! *color15: #fcf4dc
-! 
+!
 ! *background: #001e27
 ! *foreground: #9cc2c3
 ! *cursorColor: #9cc2c3
+
+
+!! ---------------------------------------------------------------------
+!! Flattened
+!! https://github.com/romainl/flattened
+!! ---------------------------------------------------------------------
 
 !! ---------------------------------------------------------------------
 !! EOF

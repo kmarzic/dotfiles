@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:18:02 (CEST)
+!! Last update: 2022-11-06 09:30:33 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -24,9 +24,8 @@
 
 !! ---------------------------------------------------------------------
 !! Papercolor Light
-!! ---------------------------------------------------------------------
-
 !! https://github.com/logico-dev/Xresources-themes/blob/master/light/PaperColor.Xresources
+!! ---------------------------------------------------------------------
 
 ! PaperColor Theme
 *.foreground: #4D4D4C

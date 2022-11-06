@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:13:41 (CEST)
+!! Last update: 2022-11-06 09:36:01 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -73,7 +73,7 @@ scratchpad.background: #101010
 *color5: #75507b
 *color6: #06989a
 *color7: #d3d7cf
-!
+
 !! Light
 ! color8  black
 ! color9  red

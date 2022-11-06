@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:15:45 (CEST)
+!! Last update: 2022-11-06 08:56:56 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -23,7 +23,8 @@
 
 
 !! ---------------------------------------------------------------------
-!! Gruvbox Original Dark Soft
+!! Gruvbox Dark Soft
+!! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-gruvbox-dark-soft.sh
 !! ---------------------------------------------------------------------
 
 ! *color0: #32302f
@@ -48,6 +49,7 @@
 
 !! ---------------------------------------------------------------------
 !! Gruvbox Original Dark Hard
+!! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-gruvbox-dark-hard.sh
 !! ---------------------------------------------------------------------
 
 ! *color0: #1d2021
@@ -101,6 +103,9 @@
 *background:   base00
 #endif
 *cursorColor:  base05
+
+Exit*foreground: base05
+Exit*background: base00
 
 *color0:       base00
 *color1:       base08

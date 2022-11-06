@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:17:41 (CEST)
+!! Last update: 2022-11-06 09:30:52 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -27,6 +27,25 @@
 !! https://github.com/chriskempson/base16-xresources
 !! ---------------------------------------------------------------------
 
+!! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+!! Light
+! color8    black
+! color9    red
+! color10   green
+! color11   yellow
+! color12   blue
+! color13   purple
+! color14   cyan
+! color15   white
+
 #define base00 #272822
 #define base01 #383830
 #define base02 #49483e
@@ -51,6 +70,15 @@
 *background:   base00
 #endif
 *cursorColor:  base05
+
+urxvt*foreground: base06
+urxvt*background: base01
+st.foreground: base06
+st.background: base01
+spterm.foreground: base06
+spterm.background: base01
+Exit*foreground: base05
+Exit*background: base00
 
 *color0:       base00
 *color1:       base08

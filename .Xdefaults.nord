@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:17:51 (CEST)
+!! Last update: 2022-11-06 09:30:02 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -26,6 +26,25 @@
 !! Nord
 !! https://github.com/arcticicestudio/nord-xresources/blob/develop/src/nord
 !! ---------------------------------------------------------------------
+
+!! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+!! Light
+! color8    black
+! color9    red
+! color10   green
+! color11   yellow
+! color12   blue
+! color13   purple
+! color14   cyan
+! color15   white
 
 #define nord0 #2E3440
 #define nord1 #3B4252

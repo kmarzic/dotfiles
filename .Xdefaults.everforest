@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:15:38 (CEST)
+!! Last update: 2022-11-06 09:32:51 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -60,7 +60,7 @@
 ! *color5:  #d699b6
 ! *color6:  #83c092
 ! *color7:  #d3c6aa
-! 
+!
 ! *color8:  #4b565c
 ! *color9:  #e67e80
 ! *color10: #a7c080
@@ -69,7 +69,7 @@
 ! *color13: #d699b6
 ! *color14: #83c092
 ! *color15: #d3c6aa
-! 
+!
 ! *background: #2f383e
 ! *foreground: #d3c6aa
 
@@ -86,7 +86,7 @@
 ! *color5:  #d699b6
 ! *color6:  #83c092
 ! *color7:  #d3c6aa
-! 
+!
 ! *color8:  #4b565c
 ! *color9:  #e67e80
 ! *color10: #a7c080
@@ -95,7 +95,7 @@
 ! *color13: #d699b6
 ! *color14: #83c092
 ! *color15: #d3c6aa
-! 
+!
 ! *background: #323d43
 ! *foreground: #d3c6aa
 

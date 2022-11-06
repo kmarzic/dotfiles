@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:18:40 (CEST)
+!! Last update: 2022-11-06 09:01:33 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -31,6 +31,8 @@
 *.foreground:   #fce8c3
 *.background:   #1c1b19
 *.cursorColor:  #fbb829
+Exit*foreground: #fce8c3
+Exit*background: #1c1b19
 
 ! black
 *.color0:       #1c1b19

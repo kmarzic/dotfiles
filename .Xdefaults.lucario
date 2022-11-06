@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-08-06 09:17:29 (CEST)
+!! Last update: 2022-11-06 09:19:19 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -24,7 +24,27 @@
 
 !! ---------------------------------------------------------------------
 !! Lucario
+!! https://github.com/raphamorim/lucario
 !! ---------------------------------------------------------------------
+
+!! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+!! Light
+! color8    black
+! color9    red
+! color10   green
+! color11   yellow
+! color12   blue
+! color13   purple
+! color14   cyan
+! color15   white
 
 !BLK Cursor
 #define _color0        #4f4f4f
