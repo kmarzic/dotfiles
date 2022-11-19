@@ -72,14 +72,14 @@
 *cursorColor:  base05
 *fadeColor:    base07
 
-urxvt*foreground: base05
-urxvt*background: base00
-st.foreground: base05
-st.background: base00
-spterm.foreground: base05
-spterm.background: base00
-Exit*foreground: base05
-Exit*background: base00
+urxvt*foreground: base06
+urxvt*background: base01
+st.foreground: base06
+st.background: base01
+spterm.foreground: base06
+spterm.background: base01
+Exit*foreground: base06
+Exit*background: base01
 
 !! Base16 Solarized Light Theme
 *color0:       base00
