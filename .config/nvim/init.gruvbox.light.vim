@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-11-20 08:38:29 (CET)
+"" Last update: 2022-11-20 08:44:43 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -49,47 +49,42 @@ Plug 'miyakogi/seiya.vim'
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" flattened
-" colorscheme flattened_light
-
-"" vim-solarized8
-"" https://github.com/lifepillar/vim-solarized8
+"" gruvbox
+"" https://github.com/morhetz/gruvbox
 ""
-" let g:solarized_visibility = "low"
-" let g:solarized_visibility = "normal"
-let g:solarized_visibility = "high"
-" let g:solarized_diffmode = "low"
-" let g:solarized_diffmode = "normal"
-let g:solarized_diffmode = "high"
-let g:solarized_italics = 0
-" let g:solarized_termtrans = 1
-" let g:solarized_term_italics = 1
-" let g:solarized_old_cursor_style = 1
-" let g:solarized_extra_hi_groups = 1
-" let g:solarized_use16 = 1
-let g:solarized_extra_hi_groups = 1
-set t_Co=256
+set background=light
+syntax on
+" let g:gruvbox_contrast_light = 'soft'
+let g:gruvbox_contrast_light = 'medium'
+" let g:gruvbox_contrast_light = 'hard'
+colorscheme gruvbox
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-set t_Co=256
-set background=light
-syntax on
-" colorscheme solarized8
-" colorscheme solarized8_low
-colorscheme solarized8_high
-" colorscheme solarized8_flat
 
-"" vim-solarized
-"" https://github.com/ericbn/vim-solarized
+"" gruvbox-material
+"" https://github.com/sainnhe/gruvbox-material
 ""
-" colorscheme solarized
+" set background=light
+" syntax on
+" let g:gruvbox_material_background = 'soft'
+" " let g:gruvbox_material_background = 'medium'
+" " let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_disable_italic_comment = 1
+" " colorscheme gruvbox-material
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
+" let g:lightline = {
+"     \ 'colorscheme': 'gruvbox',
+"     \ }
+
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'powerline',
     \ }
 
 "" Common

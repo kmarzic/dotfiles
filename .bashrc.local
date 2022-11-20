@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2022-11-13 08:19:09 (CET)
+## Last update: 2022-11-20 07:43:32 (CET)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -470,8 +470,8 @@ export COLUMNS=80
 # export MC_SKIN=$HOME/.config/mc/dracula256.ini
 # export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
-export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+# export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
+export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/onedark.ini
 # export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini

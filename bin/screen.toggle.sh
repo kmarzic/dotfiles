@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2022-11-06
+#       CREATED: 2022-11-20
 #      REVISION: ---
 #===============================================================================
 
@@ -115,7 +115,7 @@ __help()
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
     __printf "   ${0} -s lucario"
-    __printf "   ${0} -s gruvbox"
+    __printf "   ${0} -s gruvbox.dark"
     __printf "   ${0} -s gruvbox.light"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
@@ -646,8 +646,8 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.lucario ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.lucario .tmux.conf
             ;;
-        "gruvbox")
-            __printf "gruvbox"
+        "gruvbox.dark")
+            __printf "gruvbox.dark"
 
             #### Background
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
@@ -683,31 +683,31 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
-            [[ -e ~/.Xdefaults.gruvbox ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox .Xdefaults
-            [[ -e ~/.Xdefaults.gruvbox ]] && xrdb -load ~/.Xdefaults.gruvbox
+            [[ -e ~/.Xdefaults.gruvbox.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.dark .Xdefaults
+            [[ -e ~/.Xdefaults.gruvbox.dark ]] && xrdb -load ~/.Xdefaults.gruvbox.dark
 
             #### vim
-            [[ -e ~/.vimrc.gruvbox ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox .vimrc
-            [[ -e ~/.gvimrc.gruvbox ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.gruvbox .gvimrc
+            [[ -e ~/.vimrc.gruvbox.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox.dark .vimrc
+            [[ -e ~/.gvimrc.gruvbox.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.gruvbox.dark .gvimrc
 
             #### neovim
-            [[ -e ~/.config/nvim/init.gruvbox.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.vim init.vim && cd -
+            [[ -e ~/.config/nvim/init.gruvbox.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.dark.vim init.vim && cd -
 
             #### dunstrc
-            [[ -e ~/.config/dunst/dunstrc.gruvbox ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.gruvbox dunstrc
+            [[ -e ~/.config/dunst/dunstrc.gruvbox.dark ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.gruvbox.dark dunstrc
             pkill dunst
 
             #### redshift.conf
-            [[ -e ~/.config/redshift.gruvbox.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
+            [[ -e ~/.config/redshift.gruvbox.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.dark.conf redshift.conf && cd -
 
             #### screenrc
-            [[ -e ~/.screenrc.gruvbox ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.gruvbox .screenrc
+            [[ -e ~/.screenrc.gruvbox.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.gruvbox.dark .screenrc
 
             #### tmux.conf
-            [[ -e ~/.tmux.conf.gruvbox ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox .tmux.conf
+            [[ -e ~/.tmux.conf.gruvbox.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox.dark .tmux.conf
 
             #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.yml.gruvbox ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox alacritty.yml && cd -
+            [[ -e ~/.config/alacritty/alacritty.yml.gruvbox.dark ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox.dark alacritty.yml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.gruvbox.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.gruvbox.hs xmobar.hs
@@ -741,7 +741,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/ktu605keuzx71.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
@@ -758,7 +758,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
@@ -768,6 +768,13 @@ function __theme()
             #### Xdefaults
             [[ -e ~/.Xdefaults.gruvbox.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.light .Xdefaults
             [[ -e ~/.Xdefaults.gruvbox.light ]] && xrdb -load ~/.Xdefaults.gruvbox.light
+
+            #### vim
+            [[ -e ~/.vimrc.gruvbox.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox.light .vimrc
+            [[ -e ~/.gvimrc.gruvbox.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.gruvbox.light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.gruvbox.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.light.vim init.vim && cd -
             ;;
         "monokai")
             __printf "monokai"
