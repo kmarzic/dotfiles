@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2022-11-20
+#       CREATED: 2022-12-01
 #      REVISION: ---
 #===============================================================================
 
@@ -1291,8 +1291,8 @@ function __xrandr()
             done
             __printf "off='${off}'" debug
 
-            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - elxd648894f
-            if [[ "$(hostname)" == "elxd648894f" ]]
+            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - entd0001
+            if [[ "$(hostname)" == "entd0001" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --mode 1920x1200 --auto --primary ${off} \\"
@@ -1335,8 +1335,8 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - elxd648894f
-            if [[ "$(hostname)" == "elxd648894f" ]] || [[ "$(hostname)" == "entd0001" ]]
+            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - entd0001
+            if [[ "$(hostname)" == "entd0001" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --mode 1920x1200 \\"

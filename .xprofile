@@ -119,7 +119,6 @@ function __compton()
     if [[ ${compton_detect} -eq 0 ]]
     then
         [[ "$(hostname)" == "elx711804dr" ]] && /opt/picom/bin/picom --config ~/.config/picom.conf.xrender -b
-        [[ "$(hostname)" == "elxd648894f" ]] && /opt/picom/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "entd0001" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "dle5570" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
