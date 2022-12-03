@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-11-20 08:44:46 (CET)
+"" Last update: 2022-12-03 20:17:32 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -78,8 +78,8 @@ call plug#end()
 ""
 set background=light
 syntax on
-" let g:gruvbox_contrast_light = 'soft'
-let g:gruvbox_contrast_light = 'medium'
+let g:gruvbox_contrast_light = 'soft'
+" let g:gruvbox_contrast_light = 'medium'
 " let g:gruvbox_contrast_light = 'hard'
 colorscheme gruvbox
 set termguicolors
