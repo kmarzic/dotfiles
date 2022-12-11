@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2022-02-26 16:23:10 (CET)
+-- Last update: 2022-12-11 09:29:04 (CET)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -40,7 +40,7 @@ import XMonad.Layout.Groups.Helpers
 import XMonad.Layout.LayoutCombinators
 import XMonad.Layout.IndependentScreens
 import XMonad.Layout.Minimize(minimize)
-import XMonad.Layout.Named
+import XMonad.Layout.Renamed
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Roledex
@@ -53,7 +53,7 @@ import qualified XMonad.Layout.Groups.Helpers as Group
 
 -- Utilities
 import XMonad.Util.EZConfig
-import XMonad.Util.Scratchpad
+import XMonad.Util.NamedScratchpad
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce
 import XMonad.Util.NamedWindows (getName)
@@ -172,7 +172,7 @@ fontRegular = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true
 
 fontBold :: String
 -- fontBold = "monospace:size=10:antialias=true:style=bold"
-fontBold = "DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=bold"
+fontBold = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=bold"
 
 fontTerminalScratchpad :: String
 -- fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
@@ -273,13 +273,19 @@ myStartUp = do
 -- Window Rules
 -------------------------------------------------------------------------------
 
-myManageScratchPad :: ManageHook
-myManageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+myManageScratchPad :: [NamedScratchpad]
+myManageScratchPad =
+  [
+    NS "term" myTerminalScratchpad findTerm manageTerm
+  ]
   where
-    h = 0.7 -- terminal height, 70%
-    w = 0.7 -- terminal width, 70%
-    t = 0.2 -- distance from top edge, 20%
-    l = 0.1 -- distance from left edge, 10%
+    findTerm   = (resource =? "scratchpad")
+    manageTerm = customFloating $ W.RationalRect l t w h
+      where
+        h = 0.7 -- terminal height, 70%
+        w = 0.7 -- terminal width, 70%
+        t = 0.2 -- distance from top edge, 20%
+        l = 0.1 -- distance from left edge, 10%
 
 myManageHook :: ManageHook
 myManageHook = composeAll . concat $
@@ -394,21 +400,27 @@ myTabConfigSolarizedLight = def
 myLayoutHook tabConfig =
   avoidStruts
   $ (flip G.group) (Full)
+  -- $ full' ||| tab' ||| tiled' ||| mirror' ||| roledex'
   $ full' ||| tab' ||| tiled' ||| mirror' ||| roledex'
   where
-    tab'       = named "tab'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
+    -- tab'       = named "tab'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
+    tab'       = renamed [Replace "tabbed"] $ ( spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig )
     --
-    tiled'     = named "tiled'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0)
+    -- tiled'     = named "tiled'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0)
+    tiled'     = renamed [Replace "tall"] $ ( spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ Tall nmaster0 delta0 ratio0 )
     --
-    mirror'    = named "mirror'" (Mirror tiled')
+    -- mirror'    = named "mirror'" (Mirror tiled')
+    mirror'     = renamed [Replace "wide"] $ ( Mirror tiled' )
     --
-    threecol'  = named "threecol'" (ThreeColMid nmaster0 delta0 ratio0)
+    -- threecol'  = named "threecol'" (ThreeColMid nmaster0 delta0 ratio0)
     --
-    full'      = named "full'" (gaps1 $ Full)
+    -- full'      = named "full'" (gaps1 $ Full)
+    full'      = renamed [Replace "full"] $ ( gaps1 $ Full )
     --
-    resizetab' = named "resizetab'" (ResizableTall 1 (3/100) (1/2) [])
+    -- resizetab' = named "resizetab'" (ResizableTall 1 (3/100) (1/2) [])
     --
-    roledex'   = named "roledex'" (Roledex)
+    -- roledex'   = named "roledex'" (Roledex)
+    roledex'   = renamed [Replace "roledex"] $ Roledex
     --
     -- The default number of windows in the master pane
     nmaster0   = 1
@@ -626,7 +638,7 @@ myKeys :: [((KeyMask, KeySym), X ())]
 myKeys =
   [
     ((myModMask,                 xK_Return ), spawn myTerminal),
-    ((myModMask,                 xK_s      ), scratchPad),
+    ((myModMask,                 xK_s      ), namedScratchpadAction myManageScratchPad "term"),
     ((myModMask,                 xK_F4     ), kill),
     -- ((myModMask,                 xK_m      ), myStartUpScreen),
     ((0,                         xK_Print  ), spawn "scrot ~/screenshot_$(date +%Y%m%d.%H%M%S).jpg"),
@@ -720,8 +732,6 @@ myKeys =
     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***
     , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
   ]
-  where
-    scratchPad = scratchpadSpawnActionTerminal myTerminalScratchpad
 
 myMouse =
   [
@@ -748,7 +758,7 @@ myConfigDefault = docks $ def
       borderWidth          = myBorderWidth,
       workspaces           = myWorkspaces,
       startupHook          = myStartUp >> myStartUpScreen,
-      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> myManageScratchPad,
+      manageHook           = myManageHook <+> manageDocks <+> dynamicMasterHook <+> namedScratchpadManageHook myManageScratchPad,
       -- handleEventHook      = handleEventHook def <+> docksEventHook
       handleEventHook      = handleEventHook def
     } `additionalKeys` myKeys
