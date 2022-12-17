@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2021-12-22 17:18:13 (CET)
+-- Last update: 2022-12-17 16:15:15 (CET)
 
 Config {
    -- theme: dracula
@@ -11,7 +11,7 @@ Config {
    -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular",
    -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
    -- font = "xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=regular",
-   font = "xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=bold",
+   font = "xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book",
    --
    additionalFonts = [ "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true", "xft:DejaVuSansMono Nerd Font:size=10:regular:antialias=true:autohint=true"],
 

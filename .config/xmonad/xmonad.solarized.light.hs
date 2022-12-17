@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2022-12-11 09:29:04 (CET)
+-- Last update: 2022-12-17 15:57:51 (CET)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -400,7 +400,6 @@ myTabConfigSolarizedLight = def
 myLayoutHook tabConfig =
   avoidStruts
   $ (flip G.group) (Full)
-  -- $ full' ||| tab' ||| tiled' ||| mirror' ||| roledex'
   $ full' ||| tab' ||| tiled' ||| mirror' ||| roledex'
   where
     -- tab'       = named "tab'" (spacingRaw True (Border 2 2 2 2) True (Border 2 2 2 2) True $ tabbedAlways shrinkText tabConfig)
@@ -726,7 +725,7 @@ myKeys =
   -- (2) Reorder screens
   -- mod-{w,e,r}, Switch to physical/Xinerama screens 1, 2, or 3
   -- mod-shift-{w,e,r}, Move client to screen 1, 2, or 3
-  -- 
+  --
   [ ((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f)) -- Replace 'mod1Mask' with your mod key of choice.
     -- | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..] -- default map
     | (key, sc) <- zip [xK_w, xK_e, xK_r] [0,2,1] -- was [0..] *** change to match your screen order ***

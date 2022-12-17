@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2022-12-11 09:28:48 (CET)
+-- Last update: 2022-12-17 16:15:15 (CET)
 
 Config {
    -- theme: solarized light
