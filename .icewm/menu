@@ -8,7 +8,7 @@ prog "xterm" xterm xterm
 prog "urxvt" xterm urxvt
 prog "alacritty" xterm alacritty
 prog gvim gvim gvim
-prog Firefox mozilla firefox
+prog Firefox firefox firefox
 prog "Chromium" chromium-browser chromium-browser
 prog Gimp gimp gimp
 includeprog icewm-menu-fdo --sep-before --no-sep-others

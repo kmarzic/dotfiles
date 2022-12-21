@@ -5,4 +5,7 @@ screen_toggle.sh -x
 /usr/bin/dropbox start &
 /usr/bin/nm-applet &
 
+[[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+[[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
 #### end

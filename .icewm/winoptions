@@ -3,13 +3,13 @@
 # Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
 
-
 urxvt.icon: xterm
 st.icon: xterm
 urxvt.startMaximized: 1
 st.startMaximized: 1
 
 Firefox.workspace: 4
+firefox.workspace: 4
 Chromium.workspace: 4
 Evolution.workspace: 8
 
