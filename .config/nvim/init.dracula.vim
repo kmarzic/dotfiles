@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-05-30 09:09:34 (CEST)
+"" Last update: 2022-12-21 12:08:03 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -52,18 +52,21 @@ call plug#end()
 "" Dracula
 "" https://draculatheme.com/vim
 ""
+augroup dracula_customization
+    au!
+    hi DraculaComment ctermfg=141
+    highlight CursorLine cterm=NONE ctermbg=234 guibg=#1a1b23
+augroup END
+
 let g:dracula_colorterm = 0
 let g:dracula_italic = 0
 set t_Co=256
 set background=dark
 syntax enable
 colorscheme dracula
-
-augroup dracula_customization
-    au!
-    hi DraculaComment ctermfg=141
-    highlight CursorLine cterm=NONE ctermbg=234 guibg=#1a1b23
-augroup END
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

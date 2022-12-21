@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-09-17 12:24:27 (CEST)
+!! Last update: 2022-12-21 11:34:41 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -417,7 +417,8 @@ st.termname: st-256color
 st.shell: /bin/bash
 ! st.background: #101010
 ! st.foreground: #d2d2d2
-! st.cursorColor: #101010
+!! st.cursorColor: #101010
+st*geometry: 100x40+0+0
 !
 ! st.font: DejaVu Sans Mono:size=9:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
