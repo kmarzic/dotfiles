@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2022-01-04 19:14:32
+#       CREATED: 2022-12-21 19:14:32
 #      REVISION: ---
 #===============================================================================
 
@@ -221,6 +221,17 @@ function __theme()
             RED='^c#dc322f^'
             YELLOW='^c#b58900^'
             NORMAL='^c#073642^'
+            ;;
+        "papercolor.light")
+            __printf "papercolor light"
+            CYAN='^c#3E999F^'
+            GREEN='^c#718C00^'
+            ORANGE='^c#d75f00^'
+            PINK='^c#eeeeee^'
+            PURPLE='^c#8700af^'
+            RED='^c#d70000^'
+            YELLOW='^c#d75f00^'
+            NORMAL='^c#4D4D4C^'
             ;;
         "solarized.dark")
             __printf "solarized dark"

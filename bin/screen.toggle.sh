@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2022-12-01
+#       CREATED: 2022-12-21
 #      REVISION: ---
 #===============================================================================
 
@@ -929,14 +929,21 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarizedlightstripes.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
-            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/wallpaperbetter.jpg.jpg bg.jpg && cd -
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/nature-landscapes_widewallpaper_the-perfect-nature-lscape-hdr_966.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/3b42rcb64pd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/arf6lv4kcrd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/d1dq5gwyusc91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
@@ -963,7 +970,11 @@ function __theme()
             [[ -e ~/.screenrc.papercolor.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.papercolor.light .screenrc
 
             #### tmux.conf
-            [[ -e ~/.tmux.conf.solarized.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.papercolor.light .tmux.conf
+            [[ -e ~/.tmux.conf.papercolor.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.papercolor.light .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.papercolor.light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.papercolor.light alacritty.yml && cd -
+
             ;;
         "solarized.dark")
             __printf "solarized dark"
