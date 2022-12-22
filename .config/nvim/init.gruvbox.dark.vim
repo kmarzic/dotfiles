@@ -52,17 +52,29 @@ call plug#end()
 
 "" gruvbox
 "" https://github.com/morhetz/gruvbox
-"" https://github.com/sainnhe/gruvbox-material
 ""
 set background=dark
 syntax on
-" colorscheme gruvbox
-""
+" let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'medium'
 " let g:gruvbox_material_background = 'soft'
-" let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_disable_italic_comment = 1
-colorscheme gruvbox-material
+colorscheme gruvbox
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+"" gruvbox-material
+"" https://github.com/sainnhe/gruvbox-material
+""
+" " let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_background = 'medium'
+" " let g:gruvbox_material_background = 'soft'
+" let g:gruvbox_material_disable_italic_comment = 1
+" colorscheme gruvbox-material
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
