@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-05-30 09:10:13 (CEST)
+"" Last update: 2022-12-22 08:05:34 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -132,6 +132,7 @@ colorscheme base16-atelier-lakeside-light
 " colorscheme lucario
 " colorscheme monokai
 " colorscheme PaperColor
+" colorscheme selenized
 " colorscheme solarized
 " colorscheme solarized8
 " colorscheme srcery

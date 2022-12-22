@@ -1,5 +1,5 @@
-## dunstrc.papercolor.light
-## Last update: 2022-12-22 07:47:05 (CET)
+## dunstrc.selenized.dark
+## Last update: 2021-11-07 18:46:35 (CET)
 
 [global]
     # font = Monospace 8
@@ -158,7 +158,7 @@
 
 [frame]
     width = 3
-    color = "#4D4D4C"
+    color = "#53676d"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -185,9 +185,9 @@
     ## Default
     # background = "#222222"
     # foreground = "#888888"
-    ## Papercolor light
-    background = "#E7E8EB"
-    foreground = "#878787"
+    ## Selenized Dark
+    background = "#103c48"
+    foreground = "#184956"
     #
     timeout = 10
 
@@ -195,9 +195,9 @@
     ## Default
     # background = "#285577"
     # foreground = "#ffffff"
-    ## Papercolor light
-    background = "#E7E8EB"
-    foreground = "#4D4D4C"
+    ## Selenized Dark
+    background = "#103c48"
+    foreground = "#adbcbc"
     #
     timeout = 10
 
@@ -205,9 +205,9 @@
     ## Default
     # background = "#900000"
     # foreground = "#ffffff"
-    ## Papercolor light
-    background = "#E7E8EB"
-    foreground = "#D7005F"
+    ## Selenized Dark
+    background = "#103c48"
+    foreground = "#ff665c"
     #
     timeout = 0
 

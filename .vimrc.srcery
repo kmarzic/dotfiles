@@ -58,7 +58,6 @@ Plug 'neovimhaskell/haskell-vim'
 "
 Plug 'chriskempson/base16-vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }

@@ -44,6 +44,7 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
 Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
+Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.

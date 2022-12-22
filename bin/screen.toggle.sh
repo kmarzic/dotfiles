@@ -120,6 +120,8 @@ __help()
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s papercolor.light"
+    __printf "   ${0} -s selenized.dark"
+    __printf "   ${0} -s selenized.light"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
     __printf "   ${0} -s srcery"
@@ -974,7 +976,106 @@ function __theme()
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.yml.papercolor.light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.papercolor.light alacritty.yml && cd -
+            ;;
+        "selenized.dark")
+            __printf "selenized dark"
 
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/seed_of_life_by_lekremyelsew-d7bfnwj.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/dVMZsMn.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/TVDBMOt.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/BaocXcW.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/1OlbRnT.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/6aEOSOS.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/hnSuKgw.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/burst2.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.selenized.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.selenized.dark .Xdefaults
+            [[ -e ~/.Xdefaults.selenized.dark ]] && xrdb -load ~/.Xdefaults.selenized.dark
+
+            #### vim
+            [[ -e ~/.vimrc.selenized.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.selenized.dark .vimrc
+            [[ -e ~/.gvimrc.selenized.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.selenized.dark .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.selenized.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.selenized.dark.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.selenized.dark ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.selenized.dark dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.selenized.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.selenized.dark.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.selenized.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.selenized.dark .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.selenized.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.selenized.dark .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.selenized.dark ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.selenized.dark alacritty.yml && cd -
+            ;;
+        "selenized.light")
+            __printf "selenized light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/burst1.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarizedlightstripes.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/wallpaperbetter_light.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/TVDBMOt.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/Screenshot_20220519_131646.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.selenized.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.selenized.light .Xdefaults
+            [[ -e ~/.Xdefaults.selenized.light ]] && xrdb -load ~/.Xdefaults.selenized.light
+
+            #### vim
+            [[ -e ~/.vimrc.selenized.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.selenized.light .vimrc
+            [[ -e ~/.gvimrc.selenized.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.selenized.light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.selenized.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.selenized.light.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.selenized.light ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.selenized.light dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.selenized.light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.selenized.light.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.selenized.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.selenized.light .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.selenized.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.selenized.light .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.selenized.light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.selenized.light alacritty.yml && cd -
             ;;
         "solarized.dark")
             __printf "solarized dark"
@@ -1256,6 +1357,7 @@ function __theme()
             #### Xdefaults
             [[ -e ~/.Xdefaults.tokyo.night ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.tokyo.night .Xdefaults
             [[ -e ~/.Xdefaults.tokyo.night ]] && xrdb -load ~/.Xdefaults.tokyo.night
+            ;;
     esac
 }
 

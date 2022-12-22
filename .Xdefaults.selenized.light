@@ -1,0 +1,57 @@
+!! ---------------------------------------------------------------------
+!! Settings
+!! (C) Kresimir Marzic <kmarzic@gmail.com>
+!! Last update: 2022-12-22 09:05:34 (CET)
+!! ---------------------------------------------------------------------
+!! $ xrdb -load $HOME/.Xdefaults
+!! $ xrdb -merge $HOME/.Xdefaults
+!! ---------------------------------------------------------------------
+
+!! ---------------------------------------------------------------------
+!! Common
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.common"
+
+
+!! ---------------------------------------------------------------------
+!! Dusk Themes
+!! https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include "git/suckless/dusk.resources/themes/dark/dwm.res"
+
+
+!! ---------------------------------------------------------------------
+!! selenized-light
+!! https://github.com/jan-warchol/selenized/blob/master/terminals/xterm/selenized-light.xdefaults
+!! ---------------------------------------------------------------------
+
+! Selenized light
+
+*.background:  rgb:fb/f3/db
+*.foreground:  rgb:53/67/6d
+
+! normal colors: "black", red, green, yellow, blue, magenta, cyan, "white"
+*.color0:      rgb:ec/e3/cc
+*.color1:      rgb:d2/21/2d
+*.color2:      rgb:48/91/00
+*.color3:      rgb:ad/89/00
+*.color4:      rgb:00/72/d4
+*.color5:      rgb:ca/48/98
+*.color6:      rgb:00/9c/8f
+*.color7:      rgb:90/99/95
+
+! bright/bold versions of colors (in the same order)
+*.color8:      rgb:d5/cd/b6
+*.color9:      rgb:cc/17/29
+*.color10:     rgb:42/8b/00
+*.color11:     rgb:a7/83/00
+*.color12:     rgb:00/6d/ce
+*.color13:     rgb:c4/43/92
+*.color14:     rgb:00/97/8a
+*.color15:     rgb:3a/4d/53
+
+!! ---------------------------------------------------------------------
+!! EOF
+!! ---------------------------------------------------------------------

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-21 12:08:03 (CET)
+"" Last update: 2022-12-22 08:20:57 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -44,6 +44,7 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
 Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
+Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.

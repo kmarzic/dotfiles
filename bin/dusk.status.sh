@@ -132,6 +132,8 @@ __help()
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s papercolor.light"
+    __printf "   ${0} -s selenized.dark"
+    __printf "   ${0} -s selenized.light"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
     __printf "   ${0} -s srcery"

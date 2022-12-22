@@ -1,37 +1,13 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:16:32 (CET)
-"" Current file: .vimrc
+"" Last update: 2022-12-22 07:46:06 (CET)
+"" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
-
-"" Pathogen: Vim package manager
-"" http://www.vim.org/scripts/script.php?script_id=2332
-"" https://github.com/tpope/vim-pathogen
-"" mkdir -p ~/.vim/autoload ~/.vim/bundle;
-"" curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
-"" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-""
-" call pathogen#infect()
-" call pathogen#helptags()
-
-"" vundle
-"" http://www.vim.org/scripts/script.php?script_id=3458
-"" https://github.com/VundleVim/Vundle.vim
-"" cd ~/.vim/bundle; git clone https://github.com/gmarik/Vundle.vim.git
-"" cd ~/.vim/bundle/Vundle.vim; git remote update
-""
-" set nocompatible              " be iMproved, required
-" filetype off                  " required
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" Plugin 'gmarik/Vundle.vim'
-" call vundle#end()            " required
-" filetype plugin indent on    " required
 
 "" vim-plug
 "" https://github.com/junegunn/vim-plug
-""
+"" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 "
 Plug 'w0rp/ale'
@@ -51,8 +27,7 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-scripts/perl-support.vim'
+Plug 'fatih/vim-go'
 Plug 'vim-perl/vim-perl'
 Plug 'neovimhaskell/haskell-vim'
 "
@@ -65,35 +40,38 @@ Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'sainnhe/everforest'
+Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
-Plug 'catppuccin/vim', { 'as': 'cattpuccin' }
+Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
 Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
+"" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
-"" everforest
-"" https://github.com/sainnhe/everforest
+"" selenized-light
+"" https://github.com/ianchanning/vim-selenized
 ""
-let g:everforest_background = 'soft'
-let g:everforest_enable_italic = 0
-let g:everforest_disable_italic_comment = 1
-let g:everforest_show_eob = 0
-let g:everforest_transparent_background = 0
+set t_Co=256
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set background=dark
+" set background=light
 syntax on
-colorscheme everforest
+colorscheme selenized
+hi Comment gui=NONE cterm=NONE
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'everforest',
+    \ 'colorscheme': 'solarized',
     \ }
 
 "" Common
-source ~/.vimrc.common
+source ~/.config/nvim/init.common.vim
 
 "" ------------------------------------------------------------------------
 "" eof

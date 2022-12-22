@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-11-20 08:38:29 (CET)
+"" Last update: 2022-12-22 08:24:31 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -44,13 +44,11 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
 Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
+Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
 "" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
-
-"" flattened
-" colorscheme flattened_light
 
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
@@ -79,11 +77,6 @@ syntax on
 " colorscheme solarized8_low
 colorscheme solarized8_high
 " colorscheme solarized8_flat
-
-"" vim-solarized
-"" https://github.com/ericbn/vim-solarized
-""
-" colorscheme solarized
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

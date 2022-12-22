@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-05-30 09:11:22 (CEST)
+"" Last update: 2022-12-22 08:17:30 (CET)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -58,7 +58,6 @@ Plug 'neovimhaskell/haskell-vim'
 "
 Plug 'chriskempson/base16-vim'
 Plug 'lifepillar/vim-solarized8'
-Plug 'sainnhe/edge'
 Plug 'arcticicestudio/nord-vim'
 Plug 'crusoexia/vim-monokai'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -70,6 +69,7 @@ Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
 Plug 'catppuccin/vim', { 'as': 'cattpuccin' }
+Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
 call plug#end()

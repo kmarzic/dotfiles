@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:09:06 (CET)
+"" Last update: 2022-12-22 08:08:20 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -103,7 +103,7 @@ set guitablabel=%N:%M%t " Show tab numbers
 " colorscheme darkblue
 " colorscheme default
 " colorscheme delek
-" colorscheme desert
+" colorscheme desert ""
 " colorscheme elflord
 " colorscheme evening
 " colorscheme koehler
@@ -132,10 +132,10 @@ set guitablabel=%N:%M%t " Show tab numbers
 " colorscheme lucario
 " colorscheme monokai
 " colorscheme PaperColor
-" colorscheme selenized
+colorsceme selenized
 " colorscheme solarized
 " colorscheme solarized8
-colorscheme srcery
+" colorscheme srcery
 
 " highlight LineNr NONE
 
@@ -154,11 +154,10 @@ colorscheme srcery
 " endfunction
 
 " augroup on_change_colorschema
-"     " autocmd!
-"     " autocmd ColorScheme * call s:base16_customize_solarized_ligth()
+"     autocmd!
+"     autocmd ColorScheme * call s:base16_customize_solarized_ligth()
 "     " autocmd ColorScheme * call s:base16_customize_solarized_dark()
 " augroup END
-
 
 "" -----------------------------------------------------------------------
 "" EOF
