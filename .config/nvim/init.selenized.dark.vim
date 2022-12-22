@@ -57,8 +57,8 @@ set t_Co=256
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" set background=dark
-set background=light
+set background=dark
+" set background=light
 syntax on
 colorscheme selenized
 hi Comment gui=NONE cterm=NONE
@@ -67,7 +67,7 @@ hi Comment gui=NONE cterm=NONE
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'selenized_light',
+    \ 'colorscheme': 'selenized_dark',
     \ }
 
 "" Common

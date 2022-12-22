@@ -90,7 +90,7 @@ hi Comment gui=NONE cterm=NONE
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'selenized_dark',
     \ }
 
 "" Common
