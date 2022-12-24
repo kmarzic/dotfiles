@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2022-01-05 17:14:48 (CET)
+## Last update: 2022-12-24 14:55:31 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -275,6 +275,10 @@ set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'
 
+## arcticicestudio/nord-tmux
+# set -g @nord_tmux_show_status_content "1"
+# set -g @nord_tmux_no_patched_font "1"
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
@@ -295,6 +299,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
 # set -g @plugin 'mattdavis90/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
+# set -g @plugin "arcticicestudio/nord-tmux"
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install

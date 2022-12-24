@@ -184,13 +184,13 @@ bind-key -r Space next-layout
 # set -g @continuum-restore 'on'
 
 ## tmux-prefix-highlight
-set -g @prefix_highlight_prefix_prompt 'Wait'
-set -g @prefix_highlight_fg 'black'
-set -g @prefix_highlight_bg 'cyan'
-set -g @prefix_highlight_show_copy_mode 'on'
-set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=cyan'
-set -g @prefix_highlight_show_sync_mode 'on'
-set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=cyan'
+# set -g @prefix_highlight_prefix_prompt 'Wait'
+# set -g @prefix_highlight_fg 'black'
+# set -g @prefix_highlight_bg 'cyan'
+# set -g @prefix_highlight_show_copy_mode 'on'
+# set -g @prefix_highlight_copy_mode_attr 'fg=black,bg=cyan'
+# set -g @prefix_highlight_show_sync_mode 'on'
+# set -g @prefix_highlight_sync_mode_attr 'fg=black,bg=cyan'
 
 ## tmux-yank
 set -g @yank_selection 'primary' # 'primary' or 'secondary' or 'clipboard'
@@ -199,10 +199,10 @@ set -g @yank_with_mouse on # 'off' or 'on'
 
 ## tmux-themepack
 # set -g @themepack 'default'
-set -g @themepack 'basic'
+# set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
-set -g @theme-status-justify left
+# set -g @theme-status-justify left
 # set -g @theme-status-left-bg '#2c2e34'
 # set -g @theme-status-left-fg '#2c2e34'
 # set -g @theme-status-right-bg '#2c2e34'
@@ -213,8 +213,8 @@ set -g @theme-status-justify left
 # set -g @theme-window-status-activity-fg '#2c2e34'
 # set -g @theme-window-status-current-bg '#2c2e34'
 # set -g @theme-window-status-current-fg '#2c2e34'
-set -g @theme-mode-bg cyan
-set -g @theme-mode-fg black
+# set -g @theme-mode-bg cyan
+# set -g @theme-mode-fg black
 
 ## tmux-base16-statusline
 # set -g @base16-statusline 'main'
@@ -257,17 +257,21 @@ set -g @theme-mode-fg black
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'
 
+## arcticicestudio/nord-tmux
+set -g @nord_tmux_show_status_content "1"
+set -g @nord_tmux_no_patched_font "1"
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-pain-control'
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+# set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 # set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ##
-set -g @plugin 'jimeh/tmux-themepack'
+# set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
@@ -277,6 +281,7 @@ set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
 # set -g @plugin 'mattdavis90/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
+set -g @plugin "arcticicestudio/nord-tmux"
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install
