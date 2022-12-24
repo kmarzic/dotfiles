@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:22:11 (CET)
+"" Last update: 2022-12-24 14:20:33 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -53,29 +53,29 @@ call plug#end()
 "" gruvbox
 "" https://github.com/morhetz/gruvbox
 ""
-set background=light
-syntax on
-" let g:gruvbox_contrast_light = 'hard'
-let g:gruvbox_contrast_light = 'medium'
-" let g:gruvbox_contrast_light = 'soft'
-colorscheme gruvbox
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set background=light
+" syntax on
+" " let g:gruvbox_contrast_light = 'hard'
+" let g:gruvbox_contrast_light = 'medium'
+" " let g:gruvbox_contrast_light = 'soft'
+" colorscheme gruvbox
+" set termguicolors
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" gruvbox-material
 "" https://github.com/sainnhe/gruvbox-material
 ""
-" set background=light
-" syntax on
-" " let g:gruvbox_material_background = 'hard'
-" " let g:gruvbox_material_background = 'medium'
-" let g:gruvbox_material_background = 'soft'
-" let g:gruvbox_material_disable_italic_comment = 1
-" colorscheme gruvbox-material
-" set termguicolors
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=light
+syntax on
+" let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_background = 'soft'
+let g:gruvbox_material_disable_italic_comment = 1
+colorscheme gruvbox-material
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

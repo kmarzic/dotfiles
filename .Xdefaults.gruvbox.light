@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-12-03 20:22:08 (CET)
+!! Last update: 2022-12-24 14:23:23 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -52,26 +52,26 @@
 !! Gruvbox Original Light Medium
 !! ---------------------------------------------------------------------
 
-*color0: #fbf1c7
-*color1: #9d0006
-*color2: #79740e
-*color3: #b57614
-*color4: #076678
-*color5: #8f3f71
-*color6: #427b58
-*color7: #3c3836
-*color8: #fbf1c7
-*color9: #9d0006
-*color10: #79740e
-*color11: #b57614
-*color12: #076678
-*color13: #8f3f71
-*color14: #427b58
-*color15: #3c3836
-
-*background: #fbf1c7
-*foreground: #3c3836
-*cursor: #3c3836
+! *color0: #fbf1c7
+! *color1: #9d0006
+! *color2: #79740e
+! *color3: #b57614
+! *color4: #076678
+! *color5: #8f3f71
+! *color6: #427b58
+! *color7: #3c3836
+! *color8: #fbf1c7
+! *color9: #9d0006
+! *color10: #79740e
+! *color11: #b57614
+! *color12: #076678
+! *color13: #8f3f71
+! *color14: #427b58
+! *color15: #3c3836
+! 
+! *background: #fbf1c7
+! *foreground: #3c3836
+! *cursor: #3c3836
 
 
 !! ---------------------------------------------------------------------
@@ -136,6 +136,31 @@
 ! ! LightGrey + White
 ! *color7:  #7c6f64
 ! *color15: #3c3836
+
+
+!! ---------------------------------------------------------------------
+!! Gruvbox Material Light Medium
+!! https://github.com/sainnhe/gruvbox-material
+!! ---------------------------------------------------------------------
+
+*color0:  #654735
+*color1:  #c14a4a
+*color2:  #6c782e
+*color3:  #b47109
+*color4:  #45707a
+*color5:  #945e80
+*color6:  #4c7a5d
+*color7:  #eee0b7
+*color8:  #654735
+*color9:  #c14a4a
+*color10: #6c782e
+*color11: #b47109
+*color12: #45707a
+*color13: #945e80
+*color14: #4c7a5d
+*color15: #eee0b7
+*background: #fbf1c7
+*foreground: #654735
 
 !! ---------------------------------------------------------------------
 !! EOF

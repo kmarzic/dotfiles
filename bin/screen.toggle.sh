@@ -777,6 +777,9 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.gruvbox.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.light.vim init.vim && cd -
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.yml.gruvbox.light ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.yml.gruvbox.light alacritty.yml && cd -
             ;;
         "monokai")
             __printf "monokai"

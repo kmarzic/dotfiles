@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-12-22 16:11:56 (CET)
+!! Last update: 2022-12-24 14:17:26 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -53,25 +53,25 @@
 !! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-gruvbox-dark-medium.sh
 !! ---------------------------------------------------------------------
 
-*color0: #282828
-*color1: #ea6962
-*color2: #a9b665
-*color3: #d8a657
-*color4: #7daea3
-*color5: #d3869b
-*color6: #89b482
-*color7: #d4be98
-*color8: #282828
-*color9: #ea6962
-*color10: #a9b665
-*color11: #d8a657
-*color12: #7daea3
-*color13: #d3869b
-*color14: #89b482
-*color15: #d4be98
-*background: #282828
-*foreground: #d4be98
-*cursor: #d4be98
+! *color0: #282828
+! *color1: #ea6962
+! *color2: #a9b665
+! *color3: #d8a657
+! *color4: #7daea3
+! *color5: #d3869b
+! *color6: #89b482
+! *color7: #d4be98
+! *color8: #282828
+! *color9: #ea6962
+! *color10: #a9b665
+! *color11: #d8a657
+! *color12: #7daea3
+! *color13: #d3869b
+! *color14: #89b482
+! *color15: #d4be98
+! *background: #282828
+! *foreground: #d4be98
+! *cursor: #d4be98
 
 
 !! ---------------------------------------------------------------------
@@ -160,6 +160,81 @@
 ! *color19:      base02
 ! *color20:      base04
 ! *color21:      base06
+
+
+!! ---------------------------------------------------------------------
+!! Gruvbox Material Hard
+!! https://github.com/sainnhe/gruvbox-material
+!! ---------------------------------------------------------------------
+
+! *color0:  #32302f
+! *color1:  #ea6962
+! *color2:  #a9b665
+! *color3:  #d8a657
+! *color4:  #7daea3
+! *color5:  #d3869b
+! *color6:  #89b482
+! *color7:  #d4be98
+! *color8:  #32302f
+! *color9:  #ea6962
+! *color10: #a9b665
+! *color11: #d8a657
+! *color12: #7daea3
+! *color13: #d3869b
+! *color14: #89b482
+! *color15: #d4be98
+! *background: #1d2021
+! *foreground: #d4be98
+
+
+!! ---------------------------------------------------------------------
+!! Gruvbox Material Medium
+!! https://github.com/sainnhe/gruvbox-material
+!! ---------------------------------------------------------------------
+
+*color0:  #3c3836
+*color1:  #ea6962
+*color2:  #a9b665
+*color3:  #d8a657
+*color4:  #7daea3
+*color5:  #d3869b
+*color6:  #89b482
+*color7:  #d4be98
+*color8:  #3c3836
+*color9:  #ea6962
+*color10: #a9b665
+*color11: #d8a657
+*color12: #7daea3
+*color13: #d3869b
+*color14: #89b482
+*color15: #d4be98
+*background: #282828
+*foreground: #d4be98
+
+
+!! ---------------------------------------------------------------------
+!! Gruvbox Material Soft
+!! https://github.com/sainnhe/gruvbox-material
+!! ---------------------------------------------------------------------
+
+! *color0:  #45403d
+! *color1:  #ea6962
+! *color2:  #a9b665
+! *color3:  #d8a657
+! *color4:  #7daea3
+! *color5:  #d3869b
+! *color6:  #89b482
+! *color7:  #d4be98
+! *color8:  #45403d
+! *color9:  #ea6962
+! *color10: #a9b665
+! *color11: #d8a657
+! *color12: #7daea3
+! *color13: #d3869b
+! *color14: #89b482
+! *color15: #d4be98
+! *background: #32302f
+! *foreground: #d4be98
 
 !! ---------------------------------------------------------------------
 !! EOF
