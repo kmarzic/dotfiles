@@ -87,7 +87,7 @@ draw_bold_text_with_bright_colors: false
 
 schemes:
   ## Srcery
-  gruvbox: &srcery
+  srcery: &srcery
     # Default colors
     primary:
       background: '#1c1b19'
