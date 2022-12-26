@@ -1,7 +1,7 @@
 "" -----------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:08:36 (CET)
+"" Last update: 2022-12-26 18:51:57 (CET)
 "" Current file: .gvimrc
 "" -----------------------------------------------------------------------
 
@@ -131,7 +131,8 @@ colorscheme base16-solarized-dark
 " colorscheme gruvbox-material
 " colorscheme lucario
 " colorscheme monokai
-" colorscheme PaperColor
+" colorscheme monokai
+" colorscheme nord
 " colorscheme selenized
 " colorscheme solarized
 " colorscheme solarized8

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:20:09 (CET)
+"" Last update: 2022-12-26 18:28:41 (CET)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -59,6 +59,9 @@ set background=dark
 # set background=light
 syntax on
 colorscheme base16-gruvbox-dark-soft
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
