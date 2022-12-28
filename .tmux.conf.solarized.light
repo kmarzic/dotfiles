@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2022-12-24 14:55:31 (CET)
+## Last update: 2022-12-28 18:11:54 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -240,7 +240,7 @@ set-option -g display-panes-colour brightred # orange
 set-window-option -g clock-mode-colour green # green
 ## bell
 set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
-## Colors
+## Colors, 'seebi/tmux-colors-solarized'
 # set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'

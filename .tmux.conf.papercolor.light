@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2022-12-24 14:53:52 (CET)
+## Last update: 2022-12-28 18:07:05 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -259,17 +259,45 @@ set -g @theme-mode-bg 'cyan' # cyan
 # set -g @nord_tmux_show_status_content "1"
 # set -g @nord_tmux_no_patched_font "1"
 
+## papercolor
+darkgray='#585858'
+white='#e4e4e4'
+navy='#005f87'
+aqua='#0087af'
+##
+set-option -g status-left '#[fg=black,bg=#0087af] #S '
+## default statusbar colors
+set-option -g status-style fg=${navy},bg=black
+## default window title colors
+set-window-option -g window-status-style fg=${navy},bg=default
+## active window title colors
+set-window-option -g window-status-current-style fg=black,bg=red
+## pane border
+set-option -g pane-border-style fg=${aqua}
+set-option -g pane-active-border-style fg=${navy}
+## message text
+set-option -g message-style fg=${navy},bg=black
+## pane number display
+set-option -g display-panes-active-colour ${navy}
+set-option -g display-panes-colour ${navy}
+## clock
+set-window-option -g clock-mode-colour ${aqua}
+## bell
+set-window-option -g window-status-bell-style fg=black,bg=${navy}
+## mode style
+set-option -g mode-style "fg=${white},bg=${aqua}"
+
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
 # set -g @plugin 'tmux-plugins/tmux-continuum'
 set -g @plugin 'tmux-plugins/tmux-logging'
 set -g @plugin 'tmux-plugins/tmux-pain-control'
-set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+# set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 # set -g @plugin 'tmux-plugins/tmux-resurrect'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ##
-set -g @plugin 'jimeh/tmux-themepack'
+# set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
