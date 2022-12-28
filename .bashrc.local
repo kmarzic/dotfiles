@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2022-11-20 07:43:32 (CET)
+## Last update: 2022-12-28 17:14:55 (CET)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -99,7 +99,7 @@ fi
 ## Git branch
 function __parse_git_branch()
 {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
 # __GIT_BRANCH="\[${BRed}\]\$(__parse_git_branch)\[${Color_Off}\]"
@@ -107,16 +107,13 @@ __GIT_BRANCH="\$(__parse_git_branch)"
 
 ## Black and white
 # export PS1="\u@\h:\w \\$ \[$(tput sgr0)\]"
+# export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(__parse_git_branch)\[\033[00m\] $ "
 ## Color (light)
 # export PS1="\[\e]0;\w\a\]\n\[\e[32m\]\u@\h:\[\e[33m\]\w\[\e[0m\] \$ "
 ## Color (full)
 # export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BYellow}\]\w\[${Color_Off}\]\[${__PROMPT_WINDOW}\]\[${__GIT_BRANCH}\]\[${BGreen}\] \$\[${NC}\]\[${Color_Off}\] "
 # export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BYellow}\]\w\[${Color_Off}\]\[${__PROMPT_WINDOW}\]\[${BGreen}\] \$\[${NC}\]\[${Color_Off}\] "
-##
-# export PS1="\u@\h \[\033[32m\]\w\[\033[33m\]\$(__parse_git_branch)\[\033[00m\] $ "
 export PS1="\[${BRed}\]\u\[${Color_Off}\]@\[${BGreen}\]\h\[${Color_Off}\]:\[${BYellow}\]\w\[${BRed}\]\[${__PROMPT_WINDOW}\]${__GIT_BRANCH}\[${Color_Off}\] $ "
-
-# PROMPT_COMMAND='echo -ne "\033]2;${PWD/#${HOME}/\~}\007"'
 
 
 ## ----------------------------------------------------------------------------
@@ -165,60 +162,64 @@ export HISTTIMEFORMAT='%F %T '
 export DIRSTACKSIZE=10
 
 ## mail spool file
-MAIL=/var/mail/${USERNAME}
+export MAIL=/var/mail/${USER}
 
 ## check for mail every 30 seconds
-MAILCHECK=30
+export MAILCHECK=30
 
 ## auto logout after 30 idle minutesx
-# TMOUT=1800
+# export TMOUT=1800
 
 ## report login/logout events of all except ourself
 watch=(notme)
 
 ## time in seconds between checks for login/logout activity
-LOGCHECK=30
+export LOGCHECK=30
 
 ## login/logout report format
-WATCHFMT='%n %a %l from %m at %t.'
+export WATCHFMT='%n %a %l from %m at %t.'
 
 ## don't ask 'do you wish to see all XX possibilities' before menu selection
-LISTPROMPT=''
+export LISTPROMPT=''
 
 ## Shell options
-## set -o
-set keymap emacs
+# set --help
+# set -o
+#
+set -o vi
+# set -o emacs
 set -o history
 set -o monitor
 set -o notify
 set -o noclobber
 # set -o ignoreeof
-
-## useful for debuging
+set -H
+#
 # set -o nounset
 set +o nounset
 #
 # set -o xtrace
 set +o xtrace
 #
-# set -o vi
-#
-set -H
 
 ## shopt command
-## shopt -p
+# shopt --help
+# shopt -p
+#
 shopt -s autocd
 shopt -s cdable_vars
 shopt -s cdspell
 shopt -s checkhash
 shopt -s checkwinsize
 shopt -s cmdhist
-# shopt -s dotglob
+shopt -s dotglob
 shopt -s gnu_errfmt
 shopt -s no_empty_cmd_completion
 shopt -s expand_aliases # expand aliases
 shopt -s extglob # Necessary for programmable completion
-shopt -s histappend histreedit histverify
+shopt -s histappend
+shopt -s histreedit
+shopt -s histverify
 shopt -s mailwarn
 # shopt -s nullglob
 shopt -s nocaseglob
@@ -466,15 +467,18 @@ export TMP="/tmp"
 export LYNX_CFG="~/.lynxrc"
 export COLUMNS=80
 
+## https://phplego.github.io/mc/
+#
 # export MC_SKIN=$HOME/.config/mc/dracula.ini
 # export MC_SKIN=$HOME/.config/mc/dracula256.ini
 # export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
-export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+# export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/onedark.ini
 # export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini
+export MC_SKIN=$HOME/.config/mc/seasons-winter16M.ini
 #
 # export MC_SKIN=/usr/share/mc/skins/darkfar.ini
 # export MC_SKIN=/usr/share/mc/skins/dark.ini
@@ -534,7 +538,7 @@ export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export gopher_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
 # export wais_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
 #
-export no_proxy="0,localhost,.ericsson.se,.ericsson.com,.pzz.hr,.cezih.hr,10,192.168,172.17"
+export no_proxy="0,localhost,.ericsson.se,.ericsson.com,.ericsson.net,.ent.internal,10,192.168,172.17"
 
 export NAME="Kresimir Marzic"
 export WEB="http://www.design.etk.extern.eu.ericsson.se/~etkkrma"
