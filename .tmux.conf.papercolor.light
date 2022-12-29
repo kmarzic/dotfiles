@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2022-12-28 18:07:05 (CET)
+## Last update: 2022-12-29 08:21:50 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -264,26 +264,27 @@ darkgray='#585858'
 white='#e4e4e4'
 navy='#005f87'
 aqua='#0087af'
-##
+red='#d70000'
+## statusbar
 set-option -g status-left '#[fg=black,bg=#0087af] #S '
 ## default statusbar colors
-set-option -g status-style fg=${navy},bg=black
+set-option -g status-style fg=${aqua},bg=black
 ## default window title colors
-set-window-option -g window-status-style fg=${navy},bg=default
+set-window-option -g window-status-style fg=${aqua},bg=default
 ## active window title colors
-set-window-option -g window-status-current-style fg=black,bg=red
+set-window-option -g window-status-current-style fg=black,bg=${red}
 ## pane border
-set-option -g pane-border-style fg=${aqua}
-set-option -g pane-active-border-style fg=${navy}
+set-option -g pane-border-style fg=${darkgray}
+set-option -g pane-active-border-style fg=${aqua}
 ## message text
-set-option -g message-style fg=${navy},bg=black
+set-option -g message-style fg=${aqua},bg=black
 ## pane number display
-set-option -g display-panes-active-colour ${navy}
-set-option -g display-panes-colour ${navy}
+set-option -g display-panes-active-colour ${aqua}
+set-option -g display-panes-colour ${aqua}
 ## clock
 set-window-option -g clock-mode-colour ${aqua}
 ## bell
-set-window-option -g window-status-bell-style fg=black,bg=${navy}
+set-window-option -g window-status-bell-style fg=black,bg=${aqua}
 ## mode style
 set-option -g mode-style "fg=${white},bg=${aqua}"
 

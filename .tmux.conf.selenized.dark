@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2022-12-28 18:09:40 (CET)
+## Last update: 2022-12-29 08:13:54 (CET)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -221,6 +221,7 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-solarized
+# ## statusbar
 # set-option -g status-left '#[fg=black,bg=#2aa198] #S ' # black / cyan
 # ## default statusbar colors
 # set-option -g status-style fg=#268bd2,bg=#073642 # blue and base02
