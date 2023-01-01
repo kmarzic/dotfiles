@@ -1190,6 +1190,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
@@ -1200,7 +1202,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             #

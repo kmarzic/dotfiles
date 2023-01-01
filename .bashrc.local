@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2022-12-28 17:14:55 (CET)
+## Last update: 2023-01-01 11:19:41 (CET)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -475,10 +475,11 @@ export COLUMNS=80
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+export MC_SKIN=$HOME/.config/mc/solarized-template.ini
 # export MC_SKIN=$HOME/.config/mc/onedark.ini
 # export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini
-export MC_SKIN=$HOME/.config/mc/seasons-winter16M.ini
+# export MC_SKIN=$HOME/.config/mc/seasons-winter16M.ini
 #
 # export MC_SKIN=/usr/share/mc/skins/darkfar.ini
 # export MC_SKIN=/usr/share/mc/skins/dark.ini

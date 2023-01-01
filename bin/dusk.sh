@@ -14,11 +14,11 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s gruvbox.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s monokai &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s nord &
-[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s papercolor.light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s papercolor.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s selenized.dark &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s selenized.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s solarized.dark &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s solarized.light &
+[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s solarized.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s srcery &
 
 #### dusk battery
