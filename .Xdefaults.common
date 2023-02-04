@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-12-21 11:34:41 (CET)
+!! Last update: 2023-02-04 10:58:49 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -581,9 +581,12 @@ XLock.invalid: Wrong password!
 ! XLock.font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
 ! XLock.planfont: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso8859-2
 ! XLock.messagefont: -adobe-times-medium-r-normal--34-240-100-100-p-170-iso8859-2
-XLock.font: -xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
-XLock.planfont: -xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
-XLock.messagefont: -adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
+! XLock.font: -xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
+! XLock.planfont: -xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
+! XLock.messagefont: -adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
+XLock.font: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
+XLock.planfont: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
+XLock.messagefont: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
 
 XLock.ncolors: 256
 XLock.icongeometry: 256x256
