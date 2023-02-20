@@ -161,7 +161,6 @@ live_config_reload: true
 
 working_directory: None
 # winpty_backend: false
-alt_send_esc: true
 
 mouse:
   double_click: { threshold: 300 }
