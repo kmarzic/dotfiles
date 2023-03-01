@@ -13,7 +13,7 @@
 #         NOTES: ---
 #        AUTHOR: Kresimir Marzic (etkkrma), kresimir.marzic@ericsson.com
 #  ORGANIZATION: MELA CU NCE ETK ICT DevOps IT Operations
-#       CREATED: 2022-12-21
+#       CREATED: 2023-03-01
 #      REVISION: ---
 #===============================================================================
 
@@ -215,7 +215,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "base16-atelier-lakeside-light")
@@ -282,7 +282,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "base16-google-light")
@@ -554,7 +554,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "everforest")
@@ -728,7 +728,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "gruvbox.light")
@@ -845,7 +845,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "nord")
@@ -924,7 +924,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
         "papercolor.light")
@@ -1170,7 +1170,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
 
             #### bspwm
@@ -1275,7 +1275,7 @@ function __theme()
                 # xmonad --restart
 
                 ## xmonad installed from stack
-                cd ~/.config/xmonad && ./recompile.sh
+                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
 
             #### bspwm
@@ -1469,8 +1469,8 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### HP EliteBook 850 G7 Notebook - elx711804dr
-            if [[ "$(hostname)" == "elx711804dr" ]]
+            #### HP EliteBook 850 G7 Notebook - elx711804dr, elx-5cg11804dr
+            if [[ "$(hostname)" == "elx711804dr" ]] || [[ "$(hostname)" == "elx-5cg11804dr" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
@@ -1510,8 +1510,8 @@ function __xrandr()
                     --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
             fi
 
-            #### HP EliteBook 850 G7 Notebook - elx711804dr
-            if [[ "$(hostname)" == "elx711804dr" ]]
+            #### HP EliteBook 850 G7 Notebook - elx711804dr, elx-5cg11804dr
+            if [[ "$(hostname)" == "elx711804dr" ]] || [[ "$(hostname)" == "elx-5cg11804dr" ]]
             then
                 if [[ "${EXT1-}" == "DP-1-1" ]] && [[ "${EXT2-}" == "DP-1-2" ]]
                 then
