@@ -1,0 +1,70 @@
+#### alacritty.scratchpad.solarized.light.yml
+
+import:
+  - ~/.config/alacritty/alacritty.main.yml
+  - ~/.config/alacritty/alacritty.scratchpad.yml
+
+schemes:
+  ## Solarized Light
+  solarized_light_0: &solarized_light_0
+    # Default colors
+    primary:
+      background: '#eee8d5'
+      foreground: '#073642'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text:    '#fdf6e3'
+      cursor:  '#586e75'
+
+    # Normal colors
+    normal:
+      black:   '#fdf6e3'
+      red:     '#dc322f'
+      green:   '#859900'
+      yellow:  '#b58900'
+      blue:    '#268bd2'
+      magenta: '#6c71c4'
+      cyan:    '#2aa198'
+      white:   '#586e75'
+
+    # Bright colors
+    bright:
+      black:   '#839496'
+      red:     '#cb4b16'
+      green:   '#eee8d5'
+      yellow:  '#93a1a1'
+      blue:    '#657b83'
+      magenta: '#073642'
+      cyan:    '#d33682'
+      white:   '#002b36'
+
+  solarized_light_1: &solarized_light_1
+    primary:
+      # background: '#fdf6e3'
+      # foreground: '#586e75'
+      background: '#eee8d5'
+      foreground: '#073642'
+    normal:
+      black:   '#073642'
+      red:     '#dc322f'
+      green:   '#859900'
+      yellow:  '#b58900'
+      blue:    '#268bd2'
+      magenta: '#d33682'
+      cyan:    '#2aa198'
+      white:   '#eee8d5'
+    bright:
+      black:   '#002b36'
+      red:     '#cb4b16'
+      green:   '#586e75'
+      yellow:  '#657b83'
+      blue:    '#839496'
+      magenta: '#6c71c4'
+      cyan:    '#93a1a1'
+      white:   '#fdf6e3'
+
+colors: *solarized_light_0
+# colors: *solarized_light_1
+
+#### end

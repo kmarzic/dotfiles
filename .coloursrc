@@ -1,6 +1,6 @@
 ##-----------------------------------------------------------------------------
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2019-03-13 16:59:02 (CET)
+## Last update: 2023-03-30 17:50:31 (CEST)
 ##-----------------------------------------------------------------------------
 
 ## Configuration file for dircolors, a utility to help you set the
@@ -21,6 +21,8 @@ COLOR tty
 OPTIONS -F -T 0
 
 ## Below, there should be one TERM entry for each termtype that is colorizable
+TERM alacritty
+TERM alacritty-direct
 TERM Eterm
 TERM ansi
 TERM color_xterm
@@ -41,7 +43,6 @@ TERM cygwin
 TERM dtterm
 TERM dvtm
 TERM dvtm-256color
-TERM Eterm
 TERM eterm-color
 TERM fbterm
 TERM gnome

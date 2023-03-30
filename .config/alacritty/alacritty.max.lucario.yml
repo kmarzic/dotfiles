@@ -1,0 +1,44 @@
+#### alacritty.max.lucario.yml
+
+import:
+  - ~/.config/alacritty/alacritty.main.yml
+  - ~/.config/alacritty/alacritty.max.yml
+
+schemes:
+  ## lucario
+  lucario: &lucario
+    # Default colors
+    primary:
+      background: '#2b3e50'
+      foreground: '#f8f8f2'
+
+    # Cursor colors
+    cursor:
+      text: CellBackground
+      cursor: '#e3bf21'
+
+    # Normal colors
+    normal:
+      black:   '#4f4f4f'
+      red:     '#ff6c60'
+      green:   '#fbb036'
+      yellow:  '#ffffb6'
+      blue:    '#5796ed'
+      magenta: '#ff73fd'
+      cyan:    '#8ee478'
+      white:   '#eeeeee'
+
+    # Bright colors
+    bright:
+      black:   '#4f4f4f'
+      red:     '#fa6960'
+      green:   '#fbb036'
+      yellow:  '#feffb9'
+      blue:    '#6b9fed'
+      magenta: '#fc6ffa'
+      cyan:    '#8ee478'
+      white:   '#ffffff'
+
+colors: *lucario
+
+#### end

@@ -1,0 +1,44 @@
+#### alacritty.scratchpad.base16-atelier-lakeside-light.yml
+
+import:
+  - ~/.config/alacritty/alacritty.main.yml
+  - ~/.config/alacritty/alacritty.scratchpad.yml
+
+ischemes:
+  ## base16-atelier-lakeside-light
+  base16-atelier-lakeside-light: &base16-atelier-lakeside-light
+  # Default colors
+    primary:
+      background: '0xebf8ff'
+      foreground: '0x516d7b'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text: '0xebf8ff'
+      cursor: '0x516d7b'
+
+    # Normal colors
+    normal:
+      black:   '0xebf8ff'
+      red:     '0xd22d72'
+      green:   '0x568c3b'
+      yellow:  '0x8a8a0f'
+      blue:    '0x257fad'
+      magenta: '0x6b6bb8'
+      cyan:    '0x2d8f6f'
+      white:   '0x516d7b'
+
+    # Bright colors
+    bright:
+      black:   '0x7195a8'
+      red:     '0xd22d72'
+      green:   '0x568c3b'
+      yellow:  '0x8a8a0f'
+      blue:    '0x257fad'
+      magenta: '0x6b6bb8'
+      cyan:    '0x2d8f6f'
+      white:   '0x161b1d'
+
+colors: *base16-atelier-lakeside-light
+
+#### end
