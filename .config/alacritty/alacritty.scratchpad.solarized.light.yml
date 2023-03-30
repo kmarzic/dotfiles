@@ -19,25 +19,25 @@ schemes:
 
     # Normal colors
     normal:
-      black:   '#fdf6e3'
-      red:     '#dc322f'
-      green:   '#859900'
-      yellow:  '#b58900'
-      blue:    '#268bd2'
-      magenta: '#6c71c4'
-      cyan:    '#2aa198'
-      white:   '#586e75'
+      black:   '#fdf6e3' # 0
+      red:     '#dc322f' # 1
+      green:   '#859900' # 2
+      yellow:  '#b58900' # 3
+      blue:    '#268bd2' # 4
+      magenta: '#6c71c4' # 5
+      cyan:    '#2aa198' # 6
+      white:   '#586e75' # 7
 
     # Bright colors
     bright:
-      black:   '#839496'
-      red:     '#cb4b16'
-      green:   '#eee8d5'
-      yellow:  '#93a1a1'
-      blue:    '#657b83'
-      magenta: '#073642'
-      cyan:    '#d33682'
-      white:   '#002b36'
+      black:   '#839496' # 8
+      red:     '#dc322f' # '#cb4b16' # 9
+      green:   '#859900' # '#eee8d5' # 10
+      yellow:  '#b58900' # '#93a1a1' # 11
+      blue:    '#268bd2' # '#657b83' # 12
+      magenta: '#6c71c4' # '#073642' # 13
+      cyan:    '#2aa198' # '#d33682' # 14
+      white:   '#002b36' # 15
 
   solarized_light_1: &solarized_light_1
     primary:
