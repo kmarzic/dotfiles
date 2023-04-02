@@ -417,8 +417,8 @@ function __theme()
             [[ -e ~/.Xdefaults.catppuccin ]] && xrdb -load ~/.Xdefaults.catppuccin
 
             #### vim
-            [[ -e ~/.vimrc.cattpucin ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.cattpucin .vimrc
-            [[ -e ~/.gvimrc.cattpucin ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.cattpucin .gvimrc
+            [[ -e ~/.vimrc.cattpuccin ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.cattpuccin .vimrc
+            [[ -e ~/.gvimrc.cattpuccin ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.cattpuccin .gvimrc
 
             #### neovim
             [[ -e ~/.config/nvim/init.catppuccin.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.catppuccin.vim init.vim && cd -
