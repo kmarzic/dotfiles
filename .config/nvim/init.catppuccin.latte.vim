@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-04-09 10:17:10 (CEST)
+"" Last update: 2023-04-09 10:16:53 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -57,8 +57,8 @@ set t_Co=256
 set background=dark
 syntax on
 " colorscheme catppuccin-frappe
-" colorscheme catppuccin-latte
-colorscheme catppuccin-macchiato
+colorscheme catppuccin-latte
+" colorscheme catppuccin-macchiato
 " colorscheme catppuccin-mocha
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

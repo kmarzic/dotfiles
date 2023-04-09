@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-04-09 08:49:00 (CEST)
+!! Last update: 2023-04-09 09:01:01 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -19,39 +19,51 @@
 !! https://github.com/bakkeby/dusk.resources/tree/master/themes
 !! ---------------------------------------------------------------------
 
-#include "git/suckless/dusk.resources/themes/light/selenized-light.res"
+#include "git/suckless/dusk.resources/themes/light/catpuccin-latte.res"
 #include "git/suckless/dusk.resources/themes/template.txt"
 
 
 !! ---------------------------------------------------------------------
-!! selenized-light
-!! https://github.com/jan-warchol/selenized/blob/master/terminals/xterm/selenized-light.xdefaults
+!! catppuccin
+!! https://github.com/catppuccin/catppuccin
 !! ---------------------------------------------------------------------
 
-! Selenized light
+! special
+*.background: #EFF1F5
+*.foreground: #4C4F69
+*.cursorColor: #DC8A78
 
-*.background:  rgb:fb/f3/db
-*.foreground:  rgb:53/67/6d
+! black
+*.color0: #5C5F77
+*.color8: #6C6F85
 
-! normal colors: "black", red, green, yellow, blue, magenta, cyan, "white"
-*.color0:      rgb:ec/e3/cc
-*.color1:      rgb:d2/21/2d
-*.color2:      rgb:48/91/00
-*.color3:      rgb:ad/89/00
-*.color4:      rgb:00/72/d4
-*.color5:      rgb:ca/48/98
-*.color6:      rgb:00/9c/8f
-*.color7:      rgb:90/99/95
+! red
+*.color1: #D20F39
+*.color9: #D20F39
 
-! bright/bold versions of colors (in the same order)
-*.color8:      rgb:d5/cd/b6
-*.color9:      rgb:cc/17/29
-*.color10:     rgb:42/8b/00
-*.color11:     rgb:a7/83/00
-*.color12:     rgb:00/6d/ce
-*.color13:     rgb:c4/43/92
-*.color14:     rgb:00/97/8a
-*.color15:     rgb:3a/4d/53
+! green
+*.color2: #40A02B
+*.color10: #40A02B
+
+! yellow
+*.color3: #DF8E1D
+*.color11: #DF8E1D
+
+! blue
+*.color4: #1E66F5
+*.color12: #1E66F5
+
+! magenta
+*.color5: #EA76CB
+*.color13: #EA76CB
+
+! cyan
+*.color6: #179299
+*.color14: #179299
+
+! white
+*.color7: #ACB0BE
+*.color15: #BCC0CC
 
 !! ---------------------------------------------------------------------
 !! EOF

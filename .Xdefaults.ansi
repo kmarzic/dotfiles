@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2022-11-06 09:36:01 (CET)
+!! Last update: 2023-04-09 08:59:23 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -20,6 +20,7 @@
 !! ---------------------------------------------------------------------
 
 #include "git/suckless/dusk.resources/themes/dark/dwm.res"
+#include "git/suckless/dusk.resources/themes/template.txt"
 
 
 !! ---------------------------------------------------------------------

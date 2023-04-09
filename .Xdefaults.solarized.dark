@@ -19,7 +19,8 @@
 !! https://github.com/bakkeby/dusk.resources/tree/master/themes
 !! ---------------------------------------------------------------------
 
-#include "git/suckless/dusk.resources/themes/dark/dwm.res"
+#include "git/suckless/dusk.resources/themes/dark/solarized-dark.res"
+#include "git/suckless/dusk.resources/themes/template.txt"
 
 
 !! ---------------------------------------------------------------------

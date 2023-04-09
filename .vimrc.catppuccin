@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:17:30 (CET)
+"" Last update: 2023-04-09 10:01:35 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -80,10 +80,10 @@ call plug#end()
 set t_Co=256
 set background=dark
 syntax on
-" colorscheme catppuccin_frappe
-" colorscheme catppuccin_latte
-colorscheme catppuccin_macchiato
-" colorscheme catppuccin_mocha
+" colorscheme catppuccin-frappe
+" colorscheme catppuccin-latte
+colorscheme catppuccin-macchiato
+" colorscheme catppuccin-mocha
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
