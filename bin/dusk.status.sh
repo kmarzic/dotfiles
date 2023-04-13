@@ -128,7 +128,7 @@ __help()
     __printf "   ${0} -s doom-one"
     __printf "   ${0} -s dracula"
     __printf "   ${0} -s everforest"
-    __printf "   ${0} -s gruvbox"
+    __printf "   ${0} -s gruvbox.dark"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord"
     __printf "   ${0} -s papercolor.light"
@@ -192,8 +192,8 @@ function __theme()
             YELLOW='^c#f1fa8c^'
             NORMAL='^c#f8f8f2^'
             ;;
-        "gruvbox")
-            __printf "gruvbox"
+        "gruvbox.dark")
+            __printf "gruvbox.dark"
             #### Gruvbox Original Dark Hard
             # CYAN='^c#89b482^'
             # GREEN='^c#a9b665^'
@@ -530,6 +530,8 @@ function __process()
         # ${SETSTATUS} 4 "| $(__temp_linux)"
         ${SETSTATUS} 5 "$(__load_linux)"
         ${SETSTATUS} 7 "$(__dusk_logo)"
+
+        duskc run_command xrdb
 
         sleep 1
     done
