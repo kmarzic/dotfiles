@@ -424,6 +424,9 @@ function __theme()
             #### neovim
             [[ -e ~/.config/nvim/init.catppuccin.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.catppuccin.vim init.vim && cd -
 
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.catppuccin ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.catppuccin .tmux.conf
+
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.max.catppuccin.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.catppuccin.yml alacritty.yml && cd -
             [[ -e ~/.config/alacritty/alacritty.scratchpad.catppuccin.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.catppuccin.yml scratchpad.yml && cd -
@@ -464,6 +467,9 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.catppuccin.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.catppuccin.vim init.vim && cd -
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.catppuccin.latte ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.catppuccin.latte .tmux.conf
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.max.catppuccin.latte.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.catppuccin.latte.yml alacritty.yml && cd -
@@ -775,6 +781,9 @@ function __theme()
 
             #### neovim
             [[ -e ~/.config/nvim/init.gruvbox.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.light.vim init.vim && cd -
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.gruvbox.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox.light .tmux.conf
 
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.max.gruvbox.light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.gruvbox.light.yml alacritty.yml && cd -

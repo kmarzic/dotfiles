@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2022-12-24 14:52:27 (CET)
+## Last update: 2023-04-16 07:14:55 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -244,11 +244,12 @@ set -g @yank_with_mouse on # 'off' or 'on'
 
 ## lawabidingcactus/tmux-gruvbox-truecolor
 
-## mattdavis90/base16-tmux
+## tinted-theming/base16-tmux
 # set -g @colors-base16 'gruvbox-dark-pale'
 # set -g @colors-base16 'gruvbox-dark-hard'
 # set -g @colors-base16 'gruvbox-dark-medium'
 # set -g @colors-base16 'gruvbox-dark-soft'
+set -g @colors-base16 'everforest'
 
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'
@@ -256,6 +257,12 @@ set -g @yank_with_mouse on # 'off' or 'on'
 ## arcticicestudio/nord-tmux
 # set -g @nord_tmux_show_status_content "1"
 # set -g @nord_tmux_no_patched_font "1"
+
+## catppuccin/tmux
+# set -g @catppuccin_flavour 'latte'
+# set -g @catppuccin_flavour 'frappe'
+# set -g @catppuccin_flavour 'macchiato'
+# set -g @catppuccin_flavour 'mocha'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
@@ -274,10 +281,11 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
-set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-# set -g @plugin 'mattdavis90/base16-tmux'
+# set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
+set -g @plugin 'tinted-theming/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 # set -g @plugin "arcticicestudio/nord-tmux"
+# set -g @plugin 'catppuccin/tmux'
 
 ## Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 ## <prefix> + I - install
