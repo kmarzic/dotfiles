@@ -223,6 +223,39 @@ function __theme()
             YELLOW='^c#d75f00^'
             NORMAL='^c#4D4D4C^'
             ;;
+        "selenized.dark")
+            __printf "selenized dark"
+            CYAN='^c#53d6c7^'
+            GREEN='^c#84c747^'
+            # ORANGE='^c#^'
+            # PINK='^c#^'
+            # PURPLE='^c#^'
+            RED='^c#ff665c^'
+            YELLOW='^c#ebc13d^'
+            NORMAL='^c#adbcbc^'
+            ;;
+        "selenized.light")
+            __printf "selenized light"
+            CYAN='^c#00978a^'
+            GREEN='^c#428b00^'
+            # ORANGE='^c#^'
+            # PINK='^c#^'
+            # PURPLE='^c#^'
+            RED='^c#cc1729^'
+            YELLOW='^c#a78300^'
+            NORMAL='^c#53676d^'
+            ;;
+        "selenized.white")
+            __printf "selenized light"
+            CYAN='^c#009a8a^'
+            GREEN='^c#008400^'
+            # ORANGE='^c#^'
+            # PINK='^c#^'
+            # PURPLE='^c#^'
+            RED='^c#bf0000^'
+            YELLOW='^c#af8500^'
+            NORMAL='^c#474747^'
+            ;;
         "solarized.light")
             __printf "solarized light"
             CYAN='^c#2aa198^'
@@ -312,9 +345,27 @@ function __memory_linux()
     mem_percent=$(echo "scale=2; ${mem_available}/${mem_total}*100" | bc -l | sed -e "s/\..*//g")
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "MEM: ${mem_percent}%"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <= 50" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${GREEN}${mem_percent}%${NORMAL}"
+    # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <= 50" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}${mem_percent}%${NORMAL}"
+    # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${GREEN}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <   5" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 10" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 15" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 15" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 20" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 25" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 30" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 30" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 35" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 35" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 40" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 40" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 45" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 45" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 50" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 55" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 55" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 65" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 70" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 70" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 75" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 75" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 80" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 80" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 85" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 85" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 95" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 95" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
 }
 
 function __memory_freebsd()

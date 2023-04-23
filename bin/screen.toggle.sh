@@ -123,6 +123,7 @@ __help()
     __printf "   ${0} -s papercolor.light"
     __printf "   ${0} -s selenized.dark"
     __printf "   ${0} -s selenized.light"
+    __printf "   ${0} -s selenized.white"
     __printf "   ${0} -s solarized.dark"
     __printf "   ${0} -s solarized.light"
     __printf "   ${0} -s srcery"
@@ -227,6 +228,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
@@ -237,7 +240,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
@@ -295,6 +298,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            ####
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
@@ -305,7 +310,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
@@ -1160,6 +1165,57 @@ function __theme()
             #### alacritty.yml
             [[ -e ~/.config/alacritty/alacritty.max.selenized.light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.selenized.light.yml alacritty.yml && cd -
             [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.light.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.selenized.light.yml scratchpad.yml && cd -
+            ;;
+        "selenized.white")
+            __printf "selenized white"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/AB_Wallpaper_Light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/burst1.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized-mountains-light.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/green-texture-wallpaper.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/d48d4ca9f67739f39d2199e30ee3ec68c24e.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarizedlightstripes.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/wallpaperbetter_light.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/TVDBMOt.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/Screenshot_20220519_131646.png bg.png && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.selenized.white ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.selenized.white .Xdefaults
+            [[ -e ~/.Xdefaults.selenized.white ]] && xrdb -load ~/.Xdefaults.selenized.white
+
+            #### vim
+            [[ -e ~/.vimrc.selenized.white ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.selenized.white .vimrc
+            [[ -e ~/.gvimrc.selenized.white ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.selenized.white .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.selenized.white.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.selenized.white.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.selenized.white ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.selenized.white dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.selenized.white.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.selenized.white.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.selenized.white ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.selenized.white .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.selenized.white ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.selenized.white .tmux.conf
+
+            #### alacritty.yml
+            [[ -e ~/.config/alacritty/alacritty.max.selenized.white.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.selenized.white.yml alacritty.yml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.white.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.selenized.white.yml scratchpad.yml && cd -
             ;;
         "solarized.dark")
             __printf "solarized dark"
