@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2023-02-27 05:36:18 (CET)
+## Last update: 2023-05-05 07:36:30 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -421,7 +421,7 @@ export LESSCHARSET="utf-8"
 # export LESS_TERMCAP_ue=$'\E[0m'
 # export LESS_TERMCAP_us=$'\E[01;32m'
 ##
-## solarized dark, solarized white
+## solarized dark, solarized light, selenized dark, selenized light, selenized white
 export LESS_TERMCAP_mb=$'\E[01;34m'
 export LESS_TERMCAP_md=$'\E[01;34m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -473,10 +473,11 @@ export COLUMNS=80
 # export MC_SKIN=$HOME/.config/mc/dracula256.ini
 # export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
+export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/solarized-template.ini
-export MC_SKIN=$HOME/.config/mc/solarized.ini
+# export MC_SKIN=$HOME/.config/mc/solarized.ini
+# export MC_SKIN=$HOME/.config/mc/selenized.ini
 # export MC_SKIN=$HOME/.config/mc/onedark.ini
 # export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini
