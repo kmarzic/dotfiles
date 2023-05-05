@@ -4,6 +4,9 @@ function __get_latest()
 {
     mkdir -p ~/.local/share/fonts
 
+    ## ------------------------------------------------------------------------
+    ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono
+    ## ------------------------------------------------------------------------
     ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono/Bold-Italic/complete
     echo ""
     echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/DejaVuSansMono/Bold-Italic/complete"
@@ -32,7 +35,9 @@ function __get_latest()
     cd ~/.local/share/fonts && curl -fLo "DejaVuSansMNerdFontMono-Regular.ttf"            https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/DejaVuSansMNerdFontMono-Regular.ttf?raw=true
     cd ~/.local/share/fonts && curl -fLo "DejaVuSansMNerdFontPropo-Regular.ttf"           https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/DejaVuSansMNerdFontPropo-Regular.ttf?raw=true
 
-    # ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata
+    ## ------------------------------------------------------------------------
+    ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata
+    ## ------------------------------------------------------------------------
     echo ""
     echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Inconsolata"
     cd ~/.local/share/fonts && curl -fLo "InconsolataNerdFont-Bold.ttf"                   https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Inconsolata/InconsolataNerdFont-Bold.ttf?raw=true
@@ -42,6 +47,9 @@ function __get_latest()
     cd ~/.local/share/fonts && curl -fLo "InconsolataNerdFontPropo-Bold.ttf"              https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Inconsolata/InconsolataNerdFontPropo-Bold.ttf?raw=true
     cd ~/.local/share/fonts && curl -fLo "InconsolataNerdFontPropo-Regular.ttf"           https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Inconsolata/InconsolataNerdFontPropo-Regular.ttf?raw=true
 
+    ## ------------------------------------------------------------------------
+    ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono
+    ## ------------------------------------------------------------------------
     ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono/Bold-Italic
     echo ""
     echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/UbuntuMono/Bold-Italic"
@@ -70,10 +78,60 @@ function __get_latest()
     cd ~/.local/share/fonts && curl -fLo "UbuntuMonoNerdFontMono-Regular.ttf"             https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFontMono-Regular.ttf?raw=true
     cd ~/.local/share/fonts && curl -fLo "UbuntuMonoNerdFontPropo-Regular.ttf"            https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFontPropo-Regular.ttf?raw=true
 
-    # ## https://gitlab.com/timescam/noto-fonts-emoji-apple
-    # echo ""
-    # echo "https://gitlab.com/timescam/noto-fonts-emoji-apple"
-    # cd ~/.local/share/fonts && curl -fLo "NotoColorEmoji.ttf"                                                           https://gitlab.com/timescam/noto-fonts-emoji-apple/-/raw/master/NotoColorEmoji.ttf
+    ## ------------------------------------------------------------------------
+    ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro
+    ## ------------------------------------------------------------------------
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro/Regular"
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFont-Regular.ttf"               https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/SauceCodeProNerdFont-Regular.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFontMono-Regular.ttf"           https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/SauceCodeProNerdFontPropo-Regular.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFontPropo-Regular.ttf"          https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/SauceCodeProNerdFontPropo-Regular.ttf?raw=true
+
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro/Bold"
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFont-Bold.ttf"                  https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Bold/SauceCodeProNerdFont-Bold.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFontMono-Bold.ttf"              https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Bold/SauceCodeProNerdFontMono-Bold.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFontPropo-Bold.ttf"             https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Bold/SauceCodeProNerdFontPropo-Bold.ttf?raw=true
+
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro/Italic"
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFont-Italic.ttf"                https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Italic/SauceCodeProNerdFont-Italic.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFontMono-Italic.ttf"            https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Italic/SauceCodeProNerdFontMono-Italic.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "SauceCodeProNerdFontPropo-Italic.ttf"           https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Italic/SauceCodeProNerdFontPropo-Italic.ttf?raw=true
+
+    ## ------------------------------------------------------------------------
+    ## https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack
+    ## ------------------------------------------------------------------------
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack/Bold"
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFont-Bold.ttf"                         https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/HackNerdFont-Bold.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontMono-Bold.ttf"                     https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/HackNerdFontMono-Bold.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontPropo-Bold.ttf"                    https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/HackNerdFontPropo-Bold.ttf?raw=true
+
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack/BoldItalic"
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFont-BoldItalic.ttf"                   https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/BoldItalic/HackNerdFont-BoldItalic.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontMono-BoldItalic.ttf"               https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/BoldItalic/HackNerdFontMono-BoldItalic.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontPropo-BoldItalic.ttf"              https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/BoldItalic/HackNerdFontPropo-BoldItalic.ttf?raw=true
+
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack/Italic"
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFont-Italic.ttf"                       https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Italic/HackNerdFont-Italic.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontMono-Italic.ttf"                   https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Italic/HackNerdFontMono-Italic.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontPropo-Italic.ttf"                  https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Italic/HackNerdFontPropo-Italic.ttf?raw=true
+
+    echo ""
+    echo "https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Hack/Regular"
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFont-Regular.ttf"                      https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontMono-Regular.ttf"                  https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/HackNerdFontMono-Regular.ttf?raw=true
+    cd ~/.local/share/fonts && curl -fLo "HackNerdFontPropo-Regular.ttf"                 https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/HackNerdFontPropo-Regular.ttf?raw=true
+
+    ## ------------------------------------------------------------------------
+    ## https://gitlab.com/timescam/noto-fonts-emoji-apple
+    ## ------------------------------------------------------------------------
+    echo ""
+    echo "https://gitlab.com/timescam/noto-fonts-emoji-apple"
+    cd ~/.local/share/fonts && curl -fLo "NotoColorEmoji.ttf"                                                           https://gitlab.com/timescam/noto-fonts-emoji-apple/-/raw/master/NotoColorEmoji.ttf
 
     fc-cache -vf
     fc-list
