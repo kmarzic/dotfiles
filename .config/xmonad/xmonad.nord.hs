@@ -168,15 +168,15 @@ help = unlines
 
 fontRegular :: String
 -- fontRegular = "monospace:size=10:antialias=true:style=regular"
-fontRegular = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=regular"
+fontRegular = "DejaVuSansM\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=regular"
 
 fontBold :: String
 -- fontBold = "monospace:size=10:antialias=true:style=bold"
-fontBold = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=bold"
+fontBold = "DejaVuSansM\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=bold"
 
 fontTerminalScratchpad :: String
 -- fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
-fontTerminalScratchpad = "DejaVu\\ Sans\\ Mono:size=9:antialias=true:autohint=true:style=regular,DejaVuSansMono\\ Nerd\\ Font:size=9:antialias=true:autohint=true:style=regular"
+fontTerminalScratchpad = "DejaVu\\ Sans\\ Mono:size=9:antialias=true:autohint=true:style=regular,DejaVuSansM\\ Nerd\\ Font:size=9:antialias=true:autohint=true:style=regular"
 
 dmenuCommandNord :: String -- theme: nord
 -- dmenuCommandNord = "/usr/bin/dmenu_run -i -nf \"#ffffff\" -nb \"#222222\" -sb \"#009910\" -sf \"#ffffff\" -fn " ++ fontRegular ++ " -p 'Run: '"

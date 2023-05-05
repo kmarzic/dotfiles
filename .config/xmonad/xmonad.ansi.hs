@@ -1,6 +1,6 @@
 -------------------------------------------------------------------------------
 -- xmonad.hs
--- Last update: 2022-12-17 15:57:51 (CET)
+-- Last update: 2023-05-05 12:22:58 (CEST)
 -------------------------------------------------------------------------------
 
 -- Base
@@ -161,15 +161,15 @@ help = unlines
 
 fontRegular :: String
 -- fontRegular = "monospace:size=10:antialias=true:style=regular"
-fontRegular = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=regular"
+fontRegular = "DejaVuSansM\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=regular"
 
 fontBold :: String
 -- fontBold = "monospace:size=10:antialias=true:style=bold"
-fontBold = "DejaVuSansMono\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=bold"
+fontBold = "DejaVuSansM\\ Nerd\\ Font:size=10:antialias=true:autohint=true:style=bold"
 
 fontTerminalScratchpad :: String
 -- fontTerminalScratchpad = "monospace:size=10:antialias=true:style=bold,Source\\ Code\\ Pro\\ Medium:size=10:antialias=true:hinting=true:style:bold"
-fontTerminalScratchpad = "DejaVu\\ Sans\\ Mono:size=9:antialias=true:autohint=true:style=regular,DejaVuSansMono\\ Nerd\\ Font:size=9:antialias=true:autohint=true:style=regular"
+fontTerminalScratchpad = "DejaVu\\ Sans\\ Mono:size=9:antialias=true:autohint=true:style=regular,DejaVuSansM\\ Nerd\\ Font:size=9:antialias=true:autohint=true:style=regular"
 
 dmenuCommandAnsi :: String -- theme: ansi
 -- dmenuCommandAnsi = "/usr/bin/dmenu_run -i -nf \"#00ffff\" -nb \"#101010\" -sb \"#00ffff\" -sf \"#101010\" -fn " ++ fontRegular ++ " -p 'Run: '"

@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-02-04 10:58:49 (CET)
+!! Last update: 2023-05-05 12:08:52 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -16,11 +16,11 @@
 ! *console.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 ! *console.font: xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 !
-! *console.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
-*console.font: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
+! *console.font: DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
+*console.font: xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
 !
 ! *font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
-! *font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
+! *font: DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
 
 
 !! ---------------------------------------------------------------------
@@ -319,9 +319,9 @@ URxvt*keysym.S-Right:        \033[1;2C
 ! URxvt*boldfont: xft:DejaVu Sans Mono:pixelsize=14:style=bold
 ! URxvt*italicfont: xft:DejaVu Sans Mono:pixelsize=14:style=italic
 !
-URxvt*font: xft:DejaVu Sans Mono Nerd Font:pixelsize=13:style=book
-URxvt*boldfont: xft:DejaVu Sans Mono Nerd Font:pixelsize=13:style=bold
-URxvt*italicfont: xft:DejaVu Sans Mono Nerd Font:pixelsize=13:style=italic
+URxvt*font: xft:DejaVuSansM Nerd Font:pixelsize=13:style=book
+URxvt*boldfont: xft:DejaVuSansM Nerd Font:pixelsize=13:style=bold
+URxvt*italicfont: xft:DejaVuSansM Nerd Font:pixelsize=13:style=italic
 !
 ! URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=regular
 ! URxvt*boldfont: xft:Bitstream Vera Sans Mono:pixelsize=14:antialias=true:style=bold
@@ -386,15 +386,15 @@ xterm*font: xft:Monospace:pixelsize=14:antialias=true:style=regular
 ! stterm*font: -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
 ! stterm*font: -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1
 ! stterm*font: -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1
-stterm*font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
+stterm*font: DejaVuSansM Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
 
 
 !! ---------------------------------------------------------------------
 !! pterm
 !! ---------------------------------------------------------------------
 
-pterm.Font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
-pterm.BoldFont: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=bold
+pterm.Font: DejaVuSansM Nerd Font:pixelsize=14:antialias=true:autohint=true:style=regular
+pterm.BoldFont: DejaVuSansM Nerd Font:pixelsize=14:antialias=true:autohint=true:style=bold
 
 
 !! ---------------------------------------------------------------------
@@ -426,11 +426,11 @@ st*geometry: 100x40+0+0
 ! st.font: DejaVu Sans Mono:pixelsize=13:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=14:antialias=true:autohint=true:style=regular
 !
-! st.font: DejaVuSansMono Nerd Font:size=9:antialias=true:autohint=true:style=book
-st.font: DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
-! st.font: DejaVuSansMono Nerd Font:pixelsize=12:antialias=true:autohint=true:style=book
-! st.font: DejaVuSansMono Nerd Font:pixelsize=13:antialias=true:autohint=true:style=book
-! st.font: DejaVuSansMono Nerd Font:pixelsize=14:antialias=true:autohint=true:style=book
+! st.font: DejaVuSansM Nerd Font:size=9:antialias=true:autohint=true:style=book
+st.font: DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
+! st.font: DejaVuSansM Nerd Font:pixelsize=12:antialias=true:autohint=true:style=book
+! st.font: DejaVuSansM Nerd Font:pixelsize=13:antialias=true:autohint=true:style=book
+! st.font: DejaVuSansM Nerd Font:pixelsize=14:antialias=true:autohint=true:style=book
 !
 ! st.font: Hack:size=9:antialias=true:autohint=true:style=regular
 ! st.font: Hack:size=10:antialias=true:autohint=true:style=regular
@@ -514,7 +514,7 @@ spterm.shell: /bin/bash
 !
 ! spterm.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:autohint=true:style=regular
 ! spterm.font: DejaVu Sans Mono:size=9:antialias=true:autohint=true:autohint=true:style=regular
-spterm.font: DejaVuSansMono Nerd Font:size=9:antialias=true:autohint=true:style=book
+spterm.font: DejaVuSansM Nerd Font:size=9:antialias=true:autohint=true:style=book
 !
 spterm.bellvolume: 100
 spterm.tabspaces: 8
@@ -535,22 +535,13 @@ scratchpad.shell: /bin/bash
 !
 ! scratchpad.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:autohint=true:style=regular
 ! scratchpad.font: DejaVu Sans Mono:size=9:antialias=true:autohint=true:autohint=true:style=regular
-scratchpad.font: DejaVuSansMono Nerd Font:size=9:antialias=true:autohint=true:style=book
+scratchpad.font: DejaVuSansM Nerd Font:size=9:antialias=true:autohint=true:style=book
 !
 scratchpad.bellvolume: 100
 scratchpad.tabspaces: 8
 scratchpad.borderpx: 2
 scratchpad.chscale: 1.0
 scratchpad.cwscale: 1.0
-
-
-!! ---------------------------------------------------------------------
-!! alacritty
-!! ---------------------------------------------------------------------
-
-alacritty*font: xft:DejaVu\ Sans\ Mono:pixelsize=18:antialias=true:hinting=true,style:Regular
-alacritty*boldfont: xft:DejaVu\ Sans\ Mono:pixelsize=18:antialias=true:hinting=true:style:Bold
-alacritty*italicfont: xft:DejaVu\ Sans\ Mono:pixelsize=18:antialias=true:hinting=true:style:Italic
 
 
 !! ---------------------------------------------------------------------
@@ -584,9 +575,9 @@ XLock.invalid: Wrong password!
 ! XLock.font: -xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
 ! XLock.planfont: -xos4-terminus-medium-r-normal--18-180-72-72-c-100-iso10646-1
 ! XLock.messagefont: -adobe-times-medium-r-normal--34-240-100-100-p-170-iso10646-1
-XLock.font: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
-XLock.planfont: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
-XLock.messagefont: xft:DejaVuSansMono Nerd Font:size=10:antialias=true:autohint=true:style=book
+XLock.font: xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
+XLock.planfont: xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
+XLock.messagefont: xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
 
 XLock.ncolors: 256
 XLock.icongeometry: 256x256
