@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-05-30 09:09:28 (CEST)
+"" Last update: 2023-04-27 06:06:39 (CEST)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 "
@@ -564,8 +564,8 @@ set lazyredraw
 set linespace=0
 
 "" Printing
-set printoptions=paper:A4,syntax:y,wrap:y
-set printexpr=PrintFile(v:fname_in)
+" set printoptions=paper:A4,syntax:y,wrap:y
+" set printexpr=PrintFile(v:fname_in)
 function PrintFile(fname)
     call system("gtklp " . a:fname)
     call delete(a:fname)
