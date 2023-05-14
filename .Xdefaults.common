@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-05-05 12:08:52 (CEST)
+!! Last update: 2023-05-14 07:25:20 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -406,6 +406,7 @@ pterm.BoldFont: DejaVuSansM Nerd Font:pixelsize=14:antialias=true:autohint=true:
 ! st.alpha: 0.80
 ! st.alpha: 0.85
 ! st.alpha: 0.90
+! st.alpha: 0.92
 ! st.alpha: 0.95
 ! st.alpha: 0.96
 ! st.alpha: 0.97
