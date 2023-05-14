@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-04-16 07:12:30 (CEST)
+## Last update: 2023-05-14 09:23:32 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -221,41 +221,39 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-solarized
-base00='#fdf6e3'
 base01='#eee8d5'
-base02='#93a1a1'
-base03='#839496'
-base06='#073642'
-base0B='#859900' # green
-base08='#dc322f' # red
-base0C='#2aa198' # cyan
-base0D='#268bd2' # blue
-base0E='#6c71c4' # purple
-base07='#002b36' # white
+color0='#fdf6e3' # black
+color1='#dc322f' # red
+color2='#859900' # green
+color3='#b58900' # yellow
+color4='#268bd2' # blue
+color5='#6c71c4' # purple
+color6='#2aa198' # cyan
+color7='#002b36' # white
 ## statusbar
-set-option -g status-left '#[fg=#eee8d5,bg=#2aa198] #S '
+set-option -g status-left '#[fg=#eee8d5,bg=color6] #S '
 ## default statusbar colors
-set-option -g status-style fg=${base0D},bg=${base01}
+set-option -g status-style fg=${color4},bg=${base01}
 ## default window title colors
-set-window-option -g window-status-style fg=${base0D},bg=default
+set-window-option -g window-status-style fg=${color4},bg=${base01}
 ## active window title colors
-set-window-option -g window-status-current-style fg=${base01},bg=${base08}
+set-window-option -g window-status-current-style fg=${base01},bg=${color1}
 ## pane border
-set-option -g pane-border-style fg=${base0B}
-set-option -g pane-active-border-style fg=${base0D}
+set-option -g pane-border-style fg=${color2}
+set-option -g pane-active-border-style fg=${color4}
 ## message text
-set-option -g message-style fg=${base08},bg=${base01}
+set-option -g message-style fg=${color1},bg=${base01}
 ## pane number display
-set-option -g display-panes-active-colour ${base0D}
-set-option -g display-panes-colour ${base08}
+set-option -g display-panes-active-colour ${color4}
+set-option -g display-panes-colour ${color1}
 ## clock
-set-window-option -g clock-mode-colour ${base0B}
+set-window-option -g clock-mode-colour ${color2}
 ## bell
-set-window-option -g window-status-bell-style fg=${base01},bg=${base08}
+set-window-option -g window-status-bell-style fg=${base01},bg=${color1}
 ## mode style
-set-option -g mode-style "fg=${base01},bg=${base0D}"
-##
-## Colors, 'seebi/tmux-colors-solarized'
+set-option -g mode-style "fg=${base01},bg=${color4}"
+
+## seebi/tmux-colors-solarized
 # set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
@@ -286,6 +284,7 @@ set-option -g mode-style "fg=${base01},bg=${base0D}"
 # set -g @colors-base16 'gruvbox-dark-hard'
 # set -g @colors-base16 'gruvbox-dark-medium'
 # set -g @colors-base16 'gruvbox-dark-soft'
+# set -g @colors-base16 'everforest'
 
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'

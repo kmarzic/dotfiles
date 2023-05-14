@@ -124,7 +124,7 @@ set guitablabel=%N:%M%t " Show tab numbers
 " colorscheme cattpucin
 " colorscheme doom-one
 " colorscheme dracula
-" colorscheme everforest
+colorscheme everforest
 " colorscheme flattened_dark
 " colorscheme flattened_light
 " colorscheme gruvbox
@@ -133,7 +133,7 @@ set guitablabel=%N:%M%t " Show tab numbers
 " colorscheme monokai
 " colorscheme nord
 " colorscheme PaperColor
-colorscheme selenized
+" colorscheme selenized
 " colorscheme solarized
 " colorscheme solarized8
 " colorscheme srcery

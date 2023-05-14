@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-05-14 08:01:21 (CEST)
+## Last update: 2023-05-14 09:23:29 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -219,28 +219,39 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-everforest-light
+base01='#fdf6e3'
+color0='#5c6a72' # black
+color1='#f85552' # red
+color2='#8da101' # green
+color3='#dfa000' # yellow
+color4='#3a94c5' # blue
+color5='#df69ba' # purple
+color6='#35a77c' # cyan
+color7='#e0dcc7' # white
 ## statusbar
-set-option -g status-left '#[fg=white,bg=#009c8f] #S '
+set-option -g status-left '#[fg=color7,bg=color6] #S '
 ## default statusbar colors
-set-option -g status-style fg=brightblue,bg=white
+set-option -g status-style fg=${color4},bg=${base01}
 ## default window title colors
-set-window-option -g window-status-style fg=brightblue,bg=default
+set-window-option -g window-status-style fg=${color2},bg=${base01}
 ## active window title colors
-set-window-option -g window-status-current-style fg=white,bg=red
+set-window-option -g window-status-current-style fg=${base01},bg=${color1}
 ## pane border
-set-option -g pane-border-style fg=brightgreen
-set-option -g pane-active-border-style fg=brightblue
+set-option -g pane-border-style fg=${color2}
+set-option -g pane-active-border-style fg=${color4}
 ## message text
-set-option -g message-style fg=brightred,bg=black
+set-option -g message-style fg=${color1},bg=${base01}
 ## pane number display
-set-option -g display-panes-active-colour blue
-set-option -g display-panes-colour brightred
+set-option -g display-panes-active-colour ${color2}
+set-option -g display-panes-colour ${color1}
 ## clock
-set-window-option -g clock-mode-colour green
+set-window-option -g clock-mode-colour ${color2}
 ## bell
-set-window-option -g window-status-bell-style fg=black,bg=red
+set-window-option -g window-status-bell-style fg=${base01},bg=${color1}
+## mode style
+set-option -g mode-style "fg=${base01},bg=${color2}"
 
-## tmux-colors-solarized
+## seebi/tmux-colors-solarized
 # set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
