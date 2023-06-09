@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2023-05-05 07:36:30 (CEST)
+## Last update: 2023-06-09 16:07:11 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -351,7 +351,8 @@ export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.7/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.8/site-packages
 # export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.9/site-packages
-export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.10/site-packages
+# export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.10/site-packages
+export PYTHONPATH=/opt/python3/lib:/opt/python3/lib/python3.11/site-packages
 
 #### Oracle DB
 # export ORACLE_INSTANT_CLIENT=/opt/oracle_instantclient_10.2

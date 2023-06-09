@@ -1,19 +1,20 @@
 ## dunstrc.gruvbox
-## Last update: 2021-11-07 18:47:05 (CET)
+## Last update: 2023-06-09 16:17:03 (CEST)
 
 [global]
     # font = Monospace 8
     # font = Monospace 9
-    font = Monospace 10
+    # font = Monospace 10
+    # font = Monospace 12
     # font = Terminus 10
-    # font = "xft:Terminus\ Bold\ 7"
-    # font = "xft:Terminus\ Bold\ 8"
-    # font = "xft:Terminus\ Bold\ 9"
-    # font = "xft:Terminus\ Bold\ 10"
-    # font = "-misc-fixed-medium-r-normal--10-100-75-75-c-60-iso10646-1"
-    # font = "-misc-fixed-bold-r-normal--13-120-75-75-c-80-iso10646-1"
-    # font = "xft:Terminus:pixelsize=8:antialias=true:style=regular"
-    # font = "xft:DejaVu Sans Mono:pixelsize=14:style=regular"
+    # font = "DejaVuSansM Nerd Font 10"
+    # font = "DejaVuSansM Nerd Font 12"
+    # font = "DejaVuSansM Nerd Font Mono 10"
+    font = "DejaVuSansM Nerd Font Mono 12"
+    # font = "Inconsolata Nerd Font 10"
+    # font = "Inconsolata Nerd Font 12"
+    # font = "UbuntuMono Nerd Font 10"
+    # font = "UbuntuMono Nerd Font 12"
 
     # allow a small subset of html markup:
     # <b>bold</b>

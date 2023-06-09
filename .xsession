@@ -27,8 +27,10 @@ export LC_TIME="en_DK.UTF-8"
 
 [[ -e $HOME/bin/st ]] && export TERMINAL=st
 [[ ! -e $HOME/bin/st ]] && export TERMINAL=urxvt
-[[ -e /etc/arch-release ]] && export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
-[[ -e /etc/arch-release ]] && export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+
+# [[ -e /etc/arch-release ]] && export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+# [[ -e /etc/arch-release ]] && export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+[[ -e /etc/arch-release ]] && export $(dbus-launch)
 
 #### xprofile
 # [ -f ~/.xprofile ] && . ~/.xprofile

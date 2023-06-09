@@ -109,7 +109,6 @@ function __redshift()
         [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
         # [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         ####
-        [[ "$(hostname)" == "elx711804dr" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         [[ "$(hostname)" == "entd0001" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.7:0.7 2>&1 &
         [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.7:0.7 2>&1 &
         [[ "$(hostname)" == "dle5570" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
@@ -128,7 +127,6 @@ function __compton()
 
     if [[ ${compton_detect} -eq 0 ]]
     then
-        [[ "$(hostname)" == "elx711804dr" ]] && /opt/picom/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "entd0001" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "dle5570" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
