@@ -138,7 +138,7 @@ x=${GEOMETRY[0]}
 y=$((${GEOMETRY[3]} - ${GEOMETRY[1]} - ${PANEL_HEIGHT}))
 echo "x: ${x}, y: ${y}" >> /tmp/hlog
 # FONT="-*-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
-FONT="-misc-fixed-medium-r-normal--13-120-75-75-c-70-iso10646-1"
+FONT="DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book"
 # FONT="fixed"
 # FONT="terminus-12"
 BGCOLOR=$(hc get frame_border_normal_color)
@@ -215,7 +215,8 @@ hc pad ${MONITOR} 0 0 ${PANEL_HEIGHT} 0
     done > >(uniq_linebuffered) &
 
     ## Hearbeat
-    while true ; do
+    while true;
+    do
         echo "heartbeat"
         sleep 1 || break
     done &

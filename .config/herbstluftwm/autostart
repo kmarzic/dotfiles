@@ -47,8 +47,8 @@ hc keyunbind --all
 
 ## keybindings
 # if you have a super key you will be much happier with Mod set to Mod4
-Mod=Mod1    # Use alt as the main modifier
-# Mod=Mod4   # Use the super key as the main modifier
+# Mod=Mod1    # Use alt as the main modifier
+Mod=Mod4   # Use the super key as the main modifier
 
 # hc keybind ${Mod}-Shift-q quit
 hc keybind ${Mod}-Shift-q spawn exit.sh message
@@ -67,7 +67,7 @@ hc keybind ${Mod}-Shift-e focus_monitor 2
 hc keybind ${Mod}-Shift-r focus_monitor 1
 hc keybind Ctrl-Shift-l spawn exit.sh lock
 hc keybind Ctrl-Shift-s spawn exit.sh monitor_off
-hc keybind Ctrl-Shift-m spawn screen_toggle.sh -x
+hc keybind Ctrl-Shift-m spawn screen.toggle.sh -x
 hc keybind ${Mod}-Ctrl-f spawn firefox
 hc keybind ${Mod}-Ctrl-v spawn VirtualBox
 hc keybind ${Mod}-Ctrl-m spawn evolution
@@ -229,21 +229,20 @@ hc unlock
 ## or simply:
 hc detect_monitors
 
-#### trayer
-trayer.sh &
-# /usr/bin/dropbox start &
-# /usr/bin/nm-applet &
-
-#### find the panel
-panel=~/.config/herbstluftwm/panel.sh
-# panel=~/git/herbstluftwm/share/panel.sh
+#### panel
+killall panel.sh
+# panel=~/.config/herbstluftwm/panel.sh
+# panel=~/git/wm/herbstluftwm/share/panel.sh
+panel=~/git/wm/barpyrus/barpyrus.py
 [ -x "${panel}" ] || panel=/etc/xdg/herbstluftwm/panel.sh
 
-killall panel.sh
 for monitor in $(hc list_monitors | cut -d: -f1);
 do
     ## start it on each monitor
     "${panel}" "${monitor}" &
 done
+
+#### Start polybar
+# $HOME/.config/herbstluftwm/polybar.sh &
 
 #### END

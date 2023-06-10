@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2023-05-05 12:20:49 (CEST)
+-- Last update: 2023-06-10 07:24:20 (CEST)
 
 Config {
    -- theme: ansi
@@ -9,7 +9,11 @@ Config {
    -- font = "xft:monospace:size=11:antialias=true:style=bold",
    -- font = "xft:monospace:size=11:antialias=true:style=regular",
    -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular",
-   font = "xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book",
+   -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
+   -- font = "xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=regular",
+   -- font = "xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book",
+   -- font = "DejaVuSansM Nerd Font Mono 10"
+   font = "DejaVuSansM Nerd Font Mono Bold 10"
    --
    additionalFonts = [ "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true", "xft:DejaVuSansM Nerd Font:size=10:regular:antialias=true:autohint=true"],
 

@@ -1,5 +1,5 @@
 -- xmobar.hs
--- Last update: 2023-05-05 12:21:12 (CEST)
+-- Last update: 2023-06-10 07:25:23 (CEST)
 
 Config {
    -- theme: gruvbox
@@ -11,7 +11,9 @@ Config {
    -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular",
    -- font = "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=bold",
    -- font = "xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=regular",
-   font = "xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book",
+   -- font = "xft:DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book",
+   -- font = "DejaVuSansM Nerd Font Mono 10"
+   font = "DejaVuSansM Nerd Font Mono Bold 10"
    --
    additionalFonts = [ "xft:DejaVu Sans Mono:size=10:antialias=true:autohint=true", "xft:DejaVuSansM Nerd Font:size=10:regular:antialias=true:autohint=true"],
 

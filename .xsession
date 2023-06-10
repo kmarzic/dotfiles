@@ -45,10 +45,10 @@ export LC_TIME="en_DK.UTF-8"
 # exec bspwm || exec urxvt
 
 #### dusk
-# exec dusk.sh || exec urxvt
+exec dusk.sh || exec urxvt
 
 #### dwm
-exec dwm.sh || exec urxvt
+# exec dwm.sh || exec urxvt
 
 #### fluxbox
 # exec fluxbox || exec urxvt
@@ -60,7 +60,6 @@ exec dwm.sh || exec urxvt
 # exec fvwm3 || exec urxvt
 
 ## herbstluftwm
-# exec herbstluftwm || exec urxvt
 # exec herbstluftwm.sh || exec urxvt
 
 #### i3
@@ -68,6 +67,9 @@ exec dwm.sh || exec urxvt
 
 #### icewm
 # exec icewm-session || exec xterm
+
+#### leftwm
+# exec leftwm || exec xterm
 
 #### sctortwm or scrotwm or spectrwm
 # exec spectrwm || exec urxvt
