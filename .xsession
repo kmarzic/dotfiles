@@ -30,6 +30,7 @@ export LC_TIME="en_DK.UTF-8"
 
 # [[ -e /etc/arch-release ]] && export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 # [[ -e /etc/arch-release ]] && export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
+[[ -e /etc/arch-release ]] && export XDG_RUNTIME_DIR=/run/user/24840/
 [[ -e /etc/arch-release ]] && export $(dbus-launch)
 
 #### xprofile
