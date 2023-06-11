@@ -18,6 +18,7 @@ export LC_TIME="en_DK.UTF-8"
 # vncconfig -iconic &
 xsetroot -cursor_name left_ptr
 setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
+xrdb -load ~/.Xdefaults
 
 #### awesome
 # exec awesome || exec urxvt
@@ -26,13 +27,17 @@ setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)
 # exec gnome-session &
 
 #### icewm
-exec /opt/icewm/bin/icewm || exec urxvt
+# exec /opt/icewm/bin/icewm || exec urxvt
 # exec icewm || exec urxvt
+exec icewm-session || exec xterm
 
 #### xmonad
 # cd ~/data/cabal/xmonad
 # cabal v1-exec -- xmonad --recompile
 # cd ~/
 # exec xmonad || exec urxvt
+
+[[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+[[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
 #### END

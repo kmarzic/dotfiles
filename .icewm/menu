@@ -10,6 +10,7 @@ prog "alacritty" xterm alacritty
 prog gvim gvim gvim
 prog Firefox firefox firefox
 prog "Chromium" chromium-browser chromium-browser
+prog "Microsoft Edge" microsoft-edge microsoft-edge
 prog Gimp gimp gimp
 includeprog icewm-menu-fdo --sep-before --no-sep-others
 menufile Programs folder programs
