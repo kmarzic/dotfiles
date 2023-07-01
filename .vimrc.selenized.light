@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-05-05 07:54:18 (CEST)
+"" Last update: 2023-07-01 17:09:47 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -90,7 +90,7 @@ hi Comment gui=NONE cterm=NONE
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'solarized',
+    \ 'colorscheme': 'selenized_light',
     \ }
 
 "" Common

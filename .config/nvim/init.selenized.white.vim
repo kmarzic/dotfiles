@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-04-23 14:55:52 (CEST)
+"" Last update: 2023-07-01 17:48:30 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -67,7 +67,7 @@ hi Comment gui=NONE cterm=NONE
 "" https://github.com/itchyny/lightline.vim
 ""
 let g:lightline = {
-    \ 'colorscheme': 'PaperColor',
+    \ 'colorscheme': 'selenized_white',
     \ }
 
 "" Common
