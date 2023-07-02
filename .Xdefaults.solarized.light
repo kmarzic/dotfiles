@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-04-09 08:42:20 (CEST)
+!! Last update: 2023-07-02 07:42:35 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -24,132 +24,103 @@
 
 
 !! ---------------------------------------------------------------------
+!! DWM Themes, based on dusk theme https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.dwm"
+
+
+!! ---------------------------------------------------------------------
+!! Solarized Light
+!! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-solarized-light.sh
+!! ---------------------------------------------------------------------
+
+! *color0: #fdf6e3
+! *color1: #dc322f
+! *color2: #859900
+! *color3: #b58900
+! *color4: #268bd2
+! *color5: #6c71c4
+! *color6: #2aa198
+! *color7: #586e75
+! *color8: #839496
+! *color9: #dc322f
+! *color10: #859900
+! *color11: #b58900
+! *color12: #268bd2
+! *color13: #6c71c4
+! *color14: #2aa198
+! *color15: #002b36
+! *foreground: #586e75
+! *background: #fdf6e3
+! *cursor: #586e75
+
+
+!! ---------------------------------------------------------------------
+!! Solarized Light
+!! https://github.com/lemnos/theme.sh
+!! ---------------------------------------------------------------------
+
+! *color0: #fdf6e3
+! *color1: #dc322f
+! *color2: #859900
+! *color3: #b58900
+! *color4: #268bd2
+! *color5: #6c71c4
+! *color6: #2aa198
+! *color7: #586e75
+! *color8: #839496
+! *color9: #dc322f
+! *color10: #859900
+! *color11: #b58900
+! *color12: #268bd2
+! *color13: #6c71c4
+! *color14: #2aa198
+! *color15: #002b36
+! *foreground: #586e75
+! *background: #fdf6e3
+! *cursor: #586e75
+
+
+!! ---------------------------------------------------------------------
 !! Base16 Solarized Light Theme
 !! https://github.com/chriskempson/base16-xresources
 !! ---------------------------------------------------------------------
 
-!! Normal
-! color0    black
-! color1    red
-! color2    green
-! color3    yellow
-! color4    blue
-! color5    purple
-! color6    cyan
-! color7    white
-!! Light
-! color8    black
-! color9    red
-! color10   green
-! color11   yellow
-! color12   blue
-! color13   purple
-! color14   cyan
-! color15   white
+*color0:       #fdf6e3
+*color1:       #dc322f
+*color2:       #859900
+*color3:       #b58900
+*color4:       #268bd2
+*color5:       #6c71c4
+*color6:       #2aa198
+*color7:       #586e75
+*color8:       #839496
+*color9:       #dc322f
+*color10:      #859900
+*color11:      #b58900
+*color12:      #268bd2
+*color13:      #6c71c4
+*color14:      #2aa198
+*color15:      #002b36
 
-#define base00 #fdf6e3
-#define base01 #eee8d5
-#define base02 #93a1a1
-#define base03 #839496
-#define base04 #657b83
-#define base05 #586e75
-#define base06 #073642
-#define base07 #002b36
-#define base08 #dc322f
-#define base09 #cb4b16
-#define base0A #b58900
-#define base0B #859900
-#define base0C #2aa198
-#define base0D #268bd2
-#define base0E #6c71c4
-#define base0F #d33682
-
-*foreground:   base05
+*foreground:   #586e75
 #ifdef background_opacity
-*background:   [background_opacity]base00
+*background:   [background_opacity]#fdf6e3
 #else
-*background:   base00
+*background:   #fdf6e3
 #endif
-*cursorColor:  base05
-*fadeColor:    base07
+*cursorColor:  #586e75
+*fadeColor:    #002b36
 
-urxvt*foreground: base06
-urxvt*background: base01
-st.foreground: base06
-st.background: base01
-spterm.foreground: base06
-spterm.background: base01
-Exit*foreground: base06
-Exit*background: base01
-
-!! Base16 Solarized Light Theme
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-*color8:       base03
-*color9:       base08
-*color10:      base0B
-*color11:      base0A
-*color12:      base0D
-*color13:      base0E
-*color14:      base0C
-*color15:      base07
-
-st.color0:     base00
-st.color1:     base08
-st.color2:     base0B
-st.color3:     base0A
-st.color4:     base0D
-st.color5:     base0E
-st.color6:     base0C
-st.color7:     base05
-st.color8:     base03
-st.color9:     base08
-st.color10:    base0B
-st.color11:    base0A
-st.color12:    base0D
-st.color13:    base0E
-st.color14:    base0C
-st.color15:    base07
-
-spterm.color0:     base00
-spterm.color1:     base08
-spterm.color2:     base0B
-spterm.color3:     base0A
-spterm.color4:     base0D
-spterm.color5:     base0E
-spterm.color6:     base0C
-spterm.color7:     base05
-spterm.color8:     base03
-spterm.color9:     base08
-spterm.color10:    base0B
-spterm.color11:    base0A
-spterm.color12:    base0D
-spterm.color13:    base0E
-spterm.color14:    base0C
-spterm.color15:    base07
-
-scratchpad.color0:     base00
-scratchpad.color1:     base08
-scratchpad.color2:     base0B
-scratchpad.color3:     base0A
-scratchpad.color4:     base0D
-scratchpad.color5:     base0E
-scratchpad.color6:     base0C
-scratchpad.color7:     base05
-scratchpad.color8:     base03
-scratchpad.color9:     base08
-scratchpad.color10:    base0B
-scratchpad.color11:    base0A
-scratchpad.color12:    base0D
-scratchpad.color13:    base0E
-scratchpad.color14:    base0C
-scratchpad.color15:    base07
+urxvt*foreground: #073642
+urxvt*background: #eee8d5
+st.foreground: #073642
+st.background: #eee8d5
+spterm.foreground: #073642
+spterm.background: #eee8d5
+Exit*foreground: #073642
+Exit*background: #eee8d5
 
 !! ---------------------------------------------------------------------
 !! EOF

@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-04-09 08:51:36 (CEST)
+!! Last update: 2023-07-02 07:53:15 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -21,6 +21,13 @@
 
 #include "git/suckless/dusk.resources/themes/dark/dracula.res"
 #include "git/suckless/dusk.resources/themes/template.txt"
+
+
+!! ---------------------------------------------------------------------
+!! DWM Themes, based on dusk theme https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.dwm"
 
 
 !! ---------------------------------------------------------------------
@@ -55,108 +62,26 @@ Exit*background: #282A36
 !! Dracula, base16
 !! ---------------------------------------------------------------------
 
-! #define base00 #282936
-! #define base01 #3a3c4e
-! #define base02 #4d4f68
-! #define base03 #626483
-! #define base04 #62d6e8
-! #define base05 #e9e9f4
-! #define base06 #f1f2f8
-! #define base07 #f7f7fb
-! #define base08 #ea51b2
-! #define base09 #b45bcf
-! #define base0A #00f769
-! #define base0B #ebff87
-! #define base0C #a1efe4
-! #define base0D #62d6e8
-! #define base0E #b45bcf
-! #define base0F #00f769
-!
-! *foreground:   base05
-! #ifdef background_opacity
-! *background:   [background_opacity]base00
-! #else
-! *background:   base00
-! #endif
-! *cursorColor:  base05
-!
-! *color0:       base00
-! *color1:       base08
-! *color2:       base0B
-! *color3:       base0A
-! *color4:       base0D
-! *color5:       base0E
-! *color6:       base0C
-! *color7:       base05
-! *color8:       base03
-! *color9:       base08
-! *color10:      base0B
-! *color11:      base0A
-! *color12:      base0D
-! *color13:      base0E
-! *color14:      base0C
-! *color15:      base07
-!
-! urxvt*foreground: base06
-! urxvt*background: base01
-! st.foreground: base06
-! st.background: base01
-! st.cursorColor: base06
-! spterm.foreground: base06
-! spterm.background: base00
-! Exit*foreground: base05
-! Exit*background: base00
-!
-! st.color0:     base00
-! st.color1:     base08
-! st.color2:     base0B
-! st.color3:     base0A
-! st.color4:     base0D
-! st.color5:     base0E
-! st.color6:     base0C
-! st.color7:     base05
-! st.color8:     base03
-! st.color9:     base08
-! st.color10:    base0B
-! st.color11:    base0A
-! st.color12:    base0D
-! st.color13:    base0E
-! st.color14:    base0C
-! st.color15:    base07
-!
-! spterm.color0:     base00
-! spterm.color1:     base08
-! spterm.color2:     base0B
-! spterm.color3:     base0A
-! spterm.color4:     base0D
-! spterm.color5:     base0E
-! spterm.color6:     base0C
-! spterm.color7:     base05
-! spterm.color8:     base03
-! spterm.color9:     base08
-! spterm.color10:    base0B
-! spterm.color11:    base0A
-! spterm.color12:    base0D
-! spterm.color13:    base0E
-! spterm.color14:    base0C
-! spterm.color15:    base07
-!
-! scratchpad.color0:     base00
-! scratchpad.color1:     base08
-! scratchpad.color2:     base0B
-! scratchpad.color3:     base0A
-! scratchpad.color4:     base0D
-! scratchpad.color5:     base0E
-! scratchpad.color6:     base0C
-! scratchpad.color7:     base05
-! scratchpad.color8:     base03
-! scratchpad.color9:     base08
-! scratchpad.color10:    base0B
-! scratchpad.color11:    base0A
-! scratchpad.color12:    base0D
-! scratchpad.color13:    base0E
-! scratchpad.color14:    base0C
-! scratchpad.color15:    base07
+! *color0: #282936
+! *color1: #ea51b2
+! *color2: #ebff87
+! *color3: #00f769
+! *color4: #62d6e8
+! *color5: #b45bcf
+! *color6: #a1efe4
+! *color7: #e9e9f4
+! *color8: #626483
+! *color9: #ea51b2
+! *color10: #ebff87
+! *color11: #00f769
+! *color12: #62d6e8
+! *color13: #b45bcf
+! *color14: #a1efe4
+! *color15: #f7f7fb
+! *foreground: #e9e9f4
+! *background: #282936
+! *cursor: #e9e9f4
+
 
 !! ---------------------------------------------------------------------
 !! EOF

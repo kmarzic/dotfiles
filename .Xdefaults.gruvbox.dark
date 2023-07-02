@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-04-09 08:50:48 (CEST)
+!! Last update: 2023-07-02 07:12:46 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -21,6 +21,13 @@
 
 #include "git/suckless/dusk.resources/themes/dark/gruvbox-dark.res"
 #include "git/suckless/dusk.resources/themes/template.txt"
+
+
+!! ---------------------------------------------------------------------
+!! DWM Themes, based on dusk theme https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.dwm"
 
 
 !! ---------------------------------------------------------------------
@@ -50,7 +57,7 @@
 
 
 !! ---------------------------------------------------------------------
-!! Gruvbox Dark Medium
+!! Gruvbox Original Dark Medium
 !! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-gruvbox-dark-medium.sh
 !! ---------------------------------------------------------------------
 
@@ -76,7 +83,33 @@
 
 
 !! ---------------------------------------------------------------------
-!! Gruvbox Dark Soft
+!! Gruvbox Original Dark Pale
+!! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-gruvbox-dark-pale.sh
+!! ---------------------------------------------------------------------
+
+! *color0: #282828
+! *color1: #fb4934
+! *color2: #b8bb26
+! *color3: #fabd2f
+! *color4: #83a598
+! *color5: #d3869b
+! *color6: #8ec07c
+! *color7: #d5c4a1
+! *color8: #665c54
+! *color9: #fb4934
+! *color10: #b8bb26
+! *color11: #fabd2f
+! *color12: #83a598
+! *color13: #d3869b
+! *color14: #8ec07c
+! *color15: #fbf1c7
+! *background: #282828
+! *foreground: #d5c4a1
+! *cursor: #d4be98
+
+
+!! ---------------------------------------------------------------------
+!! Gruvbox Original Dark Soft
 !! https://raw.githubusercontent.com/chriskempson/base16-shell/master/scripts/base16-gruvbox-dark-soft.sh
 !! ---------------------------------------------------------------------
 
@@ -104,7 +137,8 @@
 !! ---------------------------------------------------------------------
 !! Gruvbox Base16 Gruvbox dark hard 256
 !! Base16 Gruvbox dark, hard
-!! Scheme: Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
+!! Scheme: Dawid Kurek (dawikur@gmail.com)
+!! source: https://github.com/morhetz/gruvbox
 !! ---------------------------------------------------------------------
 
 ! #define base00 #1d2021

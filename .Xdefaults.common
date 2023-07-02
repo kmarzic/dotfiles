@@ -1,11 +1,35 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-05-14 07:25:20 (CEST)
+!! Last update: 2023-07-02 06:59:33 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
 !! ---------------------------------------------------------------------
+
+!! ---------------------------------------------------------------------
+!! Colors
+!! ---------------------------------------------------------------------
+
+!! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+!! Light
+! color8    black
+! color9    red
+! color10   green
+! color11   yellow
+! color12   blue
+! color13   purple
+! color14   cyan
+! color15   white
+
 
 !! ---------------------------------------------------------------------
 !! General
@@ -404,13 +428,13 @@ pterm.BoldFont: DejaVuSansM Nerd Font:pixelsize=14:antialias=true:autohint=true:
 ! st.alpha: 0.25
 ! st.alpha: 0.75
 ! st.alpha: 0.80
-! st.alpha: 0.85
+st.alpha: 0.85
 ! st.alpha: 0.90
 ! st.alpha: 0.92
 ! st.alpha: 0.95
 ! st.alpha: 0.96
 ! st.alpha: 0.97
-st.alpha: 0.98
+! st.alpha: 0.98
 ! st.alpha: 0.99
 ! st.alpha: 1.00
 ! st.opacity: 240
@@ -420,7 +444,12 @@ st.shell: /bin/bash
 ! st.foreground: #d2d2d2
 !! st.cursorColor: #101010
 st*geometry: 100x40+0+0
-!
+st.bellvolume: 100
+st.tabspaces: 8
+st.borderpx: 2
+st.chscale: 1.0
+st.cwscale: 1.0
+
 ! st.font: DejaVu Sans Mono:size=9:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:size=10:antialias=true:autohint=true:style=regular
 ! st.font: DejaVu Sans Mono:pixelsize=12:antialias=true:autohint=true:style=regular
@@ -495,12 +524,6 @@ st.font: DejaVuSansM Nerd Font:size=10:antialias=true:autohint=true:style=book
 ! st.font: Inconsolata for Powerline:pixelsize=14:antialias=true:style=regular
 !
 ! st.font: Ubuntu Mono Nerd Font Mono:pixelsize=15:antialias=true:autohint=true:style=regular
-
-st.bellvolume: 100
-st.tabspaces: 8
-st.borderpx: 2
-st.chscale: 1.0
-st.cwscale: 1.0
 
 ! spterm.alpha: 0.85
 ! spterm.alpha: 0.90

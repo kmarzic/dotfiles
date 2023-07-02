@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-04-09 08:47:44 (CEST)
+!! Last update: 2023-07-02 08:12:32 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -22,6 +22,47 @@
 #include "git/suckless/dusk.resources/themes/dark/tokyo-night.res"
 #include "git/suckless/dusk.resources/themes/template.txt"
 
+dwm.normfgcolor: BASE_FOREGROUND
+dwm.normbgcolor: BASE_BACKGROUND
+dwm.normbordercolor: BORDER
+! dwm.normfloatcolor:
+dwm.selfgcolor: SELECTED_FOREGROUND
+dwm.selbgcolor: SELECTED_BACKGROUND
+dwm.selbordercolor: BORDER
+! dwm.selfloatcolor:
+dwm.titlenormfgcolor: BASE_FOREGROUND
+dwm.titlenormbgcolor: BASE_BACKGROUND
+dwm.titlenormbordercolor: BORDER
+! dwm.titlenormfloatcolor:
+dwm.titleselfgcolor: SELECTED_FOREGROUND
+dwm.titleselbgcolor: SELECTED_BACKGROUND
+dwm.titleselbordercolor: BORDER
+! dwm.titleselfloatcolor:
+dwm.tagsnormfgcolor: WS_NORM_FG_COLOR
+dwm.tagsnormbgcolor: WS_NORM_BG_COLOR
+dwm.tagsnormbordercolor: BORDER
+! dwm.tagsnormfloatcolor:
+dwm.tagsselfgcolor: WS_SEL_FG_COLOR
+dwm.tagsselbgcolor: WS_SEL_BG_COLOR
+dwm.tagsselbordercolor: BORDER
+! dwm.tagsselfloatcolor:
+dwm.hidnormfgcolor: HID_NORM_FG_COLOR
+dwm.hidnormbgcolor: HID_NORM_BG_COLOR
+dwm.hidselfgcolor: HID_SEL_FG_COLOR
+dwm.hidselbgcolor: HID_SEL_BG_COLOR
+dwm.urgfgcolor: URGENT_FG_COLOR
+dwm.urgbgcolor: URGENT_BG_COLOR
+dwm.urgbordercolor: BORDER
+! dwm.urgfloatcolor:
+dwm.scratchselfgcolor: SELECTED_FOREGROUND
+dwm.scratchselbgcolor: SELECTED_BACKGROUND
+dwm.scratchselbordercolor: SCRATCHSEL
+! dwm.scratchselfloatcolor:
+dwm.scratchnormfgcolor: BASE_FOREGROUND
+dwm.scratchnormbgcolor: BASE_BACKGROUND
+dwm.scratchnormbordercolor: SCRATCHNORM
+! dwm.scratchnormfloatcolor:
+
 
 !! ---------------------------------------------------------------------
 !! Tokyo Night
@@ -36,17 +77,6 @@
 !*fadeColor:               S_base03
 !*pointerColorBackground:  S_base01
 !*pointerColorForeground:  S_base1
-
-! Normal      Bright
-! --------    -------
-! 0 Black      8 Black
-! 1 Red        9 Red
-! 2 Yellow    10 Yellow
-! 3 Green     11 Green
-! 4 Blue      12 Blue
-! 5 Magenta   13 Magenta
-! 6 Cyan      14 Cyan
-! 7 White     15 White
 
 ! Black colours
 *.color0:        #1A1B26

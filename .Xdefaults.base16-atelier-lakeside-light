@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-04-23 14:18:54 (CEST)
+!! Last update: 2023-07-02 09:43:58 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -24,28 +24,16 @@
 
 
 !! ---------------------------------------------------------------------
+!! DWM Themes, based on dusk theme https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.dwm"
+
+
+!! ---------------------------------------------------------------------
 !! Base16 Atelier Lakeside Light
 !! Scheme: Bram de Haan (http://atelierbramdehaan.nl)
 !! ---------------------------------------------------------------------
-
-!! Normal
-! color0    black
-! color1    red
-! color2    green
-! color3    yellow
-! color4    blue
-! color5    purple
-! color6    cyan
-! color7    white
-!! Light
-! color8    black
-! color9    red
-! color10   green
-! color11   yellow
-! color12   blue
-! color13   purple
-! color14   cyan
-! color15   white
 
 ! #define base00 #ebf8ff
 ! #define base01 #c1e4f6

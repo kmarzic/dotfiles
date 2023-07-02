@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-05-14 08:57:07 (CEST)
+!! Last update: 2023-07-02 07:58:17 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -24,13 +24,16 @@
 
 
 !! ---------------------------------------------------------------------
+!! DWM Themes, based on dusk theme https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.dwm"
+
+
+!! ---------------------------------------------------------------------
 !! Everforest Light
 !! ---------------------------------------------------------------------
 
-! *foreground: #5c6a72
-! *background: #f8f0dc
-! *cursorColor: #5c6a72
-! 
 ! *color0:  #5c6a72
 ! *color1:  #f85552
 ! *color2:  #8da101
@@ -39,7 +42,6 @@
 ! *color5:  #df69ba
 ! *color6:  #35a77c
 ! *color7:  #dfddc8
-! 
 ! *color8:  #5c6a72
 ! *color9:  #f85552
 ! *color10: #8da101
@@ -48,15 +50,15 @@
 ! *color13: #df69ba
 ! *color14: #35a77c
 ! *color15: #dfddc8
+! *foreground: #5c6a72
+! *background: #f8f0dc
+! *cursorColor: #5c6a72
 
 
 !! ---------------------------------------------------------------------
 !! Everforest Light Hard
 !! ---------------------------------------------------------------------
 
-! *background: #fffbef
-! *foreground: #5c6a72
-! 
 ! *color0:  #5c6a72
 ! *color1:  #f85552
 ! *color2:  #8da101
@@ -65,7 +67,6 @@
 ! *color5:  #df69ba
 ! *color6:  #35a77c
 ! *color7:  #e8e5d5
-! 
 ! *color8:  #5c6a72
 ! *color9:  #f85552
 ! *color10: #8da101
@@ -74,15 +75,13 @@
 ! *color13: #df69ba
 ! *color14: #35a77c
 ! *color15: #e8e5d5
+! *background: #fffbef
+! *foreground: #5c6a72
 
 
 !! ---------------------------------------------------------------------
 !! Everforest Light Medium
 !! ---------------------------------------------------------------------
-
-*background: #fdf6e3
-*foreground: #5c6a72
-*cursorColor: #5c6a72
 
 *color0:  #5c6a72
 *color1:  #f85552
@@ -92,7 +91,6 @@
 *color5:  #df69ba
 *color6:  #35a77c
 *color7:  #e0dcc7
-
 *color8:  #5c6a72
 *color9:  #f85552
 *color10: #8da101
@@ -101,16 +99,15 @@
 *color13: #df69ba
 *color14: #35a77c
 *color15: #e0dcc7
+*background: #fdf6e3
+*foreground: #5c6a72
+*cursorColor: #5c6a72
 
 
 !! ---------------------------------------------------------------------
 !! Everforest Light Soft
 !! ---------------------------------------------------------------------
 
-! *background: #f3ead3
-! *foreground: #5c6a72
-! *cursorColor: #5c6a72
-! 
 ! *color0:  #5c6a72
 ! *color1:  #f85552
 ! *color2:  #8da101
@@ -119,7 +116,6 @@
 ! *color5:  #df69ba
 ! *color6:  #35a77c
 ! *color7:  #d8d3ba
-! 
 ! *color8:  #5c6a72
 ! *color9:  #f85552
 ! *color10: #8da101
@@ -128,6 +124,9 @@
 ! *color13: #df69ba
 ! *color14: #35a77c
 ! *color15: #d8d3ba
+! *background: #f3ead3
+! *foreground: #5c6a72
+! *cursorColor: #5c6a72
 
 !! ---------------------------------------------------------------------
 !! EOF
