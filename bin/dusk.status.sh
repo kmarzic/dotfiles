@@ -297,7 +297,7 @@ function __theme()
     esac
 }
 
-#### Function: load
+#### Function: load linux
 ####
 function __load_linux()
 {
@@ -311,12 +311,14 @@ function __load_linux()
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] &&                                                       echo "${NORMAL} ${NORMAL}${RED}${load}${NORMAL}"
 }
 
+#### Function load freebsd
+####
 function __load_freebsd()
 {
     echo .
 }
 
-#### Function: temp
+#### Function: temp linux
 ####
 function __temp_linux()
 {
@@ -332,12 +334,14 @@ function __temp_linux()
     [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${RED}${temp}${NORMAL}"
 }
 
+#### Function temp freebsd
+####
 function __temp_freebsd()
 {
     echo .
 }
 
-#### Function: memory
+#### Function: memory linux
 ####
 function __memory_linux()
 {
@@ -374,12 +378,14 @@ function __memory_linux()
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 95" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
 }
 
+#### Function: memory freebsd
+####
 function __memory_freebsd()
 {
     echo .
 }
 
-#### Function:  battery
+#### Function: battery linux
 ####
 function __battery_linux()
 {
@@ -399,7 +405,7 @@ function __battery_linux()
             [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 20 ]] && [[ ${battery} -le 40 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${battery}%${NORMAL}"
             [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 40 ]] && [[ ${battery} -le 60 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${battery}%${NORMAL}"
             [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 60 ]] && [[ ${battery} -le 80 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${battery}%${NORMAL}"
-            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] &&                            echo "${NORMAL}  ${NORMAL}${GREEN}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 80 ]] &&                            echo "${NORMAL}  ${NORMAL}${GREEN}${battery}%${NORMAL}"
         elif [[ $(acpi --battery | grep "Charging" | wc -l) -eq 1 ]]
         then
             [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: C ${battery}%"
@@ -407,7 +413,7 @@ function __battery_linux()
             [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 20 ]] && [[ ${battery} -le 40 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${battery}%${NORMAL}"
             [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 40 ]] && [[ ${battery} -le 60 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${battery}%${NORMAL}"
             [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 60 ]] && [[ ${battery} -le 80 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${battery}%${NORMAL}"
-            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -ge 80 ]] &&                            echo "${NORMAL} ${NORMAL}${GREEN}${battery}%${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && [[ ${battery} -gt 80 ]] &&                            echo "${NORMAL} ${NORMAL}${GREEN}${battery}%${NORMAL}"
         else
             [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: F ${battery}%"
             [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${NORMAL}${GREEN}${battery}%${NORMAL}"
@@ -415,6 +421,8 @@ function __battery_linux()
     fi
 }
 
+#### Function: battery freebsd
+####
 function __battery_freebsd()
 {
     echo .
@@ -443,6 +451,8 @@ function __weather()
     fi
 }
 
+#### Function: forecast
+####
 function __forecast()
 {
     #### (1)
@@ -466,7 +476,7 @@ function __forecast()
     fi
 }
 
-#### Function: network
+#### Function: network linux
 ####
 function __network_linux()
 {
@@ -513,6 +523,8 @@ function __network_linux()
     echo -e "${NORMAL} ${rx}  ${tx}${NORMAL} "
 }
 
+#### Function: network freebsd
+####
 function __network_freebsd()
 {
     echo .
