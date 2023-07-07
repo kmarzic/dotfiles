@@ -87,25 +87,25 @@
 !! https://github.com/lemnos/theme.sh
 !! ---------------------------------------------------------------------
 
-*color0: #002831
-*color1: #d11c24
-*color2: #6cbe6c
-*color3: #a57706
-*color4: #2176c7
-*color5: #c61c6f
-*color6: #259286
-*color7: #eae3cb
-*color8: #006488
-*color9: #f5163b
-*color10: #51ef84
-*color11: #b27e28
-*color12: #178ec8
-*color13: #e24d8e
-*color14: #00b39e
-*color15: #fcf4dc
-*foreground: #9cc2c3
-*background: #001e27
-*cursor: #9cc2c3
+! *color0: #002831
+! *color1: #d11c24
+! *color2: #6cbe6c
+! *color3: #a57706
+! *color4: #2176c7
+! *color5: #c61c6f
+! *color6: #259286
+! *color7: #eae3cb
+! *color8: #006488
+! *color9: #f5163b
+! *color10: #51ef84
+! *color11: #b27e28
+! *color12: #178ec8
+! *color13: #e24d8e
+! *color14: #00b39e
+! *color15: #fcf4dc
+! *foreground: #9cc2c3
+! *background: #001e27
+! *cursor: #9cc2c3
 
 
 !! ---------------------------------------------------------------------
@@ -113,41 +113,41 @@
 !! https://github.com/chriskempson/base16-xresources
 !! ---------------------------------------------------------------------
 
-!! Base16 Solarized Dark Theme
-! *color0: #002b36
-! *color1: #dc322f
-! *color2: #859900
-! *color3: #b58900
-! *color4: #268bd2
-! *color5: #6c71c4
-! *color6: #2aa198
-! *color7: #93a1a1
-! *color8: #657b83
-! *color9: #dc322f
-! *color10: #859900
-! *color11: #b58900
-! *color12: #268bd2
-! *color13: #6c71c4
-! *color14: #2aa198
-! *color15: #fdf6e3
-! 
-! *foreground:   #93a1a1
-! #ifdef background_opacity
-! *background:   [background_opacity]#002b36
-! #else
-! *background:   #002b36
-! #endif
-! *cursorColor:  #93a1a1
-! *fadeColor:    #fdf6e3
-! 
-! urxvt*foreground: #93a1a1
-! urxvt*background: #002b36
-! st.foreground: #93a1a1
-! st.background: #002b36
-! spterm.foreground: #93a1a1
-! spterm.background: #002b36
-! Exit*foreground: #93a1a1
-! Exit*background: #002b36
+! Base16 Solarized Dark Theme
+*color0: #002b36
+*color1: #dc322f
+*color2: #859900
+*color3: #b58900
+*color4: #268bd2
+*color5: #6c71c4
+*color6: #2aa198
+*color7: #93a1a1
+*color8: #657b83
+*color9: #dc322f
+*color10: #859900
+*color11: #b58900
+*color12: #268bd2
+*color13: #6c71c4
+*color14: #2aa198
+*color15: #fdf6e3
+
+*foreground:   #93a1a1
+#ifdef background_opacity
+*background:   [background_opacity]#002b36
+#else
+*background:   #002b36
+#endif
+*cursorColor:  #93a1a1
+*fadeColor:    #fdf6e3
+
+urxvt*foreground: #93a1a1
+urxvt*background: #002b36
+st.foreground: #93a1a1
+st.background: #002b36
+spterm.foreground: #93a1a1
+spterm.background: #002b36
+Exit*foreground: #93a1a1
+Exit*background: #002b36
 
 
 !! ---------------------------------------------------------------------
