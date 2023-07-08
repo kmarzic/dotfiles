@@ -638,7 +638,8 @@ alias rehash="hash -r"
 alias hrchar='echo -ne "\033(K"'
 alias x='startx -- -dpi 100 -bpp 24'
 alias perlcc="pp --bundle --par -f Bleach"
-alias ssh="TERM=xterm LC_TIME=C ~/bin/ssh.log.sh ssh"
+# alias ssh="TERM=xterm LC_TIME=C ~/bin/ssh.log.sh ssh"
+alias ssh="TERM=xterm-256color LC_TIME=C ~/bin/ssh.log.sh ssh"
 alias duh="du --si -d1 | sort -h"
 alias python=python3
 # alias tmux="/opt/tmux/bin/tmux"
