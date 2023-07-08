@@ -1,5 +1,5 @@
-## dunstrc.solarized.light
-## Last update: 2023-06-09 16:15:58 (CEST)
+## dunstrc.nord
+## Last update: 2023-07-08 16:32:41 (CEST)
 
 [global]
     # font = Monospace 8
@@ -158,7 +158,7 @@
 
 [frame]
     width = 3
-    color = "#586e75" # base01, solarized
+    color = "#81a1c1"
 
 [shortcuts]
     # shortcuts are specified as [modifier+][modifier+]...key
@@ -185,9 +185,9 @@
     ## Default
     # background = "#222222"
     # foreground = "#888888"
-    ## Solarized Light
-    background = "#eee8d5" # base2
-    foreground = "#657b83" # base00
+    ## Nord
+    background = "#2e3440"
+    foreground = "#81a1c1"
     #
     timeout = 10
 
@@ -195,9 +195,9 @@
     ## Default
     # background = "#285577"
     # foreground = "#ffffff"
-    ## Solarized Light
-    background = "#eee8d5" # base2
-    foreground = "#073642" # base02
+    ## Nord
+    background = "#2e3440"
+    foreground = "#e5e9f0"
     #
     timeout = 10
 
@@ -205,9 +205,9 @@
     ## Default
     # background = "#900000"
     # foreground = "#ffffff"
-    ## Solarized Light
-    background = "#eee8d5" # base2
-    foreground = "#dc322f" # red
+    ## Nord
+    background = "#2e3440"
+    foreground = "#bf616a"
     #
     timeout = 0
 
