@@ -200,15 +200,15 @@ set -g @yank_with_mouse on # 'off' or 'on'
 
 ## tmux-themepack
 # set -g @themepack 'default'
-set -g @themepack 'basic'
+# set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
-set -g @theme-status-justify left
-set -g @theme-status-left-bg '#2c2e34'
-set -g @theme-status-right-bg '#2c2e34'
-set -g @theme-status-bg '#2c2e34'
-set -g @theme-window-status-activity-bg '#2c2e34'
-set -g @theme-window-status-current-fg '#2c2e34'
+# set -g @theme-status-justify left
+# set -g @theme-status-left-bg '#2c2e34'
+# set -g @theme-status-right-bg '#2c2e34'
+# set -g @theme-status-bg '#2c2e34'
+# set -g @theme-window-status-activity-bg '#2c2e34'
+# set -g @theme-window-status-current-fg '#2c2e34'
 # set -g @theme-mode-bg cyan
 # set -g @theme-mode-fg black
 
@@ -240,7 +240,7 @@ set -g @theme-window-status-current-fg '#2c2e34'
 
 ## tmux-gruvbox
 # set -g @tmux-gruvbox 'dark'
-set -g @tmux-gruvbox 'light'
+# set -g @tmux-gruvbox 'light'
 
 ## lawabidingcactus/tmux-gruvbox-truecolor
 
@@ -249,7 +249,7 @@ set -g @tmux-gruvbox 'light'
 # set -g @colors-base16 'gruvbox-dark-hard'
 # set -g @colors-base16 'gruvbox-dark-medium'
 # set -g @colors-base16 'gruvbox-dark-soft'
-# set -g @colors-base16 'gruvbox-light-hard'
+set -g @colors-base16 'gruvbox-light-hard'
 # set -g @colors-base16 'gruvbox-light-medium'
 # set -g @colors-base16 'gruvbox-light-soft'
 
@@ -282,9 +282,9 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
-set -g @plugin 'egel/tmux-gruvbox'
+# set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-# set -g @plugin 'tinted-theming/base16-tmux'
+set -g @plugin 'tinted-theming/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 # set -g @plugin "arcticicestudio/nord-tmux"
 # set -g @plugin 'catppuccin/tmux'

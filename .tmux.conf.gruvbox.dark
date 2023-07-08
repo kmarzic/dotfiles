@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-04-16 07:14:35 (CEST)
+## Last update: 2023-07-08 14:09:52 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -246,7 +246,7 @@ set -g @theme-window-status-current-fg '#2c2e34'
 
 ## tinted-theming/base16-tmux
 # set -g @colors-base16 'gruvbox-dark-pale'
-# set -g @colors-base16 'gruvbox-dark-hard'
+set -g @colors-base16 'gruvbox-dark-hard'
 # set -g @colors-base16 'gruvbox-dark-medium'
 # set -g @colors-base16 'gruvbox-dark-soft'
 # set -g @colors-base16 'gruvbox-light-hard'
@@ -283,8 +283,8 @@ set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
-set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-# set -g @plugin 'tinted-theming/base16-tmux'
+# set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
+set -g @plugin 'tinted-theming/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 # set -g @plugin "arcticicestudio/nord-tmux"
 # set -g @plugin 'catppuccin/tmux'

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-05-30 09:09:53 (CEST)
+"" Last update: 2023-07-08 14:42:02 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -65,6 +65,9 @@ set background=dark
 " colorscheme solarized8_low
 colorscheme solarized8_high
 " colorscheme solarized8_flat
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

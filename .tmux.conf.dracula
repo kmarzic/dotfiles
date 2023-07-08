@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-04-16 07:16:07 (CEST)
+## Last update: 2023-07-08 14:03:11 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -58,6 +58,7 @@ set -g default-terminal "tmux-256color"
 set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
 # set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
 # set -as terminal-overrides ',st*:Ss@'
+# set -g terminal-overrides ",tmux-256color:Tc"
 # set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
 
 ## clock mode

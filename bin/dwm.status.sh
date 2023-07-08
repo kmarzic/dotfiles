@@ -299,14 +299,25 @@ function __theme()
 ####
 function __xrdb_parse()
 {
-    [[ ! -z ${CYAN} ]]   &&   CYAN="^c$(xrdb -query -all | grep "^*color6" | awk '{ print $2 }')^"
-    [[ ! -z ${GREEN} ]]  &&  GREEN="^c$(xrdb -query -all | grep "^*color2" | awk '{ print $2 }')^"
-    [[ ! -z ${ORANGE} ]] && ORANGE="^c$(xrdb -query -all | grep "^*color1" | awk '{ print $2 }')^"
-    [[ ! -z ${PINK} ]]   &&   PINK="^c$(xrdb -query -all | grep "^*color1" | awk '{ print $2 }')^"
-    [[ ! -z ${PURPLE} ]] && PURPLE="^c$(xrdb -query -all | grep "^*color5" | awk '{ print $2 }')^"
-    [[ ! -z ${RED} ]] &&       RED="^c$(xrdb -query -all | grep "^*color1" | awk '{ print $2 }')^"
-    [[ ! -z ${YELLOW} ]] && YELLOW="^c$(xrdb -query -all | grep "^*color3" | awk '{ print $2 }')^"
-    [[ ! -z ${NORMAL} ]] && NORMAL="^c$(xrdb -query -all | grep "^*color0" | awk '{ print $2 }')^"
+      CYAN="^c$(xrdb -query -all | grep -E "^\*color6:|^\*\.color6:" | head -1 | awk '{ print $2 }')^"
+     GREEN="^c$(xrdb -query -all | grep -E "^\*color2:|^\*\.color2:" | head -1 | awk '{ print $2 }')^"
+    ORANGE="^c$(xrdb -query -all | grep -E "^\*color1:|^\*\.color1:" | head -1 | awk '{ print $2 }')^"
+      PINK="^c$(xrdb -query -all | grep -E "^\*color1:|^\*\.color1:" | head -1 | awk '{ print $2 }')^"
+    PURPLE="^c$(xrdb -query -all | grep -E "^\*color5:|^\*\.color5:" | head -1 | awk '{ print $2 }')^"
+       RED="^c$(xrdb -query -all | grep -E "^\*color1:|^\*\.color1:" | head -1 | awk '{ print $2 }')^"
+    YELLOW="^c$(xrdb -query -all | grep -E "^\*color3:|^\*\.color3:" | head -1 | awk '{ print $2 }')^"
+    NORMAL="^c$(xrdb -query -all | grep -E "^\*color0:|^\*\.color0:" | head -1 | awk '{ print $2 }')^"
+
+    [[ -z ${CYAN} ]]   && CYAN='^c#00ffff^'
+    [[ -z ${GREEN} ]]  && GREEN='^c#00d700^'
+    [[ -z ${ORANGE} ]] && ORANGE='^c#d78700^'
+    [[ -z ${PINK} ]]   && PINK='^c#d787af^'
+    [[ -z ${PURPLE} ]] && PURPLE='^c#d700af^'
+    [[ -z ${READ} ]]   && RED='^c#ff0000^'
+    [[ -z ${YELLOW} ]] && YELLOW='^c#ffff00^'
+    [[ -z ${NORMAL} ]] && NORMAL='^c#bbbbbb^'
+
+    __printf "CYAN=${CYAN};GREEN=${GREEN};ORANGE=${ORANGE};PINK=${PINK};PURPLE=${PURPLE};RED=${RED};YELLOW=${YELLOW};NORMAL=${NORMAL}"
 }
 
 #### Function: load linux

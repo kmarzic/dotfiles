@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-07-02 07:09:02 (CEST)
+"" Last update: 2023-07-08 14:44:48 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -69,14 +69,16 @@ call plug#end()
 ""
 set background=dark
 syntax on
-" let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_background = 'hard'
+" let g:gruvbox_material_background = 'medium'
 " let g:gruvbox_material_background = 'soft'
 let g:gruvbox_material_disable_italic_comment = 1
 colorscheme gruvbox-material
-set termguicolors
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+if (has("termguicolors"))
+    " set termguicolors
+endif
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

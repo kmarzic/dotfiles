@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-04-16 07:13:01 (CEST)
+## Last update: 2023-07-08 14:21:34 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -58,6 +58,7 @@ set -g default-terminal "tmux-256color"
 set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
 # set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
 # set -as terminal-overrides ',st*:Ss@'
+# set -g terminal-overrides ",tmux-256color:Tc"
 # set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
 
 ## clock mode
@@ -241,8 +242,9 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set-window-option -g clock-mode-colour green # green
 # ## bell
 # set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
-## Colors, 'seebi/tmux-colors-solarized'
-set -g @colors-solarized '256'
+
+## seebi/tmux-colors-solarized
+# set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
 # set -g @colors-solarized 'base16'
@@ -268,10 +270,7 @@ set -g @colors-solarized '256'
 ## lawabidingcactus/tmux-gruvbox-truecolor
 
 ## tinted-theming/base16-tmux
-# set -g @colors-base16 'gruvbox-dark-pale'
-# set -g @colors-base16 'gruvbox-dark-hard'
-# set -g @colors-base16 'gruvbox-dark-medium'
-# set -g @colors-base16 'gruvbox-dark-soft'
+set -g @colors-base16 'selenized-dark'
 
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'
@@ -298,13 +297,13 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 ##
 # set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
-set -g @plugin 'seebi/tmux-colors-solarized'
+# set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
 # set -g @plugin 'dracula/tmux'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-# set -g @plugin 'tinted-theming/base16-tmux'
+set -g @plugin 'tinted-theming/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 # set -g @plugin "arcticicestudio/nord-tmux"
 # set -g @plugin 'catppuccin/tmux'

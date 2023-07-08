@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-01-07 19:13:48 (CET)
+"" Last update: 2023-07-08 06:55:16 (CEST)
 "" Current file: .vimrc.common
 "" ------------------------------------------------------------------------
 
@@ -115,9 +115,9 @@ augroup NERD
     autocmd VimEnter * call lightline#update()
 augroup END
 "
-" map ,n :NERDTreeToggle<CR>
-" vmap ,n <esc>:NERDTreeToggle<CR>
-" imap ,n <esc>:NERDTreeToggle<CR>
+map ,n :NERDTreeToggle<CR>
+vmap ,n <esc>:NERDTreeToggle<CR>
+imap ,n <esc>:NERDTreeToggle<CR>
 
 "" syntastic (Syntastic is a syntax checking plugin)
 "" https://github.com/vim-syntastic/syntastic
@@ -548,9 +548,9 @@ set nowrap
 
 "" I do not display line numbers by default.
 "" (1)
-set nonumber
+" set nonumber
 "" (2)
-" set number
+set number
 
 "" Left/right arrow keys wrap.
 " set whichwrap=<,>,[,]

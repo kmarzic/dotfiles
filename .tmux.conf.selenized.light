@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-04-16 07:12:48 (CEST)
+## Last update: 2023-07-08 14:24:15 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -58,6 +58,7 @@ set -g default-terminal "tmux-256color"
 set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
 # set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
 # set -as terminal-overrides ',st*:Ss@'
+# set -g terminal-overrides ",tmux-256color:Tc"
 # set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
 
 ## clock mode
@@ -221,27 +222,28 @@ set -g @yank_with_mouse on # 'off' or 'on'
 # set -g @prefix_highlight_show_copy_mode 'on'
 
 ## tmux-colors-selenized
-## statusbar
-set-option -g status-left '#[fg=black,bg=#009c8f] #S ' # black / cyan
-## default statusbar colors
-set-option -g status-style fg=brightblue,bg=black # yellow and base02
-## default window title colors
-set-window-option -g window-status-style fg=brightblue,bg=default # base0 and default
-## active window title colors
-set-window-option -g window-status-current-style fg=black,bg=red # orange and default
-## pane border
-set-option -g pane-border-style fg=brightgreen # base02
-set-option -g pane-active-border-style fg=brightblue # base01
-## message text
-set-option -g message-style fg=brightred,bg=black # orange and base01
-## pane number display
-set-option -g display-panes-active-colour blue # blue
-set-option -g display-panes-colour brightred # orange
-## clock
-set-window-option -g clock-mode-colour green # green
-## bell
-set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
-## Colors
+# ## statusbar
+# set-option -g status-left '#[fg=black,bg=#009c8f] #S ' # black / cyan
+# ## default statusbar colors
+# set-option -g status-style fg=brightblue,bg=black # yellow and base02
+# ## default window title colors
+# set-window-option -g window-status-style fg=brightblue,bg=default # base0 and default
+# ## active window title colors
+# set-window-option -g window-status-current-style fg=black,bg=red # orange and default
+# ## pane border
+# set-option -g pane-border-style fg=brightgreen # base02
+# set-option -g pane-active-border-style fg=brightblue # base01
+# ## message text
+# set-option -g message-style fg=brightred,bg=black # orange and base01
+# ## pane number display
+# set-option -g display-panes-active-colour blue # blue
+# set-option -g display-panes-colour brightred # orange
+# ## clock
+# set-window-option -g clock-mode-colour green # green
+# ## bell
+# set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
+
+## seebi/tmux-colors-solarized
 # set -g @colors-solarized '256'
 # set -g @colors-solarized 'dark'
 # set -g @colors-solarized 'light'
@@ -268,10 +270,7 @@ set-window-option -g window-status-bell-style fg=black,bg=red # base02, red
 ## lawabidingcactus/tmux-gruvbox-truecolor
 
 ## tinted-theming/base16-tmux
-# set -g @colors-base16 'gruvbox-dark-pale'
-# set -g @colors-base16 'gruvbox-dark-hard'
-# set -g @colors-base16 'gruvbox-dark-medium'
-# set -g @colors-base16 'gruvbox-dark-soft'
+set -g @colors-base16 'selenized-light'
 
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'

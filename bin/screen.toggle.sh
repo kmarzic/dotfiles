@@ -342,6 +342,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
@@ -364,7 +366,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
@@ -709,6 +711,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
@@ -731,91 +735,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
-            ####
-            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
-
-            #### Xdefaults
-            [[ -e ~/.Xdefaults.gruvbox.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.gruvbox.dark .Xdefaults
-            [[ -e ~/.Xdefaults.gruvbox.dark ]] && xrdb -load ~/.Xdefaults.gruvbox.dark
-
-            #### vim
-            [[ -e ~/.vimrc.gruvbox.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.gruvbox.dark .vimrc
-            [[ -e ~/.gvimrc.gruvbox.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.gruvbox.dark .gvimrc
-
-            #### neovim
-            [[ -e ~/.config/nvim/init.gruvbox.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.gruvbox.dark.vim init.vim && cd -
-
-            #### dunstrc
-            [[ -e ~/.config/dunst/dunstrc.gruvbox.dark ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.gruvbox.dark dunstrc
-            pkill dunst
-
-            #### redshift.conf
-            [[ -e ~/.config/redshift.gruvbox.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.dark.conf redshift.conf && cd -
-
-            #### screenrc
-            [[ -e ~/.screenrc.gruvbox.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.gruvbox.dark .screenrc
-
-            #### tmux.conf
-            [[ -e ~/.tmux.conf.gruvbox.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox.dark .tmux.conf
-
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.gruvbox.dark.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.gruvbox.dark.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.gruvbox.dark.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.gruvbox.dark.yml scratchpad.yml && cd -
-
-            #### xmobar
-            [[ -e ~/.config/xmonad/xmobar.gruvbox.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.gruvbox.hs xmobar.hs
-
-            #### xmonad
-            [[ -e ~/.config/xmonad/xmonad.gruvbox.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.gruvbox.hs xmonad.hs
-
-            if [[ -d ~/data/cabal/xmonad ]]
-            then
-                ## custom compiled xmonad - used sandbox
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
-                cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
-                ## xmonad installed from package
-                # xmonad --recompile
-                # xmonad --restart
-
-                ## xmonad installed from stack
-                [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
-            fi
-            ;;
-        "gruvbox.dark")
-            __printf "gruvbox.dark"
-
-            #### Background
-            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
-            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
-            ####
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-PnTznIm.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/imgur-RoWHRPi.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/ktu605keuzx71.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/4owie6ojqz271.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/5m5kLI9.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/CjByCrG.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/Gruvbox_Lines.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/TuJrq1e.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s gruvbox/wall_secondary.png bg.png && cd -
-            #
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/nature-landscapes_widewallpaper_the-perfect-nature-lscape-hdr_966.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/3b42rcb64pd91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/arf6lv4kcrd91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/d1dq5gwyusc91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
-            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####
@@ -1053,6 +973,8 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
             # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853699_nord-night.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853721_debora-pilati-dog0z4-gqp0-unsplash-modded.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853730_nord-peeks.png bg.png && cd -
@@ -1075,7 +997,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
-            cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
             ####

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2022-12-22 08:13:41 (CET)
+"" Last update: 2023-07-08 14:40:38 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -95,6 +95,9 @@ syntax on
 colorscheme solarized8_flat
 " colorscheme solarized8_dark
 " colorscheme solarized8_light
+if (has("termguicolors"))
+    set termguicolors
+endif
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

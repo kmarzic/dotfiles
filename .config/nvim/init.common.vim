@@ -1,10 +1,10 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-04-27 06:06:39 (CEST)
+"" Last update: 2023-07-08 06:55:14 (CEST)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
-"
+
 "" ------------------------------------------------------------------------
 "" Plugins
 "" ------------------------------------------------------------------------
@@ -100,7 +100,7 @@ let g:NERDTreeWinSize = 50
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
 else
-    " let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
+    let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
 endif
 ""
 " autocmd StdinReadPre * let s:std_in=1
@@ -114,7 +114,7 @@ augroup NERD
     " autocmd VimEnter * wincmd p
     autocmd VimEnter * call lightline#update()
 augroup END
-""
+"
 map ,n :NERDTreeToggle<CR>
 vmap ,n <esc>:NERDTreeToggle<CR>
 imap ,n <esc>:NERDTreeToggle<CR>
@@ -256,7 +256,7 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
     \ 'blocklist': ['go'],
     \ 'completor': function('asyncomplete#sources#buffer#completor'),
     \ 'config': {
-        \    'max_buffer_size': 5000000,
+    \    'max_buffer_size': 5000000,
     \  },
     \ }))
 
@@ -536,9 +536,9 @@ set nowrap
 
 "" I do not display line numbers by default.
 "" (1)
-set nonumber
+" set nonumber
 "" (2)
-" set number
+set number
 
 "" Left/right arrow keys wrap.
 " set whichwrap=<,>,[,]
