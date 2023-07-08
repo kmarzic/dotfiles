@@ -191,6 +191,9 @@ function __theme()
             YELLOW='^c#f1fa8c^'
             NORMAL='^c#f8f8f2^'
             ;;
+        "everofest")
+            __printf "everforest"
+            ;;
         "gruvbox.dark")
             __printf "gruvbox.dark"
             #### Gruvbox Original Dark Hard
@@ -211,6 +214,20 @@ function __theme()
             RED='^c#fb4934^'
             YELLOW='^c#fabd2f^'
             NORMAL='^c#fbf1c7^'
+            ;;
+        "monokai")
+            __printf "monokai"
+            ;;
+        "nord")
+            __printf "nord"
+            CYAN='^c#88c0d0^'
+            GREEN='^c#a3be8c^'
+            ORANGE='^c#bf616a^'
+            PINK='^c#bf616a^'
+            PURPLE='^c#b48ead^'
+            RED='^c#bf616a^'
+            YELLOW='^c#ebcb8b^'
+            NORMAL='^c#e5e9f0^'
             ;;
         "papercolor.light")
             __printf "papercolor light"

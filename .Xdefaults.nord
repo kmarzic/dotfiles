@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-02 09:40:37 (CEST)
+!! Last update: 2023-07-08 15:46:09 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -35,45 +35,71 @@
 !! https://github.com/arcticicestudio/nord-xresources/blob/develop/src/nord
 !! ---------------------------------------------------------------------
 
-#define nord0 #2E3440
-#define nord1 #3B4252
-#define nord2 #434C5E
-#define nord3 #4C566A
-#define nord4 #D8DEE9
-#define nord5 #E5E9F0
-#define nord6 #ECEFF4
-#define nord7 #8FBCBB
-#define nord8 #88C0D0
-#define nord9 #81A1C1
-#define nord10 #5E81AC
-#define nord11 #BF616A
-#define nord12 #D08770
-#define nord13 #EBCB8B
-#define nord14 #A3BE8C
-#define nord15 #B48EAD
+! #define nord0 #2E3440
+! #define nord1 #3B4252
+! #define nord2 #434C5E
+! #define nord3 #4C566A
+! #define nord4 #D8DEE9
+! #define nord5 #E5E9F0
+! #define nord6 #ECEFF4
+! #define nord7 #8FBCBB
+! #define nord8 #88C0D0
+! #define nord9 #81A1C1
+! #define nord10 #5E81AC
+! #define nord11 #BF616A
+! #define nord12 #D08770
+! #define nord13 #EBCB8B
+! #define nord14 #A3BE8C
+! #define nord15 #B48EAD
+! 
+! *foreground:   nord4
+! *background:   nord0
+! *cursorColor:  nord4
+! *fading: 35
+! *fadeColor: nord3
+! 
+! *color0: nord1
+! *color1: nord11
+! *color2: nord14
+! *color3: nord13
+! *color4: nord9
+! *color5: nord15
+! *color6: nord8
+! *color7: nord5
+! *color8: nord3
+! *color9: nord11
+! *color10: nord14
+! *color11: nord13
+! *color12: nord9
+! *color13: nord15
+! *color14: nord7
+! *color15: nord6
 
-*.foreground:   nord4
-*.background:   nord0
-*.cursorColor:  nord4
-*fading: 35
-*fadeColor: nord3
 
-*.color0: nord1
-*.color1: nord11
-*.color2: nord14
-*.color3: nord13
-*.color4: nord9
-*.color5: nord15
-*.color6: nord8
-*.color7: nord5
-*.color8: nord3
-*.color9: nord11
-*.color10: nord14
-*.color11: nord13
-*.color12: nord9
-*.color13: nord15
-*.color14: nord7
-*.color15: nord6
+!! ---------------------------------------------------------------------
+!! Nord
+!! https://github.com/lemnos/theme.sh
+!! ---------------------------------------------------------------------
+
+*color0: #2e3440
+*color1: #bf616a
+*color2: #a3be8c
+*color3: #ebcb8b
+*color4: #81a1c1
+*color5: #b48ead
+*color6: #88c0d0
+*color7: #e5e9f0
+*color8: #4c566a
+*color9: #bf616a
+*color10: #a3be8c
+*color11: #ebcb8b
+*color12: #81a1c1
+*color13: #b48ead
+*color14: #88c0d0
+*color15: #8fbcbb
+*foreground: #e5e9f0
+*background: #2e3440
+*cursor: #e5e9f0
 
 !! ---------------------------------------------------------------------
 !! EOF

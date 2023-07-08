@@ -193,6 +193,9 @@ function __theme()
             YELLOW='^c#f1fa8c^'
             NORMAL='^c#f8f8f2^'
             ;;
+        "everofest")
+            __printf "everforest"
+            ;;
         "gruvbox.dark")
             __printf "gruvbox.dark"
             #### Gruvbox Original Dark Hard
@@ -214,16 +217,19 @@ function __theme()
             YELLOW='^c#fabd2f^'
             NORMAL='^c#fbf1c7^'
             ;;
-        "solarized.light")
-            __printf "solarized light"
-            CYAN='^c#2aa198^'
-            GREEN='^c#859900^'
-            ORANGE='^c#cb4b16^'
-            PINK='^c#d33682^'
-            PURPLE='^c#6c71c4^'
-            RED='^c#dc322f^'
-            YELLOW='^c#b58900^'
-            NORMAL='^c#073642^'
+        "monokai")
+            __printf "monokai"
+            ;;
+        "nord")
+            __printf "nord"
+            CYAN='^c#88c0d0^'
+            GREEN='^c#a3be8c^'
+            ORANGE='^c#bf616a^'
+            PINK='^c#bf616a^'
+            PURPLE='^c#b48ead^'
+            RED='^c#bf616a^'
+            YELLOW='^c#ebcb8b^'
+            NORMAL='^c#e5e9f0^'
             ;;
         "papercolor.light")
             __printf "papercolor light"
@@ -268,6 +274,17 @@ function __theme()
             RED='^c#bf0000^'
             YELLOW='^c#af8500^'
             NORMAL='^c#474747^'
+            ;;
+        "solarized.light")
+            __printf "solarized light"
+            CYAN='^c#2aa198^'
+            GREEN='^c#859900^'
+            ORANGE='^c#cb4b16^'
+            PINK='^c#d33682^'
+            PURPLE='^c#6c71c4^'
+            RED='^c#dc322f^'
+            YELLOW='^c#b58900^'
+            NORMAL='^c#073642^'
             ;;
         "solarized.dark")
             __printf "solarized dark"
