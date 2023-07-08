@@ -1015,6 +1015,10 @@ function __theme()
             #### neovim
             [[ -e ~/.config/nvim/init.nord.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.nord.vim init.vim && cd -
 
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.nord ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.nord dunstrc
+            pkill dunst
+
             #### redshift.conf
             [[ -e ~/.config/redshift.nord.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.nord.conf redshift.conf && cd -
 
