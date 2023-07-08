@@ -55,7 +55,8 @@ call plug#end()
 ""
 augroup nord-overrides
   autocmd!
-  " autocmd ColorScheme nord highlight Comment ctermfg=14
+  autocmd ColorScheme nord highlight Comment ctermfg=14
+  autocmd ColorScheme nord highlight CursorLine cterm=NONE ctermbg=234 guibg=#1a1b23
 augroup END
 
 let g:nord_italic = 1
@@ -64,10 +65,10 @@ set background=dark
 syntax on
 colorscheme nord
 if (has("termguicolors"))
-    set termguicolors
+    " set termguicolors
 endif
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
