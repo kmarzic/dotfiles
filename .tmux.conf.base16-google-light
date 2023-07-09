@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-08 14:00:58 (CEST)
+## Last update: 2023-07-09 09:16:54 (CEST)
 
 ## Make it use C-a, similar to screen
 unbind-key C-b
@@ -55,11 +55,9 @@ set-option -g renumber-windows on
 set -g default-terminal "tmux-256color"
 
 ## fixes shift-pageup/shift-pagedown
-set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
-# set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
-# set -as terminal-overrides ',st*:Ss@'
-# set -g terminal-overrides ",tmux-256color:Tc"
-# set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
+# set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
+set -as terminal-features ",*:RGB"
+set -as terminal-overrides ",*:Tc"
 
 ## clock mode
 set-option -g clock-mode-style 24
@@ -271,10 +269,7 @@ set -g @theme-status-justify left
 ## lawabidingcactus/tmux-gruvbox-truecolor
 
 ## tinted-theming/base16-tmux
-# set -g @colors-base16 'gruvbox-dark-pale'
-# set -g @colors-base16 'gruvbox-dark-hard'
-# set -g @colors-base16 'gruvbox-dark-medium'
-# set -g @colors-base16 'gruvbox-dark-soft'
+set -g @colors-base16 'google-light'
 
 ## srcery-colors/srcery-tmux
 # set -g @srcery_tmux_patched_font '1'
@@ -299,7 +294,7 @@ set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ##
-set -g @plugin 'jimeh/tmux-themepack'
+# set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
@@ -307,7 +302,7 @@ set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-# set -g @plugin 'tinted-theming/base16-tmux'
+set -g @plugin 'tinted-theming/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 # set -g @plugin "arcticicestudio/nord-tmux"
 # set -g @plugin 'catppuccin/tmux'

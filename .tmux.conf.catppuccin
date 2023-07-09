@@ -55,11 +55,9 @@ set-option -g renumber-windows on
 set -g default-terminal "tmux-256color"
 
 ## fixes shift-pageup/shift-pagedown
-set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
-# set -as terminal-overrides ',st*:kind@:kri@,*256col*:Tc'
-# set -as terminal-overrides ',st*:Ss@'
-# set -g terminal-overrides ",tmux-256color:Tc"
-# set-option -ga terminal-overrides "st*:Ss@,*256*:Tc"
+# set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
+set -as terminal-features ",*:RGB"
+set -as terminal-overrides ",*:Tc"
 
 ## clock mode
 set-option -g clock-mode-style 24

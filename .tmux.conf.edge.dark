@@ -45,9 +45,14 @@ set-option -g set-titles off
 set-window-option -g automatic-rename on
 set-option -g renumber-windows on
 
-#### ## improve colors
-#### # set-option -g default-terminal "tmux-256color"
-#### set-option -g default-terminal "screen-256color"
+## terminal
+# set-option -g default-terminal "screen-256color"
+set -g default-terminal "tmux-256color"
+
+## fixes shift-pageup/shift-pagedown
+# set -g terminal-overrides ',xterm*:smcup@:rmcup@,urxvt*:smcup@:rmcup@,st*:Ss@,*256*:Tc'
+set -as terminal-features ",*:RGB"
+set -as terminal-overrides ",*:Tc"
 
 ## clock mode
 set-option -g clock-mode-style 24
