@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-07-08 06:55:14 (CEST)
+"" Last update: 2023-07-10 18:17:19 (CEST)
 "" Current file: ~/.config/nvim/init.common.vim
 "" ------------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ let g:NERDTreeWinSize = 50
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
 else
-    let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
+    " let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
 endif
 ""
 " autocmd StdinReadPre * let s:std_in=1
@@ -536,7 +536,7 @@ set nowrap
 
 "" I do not display line numbers by default.
 "" (1)
-" set nonumber
+set nonumber
 "" (2)
 set number
 
