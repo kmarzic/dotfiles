@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2023-07-08 15:03:31 (CEST)
+## Last update: 2023-07-16 07:46:37 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -234,6 +234,9 @@ ulimit -S -c 0      # core file size
 
 ## umask
 umask 022
+
+## force color prompt
+force_color_prompt=yes
 
 
 ## ----------------------------------------------------------------------------
@@ -468,6 +471,24 @@ export TMP="/tmp"
 export LYNX_CFG="~/.lynxrc"
 export COLUMNS=80
 
+## https://github.com/termstandard/colors
+case $TERM in
+  iterm            |\
+  linux-truecolor  |\
+  screen-truecolor |\
+  tmux-truecolor   |\
+  st-truecolor     |\
+  xterm-truecolor  |\
+  linux-256color   |\
+  screen-256color  |\
+  tmux-256color    |\
+  st-256color      |\
+  xterm-256color   )
+    export COLORTERM=truecolor
+    ;;
+  vte*)
+esac
+
 ## https://phplego.github.io/mc/
 #
 # export MC_SKIN=$HOME/.config/mc/dracula.ini
@@ -639,7 +660,8 @@ alias hrchar='echo -ne "\033(K"'
 alias x='startx -- -dpi 100 -bpp 24'
 alias perlcc="pp --bundle --par -f Bleach"
 # alias ssh="TERM=xterm LC_TIME=C ~/bin/ssh.log.sh ssh"
-alias ssh="TERM=xterm-256color LC_TIME=C ~/bin/ssh.log.sh ssh"
+# alias ssh="TERM=xterm-256color LC_TIME=C ~/bin/ssh.log.sh ssh"
+alias ssh="TERM=xterm-256color COLORTERM=truecolor LC_TIME=C ~/bin/ssh.log.sh ssh"
 alias duh="du --si -d1 | sort -h"
 alias python=python3
 # alias tmux="/opt/tmux/bin/tmux"
@@ -681,10 +703,29 @@ alias tmux="tmux -2"
 [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.ansi .vimrc
 # [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.solarized.dark .vimrc
 # [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.solarized.dark .vimrc
-####
+
 [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.ansi .gvimrc
 # [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.solarized.light .gvimrc
 # [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.solarized.light .gvimrc
+
+## Truecolor test
+## https://github.com/termstandard/colors
+#
+# printf "\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n"
+#
+# awk 'BEGIN{
+#     s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+#     for (colnum = 0; colnum<77; colnum++) {
+#         r = 255-(colnum*255/76);
+#         g = (colnum*510/76);
+#         b = (colnum*255/76);
+#         if (g>255) g = 510-g;
+#         printf "\033[48;2;%d;%d;%dm", r,g,b;
+#         printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+#         printf "%s\033[0m", substr(s,colnum+1,1);
+#     }
+#     printf "\n";
+# }'
 
 ## ----------------------------------------------------------------------------
 ## END
