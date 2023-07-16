@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-07-10 18:15:20 (CEST)
+"" Last update: 2023-07-16 10:12:29 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -57,6 +57,7 @@ augroup nord-overrides
   autocmd!
   autocmd ColorScheme nord highlight Comment term=underline ctermfg=4 guifg=#81A1C1
   autocmd ColorScheme nord highlight LineNr term=underline ctermfg=4 guifg=#81A1C1
+  autocmd ColorScheme nord highlight SpecialKey term=underline ctermfg=4 guifg=#81A1C1
   " autocmd ColorScheme nord highlight CursorLine cterm=NONE ctermbg=234 guibg=#1a1b23
 augroup END
 
