@@ -1,9 +1,26 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-15 18:19:55 (CEST)
+## Last update: 2023-07-18 19:27:35 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
+
+## tmux-themepack
+# set -g @themepack 'default'
+set -g @themepack 'basic'
+# set -g @themepack 'powerline/default/cyan'
+# set -g @themepack 'powerline/block/cyan'
+set -g @theme-status-justify left
+# set -g @theme-status-left-bg '#2c2e34'
+# set -g @theme-status-left-fg '#2c2e34'
+# set -g @theme-status-right-bg '#2c2e34'
+# set -g @theme-status-right-fg '#2c2e34'
+# set -g @theme-status-bg '#2c2e34'
+# set -g @theme-status-fg '#2c2e34'
+# set -g @theme-window-status-activity-bg '#2c2e34'
+# set -g @theme-window-status-current-fg '#2c2e34'
+# set -g @theme-mode-bg 'cyan'
+# set -g @theme-mode-fg 'white'
 
 ## tinted-theming/base16-tmux
 set -g @colors-base16 'selenized-dark'
@@ -18,7 +35,7 @@ set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 set -g @plugin 'tmux-plugins/tmux-sensible'
 set -g @plugin 'tmux-plugins/tmux-yank'
 ##
-# set -g @plugin 'jimeh/tmux-themepack'
+set -g @plugin 'jimeh/tmux-themepack'
 # set -g @plugin 'jatap/tmux-base16-statusline'
 # set -g @plugin 'seebi/tmux-colors-solarized'
 # set -g @plugin 'mkoga/tmux-solarized'
@@ -26,7 +43,7 @@ set -g @plugin 'tmux-plugins/tmux-yank'
 # set -g @plugin 'https://gitlab.com/dev-ninjas-org/papercolor-light/tmux'
 # set -g @plugin 'egel/tmux-gruvbox'
 # set -g @plugin 'lawabidingcactus/tmux-gruvbox-truecolor'
-set -g @plugin 'tinted-theming/base16-tmux'
+# set -g @plugin 'tinted-theming/base16-tmux'
 # set -g @plugin 'srcery-colors/srcery-tmux'
 # set -g @plugin "arcticicestudio/nord-tmux"
 # set -g @plugin 'catppuccin/tmux'
