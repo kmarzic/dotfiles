@@ -36,13 +36,13 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox.dark &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s gruvbox.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s monokai &
-[[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s nord &
+# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s nord &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s papercolor.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s selenized.dark &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s selenized.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s selenized.white &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s solarized.dark &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s solarized.light &
+[[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s solarized.light &
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s srcery &
 
 #### dwm battery
