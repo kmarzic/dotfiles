@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2023-07-25 05:49:04 (CEST)
+## Last update: 2023-07-27 05:43:07 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -498,8 +498,8 @@ esac
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
 # export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
 # export MC_SKIN=$HOME/.config/mc/solarized-template.ini
-export MC_SKIN=$HOME/.config/mc/solarized.ini
-# export MC_SKIN=$HOME/.config/mc/selenized.ini
+# export MC_SKIN=$HOME/.config/mc/solarized.ini
+export MC_SKIN=$HOME/.config/mc/selenized.ini
 # export MC_SKIN=$HOME/.config/mc/onedark.ini
 # export MC_SKIN=$HOME/.config/mc/onedark2.ini
 # export MC_SKIN=$HOME/.config/mc/onedark16M.ini

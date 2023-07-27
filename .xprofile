@@ -17,15 +17,17 @@ export LANGUAGE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_TIME="en_DK.UTF-8"
 
-export GTK_THEME=Solarized-Light
+# export GTK_THEME=Solarized-Light
 # export GTK_THEME=Solarized-Dark
 # export GTK_THEME=NumixSolarizedDarkRed
+export GTK_THEME=Material-Solarized
 # export GTK_THEME=Arc-Gruvbox
 # export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
 
-export GTK2_RC_FILES=$HOME/.themes/Solarized-Light
+# export GTK2_RC_FILES=$HOME/.themes/Solarized-Light
 # export GTK2_RC_FILES=$HOME/.themes/Solarized-Dark
 # export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
+export GTK2_RC_FILES=$HOME/.themes/Material-Solarized
 # export GTK2_RC_FILES=$HOME/.themes/Arc-Gruvbox
 # export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
 

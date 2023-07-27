@@ -1113,7 +1113,7 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
             #
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/seed_of_life_by_lekremyelsew-d7bfnwj.png bg.png && cd -
@@ -1126,7 +1126,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/hnSuKgw.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/burst2.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
             #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
@@ -1286,7 +1286,7 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
             #
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/solarized_mountains_by_9beat7-d8rkbit.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/seed_of_life_by_lekremyelsew-d7bfnwj.png bg.png && cd -
@@ -1299,7 +1299,7 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/hnSuKgw.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/burst2.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA1.png bg.png && cd -
-            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
