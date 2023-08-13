@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-27 05:52:43 (CEST)
+!! Last update: 2023-08-13 07:23:19 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -35,10 +35,10 @@
 !! https://github.com/jan-warchol/selenized/blob/master/terminals/xterm/selenized-dark.xdefaults
 !! ---------------------------------------------------------------------
 
-! Selenized dark
-
 *background:  rgb:10/3c/48
 *foreground:  rgb:ad/bc/bc
+Exit*foreground: rgb:ad/bc/bc
+Exit*background: rgb:10/3c/48
 
 ! normal colors: "black", red, green, yellow, blue, magenta, cyan, "white"
 *color0:      rgb:18/49/56
