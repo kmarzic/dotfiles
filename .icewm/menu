@@ -1,4 +1,4 @@
-# This is an example for icewm 3.4.0 menu definition file.
+# This is an example for icewm 3.4.1 menu definition file.
 # It will be installed as /opt/icewm/share/icewm/menu.
 # Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm since
 # modifications to this file will be overwritten when you reinstall icewm.
@@ -8,7 +8,7 @@ prog "xterm" xterm xterm
 prog "urxvt" xterm urxvt
 prog "alacritty" xterm alacritty
 prog gvim gvim gvim
-prog Firefox firefox firefox
+prog "Firefox" firefox firefox
 prog "Chromium" chromium-browser chromium-browser
 prog "Microsoft Edge" microsoft-edge microsoft-edge
 prog Gimp gimp gimp
