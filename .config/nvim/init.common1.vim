@@ -1,8 +1,8 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-07-10 18:17:21 (CEST)
-"" Current file: .vimrc.common
+"" Last update: 2023-08-13 11:13:53 (CEST)
+"" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
 "" ------------------------------------------------------------------------
@@ -100,7 +100,7 @@ let g:NERDTreeWinSize = 50
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
 else
-    let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
+    " let NERDTreeBookmarksFile=expand("$VIM/.vim-NERDTreeBookmarks")
 endif
 ""
 " autocmd StdinReadPre * let s:std_in=1
@@ -115,9 +115,9 @@ augroup NERD
     autocmd VimEnter * call lightline#update()
 augroup END
 "
-" map ,n :NERDTreeToggle<CR>
-" vmap ,n <esc>:NERDTreeToggle<CR>
-" imap ,n <esc>:NERDTreeToggle<CR>
+map ,n :NERDTreeToggle<CR>
+vmap ,n <esc>:NERDTreeToggle<CR>
+imap ,n <esc>:NERDTreeToggle<CR>
 
 "" syntastic (Syntastic is a syntax checking plugin)
 "" https://github.com/vim-syntastic/syntastic
@@ -324,18 +324,6 @@ if has ("unix")
     set backupdir=.,~/tmp,/tmp,/var/tmp
 endif
 
-"" List of directories which will be searched
-if has ("unix")
-    set path=.,~/.vim
-endif
-
-"" vimrc
-if has ("unix")
-    let vimrc='$HOME/.vimrc'
-else
-    let vimrc='$VIM\_vimrc'
-endif
-
 "" List of file names, separated by commas, that are used to lookup words
 "" for keyword completion commands |i_CTRL-X_CTRL-K|
 if has ("unix")
@@ -377,7 +365,7 @@ set makeprg=make\ #<.o
 set nojoinspaces
 
 "" Function keys that start with an <Esc> are recognized in Insert mode.
-set esckeys
+" set esckeys
 
 "" Make a backup before overwriting a file.
 set nobackup
@@ -438,7 +426,7 @@ set noinfercase
 
 "" Scroll at most 20 lines at a time.
 " set ttyscroll=0
-set ttyscroll=4
+" set ttyscroll=4
 
 "" Indicates a fast terminal connection.
 set ttyfast
@@ -576,8 +564,8 @@ set lazyredraw
 set linespace=0
 
 "" Printing
-set printoptions=paper:A4,syntax:y,wrap:y
-set printexpr=PrintFile(v:fname_in)
+" set printoptions=paper:A4,syntax:y,wrap:y
+" set printexpr=PrintFile(v:fname_in)
 function PrintFile(fname)
     call system("gtklp " . a:fname)
     call delete(a:fname)

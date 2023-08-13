@@ -1,0 +1,82 @@
+"" ------------------------------------------------------------------------
+"" Author: Kresimir Marzic
+"" E-mail: kmarzic@gmail.com
+"" Last update: 2023-08-13 10:59:54 (CEST)
+"" Current file: .vimrc.common0
+"" ------------------------------------------------------------------------
+
+"" ------------------------------------------------------------------------
+"" Common
+"" ------------------------------------------------------------------------
+
+"" Pathogen: Vim package manager
+"" http://www.vim.org/scripts/script.php?script_id=2332
+"" https://github.com/tpope/vim-pathogen
+"" mkdir -p ~/.vim/autoload ~/.vim/bundle;
+"" curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+"" curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+""
+" call pathogen#infect()
+" call pathogen#helptags()
+
+"" vundle
+"" http://www.vim.org/scripts/script.php?script_id=3458
+"" https://github.com/VundleVim/Vundle.vim
+"" cd ~/.vim/bundle; git clone https://github.com/gmarik/Vundle.vim.git
+"" cd ~/.vim/bundle/Vundle.vim; git remote update
+""
+" set nocompatible              " be iMproved, required
+" filetype off                  " required
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" Plugin 'gmarik/Vundle.vim'
+" call vundle#end()            " required
+" filetype plugin indent on    " required
+
+"" vim-plug
+"" https://github.com/junegunn/vim-plug
+""
+call plug#begin('~/.vim/plugged')
+"
+Plug 'w0rp/ale'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
+Plug 'vim-syntastic/syntastic'
+Plug 'majutsushi/tagbar'
+Plug 'vimwiki/vimwiki'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+"
+Plug 'vim-scripts/bash-support.vim'
+Plug 'vim-scripts/c.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-scripts/perl-support.vim'
+Plug 'vim-perl/vim-perl'
+Plug 'neovimhaskell/haskell-vim'
+"
+Plug 'chriskempson/base16-vim'
+Plug 'lifepillar/vim-solarized8'
+Plug 'arcticicestudio/nord-vim'
+Plug 'crusoexia/vim-monokai'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'sainnhe/everforest'
+Plug 'romgrk/doom-one.vim'
+Plug 'raphamorim/lucario'
+Plug 'catppuccin/vim', { 'as': 'cattpuccin' }
+Plug 'ianchanning/vim-selenized'
+Plug 'miyakogi/seiya.vim'
+"
+call plug#end()
+
+"" ------------------------------------------------------------------------
+"" eof
+"" ------------------------------------------------------------------------
