@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:13:49 (CEST)
+"" Last update: 2023-08-13 11:24:50 (CEST)
 "" Current file: ~/.config/nvim/init.common0.vim
 "" ------------------------------------------------------------------------
 
@@ -11,7 +11,9 @@
 
 "" vim-plug
 "" https://github.com/junegunn/vim-plug
+""
 "" Plugins will be downloaded under the specified directory.
+""
 call plug#begin('~/.vim/plugged')
 "
 Plug 'w0rp/ale'
@@ -31,7 +33,8 @@ Plug 'prabirshrestha/asyncomplete-buffer.vim'
 "
 Plug 'vim-scripts/bash-support.vim'
 Plug 'vim-scripts/c.vim'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'vim-scripts/perl-support.vim'
 Plug 'vim-perl/vim-perl'
 Plug 'neovimhaskell/haskell-vim'
 "
@@ -47,7 +50,7 @@ Plug 'sainnhe/everforest'
 Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
-Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
+Plug 'catppuccin/vim', { 'as': 'cattpuccin' }
 Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
