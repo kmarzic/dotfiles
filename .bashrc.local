@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2023-07-27 05:43:07 (CEST)
+## Last update: 2023-08-24 06:08:08 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -444,7 +444,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 # export LESS_TERMCAP_ue=$'\E[0m'
 # export LESS_TERMCAP_us=$'\E[01;32m'
 ##
-## dracula
+## dracula / nord
 # export LESS_TERMCAP_mb=$'\E[6m'        # begin blinking
 # export LESS_TERMCAP_md=$'\E[34m'       # begin bold
 # export LESS_TERMCAP_us=$'\E[4;32m'     # begin underline

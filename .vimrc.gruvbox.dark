@@ -26,8 +26,8 @@ source ~/.vimrc.common0
 ""
 set background=dark
 syntax on
-let g:gruvbox_material_background = 'hard'
-" let g:gruvbox_material_background = 'medium'
+" let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'medium'
 " let g:gruvbox_material_background = 'soft'
 let g:gruvbox_material_disable_italic_comment = 1
 colorscheme gruvbox-material

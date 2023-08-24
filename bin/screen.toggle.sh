@@ -342,7 +342,7 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
             #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
@@ -711,7 +711,7 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
             #
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/artur-sadlos-to-sh300-ooh-as-05i.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s gruvbox/chad-madden-SPIE2JfFNl0-unsplash.jpg bg.jpg && cd -
@@ -738,6 +738,8 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
+            #
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
@@ -973,7 +975,7 @@ function __theme()
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
             ####
-            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
             #
             # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853699_nord-night.png bg.png && cd -
             # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853721_debora-pilati-dog0z4-gqp0-unsplash-modded.png bg.png && cd -
@@ -1000,6 +1002,8 @@ function __theme()
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
             # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
+            #
+            cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
             ####
             [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:15:34 (CEST)
+"" Last update: 2023-08-24 05:46:42 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -27,8 +27,8 @@ source ~/.config/nvim/init.common0.vim
 ""
 set background=dark
 syntax on
-let g:gruvbox_material_background = 'hard'
-" let g:gruvbox_material_background = 'medium'
+" let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_background = 'medium'
 " let g:gruvbox_material_background = 'soft'
 let g:gruvbox_material_disable_italic_comment = 1
 colorscheme gruvbox-material
