@@ -17,7 +17,15 @@
 #      REVISION: ---
 #===============================================================================
 
+## ----------------------------------------------------------------------------
+## Variables
+## ----------------------------------------------------------------------------
+
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+
+## ----------------------------------------------------------------------------
+## Functions
+## ----------------------------------------------------------------------------
 
 function __rsync()
 {
@@ -29,31 +37,87 @@ function __rsync()
     rsync -rltDvu --progress --delete ${dir} ${destination}
 }
 
-echo "rsync2іp"
-echo "usage:"
-echo   "${0} target"
-echo "example:"
-echo   "${0} admkremar@etk.pckrma"
+
+function __help()
+{
+    echo "rsync2іp"
+    echo "usage:"
+    echo   "${0} target"
+    echo "example:"
+    echo   "${0} admkremar@entd0001"
+    echo   "${0} etkkrma@elx-5cg11804dr"
+    echo   "${0} kmarzic@scully"
+}
+
+## ----------------------------------------------------------------------------
+## Main
+## ----------------------------------------------------------------------------
+
+echo "rsync2ip"
 
 target=${1}
 
 if [ -z ${target} ]
 then
+    __help
     echo "target not defined!"
     exit 1;
 fi
 
-# rsync -rltDvu --progress --delete ~/data/projects/* ${target}:/home/admkremar/data/projects
-cd ~/data
-__rsync projects          ${target}:/home/admkremar/data
-__rsync ssh               ${target}:/home/admkremar/data
-__rsync certs             ${target}:/home/admkremar/data
-__rsync vpn               ${target}:/home/admkremar/data
-__rsync secrets           ${target}:/home/admkremar/data
+case "${target}" in
+    "admkremar@entd0001")
+        echo "rsync2ip admkremar@entd0001"
 
-cd ~/
-__rsync wallpapers        ${target}:/home/admkremar
-__rsync bin               ${target}:/home/admkremar
-__rsync Maildir           ${target}:/home/admkremar
+        # rsync -rltDvu --progress --delete ~/data/projects/* ${target}:/home/admkremar/data/projects
+
+        cd ~/data
+        __rsync projects          ${target}:/home/admkremar/data
+        __rsync ssh               ${target}:/home/admkremar/data
+        __rsync certs             ${target}:/home/admkremar/data
+        __rsync vpn               ${target}:/home/admkremar/data
+        __rsync secrets           ${target}:/home/admkremar/data
+
+        cd ~/
+        __rsync wallpapers        ${target}:/home/admkremar
+        __rsync bin               ${target}:/home/admkremar
+        __rsync Maildir           ${target}:/home/admkremar
+
+        echo "Done!"
+        ;;
+    "etkkrma@elx-5cg11804dr")
+        echo "rsync2ip etkkrma@elx-5cg11804dr"
+
+        cd ~/data
+        __rsync projects          ${target}:/home/etkkrma/data
+        __rsync ssh               ${target}:/home/etkkrma/data
+        __rsync certs             ${target}:/home/etkkrma/data
+        __rsync vpn               ${target}:/home/etkkrma/data
+        __rsync secrets           ${target}:/home/etkkrma/data
+
+        cd ~/
+        __rsync wallpapers        ${target}:/home/etkkrma
+        __rsync bin               ${target}:/home/etkkrma
+        __rsync Maildir           ${target}:/home/etkkrma
+
+        echo "Done!"
+        ;;
+    "kmarzic@scully")
+        echo "rsync2ip kmarzic@scully"
+
+        # rsync -rltDvu --progress --delete ~/data/projects/* kmarzic@scully:/data/projects
+        # rsync -rltDvu --progress --delete ~/wallpapers/*    kmarzic@scully:/data/photo/wallpapers
+
+        cd ~/data
+        __rsync projects         ${target}:/data
+
+        cd ~/
+        __rsync wallpapers       ${target}:/data/photo
+
+        echo "Done!"
+        ;;
+    *)
+        __help
+        ;;
+esac
 
 ## end
