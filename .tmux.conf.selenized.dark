@@ -1,11 +1,11 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-18 19:27:35 (CEST)
+## Last update: 2023-10-22 19:28:15 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
 
-## tmux-themepack
+## jimeh/tmux-themepack
 # set -g @themepack 'default'
 set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'

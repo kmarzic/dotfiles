@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-15 18:17:04 (CEST)
+## Last update: 2023-10-22 19:19:11 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
@@ -13,6 +13,10 @@ source-file ~/.tmux.conf.main
 set -g @colors-base16 'gruvbox-light-hard'
 # set -g @colors-base16 'gruvbox-light-medium'
 # set -g @colors-base16 'gruvbox-light-soft'
+
+## egel/tmux-gruvbox
+# set -g @tmux-gruvbox 'dark'
+set -g @tmux-gruvbox 'light'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'

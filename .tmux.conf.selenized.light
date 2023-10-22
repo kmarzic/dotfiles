@@ -5,7 +5,7 @@
 ## source file
 source-file ~/.tmux.conf.main
 
-## tmux-themepack
+## jimeh/tmux-themepack
 # set -g @themepack 'default'
 set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
