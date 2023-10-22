@@ -4,7 +4,11 @@
 ## Variables
 ## ----------------------------------------------------------------------------
 
+#### PATH
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
+
+#### Banner
+BANNER="Git update and backup"
 
 DIR="${HOME}/git/home"
 PWD=$(pwd)
@@ -31,38 +35,136 @@ GIT_REMOTE=(
 "sources;scully;git+ssh://kmarzic@scully/srv/git/sources"
 )
 
+#### Debug
+DEBUG=0 # debug is off
+# DEBUG=1 # debug is on
+
+#### Exit
+EXIT_OK=0
+EXIT_ERROR=1
 
 ## ----------------------------------------------------------------------------
 ## Functions
 ## ----------------------------------------------------------------------------
 
+function __printf()
+{
+    ## defining colors for outputs
+    RED='\033[31m'
+    GREEN='\033[32m'
+    YELLOW='\033[33m'
+    BOLD='\033[1m'
+    NORMAL='\033[m'
+
+    [ "${3-}" = "nolb" ] && ECHOSWITCH="-ne" || ECHOSWITCH="-e"
+
+    if [[ ! -z ${2-} && ! -z ${1-} ]]
+    then
+        case ${2} in
+            error)
+                echo -e "${RED}${1}${NORMAL}" >&2
+                ;;
+            info)
+                echo ${ECHOSWITCH} "${YELLOW}${1}${NORMAL}"
+                ;;
+            success)
+                echo -e "${GREEN}${1}${NORMAL}"
+                ;;
+            header)
+                echo -e "${BOLD}${1}${NORMAL}"
+                ;;
+            debug)
+                [ ${DEBUG-} -eq 1 ] && echo -e "${1}"
+                ;;
+            log)
+                if [ ${LOG_ENABLED-} ]
+                then
+                    if [ ! -d ${LOG_DIR} ]
+                    then
+                        mkdir ${LOG_DIR}
+                    fi
+
+                    echo -e "$(date +%Y%m%dT%H%M%S);${1}" >> ${LOG_FILE-}
+                fi
+                ;;
+            *)
+                echo -e "${1}"
+                ;;
+        esac
+    else
+        echo "${1}"
+    fi
+}
+
+
+function __banner()
+{
+    __printf "${BANNER}" info
+}
+
+
+function __help()
+{
+    __printf "Usage:"
+    __printf "  ${0} {update|backup} <server>"
+
+    __printf "Server:"
+    __printf "  gmn, scully"
+
+    __printf "Repos:"
+    for service in "${GIT_REMOTE[@]}";
+    do
+        repo=$(echo ${service} | awk -F ';' '{ print $1 }')
+        remote=$(echo ${service} | awk -F ';' '{ print $2 }')
+        url=$(echo ${service} | awk -F ';' '{ print $3 }')
+        __printf "  repo='${repo}' remote='${remote}' url='${url}'"
+    done
+
+    __printf "Example:"
+    __printf "  ${0} update gmn"
+    __printf "  ${0} update scully"
+    __printf "  ${0} backup"
+}
+
+
 function __delete_old_archives()
 {
+    __printf "# cd ${DIR}" success
     cd ${DIR}
-    echo "# rm -f *.bz2 *.gz"
+
+    __printf "# rm -f *.bz2 *.gz" success
     rm -f *.bz2 *.gz
 }
 
 
 function __git_update()
 {
-    echo "--------------------------------------------------------------------------------"
+    __printf "--------------------------------------------------------------------------------"
     arg1=${1} # repo
-    echo "arg1=${arg1}"
+    __printf "arg1=${arg1}"
     arg2=${2} # remote
-    echo "arg2=${arg2}"
+    __printf "arg2=${arg2}"
 
     ## Git Clone
     if test -e "${DIR}/${arg1}"
     then
-        echo "Directory '${DIR}/${arg1}' found!"
+        __printf "Directory '${DIR}/${arg1}' found!" success
+
+        __printf "# cd ${DIR}" success
         cd ${DIR}
+
+        __printf "# cd ${arg1}" success
         cd ${arg1}
     else
-        echo "Directory '${DIR}/${arg1}' NOT found!"
+        __printf "Directory '${DIR}/${arg1}' NOT found!" success
+
+        __printf "# cd ${DIR}" success
         cd ${DIR}
-        echo "# git clone ${GIT_LOCAL}/${arg1}"
+
+        __printf "# git clone ${GIT_LOCAL}/${arg1}" success
         git clone ${GIT_LOCAL}/${arg1}
+
+        __printf "# cd ${arg1}" success
         cd ${arg1}
     fi
 
@@ -75,63 +177,63 @@ function __git_update()
 
         if [[ "${arg1}" = "${repo}" ]]
         then
-            echo "repo='${repo}' remote='${remote}' url='${url}'"
+            __printf "repo='${repo}' remote='${remote}' url='${url}'" info
             remote_status=$(git remote | grep ${remote} | wc -l)
 
             if [ ${remote_status} -eq 0 ]
             then
-                echo "# git remote add ${remote} ${url}"
+                __printf "# git remote add ${remote} ${url}" success
                 git remote add ${remote} ${url}
             fi
         fi
     done
 
     ## Origin
-    echo "# git checkout master"
+    __printf "# git checkout master" success
     git checkout master
 
-    echo "# git fetch origin master"
+    __printf "# git fetch origin master" success
     git fetch origin master
 
-    echo "# git log master..origin/master"
+    __printf "# git log master..origin/master" success
     git log master..origin/master
 
-    echo "# git pull origin master"
+    __printf "# git pull origin master" success
     git pull origin master
 
     ## Push origin
-    echo "# git push origin master"
+    __printf "# git push origin master" success
     git push origin master
 
     ## Git local branches
     for branch in $(git branch -a | egrep -v "remotes|origin|HEAD|master");
     do
-        echo "branch='${branch}'"
+        __printf "branch='${branch}'" info
 
-        echo "# git branch -d ${branch}"
+        __printf "# git branch -d ${branch}" success
         git branch -d ${branch}
 
-        echo "# git fetch origin ${branch}"
+        __printf "# git fetch origin ${branch}" success
         git fetch origin ${branch}
 
-        echo "# git checkout -b ${branch}"
+        __printf "# git checkout -b ${branch}" success
         git checkout -b ${branch}
 
-        echo "# git log master..${branch}"
+        __printf "# git log master..${branch}" success
         git log master..${branch}
 
-        echo "# git pull origin ${branch}"
+        __printf "# git pull origin ${branch}" success
         git pull origin ${branch}
 
-        # echo "# git push origin ${branch}"
+        # __printf "# git push origin ${branch}" success
         # git push origin ${branch}
 
-        echo "# git checkout master"
+        __printf "# git checkout master" success
         git checkout master
     done
 
     ## Get branches list
-    echo "# git remote update --prune origin"
+    __printf "# git remote update --prune origin" success
     git remote update --prune origin
 
     ## Remote
@@ -143,50 +245,51 @@ function __git_update()
 
         if [[ "${arg1}" = "${repo}" ]]
         then
-            echo "repo='${repo}' remote='${remote}' url='${url}'"
+            __printf "repo='${repo}' remote='${remote}' url='${url}'" info
             remote_status=$(git remote | grep ${remote} | wc -l)
 
             if [ "${arg2}" = "${remote}" ]
             then
-                echo "# git remote update --prune ${remote}"
+                __printf "# git remote update --prune ${remote}" success
                 git remote update --prune ${remote}
 
-                echo "# git fetch ${remote}"
+                __printf "# git fetch ${remote}" success
                 git fetch ${remote}
 
-                echo "# git log master..${remote}/master"
+                __printf "# git log master..${remote}/master" success
                 git log master..${remote}/master
 
-                echo "# git pull ${remote} master --stat"
+                __printf "# git pull ${remote} master --stat" success
                 git pull ${remote} master --stat
 
-                echo "# git push origin master"
+                __printf "# git push origin master" success
                 git push origin master
 
                 for remote in $(git branch -r | grep ${remote} | grep -v "master");
                 do
-                    echo ""
+                    __printf ""
                     branch=$(echo ${remote} | awk -F '/' '{print $2}')
+                    __printf "branch='${branch}'" info
 
-                    echo "# git branch -d ${branch}"
+                    __printf "# git branch -d ${branch}" success
                     # git branch -d ${branch}
 
-                    echo "# git fetch ${service_key} ${branch}"
+                    __printf "# git fetch ${service_key} ${branch}" success
                     # git fetch ${service_key} ${branch}
 
-                    echo "# git checkout -b ${branch}"
+                    __printf "# git checkout -b ${branch}" success
                     # git checkout -b ${branch}
 
-                    echo "# git log master..${branch}"
+                    __printf "# git log master..${branch}" success
                     # git log master..${branch}
 
-                    echo "# git pull ${service_key} ${branch}"
+                    __printf "# git pull ${service_key} ${branch}" success
                     # git pull ${service_key} ${branch}
 
-                    echo "# git push origin ${branch}"
+                    __printf "# git push origin ${branch}" success
                     # git push origin ${branch}
 
-                    echo "# git checkout master"
+                    __printf "# git checkout master" success
                     # git checkout master
                 done
             fi
@@ -194,7 +297,7 @@ function __git_update()
     done
 
     cd ..
-    echo "--------------------------------------------------------------------------------"
+    __printf "--------------------------------------------------------------------------------"
 }
 
 
@@ -207,19 +310,25 @@ function __git_backup()
 
     if test -e "${DIR}/${arg1}"
     then
-        echo "--------------------------------------------------------------------------------"
-        echo "Directory '${DIR}/${arg1}' found!"
+        __printf "--------------------------------------------------------------------------------"
+        __printf "Directory '${DIR}/${arg1}' found!" success
+
+        __printf "# cd ${DIR}/${arg1}" success
         cd ${DIR}/${arg1}
-        echo "# git bundle create ${DIR}/${arg1}-${DATE}.git_bundle --all"
+
+        __printf "# git bundle create ${DIR}/${arg1}-${DATE}.git_bundle --all" success
         git bundle create ${DIR}/${arg1}-${DATE}.git_bundle --all
-        echo "# bzip2 -9 ${DIR}/${arg1}-${DATE}.git_bundle"
+
+        __printf "# bzip2 -9 ${DIR}/${arg1}-${DATE}.git_bundle" success
         bzip2 -9 ${DIR}/${arg1}-${DATE}.git_bundle
+
+        __printf "# cd -" success
         cd -
-        echo "--------------------------------------------------------------------------------"
+        __printf "--------------------------------------------------------------------------------"
     else
-        echo "--------------------------------------------------------------------------------"
-        echo "Directory '${DIR}/${arg1}' NOT found!"
-        echo "--------------------------------------------------------------------------------"
+        __printf "--------------------------------------------------------------------------------"
+        __printf "Directory '${DIR}/${arg1}' NOT found!" error
+        __printf "--------------------------------------------------------------------------------"
     fi
 }
 
@@ -231,7 +340,7 @@ function __git_remotes()
         repo=$(echo ${service} | awk -F ';' '{ print $1 }')
         remote=$(echo ${service} | awk -F ';' '{ print $2 }')
         url=$(echo ${service} | awk -F ';' '{ print $3 }')
-        echo "repo='${repo}' remote='${remote}' url='${url}'"
+        __printf "repo='${repo}' remote='${remote}' url='${url}'" info
     done
 }
 
@@ -246,7 +355,7 @@ function __test()
         repo=$(echo ${service} | awk -F ';' '{ print $1 }')
         remote=$(echo ${service} | awk -F ';' '{ print $2 }')
         url=$(echo ${service} | awk -F ';' '{ print $3 }')
-        [[ "${arg}" = "${repo}" ]] && echo "repo='${repo}' remote='${remote}' url='${url}'"
+        [[ "${arg}" = "${repo}" ]] && __printf "repo='${repo}' remote='${remote}' url='${url}'" info
     done
 }
 
@@ -255,11 +364,12 @@ function __test()
 ## Main
 ## ----------------------------------------------------------------------------
 
-echo "Git update and backup"
+__banner
 
 case "${1}" in
     update)
-        echo "GIT Update"
+        __printf "GIT Update" info
+
         __git_remotes
         __git_update arduino ${2}
         __git_update docs ${2}
@@ -268,10 +378,15 @@ case "${1}" in
         __git_update homeserver ${2}
         __git_update openwrt ${2}
         __git_update sources ${2}
-        echo "Update done!"
+
+        __printf "# cd ${PWD}" success
+        cd ${PWD}
+
+        __printf "Update done!" success
         ;;
     backup)
-        echo "GIT Backup"
+        __printf "GIT Backup" info
+
         __delete_old_archives
         __git_backup arduino
         __git_backup docs
@@ -280,35 +395,21 @@ case "${1}" in
         __git_backup homeserver
         __git_backup openwrt
         __git_backup sources
-        echo "Backup done!"
+
+        __printf "# cd ${PWD}" success
+        cd ${PWD}
+
+        __printf "Backup done!" success
         ;;
     test)
         __test "docs"
         ;;
     *)
-        echo "Usage:"
-        echo "  ${0} {update|backup} <server>"
-
-        echo "Server:"
-        echo "  gmn, scully"
-
-        echo "Repos:"
-        for service in "${GIT_REMOTE[@]}";
-        do
-            repo=$(echo ${service} | awk -F ';' '{ print $1 }')
-            remote=$(echo ${service} | awk -F ';' '{ print $2 }')
-            url=$(echo ${service} | awk -F ';' '{ print $3 }')
-            echo "  repo='${repo}' remote='${remote}' url='${url}'"
-        done
-
-        echo "Example:"
-        echo "  ${0} update gmn"
-        echo "  ${0} update scully"
-        echo "  ${0} backup"
+        __help
         ;;
 esac
 
-cd ${PWD}
+exit ${EXIT_OK}
 
 ## ----------------------------------------------------------------------------
 ## end
