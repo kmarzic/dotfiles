@@ -72,8 +72,13 @@ case "$1" in
 
                 echo "Host etk.ansible.${host}"
                 echo "    Hostname ${ip}"
-                echo "    User etkadmin"
-                echo "    IdentityFile ~/data/ssh/id_rsa.etk.it.etkadmin"
+                echo "    ## etkadmin"
+                echo "    # User etkadmin"
+                echo "    # IdentityFile ~/data/ssh/id_rsa.etk.it.etkadmin"
+                echo "    ## admkremar"
+                echo "    User admkremar"
+                echo "    IdentityFile ~/data/ssh/id_rsa.zgvl0020"
+                echo "    ##"
                 if [ "${host}" == "ehrzgva486" ]  || [ "${host}" == "ehrzgittebck" ] || [ "${host}" == "ehrzgux211" ]   ||
                    [ "${host}" == "ehrzglx2169" ] || [ "${host}" == "exzglx050" ]    || [ "${host}" == "utra1" ]        ||
                    [ "${host}" == "zisovmm" ]
