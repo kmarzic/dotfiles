@@ -3,7 +3,7 @@
 #
 #          FILE: dusk.status.sh
 #
-#         USAGE: ./dusk.status.sh [ -h | -s | -t <theme> ]
+#         USAGE: ./dusk.status.sh [ -h | -a <block> | -s | -t <theme> ]
 #
 #   DESCRIPTION:
 #
