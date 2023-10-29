@@ -357,9 +357,10 @@ function __load_linux()
     load="$(cat /proc/loadavg | awk {' print $1 '})"
     load_percent="$(echo "${load}/${ncpu}*100" | bc -l | sed -e "s/\..*//g")"
 
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo "CPU: ${load}%"
+
     if [[ "${__sync_flag-}" == "true" ]]
     then
-        [[ ${STATUSCOLOR} -eq 0 ]] && echo "CPU: ${load}%"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} <= 50" | bc -l) -eq 1 ]] &&                                                       echo "${NORMAL} ${NORMAL}${GREEN} ${load}${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${load_percent} < 80" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${load}${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${load_percent} >= 80" | bc -l) -eq 1 ]] &&                                                       echo "${NORMAL} ${NORMAL}${RED}   ${load}${NORMAL}"
@@ -393,9 +394,9 @@ function __temp_linux()
         [[ -z ${temp} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL} ${NORMAL}${RED}-${NORMAL}"
 
         [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
-        [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL}  ${NORMAL}${GREEN} ${temp}${NORMAL}"
-        [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${temp}${NORMAL}"
-        [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL}  ${NORMAL}${RED}   ${temp}${NORMAL}"
+        [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${GREEN} ${temp}${NORMAL}"
+        [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${temp}${NORMAL}"
+        [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${RED}   ${temp}${NORMAL}"
     fi
 
     if [[ "${__async_flag-}" == "true" ]]
@@ -435,7 +436,7 @@ function __memory_linux()
     if [[ "${__sync_flag-}" == "true" ]]
     then
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <   5" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}   ${mem_percent}%${NORMAL}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${RED}   ${mem_percent}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 10" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 15" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 15" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 20" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 20" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 25" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
@@ -459,7 +460,7 @@ function __memory_linux()
     if [[ "${__async_flag-}" == "true" ]]
     then
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <   5" | bc -l) -eq 1 ]] &&                                                      echo "${RED}    ${mem_percent}%${NORMAL}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${YELLOW} ${mem_percent}%${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${RED}    ${mem_percent}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 10" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 15" | bc -l) -eq 1 ]] && echo "${YELLOW} ${mem_percent}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 15" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 20" | bc -l) -eq 1 ]] && echo "${YELLOW} ${mem_percent}%${NORMAL}"
         [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 20" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 25" | bc -l) -eq 1 ]] && echo "${YELLOW} ${mem_percent}%${NORMAL}"
@@ -674,7 +675,7 @@ function __network_linux()
             rx="${rx} KB/s"
         else
             rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%04d", $1)}')
-            rx="${rx} B/s"
+            rx="${rx}  B/s"
         fi
 
         if [[ ${tx} -gt 1048576 ]]
@@ -687,7 +688,7 @@ function __network_linux()
             tx="${tx} KB/s"
         else
             tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%04d", $1)}')
-            tx="${tx} B/s"
+            tx="${tx}  B/s"
         fi
 
         echo "${rxcurrent} ${txcurrent}" > "${logfile}"

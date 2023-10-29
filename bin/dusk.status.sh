@@ -360,9 +360,9 @@ function __temp_linux()
     [[ -z ${temp} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL} ${NORMAL}${RED}-${NORMAL}"
 
     [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
-    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL}  ${NORMAL}${GREEN} ${temp}${NORMAL}"
-    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL}  ${NORMAL}${YELLOW}${temp}${NORMAL}"
-    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL}  ${NORMAL}${RED}   ${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${GREEN} ${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${temp_dec} < 60" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${temp}${NORMAL}"
+    [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} >= 60" | bc -l) -eq 1 ]] &&                                                   echo "${NORMAL} ${NORMAL}${RED}   ${temp}${NORMAL}"
 }
 
 #### Function temp freebsd
@@ -388,7 +388,7 @@ function __memory_linux()
     # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${GREEN}${mem_percent}%${NORMAL}"
 
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <   5" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}   ${mem_percent}%${NORMAL}"
-    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
+    [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >=  5" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 10" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${RED}   ${mem_percent}%${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 10" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 15" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 15" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 20" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 20" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 25" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
@@ -591,7 +591,6 @@ function __dusk_logo()
     date="$(date +"%a %Y-%m-%d %H:%M:%S")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "DUSK"
-    # [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${RED}亀${NORMAL}"
     [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${RED} ${NORMAL}"
 }
 
