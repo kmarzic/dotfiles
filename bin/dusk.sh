@@ -25,25 +25,27 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s solarized.light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s srcery
 
-#### dusk status
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s ansi &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s base16-atelier-lakeside-light &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s base16-google-light &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s base16-gruvbox-dark-soft &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s doom-one &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s dracula &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s everforest &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s gruvbox.dark &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s gruvbox.light &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s monokai &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s nord &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s papercolor.light &
-[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s selenized.dark &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s selenized.light &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s selenized.white &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s solarized.dark &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s solarized.light &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s srcery &
+#### dusk status - sync
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t ansi &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-atelier-lakeside-light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-google-light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-gruvbox-dark-soft &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t doom-one &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t dracula &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t everforest &
+[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t gruvbox.dark &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t gruvbox.light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t monokai &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t nord &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t papercolor.light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.dark &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.white &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t solarized.dark &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t solarized.light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t srcery &
+
+#### dusk status - async
 
 #### dusk battery
 [[ -e ${HOME}/bin/dusk.battery.sh ]] && dusk.battery.sh &
