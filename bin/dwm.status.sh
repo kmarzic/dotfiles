@@ -130,7 +130,7 @@ __help()
     __printf "   ${0} -t solarized.light"
     __printf "   ${0} -t srcery"
     __printf ""
-    __printf "Examples"
+    __printf "Examples:"
     __printf "${0} -s -t gruvbox.dark"
     __printf "${0} -a sb-load    -t gruvbox.dark"
     __printf "${0} -a sb-memory  -t gruvbox.dark"
