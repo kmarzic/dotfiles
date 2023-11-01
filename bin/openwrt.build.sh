@@ -264,7 +264,7 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
             __printf "$ tar -cjf openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):"
+            __printf "proceed with copy to 'scully' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
