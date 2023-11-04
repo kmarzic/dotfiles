@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2023-08-24 18:08:54 (CEST)
+## Last update: 2023-11-04 17:02:53 (CET)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -692,7 +692,7 @@ alias tmux="tmux -2"
 ## ----------------------------------------------------------------------------
 
 [[ -e /usr/bin/linuxlogo ]] && /usr/bin/linuxlogo
-[[ -e /usr/bin/screenfetch ]] && /usr/bin/screenfetch
+[[ -e /usr/bin/screenfetch ]] && /usr/bin/screenfetch 2> /dev/null
 
 ## Just to be safe, if not running interactively, don't do anything
 [[ $- != *i* ]] && return
