@@ -245,7 +245,7 @@ HorizontalEdgeSwitch=1 # 0/1
 
 #  Switch to the next keyboard layout in the KeyboardLayouts list.
 # KeySysKeyboardNext=""
-#
+
 #  Activates the IceWM root menu in the lower left corner.
 # KeySysMenu="Ctrl+Esc"
 
@@ -482,7 +482,7 @@ KeySysWorkspaceNext="Super+Ctrl+Right"
 #  Switches focus to the previous window.
 # KeyWinPrev="Alt+Shift+F6"
 
-#  Raises the window which currently has input focus.
+#  Raises the window that currently has input focus.
 # KeyWinRaise="Alt+F1"
 
 #  Restores the active window to its visible state.
