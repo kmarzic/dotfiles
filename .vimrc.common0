@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:24:48 (CEST)
+"" Last update: 2023-11-16 12:50:14 (CET)
 "" Current file: .vimrc.common0
 "" ------------------------------------------------------------------------
 
@@ -55,8 +55,10 @@ Plug 'chrisbra/vim-diff-enhanced'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 "
-Plug 'vim-scripts/bash-support.vim'
-Plug 'vim-scripts/c.vim'
+" Plug 'vim-scripts/bash-support.vim'
+Plug 'WolfgangMehner/bash-support'
+" Plug 'vim-scripts/c.vim'
+Plug 'WolfgangMehner/c-support'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-scripts/perl-support.vim'
 Plug 'vim-perl/vim-perl'
