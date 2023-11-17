@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-11-16 12:50:14 (CET)
+"" Last update: 2023-11-17 09:46:28 (CET)
 "" Current file: .vimrc.common0
 "" ------------------------------------------------------------------------
 
@@ -60,7 +60,8 @@ Plug 'WolfgangMehner/bash-support'
 " Plug 'vim-scripts/c.vim'
 Plug 'WolfgangMehner/c-support'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-scripts/perl-support.vim'
+" Plug 'vim-scripts/perl-support.vim'
+Plug 'WolfgangMehner/perl-support'
 Plug 'vim-perl/vim-perl'
 Plug 'neovimhaskell/haskell-vim'
 "
