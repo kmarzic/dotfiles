@@ -5,7 +5,7 @@
 	editor = vim
 	pager = cat
 	autocrlf = input
-	excludesfile = /home/etkkrmaadm/.gitignore
+	excludesfile = /home/etkkrma/.gitignore
 [color]
 	status = auto
 	branch = auto
@@ -37,3 +37,5 @@
 	decorate = auto
 [merge]
 	tool = vimdiff
+[pull]
+	rebase = false
