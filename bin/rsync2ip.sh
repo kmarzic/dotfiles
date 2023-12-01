@@ -108,7 +108,7 @@ function __help()
     __printf "usage:"
     __printf "  ${0} <target>"
     __printf "example:"
-    __printf "  ${0} admkremar@entd0001"
+    __printf "  ${0} tkremar@entd0001"
     __printf "  ${0} tkremar@entl0002"
     __printf "  ${0} etkkrma@elx-5cg11804dr"
     __printf "  ${0} kmarzic@scully"
@@ -130,20 +130,20 @@ then
 fi
 
 case "${target}" in
-    "admkremar@entd0001")
-        __printf "rsync2ip admkremar@entd0001" info
+    "tkremar@entd0001")
+        __printf "rsync2ip tkremar@entd0001" info
 
         cd ~/data
-        __rsync projects          ${target}:/home/admkremar/data
-        __rsync ssh               ${target}:/home/admkremar/data
-        __rsync certs             ${target}:/home/admkremar/data
-        __rsync vpn               ${target}:/home/admkremar/data
-        __rsync secrets           ${target}:/home/admkremar/data
+        __rsync projects          ${target}:/home/tkremar/data
+        __rsync ssh               ${target}:/home/tkremar/data
+        __rsync certs             ${target}:/home/tkremar/data
+        __rsync vpn               ${target}:/home/tkremar/data
+        __rsync secrets           ${target}:/home/tkremar/data
 
         cd ~/
-        __rsync wallpapers        ${target}:/home/admkremar
-        __rsync bin               ${target}:/home/admkremar
-        __rsync Maildir           ${target}:/home/admkremar
+        __rsync wallpapers        ${target}:/home/tkremar
+        __rsync bin               ${target}:/home/tkremar
+        __rsync Maildir           ${target}:/home/tkremar
 
         __printf "Done!" success
         ;;
