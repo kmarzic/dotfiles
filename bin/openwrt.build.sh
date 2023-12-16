@@ -275,7 +275,7 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
             __printf "$ scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac" success
             scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac
 
-            __printf "proceed with copy to 'OpenWRT' (y/n):"
+            __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
