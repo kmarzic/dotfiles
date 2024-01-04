@@ -43,8 +43,8 @@ style = "Regular"
 x = 0
 y = 0
 
-[hints.url.launcher]
-program = "firefox"
+# [hints.url.launcher]
+# program = "firefox"
 
 [[keyboard.bindings]]
 action = "Paste"
@@ -409,17 +409,17 @@ hide_when_typing = false
 action = "PasteSelection"
 mouse = "Middle"
 
-[mouse.double_click]
-threshold = 300
+# [mouse.double_click]
+# threshold = 300
 
-[mouse.triple_click]
-threshold = 300
+# [mouse.triple_click]
+# threshold = 300
 
 [scrolling]
 history = 20000
 multiplier = 3
 
 [selection]
-copy_to_clipboard = true
+# copy_to_clipboard = true
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
