@@ -1,0 +1,57 @@
+import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.max.toml"]
+
+[colors.bright]
+black = "0x7195a8"
+blue = "0x257fad"
+cyan = "0x2d8f6f"
+green = "0x568c3b"
+magenta = "0x6b6bb8"
+red = "0xd22d72"
+white = "0x161b1d"
+yellow = "0x8a8a0f"
+
+[colors.cursor]
+cursor = "0x516d7b"
+text = "0xebf8ff"
+
+[colors.normal]
+black = "0xebf8ff"
+blue = "0x257fad"
+cyan = "0x2d8f6f"
+green = "0x568c3b"
+magenta = "0x6b6bb8"
+red = "0xd22d72"
+white = "0x516d7b"
+yellow = "0x8a8a0f"
+
+[colors.primary]
+background = "0xebf8ff"
+foreground = "0x516d7b"
+
+# [schemes.base16-atelier-lakeside-light.bright]
+# black = "0x7195a8"
+# blue = "0x257fad"
+# cyan = "0x2d8f6f"
+# green = "0x568c3b"
+# magenta = "0x6b6bb8"
+# red = "0xd22d72"
+# white = "0x161b1d"
+# yellow = "0x8a8a0f"
+# 
+# [schemes.base16-atelier-lakeside-light.cursor]
+# cursor = "0x516d7b"
+# text = "0xebf8ff"
+# 
+# [schemes.base16-atelier-lakeside-light.normal]
+# black = "0xebf8ff"
+# blue = "0x257fad"
+# cyan = "0x2d8f6f"
+# green = "0x568c3b"
+# magenta = "0x6b6bb8"
+# red = "0xd22d72"
+# white = "0x516d7b"
+# yellow = "0x8a8a0f"
+# 
+# [schemes.base16-atelier-lakeside-light.primary]
+# background = "0xebf8ff"
+# foreground = "0x516d7b"

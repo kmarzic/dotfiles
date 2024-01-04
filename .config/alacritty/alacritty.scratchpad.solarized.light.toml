@@ -1,0 +1,81 @@
+import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+
+[colors.bright]
+black = "#839496"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+magenta = "#6c71c4"
+red = "#dc322f"
+white = "#002b36"
+yellow = "#b58900"
+
+[colors.cursor]
+cursor = "#586e75"
+text = "#fdf6e3"
+
+[colors.normal]
+black = "#fdf6e3"
+blue = "#268bd2"
+cyan = "#2aa198"
+green = "#859900"
+magenta = "#6c71c4"
+red = "#dc322f"
+white = "#586e75"
+yellow = "#b58900"
+
+[colors.primary]
+background = "#eee8d5"
+foreground = "#073642"
+
+# [schemes.solarized_light_0.bright]
+# black = "#839496"
+# blue = "#268bd2"
+# cyan = "#2aa198"
+# green = "#859900"
+# magenta = "#6c71c4"
+# red = "#dc322f"
+# white = "#002b36"
+# yellow = "#b58900"
+# 
+# [schemes.solarized_light_0.cursor]
+# cursor = "#586e75"
+# text = "#fdf6e3"
+# 
+# [schemes.solarized_light_0.normal]
+# black = "#fdf6e3"
+# blue = "#268bd2"
+# cyan = "#2aa198"
+# green = "#859900"
+# magenta = "#6c71c4"
+# red = "#dc322f"
+# white = "#586e75"
+# yellow = "#b58900"
+# 
+# [schemes.solarized_light_0.primary]
+# background = "#eee8d5"
+# foreground = "#073642"
+# 
+# [schemes.solarized_light_1.bright]
+# black = "#002b36"
+# blue = "#839496"
+# cyan = "#93a1a1"
+# green = "#586e75"
+# magenta = "#6c71c4"
+# red = "#cb4b16"
+# white = "#fdf6e3"
+# yellow = "#657b83"
+# 
+# [schemes.solarized_light_1.normal]
+# black = "#073642"
+# blue = "#268bd2"
+# cyan = "#2aa198"
+# green = "#859900"
+# magenta = "#d33682"
+# red = "#dc322f"
+# white = "#eee8d5"
+# yellow = "#b58900"
+# 
+# [schemes.solarized_light_1.primary]
+# background = "#eee8d5"
+# foreground = "#073642"

@@ -4,7 +4,7 @@ import:
   - ~/.config/alacritty/alacritty.main.yml
   - ~/.config/alacritty/alacritty.max.yml
 
-ischemes:
+schemes:
   ## base16-atelier-lakeside-light
   base16-atelier-lakeside-light: &base16-atelier-lakeside-light
   # Default colors

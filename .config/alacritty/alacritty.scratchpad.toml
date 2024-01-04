@@ -1,0 +1,13 @@
+[window]
+decorations = "full"
+dynamic_padding = false
+dynamic_title = true
+opacity = 0.85
+
+[window.class]
+general = "spterm"
+instance = "spterm"
+
+[window.dimensions]
+columns = 150
+lines = 50

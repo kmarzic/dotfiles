@@ -1,0 +1,9 @@
+[window]
+decorations = "full"
+dynamic_padding = false
+dynamic_title = true
+opacity = 0.85
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"

@@ -1,0 +1,57 @@
+import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+
+[colors.bright]
+black = "#4f4f4f"
+blue = "#6b9fed"
+cyan = "#8ee478"
+green = "#fbb036"
+magenta = "#fc6ffa"
+red = "#fa6960"
+white = "#ffffff"
+yellow = "#feffb9"
+
+[colors.cursor]
+cursor = "#e3bf21"
+text = "CellBackground"
+
+[colors.normal]
+black = "#4f4f4f"
+blue = "#5796ed"
+cyan = "#8ee478"
+green = "#fbb036"
+magenta = "#ff73fd"
+red = "#ff6c60"
+white = "#eeeeee"
+yellow = "#ffffb6"
+
+[colors.primary]
+background = "#2b3e50"
+foreground = "#f8f8f2"
+
+# [schemes.lucario.bright]
+# black = "#4f4f4f"
+# blue = "#6b9fed"
+# cyan = "#8ee478"
+# green = "#fbb036"
+# magenta = "#fc6ffa"
+# red = "#fa6960"
+# white = "#ffffff"
+# yellow = "#feffb9"
+# 
+# [schemes.lucario.cursor]
+# cursor = "#e3bf21"
+# text = "CellBackground"
+# 
+# [schemes.lucario.normal]
+# black = "#4f4f4f"
+# blue = "#5796ed"
+# cyan = "#8ee478"
+# green = "#fbb036"
+# magenta = "#ff73fd"
+# red = "#ff6c60"
+# white = "#eeeeee"
+# yellow = "#ffffb6"
+# 
+# [schemes.lucario.primary]
+# background = "#2b3e50"
+# foreground = "#f8f8f2"

@@ -1,0 +1,97 @@
+import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.max.toml"]
+
+[colors.bright]
+black = "0x654735"
+blue = "0x45707a"
+cyan = "0x4c7a5d"
+green = "0x6c782e"
+magenta = "0x945e80"
+red = "0xc14a4a"
+white = "0xeee0b7"
+yellow = "0xb47109"
+
+[colors.normal]
+black = "0x654735"
+blue = "0x45707a"
+cyan = "0x4c7a5d"
+green = "0x6c782e"
+magenta = "0x945e80"
+red = "0xc14a4a"
+white = "0xeee0b7"
+yellow = "0xb47109"
+
+[colors.primary]
+background = "0xfbf1c7"
+foreground = "0x654735"
+
+# [schemes.gruvbox_material_hard_light.bright]
+# black = "0x654735"
+# blue = "0x45707a"
+# cyan = "0x4c7a5d"
+# green = "0x6c782e"
+# magenta = "0x945e80"
+# red = "0xc14a4a"
+# white = "0xf2e5bc"
+# yellow = "0xb47109"
+# 
+# [schemes.gruvbox_material_hard_light.normal]
+# black = "0x654735"
+# blue = "0x45707a"
+# cyan = "0x4c7a5d"
+# green = "0x6c782e"
+# magenta = "0x945e80"
+# red = "0xc14a4a"
+# white = "0xf2e5bc"
+# yellow = "0xb47109"
+# 
+# [schemes.gruvbox_material_hard_light.primary]
+# background = "0xf9f5d7"
+# foreground = "0x654735"
+# 
+# [schemes.gruvbox_material_medium_light.bright]
+# black = "0x654735"
+# blue = "0x45707a"
+# cyan = "0x4c7a5d"
+# green = "0x6c782e"
+# magenta = "0x945e80"
+# red = "0xc14a4a"
+# white = "0xeee0b7"
+# yellow = "0xb47109"
+# 
+# [schemes.gruvbox_material_medium_light.normal]
+# black = "0x654735"
+# blue = "0x45707a"
+# cyan = "0x4c7a5d"
+# green = "0x6c782e"
+# magenta = "0x945e80"
+# red = "0xc14a4a"
+# white = "0xeee0b7"
+# yellow = "0xb47109"
+# 
+# [schemes.gruvbox_material_medium_light.primary]
+# background = "0xfbf1c7"
+# foreground = "0x654735"
+# 
+# [schemes.gruvbox_material_soft_light.bright]
+# black = "0x654735"
+# blue = "0x45707a"
+# cyan = "0x4c7a5d"
+# green = "0x6c782e"
+# magenta = "0x945e80"
+# red = "0xc14a4a"
+# white = "0xe6d5ae"
+# yellow = "0xb47109"
+# 
+# [schemes.gruvbox_material_soft_light.normal]
+# black = "0x654735"
+# blue = "0x45707a"
+# cyan = "0x4c7a5d"
+# green = "0x6c782e"
+# magenta = "0x945e80"
+# red = "0xc14a4a"
+# white = "0xe6d5ae"
+# yellow = "0xb47109"
+# 
+# [schemes.gruvbox_material_soft_light.primary]
+# background = "0xf2e5bc"
+# foreground = "0x654735"
