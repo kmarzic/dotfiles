@@ -198,9 +198,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.ansi ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.ansi .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.ansi.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.ansi.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.ansi.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.ansi.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.ansi.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.ansi.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.ansi.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.ansi.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.ansi.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.ansi.hs xmobar.hs
@@ -268,9 +268,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.base16-atelier-lakeside-light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-atelier-lakeside-light .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.base16-atelier-lakeside-light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.base16-atelier-lakeside-light.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.base16-atelier-lakeside-light.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.base16-atelier-lakeside-light.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.base16-atelier-lakeside-light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.base16-atelier-lakeside-light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.base16-atelier-lakeside-light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.base16-atelier-lakeside-light.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.base16-atelier-lakeside-light.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.base16-atelier-lakeside-light.hs xmobar.hs
@@ -435,9 +435,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.catppuccin ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.catppuccin .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.catppuccin.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.catppuccin.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.catppuccin.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.catppuccin.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.catppuccin.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.catppuccin.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.catppuccin.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.catppuccin.toml scratchpad.toml && cd -
             ;;
         "catppuccin.latte")
             __printf "catppuccin.latte"
@@ -479,9 +479,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.catppuccin.latte ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.catppuccin.latte .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.catppuccin.latte.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.catppuccin.latte.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.catppuccin.latte.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.catppuccin.latte.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.catppuccin.latte.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.catppuccin.latte.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.catppuccin.latte.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.catppuccin.latte.toml scratchpad.toml && cd -
             ;;
         "doom-one")
             __printf "doom-one"
@@ -530,9 +530,9 @@ function __theme()
             #### neovim
             [[ -e ~/.config/nvim/init.doom-one.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.doom-one.vim init.vim && cd -
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.doom-one.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.doom-one.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.doom-one.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.doom-one.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.doom-one.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.doom-one.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.doom-one.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.doom-one.toml scratchpad.toml && cd -
             ;;
         "dracula")
             __printf "dracula"
@@ -594,9 +594,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.dracula ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.dracula .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.dracula.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.dracula.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.dracula.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.dracula.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.dracula.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.dracula.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.dracula.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.dracula.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.dracula.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.dracula.hs xmobar.hs
@@ -768,9 +768,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.gruvbox.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox.dark .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.gruvbox.dark.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.gruvbox.dark.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.gruvbox.dark.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.gruvbox.dark.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.gruvbox.dark.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.gruvbox.dark.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.gruvbox.dark.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.gruvbox.dark.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.gruvbox.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.gruvbox.hs xmobar.hs
@@ -842,9 +842,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.gruvbox.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.gruvbox.light .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.gruvbox.light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.gruvbox.light.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.gruvbox.light.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.gruvbox.light.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.gruvbox.light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.gruvbox.light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.gruvbox.light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.gruvbox.light.toml scratchpad.toml && cd -
             ;;
         "lucario")
             __printf "lucario"
@@ -896,9 +896,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.lucario ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.lucario .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.lucario.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.lucario.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.lucario.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.lucario.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.lucario.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.lucario.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.lucario.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.lucario.toml scratchpad.toml && cd -
             ;;
         "monokai")
             __printf "monokai"
@@ -944,9 +944,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.monokai ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.monokai .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.monokai.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.monokai.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.monokai.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.monoki.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.monokai.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.monokai.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.monokai.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.monoki.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.monokai.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.monokai.hs xmobar.hs
@@ -1032,9 +1032,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.nord ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.nord .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.nord.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.nord.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.nord.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.nord.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.nord.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.nord.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.nord.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.nord.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.nord.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.nord.hs xmobar.hs
@@ -1106,9 +1106,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.papercolor.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.papercolor.light .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.papercolor.light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.papercolor.light.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.papercolor.light.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.papercolor.light.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.papercolor.light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.papercolor.light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.papercolor.light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.papercolor.light.toml scratchpad.toml && cd -
             ;;
         "selenized.dark")
             __printf "selenized dark"
@@ -1173,9 +1173,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.selenized.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.selenized.dark .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.selenized.dark.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.selenized.dark.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.dark.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.selenized.dark.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.selenized.dark.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.selenized.dark.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.dark.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.selenized.dark.toml scratchpad.toml && cd -
             ;;
         "selenized.light")
             __printf "selenized light"
@@ -1226,9 +1226,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.selenized.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.selenized.light .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.selenized.light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.selenized.light.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.light.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.selenized.light.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.selenized.light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.selenized.light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.selenized.light.toml scratchpad.toml && cd -
             ;;
         "selenized.white")
             __printf "selenized white"
@@ -1279,9 +1279,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.selenized.white ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.selenized.white .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.selenized.white.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.selenized.white.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.white.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.selenized.white.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.selenized.white.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.selenized.white.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.selenized.white.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.selenized.white.toml scratchpad.toml && cd -
             ;;
         "solarized.dark")
             __printf "solarized dark"
@@ -1341,9 +1341,9 @@ function __theme()
             #### termite
             [[ -e ~/.config/termite/config.solarized.dark ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.dark config
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.solarized.dark.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.solarized.dark.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.solarized.dark.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.solarized.dark.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.solarized.dark.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.solarized.dark.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.solarized.dark.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.solarized.dark.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.solarized.dark.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.dark.hs xmobar.hs
@@ -1447,9 +1447,9 @@ function __theme()
             #### termite
             [[ -e ~/.config/termite/config.solarized.light ]] && cd ~/.config/termite && rm -f config && ln -s config.solarized.light config
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.solarized.light.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.solarized.light.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.solarized.light.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.solarized.light.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.solarized.light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.solarized.light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.solarized.light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.solarized.light.toml scratchpad.toml && cd -
 
             #### xmobar
             [[ -e ~/.config/xmonad/xmobar.solarized.light.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.solarized.light.hs xmobar.hs
@@ -1541,9 +1541,9 @@ function __theme()
             #### tmux.conf
             [[ -e ~/.tmux.conf.srcery ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.srcery .tmux.conf
 
-            #### alacritty.yml
-            [[ -e ~/.config/alacritty/alacritty.max.srcery.yml ]] && cd ~/.config/alacritty && rm -f alacritty.yml && ln -s alacritty.max.srcery.yml alacritty.yml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.srcery.yml ]] && cd ~/.config/alacritty && rm -f scratchpad.yml && ln -s alacritty.scratchpad.srcery.yml scratchpad.yml && cd -
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.srcery.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.srcery.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.srcery.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.srcery.toml scratchpad.toml && cd -
             ;;
         "tokyo.night")
             __printf "tokyo.night"
