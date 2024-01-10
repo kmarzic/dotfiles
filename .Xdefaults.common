@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Xdefaults Common
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-08 08:13:18 (CEST)
+!! Last update: 2024-01-10 12:47:55 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -668,6 +668,20 @@ xdvi.highlight: blue
 !! ---------------------------------------------------------------------
 
 ! Xmessage*foreground:   base00
+
+
+!! ---------------------------------------------------------------------
+!! xmenu
+!! ---------------------------------------------------------------------
+
+XMenu.faceName:        DejaVuSansM Nerd Font
+XMenu.faceSize:        size=10
+XMenu.borderWidth:     1
+XMenu.shadowThickness: 1
+XMenu.alignment:       left
+XMenu.tearOff:         On
+XMenu.opacity:         0.9
+XMenu.gap:             3
 
 
 !! ---------------------------------------------------------------------
