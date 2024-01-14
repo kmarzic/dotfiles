@@ -753,7 +753,7 @@ function __async_process()
 
     case ${async} in
         "sb-load")
-            [[ "${OS}" = "Linux"   ]] && __load_linux
+            [[ "${OS}" = "Linux"   ]] && printf '\x04 %s' && __load_linux
             [[ "${OS}" = "FreeBSD" ]] && __load_freebsd
             ;;
         "sb-temp")
@@ -761,7 +761,7 @@ function __async_process()
             [[ "${OS}" = "FreeBSD" ]] && __temp_freebsd
             ;;
         "sb-memory")
-            [[ "${OS}" = "Linux"   ]] && __memory_linux
+            [[ "${OS}" = "Linux"   ]] && printf '\x04 %s' && __memory_linux
             [[ "${OS}" = "FreeBSD" ]] && __memory_freebsd
             ;;
         "sb-battery")
@@ -783,6 +783,7 @@ function __async_process()
             [[ "${OS}" = "FreeBSD" ]] && __network_freebsd
             ;;
         "sb-time")
+            printf '\x06 %s';
             __time
             ;;
     esac
