@@ -280,8 +280,8 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp -O bin/targets/ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_cap-ac-squashfs-sysupgrade.bin root@capac.lan:/tmp" success
-            scp -O bin/targets/ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_cap-ac-squashfs-sysupgrade.bin root@capac.lan:/tmp
+            __printf "$ scp -O bin/targets/ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_cap-ac-squashfs-sysupgrade.bin root@capac.home.lan:/tmp" success
+            scp -O bin/targets/ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_cap-ac-squashfs-sysupgrade.bin root@capac.home.lan:/tmp
             ;;
         #####################################################################
         "friendlyarm_nanopi-r2s")
@@ -471,14 +471,14 @@ intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-u
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp -O bin/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz root@openwrt0:/tmp" success
-            scp -O bin/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz root@openwrt0:/data/temp
+            __printf "$ scp -O bin/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz root@10.254.200.1:/tmp" success
+            scp -O bin/targets/x86/64/openwrt-x86-64-generic-ext4-combined-efi.img.gz root@10.254.200.1:/data/temp
 
-            __printf "$ scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 root@openwrt0:/data/openwrt_x86" success
-            scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 root@openwrt0:/data/openwrt_x86
+            __printf "$ scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 root@10.254.200.1:/data/openwrt_x86" success
+            scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 root@10.254.200.1:/data/openwrt_x86
 
-            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz root@openwrt0:/data/openwrt_x86" success
-            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz root@openwrt0:/data/openwrt_x86
+            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz root@10.254.200.1:/data/openwrt_x86" success
+            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz root@10.254.200.1:/data/openwrt_x86
             ;;
     esac
 }
