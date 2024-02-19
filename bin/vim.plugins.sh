@@ -71,8 +71,11 @@ function __neovim_bin()
     # echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage -o ~/bin/nvim"
     # curl -L https://github.com/neovim/neovim/releases/download/v0.9.1/nvim.appimage -o ~/bin/nvim
     #### 0.9.4
-    echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage -o ~/bin/nvim"
-    curl -L https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage -o ~/bin/nvim
+    # echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage -o ~/bin/nvim"
+    # curl -L https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage -o ~/bin/nvim
+    #### 0.9.5
+    echo "# curl -L https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage -o ~/bin/nvim"
+    curl -L https://github.com/neovim/neovim/releases/download/v0.9.5/nvim.appimage -o ~/bin/nvim
     ####
     echo "# chmod +x ~/bin/nvim"
     chmod +x ~/bin/nvim
