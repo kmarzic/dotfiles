@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:24:50 (CEST)
+"" Last update: 2024-02-19 05:19:51 (CET)
 "" Current file: ~/.config/nvim/init.common0.vim
 "" ------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ Plug 'sainnhe/everforest'
 Plug 'srcery-colors/srcery-vim'
 Plug 'romgrk/doom-one.vim'
 Plug 'raphamorim/lucario'
-Plug 'catppuccin/vim', { 'as': 'cattpuccin' }
+Plug 'catppuccin/nvim', { 'as': 'cattpuccin' }
 Plug 'ianchanning/vim-selenized'
 Plug 'miyakogi/seiya.vim'
 "
