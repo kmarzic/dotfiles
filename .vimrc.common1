@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 10:59:57 (CEST)
+"" Last update: 2024-03-09 07:50:31 (CET)
 "" Current file: .vimrc.common1
 "" ------------------------------------------------------------------------
 
@@ -661,7 +661,7 @@ filetype indent on
 "" help from working " properly]:
 augroup filetype
     autocmd BufNewFile,BufRead */.Postponed/*,mail set filetype=mail
-    autocmd BufNewFile,BufRead *.txt,*.doc,text,README set filetype=human
+    autocmd BufNewFile,BufRead *.txt,*.doc,*.md,text,README set filetype=human
     autocmd BufNewFile,BufRead *.tex,*.lyx set filetype=tex
     autocmd BufNewFile,BufRead *.t set filetype=perl
     autocmd BufNewFile,BufRead c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go,lua set filetype=srcfile
