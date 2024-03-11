@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-03-09 07:51:18 (CET)
+"" Last update: 2024-03-11 08:49:32 (CET)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
@@ -138,7 +138,7 @@ nmap ,lt0 :TagbarToggle<CR>
 "" vimwiki
 "" https://github.com/vimwiki/vimwiki
 ""
-let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimwiki_html/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'path_html': '~/vimwiki_html/', 'syntax': 'markdown', 'ext': 'md'}]
 au FileType vimwiki set syntax=markdown.pandoc
 let g:pandoc#filetypes#pandoc_markdown = 0
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
@@ -649,7 +649,7 @@ filetype indent on
 "" help from working " properly]:
 augroup filetype
     autocmd BufNewFile,BufRead */.Postponed/*,mail set filetype=mail
-    autocmd BufNewFile,BufRead *.txt,*.doc,*.md,text,README set filetype=human
+    autocmd BufNewFile,BufRead *.txt,*.doc,text,README set filetype=human
     autocmd BufNewFile,BufRead *.tex,*.lyx set filetype=tex
     autocmd BufNewFile,BufRead *.t set filetype=perl
     autocmd BufNewFile,BufRead c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go,lua set filetype=srcfile
@@ -687,6 +687,7 @@ autocmd FileType haskell set textwidth=0
 autocmd FileType srcfile set textwidth=0
 autocmd FileType make set textwidth=0
 autocmd FileType yaml set textwidth=0
+autocmd FileType markup set textwidth=0
 
 "" Set number
 autocmd FileType mail set nonumber
@@ -697,6 +698,7 @@ autocmd FileType srcfile set number
 autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go,lua set number
 autocmd FileType make set number
 autocmd FileType yaml set number
+autocmd FileType markup set number
 
 "" Set encoding
 " autocmd FileType mail set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8 fileencodings=utf-8
