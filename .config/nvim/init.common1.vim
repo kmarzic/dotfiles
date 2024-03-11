@@ -687,7 +687,7 @@ autocmd FileType haskell set textwidth=0
 autocmd FileType srcfile set textwidth=0
 autocmd FileType make set textwidth=0
 autocmd FileType yaml set textwidth=0
-autocmd FileType markup set textwidth=0
+autocmd FileType markdown set textwidth=0
 
 "" Set number
 autocmd FileType mail set nonumber
@@ -698,7 +698,7 @@ autocmd FileType srcfile set number
 autocmd FileType c,cpp,java,slang,perl,python,html,xml,css,sh,php,asp,go,lua set number
 autocmd FileType make set number
 autocmd FileType yaml set number
-autocmd FileType markup set number
+autocmd FileType markdown set number
 
 "" Set encoding
 " autocmd FileType mail set encoding=utf-8 fileencoding=utf-8 termencoding=utf-8 fileencodings=utf-8
