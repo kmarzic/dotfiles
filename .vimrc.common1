@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-03-11 11:57:00 (CET)
+"" Last update: 2024-03-15 08:05:38 (CET)
 "" Current file: .vimrc.common1
 "" ------------------------------------------------------------------------
 
@@ -295,6 +295,11 @@ let hs_highlight_boolean = 1
 let hs_highlight_types = 1
 let hs_highlight_more_types = 1
 let hs_allow_hash_operator = 1
+
+"" rodjek/vim-puppet
+"" https://github.com/rodjek/vim-puppet
+" let g:puppet_align_hashes = 0 " disable automatic alignment
+" let g:puppet_align_hashes = 1 " enable automatic alignment
 
 "" ----------------------------------------------------------------------------
 

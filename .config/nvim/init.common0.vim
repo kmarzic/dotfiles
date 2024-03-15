@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-02-19 05:19:51 (CET)
+"" Last update: 2024-03-15 08:02:40 (CET)
 "" Current file: ~/.config/nvim/init.common0.vim
 "" ------------------------------------------------------------------------
 
@@ -37,6 +37,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'vim-scripts/perl-support.vim'
 Plug 'vim-perl/vim-perl'
 Plug 'neovimhaskell/haskell-vim'
+Plug 'rodjek/vim-puppet'
 "
 Plug 'chriskempson/base16-vim'
 Plug 'lifepillar/vim-solarized8'
