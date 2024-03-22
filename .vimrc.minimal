@@ -108,6 +108,11 @@ set wrapscan
 set noterse
 set magic
 set hlsearch
+
+augroup filetypedetect
+    autocmd BufNew,BufNewFile,BufRead *.pp :set filetype=ruby
+augroup END
+
 map  ,t           <Esc>:tabnew<CR>
 nmap <C-n>        :tabnew<CR>
 imap <C-n>        <ESC>:tabnew<CR>
@@ -120,4 +125,5 @@ imap <A-PageDown> <ESC>:tabnext<CR>i
 map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 iab YDATE <C-R>=strftime("%Y-%m-%d %H:%M:%S (%Z)")<CR>
 map ,lu 1G/Last update: \s*/e+1<CR>CYDATE<ESC>
+
 "#### end
