@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-03-15 08:02:40 (CET)
+"" Last update: 2024-04-05 15:50:20 (CEST)
 "" Current file: ~/.config/nvim/init.common0.vim
 "" ------------------------------------------------------------------------
 
@@ -14,7 +14,7 @@
 ""
 "" Plugins will be downloaded under the specified directory.
 ""
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/site/plugged')
 "
 Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'

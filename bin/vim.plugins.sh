@@ -2,7 +2,7 @@
 
 export PATH=${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin
 
-function __dirs()
+function __dirs_vim()
 {
     if [ ! -e ~/.vim ]
     then
@@ -27,10 +27,31 @@ function __dirs()
         echo "# mkdir -p ~/.vim/plugged"
         mkdir -p ~/.vim/plugged
     fi
+}
+
+function __dirs_nvim()
+{
+    if [ ! -e ~/.config/nvim ]
+    then
+        echo "# mkdir -p ~/.config/nvim"
+        mkdir -p ~/.config/nvim
+    fi
+
+    if [ ! -e ~/.config/nvim/autoload ]
+    then
+        echo "# mkdir -p ~/.config/nvim/autoload"
+        mkdir -p ~/.config/nvim/autload
+    fi
+
+    if [ ! -e ~/.local/share/nvim/site/plugged ]
+    then
+        echo "# mkdir -p ~/.local/share/nvim/site/plugged"
+        mkdir -p ~/.local/share/nvim/site/plugged
+    fi
 
     if [ ! -e ~/.local/share/nvim/site/autoload ]
     then
-        echo "# mkdir -p ~/.local/share/nvim/site/autoload/"
+        echo "# mkdir -p ~/.local/share/nvim/site/autoload"
         mkdir -p ~/.local/share/nvim/site/autoload
     fi
 }
@@ -81,29 +102,30 @@ function __neovim_bin()
     chmod +x ~/bin/nvim
 }
 
-function __neovim_vimplug()
-{
-    echo "# curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-}
-
 function __vim_vimplug()
 {
     echo "# curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
+function __neovim_vimplug()
+{
+    echo "# curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
 function __plugin_update()
 {
-    nvim +PlugInstall +qall
     vim +PlugInstall +qall
+    nvim +PlugInstall +qall
 }
 
 #### MAIN
-__dirs
+__dirs_vim
+__dirs_nvim
 __neovim_bin
-__neovim_vimplug
 __vim_vimplug
+__neovim_vimplug
 __plugin_update
 
 ###############################################################################
