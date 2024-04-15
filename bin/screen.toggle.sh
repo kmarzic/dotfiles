@@ -1722,6 +1722,18 @@ function __xrandr()
                         --output ${IN-} --auto \
                         --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
                         --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
+                elif [[ "${EXT1-}" == "DP-2-1" ]] && [[ "${EXT2-}" == "DP-2-2" ]]
+                then
+                    #### ETK
+                    __printf " xrandr \\"
+                    __printf "--output ${IN-} --auto \\"
+                    __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \\"
+                    __printf "    --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}"
+
+                    xrandr \
+                        --output ${IN-} --auto \
+                        --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
+                        --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
                 else
                     #### Home
                     __printf " xrandr \\"
