@@ -136,8 +136,8 @@ function __rsync()
     rsync -avzhHp --delete /mnt/ntadmin/Servers/F5_Big_IP_network*.xlsx ~/data/projects/ETK/ICT/docs/Servers
 
     __printf ""
-    __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/RaspberryPI.xlsx ~/data/projects/ETK/ICT/docs/Servers" success
-    rsync -avzhHp --delete /mnt/ntadmin/Servers/RaspberryPI.xlsx ~/data/projects/ETK/ICT/docs/Servers
+    __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/RaspberryPI*.xlsx ~/data/projects/ETK/ICT/docs/Servers" success
+    rsync -avzhHp --delete /mnt/ntadmin/Servers/RaspberryPI*.xlsx ~/data/projects/ETK/ICT/docs/Servers
 
     __printf ""
     __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/Servers-IPAddresses.backup.*.xls* ~/data/projects/ETK/ICT/docs/Servers" success
