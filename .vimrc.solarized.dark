@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:06:30 (CEST)
+"" Last update: 2024-04-22 16:45:41 (CEST)
 "" Current file: .vimrc
 "" ------------------------------------------------------------------------
 
@@ -11,8 +11,12 @@ source ~/.vimrc.common0
 "" vim-solarized8
 "" https://github.com/lifepillar/vim-solarized8
 ""
+" let g:solarized_visibility = "low"
 let g:solarized_visibility = "normal"
+" let g:solarized_visibility = "high"
+" let g:solarized_diffmode = "low"
 let g:solarized_diffmode = "normal"
+" let g:solarized_diffmode = "high"
 " let g:solarized_termtrans = 1
 " let g:solarized_statusline = 1
 " let g:solarized_term_italics = 1

@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-10-22 19:25:18 (CEST)
+## Last update: 2024-04-22 17:04:44 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
@@ -20,7 +20,7 @@ set -g @dracula-ram-usage false
 set -g @dracula-gpu-usage false
 
 ## tinted-theming/base16-tmux
-set -g @colors-base16 'dracula'
+set -g @tinted-color 'base16-dracula'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'

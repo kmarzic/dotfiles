@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-02 09:43:58 (CEST)
+!! Last update: 2024-04-22 15:52:23 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -81,25 +81,25 @@
 !! https://github.com/lemnos/theme.sh
 !! ---------------------------------------------------------------------
 
-*.color0: #ebf8ff
-*.color1: #d22d72
-*.color2: #568c3b
-*.color3: #8a8a0f
-*.color4: #257fad
-*.color5: #6b6bb8
-*.color6: #2d8f6f
-*.color7: #516d7b
-*.color8: #7195a8
-*.color9: #d22d72
-*.color10: #568c3b
-*.color11: #8a8a0f
-*.color12: #257fad
-*.color13: #6b6bb8
-*.color14: #2d8f6f
-*.color15: #161b1d
-*.background: #ebf8ff
-*.foreground: #516d7b
-*.cursor: #516d7b
+*color0: #ebf8ff
+*color1: #d22d72
+*color2: #568c3b
+*color3: #8a8a0f
+*color4: #257fad
+*color5: #6b6bb8
+*color6: #2d8f6f
+*color7: #516d7b
+*color8: #7195a8
+*color9: #d22d72
+*color10: #568c3b
+*color11: #8a8a0f
+*color12: #257fad
+*color13: #6b6bb8
+*color14: #2d8f6f
+*color15: #161b1d
+*background: #ebf8ff
+*foreground: #516d7b
+*cursor: #516d7b
 
 !! ---------------------------------------------------------------------
 !! EOF

@@ -1,12 +1,12 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-15 18:18:13 (CEST)
+## Last update: 2024-04-22 17:08:49 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
 
 ## tinted-theming/base16-tmux
-set -g @colors-base16 'monokai'
+set -g @tinted-color 'base16-monokai'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'

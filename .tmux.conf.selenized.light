@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-23 17:30:03 (CEST)
+## Last update: 2024-04-22 17:09:43 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
@@ -23,7 +23,7 @@ set -g @theme-status-justify left
 # set -g @theme-mode-fg 'white'
 
 ## tinted-theming/base16-tmux
-set -g @colors-base16 'selenized-light'
+set -g @tinted-color 'base16-selenized-light'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'

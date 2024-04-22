@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:19:12 (CEST)
+"" Last update: 2024-04-22 16:41:09 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -35,6 +35,8 @@ syntax on
 " colorscheme solarized8_low
 colorscheme solarized8_high
 " colorscheme solarized8_flat
+
+hi Comment cterm=NONE
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim

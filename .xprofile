@@ -27,16 +27,20 @@ export LC_TIME="en_DK.UTF-8"
 # export GTK_THEME=NumixSolarizedDarkRed
 # export GTK_THEME=Material-Solarized
 # export GTK_THEME=Arc-Gruvbox
-export GTK_THEME=gruvbox-dark-gtk-0
+# export GTK_THEME=gruvbox-dark-gtk-0
 # export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
+# export GTK_THEME=Paper
+# export GTK_THEME=Yaru-Gray
 
 # export GTK2_RC_FILES=$HOME/.themes/Solarized-Light
 # export GTK2_RC_FILES=$HOME/.themes/Solarized-Dark
 # export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
 # export GTK2_RC_FILES=$HOME/.themes/Material-Solarized
 # export GTK2_RC_FILES=$HOME/.themes/Arc-Gruvbox
-export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk-0
+# export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk-0
 # export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
+# export GTK2_RC_FILES=$HOME/.themes/Paper
+export GTK2_RC_FILES=$HOME/.themes/Yaru-Gray
 
 ## xhost
 xhost +0

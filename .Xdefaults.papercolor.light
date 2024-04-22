@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-02 09:48:38 (CEST)
+!! Last update: 2024-04-22 15:20:45 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -39,69 +39,69 @@
 !! ---------------------------------------------------------------------
 
 ! PaperColor Theme
-*.background: #EEEEEE
-*.foreground: #4D4D4C
-*.cursorColor: #4D4D4C
-*.color0:  #EDEDED
-*.color1:  #D7005F
-*.color2:  #718C00
-*.color3:  #D75F00
-*.color4:  #4271AE
-*.color5:  #8959A8
-*.color6:  #3E999F
-*.color7:  #4D4D4C
-! *.color8:  #d70000
-*.color9:  #949494
-*.color9:  #D7005F
-*.color10: #718C00
-*.color11: #D75F00
-*.color12: #4271AE
-*.color13: #8959A8
-*.color14: #3E999F
-! *.color15: #F5F5F5
-*.color15: #878787
+*background: #EEEEEE
+*foreground: #4D4D4C
+*cursorColor: #4D4D4C
+*color0:  #EDEDED
+*color1:  #D7005F
+*color2:  #718C00
+*color3:  #D75F00
+*color4:  #4271AE
+*color5:  #8959A8
+*color6:  #3E999F
+*color7:  #4D4D4C
+
+*color8:  #949494
+*color9:  #D7005F
+*color10: #718C00
+*color11: #D75F00
+*color12: #4271AE
+*color13: #8959A8
+*color14: #3E999F
+! *color15: #F5F5F5
+*color15: #878787
 
 ! ! PaperColor Theme light
-! *.background: #EEEEEE
-! *.foreground: #4D4D4C
-! *.cursorColor: #4D4D4C
-! *.pointerColor: #4D4D4C
-! *.color0:  #D0D0D0
-! *.color1:  #D7005F
-! *.color2:  #718C00
-! *.color3:  #D75F00
-! *.color4:  #4271AE
-! *.color5:  #8959A8
-! *.color6:  #3E999F
-! *.color7:  #4D4D4C
-! *.color8:  #737373
-! *.color9:  #D7005F
-! *.color10: #718C00
-! *.color11: #D75F00
-! *.color12: #4271AE
-! *.color13: #8959A8
-! *.color14: #3E999F
-! *.color15: #F5F5F5
+! *background: #EEEEEE
+! *foreground: #4D4D4C
+! *cursorColor: #4D4D4C
+! *pointerColor: #4D4D4C
+! *color0:  #D0D0D0
+! *color1:  #D7005F
+! *color2:  #718C00
+! *color3:  #D75F00
+! *color4:  #4271AE
+! *color5:  #8959A8
+! *color6:  #3E999F
+! *color7:  #4D4D4C
+! *color8:  #737373
+! *color9:  #D7005F
+! *color10: #718C00
+! *color11: #D75F00
+! *color12: #4271AE
+! *color13: #8959A8
+! *color14: #3E999F
+! *color15: #F5F5F5
 
 ! ! PaperColor Theme light
-! *.background: #EEEEEE
-! *.foreground: #444444
-! *.color0:  #EEEEEE
-! *.color1:  #AF0000
-! *.color2:  #008700
-! *.color3:  #5F8700
-! *.color4:  #0087AF
-! *.color5:  #878787
-! *.color6:  #005F87
-! *.color7:  #444444
-! *.color8:  #BCBCBC
-! *.color9:  #D70000
-! *.color10: #D70087
-! *.color11: #8700AF
-! *.color12: #D75F00
-! *.color13: #D75F00
-! *.color14: #005FAF
-! *.color15: #005F87
+! *background: #EEEEEE
+! *foreground: #444444
+! *color0:  #EEEEEE
+! *color1:  #AF0000
+! *color2:  #008700
+! *color3:  #5F8700
+! *color4:  #0087AF
+! *color5:  #878787
+! *color6:  #005F87
+! *color7:  #444444
+! *color8:  #BCBCBC
+! *color9:  #D70000
+! *color10: #D70087
+! *color11: #8700AF
+! *color12: #D75F00
+! *color13: #D75F00
+! *color14: #005FAF
+! *color15: #005F87
 
 !! ---------------------------------------------------------------------
 !! EOF

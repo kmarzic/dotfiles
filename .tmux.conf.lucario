@@ -1,15 +1,15 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2023-07-15 18:17:37 (CEST)
+## Last update: 2024-04-22 17:08:28 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
 
 ## tinted-theming/base16-tmux
-# set -g @colors-base16 'gruvbox-dark-pale'
-# set -g @colors-base16 'gruvbox-dark-hard'
-# set -g @colors-base16 'gruvbox-dark-medium'
-# set -g @colors-base16 'gruvbox-dark-soft'
+# set -g @tinted-color 'base16-gruvbox-dark-pale'
+# set -g @tinted-color 'base16-gruvbox-dark-hard'
+# set -g @tinted-color 'base16-gruvbox-dark-medium'
+# set -g @tinted-color 'base16-gruvbox-dark-soft'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'
