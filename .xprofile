@@ -134,9 +134,9 @@ function __redshift()
         # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
         # [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         #### light themes
-        [[ "$(hostname)" == "entd0001" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.7:0.7 2>&1 &
-        [[ "$(hostname)" == "entl0002" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.7:0.7 2>&1 &
-        [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.7:0.7 2>&1 &
+        [[ "$(hostname)" == "entd0001" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+        [[ "$(hostname)" == "entl0002" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+        [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
         #### dark themes
         # [[ "$(hostname)" == "entd0001" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
         # [[ "$(hostname)" == "entl0002" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
