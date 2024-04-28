@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-03-15 08:05:56 (CET)
+"" Last update: 2024-04-28 11:20:43 (CEST)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
@@ -96,6 +96,7 @@ let NERDTreeMinimalUI = 0
 let NERDTreeDirArrows = 1
 " let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize = 50
+let g:NERDTreeFileLines = 1
 ""
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
@@ -118,16 +119,6 @@ augroup END
 map ,n :NERDTreeToggle<CR>
 vmap ,n <esc>:NERDTreeToggle<CR>
 imap ,n <esc>:NERDTreeToggle<CR>
-
-"" syntastic (Syntastic is a syntax checking plugin)
-"" https://github.com/vim-syntastic/syntastic
-""
-" let g:syntastic_disabled_filetypes=['html']
-let g:syntastic_html_checkers=['']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
 
 "" tagbar
 "" https://github.com/majutsushi/tagbar
@@ -260,22 +251,27 @@ call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options
     \  },
     \ }))
 
+"" dense-analysis/ale
+"" https://github.com/dense-analysis/ale
+""
+let b:ale_fixers = ['prettier', 'eslint']
+
 "" ----------------------------------------------------------------------------
 
-"" Bash-support
-"" https://github.com/vim-scripts/bash-support.vim
+"" WolfgangMehner/bash-support
+"" https://github.com/WolfgangMehner/bash-support
 
-"" c.vim
-"" https://github.com/vim-scripts/c.vim
+"" WolfgangMehner/c-support
+"" https://github.com/WolfgangMehner/c-support
+
+"" perl-support
+"" https://github.com/WolfgangMehner/perl-support
 
 "" vim-go
 "" https://github.com/faith/vim-go
 ""
 " au BufNewFile,BufRead *.go set filetype=go
 au BufNewFile,BufReadPost *.go set filetype=go
-
-"" perl-support
-"" https://github.com/vim-scripts/perl-support.vim
 
 "" perl-vim
 "" https://github.com/vim-perl/vim-perl
@@ -298,6 +294,7 @@ let hs_allow_hash_operator = 1
 
 "" rodjek/vim-puppet
 "" https://github.com/rodjek/vim-puppet
+""
 " let g:puppet_align_hashes = 0 " disable automatic alignment
 " let g:puppet_align_hashes = 1 " enable automatic alignment
 

@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-04-05 15:50:20 (CEST)
+"" Last update: 2024-04-28 11:20:40 (CEST)
 "" Current file: ~/.config/nvim/init.common0.vim
 "" ------------------------------------------------------------------------
 
@@ -23,18 +23,18 @@ Plug 'junegunn/fzf.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-Plug 'vim-syntastic/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'chrisbra/vim-diff-enhanced'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'dense-analysis/ale'
 "
-Plug 'vim-scripts/bash-support.vim'
-Plug 'vim-scripts/c.vim'
+Plug 'WolfgangMehner/bash-support'
+Plug 'WolfgangMehner/c-support'
+Plug 'WolfgangMehner/perl-support'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'vim-scripts/perl-support.vim'
 Plug 'vim-perl/vim-perl'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'rodjek/vim-puppet'
