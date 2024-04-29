@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-04-28 11:20:43 (CEST)
+"" Last update: 2024-04-29 17:59:23 (CEST)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
@@ -96,7 +96,7 @@ let NERDTreeMinimalUI = 0
 let NERDTreeDirArrows = 1
 " let NERDTreeShowLineNumbers=1
 let g:NERDTreeWinSize = 50
-let g:NERDTreeFileLines = 1
+let g:NERDTreeFileLines = 0
 ""
 if has ("unix")
     let NERDTreeBookmarksFile=expand("$HOME/.vim/.vim-NERDTreeBookmarks")
