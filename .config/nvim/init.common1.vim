@@ -1,21 +1,13 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-04-29 17:59:23 (CEST)
+"" Last update: 2024-05-03 19:28:58 (CEST)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
 "" ------------------------------------------------------------------------
 "" Plugins
 "" ------------------------------------------------------------------------
-
-"" ale (Asynchronous Lint Engine)
-"" https://github.com/w0rp/ale
-""
-let b:ale_linters = ['pyflakes', 'flake8', 'pylint']
-let g:ale_completion_enabled = 1
-let b:ale_fixers = ['eslint']
-let b:ale_fix_on_save = 1
 
 "" ctrlp.vim (full path fuzzy file, buffer, mru, tag, ... finder)
 "" https://github.com/ctrlpvim/ctrlp.vim

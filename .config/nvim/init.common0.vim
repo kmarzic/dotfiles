@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-04-28 11:20:40 (CEST)
+"" Last update: 2024-05-03 19:29:00 (CEST)
 "" Current file: ~/.config/nvim/init.common0.vim
 "" ------------------------------------------------------------------------
 
@@ -16,7 +16,6 @@
 ""
 call plug#begin('~/.local/share/nvim/site/plugged')
 "
-Plug 'w0rp/ale'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -39,7 +38,7 @@ Plug 'vim-perl/vim-perl'
 Plug 'neovimhaskell/haskell-vim'
 Plug 'rodjek/vim-puppet'
 "
-Plug 'chriskempson/base16-vim'
+Plug 'tinted-theming/base16-vim'
 Plug 'lifepillar/vim-solarized8'
 Plug 'arcticicestudio/nord-vim'
 Plug 'crusoexia/vim-monokai'
