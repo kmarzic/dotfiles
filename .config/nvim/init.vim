@@ -1,52 +1,48 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-24 18:08:59 (CEST)
+"" Last update: 2024-04-22 16:41:09 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
 "" Common
 source ~/.config/nvim/init.common0.vim
 
-"" gruvbox
-"" https://github.com/morhetz/gruvbox
+"" vim-solarized8
+"" https://github.com/lifepillar/vim-solarized8
 ""
-set background=dark
-syntax on
-" let g:gruvbox_contrast_light = 'hard'
-" let g:gruvbox_contrast_light = 'medium'
-let g:gruvbox_contrast_light = 'soft'
-let g:gruvbox_material_disable_italic_comment = 1
-colorscheme gruvbox
+" let g:solarized_visibility = "low"
+" let g:solarized_visibility = "normal"
+let g:solarized_visibility = "high"
+" let g:solarized_diffmode = "low"
+" let g:solarized_diffmode = "normal"
+let g:solarized_diffmode = "high"
+let g:solarized_italics = 0
+" let g:solarized_termtrans = 1
+" let g:solarized_term_italics = 1
+" let g:solarized_old_cursor_style = 1
+" let g:solarized_extra_hi_groups = 1
+" let g:solarized_use16 = 1
+let g:solarized_extra_hi_groups = 1
+set t_Co=256
 set termguicolors
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set t_Co=256
+set background=light
+syntax on
+" colorscheme solarized8
+" colorscheme solarized8_low
+colorscheme solarized8_high
+" colorscheme solarized8_flat
 
-"" gruvbox-material
-"" https://github.com/sainnhe/gruvbox-material
-""
-" set background=dark
-" syntax on
-" " let g:gruvbox_material_background = 'hard'
-" " let g:gruvbox_material_background = 'medium'
-" let g:gruvbox_material_background = 'soft'
-" let g:gruvbox_material_disable_italic_comment = 1
-" colorscheme gruvbox-material
-" if (has("termguicolors"))
-"     " set termguicolors
-" endif
-" " let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+hi Comment cterm=NONE
 
 "" lightline
 "" https://github.com/itchyny/lightline.vim
 ""
-" let g:lightline = {
-"     \ 'colorscheme': 'gruvbox',
-"     \ }
-
 let g:lightline = {
-    \ 'colorscheme': 'powerline',
+    \ 'colorscheme': 'solarized',
     \ }
 
 "" Common

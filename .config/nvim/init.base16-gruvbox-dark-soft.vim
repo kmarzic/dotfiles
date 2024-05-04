@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2023-08-13 11:13:03 (CEST)
+"" Last update: 2024-05-04 09:12:25 (CEST)
 "" Current file: ~/.config/nvim/init.vim
 "" ------------------------------------------------------------------------
 
@@ -9,7 +9,7 @@
 source ~/.config/nvim/init.common0.vim
 
 "" base16-vim
-"" https://github.com/chriskempson/base16-vim.git
+"" https://github.com/tinted-theming/base16-vim.git
 ""
 let base16colorspace=256  " Access colors present in 256 colorspace
 set t_Co=256
