@@ -130,11 +130,11 @@ function __openwrt_build()
         #####################################################################
             __printf "linksys_wrt3200acm" info
 
-            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/mvebu/cortexa9/openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.xz" success
-            wget https://downloads.openwrt.org/snapshots/targets/mvebu/cortexa9/openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.xz
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/mvebu/cortexa9/openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/mvebu/cortexa9/openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst
 
-            __printf "$ tar -Jxf openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.xz" success
-            tar -Jxf openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.xz
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst
 
             __printf "$ cd openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64/" success
             cd openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64/
@@ -172,8 +172,8 @@ tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim
             __printf "$ scp openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM" success
             scp openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM
 
-            __printf "$ scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM" success
-            scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM
+            __printf "$ scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM" success
+            scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -188,11 +188,11 @@ tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim
         #####################################################################
             __printf "mikrotik_routerboard-962uigs-5hact2hnt-ac" info
 
-            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/ath79/mikrotik/openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.xz" success
-            wget https://downloads.openwrt.org/snapshots/targets/ath79/mikrotik/openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.xz
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/ath79/mikrotik/openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/ath79/mikrotik/openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst
 
-            __printf "$ tar -Jxf openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.xz" success
-            tar -Jxf openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.xz
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst
 
             __printf "$ cd openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64" success
             cd openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64
@@ -224,8 +224,8 @@ netperf openssl-util openvpn-openssl tcpdump vim wireguard-tools"
             __printf "$ scp openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac" success
             scp openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac
 
-            __printf "$ scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac" success
-            scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac
+            __printf "$ scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac" success
+            scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -240,11 +240,11 @@ netperf openssl-util openvpn-openssl tcpdump vim wireguard-tools"
         #####################################################################
             __printf "mikrotik_cap-ac" info
 
-            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/ipq40xx/mikrotik/openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz" success
-            wget https://downloads.openwrt.org/snapshots/targets/ipq40xx/mikrotik/openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/ipq40xx/mikrotik/openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/ipq40xx/mikrotik/openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst
 
-            __printf "$ tar -Jxf openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz" success
-            tar -Jxf openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst
 
             __printf "$ cd openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64" success
             cd openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64/
@@ -272,8 +272,8 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
             __printf "$ scp openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac" success
             scp openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac
 
-            __printf "$ scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac" success
-            scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac
+            __printf "$ scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac" success
+            scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -288,11 +288,11 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
         #####################################################################
             __printf "friendlyarm_nanopi-r2s" info
 
-            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz" success
-            wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
 
-            __printf "$ tar -Jxf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz" success
-            tar -Jxf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
 
             __printf "$ cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/" success
             cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/
@@ -336,8 +336,8 @@ tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim
             __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s" success
             scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s
 
-            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s" success
-            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s
+            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s" success
+            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -352,11 +352,11 @@ tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim
         #####################################################################
             __printf "friendlyarm_nanopi-r4s" info
 
-            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz" success
-            wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
 
-            __printf "$ tar -Jxf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz" success
-            tar -Jxf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
 
             __printf "$ cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/" success
             cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/
@@ -375,7 +375,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
             make image PROFILE=friendlyarm_nanopi-r4s PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
 dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
@@ -384,7 +384,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/rockchip/armv8/" success
             ls -la bin/targets/rockchip/armv8/
@@ -400,8 +400,8 @@ tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim
             __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s" success
             scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s
 
-            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s" success
-            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s
+            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s" success
+            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -416,11 +416,11 @@ tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim
         #####################################################################
             __printf "generic" info
 
-            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz" success
-            wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/x86/64/openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst
 
-            __printf "$ tar -Jxf openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz" success
-            tar -Jxf openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst
 
             __printf "$ cd openwrt-imagebuilder-x86-64.Linux-x86_64" success
             cd openwrt-imagebuilder-x86-64.Linux-x86_64
@@ -463,8 +463,8 @@ intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-u
             __printf "$ scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_x86" success
             scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_x86
 
-            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_x86" success
-            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz kmarzic@scully.lan:/data/media/openwrt_x86
+            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_x86" success
+            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_x86
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -477,8 +477,8 @@ intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-u
             __printf "$ scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 root@10.254.200.1:/data/openwrt_x86" success
             scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 root@10.254.200.1:/data/openwrt_x86
 
-            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz root@10.254.200.1:/data/openwrt_x86" success
-            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.xz root@10.254.200.1:/data/openwrt_x86
+            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst root@10.254.200.1:/data/openwrt_x86" success
+            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst root@10.254.200.1:/data/openwrt_x86
             ;;
     esac
 }
