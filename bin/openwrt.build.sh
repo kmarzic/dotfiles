@@ -147,7 +147,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-ssl xz-utils\"" success
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-ssl xz-utils\"" success
             make image PROFILE=linksys_wrt3200acm PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
 dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iwinfo \
@@ -156,7 +156,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-ssl xz-utils"
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/mvebu/cortexa9/" success
             ls -la bin/targets/mvebu/cortexa9/
@@ -311,7 +311,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
             make image PROFILE=friendlyarm_nanopi-r2s PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
 dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
@@ -320,7 +320,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/rockchip/armv8/" success
             ls -la bin/targets/rockchip/armv8/
@@ -436,7 +436,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
 intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-usb-ohci kmod-pcspkr losetup resize2fs\"" success
             make image PROFILE=generic PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
@@ -446,7 +446,7 @@ lm-sensors ncat nmap nping less liblzo2 \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
 mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts sqm-scripts-extra stubby \
-tcpdump transmission-cli transmission-daemon transmission-remote unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
 intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-usb-ohci kmod-pcspkr losetup resize2fs"
 
             __printf "$ ls -la bin/targets/x86/64/" success
