@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2024-04-27 11:15:49 (CEST)
+## Last update: 2024-05-20 15:43:08 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -386,8 +386,8 @@ export __PATH_NEW="${__PATH_NEW}:/opt/python3/bin:/opt/python3.ext/bin"
 export __PATH_NEW="${__PATH_NEW}:/opt/emacs/bin"
 export __PATH_NEW="${__PATH_NEW}:/opt/lua/bin:/opt/luarocks/bin"
 export __PATH_NEW="${__PATH_NEW}:/opt/tmux/bin"
-export __PATH_NEW="${__PATH_NEW}:/opt/sbcl/bin"
 export __PATH_NEW="${__PATH_NEW}:/opt/rust/bin"
+export __PATH_NEW="${__PATH_NEW}:/opt/nvim/usr/bin"
 export __PATH_NEW="${__PATH_NEW}:${ORACLE_INSTANT_CLIENT}"
 export __PATH_NEW="${__PATH_NEW}:${GOROOT}/bin"
 export __PATH_NEW="${__PATH_NEW}:${GHCROOT}/bin"
