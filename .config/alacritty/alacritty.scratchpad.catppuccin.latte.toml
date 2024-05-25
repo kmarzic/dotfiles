@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+#### alacritty.scratchpad.catppuccin.latte.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [[colors.indexed_colors]]
 color = "#FE640B"
@@ -151,3 +153,5 @@ text = "#EFF1F5"
 # [schemes.catppuccin_latte.vi_mode_cursor]
 # cursor = "#7287FD"
 # text = "#EFF1F5"
+
+#### END

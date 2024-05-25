@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+#### alacritty.scratchpad.gruvbox.dark.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [colors.bright]
 black = "0x3c3836"
@@ -95,3 +97,5 @@ foreground = "0xd4be98"
 # [schemes.gruvbox_material_soft_dark.primary]
 # background = "0x32302f"
 # foreground = "0xd4be98"
+
+#### END

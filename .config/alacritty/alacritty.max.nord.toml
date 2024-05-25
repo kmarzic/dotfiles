@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.max.toml"]
+#### alacritty.max.nord.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "#4c566a"
@@ -109,3 +111,5 @@ text = "#2e3440"
 # [schemes.nord.vi_mode_cursor]
 # cursor = "#d8dee9"
 # text = "#2e3440"
+
+#### END

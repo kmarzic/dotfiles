@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+#### END
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [[colors.indexed_colors]]
 color = "#F5A97F"
@@ -151,3 +153,5 @@ text = "#24273A"
 # [schemes.catppuccin.vi_mode_cursor]
 # cursor = "#B7BDF8"
 # text = "#24273A"
+
+#### END

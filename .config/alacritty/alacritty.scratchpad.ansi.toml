@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+#### alacritty.scratchpad.ansi.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [colors.bright]
 black = "#666666"
@@ -47,3 +49,5 @@ foreground = "#b6b6b6"
 # [schemes.ansi.primary]
 # background = "#000000"
 # foreground = "#b6b6b6"
+
+#### END

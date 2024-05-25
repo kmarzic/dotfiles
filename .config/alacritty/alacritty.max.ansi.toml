@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.max.toml"]
+#### alacritty.max.ansi.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "#666666"
@@ -47,3 +49,5 @@ yellow = "#999900"
 [schemes.ansi.primary]
 background = "#000000"
 foreground = "#b6b6b6"
+
+#### END

@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.max.toml"]
+#### alacritty.max.gruvbox.light.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "0x654735"
@@ -95,3 +97,5 @@ foreground = "0x654735"
 # [schemes.gruvbox_material_soft_light.primary]
 # background = "0xf2e5bc"
 # foreground = "0x654735"
+
+#### END

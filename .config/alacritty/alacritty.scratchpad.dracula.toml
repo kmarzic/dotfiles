@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.scratchpad.toml"]
+#### alacritty.scratchpad.dracula.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [colors.bright]
 black = "#6272a4"
@@ -121,3 +123,5 @@ text = "CellBackground"
 # [schemes.dracula.vi_mode_cursor]
 # cursor = "CellForeground"
 # text = "CellBackground"
+
+#### END

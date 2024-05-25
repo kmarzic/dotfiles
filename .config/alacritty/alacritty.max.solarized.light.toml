@@ -1,4 +1,6 @@
-import = ["/home/kmarzic/.config/alacritty/alacritty.main.toml", "/home/kmarzic/.config/alacritty/alacritty.max.toml"]
+#### alacritty.max.solarized.light.toml
+
+import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "#839496"
@@ -79,3 +81,5 @@ foreground = "#073642"
 # [schemes.solarized_light_1.primary]
 # background = "#eee8d5"
 # foreground = "#073642"
+
+#### END
