@@ -1,4 +1,4 @@
-## This is an example for icewm 3.4.6 program definition file.
+## This is an example for icewm 3.5.0 program definition file.
 ## It will be installed as /opt/icewm/share/icewm/programs.
 ## Place your variants in /opt/icewm/etc/icewm or in $HOME/.icewm.
 ## This file is intended to be customized by distributions.
