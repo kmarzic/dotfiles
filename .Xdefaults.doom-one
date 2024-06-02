@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-02 09:46:10 (CEST)
+!! Last update: 2024-06-02 14:01:02 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -36,42 +36,42 @@
 !! ---------------------------------------------------------------------
 
 ! This includes xterm and urxvt
-*.foreground:   #bbc2cf
-*.background:   #282c34
-*.cursorColor:  #bbc2cf
+*foreground:   #bbc2cf
+*background:   #282c34
+*cursorColor:  #bbc2cf
 
 ! black
-*.color0:       #1c1f24
-*.color8:       #5b6268
+*color0:       #1c1f24
+*color8:       #5b6268
 
 ! red
-*.color1:       #ff6c6b
-*.color9:       #da8548
+*color1:       #ff6c6b
+*color9:       #da8548
 
 ! green
-*.color2:       #98be65
-*.color10:      #4db5bd
+*color2:       #98be65
+*color10:      #4db5bd
 
 ! yellow
-*.color3:       #da8548
-*.color11:      #ecbe7b
+*color3:       #da8548
+*color11:      #ecbe7b
 
 ! blue
-*.color4:       #51afef
-! *.color12:      #2257a0 ! This is 2257a0 in Doom Emacs but I lightened it.
-*.color12:      #3071db
+*color4:       #51afef
+! *color12:      #2257a0 ! This is 2257a0 in Doom Emacs but I lightened it.
+*color12:      #3071db
 
 ! magenta
-*.color5:       #c678dd
-*.color13:      #a9a1e1
+*color5:       #c678dd
+*color13:      #a9a1e1
 
 ! cyan
-*.color6:       #5699af
-*.color14:      #46d9ff
+*color6:       #5699af
+*color14:      #46d9ff
 
 ! white
-*.color7:       #202328
-*.color15:      #dfdfdf
+*color7:       #202328
+*color15:      #dfdfdf
 
 !! ---------------------------------------------------------------------
 !! EOF

@@ -120,7 +120,7 @@ __help()
     __printf "   ${0} -s gruvbox.dark"
     __printf "   ${0} -s gruvbox.light"
     __printf "   ${0} -s monokai"
-    __printf "   ${0} -s nord"
+    __printf "   ${0} -s nord.dark"
     __printf "   ${0} -s papercolor.light"
     __printf "   ${0} -s selenized.dark"
     __printf "   ${0} -s selenized.light"
@@ -984,8 +984,8 @@ function __theme()
                 [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
             ;;
-        "nord")
-            __printf "nord"
+        "nord.dark")
+            __printf "nord.dark"
 
             #### Background
             [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
@@ -1028,38 +1028,38 @@ function __theme()
             [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
 
             #### Xdefaults
-            [[ -e ~/.Xdefaults.nord ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.nord .Xdefaults
-            [[ -e ~/.Xdefaults.nord ]] && xrdb -load ~/.Xdefaults.nord
+            [[ -e ~/.Xdefaults.nord.dark ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.nord.dark .Xdefaults
+            [[ -e ~/.Xdefaults.nord.dark ]] && xrdb -load ~/.Xdefaults.nord.dark
 
             #### vim
-            [[ -e ~/.vimrc.nord ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.nord .vimrc
-            [[ -e ~/.gvimrc.nord ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.nord .gvimrc
+            [[ -e ~/.vimrc.nord.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.nord.dark .vimrc
+            [[ -e ~/.gvimrc.nord.dar ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.nord.dark .gvimrc
 
             #### neovim
-            [[ -e ~/.config/nvim/init.nord.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.nord.vim init.vim && cd -
+            [[ -e ~/.config/nvim/init.nord.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.nord.dark.vim init.vim && cd -
 
             #### dunstrc
-            [[ -e ~/.config/dunst/dunstrc.nord ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.nord dunstrc
+            [[ -e ~/.config/dunst/dunstrc.nord.dark ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.nord.dark dunstrc
             pkill dunst
 
             #### redshift.conf
-            [[ -e ~/.config/redshift.nord.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.nord.conf redshift.conf && cd -
+            [[ -e ~/.config/redshift.nord.dark.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.nord.dark.conf redshift.conf && cd -
 
             #### screenrc
-            [[ -e ~/.screenrc.nord ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.nord .screenrc
+            [[ -e ~/.screenrc.nord.dark ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.nord.dark .screenrc
 
             #### tmux.conf
-            [[ -e ~/.tmux.conf.nord ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.nord .tmux.conf
+            [[ -e ~/.tmux.conf.nord.dark ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.nord.dark .tmux.conf
 
             #### alacritty.toml
-            [[ -e ~/.config/alacritty/alacritty.max.nord.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.nord.toml alacritty.toml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.nord.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.nord.toml scratchpad.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.max.nord.dark.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.nord.dark.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.nord.dark.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.nord.dark.toml scratchpad.toml && cd -
 
             #### xmobar
-            [[ -e ~/.config/xmonad/xmobar.nord.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.nord.hs xmobar.hs
+            [[ -e ~/.config/xmonad/xmobar.nord.dark.hs ]] && cd ~/.config/xmonad && rm -f xmobar.hs && ln -s xmobar.nord.dark.hs xmobar.hs
 
             #### xmonad
-            [[ -e ~/.config/xmonad/xmonad.nord.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.nord.hs xmonad.hs
+            [[ -e ~/.config/xmonad/xmonad.nord.dark.hs ]] && cd ~/.config/xmonad && rm -f xmonad.hs && ln -s xmonad.nord.dark.hs xmonad.hs
 
             if [[ -d ~/data/cabal/xmonad ]]
             then
