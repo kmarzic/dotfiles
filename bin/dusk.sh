@@ -33,7 +33,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t doom-one &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t dracula &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t everforest &
-[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t gruvbox.dark &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t gruvbox.dark &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t gruvbox.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t monokai &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t nord &
@@ -42,7 +42,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.white &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t solarized.dark &
-# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t solarized.light &
+[[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t solarized.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t srcery &
 
 #### dusk status - async

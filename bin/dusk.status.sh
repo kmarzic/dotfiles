@@ -110,7 +110,7 @@ __help()
     __printf "  -h                Help"
     __printf "  -d <dwmblock>     Dusk Status - async"
     __printf "  -a                Dusk Status - sync"
-    __printf "  -s <theme>        Theme"
+    __printf "  -t <theme>        Theme"
     __printf "  -l <file>         Log to <file>"
     __printf ""
     __printf "Themes:"
@@ -123,7 +123,7 @@ __help()
     __printf "   ${0} -t everforest"
     __printf "   ${0} -t gruvbox.dark"
     __printf "   ${0} -t monokai"
-    __printf "   ${0} -t nord"
+    __printf "   ${0} -t nord.dark"
     __printf "   ${0} -t papercolor.light"
     __printf "   ${0} -t selenized.dark"
     __printf "   ${0} -t selenized.light"
@@ -227,8 +227,8 @@ function __theme()
         "monokai")
             __printf "monokai"
             ;;
-        "nord")
-            __printf "nord"
+        "nord.dark")
+            __printf "nord.dark"
             CYAN='^c#88c0d0^'
             GREEN='^c#a3be8c^'
             ORANGE='^c#bf616a^'
