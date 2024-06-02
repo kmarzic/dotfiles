@@ -213,7 +213,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -283,7 +286,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -609,7 +615,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -784,7 +793,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -960,7 +972,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -1051,7 +1066,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -1360,7 +1378,10 @@ function __theme()
                 ## custom compiled xmonad - used sandbox
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
@@ -1466,7 +1487,10 @@ function __theme()
                 ## custom compiled xmonad
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --recompile
                 cd ~/data/cabal/xmonad && cabal v1-exec -- xmonad --restart
-            else
+            fi
+
+            if [[ -e ~/bin/xmonad ]]
+            then
                 ## xmonad installed from package
                 # xmonad --recompile
                 # xmonad --restart
