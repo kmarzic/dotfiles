@@ -111,6 +111,7 @@ function __help()
     __printf "  ${0} tkremar@entd0001"
     __printf "  ${0} tkremar@entl0002"
     __printf "  ${0} etkkrma@elx-5cg11804dr"
+    __printf "  ${0} etkkrma@elx-5cg4126xwd"
     __printf "  ${0} kmarzic@scully"
 }
 
@@ -166,6 +167,23 @@ case "${target}" in
         ;;
     "etkkrma@elx-5cg11804dr")
         __printf "rsync2ip etkkrma@elx-5cg11804dr" info
+
+        cd ~/data
+        __rsync projects          ${target}:/home/etkkrma/data
+        __rsync ssh               ${target}:/home/etkkrma/data
+        __rsync certs             ${target}:/home/etkkrma/data
+        __rsync vpn               ${target}:/home/etkkrma/data
+        __rsync secrets           ${target}:/home/etkkrma/data
+
+        cd ~/
+        __rsync wallpapers        ${target}:/home/etkkrma
+        __rsync bin               ${target}:/home/etkkrma
+        __rsync Maildir           ${target}:/home/etkkrma
+
+        __printf "Done!" success
+        ;;
+    "etkkrma@elx-5cg4126xwd")
+        __printf "rsync2ip etkkrma@elx-5cg4126xwd" info
 
         cd ~/data
         __rsync projects          ${target}:/home/etkkrma/data
