@@ -1662,7 +1662,7 @@ function __xrandr()
             done
             __printf "off='${off}'" debug
 
-            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - entd0001
+            #### entd0001: HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016
             if [[ "$(hostname)" == "entd0001" ]]
             then
                 __printf "# xrandr \\"
@@ -1682,7 +1682,8 @@ function __xrandr()
         2)
             #### 2 monitors
 
-            #### Dell - dle6440, dle5570
+            #### dle6440
+            #### dle5570
             if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
             then
                 __printf "# xrandr \\"
@@ -1694,8 +1695,9 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### HP EliteBook 850 G7 Notebook - elx711804dr, elx-5cg11804dr
-            if [[ "$(hostname)" == "elx711804dr" ]] || [[ "$(hostname)" == "elx-5cg11804dr" ]]
+            #### elx-5cg11804dr: HP EliteBook 850 G7 Notebook PC/8724, BIOS S73 Ver. 01.17.00 04/12/2024
+            #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
+            if [[ "$(hostname)" == "elx-5cg11804dr" ]] || [[ "$(hostname)" == "elx-5cg4126xwd" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
@@ -1706,7 +1708,7 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016 - entd0001
+            #### entd0001: HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016
             if [[ "$(hostname)" == "entd0001" ]]
             then
                 __printf "# xrandr \\"
@@ -1721,7 +1723,8 @@ function __xrandr()
         3)
             #### 3 monitors
 
-            #### Dell - dle6440, dle5570
+            #### dle6440
+            #### dle5570
             if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
             then
                 __printf "# xrandr \\"
@@ -1735,8 +1738,9 @@ function __xrandr()
                     --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
             fi
 
-            #### HP EliteBook 850 G7 Notebook - elx711804dr, elx-5cg11804dr
-            if [[ "$(hostname)" == "elx711804dr" ]] || [[ "$(hostname)" == "elx-5cg11804dr" ]]
+            #### elx-5cg11804dr: HP EliteBook 850 G7 Notebook PC/8724, BIOS S73 Ver. 01.17.00 04/12/2024
+            #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
+            if [[ "$(hostname)" == "elx-5cg11804dr" ]] || [[ "$(hostname)" == "elx-5cg4126xwd" ]]
             then
                 if [[ "${EXT1-}" == "DP-1-1" ]] && [[ "${EXT2-}" == "DP-1-2" ]]
                 then

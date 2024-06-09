@@ -134,13 +134,15 @@ function __redshift()
         # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
         # [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         #### light themes
-        [[ "$(hostname)" == "entd0001" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
-        [[ "$(hostname)" == "entl0002" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
         [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+        [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+        [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+        [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
         #### dark themes
-        # [[ "$(hostname)" == "entd0001" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
-        # [[ "$(hostname)" == "entl0002" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
         # [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+        # [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+        # [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+        # [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
 
         [[ "$(hostname)" == "dle5570" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
@@ -159,11 +161,12 @@ function __compton()
     if [[ ${compton_detect} -eq 0 ]]
     then
         [[ "$(hostname)" == "elx-5cg11804dr" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
-        [[ "$(hostname)" == "entd0001" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
-        [[ "$(hostname)" == "entl0002" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
-        [[ "$(hostname)" == "dle5570" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
-        [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
-        [[ "$(hostname)" == "dle6440" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+        [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+        [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+        [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+        [[ "$(hostname)" == "dle5570" ]]        && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+        [[ "$(hostname)" == "hp8560w" ]]        && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+        [[ "$(hostname)" == "dle6440" ]]        && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         ####
         # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
         ####
