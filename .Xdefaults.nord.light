@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2024-06-16 20:08:39 (CEST)
+!! Last update: 2024-06-16 19:37:21 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -19,7 +19,7 @@
 !! https://github.com/bakkeby/dusk.resources/tree/master/themes
 !! ---------------------------------------------------------------------
 
-#include "git/suckless/dusk.resources/themes/dark/srcery.res"
+#include "git/suckless/dusk.resources/themes/light/nord-light.res"
 #include "git/suckless/dusk.resources/themes/template.txt"
 
 
@@ -31,48 +31,35 @@
 
 
 !! ---------------------------------------------------------------------
-!! srcery
-!! https://github.com/srcery-colors/srcery-terminal/tree/master/xresources
+!! Nord
+!! https://github.com/lemnos/theme.sh
 !! ---------------------------------------------------------------------
 
-! special
-*foreground:   #fce8c3
-*background:   #1c1b19
-*cursorColor:  #fbb829
-Exit*foreground: #fce8c3
-Exit*background: #1c1b19
+*color0:  #e5e9f0
+*color1:  #99324b
+*color2:  #4f894c
+*color3:  #9a7500
+*color4:  #3b6ea8
+*color5:  #97365b
+*color6:  #398eac
+*color7:  #2e3440
+*color8:  #aebacf
+*color9:  #99324b
+*color10: #4f894c
+*color11: #9a7500
+*color12: #3b6ea8
+*color13: #97365b
+*color14: #398eac
+*color15: #29838d
+*color16: #ac4426
+*color17: #5272af
+*color18: #c2d0e7
+*color19: #b8c5db
+*color20: #60728c
+*color21: #3b4252
+*background: #e5e9f0
+*foreground: #2e3440
 
-! black
-*color0:       #1c1b19
-*color8:       #918175
-
-! red
-*color1:       #ef2f27
-*color9:       #f75341
-
-! green
-*color2:       #519f50
-*color10:      #98bc37
-
-! yellow
-*color3:       #fbb829
-*color11:      #fed06e
-
-! blue
-*color4:       #2c78bf
-*color12:      #68a8e4
-
-! magenta
-*color5:       #e02c6d
-*color13:      #ff5c8f
-
-! cyan
-*color6:       #0aaeb3
-*color14:      #2be4d0
-
-! white
-*color7:       #baa67f
-*color15:      #fce8c3
 
 !! ---------------------------------------------------------------------
 !! EOF
