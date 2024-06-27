@@ -21,7 +21,7 @@ function __lock()
     # i3lock -c 005088
 
     #### i3lock bluring
-    if [[ "$(hostname)" == "elx711804dr" ]] || [[ "$(hostname)" == "elxd648894f" ]] || [[ "$(hostname)" == "entd0001" ]] || [[ "$(hostname)" == "elx-5cg11804dr" ]]
+    if [[ "$(hostname)" == "entd0001" ]] || [["$(hostname)" == "entl0002" ]] || [[ "$(hostname)" == "elx-5cg4126xwd" ]]
     then
         rm -f /var/tmp/screen_locked.png /var/tmp/screen_locked2.png
         scrot /var/tmp/screen_locked.png
@@ -30,7 +30,7 @@ function __lock()
     fi
 
     #### slock bluring
-    if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
+    if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]] | [[ "$(hostname)" == "hp8560w" ]]
     then
         ~/bin/slock
     fi
