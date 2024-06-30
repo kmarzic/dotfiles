@@ -131,6 +131,10 @@ __help()
     __printf "   ${0} -t solarized.light"
     __printf "   ${0} -t srcery"
     __printf ""
+    __printf "Functions:"
+    __printf "   ${0} -f volume-set -b 1"
+    __printf "   ${0} -f mic-set -b 1"
+    __printf ""
     __printf "Examples:"
     __printf "${0} -f volume-set -b 1"
     __printf "${0} -f mic-set -b 1"
@@ -187,6 +191,18 @@ function __theme()
             YELLOW='^c#8a8a0f^'
             NORMAL='^c#1f292e^'
             ;;
+        "base16-google-light")
+            __printf "base16-google-light" debug
+            ;;
+        "base16-gruvbox-dark-soft")
+            __printf "base16-gruvbox-dark-soft" debug
+            ;;
+        "cattpuccin")
+            __printf "cattpuccin" debug
+            ;;
+        "cattpuccin.latte")
+            __printf "cattpuccin.late" debug
+            ;;
         "doom-one")
             __printf "doom-one" debug
             CYAN='^c#5699af^'
@@ -209,8 +225,14 @@ function __theme()
             YELLOW='^c#f1fa8c^'
             NORMAL='^c#f8f8f2^'
             ;;
-        "everofest")
-            __printf "everforest" debug
+        "everofest.dark")
+            __printf "everforest.dark" debug
+            ;;
+        "everofest.light")
+            __printf "everforest.light" debug
+            ;;
+        "lucario")
+            __printf "lucario" debug
             ;;
         "gruvbox.dark")
             __printf "gruvbox.dark" debug
@@ -232,6 +254,9 @@ function __theme()
             RED='^c#fb4934^'
             YELLOW='^c#fabd2f^'
             NORMAL='^c#fbf1c7^'
+            ;;
+        "gruvbox.light")
+            __printf "gruvbox.light" debug
             ;;
         "monokai")
             __printf "monokai" debug
@@ -326,6 +351,9 @@ function __theme()
             RED='^c#ef2f27^'
             YELLOW='^c#fbb829^'
             NORMAL='^c#fce8c3^'
+            ;;
+        "tokyo.night")
+            __printf "tokyo.night" debug
             ;;
     esac
 }
@@ -734,18 +762,18 @@ function __time()
 
     if [[ "${__async_flag-}" == "true" ]]
     then
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 1"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑋 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 2"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑌 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 3"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑍 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 4"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑎 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 5"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑏 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 6"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑐 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 7"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑑 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 8"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑒 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 9"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑓 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 10" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑔 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 11" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑕 ${time}"
-        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 12" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑖 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 1"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑋 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 2"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑌 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 3"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑍 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 4"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑎 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 5"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑏 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 6"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑐 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 7"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑑 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 8"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑒 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 9"  | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑓 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 10" | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑔 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 11" | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑕 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 12" | bc -l) -eq 1 ]] && echo -e "${NORMAL} ${date} 󱑖 ${time}"
     fi
 }
 
@@ -780,11 +808,11 @@ function __volume()
         [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "VOL: -"
         [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}󰖀 ${NORMAL}${RED}-${NORMAL}"
 
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} == 2" | bc -l) -eq 1 ]] &&                                                                                                   echo "${NORMAL}󰖁 ${NORMAL}${RED}   ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} ==  0" | bc -l) -eq 1 ]] &&                                                  echo "${NORMAL}󰖁 ${NORMAL}${RED}   ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >   0" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <= 40" | bc -l) -eq 1 ]] && echo "${NORMAL}󰕿 ${NORMAL}${GREEN} ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <  60" | bc -l) -eq 1 ]] && echo "${NORMAL}󰖀 ${NORMAL}${YELLOW}${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >= 60" | bc -l) -eq 1 ]] &&                                                  echo "${NORMAL}󰕾 ${NORMAL}${RED}   ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} == 2" | bc -l) -eq 1 ]] &&                                                                                                   echo "${NORMAL}󰖁 ${NORMAL}${RED}   ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} ==  0" | bc -l) -eq 1 ]] &&                                                  echo "${NORMAL}󰖁 ${NORMAL}${RED}   ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >   0" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <= 40" | bc -l) -eq 1 ]] && echo "${NORMAL}󰕿 ${NORMAL}${GREEN} ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <  80" | bc -l) -eq 1 ]] && echo "${NORMAL}󰖀 ${NORMAL}${YELLOW}${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >= 80" | bc -l) -eq 1 ]] &&                                                  echo "${NORMAL}󰕾 ${NORMAL}${RED}   ${volume}%${NORMAL}"
 
     fi
 
@@ -793,11 +821,11 @@ function __volume()
         [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "VOL: -"
         [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED}󰖀 -${NORMAL}"
 
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} == 2" | bc -l) -eq 1 ]] &&                                                                                                   echo -e "${RED}󰖁 ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} ==  0" | bc -l) -eq 1 ]] &&                                                  echo -e "${RED}󰖁 ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >   0" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <= 40" | bc -l) -eq 1 ]] && echo -e "${GREEN}󰕿 ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <  60" | bc -l) -eq 1 ]] && echo -e "${YELLOW}󰖀 ${volume}${NORMAL}"
-        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >= 60" | bc -l) -eq 1 ]] &&                                                  echo -e "${RED}󰕾 ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} == 2" | bc -l) -eq 1 ]] &&                                                                                                   echo -e "${RED}󰖁 ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} ==  0" | bc -l) -eq 1 ]] &&                                                  echo -e "${RED}󰖁 ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >   0" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <= 40" | bc -l) -eq 1 ]] && echo -e "${GREEN}󰕿 ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <  80" | bc -l) -eq 1 ]] && echo -e "${YELLOW}󰖀 ${volume}%${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >= 80" | bc -l) -eq 1 ]] &&                                                  echo -e "${RED}󰕾 ${volume}%${NORMAL}"
     fi
 }
 
@@ -850,9 +878,9 @@ function __mic()
         [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "MIC: -"
         [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}󰍬 ${NORMAL}${RED}-${NORMAL}"
 
-        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} == 2" | bc -l) -eq 1 ]] &&                                               echo "${NORMAL} ${NORMAL}${GREEN} ${volume}${NORMAL}"
-        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} ==  0" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${volume}${NORMAL}"
-        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} >   0" | bc -l) -eq 1 ]] && echo "${NORMAL}󰍬 ${NORMAL}${RED}   ${volume}${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} == 2" | bc -l) -eq 1 ]] &&                                               echo "${NORMAL} ${NORMAL}${GREEN} ${volume}%${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} ==  0" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${volume}%${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} >   0" | bc -l) -eq 1 ]] && echo "${NORMAL}󰍬 ${NORMAL}${RED}   ${volume}%${NORMAL}"
     fi
 
     if [[ "${__async_flag-}" == "true" ]]
@@ -860,9 +888,9 @@ function __mic()
         [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "MIC: -"
         [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED}󰍬 -${NORMAL}"
 
-        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} == 2" | bc -l) -eq 1 ]] &&                                               echo -e "${RED} ${mic}${NORMAL}"
-        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} ==  0" | bc -l) -eq 1 ]] && echo -e "${RED} ${mic}${NORMAL}"
-        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} >   0" | bc -l) -eq 1 ]] && echo -e "${GREEN}󰍬 ${mic}${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} == 2" | bc -l) -eq 1 ]] &&                                               echo -e "${RED} ${mic}%${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} ==  0" | bc -l) -eq 1 ]] && echo -e "${RED} ${mic}%${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} >   0" | bc -l) -eq 1 ]] && echo -e "${GREEN}󰍬 ${mic}%${NORMAL}"
     fi
 }
 
@@ -874,14 +902,17 @@ function __mic_set()
 
     case ${BUTTON} in
         1)
+            #### alsa
             notify-send "amixer sset Capture 1+ 10%+"
             amixer sset Capture 1+ 10%+
             ;;
         2)
+            #### alsa
             notify-send "amixer sset Capture 1+ toggle"
             amixer sset Capture 1+ toggle
             ;;
         3)
+            #### alsa
             notify-send "amixer sset Capture 1+ 10%-"
             amixer sset Capture 1+ 10%-
             ;;
@@ -1106,6 +1137,13 @@ done
 
 #### This tells getopts to move on to the next argument.
 shift $((OPTIND-1))
+
+if [[ -z "${__async_flag-}" ]] && [[ -z "${__sync_flag-}" ]] && [[ -z "${__function_flag-}" ]]
+then
+    __help
+    exit ${EXIT_ERROR}
+fi
+
 
 if [[ "${__async_flag-}" == "true" ]]
 then
