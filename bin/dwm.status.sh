@@ -3,7 +3,7 @@
 #
 #          FILE: dwm.status.sh
 #
-#         USAGE: ./dwm.status.sh [ -h | -a <dwmblock> | -s | -t <theme> ]
+#         USAGE: ./dwm.status.sh [ -h | -a <dwmblock> | -s | -t <theme> | -f <function> | -b <button> ]]
 #
 #   DESCRIPTION:
 #
@@ -105,10 +105,11 @@ function __banner()
 ####
 __help()
 {
-    __printf "Usage: ${0} [ -h | -a <dwmblock> | -s | -t <theme> ]"
+    __printf "Usage: ${0} [ -h | -a <dwmblock> | -s | -t <theme> | -f <function> | -b <button> ]"
     __printf "  -h                Help"
-    __printf "  -d <dwmblock>     DWM Status - async"
-    __printf "  -a                DWM Status - sync"
+    __printf "  -a <dwmblock>     DWM Status - async"
+    __printf "  -s                DWM Status - sync"
+    __printf "  -f                Function set"
     __printf "  -t <theme>        Theme"
     __printf "  -l <file>         Log to <file>"
     __printf ""
@@ -131,12 +132,17 @@ __help()
     __printf "   ${0} -t srcery"
     __printf ""
     __printf "Examples:"
+    __printf "${0} -f volume-set -b 1"
+    __printf "${0} -f mic-set -b 1"
     __printf "${0} -s -t gruvbox.dark"
     __printf "${0} -a sb-load    -t gruvbox.dark"
     __printf "${0} -a sb-memory  -t gruvbox.dark"
     __printf "${0} -a sb-battery -t gruvbox.dark"
     __printf "${0} -a sb-network -t gruvbox.dark"
     __printf "${0} -a sb-time    -t gruvbox.dark"
+    __printf "${0} -a sb-keymap  -t gruvbox.dark"
+    __printf "${0} -a sb-volume  -t gruvbox.dark"
+    __printf "${0} -a sb-mic     -t gruvbox.dark"
 }
 
 #### Function: Theme environment
@@ -402,7 +408,7 @@ function __temp_linux()
     if [[ "${__async_flag-}" == "true" ]]
     then
         [[ -z ${temp} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: -"
-        [[ -z ${temp} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED}  -${NORMAL}"
+        [[ -z ${temp} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED} -${NORMAL}"
 
         [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 0 ]] && echo "Temp: ${temp}"
         [[ ! -z ${temp} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${temp_dec} <= 40" | bc -l) -eq 1 ]] &&                                                   echo "${GREEN} ${temp}${NORMAL}"
@@ -428,10 +434,6 @@ function __memory_linux()
     mem_percent=$(echo "scale=2; ${mem_available}/${mem_total}*100" | bc -l | sed -e "s/\..*//g")
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo "MEM: ${mem_percent}%"
-
-    # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} <= 50" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${RED}   ${mem_percent}%${NORMAL}"
-    # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >  50" | bc -l) -eq 1 ]] && [[ $(echo "${mem_percent} < 90" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${mem_percent}%${NORMAL}"
-    # [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mem_percent} >= 90" | bc -l) -eq 1 ]] &&                                                      echo "${NORMAL} ${NORMAL}${GREEN} ${mem_percent}%${NORMAL}"
 
     if [[ "${__sync_flag-}" == "true" ]]
     then
@@ -500,7 +502,7 @@ function __battery_linux()
         if [[ ${battery_enabled} -eq 0 ]]
         then
             [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: -"
-            [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}  ${NORMAL}${RED}-${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL} ${NORMAL}${RED}-${NORMAL}"
         else
             battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
 
@@ -532,7 +534,7 @@ function __battery_linux()
         if [[ ${battery_enabled} -eq 0 ]]
         then
             [[ ${STATUSCOLOR} -eq 0 ]] && echo "BAT: -"
-            [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED}  -${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED} -${NORMAL}"
         else
             battery="$(acpi --battery | cut -d, -f2 | sed -e "s/ //g;s/%//g")"
 
@@ -634,27 +636,27 @@ function __network_linux()
     then
         if [[ ${rx} -gt 1048576 ]]
         then
-            rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
+            rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
             rx="${RED}${rx}${NORMAL} MB/s"
         elif [[ ${rx} -gt 1024 ]]
         then
-            rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%04d", $1)}')
+            rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%03d", $1)}')
             rx="${YELLOW}${rx}${NORMAL} KB/s"
         else
-            rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%04d", $1)}')
+            rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%03d", $1)}')
             rx="${GREEN}${rx}${NORMAL}  B/s"
         fi
 
         if [[ ${tx} -gt 1048576 ]]
         then
-            tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
+            tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
             tx="${RED}${tx}${NORMAL} MB/s"
         elif [[ ${tx} -gt 1024 ]]
         then
-            tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%04d", $1)}')
+            tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%03d", $1)}')
             tx="${YELLOW}${tx}${NORMAL} KB/s"
         else
-            tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%04d", $1)}')
+            tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%03d", $1)}')
             tx="${GREEN}${tx}${NORMAL}  B/s"
         fi
 
@@ -667,27 +669,27 @@ function __network_linux()
     then
         if [[ ${rx} -gt 1048576 ]]
         then
-            rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
+            rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
             rx="${rx} MB/s"
         elif [[ ${rx} -gt 1024 ]]
         then
-            rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%04d", $1)}')
+            rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%03d", $1)}')
             rx="${rx} KB/s"
         else
-            rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%04d", $1)}')
+            rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%03d", $1)}')
             rx="${rx}  B/s"
         fi
 
         if [[ ${tx} -gt 1048576 ]]
         then
-            tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%04d", $1)}')
+            tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
             tx="${tx} MB/s"
         elif [[ ${tx} -gt 1024 ]]
         then
-            tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%04d", $1)}')
+            tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%03d", $1)}')
             tx="${tx} KB/s"
         else
-            tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%04d", $1)}')
+            tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%03d", $1)}')
             tx="${tx}  B/s"
         fi
 
@@ -710,18 +712,180 @@ function __time()
 {
     date="$(date +"%a %Y-%m-%d")"
     time="$(date +"%H:%M:%S")"
+    hour="$(date +"%l" | sed -e "s/ //g")"
 
     [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${date} ${time}"
 
     if [[ "${__sync_flag-}" == "true" ]]
     then
-        [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN} ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 1"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑋 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 2"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑌 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 3"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑍 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 4"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑎 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 5"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑏 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 6"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑐 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 7"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑑 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 8"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑒 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 9"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑓 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 10" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑔 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 11" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑕 ${NORMAL}${time}${NORMAL}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 12" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${NORMAL}${date}${NORMAL} ${CYAN}󱑖 ${NORMAL}${time}${NORMAL}"
     fi
 
     if [[ "${__async_flag-}" == "true" ]]
     then
-        [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN} ${date}  ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 1"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑋 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 2"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑌 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 3"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑍 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 4"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑎 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 5"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑏 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 6"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑐 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 7"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑑 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 8"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑒 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 9"  | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑓 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 10" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑔 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 11" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑕 ${time}"
+        [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 12" | bc -l) -eq 1 ]] && echo -e "${CYAN} ${date} 󱑖 ${time}"
     fi
+}
+
+#### Function: xkb_keymap
+####
+function __xkb_keymap()
+{
+    xkb_symboks=$(setxkbmap -print | grep xkb_symbols | awk '{print $4}' | awk -F"+" '{print $2}')
+
+    [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "${xkb_symboks}"
+
+    if [[ "${__sync_flag-}" == "true" ]]
+    then
+        [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${NORMAL}⌨ ${NORMAL}${xkb_symboks}${NORMAL}"
+    fi
+
+    if [[ "${__async_flag-}" == "true" ]]
+    then
+        [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${NORMAL}⌨ ${xkb_symboks}${NORMAL}"
+    fi
+}
+
+#### Function: volume
+####
+function __volume()
+{
+    volume=$(amixer get Master | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')
+    volume_mute=$(amixer get Master | grep -E "Front Left:|Front Right:" | grep "\[off\]" | wc -l)
+
+    if [[ "${__sync_flag-}" == "true" ]]
+    then
+        [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "VOL: -"
+        [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}󰖀 ${NORMAL}${RED}-${NORMAL}"
+
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} == 2" | bc -l) -eq 1 ]] &&                                                                                                   echo "${NORMAL}󰖁 ${NORMAL}${RED}   ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} ==  0" | bc -l) -eq 1 ]] &&                                                  echo "${NORMAL}󰖁 ${NORMAL}${RED}   ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >   0" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <= 40" | bc -l) -eq 1 ]] && echo "${NORMAL}󰕿 ${NORMAL}${GREEN} ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <  60" | bc -l) -eq 1 ]] && echo "${NORMAL}󰖀 ${NORMAL}${YELLOW}${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >= 60" | bc -l) -eq 1 ]] &&                                                  echo "${NORMAL}󰕾 ${NORMAL}${RED}   ${volume}${NORMAL}"
+
+    fi
+
+    if [[ "${__async_flag-}" == "true" ]]
+    then
+        [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "VOL: -"
+        [[ -z ${volume} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED}󰖀 -${NORMAL}"
+
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} == 2" | bc -l) -eq 1 ]] &&                                                                                                   echo -e "${RED}󰖁 ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} ==  0" | bc -l) -eq 1 ]] &&                                                  echo -e "${RED}󰖁 ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >   0" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <= 40" | bc -l) -eq 1 ]] && echo -e "${GREEN}󰕿 ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >  40" | bc -l) -eq 1 ]] && [[ $(echo "${volume} <  60" | bc -l) -eq 1 ]] && echo -e "${YELLOW}󰖀 ${volume}${NORMAL}"
+        [[ ! -z ${volume} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${volume_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${volume} >= 60" | bc -l) -eq 1 ]] &&                                                  echo -e "${RED}󰕾 ${volume}${NORMAL}"
+    fi
+}
+
+#### Function: volume set
+####
+function __volume_set()
+{
+    echo "button=${BUTTON}" debug
+
+    case ${BUTTON} in
+        1)
+            #### alsa
+            notify-send "amixer sset Master 1+ 10%+"
+            amixer sset Master 1+ 10%+
+            #### pulse secure
+            # /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%
+            #### pipewire
+            # /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+            ;;
+        2)
+            #### alsa
+            notify-send "amixer sset Master 1+ toggle"
+            amixer sset Master 1+ toggle
+            #### pulse secure
+            # /usr/bin/pactl set-sink-mute   @DEFAULT_SINK@ toggle
+            #### pipewire
+            # /usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+            ;;
+        3)
+            #### alsa
+            notify-send "amixer sset Master 1+ 10%-"
+            amixer sset Master 1+ 10%-
+            #### pulse secure
+            # /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%
+            #### pipewire
+            # /usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+            ;;
+    esac
+}
+
+#### Function: mic
+####
+function __mic()
+{
+    mic=$(amixer get Capture | tail -n1 | sed -r 's/.*\[(.*)%\].*/\1/')
+    mic_mute=$(amixer get Capture | grep -E "Front Left:|Front Right:" | grep "\[off\]" | wc -l)
+
+    if [[ "${__sync_flag-}" == "true" ]]
+    then
+        [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "MIC: -"
+        [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${NORMAL}󰍬 ${NORMAL}${RED}-${NORMAL}"
+
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} == 2" | bc -l) -eq 1 ]] &&                                               echo "${NORMAL} ${NORMAL}${GREEN} ${volume}${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} ==  0" | bc -l) -eq 1 ]] && echo "${NORMAL} ${NORMAL}${YELLOW}${volume}${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} >   0" | bc -l) -eq 1 ]] && echo "${NORMAL}󰍬 ${NORMAL}${RED}   ${volume}${NORMAL}"
+    fi
+
+    if [[ "${__async_flag-}" == "true" ]]
+    then
+        [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 0 ]] && echo "MIC: -"
+        [[ -z ${mic} ]]   && [[ ${STATUSCOLOR} -eq 1 ]] && echo "${RED}󰍬 -${NORMAL}"
+
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} == 2" | bc -l) -eq 1 ]] &&                                               echo -e "${RED} ${mic}${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} ==  0" | bc -l) -eq 1 ]] && echo -e "${RED} ${mic}${NORMAL}"
+        [[ ! -z ${mic} ]] && [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${mic_mute} != 2" | bc -l) -eq 1 ]] && [[ $(echo "${mic} >   0" | bc -l) -eq 1 ]] && echo -e "${GREEN}󰍬 ${mic}${NORMAL}"
+    fi
+}
+
+#### Function: mic set
+####
+function __mic_set()
+{
+    echo "button=${BUTTON}" debug
+
+    case ${BUTTON} in
+        1)
+            notify-send "amixer sset Capture 1+ 10%+"
+            amixer sset Capture 1+ 10%+
+            ;;
+        2)
+            notify-send "amixer sset Capture 1+ toggle"
+            amixer sset Capture 1+ toggle
+            ;;
+        3)
+            notify-send "amixer sset Capture 1+ 10%-"
+            amixer sset Capture 1+ 10%-
+            ;;
+    esac
 }
 
 #### Function: spaces
@@ -770,12 +934,10 @@ function __async_process()
             ;;
         "sb-weather")
             # __weather
-
             echo .
             ;;
         "sb-forecast")
             # __forecast
-
             echo .
             ;;
         "sb-network")
@@ -785,6 +947,15 @@ function __async_process()
         "sb-time")
             printf '\x06 %s';
             __time
+            ;;
+        "sb-keymap")
+            __xkb_keymap
+            ;;
+        "sb-volume")
+            printf '\x07 %s' && __volume
+            ;;
+        "sb-mic")
+            printf '\x08 %s' && __mic
             ;;
     esac
 }
@@ -860,6 +1031,25 @@ function __sync_process()
 }
 
 
+#### Function: function_process
+####
+function __function_process()
+{
+    #### arg
+    function="${1}"
+    __printf "function='${function}'" debug
+
+    case ${function} in
+        "volume-set")
+             __volume_set
+            ;;
+        "mic-set")
+            __mic_set
+            ;;
+    esac
+}
+
+
 ###############################################################################
 ## main
 ###############################################################################
@@ -868,11 +1058,13 @@ function __sync_process()
 # __banner
 
 #### Command Line
-__theme_flag=""
 __async_flag=""
 __sync_flag=""
+__theme_flag=""
+__function_flag=""
+__button_flag=""
 
-while getopts "ha:st:l:" opt;
+while getopts "ha:st:f:b:l:" opt;
 do
     case ${opt} in
         h)
@@ -890,6 +1082,16 @@ do
             __theme_flag="true"
             THEME=${OPTARG}
             ;;
+        f)
+            __function_flag="true"
+            __theme_flag="true"
+            THEME="dummy"
+            FUNCTION=${OPTARG}
+            ;;
+        b)
+            __button_flag="true"
+            BUTTON=${OPTARG}
+            ;;
         l)
             LOG_ENABLED="true"
             LOG_FILE=${OPTARG}
@@ -905,16 +1107,16 @@ done
 #### This tells getopts to move on to the next argument.
 shift $((OPTIND-1))
 
-if [[ -z "${__theme_flag}" ]]
-then
-    __printf "Missing theme arguments!" error
-    __help
-    exit ${EXIT_ERROR}
-fi
-
 if [[ "${__async_flag-}" == "true" ]]
 then
     #### Theme
+    if [[ -z "${__theme_flag}" ]]
+    then
+        __printf "Missing theme arguments!" error
+        __help
+        exit ${EXIT_ERROR}
+    fi
+
     __theme ${THEME}
 
     #### async process
@@ -924,10 +1126,30 @@ fi
 if [[ "${__sync_flag-}" == "true" ]]
 then
     #### Theme
+    if [[ -z "${__theme_flag}" ]]
+    then
+        __printf "Missing theme arguments!" error
+        __help
+        exit ${EXIT_ERROR}
+    fi
+
     __theme ${THEME}
 
     #### sync process
     __sync_process
+fi
+
+if [[ "${__function_flag-}" == "true" ]]
+then
+    if [[ -z "${__button_flag}" ]]
+    then
+        __printf "Missing button arguments!" error
+        __help
+        exit ${EXIT_ERROR}
+    fi
+
+    #### Function
+    __function_process ${FUNCTION}
 fi
 
 #### Done
