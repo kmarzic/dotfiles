@@ -77,7 +77,7 @@ case "$1" in
                 echo "    # IdentityFile ~/data/ssh/id_rsa.etk.it.etkadmin"
                 echo "    ## admkremar"
                 echo "    User admkremar"
-                echo "    IdentityFile ~/data/ssh/id_rsa.zgvl0020"
+                echo "    IdentityFile ~/data/ssh/id_rsa.etk.zgvl0020"
                 echo "    ##"
                 if [ "${host}" == "ehrzgva486" ]  || [ "${host}" == "ehrzgittebck" ] || [ "${host}" == "ehrzgux211" ]   ||
                    [ "${host}" == "ehrzglx2169" ] || [ "${host}" == "exzglx050" ]    || [ "${host}" == "utra1" ]        ||
@@ -94,6 +94,12 @@ case "$1" in
                 then
                     echo "    PubkeyAcceptedKeyTypes=ssh-rsa"
                 fi
+                [ "${host}" == "zgvl5047" ] && echo "    LocalForward 127.0.0.1:21047 192.168.131.82:443"
+                [ "${host}" == "zgvl5049" ] && echo "    LocalForward 127.0.0.1:21049 192.168.131.84:443"
+                [ "${host}" == "zgvl5050" ] && echo "    LocalForward 127.0.0.1:21050 192.168.131.98:443"
+                [ "${host}" == "zgvl5052" ] && echo "    LocalForward 127.0.0.1:21052 192.168.131.114:443"
+                [ "${host}" == "zgvl5054" ] && echo "    LocalForward 127.0.0.1:21054 192.168.131.116:443"
+                [ "${host}" == "zgvl5055" ] && echo "    LocalForward 127.0.0.1:21055 192.168.131.130:443"
                 echo "    ProxyCommand ssh -qAW %h:%p etk.ansible"
                 echo ""
                 ;;
