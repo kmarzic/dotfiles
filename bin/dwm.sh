@@ -26,24 +26,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s srcery
 
 #### dwm status - sync
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t ansi &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t base16-atelier-lakeside-light &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t base16-google-light &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t base16-gruvbox-dark-soft &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t doom-one &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t dracula &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t everforest &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t gruvbox.dark &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t gruvbox.light &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t monokai &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t nord.dark &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t papercolor.light &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t selenized.dark &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t selenized.light &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t selenized.white &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t solarized.dark &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t solarized.light &
-# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s -t srcery &
+# [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s &
 
 #### dwm status - async
 [[ -e ${HOME}/bin/dwmblocks ]] && dwmblocks &
