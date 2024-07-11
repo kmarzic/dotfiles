@@ -1655,6 +1655,11 @@ function __xrandr()
     case ${xrandr_connect_length} in
         1)
             #### 1 monitor
+            __printf "1 monitor"
+            __printf "IN='${IN-}'"
+            __printf "EXT1='${EXT1-}'"
+            __printf "EXT2='${EXT2-}'"
+
             off=""
             for (( i=0; i<${#xrandr_disconnect[@]}; i++ ));
             do
@@ -1681,6 +1686,10 @@ function __xrandr()
             ;;
         2)
             #### 2 monitors
+            __printf "2 monitors"
+            __printf "IN='${IN-}'"
+            __printf "EXT1='${EXT1-}'"
+            __printf "EXT2='${EXT2-}'"
 
             #### dle6440
             #### dle5570
@@ -1695,9 +1704,8 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### elx-5cg11804dr: HP EliteBook 850 G7 Notebook PC/8724, BIOS S73 Ver. 01.17.00 04/12/2024
             #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
-            if [[ "$(hostname)" == "elx-5cg11804dr" ]] || [[ "$(hostname)" == "elx-5cg4126xwd" ]]
+            if [[ "$(hostname)" == "elx-5cg4126xwd" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
@@ -1711,17 +1719,24 @@ function __xrandr()
             #### entd0001: HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016
             if [[ "$(hostname)" == "entd0001" ]]
             then
-                __printf "# xrandr \\"
-                __printf "    --output ${IN-} --mode 1920x1200 \\"
-                __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-}"
+                if [[ "${IN-}" == "DisplayPort-3" ]] && [[ "${EXT1-}" == "DisplayPort-4" ]]
+                then
+                    __printf "# xrandr \\"
+                    __printf "    --output ${IN-} --mode 1920x1200 --primary\\"
+                    __printf "    --output ${EXT1-} --mode 1920x1080 ${POSITION-} ${IN-} "
 
-                xrandr \
-                    --output ${IN-} --mode 1920x1200 \
-                    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-}
+                    xrandr \
+                        --output ${IN-} --mode 1920x1200 --primary \
+                        --output ${EXT1-} --mode 1920x1080 ${POSITION-} ${IN-}
+                fi
             fi
             ;;
         3)
             #### 3 monitors
+            __printf "3 monitors"
+            __printf "IN='${IN-}'"
+            __printf "EXT1='${EXT1-}'"
+            __printf "EXT2='${EXT2-}'"
 
             #### dle6440
             #### dle5570
@@ -1738,9 +1753,8 @@ function __xrandr()
                     --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
             fi
 
-            #### elx-5cg11804dr: HP EliteBook 850 G7 Notebook PC/8724, BIOS S73 Ver. 01.17.00 04/12/2024
             #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
-            if [[ "$(hostname)" == "elx-5cg11804dr" ]] || [[ "$(hostname)" == "elx-5cg4126xwd" ]]
+            if [[ "$(hostname)" == "elx-5cg4126xwd" ]]
             then
                 if [[ "${EXT1-}" == "DP-1-1" ]] && [[ "${EXT2-}" == "DP-1-2" ]]
                 then
