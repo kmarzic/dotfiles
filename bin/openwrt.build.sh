@@ -3,7 +3,7 @@
 #
 #          FILE: openwrt.build.sh
 #
-#         USAGE: ./openwrt.build.sh [ -h | -p <platform> ]
+#         USAGE: ./openwrt.build.sh [ -h | -v <variant> | -p <platform> ]
 #
 #   DESCRIPTION:
 #
@@ -99,19 +99,106 @@ function __banner()
 ##
 __help()
 {
-    __printf "Usage: ${0} [ -h | -p <platform> ]"
+    __printf "Usage: ${0} [ -h | -v <variant> | -p <platform> ]"
     __printf "  -h                Help"
-    __printf "  -p <platform>     Theme"
+    __printf "  -v <variant>      Variant"
+    __printf "  -p <platform>     Platform"
     __printf "  -l <file>  Log to <file>"
+    __printf ""
+    __printf "Variant:"
+    __printf "   openwrt"
+    __printf "   immortalwrt"
+    __printf ""
     __printf "Examples:"
-    __printf "   ${0} -p linksys_wrt3200acm"
-    __printf "   ${0} -p mikrotik_routerboard-962uigs-5hact2hnt-ac"
-    __printf "   ${0} -p mikrotik_cap-ac"
-    __printf "   ${0} -p friendlyarm_nanopi-r2s"
-    __printf "   ${0} -p friendlyarm_nanopi-r4s"
-    __printf "   ${0} -p generic"
+    __printf "   ${0} -p linksys_wrt3200acm                          -v openwrt"
+    __printf "   ${0} -p mikrotik_routerboard-962uigs-5hact2hnt-ac   -v openwrt"
+    __printf "   ${0} -p mikrotik_cap-ac                             -v openwrt"
+    __printf "   ${0} -p friendlyarm_nanopi-r2s                      -v openwrt"
+    __printf "   ${0} -p friendlyarm_nanopi-r4s                      -v openwrt"
+    __printf "   ${0} -p friendlyarm_nanopi-r6s                      -v immortalwrt"
+    __printf "   ${0} -p generic                                     -v openwrt"
 }
 
+## Function: ImmortalWRT build
+##
+function __immortalwrt_build()
+{
+    __printf "ImmortalWRT build" info
+
+    #### arg
+    platform=${1}
+    __printf "platform='${platform}'" debug
+
+    #### set theme
+    case ${platform} in
+        #####################################################################
+        "friendlyarm_nanopi-r6s")
+        #####################################################################
+            __printf "friendlyarm_nanopi-r6s" info
+
+            __printf "$ wget https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            wget https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+
+            __printf "$ tar -I zstd -xf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+
+            __printf "$ cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64" success
+            cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64
+
+            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config" success
+            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config
+
+            __printf "$ sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config" success
+            sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config
+
+            __printf "$ make image PROFILE=friendlyarm_nanopi-r6s PACKAGES=\"\
+6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
+lm-sensors ncat nmap nping less liblzo2 \
+luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
+luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
+mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
+e2fsprogs -automount -libustream-openssl\"" success
+            make image PROFILE=friendlyarm_nanopi-r6s PACKAGES="\
+6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
+lm-sensors ncat nmap nping less liblzo2 \
+luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
+luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
+mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
+e2fsprogs -automount -libustream-openssl"
+
+            __printf "$ ls -la bin/targets/rockchip/armv8/" success
+            ls -la bin/targets/rockchip/armv8/
+
+            __printf "$ tar -cjf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
+            tar -cjf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
+
+            __printf "proceed with copy to 'scully' (y/n):" success
+            read input1
+            [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
+            [[ ${input1} == "y" ]] && __printf "continue..."
+
+            __printf "$ scp immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
+            scp immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+
+            __printf "$ scp ../immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
+            scp ../immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+
+            __printf "proceed with copy to 'OpenWRT' (y/n):" success
+            read input1
+            [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
+            [[ ${input1} == "y" ]] && __printf "continue..."
+
+            __printf "$ scp -O bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r6s-squashfs-sysupgrade.img.gz root@np2:/tmp" success
+            scp -O bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np2:/tmp
+            ;;
+    esac
+}
 
 ## Function: OpenWRT build
 ##
@@ -494,12 +581,16 @@ __banner
 #### Command Line
 __platform_flag=""
 
-while getopts "hp:l:" opt;
+while getopts "hv:p:l:" opt;
 do
     case ${opt} in
         h)
             __help
             exit ${EXIT_OK}
+            ;;
+        v)
+            __platform_flag="true"
+            VARIANT=${OPTARG}
             ;;
         p)
             __platform_flag="true"
@@ -526,7 +617,8 @@ then
     __help
     exit ${EXIT_ERROR}
 else
-    __openwrt_build "${PLATFORM}"
+    [[ "${VARIANT}" == "immortalwrt" ]] && __immortalwrt_build "${PLATFORM}"
+    [[ "${VARIANT}" == "openwrt" ]]     && __openwrt_build "${PLATFORM}"
 fi
 
 #### Done
