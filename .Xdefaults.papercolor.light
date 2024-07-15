@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2024-04-22 15:20:45 (CEST)
+!! Last update: 2024-07-15 09:10:33 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -38,10 +38,31 @@
 !! https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa/
 !! ---------------------------------------------------------------------
 
-! PaperColor Theme
-*background: #EEEEEE
-*foreground: #4D4D4C
-*cursorColor: #4D4D4C
+! base16
+! *background: #EEEEEE
+! *foreground: #444444
+! *cursorColor: #4D4D4C
+! *color0:  #eeeeee
+! *color1:  #bcbcbc
+! *color2:  #8700af
+! *color3:  #d70087
+! *color4:  #d75f00
+! *color5:  #005faf
+! *color6:  #d75f00
+! *color7:  #444444
+! *color8:  #5f8700
+! *color9:  #bcbcbc
+! *color10: #8700af
+! *color11: #d70087
+! *color12: #d75f00
+! *color13: #005faf
+! *color14: #d75f00
+! *color15: #878787
+
+! PaperColor.Xresources
+*foreground:  #4D4D4C
+*background:  #E7E8EB
+*cursorColor: #444444
 *color0:  #EDEDED
 *color1:  #D7005F
 *color2:  #718C00
@@ -49,59 +70,15 @@
 *color4:  #4271AE
 *color5:  #8959A8
 *color6:  #3E999F
-*color7:  #4D4D4C
-
-*color8:  #949494
+*color7:  #F5F5F5
+*color8:  #969694
 *color9:  #D7005F
 *color10: #718C00
 *color11: #D75F00
 *color12: #4271AE
 *color13: #8959A8
 *color14: #3E999F
-! *color15: #F5F5F5
-*color15: #878787
-
-! ! PaperColor Theme light
-! *background: #EEEEEE
-! *foreground: #4D4D4C
-! *cursorColor: #4D4D4C
-! *pointerColor: #4D4D4C
-! *color0:  #D0D0D0
-! *color1:  #D7005F
-! *color2:  #718C00
-! *color3:  #D75F00
-! *color4:  #4271AE
-! *color5:  #8959A8
-! *color6:  #3E999F
-! *color7:  #4D4D4C
-! *color8:  #737373
-! *color9:  #D7005F
-! *color10: #718C00
-! *color11: #D75F00
-! *color12: #4271AE
-! *color13: #8959A8
-! *color14: #3E999F
-! *color15: #F5F5F5
-
-! ! PaperColor Theme light
-! *background: #EEEEEE
-! *foreground: #444444
-! *color0:  #EEEEEE
-! *color1:  #AF0000
-! *color2:  #008700
-! *color3:  #5F8700
-! *color4:  #0087AF
-! *color5:  #878787
-! *color6:  #005F87
-! *color7:  #444444
-! *color8:  #BCBCBC
-! *color9:  #D70000
-! *color10: #D70087
-! *color11: #8700AF
-! *color12: #D75F00
-! *color13: #D75F00
-! *color14: #005FAF
-! *color15: #005F87
+*color15: #2D2D2C
 
 !! ---------------------------------------------------------------------
 !! EOF
