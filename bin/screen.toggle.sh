@@ -142,6 +142,8 @@ function __theme()
     theme=${1}
     __printf "theme='${theme}'" debug
 
+    echo "${theme}" >| ~/.theme
+
     #### set theme
     case ${theme} in
         "ansi")
@@ -1730,18 +1732,6 @@ function __xrandr()
                         --output ${EXT1-} --mode 1920x1080 ${POSITION-} ${IN-}
                 fi
             fi
-
-            if [[ "$(hostname)" == "entl0002" ]]
-            then
-                __printf "# xrandr \\"
-                __printf "    --output ${IN-} --auto \\"
-                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}"
-
-                xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
-            fi
-
             ;;
         3)
             #### 3 monitors

@@ -1,7 +1,10 @@
 #!/bin/bash
 # echo "$(date) .xprofile" >> /var/tmp/x
 
-## ENV
+###############################################################################
+#### Environment
+###############################################################################
+
 export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
 export PATH="$PATH:$HOME/bin"
 # export PATH="$PATH:/opt/ghc/bin"
@@ -22,89 +25,178 @@ export LC_TIME="en_DK.UTF-8"
 # # export GDK_DPI_SCALE=0.5
 # export GDK_DPI_SCALE=1
 
-# export GTK_THEME=Solarized-Light
-export GTK_THEME=NumixSolarizedLightBlue
-# export GTK_THEME=Solarized-Dark
-# export GTK_THEME=NumixSolarizedDarkRed
-# export GTK_THEME=Material-Solarized
-# export GTK_THEME=Arc-Gruvbox
-# export GTK_THEME=gruvbox-dark-gtk-0
-# export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
-# export GTK_THEME=Paper
-# export GTK_THEME=Yaru-Gray
 
-# export GTK2_RC_FILES=$HOME/.themes/Solarized-Light
-export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedLightBlue
-# export GTK2_RC_FILES=$HOME/.themes/Solarized-Dark
-# export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
-# export GTK2_RC_FILES=$HOME/.themes/Material-Solarized
-# export GTK2_RC_FILES=$HOME/.themes/Arc-Gruvbox
-# export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk-0
-# export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
-# export GTK2_RC_FILES=$HOME/.themes/Paper
-# export GTK2_RC_FILES=$HOME/.themes/Yaru-Gray
+###############################################################################
+#### Functions
+###############################################################################
 
-## xhost
-xhost +0
-xhost +localhost
-xhost +$(hostname)
-xhost local:root
+#### theme
+function __theme()
+{
+    [[ -e ~/.theme ]] && theme=$(head -1 ~/.theme)
 
-## turn off screen saver
-xset s blank
+    if [[ ! -z ${theme} ]]
+    then
+        echo "theme='${theme}'"
 
-## screen saver starts after 10 minutes
-xset s 600 2
+        #### doom-one
+        [[ "${theme}" == "doom-one" ]]         && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "doom-one" ]]         && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
 
-## enable DPMS (Enery Star) parameters
-xset +dpms
+        #### dracula
+        [[ "${theme}" == "dracula" ]]          && export GTK_THEME=Dracula
+        [[ "${theme}" == "dracula" ]]          && export GTK2_RC_FILES=$HOME/.themes/Dracula
 
-## screen options
-xset dpms 1200 1560 1800
+        #### everforest.dark
+        [[ "${theme}" == "everforest.dark" ]]  && export GTK_THEME=Everforest-Dark-Medium-B-LB
+        [[ "${theme}" == "everforest.dark" ]]  && export GTK2_RC_FILES=$HOME/.themes/Everforest-Dark-Medium-B-LB
 
-## mouse acceleration
-xset m 1
+        #### everforest.light
+        [[ "${theme}" == "everforest.light" ]] && export GTK_THEME=Everforest-Light-B-LB
+        [[ "${theme}" == "everforest.light" ]] && export GTK2_RC_FILES=$HOME/.themes/Everforest-Light-B-LB
 
-# ## font path
-# # xset fp+ unix/:7101
-# # xset fp rehash
+        #### lucario
+        [[ "${theme}" == "lucario" ]]          && export GTK_THEME=Yaru-Deepblue-dark
+        [[ "${theme}" == "lucario" ]]          && export GTK2_RC_FILES=$HOME/.themes/Yaru-Deepblue-dark
 
-## enable numlock at start
-if [ -x /usr/bin/numlockx ];
-then
-    /usr/bin/numlockx on
-fi
+        #### gruvbox.dark
+        [[ "${theme}" == "gruvbox.dark" ]]     && export GTK_THEME=gruvbox-dark-gtk
+        [[ "${theme}" == "gruvbox.dark" ]]     && export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk
 
-## disable bell
-xset -b
+        #### gruvbox.light
+        [[ "${theme}" == "gruvbox.light" ]]    && export GTK_THEME=gruvbox-gtk
+        [[ "${theme}" == "gruvbox.light" ]]    && export GTK2_RC_FILES=$HOME/.themes/gruvbox-gtk
 
-## mouse cursor
-xsetroot -cursor_name left_ptr
+        #### monokai
+        [[ "${theme}" == "monokai" ]]          && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "monokai" ]]          && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
 
-# ## syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
-# # syndaemon -i 1 -d
+        #### nord.dark
+        [[ "${theme}" == "nord.dark" ]]        && export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
+        [[ "${theme}" == "nord.dark" ]]        && export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
 
-# ## touchpad on
-# synclient TouchpadOff=0
+        #### papercolor.light
+        [[ "${theme}" == "papercolor.light" ]] && export GTK_THEME=Yaru-Blue-light
+        [[ "${theme}" == "papercolor.light" ]] && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
 
-## screen_toggle.sh
-[[ -e ~/bin/screen.toggle.sh ]] && ~/bin/screen.toggle.sh -x
+        #### selenized.dark
+        [[ "${theme}" == "selenized.dark" ]]   && export GTK_THEME=NumixSolarizedDarkRed
+        [[ "${theme}" == "selenized.dark" ]]   && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
 
-## xrdb
-# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
-# [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
-[[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
-xrdb -load ~/.Xdefaults
-xrdb -merge ~/.Xdefaults
+        #### selenized.light
+        [[ "${theme}" == "selenized.light" ]]  && export GTK_THEME=Yaru-Blue-light
+        [[ "${theme}" == "selenized.light" ]]  && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
 
-## setxkbmap
-# setxkbmap -rules xorg -model pc105 -layout hr_US -option ""
-setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
+        #### selenized.white
+        [[ "${theme}" == "selenized.white" ]]  && export GTK_THEME=Yaru-Red-light
+        [[ "${theme}" == "selenized.white" ]]  && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
 
-## xautolock
-xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+        #### solarized.light
+        [[ "${theme}" == "solarized.light" ]]  && export GTK_THEME=NumixSolarizedLightBlue
+        [[ "${theme}" == "solarized.light" ]]  && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedLightBlue
 
-## Urxvt daemon
+        #### solarized.dark
+        [[ "${theme}" == "solarized.dark" ]]   && export GTK_THEME=NumixSolarizedDarkRed
+        [[ "${theme}" == "solarized.dark" ]]   && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
+
+        #### srcery
+        [[ "${theme}" == "srcery" ]]           && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "srcery" ]]           && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+
+        #### tokyo.night
+        [[ "${theme}" == "tokyo.night" ]]      && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "tokyo.night" ]]      && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+    else
+        export GTK_THEME=Yaru-Red-light
+        export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+    fi
+}
+
+#### xhost
+function __xhost()
+{
+    xhost +0
+    xhost +localhost
+    xhost +$(hostname)
+    xhost local:root
+}
+
+#### xset
+function __xset()
+{
+    ## turn off screen saver
+    xset s blank
+
+    ## screen saver starts after 10 minutes
+    xset s 600 2
+
+    ## enable DPMS (Enery Star) parameters
+    xset +dpms
+
+    ## screen options
+    xset dpms 1200 1560 1800
+
+    ## mouse acceleration
+    xset m 1
+
+    # ## font path
+    # # xset fp+ unix/:7101
+    # # xset fp rehash
+
+    ## disable bell
+    xset -b
+}
+
+#### xsetroot
+function __xsetroot()
+{
+    ## mouse cursor
+    xsetroot -cursor_name left_ptr
+}
+
+#### screen.toggle.sh
+function __screen_toggle_sh()
+{
+    [[ -e ~/bin/screen.toggle.sh ]] && ~/bin/screen.toggle.sh -x
+}
+
+#### xrdb
+function __xrdb()
+{
+    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
+    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
+    [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
+
+    [[ -e ~/.Xdefaults ]]   && xrdb -load ~/.Xdefaults
+    [[ -e ~/.Xdefaults ]]   && xrdb -merge ~/.Xdefaults
+}
+
+#### setxkbmap
+function __setxkbmap()
+{
+    #### enable numlock at start
+    if [ -x /usr/bin/numlockx ]
+    then
+        /usr/bin/numlockx on
+    fi
+
+    #### syndaemon - a program that monitors keyboard activity and disables the touchpad when the keyboard is being used.
+    # # syndaemon -i 1 -d
+
+    #### touchpad on
+    # synclient TouchpadOff=0
+
+    # setxkbmap -rules xorg -model pc105 -layout hr_US -option ""
+    setxkbmap -model pc105 -option 'eurosign:e,lv3:ralt_switch,compose:caps' 'hr(us)'
+}
+
+#### xautolock
+function __xautolock()
+{
+    xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
+}
+
+#### urxvt
 function __urxvtd()
 {
     urxvtd_detect=$(ps -ef | grep -v "grep" | grep "urxvtd" | wc -l)
@@ -117,9 +209,8 @@ function __urxvtd()
         echo "urxvtd is running"
     fi
 }
-__urxvtd
 
-## redshift
+#### redshift
 function __redshift()
 {
     redshift_detect=$(ps -ef | grep -v "grep" | grep "redshift" | wc -l)
@@ -149,9 +240,8 @@ function __redshift()
         echo "redshift is running"
     fi
 }
-__redshift
 
-## compton
+#### compton
 function __compton()
 {
     compton_detect=$(ps -ef | grep -v "grep" | egrep "compton|picom" | wc -l)
@@ -177,12 +267,27 @@ function __compton()
         echo "compton|picom is running"
     fi
 }
+
+
+###############################################################################
+#### Main
+###############################################################################
+
+__theme
+__xhost
+__xset
+__xsetroot
+__screen_toggle_sh
+__xrdb
+__setxkbmap
+__xautolock
+__urxvtd
+__redshift
 __compton
 
-## Clean .xsesssion-errors
+#### Clean .xsesssion-errors
 echo "" > ~/.xsession-errors
 
-## Terminal
-# st
-
+###############################################################################
 #### END
+###############################################################################

@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2024-05-20 15:43:08 (CEST)
+## Last update: 2024-07-15 17:13:18 (CEST)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -326,6 +326,17 @@ force_color_prompt=yes
 ## Exports / Variables
 ## ----------------------------------------------------------------------------
 
+#### Personal
+export NAME="Kresimir Marzic"
+export WEB="http://www.design.etk.extern.eu.ericsson.se/~etkkrma"
+export EMAIL="kresimir.marzic@ericsson.com"
+export MAILUSER="etkkrma"
+export MAILNAME="Kresimir Marzic"
+export MAILHOST="smtp.etk.extern.eu.ericsson.se"
+export ORGANIZATION="Ericsson Nikola Tesla d.d."
+export DEBEMAIL="kresimir.marzic@ericsson.com"
+export DEBFULLNAME="Kresimir Marzic"
+
 #### Perl old 2, http://www.perl.org
 # export PERL5LIB=/opt/perl5
 # export PERL5LIB="/opt/perl5/cpan/lib/perl5:/opt/perl5/cpan/lib/perl5/i386-linux:/opt/perl5/cpan/lib/perl5/x86_64-linux-thread-multi-ld:/home/etkkrma/perl5/lib/perl5"
@@ -413,45 +424,6 @@ export BROWSER="w3m"
 export PAGER="less"
 export LESS="-cex3M"
 export LESSCHARSET="utf-8"
-## LESS man page colors (makes Man pages more readable).
-##
-## ansi
-# export LESS_TERMCAP_mb=$'\E[01;36m'
-# export LESS_TERMCAP_md=$'\E[01;36m'
-# export LESS_TERMCAP_me=$'\E[0m'
-# export LESS_TERMCAP_se=$'\E[0m'
-# export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-# # export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
-# export LESS_TERMCAP_ue=$'\E[0m'
-# export LESS_TERMCAP_us=$'\E[01;32m'
-##
-## solarized dark, solarized light, selenized dark, selenized light, selenized white
-export LESS_TERMCAP_mb=$'\E[01;34m'
-export LESS_TERMCAP_md=$'\E[01;34m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;34;34m' # begin standout-mode - info box
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;32m'
-##
-## gruvbox / doom-one
-# export LESS_TERMCAP_mb=$'\E[01;33m'
-# export LESS_TERMCAP_md=$'\E[01;33m'
-# export LESS_TERMCAP_me=$'\E[0m'
-# export LESS_TERMCAP_se=$'\E[0m'
-# # export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
-# export LESS_TERMCAP_so=$'\E[01;42;30m' # begin standout-mode - info box
-# export LESS_TERMCAP_ue=$'\E[0m'
-# export LESS_TERMCAP_us=$'\E[01;32m'
-##
-## dracula / nord
-# export LESS_TERMCAP_mb=$'\E[6m'        # begin blinking
-# export LESS_TERMCAP_md=$'\E[34m'       # begin bold
-# export LESS_TERMCAP_us=$'\E[4;32m'     # begin underline
-# export LESS_TERMCAP_me=$'\E[0m'        # end mode
-# export LESS_TERMCAP_ue=$'\E[0m'        # end underline
-# export LESS_TERMCAP_se=$'\E[0m'        # end standout-mode
-# export LESS_TERMCAP_so=$'\E[1;33;33m'  # begin standout-mode - info box
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -473,67 +445,21 @@ export COLUMNS=80
 
 ## https://github.com/termstandard/colors
 case $TERM in
-  iterm            |\
-  linux-truecolor  |\
-  screen-truecolor |\
-  tmux-truecolor   |\
-  st-truecolor     |\
-  xterm-truecolor  |\
-  linux-256color   |\
-  screen-256color  |\
-  tmux-256color    |\
-  st-256color      |\
-  xterm-256color   )
-    export COLORTERM=truecolor
-    ;;
-  vte*)
+    iterm            |\
+    linux-truecolor  |\
+    screen-truecolor |\
+    tmux-truecolor   |\
+    st-truecolor     |\
+    xterm-truecolor  |\
+    linux-256color   |\
+    screen-256color  |\
+    tmux-256color    |\
+    st-256color      |\
+    xterm-256color   )
+        export COLORTERM=truecolor
+      ;;
+    vte*)
 esac
-
-## https://phplego.github.io/mc/
-#
-# export MC_SKIN=$HOME/.config/mc/dracula.ini
-# export MC_SKIN=$HOME/.config/mc/dracula256.ini
-# export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
-# export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
-# export MC_SKIN=$HOME/.config/mc/solarized-template.ini
-export MC_SKIN=$HOME/.config/mc/solarized.ini
-# export MC_SKIN=$HOME/.config/mc/selenized.ini
-# export MC_SKIN=$HOME/.config/mc/onedark.ini
-# export MC_SKIN=$HOME/.config/mc/onedark2.ini
-# export MC_SKIN=$HOME/.config/mc/onedark16M.ini
-# export MC_SKIN=$HOME/.config/mc/seasons-winter16M.ini
-# export MC_SKIN=$HOME/.config/mc/nord16M.ini
-#
-# export MC_SKIN=/usr/share/mc/skins/darkfar.ini
-# export MC_SKIN=/usr/share/mc/skins/dark.ini
-# export MC_SKIN=/usr/share/mc/skins/default.ini
-# export MC_SKIN=/usr/share/mc/skins/double-lines.ini
-# export MC_SKIN=/usr/share/mc/skins/featured.ini
-# export MC_SKIN=/usr/share/mc/skins/featured-plus.ini
-# export MC_SKIN=/usr/share/mc/skins/gotar.ini
-# export MC_SKIN=/usr/share/mc/skins/gray-green-purple256.ini
-# export MC_SKIN=/usr/share/mc/skins/gray-orange-blue256.ini
-# export MC_SKIN=/usr/share/mc/skins/julia256.ini
-# export MC_SKIN=/usr/share/mc/skins/mc46.ini
-# export MC_SKIN=/usr/share/mc/skins/modarcon16-defbg.ini
-# export MC_SKIN=/usr/share/mc/skins/modarcon16.ini
-# export MC_SKIN=/usr/share/mc/skins/modarcon16root-defbg.ini
-# export MC_SKIN=/usr/share/mc/skins/modarcon16root.ini
-# export MC_SKIN=/usr/share/mc/skins/modarin256-defbg.ini
-# export MC_SKIN=/usr/share/mc/skins/modarin256.ini
-# export MC_SKIN=/usr/share/mc/skins/modarin256root-defbg.ini
-# export MC_SKIN=/usr/share/mc/skins/modarin256root.ini
-# export MC_SKIN=/usr/share/mc/skins/nicedark.ini
-# export MC_SKIN=/usr/share/mc/skins/sand256.ini
-# export MC_SKIN=/usr/share/mc/skins/seasons-autumn16M.ini
-# export MC_SKIN=/usr/share/mc/skins/seasons-spring16M.ini
-# export MC_SKIN=/usr/share/mc/skins/seasons-summer16M.ini
-# export MC_SKIN=/usr/share/mc/skins/seasons-winter16M.ini
-# export MC_SKIN=/usr/share/mc/skins/xoria256.ini
-# export MC_SKIN=/usr/share/mc/skins/yadt256-defbg.ini
-# export MC_SKIN=/usr/share/mc/skins/yadt256.ini
 
 #### Proxy
 ## hrzg-proxy01.etk.extern.eu.ericsson.se = 172.17.64.132
@@ -565,16 +491,6 @@ export MC_SKIN=$HOME/.config/mc/solarized.ini
 # export wais_proxy="http://hrzg-proxy02.etk.extern.eu.ericsson.se:8080"
 #
 export no_proxy="0,localhost,.ericsson.se,.ericsson.com,.ericsson.net,.ent.internal,10,192.168,172.17"
-
-export NAME="Kresimir Marzic"
-export WEB="http://www.design.etk.extern.eu.ericsson.se/~etkkrma"
-export EMAIL="kresimir.marzic@ericsson.com"
-export MAILUSER="etkkrma"
-export MAILNAME="Kresimir Marzic"
-export MAILHOST="smtp.etk.extern.eu.ericsson.se"
-export ORGANIZATION="Ericsson Nikola Tesla d.d."
-export DEBEMAIL="kresimir.marzic@ericsson.com"
-export DEBFULLNAME="Kresimir Marzic"
 
 #### 10.01 PZZ
 ## \\ehrzgmw037\T-ZG1001218
@@ -624,6 +540,124 @@ export DEBFULLNAME="Kresimir Marzic"
 ## smb://ericsson\etkkrma:xxxxxx@ehrzgmw037.etk.extern.eu.ericsson.se/T-ZG1000011
 # export PRINTER="T-ZG1000011"
 # export LPDEST="T-ZG1000011"
+
+
+## ----------------------------------------------------------------------------
+## Color Settings
+## ----------------------------------------------------------------------------
+
+[[ -e ~/.theme ]] && theme=$(head -1 ~/.theme)
+
+## LESS man page colors (makes Man pages more readable).
+if [[ ! -z ${theme} ]]
+then
+    #### ansi
+    if [[ "${theme}" == "ansi" ]]
+    then
+        export LESS_TERMCAP_mb=$'\E[01;36m'
+        export LESS_TERMCAP_md=$'\E[01;36m'
+        export LESS_TERMCAP_me=$'\E[0m'
+        export LESS_TERMCAP_se=$'\E[0m'
+        export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+        # export LESS_TERMCAP_so=$'\E[01;46;30m' # begin standout-mode - info box
+        export LESS_TERMCAP_ue=$'\E[0m'
+        export LESS_TERMCAP_us=$'\E[01;32m'
+    fi
+
+    #### doom-one
+    #### gruvbox.dark, gruvbox.light
+    if [[ "${theme}" == "gruvbox.dark" ]] || [[ "${theme}" == "gruvbox.light" ]] || [[ "${theme}" == "doom-one" ]]
+    then
+        export LESS_TERMCAP_mb=$'\E[01;33m'
+        export LESS_TERMCAP_md=$'\E[01;33m'
+        export LESS_TERMCAP_me=$'\E[0m'
+        export LESS_TERMCAP_se=$'\E[0m'
+        # export LESS_TERMCAP_so=$'\E[01;44;33m' # begin standout-mode - info box
+        export LESS_TERMCAP_so=$'\E[01;42;30m' # begin standout-mode - info box
+        export LESS_TERMCAP_ue=$'\E[0m'
+        export LESS_TERMCAP_us=$'\E[01;32m'
+    fi
+
+    #### dracula
+    #### nord.dark
+    if [[ "${theme}" == "dracula" ]] || [[ "${theme}" == "nord.dark" ]]
+    then
+        export LESS_TERMCAP_mb=$'\E[6m'        # begin blinking
+        export LESS_TERMCAP_md=$'\E[34m'       # begin bold
+        export LESS_TERMCAP_us=$'\E[4;32m'     # begin underline
+        export LESS_TERMCAP_me=$'\E[0m'        # end mode
+        export LESS_TERMCAP_ue=$'\E[0m'        # end underline
+        export LESS_TERMCAP_se=$'\E[0m'        # end standout-mode
+        export LESS_TERMCAP_so=$'\E[1;33;33m'  # begin standout-mode - info box
+    fi
+
+    #### selenized.dark, selenized.light, selenized.white
+    #### solarized.dark, solarized.light
+    if [[ "${theme}" == "selenized.dark" ]] || [[ "${theme}" == "selenized.light" ]] || [[ "${theme}" == "selenized.white" ]] ||
+       [[ "${theme}" == "solarized.dark" ]] || [[ "${theme}" == "solarized.light" ]]
+    then
+        export LESS_TERMCAP_mb=$'\E[01;34m'
+        export LESS_TERMCAP_md=$'\E[01;34m'
+        export LESS_TERMCAP_me=$'\E[0m'
+        export LESS_TERMCAP_se=$'\E[0m'
+        export LESS_TERMCAP_so=$'\E[01;34;34m' # begin standout-mode - info box
+        export LESS_TERMCAP_ue=$'\E[0m'
+        export LESS_TERMCAP_us=$'\E[01;32m'
+    fi
+fi
+
+## https://phplego.github.io/mc/
+if [[ ! -z ${theme} ]]
+then
+    [[ "${theme}" == "dracula" ]]         && export MC_SKIN=$HOME/.config/mc/dracula.ini
+    # [[ "${theme}" == "dracula" ]]         && export MC_SKIN=$HOME/.config/mc/dracula256.ini
+
+    [[ "${theme}" == "gruvbox" ]]         && # export MC_SKIN=$HOME/.config/mc/gruvbox256.ini
+
+    [[ "${theme}" == "nord.dark" ]]       && export MC_SKIN=$HOME/.config/mc/nord16M.ini
+
+    # [[ "${theme}" == "solarized.dark"  ]] && export MC_SKIN=$HOME/.config/mc/mc_solarized_dark_1.ini
+    # [[ "${theme}" == "solarized.dark"  ]] && export MC_SKIN=$HOME/.config/mc/mc_solarized_dark.ini
+    # [[ "${theme}" == "solarized.light" ]] && export MC_SKIN=$HOME/.config/mc/mc_solarized_light.ini
+    # [[ "${theme}" == "solarized.light" ]] && export MC_SKIN=$HOME/.config/mc/solarized-template.ini
+    [[ "${theme}" == "solarized.dark"  ]] && export MC_SKIN=$HOME/.config/mc/solarized.ini
+    [[ "${theme}" == "solarized.light" ]] && export MC_SKIN=$HOME/.config/mc/solarized.ini
+
+    [[ "${theme}" == "selenized.dark"  ]] && export MC_SKIN=$HOME/.config/mc/selenized.ini
+    [[ "${theme}" == "selenized.light" ]] && export MC_SKIN=$HOME/.config/mc/selenized.ini
+    [[ "${theme}" == "selenized.white" ]] && export MC_SKIN=$HOME/.config/mc/selenized.ini
+
+    # export MC_SKIN=/usr/share/mc/skins/darkfar.ini
+    # export MC_SKIN=/usr/share/mc/skins/dark.ini
+    # export MC_SKIN=/usr/share/mc/skins/default.ini
+    # export MC_SKIN=/usr/share/mc/skins/double-lines.ini
+    # export MC_SKIN=/usr/share/mc/skins/featured.ini
+    # export MC_SKIN=/usr/share/mc/skins/featured-plus.ini
+    # export MC_SKIN=/usr/share/mc/skins/gotar.ini
+    # export MC_SKIN=/usr/share/mc/skins/gray-green-purple256.ini
+    # export MC_SKIN=/usr/share/mc/skins/gray-orange-blue256.ini
+    # export MC_SKIN=/usr/share/mc/skins/julia256.ini
+    # export MC_SKIN=/usr/share/mc/skins/mc46.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarcon16-defbg.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarcon16.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarcon16root-defbg.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarcon16root.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarin256-defbg.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarin256.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarin256root-defbg.ini
+    # export MC_SKIN=/usr/share/mc/skins/modarin256root.ini
+    # export MC_SKIN=/usr/share/mc/skins/nicedark.ini
+    # export MC_SKIN=/usr/share/mc/skins/sand256.ini
+    # export MC_SKIN=/usr/share/mc/skins/seasons-autumn16M.ini
+    # export MC_SKIN=/usr/share/mc/skins/seasons-spring16M.ini
+    # export MC_SKIN=/usr/share/mc/skins/seasons-summer16M.ini
+    # export MC_SKIN=/usr/share/mc/skins/seasons-winter16M.ini
+    # export MC_SKIN=/usr/share/mc/skins/xoria256.ini
+    # export MC_SKIN=/usr/share/mc/skins/yadt256-defbg.ini
+    # export MC_SKIN=/usr/share/mc/skins/yadt256.ini
+else
+    export MC_SKIN=/usr/share/mc/skins/default.ini
+fi
 
 
 ## ----------------------------------------------------------------------------
@@ -700,11 +734,11 @@ alias tmux="tmux -2"
 ## Tmux
 # [[ -z "$TMUX" ]] && command -v tmux > /dev/null && exec tmux -2
 
-[[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.ansi .vimrc
+# [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.ansi .vimrc
 # [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.solarized.dark .vimrc
 # [[ ! -e ~/.vimrc ]] && cd ~/ && ln -s .vimrc.solarized.dark .vimrc
 
-[[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.ansi .gvimrc
+# [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.ansi .gvimrc
 # [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.solarized.light .gvimrc
 # [[ ! -e ~/.gvimrc ]] && cd ~/ && ln -s .gvimrc.solarized.light .gvimrc
 
