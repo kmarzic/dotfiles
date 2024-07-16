@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2023-07-02 09:38:46 (CEST)
+!! Last update: 2024-07-16 20:20:46 (CEST)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -37,28 +37,29 @@
 
 ! Selenized white
 
-.*background:  rgb:ff/ff/ff
-.*foreground:  rgb:47/47/47
+*background:  rgb:ff/ff/ff
+*foreground:  rgb:47/47/47
+*cursorColor: rgb:47/47/47
 
 ! normal colors: "black", red, green, yellow, blue, magenta, cyan, "white"
-.*color0:      rgb:eb/eb/eb
-.*color1:      rgb:d6/00/0c
-.*color2:      rgb:1d/97/00
-.*color3:      rgb:c4/97/00
-.*color4:      rgb:00/64/e4
-.*color5:      rgb:dd/0f/9d
-.*color6:      rgb:00/ad/9c
-.*color7:      rgb:87/87/87
+*color0:      rgb:eb/eb/eb
+*color1:      rgb:d6/00/0c
+*color2:      rgb:1d/97/00
+*color3:      rgb:c4/97/00
+*color4:      rgb:00/64/e4
+*color5:      rgb:dd/0f/9d
+*color6:      rgb:00/ad/9c
+*color7:      rgb:87/87/87
 
 ! bright/bold versions of colors (in the same order)
-.*color8:      rgb:cd/cd/cd
-.*color9:      rgb:bf/00/00
-.*color10:     rgb:00/84/00
-.*color11:     rgb:af/85/00
-.*color12:     rgb:00/54/cf
-.*color13:     rgb:c7/00/8b
-.*color14:     rgb:00/9a/8a
-.*color15:     rgb:28/28/28
+*color8:      rgb:cd/cd/cd
+*color9:      rgb:bf/00/00
+*color10:     rgb:00/84/00
+*color11:     rgb:af/85/00
+*color12:     rgb:00/54/cf
+*color13:     rgb:c7/00/8b
+*color14:     rgb:00/9a/8a
+*color15:     rgb:28/28/28
 
 !! ---------------------------------------------------------------------
 !! EOF

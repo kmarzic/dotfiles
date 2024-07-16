@@ -348,8 +348,8 @@ function __theme()
             [[ -e ~/.tmux.conf.base16-atelier-savanna-light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-atelier-savanna-light .tmux.conf
 
             #### alacritty.toml
-            [[ -e ~/.config/alacritty/alacritty.max.base16-atelier-lakeside-light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.base16-atelier-lakeside-light.toml alacritty.toml && cd -
-            [[ -e ~/.config/alacritty/alacritty.scratchpad.base16-atelier-lakeside-light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.base16-atelier-lakeside-light.toml scratchpad.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.max.base16-atelier-savanna-light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.base16-atelier-savanna-light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.base16-atelier-savanna-light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.base16-atelier-savanna-light.toml scratchpad.toml && cd -
             ;;
         "base16-google-light")
             __printf "base16-google-light"
