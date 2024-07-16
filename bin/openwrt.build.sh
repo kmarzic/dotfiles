@@ -115,6 +115,7 @@ __help()
     __printf "   ${0} -p mikrotik_cap-ac                             -v openwrt"
     __printf "   ${0} -p friendlyarm_nanopi-r2s                      -v openwrt"
     __printf "   ${0} -p friendlyarm_nanopi-r4s                      -v openwrt"
+    __printf "   ${0} -p friendlyarm_nanopi-r6s                      -v openwrt"
     __printf "   ${0} -p friendlyarm_nanopi-r6s                      -v immortalwrt"
     __printf "   ${0} -p generic                                     -v openwrt"
 }
@@ -497,6 +498,70 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np1:/tmp" success
             scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np1:/tmp
+            ;;
+        #####################################################################
+        "friendlyarm_nanopi-r6s")
+        #####################################################################
+            __printf "friendlyarm_nanopi-r6s" info
+
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/rockchip/armv8/openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+
+            __printf "$ cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/" success
+            cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/
+
+            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config" success
+            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config
+
+            __printf "$ sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config" success
+            sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config
+
+            __printf "$ make image PROFILE=friendlyarm_nanopi-r6s PACKAGES=\"\
+6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
+lm-sensors ncat nmap nping less liblzo2 \
+luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
+luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
+mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
+            make image PROFILE=friendlyarm_nanopi-r6s PACKAGES="\
+6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
+lm-sensors ncat nmap nping less liblzo2 \
+luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
+luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
+mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
+
+            __printf "$ ls -la bin/targets/rockchip/armv8/" success
+            ls -la bin/targets/rockchip/armv8/
+
+            __printf "$ tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
+            tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
+
+            __printf "proceed with copy to 'scully' (y/n):" success
+            read input1
+            [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
+            [[ ${input1} == "y" ]] && __printf "continue..."
+
+            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
+            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+
+            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
+            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+
+            __printf "proceed with copy to 'OpenWRT' (y/n):" success
+            read input1
+            [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
+            [[ ${input1} == "y" ]] && __printf "continue..."
+
+            __printf "$ scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np2:/tmp" success
+            scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np2:/tmp
             ;;
         #####################################################################
         "generic")

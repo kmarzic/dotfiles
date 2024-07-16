@@ -30,88 +30,6 @@ export LC_TIME="en_DK.UTF-8"
 #### Functions
 ###############################################################################
 
-#### theme
-function __theme()
-{
-    [[ -e ~/.theme ]] && theme=$(head -1 ~/.theme)
-
-    if [[ ! -z ${theme} ]]
-    then
-        echo "theme='${theme}'"
-
-        #### doom-one
-        [[ "${theme}" == "doom-one" ]]         && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "doom-one" ]]         && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
-
-        #### dracula
-        [[ "${theme}" == "dracula" ]]          && export GTK_THEME=Dracula
-        [[ "${theme}" == "dracula" ]]          && export GTK2_RC_FILES=$HOME/.themes/Dracula
-
-        #### everforest.dark
-        [[ "${theme}" == "everforest.dark" ]]  && export GTK_THEME=Everforest-Dark-Medium-B-LB
-        [[ "${theme}" == "everforest.dark" ]]  && export GTK2_RC_FILES=$HOME/.themes/Everforest-Dark-Medium-B-LB
-
-        #### everforest.light
-        [[ "${theme}" == "everforest.light" ]] && export GTK_THEME=Everforest-Light-B-LB
-        [[ "${theme}" == "everforest.light" ]] && export GTK2_RC_FILES=$HOME/.themes/Everforest-Light-B-LB
-
-        #### lucario
-        [[ "${theme}" == "lucario" ]]          && export GTK_THEME=Yaru-Deepblue-dark
-        [[ "${theme}" == "lucario" ]]          && export GTK2_RC_FILES=$HOME/.themes/Yaru-Deepblue-dark
-
-        #### gruvbox.dark
-        [[ "${theme}" == "gruvbox.dark" ]]     && export GTK_THEME=gruvbox-dark-gtk
-        [[ "${theme}" == "gruvbox.dark" ]]     && export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk
-
-        #### gruvbox.light
-        [[ "${theme}" == "gruvbox.light" ]]    && export GTK_THEME=gruvbox-gtk
-        [[ "${theme}" == "gruvbox.light" ]]    && export GTK2_RC_FILES=$HOME/.themes/gruvbox-gtk
-
-        #### monokai
-        [[ "${theme}" == "monokai" ]]          && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "monokai" ]]          && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
-
-        #### nord.dark
-        [[ "${theme}" == "nord.dark" ]]        && export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
-        [[ "${theme}" == "nord.dark" ]]        && export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
-
-        #### papercolor.light
-        [[ "${theme}" == "papercolor.light" ]] && export GTK_THEME=Yaru-Blue-light
-        [[ "${theme}" == "papercolor.light" ]] && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
-
-        #### selenized.dark
-        [[ "${theme}" == "selenized.dark" ]]   && export GTK_THEME=NumixSolarizedDarkRed
-        [[ "${theme}" == "selenized.dark" ]]   && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
-
-        #### selenized.light
-        [[ "${theme}" == "selenized.light" ]]  && export GTK_THEME=Yaru-Blue-light
-        [[ "${theme}" == "selenized.light" ]]  && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
-
-        #### selenized.white
-        [[ "${theme}" == "selenized.white" ]]  && export GTK_THEME=Yaru-Red-light
-        [[ "${theme}" == "selenized.white" ]]  && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
-
-        #### solarized.light
-        [[ "${theme}" == "solarized.light" ]]  && export GTK_THEME=NumixSolarizedLightBlue
-        [[ "${theme}" == "solarized.light" ]]  && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedLightBlue
-
-        #### solarized.dark
-        [[ "${theme}" == "solarized.dark" ]]   && export GTK_THEME=NumixSolarizedDarkRed
-        [[ "${theme}" == "solarized.dark" ]]   && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
-
-        #### srcery
-        [[ "${theme}" == "srcery" ]]           && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "srcery" ]]           && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
-
-        #### tokyo.night
-        [[ "${theme}" == "tokyo.night" ]]      && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "tokyo.night" ]]      && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
-    else
-        export GTK_THEME=Yaru-Red-light
-        export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
-    fi
-}
-
 #### xhost
 function __xhost()
 {
@@ -154,23 +72,6 @@ function __xsetroot()
     xsetroot -cursor_name left_ptr
 }
 
-#### screen.toggle.sh
-function __screen_toggle_sh()
-{
-    [[ -e ~/bin/screen.toggle.sh ]] && ~/bin/screen.toggle.sh -x
-}
-
-#### xrdb
-function __xrdb()
-{
-    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
-    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
-    [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
-
-    [[ -e ~/.Xdefaults ]]   && xrdb -load ~/.Xdefaults
-    [[ -e ~/.Xdefaults ]]   && xrdb -merge ~/.Xdefaults
-}
-
 #### setxkbmap
 function __setxkbmap()
 {
@@ -196,6 +97,131 @@ function __xautolock()
     xautolock -time 10 -locker "~/bin/exit.sh lock" -corners +000 -cornerdelay 1 -cornerredelay 15 &
 }
 
+#### theme
+function __theme()
+{
+    [[ -e ~/.theme ]] && theme=$(head -1 ~/.theme)
+
+    if [[ ! -z ${theme} ]]
+    then
+        echo "theme='${theme}'"
+
+        #### ansi
+        [[ "${theme}" == "ansi" ]]                          && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "ansi" ]]                          && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+
+        #### base16-atelier-lakeside-light
+        [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK_THEME=Yaru-Red-light
+        [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+
+        #### base16-google-light
+        [[ "${theme}" == "base16-google-light" ]]           && export GTK_THEME=Yaru-Red-light
+        [[ "${theme}" == "base16-google-light" ]]           && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+
+        #### base16-gruvbox-dark-soft
+        [[ "${theme}" == "base16-gruvbox-dark-soft" ]]      && export GTK_THEME=gruvbox-gtk
+        [[ "${theme}" == "base16-gruvbox-dark-soft" ]]      && export GTK2_RC_FILES=$HOME/.themes/gruvbox-gtk
+
+        #### catppuccin
+        [[ "${theme}" == "catppuccin" ]]                    && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "catppuccin" ]]                    && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+
+        #### catppuccin.latte
+        [[ "${theme}" == "catppuccin.latte" ]]              && export GTK_THEME=Yaru-Red-light
+        [[ "${theme}" == "catppuccin.latte" ]]              && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+
+        #### doom-one
+        [[ "${theme}" == "doom-one" ]]                      && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "doom-one" ]]                      && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+
+        #### dracula
+        [[ "${theme}" == "dracula" ]]                       && export GTK_THEME=Dracula
+        [[ "${theme}" == "dracula" ]]                       && export GTK2_RC_FILES=$HOME/.themes/Dracula
+
+        #### everforest.dark
+        [[ "${theme}" == "everforest.dark" ]]               && export GTK_THEME=Everforest-Dark-Medium-B-LB
+        [[ "${theme}" == "everforest.dark" ]]               && export GTK2_RC_FILES=$HOME/.themes/Everforest-Dark-Medium-B-LB
+
+        #### everforest.light
+        [[ "${theme}" == "everforest.light" ]]              && export GTK_THEME=Everforest-Light-B-LB
+        [[ "${theme}" == "everforest.light" ]]              && export GTK2_RC_FILES=$HOME/.themes/Everforest-Light-B-LB
+
+        #### lucario
+        [[ "${theme}" == "lucario" ]]                       && export GTK_THEME=Yaru-Deepblue-dark
+        [[ "${theme}" == "lucario" ]]                       && export GTK2_RC_FILES=$HOME/.themes/Yaru-Deepblue-dark
+
+        #### gruvbox.dark
+        [[ "${theme}" == "gruvbox.dark" ]]                  && export GTK_THEME=gruvbox-dark-gtk
+        [[ "${theme}" == "gruvbox.dark" ]]                  && export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk
+
+        #### gruvbox.light
+        [[ "${theme}" == "gruvbox.light" ]]                 && export GTK_THEME=gruvbox-gtk
+        [[ "${theme}" == "gruvbox.light" ]]                 && export GTK2_RC_FILES=$HOME/.themes/gruvbox-gtk
+
+        #### monokai
+        [[ "${theme}" == "monokai" ]]                       && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "monokai" ]]                       && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+
+        #### nord.dark
+        [[ "${theme}" == "nord.dark" ]]                     && export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
+        [[ "${theme}" == "nord.dark" ]]                     && export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
+
+        #### papercolor.light
+        [[ "${theme}" == "papercolor.light" ]]              && export GTK_THEME=Yaru-Blue-light
+        [[ "${theme}" == "papercolor.light" ]]              && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
+
+        #### selenized.dark
+        [[ "${theme}" == "selenized.dark" ]]                && export GTK_THEME=NumixSolarizedDarkRed
+        [[ "${theme}" == "selenized.dark" ]]                && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
+
+        #### selenized.light
+        [[ "${theme}" == "selenized.light" ]]               && export GTK_THEME=Yaru-Blue-light
+        [[ "${theme}" == "selenized.light" ]]               && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
+
+        #### selenized.white
+        [[ "${theme}" == "selenized.white" ]]               && export GTK_THEME=Yaru-Red-light
+        [[ "${theme}" == "selenized.white" ]]               && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+
+        #### solarized.light
+        [[ "${theme}" == "solarized.light" ]]               && export GTK_THEME=NumixSolarizedLightBlue
+        [[ "${theme}" == "solarized.light" ]]               && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedLightBlue
+
+        #### solarized.dark
+        [[ "${theme}" == "solarized.dark" ]]                && export GTK_THEME=NumixSolarizedDarkRed
+        [[ "${theme}" == "solarized.dark" ]]                && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
+
+        #### srcery
+        [[ "${theme}" == "srcery" ]]                        && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "srcery" ]]                        && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+
+        #### tokyo.night
+        [[ "${theme}" == "tokyo.night" ]]                   && export GTK_THEME=Yaru-Red-dark
+        [[ "${theme}" == "tokyo.night" ]]                   && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+    else
+        export GTK_THEME=Yaru-Red-light
+        export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+    fi
+}
+
+#### screen.toggle.sh
+function __screen_toggle_sh()
+{
+    [[ -e ~/bin/screen.toggle.sh ]] && ~/bin/screen.toggle.sh -x
+}
+
+#### xrdb
+function __xrdb()
+{
+    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.ansi .Xdefaults
+    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.dark .Xdefaults
+    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.solarized.light .Xdefaults
+    # [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.selenized.light .Xdefaults
+    [[ ! -e ~/.Xdefaults ]] && cd ~/ && ln -s .Xdefaults.selenized.white .Xdefaults
+
+    [[ -e ~/.Xdefaults ]]   && xrdb -load ~/.Xdefaults
+    [[ -e ~/.Xdefaults ]]   && xrdb -merge ~/.Xdefaults
+}
+
 #### urxvt
 function __urxvtd()
 {
@@ -214,27 +240,43 @@ function __urxvtd()
 function __redshift()
 {
     redshift_detect=$(ps -ef | grep -v "grep" | grep "redshift" | wc -l)
+    [[ -e ~/.theme ]] && theme=$(head -1 ~/.theme)
 
     if [[ ${redshift_detect} -eq 0 ]]
     then
         echo "# /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &"
 
-        ####
         # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.ansi.conf redshift.conf && cd -
         # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.dark.conf redshift.conf && cd -
-        [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
-        # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.gruvbox.conf redshift.conf && cd -
-        # [[ -e /usr/bin/redshift ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
+        # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.solarized.light.conf redshift.conf && cd -
+        # [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.selenized.light.conf redshift.conf && cd -
+        [[ ! -e ~/.config/redshift.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.selenized.white.conf redshift.conf && cd -
 
-        #### light themes
-        [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
-        [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
-        [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
-        #### dark themes
-        # [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
-        # [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
-        # [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+        #### ETK
+        if [[ ! -z ${theme} ]]
+        then
+            echo "theme='${theme}'"
+            if [[ "${theme}" == "base16-atelier-lakeside-light" ]] ||
+               [[ "${theme}" == "base16-google-light" ]] ||
+               [[ "${theme}" == "catppuccin.latte" ]] ||
+               [[ "${theme}" == "everforest.light" ]] ||
+               [[ "${theme}" == "gruvbox.light" ]] ||
+               [[ "${theme}" == "papercolor.light" ]] ||
+               [[ "${theme}" == "selenized.light" ]] ||
+               [[ "${theme}" == "selenized.white" ]] ||
+               [[ "${theme}" == "solarized.light" ]]
+            then
+                [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+                [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+                [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/redshift -l 45.8:16.0 -t 6500:5000 -b 0.9:0.9 2>&1 &
+            else
+                [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+                [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+                [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/redshift -l 45.8:16.0 -b 0.90:0.95 2>&1 &
+            fi
+        fi
 
+        #### HOME
         [[ "$(hostname)" == "dle5570" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         [[ "$(hostname)" == "hp8560w" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
         [[ "$(hostname)" == "dle6440" ]] && /usr/bin/redshift -c ~/.config/redshift.conf > /dev/null 2>&1 &
@@ -250,14 +292,19 @@ function __compton()
 
     if [[ ${compton_detect} -eq 0 ]]
     then
+        #### ETK
         [[ "$(hostname)" == "elx-5cg4126xwd" ]] && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "entd0001" ]]       && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "entl0002" ]]       && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+
+        #### HOME
         [[ "$(hostname)" == "dle5570" ]]        && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "hp8560w" ]]        && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
         [[ "$(hostname)" == "dle6440" ]]        && /usr/bin/picom --config ~/.config/picom.conf.xrender -b
+
         ####
         # [[ -e /usr/bin/compton ]] && [[ ! -e /usr/bin/picom ]] && [[ ! /opt/picom/bin/picom ]] && /usr/bin/compton --config ~/.config/compton.conf -b
+
         ####
         # [[ "$(hostname)" == "elx711804dr" ]] && /opt/picom/bin/picom \
         #   -cfF -o 0.38 -O 200 -I 200 -t 0 -l 0 -r 3 -D2 -m 0.88 \
@@ -275,14 +322,14 @@ function __compton()
 #### Main
 ###############################################################################
 
-__theme
 __xhost
 __xset
 __xsetroot
+__setxkbmap
+__theme
+__xautolock
 __screen_toggle_sh
 __xrdb
-__setxkbmap
-__xautolock
 __urxvtd
 __redshift
 __compton
