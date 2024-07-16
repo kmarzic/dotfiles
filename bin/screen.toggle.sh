@@ -108,6 +108,7 @@ __help()
     __printf "   ${0} -x"
     __printf "   ${0} -s ansi"
     __printf "   ${0} -s base16-atelier-lakeside-light"
+    __printf "   ${0} -s base16-atelier-savanna-light"
     __printf "   ${0} -s base16-google-light"
     __printf "   ${0} -s base16-gruvbox-dark-soft"
     __printf "   ${0} -s catppuccin"
@@ -299,6 +300,56 @@ function __theme()
                 ## xmonad installed from stack
                 [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
+            ;;
+        "base16-atelier-savanna-light")
+            __printf "base16-atelier-savanna-light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/nature-landscapes_widewallpaper_the-perfect-nature-lscape-hdr_966.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/3b42rcb64pd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/arf6lv4kcrd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/d1dq5gwyusc91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.base16-atelier-savanna-light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.base16-atelier-savanna-light .Xdefaults
+            [[ -e ~/.Xdefaults.base16-atelier-savanna-light ]] && xrdb -load ~/.Xdefaults.base16-atelier-savanna-light
+
+            #### vim
+            [[ -e ~/.vimrc.base16-atelier-savanna-light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.base16-atelier-savanna-light .vimrc
+            [[ -e ~/.gvimrc.base16-atelier-savanna-light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.base16-atelier-savanna-light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.base16-atelier-savanna-light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.base16-atelier-savanna-light.vim init.vim && cd -
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.base16-atelier-savanna-light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.base16-atelier-savanna-light.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.base16-atelier-savanna-light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.base16-atelier-savanna-light .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.base16-atelier-savanna-light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.base16-atelier-savanna-light .tmux.conf
+
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.base16-atelier-lakeside-light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.base16-atelier-lakeside-light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.base16-atelier-lakeside-light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.base16-atelier-lakeside-light.toml scratchpad.toml && cd -
             ;;
         "base16-google-light")
             __printf "base16-google-light"

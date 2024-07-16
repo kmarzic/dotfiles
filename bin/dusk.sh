@@ -8,6 +8,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 #### themes
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s ansi
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-atelier-lakeside-light
+# [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-atelier-savanna-light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-google-light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s base16-gruvbox-dark-soft
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s doom-one
@@ -28,6 +29,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 #### dusk status - sync
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t ansi &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-atelier-lakeside-light &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-atelier-savanna-light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-google-light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t base16-gruvbox-dark-soft &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t doom-one &

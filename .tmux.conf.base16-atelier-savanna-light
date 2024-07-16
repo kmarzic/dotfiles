@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2024-07-16 19:38:05 (CEST)
+## Last update: 2024-07-16 19:37:54 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
@@ -13,7 +13,7 @@ set -g @themepack 'basic'
 set -g @theme-status-justify left
 
 ## tinted-theming/base16-tmux
-set -g @tinted-color 'base16-atelier-lakeside-ligh'
+set -g @tinted-color 'base16-atelier-savanna-ligh'
 
 ## List of plugins
 set -g @plugin 'tmux-plugins/tpm'

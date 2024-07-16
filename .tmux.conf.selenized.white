@@ -1,6 +1,6 @@
 ## tmux.conf
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2024-07-15 20:34:19 (CEST)
+## Last update: 2024-07-16 19:24:27 (CEST)
 
 ## source file
 source-file ~/.tmux.conf.main
@@ -11,16 +11,6 @@ set -g @themepack 'basic'
 # set -g @themepack 'powerline/default/cyan'
 # set -g @themepack 'powerline/block/cyan'
 set -g @theme-status-justify left
-# set -g @theme-status-left-bg '#2c2e34'
-# set -g @theme-status-left-fg '#2c2e34'
-# set -g @theme-status-right-bg '#2c2e34'
-# set -g @theme-status-right-fg '#2c2e34'
-# set -g @theme-status-bg '#2c2e34'
-# set -g @theme-status-fg '#2c2e34'
-# set -g @theme-window-status-activity-bg '#2c2e34'
-# set -g @theme-window-status-current-fg '#2c2e34'
-# set -g @theme-mode-bg 'cyan'
-# set -g @theme-mode-fg 'white'
 
 ## tinted-theming/base16-tmux
 set -g @tinted-color 'base16-selenized-white'

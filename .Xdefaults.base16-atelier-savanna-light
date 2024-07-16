@@ -1,0 +1,59 @@
+!! ---------------------------------------------------------------------
+!! Settings
+!! (C) Kresimir Marzic <kmarzic@gmail.com>
+!! Last update: 2024-07-16 19:34:40 (CEST)
+!! ---------------------------------------------------------------------
+!! $ xrdb -load $HOME/.Xdefaults
+!! $ xrdb -merge $HOME/.Xdefaults
+!! ---------------------------------------------------------------------
+
+!! ---------------------------------------------------------------------
+!! Common
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.common"
+
+
+!! ---------------------------------------------------------------------
+!! Dusk Themes
+!! https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include "git/suckless/dusk.resources/themes/light/atelier-savanna-light.res"
+#include "git/suckless/dusk.resources/themes/template.txt"
+
+
+!! ---------------------------------------------------------------------
+!! DWM Themes, based on dusk theme https://github.com/bakkeby/dusk.resources/tree/master/themes
+!! ---------------------------------------------------------------------
+
+#include ".Xdefaults.dwm"
+
+
+!! ---------------------------------------------------------------------
+!! https://github.com/lemnos/theme.sh
+!! ---------------------------------------------------------------------
+
+*color0: #ecf4ee
+*color1: #b16139
+*color2: #489963
+*color3: #a07e3b
+*color4: #478c90
+*color5: #55859b
+*color6: #1c9aa0
+*color7: #526057
+*color8: #78877d
+*color9: #b16139
+*color10: #489963
+*color11: #a07e3b
+*color12: #478c90
+*color13: #55859b
+*color14: #1c9aa0
+*color15: #171c19
+*foreground: #526057
+*background: #ecf4ee
+*cursor: #526057
+
+!! ---------------------------------------------------------------------
+!! EOF
+!! ---------------------------------------------------------------------

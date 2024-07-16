@@ -114,6 +114,10 @@ function __theme()
         [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK_THEME=Yaru-Red-light
         [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
 
+        #### base16-atelier-savanna-light
+        [[ "${theme}" == "base16-atelier-savanna-light" ]]  && export GTK_THEME=Yaru-Red-light
+        [[ "${theme}" == "base16-atelier-savanna-light" ]]  && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+
         #### base16-google-light
         [[ "${theme}" == "base16-google-light" ]]           && export GTK_THEME=Yaru-Red-light
         [[ "${theme}" == "base16-google-light" ]]           && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
@@ -257,6 +261,7 @@ function __redshift()
         then
             echo "theme='${theme}'"
             if [[ "${theme}" == "base16-atelier-lakeside-light" ]] ||
+               [[ "${theme}" == "base16-atelier-savanna-light" ]] ||
                [[ "${theme}" == "base16-google-light" ]] ||
                [[ "${theme}" == "catppuccin.latte" ]] ||
                [[ "${theme}" == "everforest.light" ]] ||
