@@ -1728,6 +1728,7 @@ function __xrandr()
 
                 xrandr \
                     --output ${IN-} --mode 1920x1200 --auto --primary ${off}
+            #### all others
             else
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto --primary ${off}"
@@ -1746,7 +1747,8 @@ function __xrandr()
 
             #### dle6440
             #### dle5570
-            if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
+            #### hp8560w
+            if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]] || [[ "$(hostname)" == "hp8560w" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
@@ -1758,7 +1760,8 @@ function __xrandr()
             fi
 
             #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
-            if [[ "$(hostname)" == "elx-5cg4126xwd" ]]
+            #### entl0002
+            if [[ "$(hostname)" == "elx-5cg4126xwd" ]] || [[ "$(hostname)" == "entl0002" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
@@ -1783,6 +1786,7 @@ function __xrandr()
                         --output ${EXT1-} --mode 1920x1080 ${POSITION-} ${IN-}
                 fi
             fi
+
             ;;
         3)
             #### 3 monitors
@@ -1793,7 +1797,8 @@ function __xrandr()
 
             #### dle6440
             #### dle5570
-            if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]]
+            #### hp8560w
+            if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]] || [[ "$(hostname)" == "hp8560w" ]]
             then
                 __printf "# xrandr \\"
                 __printf "    --output ${IN-} --auto \\"
