@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
+export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
 #### xrandr
 [[ -e ${HOME}/bin/screen.toggle.sh ]] && screen.toggle.sh -x
@@ -62,10 +62,12 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 while true;
 do
     #### Log stderror to a file
-    ${HOME}/bin/dusk 2> ~/.dusk.log
+    [[ -e ${HOME}/.local/bin/dusk ]] && ${HOME}/.local/bin/dusk 2> ~/.dusk.log
+    # [[ -e ${HOME}/bin/dusk ]] && ${HOME}/bin/dusk 2> ~/.dusk.log
 
     #### No error logging
-    # ${HOME}/bin/dusk >/dev/null 2>&1
+    # [[ -e ${HOME}/.local/bin/dusk ]] && ${HOME}/.local/bin/dusk >/dev/null 2>&1
+    # [[ -e ${HOME}/bin/dusk ]] && ${HOME}/bin/dusk >/dev/null 2>&1
 done
 
 #### END

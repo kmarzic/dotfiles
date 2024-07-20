@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
+export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
 #### Variables
 OS=$(uname -s)

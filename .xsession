@@ -2,22 +2,21 @@
 # echo "G$(date) .xsesssion" >> /var/tmp/x
 
 #### ENV
-export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
-# export PATH="$PATH:/opt/ghc/bin"
-# export PATH="$PATH:$HOME/.cabal/bin"
-# export PATH="$PATH:$HOME/.local/bin"
-# export PATH="$PATH:/opt/fvwm3/bin"
-# export PATH="$PATH:/opt/fluxbox/bin"
-export PATH="$PATH:/opt/icewm/bin"
-# export PATH="$PATH:/opt/lua/bin:/opt/luarocks/bin"
-# export PATH="$PATH:/opt/awesome/bin"
-# export PATH="$PATH:/opt/rofi/bin"
-# export PATH="$PATH:/opt/stumpwm/bin"
-export PATH="$PATH:$HOME/bin"
-# PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export PATH="${HOME}/bin:${HOME}/.local/bin"
+export PATH="${PATH}:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
+# export PATH="${PATH}:/opt/ghc/bin"
+# export PATH="${PATH}:${HOME}/.cabal/bin"
+# export PATH="${PATH}:/opt/fvwm3/bin"
+# export PATH="${PATH}:/opt/fluxbox/bin"
+export PATH="${PATH}:/opt/icewm/bin"
+# export PATH="${PATH}:/opt/lua/bin:/opt/luarocks/bin"
+# export PATH="${PATH}:/opt/awesome/bin"
+# export PATH="${PATH}:/opt/rofi/bin"
+# export PATH="${PATH}:/opt/stumpwm/bin"
+# PATH=$(echo "${PATH}" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 # export LUA_DIR=/opt/lua
-# export LUA_INCLUDE_DIR=$LUA_DIR/include
+# export LUA_INCLUDE_DIR=${LUA_DIR}/include
 # eval $(luarocks path)
 
 export LANG="en_US.UTF-8"
@@ -25,8 +24,8 @@ export LANGUAGE="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export LC_TIME="en_DK.UTF-8"
 
-[[ -e $HOME/bin/st ]] && export TERMINAL=st
-[[ ! -e $HOME/bin/st ]] && export TERMINAL=urxvt
+[[ -e ${HOME}/.local/bin/st ]] && export TERMINAL=st
+[[ ! -e $HOME/.local/bin/st ]] && export TERMINAL=urxvt
 
 # [[ -e /etc/arch-release ]] && export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket
 # [[ -e /etc/arch-release ]] && export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket

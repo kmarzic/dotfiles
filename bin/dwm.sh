@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
+export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
 #### xrandr
 [[ -e ${HOME}/bin/screen.toggle.sh ]] && screen.toggle.sh -x
@@ -29,7 +29,7 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 # [[ -e ${HOME}/bin/dwm.status.sh ]] && dwm.status.sh -s &
 
 #### dwm status - async
-[[ -e ${HOME}/bin/dwmblocks ]] && dwmblocks &
+[[ -e ${HOME}/.local/bin/dwmblocks ]] && dwmblocks &
 
 #### dwm battery
 [[ -e ${HOME}/bin/dwm.battery.sh ]] && dwm.battery.sh &
@@ -44,10 +44,12 @@ export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 while true;
 do
     #### Log stderror to a file
-    ${HOME}/bin/dwm 2> ~/.dwm.log
+    [[ -e ${HOME}/.local/bin/dwm ]] && ${HOME}/.local/bin/dwm 2> ~/.dwm.log
+    # [[ -e ${HOME}/bin/dwm ]] && ${HOME}/bin/dwm 2> ~/.dwm.log
 
     #### No error logging
-    # ${HOME}/bin/dwm >/dev/null 2>&1
+    # [[ -e ${HOME}/.local/bin/dwm ]] && ${HOME}/.local/bin/dwm >/dev/null 2>&1
+    # [[ -e ${HOME}/bin/dwm ]] && ${HOME}/bin/dwm >/dev/null 2>&1
 done
 
 #### END

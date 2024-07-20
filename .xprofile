@@ -5,15 +5,18 @@
 #### Environment
 ###############################################################################
 
-export PATH="/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
-export PATH="$PATH:$HOME/bin"
-# export PATH="$PATH:/opt/ghc/bin"
-# export PATH="$PATH:$HOME/.cabal/bin"
-# export PATH="$PATH:$HOME/.local/bin"
-# export PATH="$PATH:/opt/fvwm3/bin"
-# export PATH="$PATH:/opt/awesome/usr/local/bin"
-# export PATH="$PATH:/opt/rofi/bin"
-# PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export PATH="${HOME}/bin:${HOME}/.local/bin"
+export PATH="${PATH}:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:/usr/local/sbin"
+# export PATH="${PATH}:/opt/ghc/bin"
+# export PATH="${PATH}:${HOME}/.cabal/bin"
+# export PATH="${PATH}:/opt/fvwm3/bin"
+# export PATH="${PATH}:/opt/fluxbox/bin"
+export PATH="${PATH}:/opt/icewm/bin"
+# export PATH="${PATH}:/opt/lua/bin:/opt/luarocks/bin"
+# export PATH="${PATH}:/opt/awesome/usr/local/bin"
+# export PATH="${PATH}:/opt/rofi/bin"
+# export PATH="${PATH}:/opt/stumpwm/bin"
+# PATH=$(echo "${PATH}" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 export LANG="en_US.UTF-8"
 export LANGUAGE="en_US.UTF-8"
@@ -108,102 +111,102 @@ function __theme()
 
         #### ansi
         [[ "${theme}" == "ansi" ]]                          && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "ansi" ]]                          && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+        [[ "${theme}" == "ansi" ]]                          && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-dark
 
         #### base16-atelier-lakeside-light
         [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK_THEME=Yaru-Red-light
-        [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+        [[ "${theme}" == "base16-atelier-lakeside-light" ]] && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-light
 
         #### base16-atelier-savanna-light
         [[ "${theme}" == "base16-atelier-savanna-light" ]]  && export GTK_THEME=Yaru-Red-light
-        [[ "${theme}" == "base16-atelier-savanna-light" ]]  && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+        [[ "${theme}" == "base16-atelier-savanna-light" ]]  && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-light
 
         #### base16-google-light
         [[ "${theme}" == "base16-google-light" ]]           && export GTK_THEME=Yaru-Red-light
-        [[ "${theme}" == "base16-google-light" ]]           && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+        [[ "${theme}" == "base16-google-light" ]]           && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-light
 
         #### base16-gruvbox-dark-soft
         [[ "${theme}" == "base16-gruvbox-dark-soft" ]]      && export GTK_THEME=gruvbox-gtk
-        [[ "${theme}" == "base16-gruvbox-dark-soft" ]]      && export GTK2_RC_FILES=$HOME/.themes/gruvbox-gtk
+        [[ "${theme}" == "base16-gruvbox-dark-soft" ]]      && export GTK2_RC_FILES=${HOME}/.themes/gruvbox-gtk
 
         #### catppuccin
         [[ "${theme}" == "catppuccin" ]]                    && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "catppuccin" ]]                    && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+        [[ "${theme}" == "catppuccin" ]]                    && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-dark
 
         #### catppuccin.latte
         [[ "${theme}" == "catppuccin.latte" ]]              && export GTK_THEME=Yaru-Red-light
-        [[ "${theme}" == "catppuccin.latte" ]]              && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+        [[ "${theme}" == "catppuccin.latte" ]]              && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-light
 
         #### doom-one
         [[ "${theme}" == "doom-one" ]]                      && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "doom-one" ]]                      && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+        [[ "${theme}" == "doom-one" ]]                      && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-dark
 
         #### dracula
         [[ "${theme}" == "dracula" ]]                       && export GTK_THEME=Dracula
-        [[ "${theme}" == "dracula" ]]                       && export GTK2_RC_FILES=$HOME/.themes/Dracula
+        [[ "${theme}" == "dracula" ]]                       && export GTK2_RC_FILES=${HOME}/.themes/Dracula
 
         #### everforest.dark
         [[ "${theme}" == "everforest.dark" ]]               && export GTK_THEME=Everforest-Dark-Medium-B-LB
-        [[ "${theme}" == "everforest.dark" ]]               && export GTK2_RC_FILES=$HOME/.themes/Everforest-Dark-Medium-B-LB
+        [[ "${theme}" == "everforest.dark" ]]               && export GTK2_RC_FILES=${HOME}/.themes/Everforest-Dark-Medium-B-LB
 
         #### everforest.light
         [[ "${theme}" == "everforest.light" ]]              && export GTK_THEME=Everforest-Light-B-LB
-        [[ "${theme}" == "everforest.light" ]]              && export GTK2_RC_FILES=$HOME/.themes/Everforest-Light-B-LB
+        [[ "${theme}" == "everforest.light" ]]              && export GTK2_RC_FILES=${HOME}/.themes/Everforest-Light-B-LB
 
         #### lucario
         [[ "${theme}" == "lucario" ]]                       && export GTK_THEME=Yaru-Deepblue-dark
-        [[ "${theme}" == "lucario" ]]                       && export GTK2_RC_FILES=$HOME/.themes/Yaru-Deepblue-dark
+        [[ "${theme}" == "lucario" ]]                       && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Deepblue-dark
 
         #### gruvbox.dark
         [[ "${theme}" == "gruvbox.dark" ]]                  && export GTK_THEME=gruvbox-dark-gtk
-        [[ "${theme}" == "gruvbox.dark" ]]                  && export GTK2_RC_FILES=$HOME/.themes/gruvbox-dark-gtk
+        [[ "${theme}" == "gruvbox.dark" ]]                  && export GTK2_RC_FILES=${HOME}/.themes/gruvbox-dark-gtk
 
         #### gruvbox.light
         [[ "${theme}" == "gruvbox.light" ]]                 && export GTK_THEME=gruvbox-gtk
-        [[ "${theme}" == "gruvbox.light" ]]                 && export GTK2_RC_FILES=$HOME/.themes/gruvbox-gtk
+        [[ "${theme}" == "gruvbox.light" ]]                 && export GTK2_RC_FILES=${HOME}/.themes/gruvbox-gtk
 
         #### monokai
         [[ "${theme}" == "monokai" ]]                       && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "monokai" ]]                       && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+        [[ "${theme}" == "monokai" ]]                       && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-dark
 
         #### nord.dark
         [[ "${theme}" == "nord.dark" ]]                     && export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
-        [[ "${theme}" == "nord.dark" ]]                     && export GTK2_RC_FILES=$HOME/.themes/Nordic-bluish-accent-standard-buttons-v40
+        [[ "${theme}" == "nord.dark" ]]                     && export GTK2_RC_FILES=${HOME}/.themes/Nordic-bluish-accent-standard-buttons-v40
 
         #### papercolor.light
         [[ "${theme}" == "papercolor.light" ]]              && export GTK_THEME=Yaru-Blue-light
-        [[ "${theme}" == "papercolor.light" ]]              && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
+        [[ "${theme}" == "papercolor.light" ]]              && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Blue-light
 
         #### selenized.dark
         [[ "${theme}" == "selenized.dark" ]]                && export GTK_THEME=NumixSolarizedDarkRed
-        [[ "${theme}" == "selenized.dark" ]]                && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
+        [[ "${theme}" == "selenized.dark" ]]                && export GTK2_RC_FILES=${HOME}/.themes/NumixSolarizedDarkRed
 
         #### selenized.light
         [[ "${theme}" == "selenized.light" ]]               && export GTK_THEME=Yaru-Blue-light
-        [[ "${theme}" == "selenized.light" ]]               && export GTK2_RC_FILES=$HOME/.themes/Yaru-Blue-light
+        [[ "${theme}" == "selenized.light" ]]               && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Blue-light
 
         #### selenized.white
         [[ "${theme}" == "selenized.white" ]]               && export GTK_THEME=Yaru-Red-light
-        [[ "${theme}" == "selenized.white" ]]               && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+        [[ "${theme}" == "selenized.white" ]]               && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-light
 
         #### solarized.light
         [[ "${theme}" == "solarized.light" ]]               && export GTK_THEME=NumixSolarizedLightBlue
-        [[ "${theme}" == "solarized.light" ]]               && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedLightBlue
+        [[ "${theme}" == "solarized.light" ]]               && export GTK2_RC_FILES=${HOME}/.themes/NumixSolarizedLightBlue
 
         #### solarized.dark
         [[ "${theme}" == "solarized.dark" ]]                && export GTK_THEME=NumixSolarizedDarkRed
-        [[ "${theme}" == "solarized.dark" ]]                && export GTK2_RC_FILES=$HOME/.themes/NumixSolarizedDarkRed
+        [[ "${theme}" == "solarized.dark" ]]                && export GTK2_RC_FILES=${HOME}/.themes/NumixSolarizedDarkRed
 
         #### srcery
         [[ "${theme}" == "srcery" ]]                        && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "srcery" ]]                        && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+        [[ "${theme}" == "srcery" ]]                        && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-dark
 
         #### tokyo.night
         [[ "${theme}" == "tokyo.night" ]]                   && export GTK_THEME=Yaru-Red-dark
-        [[ "${theme}" == "tokyo.night" ]]                   && export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-dark
+        [[ "${theme}" == "tokyo.night" ]]                   && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-dark
     else
         export GTK_THEME=Yaru-Red-light
-        export GTK2_RC_FILES=$HOME/.themes/Yaru-Red-light
+        export GTK2_RC_FILES=${HOME}/.themes/Yaru-Red-light
     fi
 }
 
