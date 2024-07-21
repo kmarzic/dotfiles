@@ -146,8 +146,8 @@ function __immortalwrt_build()
             __printf "$ cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64" success
             cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64
 
-            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config" success
-            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config
+            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config" success
+            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config
 
             __printf "$ sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config" success
             sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config
@@ -513,8 +513,8 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
             __printf "$ cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/" success
             cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/
 
-            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config" success
-            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config
+            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config" success
+            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config
 
             __printf "$ sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config" success
             sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config
