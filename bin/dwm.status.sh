@@ -17,7 +17,7 @@
 #      REVISION: ---
 #===============================================================================
 
-export PATH="${HOME}/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
+export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
 #### Banner
 BANNER="DWM Status"
