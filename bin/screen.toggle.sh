@@ -17,7 +17,7 @@
 #      REVISION: ---
 #===============================================================================
 
-export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
+export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
 #### Banner
 BANNER="Screen Toggle"
@@ -1775,6 +1775,7 @@ function __xrandr()
             #### entd0001: HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016
             if [[ "$(hostname)" == "entd0001" ]]
             then
+                #### ETK
                 if [[ "${IN-}" == "DisplayPort-3" ]] && [[ "${EXT1-}" == "DisplayPort-4" ]]
                 then
                     __printf "# xrandr \\"
@@ -1814,9 +1815,9 @@ function __xrandr()
             #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
             if [[ "$(hostname)" == "elx-5cg4126xwd" ]]
             then
+                #### ETK
                 if [[ "${EXT1-}" == "DP-1-1" ]] && [[ "${EXT2-}" == "DP-1-2" ]]
                 then
-                    #### ETK
                     __printf " xrandr \\"
                     __printf "--output ${IN-} --auto \\"
                     __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \\"
@@ -1826,9 +1827,9 @@ function __xrandr()
                         --output ${IN-} --auto \
                         --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
                         --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
+                #### ETK
                 elif [[ "${EXT1-}" == "DP-2-1" ]] && [[ "${EXT2-}" == "DP-2-2" ]]
                 then
-                    #### ETK
                     __printf " xrandr \\"
                     __printf "--output ${IN-} --auto \\"
                     __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \\"
@@ -1838,8 +1839,8 @@ function __xrandr()
                         --output ${IN-} --auto \
                         --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
                         --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
+                #### Home
                 else
-                    #### Home
                     __printf " xrandr \\"
                     __printf "--output ${IN-} --auto \\"
                     __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \\"

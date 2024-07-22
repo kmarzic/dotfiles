@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin:${HOME}/bin
+export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin"
 
 ## ----------------------------------------------------------------------------
 ## Function
@@ -32,7 +32,7 @@ function __lock()
     #### slock bluring
     if [[ "$(hostname)" == "dle6440" ]] || [[ "$(hostname)" == "dle5570" ]] | [[ "$(hostname)" == "hp8560w" ]]
     then
-        ~/bin/slock
+        slock
     fi
 
     #### turn off monitor
@@ -46,28 +46,28 @@ function __monitor_off()
 
 function __logout()
 {
-    ## xmonad
+    #### xmonad
     [[ $(ps -ef | grep "xmonad-x86_64-linux" | grep -v "grep" | wc -l) -gt 0 ]] && pkill xmonad
 
-    ## awesome
+    #### awesome
     [[ $(ps -ef | grep "awesome" | grep -v "grep" | wc -l) -gt 0 ]] && pkill awesome
 
-    ## dwm
+    #### dwm
     [[ $(ps -ef | grep "dwm.status.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dwm.status.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
     [[ $(ps -ef | grep "dwm.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dwm.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
 
-    ## dusk
+    #### dusk
     [[ $(ps -ef | grep "dusk.status.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dusk.status.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
     [[ $(ps -ef | grep "dusk.sh" | grep "bash" | grep -v "grep" | wc -l) -gt 0 ]] && kill $(ps -ef | grep "dusk.sh" | grep "bash" | grep -v "grep" | awk '{ print $2 }')
 
-    ## i3
+    #### i3
     [[ $(which i3-msg | wc -l) -ne 0 ]] && i3-msg exit
 
-    ## herbstluftwm
+    #### herbstluftwm
     [[ $(ps -ef | grep "herbstluftwm.sh" | grep -v "grep" | wc -l) -ne 0 ]] && pkill herbsluftwm
     [[ $(ps -ef | grep "herbstluftwm" | grep -v "grep" | wc -l) -ne 0 ]] && herbstclient quit
 
-    ## bspwm
+    #### bspwm
     [[ $(ps -ef | grep "panel" | grep -v "grep" | wc -l) -ne 0 ]] && pkill -x panel; pkill -x panel
     [[ $(which bspc | wc -l) -ne 0 ]] && bspc quit
     [[ $(which bspc | wc -l) -ne 0 ]] && bspc quit 1
@@ -75,33 +75,33 @@ function __logout()
 
 function __suspend()
 {
-    ## (1)
+    #### (1)
     # __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
-    ## (2)
+    #### (2)
     __lock && sudo systemctl suspend
 }
 
 function __hibernate()
 {
-    ## (1)
+    #### (1)
     # __lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Hibernate" boolean:true
-    ## (2)
+    #### (2)
     __lock && sudo systemctl hybrid-sleep
 }
 
 function __reboot()
 {
-    ## (1)
+    #### (1)
     # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
-    ## (2)
+    #### (2)
     sudo systemctl reboot
 }
 
 function __shutdown()
 {
-    ## (1)
+    #### (1)
     # dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
-    ## (2)
+    #### (2)
     sudo systemctl poweroff
 }
 
@@ -134,36 +134,36 @@ function __message()
 
     case "${code}" in
         0 | 3 | 11)
-            ## Timeout
-            ## Exit
-            ## Cancel
+            #### Timeout
+            #### Exit
+            #### Cancel
             ;;
         4)
-            ## Lock
+            #### Lock
             __lock
             ;;
         5)
-            ## Monitor Off
+            #### Monitor Off
             __monitor_off
             ;;
         6)
-            ## Logout
+            #### Logout
             __logout
             ;;
         7)
-            ## Suspend
+            #### Suspend
             __suspend
             ;;
         8)
-            ## Hibertnate
+            #### Hibertnate
             __hibernate
             ;;
         9)
-            ## Reboot
+            #### Reboot
             __reboot
             ;;
         10)
-            ## Shutdown
+            #### Shutdown
             __shutdown
             ;;
     esac

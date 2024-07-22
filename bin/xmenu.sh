@@ -13,6 +13,8 @@ ${HOME}/.local/bin/xmenu -w <<EOF | sh &
  Firefox (private)     firefox --private-window
  Microsoft Edge        microsoft-edge
  Chromium              chromium
+
+󰈆 Exit                  exit.sh message
 EOF
 
 #### END
