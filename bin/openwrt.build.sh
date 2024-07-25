@@ -146,8 +146,8 @@ function __immortalwrt_build()
             __printf "$ cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64" success
             cd immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64
 
-            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config" success
-            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config
+            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config" success
+            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config
 
             __printf "$ sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config" success
             sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config
@@ -196,7 +196,7 @@ e2fsprogs -automount -libustream-openssl"
             [[ ${input1} == "y" ]] && __printf "continue..."
 
             __printf "$ scp -O bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r6s-squashfs-sysupgrade.img.gz root@np2:/tmp" success
-            scp -O bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np2:/tmp
+            scp -O bin/targets/rockchip/armv8/immortalwrt-rockchip-armv8-friendlyarm_nanopi-r6s-squashfs-sysupgrade.img.gz root@np2:/tmp
             ;;
     esac
 }
@@ -320,8 +320,8 @@ netperf openssl-util openvpn-openssl tcpdump vim wireguard-tools"
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@192.168.1.1:/tmp" success
-            scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@192.168.1.1:/tmp
+            __printf "$ scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@10.254.200.3:/tmp" success
+            scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@10.254.200.3:/tmp
             ;;
         #####################################################################
         "mikrotik_cap-ac")
@@ -513,8 +513,8 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
             __printf "$ cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/" success
             cd openwrt-imagebuilder-rockchip-armv8.Linux-x86_64/
 
-            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config" success
-            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=2048/g" .config
+            __printf "$ sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config" success
+            sed -i "s/CONFIG_TARGET_ROOTFS_PARTSIZE=.*/CONFIG_TARGET_ROOTFS_PARTSIZE=1024/g" .config
 
             __printf "$ sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config" success
             sed -i "s/CONFIG_TARGET_KERNEL_PARTSIZE=.*/CONFIG_TARGET_KERNEL_PARTSIZE=32/g" .config
@@ -560,8 +560,8 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np2:/tmp" success
-            scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r4s-squashfs-sysupgrade.img.gz root@np2:/tmp
+            __printf "$ scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r6s-squashfs-sysupgrade.img.gz root@np2:/tmp" success
+            scp -O bin/targets/rockchip/armv8/openwrt-rockchip-armv8-friendlyarm_nanopi-r6s-squashfs-sysupgrade.img.gz root@np2:/tmp
             ;;
         #####################################################################
         "generic")
