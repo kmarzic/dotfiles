@@ -137,8 +137,17 @@ function __immortalwrt_build()
         #####################################################################
             __printf "friendlyarm_nanopi-r6s" info
 
-            __printf "$ wget https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
-            wget https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+            #### (1)
+            # __printf "$ wget https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            # wget https://downloads.immortalwrt.org/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+
+            #### (2)
+            __printf "$ wget https://dl.wrt.moe/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            wget https://dl.wrt.moe/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
+
+            #### (3)
+            # __printf "$ wget https://immortalwrt.kyarucloud.moe/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
+            # wget https://immortalwrt.kyarucloud.moe/snapshots/targets/rockchip/armv8/immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
 
             __printf "$ tar -I zstd -xf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst" success
             tar -I zstd -xf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst
@@ -320,8 +329,8 @@ netperf openssl-util openvpn-openssl tcpdump vim wireguard-tools"
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@10.254.200.3:/tmp" success
-            scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@10.254.200.3:/tmp
+            __printf "$ scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@10.254.205.3:/tmp" success
+            scp -O bin/targets/ath79/mikrotik/openwrt-ath79-mikrotik-mikrotik_routerboard-962uigs-5hact2hnt-squashfs-sysupgrade.bin root@10.254.205.3:/tmp
             ;;
         #####################################################################
         "mikrotik_cap-ac")
