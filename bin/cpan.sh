@@ -29,6 +29,7 @@ cpan CGI
 cpan Curses
 cpan Cwd
 # cpan Data
+cpan Sub::Identify
 cpan DateTime
 cpan DateTime::Format::LDAP;
 cpan DBI
