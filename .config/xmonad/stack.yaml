@@ -17,7 +17,7 @@
 #
 # resolver: ./custom-snapshot.yaml
 # resolver: https://example.com/snapshots/2018-01-01.yaml
-resolver: lts-20.24
+resolver: lts-22.20
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.
@@ -47,6 +47,12 @@ extra-deps:
  - cairo-0.13.8.2@sha256:ef1709c3c4d2c6d68a9a51d9f220dccc0745f6468d2d0868c15a7ecdf8f325a1,4078
  - pango-0.13.8.2@sha256:d4057ebddade4cde3e25d7755b5e030e7a7e56fe7365afd37916a7bba46d3fd9,3917
  - glib-0.13.8.2@sha256:f44b829e741b3c3244d523f60b058701dfc067ff64c2ba61d43be4cccfc2663d,3156
+ - Cabal-3.6.3.0@sha256:ff97c442b0c679c1c9876acd15f73ac4f602b973c45bde42b43ec28265ee48f4,12459
+ - text-1.2.5.0@sha256:92ea31d8b356b7fd62ac862b871dc1e134bd5db462d798313babf6aa6f69aca8,8180
+ - mtl-2.2.2@sha256:1050fb71acd9f5d67da7d992583f5bd0eb14407b9dc7acc122af1b738b706ca3,2261
+ - parsec-3.1.17.0@sha256:8407cbd428d7f640a0fff8891bd2f7aca13cebe70a5e654856f8abec9a648b56,5149
+ - transformers-0.5.6.2@sha256:6c959d14430f4deffb99579ba019de07c3d852a2122b6f449344386c7d75ff1d,3172
+ - unix-2.7.3@sha256:4f2c9d76be97caa9b58d4fe33f22d226b01623410b88855c903f42173d15cbb8,6
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
