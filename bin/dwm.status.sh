@@ -375,7 +375,7 @@ function __network_linux()
     if [[ ${rx} -gt 1048576 ]]
     then
         rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
-        rx="${RED}  ${rx} MB/s"
+        rx="${RED} ${rx} MB/s"
     elif [[ ${rx} -gt 1024 ]]
     then
         rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%03d", $1)}')
