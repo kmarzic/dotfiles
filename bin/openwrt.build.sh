@@ -113,6 +113,7 @@ __help()
     __printf "   ${0} -p linksys_wrt3200acm                          -v openwrt"
     __printf "   ${0} -p mikrotik_routerboard-962uigs-5hact2hnt-ac   -v openwrt"
     __printf "   ${0} -p mikrotik_cap-ac                             -v openwrt"
+    __printf "   ${0} -p asus_ax53u                                  -v openwrt"
     __printf "   ${0} -p friendlyarm_nanopi-r2s                      -v openwrt"
     __printf "   ${0} -p friendlyarm_nanopi-r4s                      -v openwrt"
     __printf "   ${0} -p friendlyarm_nanopi-r6s                      -v openwrt"
@@ -382,6 +383,54 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
 
             __printf "$ scp -O bin/targets/ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_cap-ac-squashfs-sysupgrade.bin root@capac.home.lan:/tmp" success
             scp -O bin/targets/ipq40xx/mikrotik/openwrt-ipq40xx-mikrotik-mikrotik_cap-ac-squashfs-sysupgrade.bin root@capac.home.lan:/tmp
+            ;;
+        #####################################################################
+        "asus_ax53u")
+        #####################################################################
+            __printf "" info
+
+            __printf "$ wget https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst" success
+            wget https://downloads.openwrt.org/snapshots/targets/ramips/mt7621/openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst
+
+            __printf "$ tar -I zstd -xf openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst" success
+            tar -I zstd -xf openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst
+
+            __printf "$ cd openwrt-imagebuilder-ramips-mt7621.Linux-x86_64" success
+            cd openwrt-imagebuilder-ramips-mt7621.Linux-x86_64
+
+            __printf "$ make image PROFILE=asus_rt-ax53u PACKAGES=\"\
+bzip2 curl dmesg dropbear gzip htop irqbalance ifstat iperf3 less lm-sensors  \
+luci luci-ssl luci-app-advanced-reboot luci-app-statistics luci-app-wifischedule \
+netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils\"" success
+            make image PROFILE=asus_rt-ax53u PACKAGES="\
+bzip2 curl dmesg dropbear gzip htop irqbalance ifstat iperf3 less lm-sensors  \
+luci luci-ssl luci-app-advanced-reboot luci-app-statistics luci-app-wifischedule \
+netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
+
+            __printf "$ ls -la bin/targets/ramips/mt7621/" success
+            ls -la bin/targets/ramips/mt7621/
+
+            __printf "$ tar -cjf openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
+            tar -cjf openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
+
+            __printf "proceed with copy to 'scully' (y/n):" success
+            read input1
+            [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
+            [[ ${input1} == "y" ]] && __printf "continue..."
+
+            __printf "$ scp openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_asus_ax53u" success
+            scp openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_asus_ax53u
+
+            __printf "$ scp ../openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_asus_ax53u" success
+            scp ../openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_asus_ax53u
+
+            __printf "proceed with copy to 'OpenWRT' (y/n):" success
+            read input1
+            [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
+            [[ ${input1} == "y" ]] && __printf "continue..."
+
+            __printf "$ scp -O bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin root@ax53u.home.lan:/tmp" success
+            scp -O bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin root@ax53u.home.lan:/tmp
             ;;
         #####################################################################
         "friendlyarm_nanopi-r2s")
