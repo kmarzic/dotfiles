@@ -41,7 +41,7 @@ function __lock()
 
 function __monitor_off()
 {
-    xset dpms force off
+    sleep 1 && xset dpms force off
 }
 
 function __logout()
