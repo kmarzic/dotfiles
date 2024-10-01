@@ -128,7 +128,7 @@ fi
 
 case "${target}" in
     "onedrive")
-        __printf "rsync2ip tkremar@entd0001" info
+        __printf "rsync2ip onedrive" info
 
         cd ~/data/
         __rsync certs        ~/OneDrive/data/
