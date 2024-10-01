@@ -130,6 +130,12 @@ case "${target}" in
     "onedrive")
         __printf "rsync2ip tkremar@entd0001" info
 
+        cd ~/data/
+        __rsync certs        ~/OneDrive/data/
+        __rsync secrets      ~/OneDrive/data/
+        __rsync ssh          ~/OneDrive/data/
+        __rsync vpn          ~/OneDrive/data/
+
         cd ~/data/projects
         __rsync doc          ~/OneDrive/data/projects/
         __rsync ETK          ~/OneDrive/data/projects/
