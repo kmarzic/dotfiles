@@ -120,6 +120,7 @@ __help()
     __printf "Examples:"
     __printf "${0} -f volume-set -b 1"
     __printf "${0} -f mic-set -b 1"
+    __printf "${0} -f time-set -b 1"
     __printf "${0} -a sb-temp"
     __printf "${0} -a sb-load"
     __printf "${0} -a sb-memory"
