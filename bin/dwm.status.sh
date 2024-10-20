@@ -115,6 +115,7 @@ __help()
     __printf "Functions:"
     __printf "   ${0} -f volume-set -b 1"
     __printf "   ${0} -f mic-set -b 1"
+    __printf "   ${0} -f time-set -b 1"
     __printf ""
     __printf "Examples:"
     __printf "${0} -f volume-set -b 1"
@@ -197,7 +198,7 @@ function __weather()
         else [[ "${file}" != "" ]]
             # echo "file age ok"
             [[ ${STATUSCOLOR} -eq 0 ]] && echo -e "$(cat ${WTTR_FILE})"
-            [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "${CYAN}$(cat ${WTTR_FILE})${NORMAL}"
+            [[ ${STATUSCOLOR} -eq 1 ]] && echo -e "$(cat ${WTTR_FILE})"
         fi
     else
         __forecast
@@ -219,13 +220,12 @@ function __forecast()
 
     if [[ ${ping_status} -eq 0 ]]
     then
-        # forecast="forecast"
         # forecast=$(curl -s http://wttr.in/Zagreb?format=1)
         # forecast=$(curl -s http://wttr.in/Zagreb?format=2)
         forecast=$(curl -s http://wttr.in/Zagreb?format='%l:+%c+%t+%h+%w+%m' > ${WTTR_FILE})
-        echo -e "${forecast}"
+        cat ${WTTR_FILE}
     else
-        echo ""
+        echo "-"
     fi
 }
 
@@ -538,6 +538,28 @@ function __time()
     [[ ${STATUSCOLOR} -eq 1 ]] && [[ $(echo "${hour} == 12" | bc -l) -eq 1 ]] && echo -e "${WHITE} ${date} 󱑖 ${time}"
 }
 
+#### Function: time set
+####
+function __time_set()
+{
+    echo "button=${BUTTON}" debug
+
+    case ${BUTTON} in
+        1)
+            # cal
+            notify-send 'Time Set 1' "$(cal)"
+            ;;
+        2)
+            # __forecast
+            notify-send 'Time Set 2' "$(dwm.status.sh -a sb-forecast)"
+            ;;
+        3)
+            # __weather
+            notify-send 'Time Set 3' "$(dwm.status.sh -a sb-weather)"
+            ;;
+    esac
+}
+
 #### Function: async_process
 ####
 function __async_process()
@@ -567,20 +589,17 @@ function __async_process()
             [[ "${OS}" = "FreeBSD" ]] && __battery_freebsd
             ;;
         "sb-weather")
-            # __weather
-            echo .
+            __weather
             ;;
         "sb-forecast")
-            # __forecast
-            echo .
+            __forecast
             ;;
         "sb-network")
             [[ "${OS}" = "Linux"   ]] && __network_linux
             [[ "${OS}" = "FreeBSD" ]] && __network_freebsd
             ;;
         "sb-time")
-            printf '\x06 %s';
-            __time
+            printf '\x06 %s' && __time
             ;;
         "sb-keymap")
             __xkb_keymap
@@ -678,6 +697,9 @@ function __function_process()
             ;;
         "mic-set")
             __mic_set
+            ;;
+        "time-set")
+             __time_set
             ;;
     esac
 }
