@@ -550,8 +550,8 @@ function __time_set()
             notify-send 'Time Set 1' "$(cal)"
             ;;
         2)
-            # __forecast
-            notify-send 'Time Set 2' "$(dwm.status.sh -a sb-forecast)"
+            # __weather
+            notify-send 'Time Set 2' "$(dwm.status.sh -a sb-weather)"
             ;;
         3)
             # __weather
@@ -592,7 +592,8 @@ function __async_process()
             __weather
             ;;
         "sb-forecast")
-            __forecast
+            # __forecast
+            __weather
             ;;
         "sb-network")
             [[ "${OS}" = "Linux"   ]] && __network_linux
