@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-05-03 19:28:58 (CEST)
+"" Last update: 2024-10-18 05:29:01 (CEST)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
@@ -583,10 +583,10 @@ set foldlevelstart=10
 set foldnestmax=10
 set foldmethod=indent
 
-" Highlight current line
+"" Highlight current line
 set cursorline
 
-" Copy/paste between vim and other programs
+"" Copy/paste between vim and other programs
 set clipboard=unnamedplus
 
 "" ------------------------------------------------------------------------
