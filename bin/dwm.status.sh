@@ -121,6 +121,8 @@ __help()
     __printf "${0} -f volume-set -b 1"
     __printf "${0} -f mic-set -b 1"
     __printf "${0} -f time-set -b 1"
+    __printf "${0} -a sb-weather"
+    __printf "${0} -a sb-forecast"
     __printf "${0} -a sb-temp"
     __printf "${0} -a sb-load"
     __printf "${0} -a sb-memory"
@@ -221,9 +223,9 @@ function __forecast()
 
     if [[ ${ping_status} -eq 0 ]]
     then
-        # forecast=$(curl -s http://wttr.in/Zagreb?format=1)
-        # forecast=$(curl -s http://wttr.in/Zagreb?format=2)
-        forecast=$(curl -s http://wttr.in/Zagreb?format='%l:+%c+%t+%h+%w+%m' > ${WTTR_FILE})
+        # forecast=$(curl -s https://wttr.in/Zagreb?format=1)
+        # forecast=$(curl -s https://wttr.in/Zagreb?format=2)
+        forecast=$(curl -s https://wttr.in/Zagreb?format='%l:+%c+%t+%h+%w+%m' > ${WTTR_FILE})
         cat ${WTTR_FILE}
     else
         echo "-"
@@ -573,6 +575,13 @@ function __async_process()
     __xrdb_parse
 
     case ${async} in
+        "sb-weather")
+            __weather
+            ;;
+        "sb-forecast")
+            # __forecast
+            __weather
+            ;;
         "sb-temp")
             [[ "${OS}" = "Linux"   ]] && __temp_linux
             [[ "${OS}" = "FreeBSD" ]] && __temp_freebsd
@@ -589,19 +598,9 @@ function __async_process()
             [[ "${OS}" = "Linux"   ]] && __battery_linux
             [[ "${OS}" = "FreeBSD" ]] && __battery_freebsd
             ;;
-        "sb-weather")
-            __weather
-            ;;
-        "sb-forecast")
-            # __forecast
-            __weather
-            ;;
         "sb-network")
             [[ "${OS}" = "Linux"   ]] && __network_linux
             [[ "${OS}" = "FreeBSD" ]] && __network_freebsd
-            ;;
-        "sb-time")
-            printf '\x06 %s' && __time
             ;;
         "sb-keymap")
             __xkb_keymap
@@ -611,6 +610,9 @@ function __async_process()
             ;;
         "sb-mic")
             printf '\x08 %s' && __mic
+            ;;
+        "sb-time")
+            printf '\x06 %s' && __time
             ;;
     esac
 }
