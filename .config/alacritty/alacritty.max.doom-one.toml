@@ -1,6 +1,6 @@
 #### alacritty.max.doom-one.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.normal]
 black = "0x282c34"

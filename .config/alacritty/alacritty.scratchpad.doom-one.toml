@@ -1,6 +1,6 @@
 #### alacritty.scratchpad.doom-one.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [colors.normal]
 black = "0x282c34"

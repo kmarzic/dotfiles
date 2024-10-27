@@ -1,6 +1,6 @@
 #### alacritty.max.srcery.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
+genral.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "#918175"

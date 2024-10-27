@@ -1,6 +1,6 @@
 #### alacritty.max.solarized.dark.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "0x657b83"

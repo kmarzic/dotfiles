@@ -1,6 +1,6 @@
 #### alacritty.max.catppuccin.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [[colors.indexed_colors]]
 color = "#F5A97F"

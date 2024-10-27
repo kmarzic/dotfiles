@@ -1,6 +1,6 @@
 #### alacritty.max.selenized.light.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "0xd5cdb6"

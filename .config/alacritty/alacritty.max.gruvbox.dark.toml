@@ -1,6 +1,6 @@
 #### alacritty.max.gruvbox.dark.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.max.toml"]
 
 [colors.bright]
 black = "0x3c3836"

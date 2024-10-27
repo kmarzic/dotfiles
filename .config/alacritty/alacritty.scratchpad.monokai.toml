@@ -1,6 +1,6 @@
 #### alacritty.scratchpad.monokai.toml
 
-import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
+general.import = ["~/.config/alacritty/alacritty.main.toml", "~/.config/alacritty/alacritty.scratchpad.toml"]
 
 [colors.bright]
 black = "0x72696a"
