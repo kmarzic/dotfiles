@@ -173,6 +173,10 @@ function __theme()
         [[ "${theme}" == "nord.dark" ]]                     && export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
         [[ "${theme}" == "nord.dark" ]]                     && export GTK2_RC_FILES=${HOME}/.themes/Nordic-bluish-accent-standard-buttons-v40
 
+        #### nord.light
+        [[ "${theme}" == "nord.light" ]]                    && export GTK_THEME=Nordic-bluish-accent-standard-buttons-v40
+        [[ "${theme}" == "nord.light" ]]                    && export GTK2_RC_FILES=${HOME}/.themes/Nordic-bluish-accent-standard-buttons-v40
+
         #### papercolor.light
         [[ "${theme}" == "papercolor.light" ]]              && export GTK_THEME=Yaru-Blue-light
         [[ "${theme}" == "papercolor.light" ]]              && export GTK2_RC_FILES=${HOME}/.themes/Yaru-Blue-light

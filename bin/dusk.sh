@@ -18,6 +18,7 @@ export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s gruvbox.light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s monokai
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s nord.dark
+# [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s nord.light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s papercolor.light
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s selenized.dark
 # [[ -e ${HOME}/bin/screen.togggle.sh ]] && screen.togggle.sh -s selenized.light
@@ -39,6 +40,7 @@ export PATH="${HOME}/bin:${HOME}/.local/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t gruvbox.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t monokai &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t nord.dark &
+# [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t nord.light&
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t papercolor.light &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.dark &
 # [[ -e ${HOME}/bin/dusk.status.sh ]] && dusk.status.sh -s -t selenized.light &

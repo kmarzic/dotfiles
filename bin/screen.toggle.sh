@@ -122,6 +122,7 @@ __help()
     __printf "   ${0} -s gruvbox.light"
     __printf "   ${0} -s monokai"
     __printf "   ${0} -s nord.dark"
+    __printf "   ${0} -s nord.light"
     __printf "   ${0} -s papercolor.light"
     __printf "   ${0} -s selenized.dark"
     __printf "   ${0} -s selenized.light"
@@ -1086,7 +1087,7 @@ function __theme()
 
             #### vim
             [[ -e ~/.vimrc.nord.dark ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.nord.dark .vimrc
-            [[ -e ~/.gvimrc.nord.dar ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.nord.dark .gvimrc
+            [[ -e ~/.gvimrc.nord.dark ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.nord.dark .gvimrc
 
             #### neovim
             [[ -e ~/.config/nvim/init.nord.dark.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.nord.dark.vim init.vim && cd -
@@ -1130,6 +1131,77 @@ function __theme()
                 ## xmonad installed from stack
                 [[ -e ~/.config/xmonad ]] && cd ~/.config/xmonad && ./recompile.sh
             fi
+            ;;
+        "nord.light")
+            __printf "nord.light"
+
+            #### Background
+            [[ -e ~/wallpapers/bg.jpg ]] && rm -f ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && rm -f ~/wallpapers/bg.png
+            ####
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+            #
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853699_nord-night.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853721_debora-pilati-dog0z4-gqp0-unsplash-modded.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853730_nord-peeks.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853757_amir-matin-pour-unsplash-modded.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/1586853777_nord-day.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.png && ln -s nord/2560x1080.png bg.png && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853722_kurt-cotoaga-cqblg3lzepk-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853756_damian-mccoig-2hqpqsqy0zg-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853769_fabrizio-conti-mbm0wnj5emc-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853771_daniel-leone-v7datklzzaw-unsplash-modded.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nord/1586853772_gabriel-santiago-lnetu9zcwpm-unsplash-modded.jpg bg.jpg && cd -
+            #
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/mZ5NENY.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/13250.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/selkirk-docks-hd-wallpaper-1680x1050.jpeg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/nature-landscapes_widewallpaper_the-perfect-nature-lscape-hdr_966.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/3b42rcb64pd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/arf6lv4kcrd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/d1dq5gwyusc91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/dwrkssf0jkd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/j6f5o4x27sd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/qaecjb8q9td91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/sejdkkpcgwd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s nature/vaa7hengvrd91.jpg bg.jpg && cd -
+            # cd ~/wallpapers && rm -f bg.jpg && ln -s Zagreb/croatia-n74ap3.jpg bg.jpg && cd -
+            #
+            # cd ~/wallpapers && rm -f bg.png && ln -s solarized/ErSSyA2.png bg.png && cd -
+            #
+            cd ~/wallpapers && rm -f bg.jpg && ln -s gray/113243-most-popular-light-gray-background-2000x2000-iphone.jpg bg.jpg && cd -
+
+            ####
+            [[ -e ~/wallpapers/bg.jpg ]] && feh --bg-scale ~/wallpapers/bg.jpg
+            [[ -e ~/wallpapers/bg.png ]] && feh --bg-scale ~/wallpapers/bg.png
+
+            #### Xdefaults
+            [[ -e ~/.Xdefaults.nord.light ]] && cd ~/ && rm -f .Xdefaults && ln -s .Xdefaults.nord.light .Xdefaults
+            [[ -e ~/.Xdefaults.nord.light ]] && xrdb -load ~/.Xdefaults.nord.light
+
+            #### vim
+            [[ -e ~/.vimrc.nord.light ]] && cd ~/ && rm -f .vimrc && ln -s .vimrc.nord.light .vimrc
+            [[ -e ~/.gvimrc.nord.light ]] && cd ~/ && rm -f .gvimrc && ln -s .gvimrc.nord.light .gvimrc
+
+            #### neovim
+            [[ -e ~/.config/nvim/init.nord.light.vim ]] && cd ~/.config/nvim && rm -f init.vim && ln -s init.nord.light.vim init.vim && cd -
+
+            #### dunstrc
+            [[ -e ~/.config/dunst/dunstrc.nord.light ]] && cd ~/.config/dunst && rm -f dunstrc && ln -s dunstrc.nord.light dunstrc
+            pkill dunst
+
+            #### redshift.conf
+            [[ -e ~/.config/redshift.nord.light.conf ]] && cd ~/.config && rm -f redshift.conf && ln -s redshift.nord.light.conf redshift.conf && cd -
+
+            #### screenrc
+            [[ -e ~/.screenrc.nord.light ]] && cd ~/ && rm -f .screenrc && ln -s .screenrc.nord.light .screenrc
+
+            #### tmux.conf
+            [[ -e ~/.tmux.conf.nord.light ]] && cd ~/ && rm -f .tmux.conf && ln -s .tmux.conf.nord.light .tmux.conf
+
+            #### alacritty.toml
+            [[ -e ~/.config/alacritty/alacritty.max.nord.light.toml ]] && cd ~/.config/alacritty && rm -f alacritty.toml && ln -s alacritty.max.nord.light.toml alacritty.toml && cd -
+            [[ -e ~/.config/alacritty/alacritty.scratchpad.nord.light.toml ]] && cd ~/.config/alacritty && rm -f scratchpad.toml && ln -s alacritty.scratchpad.nord.light.toml scratchpad.toml && cd -
             ;;
         "papercolor.light")
             __printf "papercolor light"
