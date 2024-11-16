@@ -167,22 +167,22 @@ function __immortalwrt_build()
 
             __printf "$ make image PROFILE=friendlyarm_nanopi-r6s PACKAGES=\"\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
 e2fsprogs -automount -libustream-openssl\"" success
             make image PROFILE=friendlyarm_nanopi-r6s PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
 e2fsprogs -automount -libustream-openssl"
 
@@ -244,19 +244,19 @@ function __openwrt_build()
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
 dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iwinfo \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo iptables-nft \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-ssl xz-utils\"" success
             make image PROFILE=linksys_wrt3200acm PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
 dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iwinfo \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo iptables-nft \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/mvebu/cortexa9/" success
@@ -454,21 +454,21 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
 
             __printf "$ make image PROFILE=friendlyarm_nanopi-r2s PACKAGES=\"\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
             make image PROFILE=friendlyarm_nanopi-r2s PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/rockchip/armv8/" success
@@ -518,21 +518,21 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ make image PROFILE=friendlyarm_nanopi-r4s PACKAGES=\"\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
             make image PROFILE=friendlyarm_nanopi-r4s PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft  \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/rockchip/armv8/" success
@@ -582,21 +582,21 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ make image PROFILE=friendlyarm_nanopi-r6s PACKAGES=\"\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils\"" success
             make image PROFILE=friendlyarm_nanopi-r6s PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ ls -la bin/targets/rockchip/armv8/" success
@@ -643,22 +643,22 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
 
             __printf "$ make image PROFILE=generic PACKAGES=\"\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
 intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-usb-ohci kmod-pcspkr losetup resize2fs\"" success
             make image PROFILE=generic PACKAGES="\
 6in4 adblock banip block-mount bridge bzip2 comgt curl ddns-scripts-cloudflare ddns-scripts-freedns ddns-scripts-noip \
-dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full \
+dnscrypt-proxy2 dmesg dropbear e2fsprogs gzip htop ifstat iperf3 ip-bridge ip-full iptables-nft \
 kmod-fs-autofs4 kmod-fs-ext4 kmod-fs-msdos kmod-fs-ntfs kmod-tun kmod-usb-storage-uas kmod-usb2 kmod-usb3 \
-lm-sensors ncat nmap nping less liblzo2 \
+lm-sensors ncat nmap nping less liblzo2 libjpeg-turbo \
 luci luci-ssl luci-app-adblock luci-app-advanced-reboot luci-app-banip luci-app-bcp38 luci-app-ddns luci-app-openvpn luci-app-sqm \
 luci-app-statistics luci-app-vnstat2 luci-proto-wireguard \
-mkf2fs mailsend netdata netperf ntfs-3g openvpn-openssl openssl-util siproxd sqm-scripts stubby \
+mkf2fs mailsend netdata netperf openvpn-openssl openssl-util siproxd sqm-scripts stubby \
 tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils \
 intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-usb-ohci kmod-pcspkr losetup resize2fs"
 
