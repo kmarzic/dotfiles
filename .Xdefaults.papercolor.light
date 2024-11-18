@@ -1,7 +1,7 @@
 !! ---------------------------------------------------------------------
 !! Settings
 !! (C) Kresimir Marzic <kmarzic@gmail.com>
-!! Last update: 2024-07-23 15:45:22 (CEST)
+!! Last update: 2024-11-18 08:28:33 (CET)
 !! ---------------------------------------------------------------------
 !! $ xrdb -load $HOME/.Xdefaults
 !! $ xrdb -merge $HOME/.Xdefaults
@@ -19,7 +19,50 @@
 !! https://github.com/bakkeby/dusk.resources/tree/master/themes
 !! ---------------------------------------------------------------------
 
-#include "git/suckless/dusk.resources/themes/light/papercolor-light.res"
+! #include "git/suckless/dusk.resources/themes/light/default-light.res"
+! #include "git/suckless/dusk.resources/themes/light/papercolor-light.res"
+
+#define COLOR0  #EDEDED
+#define COLOR1  #D7005F
+#define COLOR2  #718C00
+#define COLOR3  #D75F00
+#define COLOR4  #4271AE
+#define COLOR5  #8959A8
+#define COLOR6  #3E999F
+#define COLOR7         #4D4D4C
+#define COLOR8  #969694
+#define COLOR9  #D7005F
+#define COLOR10 #718C00
+#define COLOR11 #D75F00
+#define COLOR12 #4271AE
+#define COLOR13 #8959A8
+#define COLOR14 #3E999F
+#define COLOR15 #2D2D2C
+#define BASE_FOREGROUND #4D4D4C
+#define BASE_BACKGROUND #E7E8EB
+#define TERMINAL_BACKGROUND #dedede
+#define CURSOR #444444
+
+#define SELECTED_FOREGROUND COLOR0
+#define SELECTED_BACKGROUND COLOR4
+#define SCRATCHNORM BASE_BACKGROUND
+#define SCRATCHSEL COLOR1
+#define HID_NORM_FG_COLOR BASE_FOREGROUND
+#define HID_NORM_BG_COLOR BASE_BACKGROUND
+#define HID_SEL_FG_COLOR COLOR4
+#define HID_SEL_BG_COLOR BASE_BACKGROUND
+#define WS_NORM_FG_COLOR BASE_FOREGROUND
+#define WS_NORM_BG_COLOR BASE_BACKGROUND
+#define WS_SEL_FG_COLOR SELECTED_FOREGROUND
+#define WS_SEL_BG_COLOR SELECTED_BACKGROUND
+#define MARKED_FG_COLOR COLOR0
+#define MARKED_BG_COLOR COLOR3
+#define BORDER COLOR0
+#define WARNING_FG_COLOR COLOR0
+#define WARNING_BG_COLOR COLOR4
+#define URGENT_FG_COLOR COLOR0
+#define URGENT_BG_COLOR COLOR6
+
 #include "git/suckless/dusk.resources/themes/template.txt"
 
 
