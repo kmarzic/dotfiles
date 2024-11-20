@@ -144,12 +144,8 @@ function __rsync()
     rsync -avzhHp --delete /mnt/ntadmin/Servers/Servers-IPAddresses.backup.*.xls* ~/data/projects/ETK/ICT/docs/Servers
 
     __printf ""
-    __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/mail.ericsson.hr.*.xlsx ~/data/projects/ETK/ICT/docs/Servers" success
-    rsync -avzhHp --delete /mnt/ntadmin/Servers/mail.ericsson.hr.*xlsx ~/data/projects/ETK/ICT/docs/Servers
-
-    __printf ""
-    __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/mail.entlab.hr.*.xlsx ~/data/projects/ETK/ICT/docs/Servers" success
-    rsync -avzhHp --delete /mnt/ntadmin/Servers/mail.entlab.hr.*xlsx ~/data/projects/ETK/ICT/docs/Servers
+    __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/mail.*.xlsx ~/data/projects/ETK/ICT/docs/Servers" success
+    rsync -avzhHp --delete /mnt/ntadmin/Servers/mail.*.xlsx ~/data/projects/ETK/ICT/docs/Servers
 
     __printf ""
     __printf "# rsync -avzhHp --delete /mnt/ntadmin/Servers/migration_plan.*.xlsx ~/data/projects/ETK/ICT/docs/Servers" success
