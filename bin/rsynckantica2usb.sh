@@ -52,7 +52,7 @@ function __parameters()
         FULL="${2}"
     fi
 
-    target="kmarzic@scully"
+    target="kmarzic@kantica"
 
     echo "DEV='${DEV}'"
     echo "FULL='${FULL}'"
