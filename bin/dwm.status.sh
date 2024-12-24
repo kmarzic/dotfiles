@@ -375,11 +375,11 @@ function __network_linux()
     rx=$(echo "scale=2; (${rxcurrent}-${rxprev})" | bc)
     tx=$(echo "scale=2; (${txcurrent}-${txprev})" | bc)
 
-    if [[ ${rx} -gt 1048576 ]]
+    if [[ ${rx} -ge 1048576 ]]
     then
         rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
         rx="${RED} ${rx} MB/s"
-    elif [[ ${rx} -gt 1024 ]]
+    elif [[ ${rx} -ge 1024 ]]
     then
         rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%03d", $1)}')
         rx="${YELLOW} ${rx} KB/s"
@@ -388,11 +388,11 @@ function __network_linux()
         rx="${GREEN} ${rx}  B/s"
     fi
 
-    if [[ ${tx} -gt 1048576 ]]
+    if [[ ${tx} -ge 1048576 ]]
     then
         tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
         tx="${RED} ${tx} MB/s"
-    elif [[ ${tx} -gt 1024 ]]
+    elif [[ ${tx} -ge 1024 ]]
     then
         tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%03d", $1)}')
         tx="${YELLOW} ${tx} KB/s"
