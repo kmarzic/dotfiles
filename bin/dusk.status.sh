@@ -369,38 +369,40 @@ function __network_linux()
     rx=$(echo "scale=2; (${rxcurrent}-${rxprev})" | bc)
     tx=$(echo "scale=2; (${txcurrent}-${txprev})" | bc)
 
-    if [[ ${rx} -ge 1048576 ]]
+    if [[ ${rx} -lt 1000 ]]
     then
-        rx=$(echo "scale=2; (${rx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
-        rx="${RED}  ${rx} MB/s"
-    elif [[ ${rx} -ge 1024 ]]
-    then
-        rx=$(echo "scale=2; (${rx} / 1024)" | bc | awk '{printf("%03d", $1)}')
-        rx="${YELLOW} ${rx} KB/s"
+        rx=$(echo "scale=2; ((${rx}) / 1)" | bc | awk '{printf("%03d", $1)}')
+        rx="${GREEN} ${rx}  B/s"
     elif [[ ${rx} -ge 1000 ]] && [[ ${rx} -le 1023 ]]
     then
-        rx=$(echo "scale=2; (${rx} / 1000)" | bc | awk '{printf("%03d", $1)}')
+        rx=$(echo "scale=2; ((${rx}+512) / 1024)" | bc | awk '{printf("%03d", $1)}')
         rx="${YELLOW} ${rx} KB/s"
-    else
-        rx=$(echo "scale=2; (${rx} / 1)" | bc | awk '{printf("%03d", $1)}')
-        rx="${GREEN} ${rx}  B/s"
+    elif [[ ${rx} -ge 1024 ]] && [[ ${rx} -le 1048575 ]]
+    then
+        rx=$(echo "scale=2; ((${rx}) / 1024)" | bc | awk '{printf("%03d", $1)}')
+        rx="${YELLOW} ${rx} KB/s"
+    elif [[ ${rx} -ge 1048576 ]]
+    then
+        rx=$(echo "scale=2; ((${rx}) / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
+        rx="${RED} ${rx} MB/s"
     fi
 
-    if [[ ${tx} -ge 1048576 ]]
+    if [[ ${tx} -lt 1000 ]]
     then
-        tx=$(echo "scale=2; (${tx} / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
-        tx="${RED} ${tx} MB/s"
-    elif [[ ${tx} -ge 1024 ]]
-    then
-        tx=$(echo "scale=2; (${tx} / 1024)" | bc | awk '{printf("%03d", $1)}')
-        tx="${YELLOW} ${tx} KB/s"
+        tx=$(echo "scale=2; ((${tx}) / 1)" | bc | awk '{printf("%03d", $1)}')
+        tx="${GREEN} ${tx}  B/s"
     elif [[ ${tx} -ge 1000 ]] && [[ ${tx} -le 1023 ]]
     then
-        tx=$(echo "scale=2; (${tx} / 1000)" | bc | awk '{printf("%03d", $1)}')
+        tx=$(echo "scale=2; ((${tx}+512) / 1000)" | bc | awk '{printf("%03d", $1)}')
         tx="${YELLOW} ${tx} KB/s"
-    else
-        tx=$(echo "scale=2; (${tx} / 1)" | bc | awk '{printf("%03d", $1)}')
-        tx="${GREEN} ${tx}  B/s"
+    elif [[ ${tx} -ge 1024 ]] && [[ ${tx} -le 1048575 ]]
+    then
+        tx=$(echo "scale=2; ((${tx}) / 1000)" | bc | awk '{printf("%03d", $1)}')
+        tx="${YELLOW} ${tx} KB/s"
+    elif [[ ${tx} -ge 1048576 ]]
+    then
+        tx=$(echo "scale=2; ((${tx}) / 1024/1024)" | bc | awk '{printf("%03d", $1)}')
+        tx="${RED} ${tx} MB/s"
     fi
 
     echo "${rxcurrent} ${txcurrent}" > "${logfile}"
