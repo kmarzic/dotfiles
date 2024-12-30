@@ -22,6 +22,9 @@ export PATH=$HOME/bin:/opt/ghc/bin:/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin
 #### Banner
 BANNER="openwrt.build"
 
+#### Variables
+BACKUP_SERVER="kmarzic@kantica.lan"
+
 #### Debug
 DEBUG=0 # debug is off
 # DEBUG=1 # debug is on
@@ -192,16 +195,16 @@ e2fsprogs -automount -libustream-openssl"
             __printf "$ tar -cjf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
-            scp immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+            __printf "$ scp immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s" success
+            scp immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s
 
-            __printf "$ scp ../immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
-            scp ../immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+            __printf "$ scp ../immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s" success
+            scp ../immortalwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -265,16 +268,16 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wireless-tools wget-
             __printf "$ tar -cjf openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM" success
-            scp openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM
+            __printf "$ scp openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_mvebu_3200ACM" success
+            scp openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_mvebu_3200ACM
 
-            __printf "$ scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM" success
-            scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mvebu_3200ACM
+            __printf "$ scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_mvebu_3200ACM" success
+            scp ../openwrt-imagebuilder-mvebu-cortexa9.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_mvebu_3200ACM
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -317,16 +320,16 @@ netperf openssl-util openvpn-openssl tcpdump vim wireguard-tools"
             __printf "$ tar -cjf openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac" success
-            scp openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac
+            __printf "$ scp openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_hap_ac" success
+            scp openwrt-imagebuilder-mikrotik_hap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_hap_ac
 
-            __printf "$ scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac" success
-            scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_hap_ac
+            __printf "$ scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_hap_ac" success
+            scp ../openwrt-imagebuilder-ath79-mikrotik.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_hap_ac
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -365,16 +368,16 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
             __printf "$ tar -cjf openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac" success
-            scp openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac
+            __printf "$ scp openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_cap_ac" success
+            scp openwrt-imagebuilder-mikrotik_cap-ac.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_cap_ac
 
-            __printf "$ scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac" success
-            scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_mikrotik_cap_ac
+            __printf "$ scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_cap_ac" success
+            scp ../openwrt-imagebuilder-ipq40xx-mikrotik.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_mikrotik_cap_ac
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -413,16 +416,16 @@ netperf openssl-util tcpdump vim vim-runtime wireless-tools wget-ssl xz-utils"
             __printf "$ tar -cjf openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_asus_ax53u" success
-            scp openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_asus_ax53u
+            __printf "$ scp openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_asus_ax53u" success
+            scp openwrt-imagebuilder-asus-ax53u.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_asus_ax53u
 
-            __printf "$ scp ../openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_asus_ax53u" success
-            scp ../openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_asus_ax53u
+            __printf "$ scp ../openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_asus_ax53u" success
+            scp ../openwrt-imagebuilder-ramips-mt7621.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_asus_ax53u
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -477,16 +480,16 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
             __printf "$ tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s" success
-            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s
+            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r2s" success
+            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r2s
 
-            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s" success
-            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r2s
+            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r2s" success
+            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r2s
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -541,16 +544,16 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils"
             __printf "$ tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s" success
-            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s
+            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r4s" success
+            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r4s
 
-            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s" success
-            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r4s
+            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r4s" success
+            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r4s
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -605,16 +608,16 @@ tcpdump unrar unzip vim vim-runtime vnstat2 wireguard-tools wget-ssl xz-utils km
             __printf "$ tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
-            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+            __printf "$ scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s" success
+            scp openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s
 
-            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s" success
-            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_rockchip_r6s
+            __printf "$ scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s" success
+            scp ../openwrt-imagebuilder-rockchip-armv8.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_rockchip_r6s
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
@@ -668,16 +671,16 @@ intel-microcode fdisk f2fs-tools fstrim kmod-leds-gpio kmod-crypto-hw-ccp kmod-u
             __printf "$ tar -cjf openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config" success
             tar -cjf openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 bin/ dl/ .config
 
-            __printf "proceed with copy to 'scully' (y/n):" success
+            __printf "proceed with copy to '${BACKUP_SERVER}' (y/n):" success
             read input1
             [[ ${input1} == "n" ]] && __printf "exit..." && exit ${EXIT_ERROR}
             [[ ${input1} == "y" ]] && __printf "continue..."
 
-            __printf "$ scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_x86" success
-            scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 kmarzic@scully.lan:/data/media/openwrt_x86
+            __printf "$ scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_x86" success
+            scp openwrt-imagebuilder-x86-64.Linux-x86_64.x86.$(date "+%Y%m%d").tar.bz2 ${BACKUP_SERVER}:/data/media/openwrt_x86
 
-            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_x86" success
-            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst kmarzic@scully.lan:/data/media/openwrt_x86
+            __printf "$ scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_x86" success
+            scp ../openwrt-imagebuilder-x86-64.Linux-x86_64.tar.zst ${BACKUP_SERVER}:/data/media/openwrt_x86
 
             __printf "proceed with copy to 'OpenWRT' (y/n):" success
             read input1
