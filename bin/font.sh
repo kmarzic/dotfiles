@@ -186,6 +186,14 @@ function __get_release()
     # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip -o ~/Downloads/Hack_v3.2.1.zip
     # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/BitstreamVeraSansMono.zip -o ~/Downloads/BitstreamVeraSansMono_v3.2.1.zip
 
+    # #### https://github.com/ryanoasis/nerd-fonts/ - 3.3.0
+    # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/DejaVuSansMono.zip -o ~/Downloads/DejaVuSansMono_v3.3.0.zip
+    # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Inconsolata.zip -o ~/Downloads/Inconsolata_v3.3.0.zip
+    # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/UbuntuMono.zip -o ~/Downloads/UbuntuMono_v3.3.0.zip
+    # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/SourceCodePro.zip -o ~/Downloads/SourceCodePro_v3.3.0.zip
+    # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/Hack.zip -o ~/Downloads/Hack_v3.3.0.zip
+    # curl -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/BitstreamVeraSansMono.zip -o ~/Downloads/BitstreamVeraSansMono_v3.3.0.zip
+
     # ## https://gitlab.com/timescam/noto-fonts-emoji-apple
     # cd ~/.local/share/fonts && curl -fLo "NotoColorEmoji.ttf"                            https://gitlab.com/timescam/noto-fonts-emoji-apple/-/raw/master/NotoColorEmoji.ttf
 
