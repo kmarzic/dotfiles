@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2024-10-18 05:29:01 (CEST)
+"" Last update: 2025-01-03 09:06:03 (CET)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
@@ -318,6 +318,18 @@ if has ("unix")
     set backupdir=.,~/tmp,/tmp,/var/tmp
 endif
 
+"" List of directories which will be searched
+if has ("unix")
+    set path=.,~/.vim
+endif
+
+"" vimrc
+if has ("unix")
+    let vimrc='$HOME/.vimrc'
+else
+    let vimrc='$VIM\_vimrc'
+endif
+
 "" List of file names, separated by commas, that are used to lookup words
 "" for keyword completion commands |i_CTRL-X_CTRL-K|
 if has ("unix")
@@ -588,6 +600,13 @@ set cursorline
 
 "" Copy/paste between vim and other programs
 set clipboard=unnamedplus
+
+if $TERM ==# 'st-256color'
+    set mouse=a
+    map <ScrollWheelUp> <C-Y>
+    map <ScrollWheelDown> <C-E>
+endif
+
 
 "" ------------------------------------------------------------------------
 "" Indenting
