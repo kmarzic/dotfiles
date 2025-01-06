@@ -1,12 +1,12 @@
-#!/bin/bash - 
+#!/bin/bash -
 #===============================================================================
 #
 #          FILE: rsync2onedrive.sh
-# 
+#
 #         USAGE: ./rsync2onedrive.sh <target>
-# 
-#   DESCRIPTION: 
-# 
+#
+#   DESCRIPTION:
+#
 #       OPTIONS: ---
 #  REQUIREMENTS: ---
 #          BUGS: ---
@@ -128,7 +128,7 @@ fi
 
 case "${target}" in
     "onedrive")
-        __printf "rsync2ip onedrive" info
+        __printf "rsync2onedrive onedrive" info
 
         cd ~/data/
         __rsync certs        ~/OneDrive/data/
