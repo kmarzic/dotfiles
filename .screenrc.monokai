@@ -1,6 +1,6 @@
 ## screen
 ## (C) Kresimir Marzic <kmarzic@gmail.com>
-## Last update: 2020-03-21 14:00:19 (CET)
+## Last update: 2025-01-06 11:10:59 (CET)
 
 ## Turn off that annoying start up message
 startup_message off
@@ -45,14 +45,14 @@ autodetach on
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
 ## allow bold colors - necessary for some reason
-# attrcolor b ".I"
+attrcolor b ".I"
 
 ## In  each  window's environment screen opens, the $TERM variable is set to "screen" by default.
-# term screen-256color
+term screen-256color
 # term xterm-256color
 # term rxvt-unicode-256color
 # term rxvt-unicode
-term rxvt-256color
+# term rxvt-256color
 # term rxvt
 # --
 termcapinfo xterm*|linux*|rxvt*|Eterm* ti@:te@
@@ -112,5 +112,13 @@ hardstatus string "%{= c}%-w%{= Ck}%n %t%{-}%+w %-= @%H %Y-%m-%d %c"
 ## Name column in windowlist
 windowlist title  "%{= ck}%{u} Num Flags Title%050=Hardstatus%="
 windowlist string '%{dc}%4n %f%011=%{dr}%t%050=%h%='
+
+## Arrow keys to switch terminals
+## shift RIGHT and LEFT arrows
+bindkey ^[[1;2D prev
+bindkey ^[[1;2C next
+## shift UP and DOWN arrows
+bindkey ^[[1;2B screen
+bindkey ^[[1;2A title
 
 #### eof
