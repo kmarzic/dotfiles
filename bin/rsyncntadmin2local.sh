@@ -155,10 +155,15 @@ function __rsync()
     rsync -avzhHp --delete /mnt/ntadmin/Servers/IT-Migration ~/data/projects/ETK/ICT/docs/Servers
 
     __printf ""
+
     __printf "# find ~/data/projects/ETK -type d -exec chmod 775 {} ';'" success
-    __printf ~/data/projects/ETK -type d -exec chmod 775 {} ';'
+    find ~/data/projects/ETK -type d -exec chmod 775 {} ';'
+
     __printf "# find ~/data/projects/ETK -type f -exec chmod 644 {} ';'" success
     find ~/data/projects/ETK -type f -exec chmod 644 {} ';'
+
+    __printf "# find ~/data/projects/ETK -type f -name Thumbs.db -exec rm {} \;" success
+    find ~/data/projects/ETK -type f -name Thumbs.db -exec rm {} \;
 }
 
 ## ----------------------------------------------------------------------------
