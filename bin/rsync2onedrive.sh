@@ -130,15 +130,53 @@ case "${target}" in
     "onedrive")
         __printf "rsync2onedrive onedrive" info
 
-        cd ~/data/
-        __rsync certs        ~/OneDrive/data/
-        __rsync secrets      ~/OneDrive/data/
-        __rsync ssh          ~/OneDrive/data/
-        __rsync vpn          ~/OneDrive/data/
+        #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
+        if [[ "$(hostname)" == "elx-5cg4126xwd" ]]
+        then
+            cd ~/data/
+            __rsync certs        ~/OneDrive/data.ERICSSON/
+            __rsync secrets      ~/OneDrive/data.ERICSSON/
+            __rsync ssh          ~/OneDrive/data.ERICSSON/
+            __rsync vpn          ~/OneDrive/data.ERICSSON/
 
-        cd ~/data/projects
-        __rsync doc          ~/OneDrive/data/projects/
-        __rsync ETK          ~/OneDrive/data/projects/
+            cd ~/data/projects
+            __rsync doc          ~/OneDrive/data.ERICSSON/projects/
+            __rsync ETK          ~/OneDrive/data.ERICSSON/projects/
+        #### entd0001: HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016
+        elif [[ "$(hostname)" == "entd0001" ]]
+        then
+            cd ~/data/
+            __rsync certs        ~/OneDrive/data/
+            __rsync secrets      ~/OneDrive/data/
+            __rsync ssh          ~/OneDrive/data/
+            __rsync vpn          ~/OneDrive/data/
+
+            cd ~/data/projects
+            __rsync doc          ~/OneDrive/data/projects/
+            __rsync ETK          ~/OneDrive/data/projects/
+        #### entl0002
+        elif [[ "$(hostname)" == "entl0002" ]]
+        then
+            cd ~/data/
+            __rsync certs        ~/OneDrive/data/
+            __rsync secrets      ~/OneDrive/data/
+            __rsync ssh          ~/OneDrive/data/
+            __rsync vpn          ~/OneDrive/data/
+
+            cd ~/data/projects
+            __rsync doc          ~/OneDrive/data/projects/
+            __rsync ETK          ~/OneDrive/data/projects/
+        else
+            cd ~/data/
+            __rsync certs        ~/OneDrive/data/
+            __rsync secrets      ~/OneDrive/data/
+            __rsync ssh          ~/OneDrive/data/
+            __rsync vpn          ~/OneDrive/data/
+
+            cd ~/data/projects
+            __rsync doc          ~/OneDrive/data/projects/
+            __rsync ETK          ~/OneDrive/data/projects/
+        fi
 
         __printf "Done!" success
         ;;
