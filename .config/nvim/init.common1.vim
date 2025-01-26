@@ -1,7 +1,7 @@
 "" ------------------------------------------------------------------------
 "" Author: Kresimir Marzic
 "" E-mail: kmarzic@gmail.com
-"" Last update: 2025-01-03 09:06:03 (CET)
+"" Last update: 2025-01-26 08:02:50 (CET)
 "" Current file: ~/.config/nvim/init.common1.vim
 "" ------------------------------------------------------------------------
 
@@ -602,7 +602,7 @@ set cursorline
 set clipboard=unnamedplus
 
 if $TERM ==# 'st-256color'
-    set mouse=a
+    set mouse=""
     map <ScrollWheelUp> <C-Y>
     map <ScrollWheelDown> <C-E>
 endif
