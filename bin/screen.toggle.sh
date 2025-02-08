@@ -1837,19 +1837,6 @@ function __xrandr()
                     --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
-            #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
-            #### entl0002
-            if [[ "$(hostname)" == "elx-5cg4126xwd" ]] || [[ "$(hostname)" == "entl0002" ]]
-            then
-                __printf "# xrandr \\"
-                __printf "    --output ${IN-} --auto \\"
-                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}"
-
-                xrandr \
-                    --output ${IN-} --auto \
-                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
-            fi
-
             #### entd0001: HP EliteDesk 800 G2 SFF/8054, BIOS N01 Ver. 02.16 08/08/2016
             if [[ "$(hostname)" == "entd0001" ]]
             then
@@ -1864,6 +1851,18 @@ function __xrandr()
                         --output ${IN-} --mode 1920x1200 --primary \
                         --output ${EXT1-} --mode 1920x1080 ${POSITION-} ${IN-}
                 fi
+            fi
+
+            #### entl0002
+            if [[ "$(hostname)" == "entl0002" ]]
+            then
+                __printf "# xrandr \\"
+                __printf "    --output ${IN-} --auto \\"
+                __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}"
+
+                xrandr \
+                    --output ${IN-} --auto \
+                    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-}
             fi
 
             ;;
@@ -1888,47 +1887,6 @@ function __xrandr()
                     --output ${IN-} --auto \
                     --output ${EXT1-} --auto --primary ${POSITION-} ${IN-} \
                     --output ${EXT2-} --auto ${POSITION-} ${EXT1-}
-            fi
-
-            #### elx-5cg4126xwd: HP EliteBook 860 16 inch G10 Notebook PC/8B41, BIOS V70 Ver. 01.05.04 05/09/2024
-            if [[ "$(hostname)" == "elx-5cg4126xwd" ]]
-            then
-                #### ETK
-                if [[ "${EXT1-}" == "DP-1-1" ]] && [[ "${EXT2-}" == "DP-1-2" ]]
-                then
-                    __printf " xrandr \\"
-                    __printf "--output ${IN-} --auto \\"
-                    __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \\"
-                    __printf "    --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}"
-
-                    xrandr \
-                        --output ${IN-} --auto \
-                        --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
-                        --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
-                #### ETK
-                elif [[ "${EXT1-}" == "DP-2-1" ]] && [[ "${EXT2-}" == "DP-2-2" ]]
-                then
-                    __printf " xrandr \\"
-                    __printf "--output ${IN-} --auto \\"
-                    __printf "    --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \\"
-                    __printf "    --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}"
-
-                    xrandr \
-                        --output ${IN-} --auto \
-                        --output ${EXT1-} --mode 1920x1080 --primary ${POSITION-} ${IN-} \
-                        --output ${EXT2-} --mode 1920x1080 ${POSITION-} ${EXT1-}
-                #### Home
-                else
-                    __printf " xrandr \\"
-                    __printf "--output ${IN-} --auto \\"
-                    __printf "    --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \\"
-                    __printf "    --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}"
-
-                    xrandr \
-                        --output ${IN-} --auto \
-                        --output ${EXT1-} --mode 1920x1200 --primary ${POSITION-} ${IN-} \
-                        --output ${EXT2-} --mode 1920x1200 ${POSITION-} ${EXT1-}
-                fi
             fi
             ;;
     esac

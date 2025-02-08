@@ -1,7 +1,7 @@
 ## ----------------------------------------------------------------------------
 ## .bashrc.local
 ## E-mail: kresimir.marzic@ericsson.com
-## Last update: 2024-08-18 07:20:53 (CEST)
+## Last update: 2025-02-08 09:37:10 (CET)
 ## ----------------------------------------------------------------------------
 
 ## Debug mode
@@ -328,13 +328,13 @@ force_color_prompt=yes
 
 #### Personal
 export NAME="Kresimir Marzic"
-export WEB="http://www.design.etk.extern.eu.ericsson.se/~etkkrma"
-export EMAIL="kresimir.marzic@ericsson.com"
+export WEB="http://ericssonnikolatesla.com"
+export EMAIL="kresimir.marzic@ericssonnikolatesla.com"
 export MAILUSER="etkkrma"
 export MAILNAME="Kresimir Marzic"
-export MAILHOST="smtp.etk.extern.eu.ericsson.se"
+export MAILHOST="smtps-external.ent.internal"
 export ORGANIZATION="Ericsson Nikola Tesla d.d."
-export DEBEMAIL="kresimir.marzic@ericsson.com"
+export DEBEMAIL="kresimir.marzic@ericssonnikolatesla.com"
 export DEBFULLNAME="Kresimir Marzic"
 
 #### Perl old 1, http://www.perl.org
