@@ -15,4 +15,9 @@ instance = "Alacritty"
 x = 2
 y = 2
 
+[window.dimensions]
+columns = 165
+lines = 39
+
+
 #### END
