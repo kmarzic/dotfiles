@@ -4,10 +4,15 @@
 decorations = "full"
 dynamic_padding = false
 dynamic_title = true
-opacity = 0.85
+opacity = 0.95
+startup_mode = "Maximized"
 
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
+
+[window.padding]
+x = 2
+y = 2
 
 #### END
