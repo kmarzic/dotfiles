@@ -28,10 +28,24 @@ multiplier = 3
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
+# [[hints.enabled]]
+# command = ""
+# regex = "(mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^()`]+"
+# hyperlinks = true
+# mouse.enabled = false
+
 [[hints.enabled]]
-command = ""
+binding = { key = "U", mods = "Control|Shift" }
+command = "xdg-open"
 hyperlinks = true
-mouse.enabled = false
+mouse.enabled = true
+mouse.mods = "Control"
+post_processing = true
+persist = false
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^()‘]+"
+
+# [hints.url.launcher]
+# program = "firefox"
 
 [terminal]
 osc52 = "CopyPaste"
@@ -62,9 +76,6 @@ y = 1
 [font.glyph_offset]
 x = 0
 y = 0
-
-# [hints.url.launcher]
-# program = "firefox"
 
 [[keyboard.bindings]]
 action = "Paste"
